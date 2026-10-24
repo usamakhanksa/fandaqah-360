@@ -12,6 +12,8 @@
   var base = location.pathname.indexOf('/fandaqah-360/') === 0 ? '/fandaqah-360/' : '/';
   var rest = location.pathname.slice(base.length);
   if (/^(landing|fandaqah-360-landing-v2)(\/|$)/.test(rest)) location.replace(base + location.search + location.hash);
+  // the site briefly lived under /site/: keep those links working on the same page
+  else if (/^site(\/|$)/.test(rest)) location.replace(base + rest.replace(/^site\/?/, '') + location.search + location.hash);
   window.FQ_BASE = base;
 })();
 </script>

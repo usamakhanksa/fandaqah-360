@@ -1,0 +1,14 @@
+# GitHub Pages "Deploy from a branch" mode builds the repo with Jekyll. This keeps that build identical to the
+# Actions deploy (.github/workflows/static.yml): only the website at the repo root is published.
+# Keep this list in step with the rsync excludes in the workflow.
+exclude:
+  - campaigns
+  - archive
+  - tools
+  - banners
+  - README.md
+  - "*.py"
+  - "*.mjs"
+# serve the HTML exactly as written (no Jekyll themes, titles or README index)
+plugins: []
+theme: null

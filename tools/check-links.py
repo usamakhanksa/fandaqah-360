@@ -1,17 +1,18 @@
 """Static audit of the deployable site: every local href/src resolves and every icon id exists in the sprite.
 
-Usage:  python -I tools/check-links.py site
+Usage:  python -I tools/check-links.py .        (or _site, the built output)
 """
 import re, sys, pathlib
 from urllib.parse import urlsplit, unquote
 
 sys.stdout.reconfigure(encoding='utf-8')
-site = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else 'site').resolve()
+SKIP = {'campaigns', 'archive', 'tools', 'banners', '_internal', '_site', '.git', '.github', 'node_modules'}  # never deployed
+site = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else '.').resolve()
 sprite = (site / 'assets/icons.svg').read_text(encoding='utf-8')
 symbols = set(re.findall(r'<symbol id="([^"]+)"', sprite))
 problems = []
 
-for page in sorted(site.rglob('*.html')):
+for page in sorted(p for p in site.rglob('*.html') if not SKIP & set(p.relative_to(site).parts)):
     html = page.read_text(encoding='utf-8')
     for attr, url in re.findall(r'\b(href|src)="([^"]+)"', html):
         if url.startswith(('http:', 'https:', 'mailto:', 'tel:', 'data:', '#', 'javascript:')):

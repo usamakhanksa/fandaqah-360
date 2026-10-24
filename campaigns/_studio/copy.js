@@ -3,7 +3,7 @@
    Rules baked in (playbook p.7 and p.11): one promise and one CTA per creative, no public price (A/B use
    "Ask about our two-year prepaid offer"), no savings figures, countdowns, reviews or limited availability. */
 window.STUDIO = {
-  base: '/site/assets/',
+  base: '/assets/',
   campaigns: {
     A: {
       folder: 'A-existing-customers', theme: 'light', photo: 'img/hero-existing.webp', photoPos: '86% 40%', device: 'laptopA',

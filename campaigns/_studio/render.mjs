@@ -25,7 +25,7 @@ function jobs() {
     for (const i of [1, 2, 3, 4]) list.push({ q: { c, lang, kind: 'slide', i, fmt: 'story' }, out: path.join(dir, 'reel-frames', `${c}-reel-${i}-${lang}.jpg`) });
   }
   if (!process.env.STUDIO_SKIP_OG) for (const key of ['home', 'existing-customers', 'new-hotels', 'opera-pms', 'hotel-groups'])
-    list.push({ q: { kind: 'og', i: key, fmt: 'og' }, out: path.join(repo, 'site', 'assets', 'img', 'og', `${key}.jpg`) });
+    list.push({ q: { kind: 'og', i: key, fmt: 'og' }, out: path.join(repo, 'assets', 'img', 'og', `${key}.jpg`) });
   return list;
 }
 

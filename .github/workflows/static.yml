@@ -33,19 +33,27 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      # Guards: only the public site ships, and every page is fully translated
+      # Build the public site: the repo root minus internal folders. Keep this list in step with _config.yml,
+      # which gives the same result if Pages is ever set to "Deploy from a branch".
+      - name: Build public site
+        run: |
+          rsync -a ./ _site/ --exclude '.git*' --exclude '.github' --exclude '_site' --exclude '_internal' \
+            --exclude 'campaigns' --exclude 'archive' --exclude 'tools' --exclude 'banners' \
+            --exclude 'README.md' --exclude '_config.yml'
+      # Guards: nothing internal ships, every page is fully translated, every link resolves
       - name: Block internal files from the public site
         run: |
-          if find site \( -iname '*.pdf' -o -iname '*.psd' -o -iname '*.docx' -o -path '*/_internal/*' \) | grep -q .; then
-            echo "Internal files found under site/:"; find site \( -iname '*.pdf' -o -iname '*.psd' -o -iname '*.docx' \); exit 1
+          if find _site \( -iname '*.pdf' -o -iname '*.psd' -o -iname '*.docx' -o -iname '*.md' -o -iname '*.py' \) | grep -q .; then
+            echo "Internal files found in the public site:"; find _site \( -iname '*.pdf' -o -iname '*.psd' -o -iname '*.docx' -o -iname '*.md' -o -iname '*.py' \); exit 1
           fi
-      - name: Check Arabic translations
-        run: python3 -I tools/check-i18n.py site
+      - name: Check Arabic translations and links
+        run: |
+          python3 -I tools/check-i18n.py _site
+          python3 -I tools/check-links.py _site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Publish only the public website. campaigns/, archive/ and _internal/ are never deployed.
-          path: 'site'
+          path: '_site'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5

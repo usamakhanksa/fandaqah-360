@@ -1,20 +1,21 @@
 """Check that every translatable string on every page has an Arabic translation.
 
-Usage:  python -I tools/check-i18n.py site
+Usage:  python -I tools/check-i18n.py .        (or _site, the built output)
 Looks at data-i18n / data-i18n-aria / data-i18n-alt / data-i18n-ph keys in each page and checks them against the
 shared dictionary in assets/js/site.js plus the page's own window.FQ_PAGE.ar block. Exits 1 when something is missing.
 """
 import re, sys, pathlib
 
 sys.stdout.reconfigure(encoding='utf-8')
-site = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else 'site')
+SKIP = {'campaigns', 'archive', 'tools', 'banners', '_internal', '_site', '.git', '.github', 'node_modules'}  # never deployed
+site = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else '.')
 KEY = re.compile(r"'([\w.]+)'\s*:")
 
 js = (site / 'assets/js/site.js').read_text(encoding='utf-8')
 shared = set(KEY.findall(js[js.index('const SHARED_AR'):js.index('const JS_TXT')]))
 
 missing_total = 0
-for page in sorted(site.rglob('*.html')):
+for page in sorted(p for p in site.rglob('*.html') if not SKIP & set(p.relative_to(site).parts)):
     html = page.read_text(encoding='utf-8')
     used = set(re.findall(r'data-i18n(?:-aria|-alt|-ph)?="([\w.]+)"', html))
     if not used:

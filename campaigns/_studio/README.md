@@ -7,7 +7,7 @@ colours and device mock-ups, so ads and landing pages always match.
 |---|---|
 | `copy.js` | All creative text, Arabic and English, per campaign: headline test pair, carousel/reel slides, CTA, chip |
 | `studio.html` | The template. One creative per URL: `?c=A&lang=ar&kind=ad&i=1&fmt=feed` |
-| `render.mjs` | Renders all combinations into `campaigns/<X>/creatives/` and `site/assets/img/og/` |
+| `render.mjs` | Renders all combinations into `campaigns/<X>/creatives/` and `assets/img/og/` |
 
 ## Outputs per campaign (× Arabic and English)
 

@@ -1,7 +1,7 @@
 # Fandaqah 360 campaigns (A–D)
 
 Internal working folder for the four Fandaqah 360 campaigns defined in the *Marketing Campaign Playbook* (20 Oct 2026).
-Nothing in `campaigns/` is published; only `site/` is deployed.
+Nothing in `campaigns/` is published; only the website at the repo root is.
 
 | Code | Campaign | Primary buyer | Desired action | Landing route | Folder |
 |---|---|---|---|---|---|
