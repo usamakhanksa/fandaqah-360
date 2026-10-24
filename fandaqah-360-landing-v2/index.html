@@ -15,7 +15,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@fandaqah">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"Fandaqah","alternateName":"فندقة","url":"https://www.fandaqah.com","email":"info@fandaqah.com","telephone":"+966920066456",
+{"@context":"https://schema.org","@type":"Organization","name":"Fandaqah","alternateName":"فندقة","url":"https://www.fandaqah.com","email":"info@fandaqah.com","telephone":"+966920066456","slogan":"Your Hospitality, Our Priority",
+ "address":{"@type":"PostalAddress","streetAddress":"Prince Turki Street, Aldughaither Village","addressLocality":"Al Khobar","addressCountry":"SA"},
  "sameAs":["https://www.linkedin.com/company/fandaqah/","https://x.com/fandaqah","https://www.instagram.com/fandaqah.pms","https://www.facebook.com/pmsfandaqah/"]}
 </script>
 <link rel="apple-touch-icon" href="assets/img/icon-180.png">
@@ -340,6 +341,71 @@ button{font:inherit;color:inherit}
   .pcard:hover{transform:translateY(-4px)}
 }
 
+/* ---------- About: who is behind the platform ---------- */
+.sec-about{position:relative;overflow:clip;isolation:isolate;padding:76px 0 84px}
+/* the brand line in Arabic calligraphy, as a quiet watermark in both languages */
+.about-mark{position:absolute;z-index:-1;top:34px;inset-inline-end:-24px;font:700 clamp(84px, 11vw, 168px)/1 "El Messiri", var(--f-serif);color:var(--ink);opacity:.04;white-space:nowrap;pointer-events:none;user-select:none}
+.about-grid{display:grid;grid-template-columns:minmax(0, .92fr) minmax(0, 1.08fr);gap:72px;align-items:center}
+.about-media{position:relative;margin:0}
+.about-media::before{content:"";position:absolute;z-index:-1;inset-inline-start:-46px;top:-46px;width:190px;height:190px;border-radius:50%;background:radial-gradient(circle at 35% 35%, #FDE6D8, #F8CDB6);opacity:.9}
+.about-photo{overflow:hidden;border-radius:26px;box-shadow:var(--e3)}
+.about-photo img{width:100%;height:auto;aspect-ratio:4 / 5;object-fit:cover;object-position:24% 40%}
+.js .about-media .about-photo img{transform:scale(1.07);transition:transform 1.6s var(--ease)}
+.js .about-media.is-in .about-photo img{transform:none}
+.about-stat{position:absolute;top:26px;inset-inline-start:-26px;display:grid;gap:2px;padding:16px 20px;border-radius:18px;background:var(--coral-strong);color:#fff;box-shadow:0 22px 40px -18px rgba(212,65,59,.75)}
+.about-stat b{font-size:34px;font-weight:800;line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.about-stat span{font-size:12.5px;font-weight:600;opacity:.92}
+.about-quote{position:absolute;inset-inline-end:-30px;bottom:30px;width:min(310px, 82%);margin:0;padding:18px 20px 16px;border-radius:18px;background:rgba(255,255,255,.95);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:var(--e3)}
+.about-quote .ic{width:22px;height:22px;color:var(--coral);fill:currentColor;stroke:none}
+[dir="rtl"] .about-quote .ic{transform:scaleX(-1)}
+.about-quote p{margin-top:8px;font-family:var(--f-serif);font-weight:600;font-size:17px;line-height:1.4;color:var(--ink)}
+.about-quote .about-cite{display:flex;align-items:center;gap:6px;margin-top:10px;font-family:var(--f-sans);font-size:12.5px;font-weight:700;color:var(--coral-strong)}
+.about-cite .ic{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.2;transform:none}
+[dir="rtl"] .about-cite .ic{transform:none}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--coral-strong)}
+.eyebrow::before{content:"";width:28px;height:2px;border-radius:2px;background:currentColor}
+.about-copy .h2{margin-top:14px;font-size:42px}
+.about-lead{margin-top:18px;font-size:18.5px;line-height:1.55;color:var(--ink);text-wrap:pretty}
+.about-story{margin-top:12px;font-size:15px;line-height:1.7;color:var(--ink-2);text-wrap:pretty}
+.about-focus{margin-top:22px;font-size:15px;font-weight:600;color:var(--ink)}
+.pillars{display:grid;gap:12px;margin-top:14px}
+.pillar{display:flex;align-items:flex-start;gap:14px;padding:14px 16px;border-radius:16px;background:var(--surface);box-shadow:var(--e1), inset 0 1px 0 #fff;transition:transform .2s var(--ease)}
+.pillar .glyph{display:grid;place-items:center;flex:none;width:40px;height:40px;border-radius:12px;background:var(--peach-50);color:var(--coral-strong)}
+.pillar .glyph .ic{width:20px;height:20px;stroke-width:2}
+.pillar h3{font-size:15px;font-weight:700;line-height:1.3;color:var(--ink)}
+.pillar p{margin-top:3px;font-size:13.5px;line-height:1.55;color:var(--ink-2)}
+@media (hover:hover) and (pointer:fine){ .pillar:hover{transform:translateY(-2px)} }
+.about-ctas{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px;margin-top:28px}
+.link-more{display:inline-flex;align-items:center;gap:8px;min-height:40px;font-size:14.5px;font-weight:700;color:var(--ink);text-decoration:none;border-radius:8px}
+.link-more span{text-decoration:underline;text-decoration-color:rgba(22,26,51,.3);text-underline-offset:5px;transition:text-decoration-color .16s var(--ease)}
+.link-more .ic{width:16px;height:16px;stroke-width:2.2;color:var(--coral-strong);transition:transform .2s var(--spring)}
+[dir="rtl"] .link-more .ic{transform:scaleX(-1)}
+@media (hover:hover) and (pointer:fine){
+  .link-more:hover span{text-decoration-color:var(--coral)}
+  .link-more:hover .ic{transform:translate(2px, -2px)}
+  [dir="rtl"] .link-more:hover .ic{transform:scaleX(-1) translate(2px, -2px)}
+}
+@media (max-width:1240px){ .about-grid{gap:52px} .about-stat{inset-inline-start:-14px} .about-quote{inset-inline-end:-14px} }
+@media (max-width:980px){
+  .about-grid{grid-template-columns:1fr;gap:44px}
+  /* keep the crop on the people: a wider frame would reveal the screen's "Not Connected" badges */
+  .about-media{max-width:520px}
+  .about-photo img{aspect-ratio:9 / 10;object-position:0 38%}
+  .about-stat{top:18px;inset-inline-start:18px}
+  .about-quote{inset-inline-end:18px;bottom:18px}
+}
+@media (max-width:560px){
+  .sec-about{padding:52px 0 60px}
+  .about-media::before{width:120px;height:120px;inset-inline-start:-24px;top:-24px}
+  .about-stat{top:12px;inset-inline-start:12px;padding:12px 14px;border-radius:14px}
+  .about-stat b{font-size:27px}
+  .about-quote{position:relative;inset:auto;width:auto;margin:-46px 14px 0;padding:16px 18px 14px}
+  .about-quote p{font-size:16px}
+  .about-copy .h2{font-size:32px}
+  .about-lead{font-size:17px}
+  .about-ctas .btn{width:100%}
+}
+
 /* ---------- Navy band: guarantees + activate ---------- */
 .band{position:relative;overflow:clip;isolation:isolate;--focus:#FBCDAB;color:#fff;
   background:radial-gradient(50% 70% at 85% 10%, rgba(64,74,128,.45), rgba(64,74,128,0) 70%),radial-gradient(40% 60% at 5% 100%, rgba(238,86,80,.08), rgba(238,86,80,0) 70%),var(--navy)}
@@ -470,6 +536,8 @@ html:has(.lead[open]){overflow:hidden}
   .js .hero-photo img{animation:none}
   .btn,.mod,.pcard,.see-all,.see-all .ic,.social a{transition:none}
   .lead[open]{animation:none}
+  .js .about-media .about-photo img{transform:none;transition:none}
+  .pillar{transition:none}
 }
 
 /* ---------- Responsive ---------- */
@@ -605,6 +673,9 @@ html:has(.lead[open]){overflow:hidden}
 <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></symbol>
 <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></symbol>
 <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7" /><path d="M12 19V5" /></symbol>
+<symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></symbol>
+<symbol id="i-quote" viewBox="0 0 24 24"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" /><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" /></symbol>
+<symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></symbol>
 <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></symbol>
 <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></symbol>
 <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></symbol>
@@ -638,7 +709,7 @@ html:has(.lead[open]){overflow:hidden}
       <a href="#included" data-i18n="nav.features">Features</a>
       <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
       <a href="#integrations" data-i18n="nav.integrations">Integrations</a>
-      <a href="https://fandaqah.com/en/store/about_us" data-href-ar="https://fandaqah.com/store/about_us" data-i18n="nav.about">About</a>
+      <a href="#about" data-i18n="nav.about">About</a>
       <a href="#contact" data-i18n="nav.contact">Contact</a>
     </nav>
     <div class="nav-actions">
@@ -656,7 +727,7 @@ html:has(.lead[open]){overflow:hidden}
       <a href="#included" data-i18n="nav.features">Features</a>
       <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
       <a href="#integrations" data-i18n="nav.integrations">Integrations</a>
-      <a href="https://fandaqah.com/en/store/about_us" data-href-ar="https://fandaqah.com/store/about_us" data-i18n="nav.about">About</a>
+      <a href="#about" data-i18n="nav.about">About</a>
       <a href="#contact" data-i18n="nav.contact">Contact</a>
       <div class="mnav-row">
         <div class="lang" role="group" data-i18n-aria="aria.lang" aria-label="Language">
@@ -964,6 +1035,38 @@ html:has(.lead[open]){overflow:hidden}
     </div>
   </section>
 
+  <!-- ============ ABOUT ============ -->
+  <section class="sec sec-about" id="about" aria-labelledby="about-title">
+    <span class="about-mark" aria-hidden="true">ضيافتك أولويتنا</span>
+    <div class="wrap about-grid">
+      <figure class="about-media" data-reveal>
+        <div class="about-photo"><img src="assets/img/about-team.webp" width="1536" height="1024" alt="Two hospitality managers reviewing Fandaqah’s government integrations on a tablet and a screen" data-i18n-alt="about.alt" loading="lazy" decoding="async"></div>
+        <p class="about-stat"><b data-count="800" data-suffix="+">800+</b><span data-i18n="about.stat">properties trust Fandaqah</span></p>
+        <div class="about-quote">
+          <svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>
+          <p data-i18n="about.quote">Your digital interface in the world of hospitality and tourism.</p>
+          <p class="about-cite"><svg class="ic" aria-hidden="true"><use href="#i-map-pin"/></svg><span data-i18n="about.cite">Fandaqah · Al Khobar, Saudi Arabia</span></p>
+        </div>
+      </figure>
+      <div class="about-copy" data-reveal style="--i:1">
+        <p class="eyebrow" data-i18n="about.eyebrow">Technology with hospitality at heart</p>
+        <h2 class="h2" id="about-title" data-i18n="about.title">Your hospitality. Our priority.</h2>
+        <p class="about-lead" data-i18n="about.lead">Fandaqah connects the moving parts of your property, so your team can spend more time creating memorable stays.</p>
+        <p class="about-story" data-i18n="about.story">From the front desk to finance, every hospitality property runs on hundreds of thoughtful details. Fandaqah brings reservations, distribution, guest services and property operations together in one connected platform.</p>
+        <p class="about-focus" data-i18n="about.focus">Our focus is simple: give Saudi hospitality teams the visibility, local integrations and support they need to manage their properties with confidence.</p>
+        <ul class="pillars">
+          <li class="pillar"><span class="glyph" aria-hidden="true"><svg class="ic"><use href="#i-layout-dashboard"/></svg></span><div><h3 data-i18n="about.p1t">Full visibility</h3><p data-i18n="about.p1d">Reservations, rooms, revenue and teams in one clear view.</p></div></li>
+          <li class="pillar"><span class="glyph" aria-hidden="true"><svg class="ic"><use href="#i-landmark"/></svg></span><div><h3 data-i18n="about.p2t">Local integrations</h3><p data-i18n="about.p2d">Built for Saudi requirements: Shomoos, ZATCA e-invoicing, NTMP and mada.</p></div></li>
+          <li class="pillar"><span class="glyph" aria-hidden="true"><svg class="ic"><use href="#i-headset"/></svg></span><div><h3 data-i18n="about.p3t">Support close to you</h3><p data-i18n="about.p3d">A local team in Al Khobar for onboarding, training and everyday support.</p></div></li>
+        </ul>
+        <div class="about-ctas">
+          <button class="btn btn-coral" type="button" data-lead="general"><span data-i18n="about.cta">Talk to our team</span><svg class="ic ic-go" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
+          <a class="link-more" href="https://fandaqah.com/en/store/about_us" data-href-ar="https://fandaqah.com/store/about_us" target="_blank" rel="noopener"><span data-i18n="about.more">More about Fandaqah</span><svg class="ic" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ GUARANTEES + ACTIVATE ============ -->
   <div class="band">
     <svg class="leaves" viewBox="0 0 200 560" aria-hidden="true" focusable="false">
@@ -1142,6 +1245,16 @@ html:has(.lead[open]){overflow:hidden}
     'g.trusted':'تثق بنا','g.count':'أكثر من 800 منشأة','g.alt':'بهو فندق مشمس في الرياض وعلى مكتب الاستقبال لوحة تحكم فندقة',
     'cta.title':'قم بالترقية اليوم','cta.text':'عرض لفترة محدودة وقد ينتهي قريباً. اشترك لمدة سنتين واستفد من السعر الخاص.',
     'f.follow':'تابعنا','f.in':'فندقة على لينكدإن','f.x':'فندقة على إكس (تويتر)','f.ig':'فندقة على إنستغرام','f.fb':'فندقة على فيسبوك','f.terms':'الشروط والأحكام','f.privacy':'سياسة الخصوصية','f.contact':'تواصل معنا','f.tag':'فندقة 360 | ضيافتك أولويتنا',
+    'about.eyebrow':'تقنية بروح الضيافة','about.title':'ضيافتك أولويتنا.',
+    'about.lead':'تربط فندقة جميع أجزاء منشأتك ببعضها، ليتفرّغ فريقك لصناعة إقامات لا تُنسى.',
+    'about.story':'من مكتب الاستقبال إلى الإدارة المالية، تقوم كل منشأة فندقية على مئات التفاصيل الدقيقة. لذلك تجمع فندقة الحجوزات والتوزيع وخدمات الضيوف وتشغيل المنشأة في منصة واحدة مترابطة.',
+    'about.focus':'تركيزنا واضح: أن نمنح فرق الضيافة في المملكة الرؤية الشاملة والتكاملات المحلية والدعم الذي تحتاجه لإدارة منشآتها بثقة.',
+    'about.p1t':'رؤية شاملة','about.p1d':'الحجوزات والغرف والإيرادات وفرق العمل في واجهة واحدة واضحة.',
+    'about.p2t':'تكاملات محلية','about.p2d':'مصمَّمة لمتطلبات المملكة: شموس، والفوترة الإلكترونية، ومنصة الرصد السياحي، ومدى.',
+    'about.p3t':'دعم قريب منك','about.p3d':'فريق محلي في الخبر يرافقك في التهيئة والتدريب والدعم اليومي.',
+    'about.cta':'تحدّث مع فريقنا','about.more':'المزيد عن فندقة','about.stat':'منشأة تثق بفندقة',
+    'about.quote':'واجهتك الرقمية في عالم الضيافة والسياحة.','about.cite':'فندقة · الخبر، المملكة العربية السعودية',
+    'about.alt':'مديران في قطاع الضيافة يراجعان تكاملات فندقة الحكومية على جهاز لوحي وشاشة',
     'lead.close':'إغلاق','lead.title':'اطلب الترقية الآن','lead.sub':'اترك بياناتك وسيتواصل معك فريقنا قريباً لتفعيل العرض.',
     'lead.name':'الاسم الكامل','lead.nameErr':'يرجى إدخال الاسم.','lead.email':'البريد الإلكتروني','lead.emailErr':'يرجى إدخال بريد إلكتروني صحيح.',
     'lead.phone':'رقم الجوال (السعودية)','lead.phoneErr':'أدخل رقم جوال سعودياً من 9 أرقام يبدأ بـ 5.','lead.msg':'رسالتك','lead.opt':'(اختياري)',
@@ -1275,7 +1388,23 @@ html:has(.lead[open]){overflow:hidden}
       links.forEach(a => { const on = a.getAttribute('href') === id; a.classList.toggle('is-active', on); on ? a.setAttribute('aria-current', 'true') : a.removeAttribute('aria-current'); });
     });
   }, { rootMargin: '-45% 0px -50% 0px' });
-  ['top', 'integrations', 'included', 'pricing', 'contact'].forEach(id => spy.observe(document.getElementById(id)));
+  ['top', 'integrations', 'included', 'pricing', 'about', 'contact'].forEach(id => spy.observe(document.getElementById(id)));
+
+  /* ---------- About: the proof number counts up once, when it scrolls into view ---------- */
+  if (!reduce.matches) {
+    const counter = new IntersectionObserver(entries => entries.forEach(en => {
+      if (!en.isIntersecting) return;
+      counter.unobserve(en.target);
+      const el = en.target, to = +el.dataset.count, suffix = el.dataset.suffix || '', t0 = performance.now(), dur = 1400;
+      const step = now => {
+        const p = Math.min(1, (now - t0) / dur);
+        el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))) + suffix;
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }), { threshold: .6 });
+    $$('[data-count]').forEach(el => counter.observe(el));
+  }
 
   /* ---------- Reveal on scroll ---------- */
   const io = new IntersectionObserver(entries => {
