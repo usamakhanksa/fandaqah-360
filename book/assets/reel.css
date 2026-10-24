@@ -1,0 +1,125 @@
+/* Fandaqah 360 reels: 1080x1920 canvas. Key content lives between y≈280 and y≈1260 (Reels safe zone:
+   Instagram covers roughly the top 14% and the bottom 35% with its own interface). */
+html,body{margin:0;height:100%;background:#0E0F1A;overflow:hidden}
+body.render{background:#000}
+.stage{position:fixed;inset:0;display:grid;place-items:center}
+.reel{position:relative;flex:none;overflow:hidden;isolation:isolate;width:1080px;height:1920px;background:var(--bg);color:var(--ink);font-family:var(--f-sans);transform-origin:50% 50%}
+body.render .stage{place-items:start}
+body.render .reel{transform:none !important}
+.reel em{font-style:normal;color:var(--coral)}
+.reel .w{display:inline-block;will-change:transform,opacity}
+
+/* story-style progress bars */
+.r-bars{position:absolute;z-index:20;inset:52px 56px auto;display:flex;gap:12px}
+.r-bars i{flex:1;height:7px;overflow:hidden;border-radius:7px;background:rgba(255,255,255,.42);box-shadow:0 0 0 1px rgba(24,23,47,.08)}
+.r-bars b{display:block;height:100%;background:var(--coral);transform:scaleX(0);transform-origin:0 50%}
+[dir="rtl"] .r-bars b{transform-origin:100% 50%}
+
+/* brand bar */
+.r-top{position:absolute;z-index:20;inset:96px 56px auto;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.r-logo{display:inline-flex;align-items:flex-end;gap:8px;padding:14px 22px 14px 18px;border-radius:20px;background:rgba(255,255,255,.95);box-shadow:var(--e2)}
+.r-logo img{width:auto;height:66px}
+.r-logo b{padding-bottom:4px;font:600 38px/1 "Source Serif 4",Georgia,serif;color:var(--coral)}
+.r-chip{padding:12px 22px;border-radius:999px;background:rgba(255,255,255,.95);color:var(--ink);font-size:25px;font-weight:700;box-shadow:var(--e1);white-space:nowrap}
+
+/* scenes */
+.r-s{position:absolute;inset:0;overflow:hidden;isolation:isolate;visibility:hidden}
+/* decorative floor: the lower third stays free of text (Reels interface) but never looks empty */
+.floor{position:absolute;z-index:-2;left:-25%;right:-25%;bottom:-560px;height:1100px;border-radius:50%;background:radial-gradient(closest-side, rgba(247,208,181,.95), rgba(247,208,181,0))}
+.wm{position:absolute;z-index:-1;left:50%;bottom:-40px;font:700 600px/1 "Source Serif 4",Georgia,serif;letter-spacing:-.05em;color:rgba(24,23,47,.05);transform:translateX(-50%);white-space:nowrap;pointer-events:none}
+.theme-dark .s2 .floor,.theme-dark .s3 .floor,.s4 .floor{background:radial-gradient(closest-side, rgba(70,74,120,.75), rgba(70,74,120,0))}
+.theme-dark .s2 .wm,.theme-dark .s3 .wm,.s4 .wm{color:rgba(255,255,255,.05)}
+.r-s .copy{position:absolute;inset:330px 70px auto;display:grid;justify-items:start;gap:24px}
+.r-s h2{margin:0;font:600 86px/1.06 var(--f-serif);letter-spacing:-.025em;text-wrap:balance}
+html[lang="ar"] .r-s h2{font-size:78px;line-height:1.3}
+.r-s .sub{margin:0;max-width:900px;font-size:36px;line-height:1.45;color:var(--ink-2)}
+.r-tag{position:absolute;right:70px;padding:7px 15px;border:2px solid currentColor;border-radius:10px;font-size:21px;font-weight:600;opacity:.75}
+
+/* 1 · hook: full-bleed photo, the problem written large */
+.s1{background:var(--navy-2);color:#fff}
+.s1 .photo{position:absolute;inset:0;margin:0}
+.s1 .photo img{width:100%;height:100%;object-fit:cover}
+.s1 .shade{position:absolute;inset:0;background:linear-gradient(180deg, rgba(20,21,36,.35) 0%, rgba(20,21,36,.2) 25%, rgba(20,21,36,.82) 52%, rgba(20,21,36,.92) 100%)}
+/* anchored above the captions so long hooks grow upwards, never under the caption */
+.s1 .copy{inset:auto 70px 760px}
+.s1 h2{font-size:98px;color:#fff}
+html[lang="ar"] .s1 h2{font-size:90px}
+.s1 em{color:#F48C78}
+.motif{position:absolute;inset:330px 70px auto;height:440px}
+.mcard{position:absolute;display:flex;align-items:center;gap:20px;min-width:390px;padding:24px 30px;border-radius:24px;background:rgba(255,255,255,.96);color:var(--ink);box-shadow:0 30px 60px -24px rgba(0,0,0,.6);font:600 34px/1.2 var(--f-serif)}
+.mcard .icon-circle{width:78px;height:78px}
+.mcard .icon-circle .ic{width:36px;height:36px}
+.mcard small{display:block;margin-top:6px;font:700 26px/1 var(--f-ui);color:var(--coral-btn);letter-spacing:.02em}
+.mcard:nth-child(1){top:0;left:0}
+.mcard:nth-child(2){top:130px;right:0}
+.mcard:nth-child(3){top:260px;left:90px}
+.mbreak{position:absolute;z-index:-1;inset:0;width:100%;height:100%}
+.msample{position:absolute;right:0;top:-6px;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.18);color:#fff;font-size:22px;font-weight:700}
+
+/* 2 · solution and 3 · proof: calm cream stage */
+.s2,.s3{background:var(--bg)}
+.theme-dark .s2,.theme-dark .s3{background:var(--navy-2);color:#fff}
+.theme-dark .s2 .sub,.theme-dark .s3 .sub{color:rgba(255,255,255,.82)}
+.theme-dark .s2 em,.theme-dark .s3 em{color:#F48C78}
+.dev{position:absolute;left:50%;top:700px;transform:translateX(-50%)}
+.dev > *{transform:scale(1.6);transform-origin:50% 0}
+.s2 .r-tag{top:640px}
+.proof{position:absolute;inset:690px 70px auto;display:grid;gap:22px}
+.pcard{display:flex;align-items:center;gap:26px;padding:28px 32px;border:2px solid var(--line);border-radius:26px;background:#fff;color:var(--ink);box-shadow:var(--e1);font:600 42px/1.2 var(--f-serif)}
+.pcard .icon-circle{width:92px;height:92px}
+.pcard .icon-circle .ic{width:42px;height:42px}
+.pcard .ok{display:grid;place-items:center;width:58px;height:58px;margin-inline-start:auto;border-radius:50%;background:var(--coral-btn);color:#fff}
+.pcard .ok .ic{width:30px;height:30px;stroke-width:3}
+.proof.flow{inset:630px 70px auto;gap:0}
+.flow .pcard{padding:12px 24px;font-size:38px}
+.flow .pcard .icon-circle{width:74px;height:74px}
+.flow .pcard .icon-circle .ic{width:34px;height:34px}
+.flow .link{display:block;width:4px;height:20px;margin-inline-start:60px;background:var(--coral);transform-origin:50% 0}
+/* C: PMS map, larger */
+.s3 .dev{top:690px}
+.s3 .dev > *{transform:scale(1.75)}
+.toast{position:absolute;left:50%;top:1130px;display:flex;align-items:center;gap:16px;padding:20px 28px;border-radius:20px;background:#fff;color:var(--ink);box-shadow:var(--e3);font-size:30px;font-weight:700;white-space:nowrap;transform:translateX(-50%)}
+.toast .ic{width:34px;height:34px;color:#2E8B57;stroke-width:3}
+.pms-nodes div.hot{background:#3A2B33;box-shadow:inset 0 0 0 1.5px #F2705F}
+.packet{position:absolute;width:10px;height:10px;border-radius:50%;background:#F48C78;box-shadow:0 0 12px #F48C78}
+/* D: properties aligning to one brand */
+.brand{position:absolute;inset:690px 70px auto;display:grid;grid-template-columns:repeat(3, 1fr);gap:20px}
+.bcard{overflow:hidden;border-radius:24px;background:#fff;color:var(--ink);box-shadow:var(--e2)}
+.bcard header{display:flex;align-items:center;gap:10px;height:86px;padding:0 22px;background:var(--hc);color:#fff;font:700 24px/1 var(--f-ui)}
+.bcard header i{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.85)}
+.bcard .bbody{display:grid;gap:14px;padding:24px 22px 28px}
+.bcard .bbody b{font:600 32px/1.2 var(--f-serif)}
+.bcard .bar{height:12px;border-radius:12px;background:#ECE6DE;overflow:hidden}
+.bcard .bar i{display:block;height:100%;width:var(--v);background:var(--bc)}
+.brand-chip{position:absolute;left:50%;top:1100px;display:flex;align-items:center;gap:14px;padding:16px 26px;border-radius:999px;background:var(--navy);color:#fff;font-size:28px;font-weight:700;transform:translateX(-50%);white-space:nowrap}
+.brand-chip i{width:24px;height:24px;border-radius:50%;background:var(--coral)}
+
+/* 4 · call to action */
+.s4{background:var(--navy);color:#fff}
+.s4 .copy{inset:400px 70px auto;gap:30px}
+.s4 h2{font-size:100px;color:#fff}
+html[lang="ar"] .s4 h2{font-size:90px}
+.s4 em{color:#F48C78}
+.s4 .sub{color:rgba(255,255,255,.84)}
+.s4 .leaf{position:absolute;z-index:-1;right:-70px;top:180px;width:460px;opacity:.5}
+[dir="rtl"] .s4 .leaf{right:auto;left:-70px;transform:scaleX(-1)}
+.cta{display:inline-flex;align-items:center;gap:20px;padding:28px 44px;border-radius:16px;background:var(--coral-btn);color:#fff;font-size:38px;font-weight:700;box-shadow:0 24px 46px -18px rgba(212,65,59,.9)}
+.cta .ic{width:38px;height:38px;stroke-width:2.2}
+[dir="rtl"] .cta .ic{transform:scaleX(-1)}
+.url{font-size:28px;font-weight:600;color:rgba(255,255,255,.7);letter-spacing:.02em}
+.checks{display:grid;gap:14px;margin-top:6px}
+.checks li{display:flex;align-items:center;gap:16px;font-size:32px;font-weight:600;list-style:none}
+.checks .tick{width:44px;height:44px}
+.checks .tick .ic{width:22px;height:22px}
+.legal{position:absolute;inset:auto 70px 470px;margin:0;font-size:19px;line-height:1.4;color:rgba(255,255,255,.55)}
+
+/* captions: burned in, at the edge of the Reels interface zone */
+.r-caps{position:absolute;z-index:30;inset:auto 70px 575px;display:grid;justify-items:center}
+.r-caps p{grid-area:1 / 1;margin:0;max-width:900px;padding:18px 30px;border-radius:18px;background:rgba(14,15,26,.78);color:#fff;font:600 37px/1.4 var(--f-sans);text-align:center;opacity:0}
+
+/* live-view controls (not in rendered video) */
+.ctrl{position:fixed;z-index:50;left:50%;bottom:18px;display:flex;align-items:center;gap:10px;padding:8px;border-radius:999px;background:rgba(255,255,255,.1);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transform:translateX(-50%)}
+.ctrl button{display:grid;place-items:center;min-width:44px;height:44px;padding:0 14px;border:0;border-radius:999px;background:rgba(255,255,255,.14);color:#fff;font:600 14px/1 "Inter",system-ui,sans-serif;cursor:pointer}
+.ctrl button:hover{background:rgba(255,255,255,.24)}
+.ctrl .ic{width:18px;height:18px;stroke-width:2.2}
+body.render .ctrl,body.embed .ctrl{display:none}
