@@ -2,7 +2,7 @@
 // 1) serve the repo root:   python -m http.server 8767 --bind 127.0.0.1      (run in the repo root)
 // 2a) with Playwright:      node campaigns/_studio/render.mjs                 (npm i -D playwright, once)
 // 2b) or pass this file to any runner that calls `export default async (page) => …` with a Playwright page.
-// Optional filters: STUDIO_ONLY=A,C  STUDIO_LANGS=ar  STUDIO_SKIP_OG=1
+// Optional filters: STUDIO_ONLY=A,C  STUDIO_LANGS=ar  STUDIO_SKIP_OG=1  STUDIO_OG_ONLY=1
 import { mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
@@ -12,7 +12,7 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const repo = path.resolve(here, '..', '..');
 const FOLDERS = { A: 'A-existing-customers', B: 'B-new-hotels', C: 'C-opera-pms', D: 'D-hotel-groups' };
 const SIZE = { feed: [1080, 1350], story: [1080, 1920], og: [1200, 630] };
-const only = (process.env.STUDIO_ONLY || 'A,B,C,D').split(',');
+const only = process.env.STUDIO_OG_ONLY ? [] : (process.env.STUDIO_ONLY || 'A,B,C,D').split(',');
 const langs = (process.env.STUDIO_LANGS || 'ar,en').split(',');
 
 function jobs() {
@@ -24,7 +24,7 @@ function jobs() {
     for (const i of [1, 2, 3, 4]) list.push({ q: { c, lang, kind: 'slide', i, fmt: 'feed' }, out: path.join(dir, 'carousel', `${c}-carousel-${i}-${lang}.jpg`) });
     for (const i of [1, 2, 3, 4]) list.push({ q: { c, lang, kind: 'slide', i, fmt: 'story' }, out: path.join(dir, 'reel-frames', `${c}-reel-${i}-${lang}.jpg`) });
   }
-  if (!process.env.STUDIO_SKIP_OG) for (const key of ['home', 'existing-customers', 'new-hotels', 'opera-pms', 'hotel-groups'])
+  if (!process.env.STUDIO_SKIP_OG) for (const key of ['home', 'existing-customers', 'new-hotels', 'opera-pms', 'hotel-groups', 'book'])
     list.push({ q: { kind: 'og', i: key, fmt: 'og' }, out: path.join(repo, 'assets', 'img', 'og', `${key}.jpg`) });
   return list;
 }

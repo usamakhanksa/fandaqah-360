@@ -140,6 +140,11 @@ window.BOOK_MEDIA = {
     "mp4": "media/A-existing-customers/reels/A-reel-ar.mp4",
     "poster": "media/A-existing-customers/reels/A-reel-ar.jpg",
     "mb": 1.8
+   },
+   "en": {
+    "mp4": "media/A-existing-customers/reels/A-reel-en.mp4",
+    "poster": "media/A-existing-customers/reels/A-reel-en.jpg",
+    "mb": 2.0
    }
   }
  },
@@ -283,6 +288,11 @@ window.BOOK_MEDIA = {
     "mp4": "media/B-new-hotels/reels/B-reel-ar.mp4",
     "poster": "media/B-new-hotels/reels/B-reel-ar.jpg",
     "mb": 2.0
+   },
+   "en": {
+    "mp4": "media/B-new-hotels/reels/B-reel-en.mp4",
+    "poster": "media/B-new-hotels/reels/B-reel-en.jpg",
+    "mb": 2.2
    }
   }
  },
@@ -421,7 +431,18 @@ window.BOOK_MEDIA = {
     "name": "C-carousel-4-en"
    }
   ],
-  "reels": {}
+  "reels": {
+   "ar": {
+    "mp4": "media/C-opera-pms/reels/C-reel-ar.mp4",
+    "poster": "media/C-opera-pms/reels/C-reel-ar.jpg",
+    "mb": 2.0
+   },
+   "en": {
+    "mp4": "media/C-opera-pms/reels/C-reel-en.mp4",
+    "poster": "media/C-opera-pms/reels/C-reel-en.jpg",
+    "mb": 2.4
+   }
+  }
  },
  "D": {
   "banners": [
@@ -565,6 +586,17 @@ window.BOOK_MEDIA = {
     "name": "D-carousel-4-en"
    }
   ],
-  "reels": {}
+  "reels": {
+   "ar": {
+    "mp4": "media/D-hotel-groups/reels/D-reel-ar.mp4",
+    "poster": "media/D-hotel-groups/reels/D-reel-ar.jpg",
+    "mb": 2.0
+   },
+   "en": {
+    "mp4": "media/D-hotel-groups/reels/D-reel-en.mp4",
+    "poster": "media/D-hotel-groups/reels/D-reel-en.jpg",
+    "mb": 2.3
+   }
+  }
  }
 };
