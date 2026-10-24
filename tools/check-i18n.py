@@ -1,0 +1,28 @@
+"""Check that every translatable string on every page has an Arabic translation.
+
+Usage:  python -I tools/check-i18n.py site
+Looks at data-i18n / data-i18n-aria / data-i18n-alt / data-i18n-ph keys in each page and checks them against the
+shared dictionary in assets/js/site.js plus the page's own window.FQ_PAGE.ar block. Exits 1 when something is missing.
+"""
+import re, sys, pathlib
+
+sys.stdout.reconfigure(encoding='utf-8')
+site = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else 'site')
+KEY = re.compile(r"'([\w.]+)'\s*:")
+
+js = (site / 'assets/js/site.js').read_text(encoding='utf-8')
+shared = set(KEY.findall(js[js.index('const SHARED_AR'):js.index('const JS_TXT')]))
+
+missing_total = 0
+for page in sorted(site.rglob('*.html')):
+    html = page.read_text(encoding='utf-8')
+    used = set(re.findall(r'data-i18n(?:-aria|-alt|-ph)?="([\w.]+)"', html))
+    if not used:
+        continue
+    m = re.search(r'ar:\s*\{(.*?)\n  \}', html, re.S)
+    own = set(KEY.findall(m.group(1))) if m else set()
+    missing = sorted(used - shared - own)
+    missing_total += len(missing)
+    status = 'OK ' if not missing else 'MISSING'
+    print(f'{status} {page.relative_to(site)}  ({len(used)} keys)' + (f'  -> {", ".join(missing)}' if missing else ''))
+sys.exit(1 if missing_total else 0)

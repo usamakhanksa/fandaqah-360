@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Page not found | Fandaqah 360</title>
+<script>
+/* GitHub Pages serves this for any missing path. Old campaign pages (the retired /landing/ and /fandaqah-360-landing-v2/ sites)
+   forward to the new shared URL with their tags, so links already in ads or messages keep working. */
+(function () {
+  var base = location.pathname.indexOf('/fandaqah-360/') === 0 ? '/fandaqah-360/' : '/';
+  var rest = location.pathname.slice(base.length);
+  if (/^(landing|fandaqah-360-landing-v2)(\/|$)/.test(rest)) location.replace(base + location.search + location.hash);
+  window.FQ_BASE = base;
+})();
+</script>
+<style>
+  :root{--bg:#F0EDE9;--ink:#18172F;--ink-2:#3E3D54;--coral:#D4413B;--line:#E1DBD2}
+  *{box-sizing:border-box} body{margin:0;min-height:100vh;display:grid;place-items:center;padding:32px 16px;background:var(--bg);color:var(--ink);font:400 16px/1.6 "Segoe UI",system-ui,sans-serif}
+  main{max-width:560px;text-align:center}
+  .code{font:600 92px/1 Georgia,"Times New Roman",serif;color:var(--coral);letter-spacing:-.04em}
+  h1{margin:12px 0 8px;font:600 32px/1.15 Georgia,serif} p{margin:0;color:var(--ink-2)}
+  ul{display:grid;gap:10px;margin:28px 0 0;padding:0;list-style:none}
+  a{display:block;padding:14px 18px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font-weight:600;text-decoration:none}
+  a:hover{border-color:var(--coral)} a.home{background:var(--coral);border-color:var(--coral);color:#fff}
+  :focus-visible{outline:2px solid var(--coral);outline-offset:3px}
+</style>
+</head>
+<body>
+<main>
+  <p class="code">404</p>
+  <h1>This page has moved.</h1>
+  <p>Fandaqah 360 now has one home with four routes. Choose where to go next.</p>
+  <ul>
+    <li><a class="home" href="./" data-to="">Fandaqah 360 home</a></li>
+    <li><a href="./existing-customers/" data-to="existing-customers/">Existing customers: check my upgrade offer</a></li>
+    <li><a href="./new-hotels/" data-to="new-hotels/">New hotels: book my hotel demo</a></li>
+    <li><a href="./opera-pms/" data-to="opera-pms/">Opera / PMS: request a technology cost review</a></li>
+    <li><a href="./hotel-groups/" data-to="hotel-groups/">Hotel groups: book a group discovery meeting</a></li>
+  </ul>
+</main>
+<script>document.querySelectorAll('[data-to]').forEach(function (a) { a.href = window.FQ_BASE + a.dataset.to; });</script>
+</body>
+</html>
