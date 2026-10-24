@@ -1,0 +1,6 @@
+# internal documents (playbook, design references): never commit, never deploy
+_internal/
+
+# tooling
+node_modules/
+__pycache__/
