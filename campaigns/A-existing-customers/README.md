@@ -32,6 +32,8 @@
 | `creatives/story/` | Story/Status version (1080×1920) |
 | `creatives/carousel/` | Four-slide carousel (1080×1350) |
 | `creatives/reel-frames/` | Reel keyframes for the editor (1080×1920) |
+| `banners/` | Four designed banners (4:5), two Arabic and two English; see `banners/README.md` |
+| Reels | Finished 25-second MP4s, Arabic and English: `book/media/A-existing-customers/reels/` (watch and download in the [campaign book](https://usamakhanksa.github.io/fandaqah-360/book/#ch-A)) |
 | `links.csv` | Tagged links per channel |
 
 The device screens in the creatives are illustrative. Before publishing, swap in a **real Fandaqah dashboard** beside the

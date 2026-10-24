@@ -39,6 +39,8 @@ The ads must target hotel software needs, not travellers booking rooms.
 | `reel-storyboard.md` | 25-second reel |
 | `outreach.md` | Permitted email follow-up and demo confirmation |
 | `creatives/` | Feed (v1/v2), story, carousel and reel keyframes in Arabic and English |
+| `banners/` | Four designed banners (4:5), light and dark, Arabic and English; see `banners/README.md` |
+| Reels | Finished 25-second MP4s, Arabic and English: `book/media/B-new-hotels/reels/` (watch and download in the [campaign book](https://usamakhanksa.github.io/fandaqah-360/book/#ch-B)) |
 | `links.csv` | Tagged links per channel |
 
 Show **one real workflow** (reservation to back office) with four to six readable module labels and a real interface.

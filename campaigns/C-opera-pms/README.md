@@ -33,7 +33,8 @@
 > so the ad keeps serving. No third-party logos anywhere; the site carries a trademark notice.
 
 ## Assets in this folder
-`ad-copy.md` · `search-ads.csv` · `reel-storyboard.md` · `sales-brief.md` · `creatives/` (dark theme, Arabic and English) · `links.csv`
+`ad-copy.md` · `search-ads.csv` · `reel-storyboard.md` · `sales-brief.md` · `creatives/` (dark theme, Arabic and English) · `banners/` (four designed banners, light and dark) · `links.csv`
+Finished reels (Arabic and English MP4) are in `book/media/C-opera-pms/reels/`; review them in the [campaign book](https://usamakhanksa.github.io/fandaqah-360/book/#ch-C).
 
 ## Sales handoff
 The form sends current PMS and version/deployment. Book a **technical meeting**, then an **integration assessment**, then the scoped

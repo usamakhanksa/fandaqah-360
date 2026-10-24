@@ -23,7 +23,8 @@
 3. **Focused group-demo invitation** to the discovery workshop.
 
 ## Assets in this folder
-`ad-copy.md` · `reel-storyboard.md` · `sales-brief.md` · `creatives/` (Arabic and English) · `links.csv`
+`ad-copy.md` · `reel-storyboard.md` · `sales-brief.md` · `creatives/` (Arabic and English) · `banners/` (five designed banners) · `links.csv`
+Finished reels (Arabic and English MP4) are in `book/media/D-hotel-groups/reels/`; review them in the [campaign book](https://usamakhanksa.github.io/fandaqah-360/book/#ch-D).
 Any sample white-label screen is marked **"Illustrative branding"** (already on every D creative and on the page).
 
 ## Sales handoff

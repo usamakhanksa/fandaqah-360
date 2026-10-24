@@ -39,6 +39,8 @@
   /* ---------- language (shared preference with the campaign site) ---------- */
   const textNodes = $$('[data-i18n]'), EN = {};
   textNodes.forEach(n => { if (!(n.dataset.i18n in EN)) EN[n.dataset.i18n] = n.innerHTML; });
+  const ariaNodes = $$('[data-i18n-aria]');
+  ariaNodes.forEach(n => { EN[n.dataset.i18nAria] = n.getAttribute('aria-label'); });
   const META_EN = { title: document.title, desc: $('meta[name="description"]').content };
   let lang;
   const qs = new URLSearchParams(location.search);
@@ -239,6 +241,7 @@
     lang = l === 'ar' ? 'ar' : 'en';
     root.lang = lang; root.dir = lang === 'ar' ? 'rtl' : 'ltr';
     textNodes.forEach(n => { const v = lang === 'ar' ? I18N.ar[n.dataset.i18n] : EN[n.dataset.i18n]; if (v != null) n.innerHTML = v; });
+    ariaNodes.forEach(n => { const v = lang === 'ar' ? I18N.ar[n.dataset.i18nAria] : EN[n.dataset.i18nAria]; if (v != null) n.setAttribute('aria-label', v); });
     const meta = lang === 'ar' && I18N.meta ? I18N.meta : META_EN;
     document.title = meta.title; $('meta[name="description"]').content = meta.desc;
     $$('[data-lang]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));

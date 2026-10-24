@@ -12,7 +12,22 @@ Nothing in `campaigns/` is published; only the website at the repo root is.
 
 Each folder holds: `README.md` (brief, audience, channels, handoff, scorecard), `ad-copy.md` (Arabic first, English second),
 `reel-storyboard.md`, an outreach pack (`outreach.md` for A/B, `sales-brief.md` for C/D), `links.csv` (tagged links) and
-`creatives/` (rendered ads, carousel and reel keyframes in Arabic and English).
+`creatives/` (rendered ads, carousel and reel keyframes in Arabic and English) and `banners/` (the designed banners, source PNG).
+
+## Campaign book: every reel and banner in one link
+
+`https://usamakhanksa.github.io/fandaqah-360/book/` (`?lang=ar` for Arabic). One chapter per campaign: the two finished
+25-second reels (Arabic and English, playable and downloadable), a page-turning book of the designed banners, and the studio
+feed, story and carousel creatives. It is published for review but kept out of search engines (`noindex`).
+
+| What | Source (internal) | Published copy | Rebuild with |
+|---|---|---|---|
+| Banners | `campaigns/<X>/banners/*.png` | `book/media/<X>/banners/*.webp` | `python -I tools/build-book-media.py` |
+| Feed, story, carousel | `campaigns/<X>/creatives/` | `book/media/<X>/{feed,story,carousel}/` | `python -I tools/build-book-media.py` |
+| Reels (MP4 + poster) | `book/assets/data.js` (scene copy) + `book/reel.html` (GSAP animation) | `book/media/<X>/reels/` | `node tools/render-reels.mjs`, then `build-book-media.py` |
+
+The reel copy follows each folder's `reel-storyboard.md` (hook 0–3 s, solution 3–10 s, proof 10–20 s, CTA 20–25 s) and keeps
+captions out of the Instagram/TikTok interface zones. Preview one live at `book/reel.html?c=B&lang=ar`.
 
 ## Route every account to one campaign
 
@@ -83,6 +98,8 @@ Copy lives in [`_studio/copy.js`](_studio/copy.js); layouts in [`_studio/studio.
 
 - [ ] Commercial release record for A/B (price, VAT, scope, terms, end date) signed off; price stays out of creatives until then
 - [ ] Product approves every capability shown; replace the illustrative mock-ups with real product screens and sample data
+- [ ] A banners say "A fixed price for two years" / «سعر ثابت لسنتين»: keep only once the commercial release record is signed off
+- [ ] Product confirms the package names on the banners (e.g. "Saudi Compliance Suite", "Digital Guest Journey", "Revenue & Guest Intelligence")
 - [ ] Fluent Saudi Arabic reviewer signs off every Arabic line
 - [ ] CRM: production URL, ingest-only key, rate limit, owner assignment and notification for A–D; four test leads accepted
 - [ ] Lists: de-duplicated, verified, permission recorded, routed to one campaign; pilot with 20–30 records per segment

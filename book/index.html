@@ -29,11 +29,11 @@
 <header class="bk-head">
   <a class="bk-brand" href="../" data-i18n-aria="aria.home" aria-label="Fandaqah 360 home"><img src="../assets/img/brand-light-340.webp" width="340" height="144" alt="Fandaqah"><span class="logo-360" aria-hidden="true">360</span></a>
   <span class="bk-title" data-i18n="head.title">Campaign Book</span>
-  <nav class="bk-nav" aria-label="Chapters">
+  <nav class="bk-nav" data-i18n-aria="aria.chapters" aria-label="Chapters">
     <a href="#ch-A">A</a><a href="#ch-B">B</a><a href="#ch-C">C</a><a href="#ch-D">D</a>
   </nav>
   <div class="bk-actions">
-    <div class="lang" role="group" aria-label="Language"><button type="button" data-lang="en" lang="en" aria-pressed="true">EN</button><span class="sep" aria-hidden="true"></span><button type="button" data-lang="ar" lang="ar" aria-pressed="false">عربي</button></div>
+    <div class="lang" role="group" data-i18n-aria="aria.lang" aria-label="Language"><button type="button" data-lang="en" lang="en" aria-pressed="true">EN</button><span class="sep" aria-hidden="true"></span><button type="button" data-lang="ar" lang="ar" aria-pressed="false">عربي</button></div>
     <button class="bk-share" type="button" data-copy><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-link"/></svg><span data-i18n="share">Copy link</span></button>
   </div>
 </header>
@@ -71,7 +71,7 @@
       <p class="bk-eyebrow" data-i18n="end.eyebrow">Share</p>
       <h2 id="end-title" data-i18n="end.title">One link for the whole team.</h2>
       <p data-i18n="end.lead">Send this book for review and approval. Every creative points to the shared campaign link, and the book is kept out of search engines.</p>
-      <div class="bk-copy"><input type="text" readonly aria-label="Book link"><button type="button" data-copy><span data-i18n="share">Copy link</span></button></div>
+      <div class="bk-copy"><input type="text" readonly data-i18n-aria="aria.link" aria-label="Book link"><button type="button" data-copy><span data-i18n="share">Copy link</span></button></div>
       <div class="bk-routes">
         <a href="../existing-customers/" target="_blank" rel="noopener"><b>A · <span data-i18n="r.A">Existing customers</span></b><span>/existing-customers/</span></a>
         <a href="../new-hotels/" target="_blank" rel="noopener"><b>B · <span data-i18n="r.B">New hotels</span></b><span>/new-hotels/</span></a>
@@ -83,7 +83,7 @@
 </main>
 <footer class="bk-foot" data-i18n="foot">© 2026 Fandaqah · Campaign Book for internal review</footer>
 
-<div class="bk-lb" hidden role="dialog" aria-modal="true" aria-label="Full-size view">
+<div class="bk-lb" hidden role="dialog" aria-modal="true" data-i18n-aria="aria.lb" aria-label="Full-size view">
   <img src="data:," alt="">
   <div class="bk-lb-bar"><span class="bk-lb-title"></span><a class="bk-lb-save" href="#" download data-i18n="lb.save">Download</a><button class="bk-lb-close" type="button" data-i18n="lb.close">Close</button></div>
 </div>
@@ -92,7 +92,8 @@
 window.BOOK_I18N = {
   meta: { title: 'فندقة 360 | كتاب الحملات', desc: 'كل ريلز وبنرات وتصاميم حملات فندقة 360 في كتاب واحد: أربع حملات بالعربية والإنجليزية.' },
   ar: {
-    'skip': 'تخطَّ إلى المحتوى', 'head.title': 'كتاب الحملات', 'share': 'نسخ الرابط',
+    'skip': 'تخطَّ إلى المحتوى', 'aria.home': 'فندقة 360، الصفحة الرئيسية', 'aria.chapters': 'الفصول', 'aria.lang': 'اللغة',
+    'aria.link': 'رابط الكتاب', 'aria.lb': 'عرض بالحجم الكامل', 'head.title': 'كتاب الحملات', 'share': 'نسخ الرابط',
     'cover.eyebrow': 'فندقة 360 · كتاب الحملات · أكتوبر 2026',
     'cover.title': 'أربع حملات. <em>منصة واحدة مترابطة.</em>',
     'cover.lead': 'الريلز والبنرات والتصاميم لكل مسار: العربية أولاً والإنجليزية بجانبها، جاهزة للمراجعة.',

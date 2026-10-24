@@ -37,9 +37,10 @@ jobs:
       # which gives the same result if Pages is ever set to "Deploy from a branch".
       - name: Build public site
         run: |
-          rsync -a ./ _site/ --exclude '.git*' --exclude '.github' --exclude '_site' --exclude '_internal' \
-            --exclude 'campaigns' --exclude 'archive' --exclude 'tools' --exclude 'banners' \
-            --exclude 'README.md' --exclude '_config.yml'
+          # a leading slash anchors a folder to the repo root, so book/media/<X>/banners/ still ships
+          rsync -a ./ _site/ --exclude '.git*' --exclude '/.github' --exclude '/_site' --exclude '/_internal' \
+            --exclude '/campaigns' --exclude '/archive' --exclude '/tools' --exclude '/banners' \
+            --exclude 'README.md' --exclude '/_config.yml'
       # Guards: nothing internal ships, every page is fully translated, every link resolves
       - name: Block internal files from the public site
         run: |
