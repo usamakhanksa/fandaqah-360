@@ -10,10 +10,9 @@ the Actions workflow (`.github/workflows/static.yml`) copies the root minus inte
 |---|---|---|
 | `index.html`, `existing-customers/`, `new-hotels/`, `opera-pms/`, `hotel-groups/`, `assets/`, `404.html` | The website: one shared URL, four routes (A–D), Arabic and English, lead form into Fandaqah CRM | ✅ |
 | `fandaqah-360-landing-v2/` | The previous Fandaqah 360 landing page, kept live at its original link | ✅ |
-| `landing/` | Redirects from the retired multi-page site to the new home | ✅ |
+| `landing/` | The original multi-page Fandaqah site (home, features, pricing, about, blog, contact, privacy, terms), kept live | ✅ |
 | [`campaigns/`](campaigns/) | One folder per campaign: brief, ad copy, Search ads, reel storyboard, outreach / sales brief, tagged links, rendered creatives; plus `_studio/` (creative template and renderer) | ❌ |
 | [`tools/`](tools/) | `check-i18n.py` (Arabic coverage) · `check-links.py` (links and icons) · `build-campaign-data.py` (links and Search ads); the first two run on every deploy | ❌ |
-| `archive/` | Retired sites, kept for history | ❌ |
 | `banners/` | Working banner files | ❌ |
 | `_internal/` | Playbook PDF and design references. **Git-ignored: never committed or published** | ❌ |
 

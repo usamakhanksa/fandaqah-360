@@ -6,14 +6,12 @@
 <meta name="robots" content="noindex">
 <title>Page not found | Fandaqah 360</title>
 <script>
-/* GitHub Pages serves this for any missing path. Old pages of the retired /landing/ site forward to the new shared URL
-   with their tags, so links already in ads or messages keep working. (/fandaqah-360-landing-v2/ is live again.) */
+/* GitHub Pages serves this for any missing path. /landing/ and /fandaqah-360-landing-v2/ are live sites of their own.
+   The campaign site briefly lived under /site/: those links forward to the same page at its clean URL. */
 (function () {
   var base = location.pathname.indexOf('/fandaqah-360/') === 0 ? '/fandaqah-360/' : '/';
   var rest = location.pathname.slice(base.length);
-  if (/^landing(\/|$)/.test(rest)) location.replace(base + location.search + location.hash);
-  // the site briefly lived under /site/: keep those links working on the same page
-  else if (/^site(\/|$)/.test(rest)) location.replace(base + rest.replace(/^site\/?/, '') + location.search + location.hash);
+  if (/^site(\/|$)/.test(rest)) location.replace(base + rest.replace(/^site\/?/, '') + location.search + location.hash);
   window.FQ_BASE = base;
 })();
 </script>
