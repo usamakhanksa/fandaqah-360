@@ -20,9 +20,13 @@ for page in sorted(p for p in site.rglob('*.html') if not SKIP & set(p.relative_
     used = set(re.findall(r'data-i18n(?:-aria|-alt|-ph)?="([\w.]+)"', html))
     if not used:
         continue
-    m = re.search(r'ar:\s*\{(.*?)\n  \}', html, re.S)
-    own = set(KEY.findall(m.group(1))) if m else set()
-    missing = sorted(used - shared - own)
+    standalone = re.search(r'const AR = \{(.*?)\n  \};', html, re.S)
+    if standalone:  # self-contained page (the v2 landing) carries its whole dictionary inline
+        own, base = set(KEY.findall(standalone.group(1))), set()
+    else:
+        m = re.search(r'ar:\s*\{(.*?)\n  \}', html, re.S)
+        own, base = (set(KEY.findall(m.group(1))) if m else set()), shared
+    missing = sorted(used - base - own)
     missing_total += len(missing)
     status = 'OK ' if not missing else 'MISSING'
     print(f'{status} {page.relative_to(site)}  ({len(used)} keys)' + (f'  -> {", ".join(missing)}' if missing else ''))
