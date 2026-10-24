@@ -1,0 +1,122 @@
+@import url('brand-fonts.css');
+
+/* Fandaqah Identity.pdf, typography pages 5–6. Scope to the requested 360 page. */
+.landing-page {
+  --font-title: 'El Messiri', 'Almarai', serif;
+  --font-english: 'Montserrat', 'Almarai', sans-serif;
+  --font-arabic: 'Almarai', 'Montserrat', sans-serif;
+  font-family: var(--font-english);
+}
+
+html[dir='rtl'] .landing-page {
+  /* Latin uses Montserrat; Arabic glyphs fall back to the Almarai webfont. */
+  font-family: var(--font-english);
+}
+
+html[dir='rtl'] .landing-page .upgrade-photo {
+  left: 0;
+  right: auto;
+}
+
+html[dir='rtl'] .landing-page .upgrade-hero::after {
+  background: linear-gradient(270deg, var(--beige) 33%, rgb(242 240 235 / .75) 50%, transparent 77%);
+}
+
+html[dir='rtl'] .landing-page .value-card {
+  direction: ltr;
+  text-align: left;
+}
+
+.landing-page h1,
+.landing-page h2,
+.landing-page .upgrade-copy h1,
+.landing-page .upgrade-copy h1 > span,
+.landing-page .upgrade-copy h2,
+.landing-page .integrations > div > h2,
+.landing-page .overview-box h2,
+html[dir='rtl'] .landing-page h1,
+html[dir='rtl'] .landing-page h2 {
+  font-family: var(--font-title);
+  font-style: normal;
+  font-weight: 700;
+}
+
+.landing-page .upgrade-copy h1 {
+  line-height: 1.14;
+  letter-spacing: -.035em;
+}
+
+.landing-page .upgrade-copy h1 > span {
+  line-height: 1.1;
+  letter-spacing: -.03em;
+}
+
+.landing-page .upgrade-copy h2 {
+  font-size: 25px;
+  line-height: 1.4;
+  letter-spacing: -.015em;
+}
+
+.landing-page [lang='ar'],
+.landing-page .live-dashboard aside > b,
+.landing-page .cta-banner strong[lang],
+.landing-page .mega-grid .module-group h3 small,
+.landing-page .mega-grid .module-item strong small {
+  font-family: var(--font-arabic);
+  letter-spacing: normal;
+}
+
+.landing-page .live-dashboard,
+.landing-page .live-dashboard aside > b > span {
+  font-family: var(--font-english);
+}
+
+.landing-page button,
+.landing-page input,
+.landing-page select {
+  font-family: inherit;
+}
+
+.landing-page .header-inner { gap: 28px; }
+.landing-page .desktop-nav { gap: 24px; margin-left: 12px; }
+.landing-page .desktop-nav > a,
+.landing-page .desktop-nav > button { font-size: 12px; }
+.landing-page .compact .module-item strong { line-height: 1.45; }
+.landing-page .price-card h3 { line-height: 1.45; }
+.landing-page .price > strong { font-weight: 700; }
+.landing-page .value-card h2 { line-height: 1.3; }
+.landing-page .phone-grid { gap: 4px; }
+.landing-page .phone-grid small { font-size: 4px; }
+.landing-page .phone-preview > b { font-size: 9px; }
+
+@media (max-width: 1250px) {
+  .landing-page .header-inner { gap: 18px; }
+  .landing-page .desktop-nav { gap: 18px; margin-left: 0; }
+  .landing-page .desktop-nav > a,
+  .landing-page .desktop-nav > button { font-size: 10px; }
+  .landing-page .header-actions { gap: 12px; }
+  .landing-page .upgrade-copy h2 { font-size: 22px; }
+}
+
+@media (max-width: 1000px) {
+  .landing-page .desktop-nav { gap: 12px; }
+  .landing-page .desktop-nav > a,
+  .landing-page .desktop-nav > button { font-size: 9px; }
+  .landing-page .upgrade-copy h2 { font-size: 20px; }
+}
+
+@media (max-width: 760px) {
+  .landing-page .header-inner { gap: 12px; }
+  .landing-page .upgrade-copy h2 { font-size: 22px; }
+  .landing-page .upgrade-copy h1 { letter-spacing: -.045em; }
+  .landing-page .upgrade-hero > .container { min-height: 950px; }
+  .landing-page .phone-preview > b { font-size: 8px; }
+  .landing-page .phone-booking strong { font-size: 5px; }
+  html[dir='rtl'] .landing-page .upgrade-hero::after {
+    background: linear-gradient(180deg, var(--beige) 42%, rgb(242 240 235 / .8) 61%, transparent);
+  }
+}
+
+@media (max-width: 380px) {
+  .landing-page .upgrade-copy h2 { font-size: 20px; }
+}
