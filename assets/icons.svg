@@ -43,5 +43,7 @@
 <symbol id="i-hotel" viewBox="0 0 24 24"><path d="M10 22v-6.57"/><path d="M12 11h.01"/><path d="M12 7h.01"/><path d="M14 15.43V22"/><path d="M15 16a5 5 0 0 0-6 0"/><path d="M16 11h.01"/><path d="M16 7h.01"/><path d="M8 11h.01"/><path d="M8 7h.01"/><rect x="4" y="2" width="16" height="20" rx="2"/></symbol>
 <!-- decorative palm leaves for the navy bands (solid fills: gradients do not resolve through an external <use> in every browser) -->
 <symbol id="art-leaves" viewBox="0 0 220 320"><g stroke="#6F8A74" stroke-opacity=".35" stroke-width="1.2"><path fill="#2E4136" d="M220 150 C 186 120 120 104 64 120 C 112 132 170 150 220 170 Z"/><path fill="#36503F" d="M220 190 C 170 168 96 176 40 214 C 100 210 168 206 220 214 Z"/><path fill="#2A3B31" d="M220 120 C 196 80 150 36 96 22 C 134 58 174 96 220 140 Z"/><path fill="#3A5644" d="M220 236 C 176 230 112 252 70 292 C 126 278 176 262 220 256 Z"/><path fill="#2E4136" d="M220 92 C 214 58 196 18 168 0 C 182 38 196 74 210 110 Z"/><path fill="#33493B" d="M220 270 C 190 280 160 300 140 320 L 220 320 Z"/></g></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></symbol>
+<symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
 <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></symbol>
 </svg>
