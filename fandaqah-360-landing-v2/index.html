@@ -12,6 +12,12 @@
 <meta property="og:title" content="Fandaqah 360 | The Complete Hospitality Upgrade">
 <meta property="og:description" content="One platform. More control. More value. Twenty modules across operations, sales, guest experience and government compliance.">
 <meta property="og:image" content="assets/img/og-card.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@fandaqah">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Fandaqah","alternateName":"فندقة","url":"https://www.fandaqah.com","email":"info@fandaqah.com","telephone":"+966920066456",
+ "sameAs":["https://www.linkedin.com/company/fandaqah/","https://x.com/fandaqah","https://www.instagram.com/fandaqah.pms","https://www.facebook.com/pmsfandaqah/"]}
+</script>
 <link rel="apple-touch-icon" href="assets/img/icon-180.png">
 <link rel="preload" href="assets/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -45,7 +51,7 @@
 }
 html[lang="ar"]{ --f-serif:"El Messiri", "Source Serif 4", serif; --f-sans:"Almarai", "Montserrat", system-ui, sans-serif; }
 html[lang="ar"] body *{letter-spacing:0 !important}
-html[lang="ar"] .h1-word{font-family:"El Messiri", var(--f-sans);font-weight:700;font-size:84px}
+html[lang="ar"] .h1-word{font-family:"El Messiri", var(--f-sans);font-weight:700;font-size:1.05em}
 html[lang="ar"] .hero-sub{font-size:29px}
 html[lang="ar"] .value h2{text-wrap:balance}
 .nw{white-space:nowrap}
@@ -144,29 +150,29 @@ button{font:inherit;color:inherit}
 .cd-u b{font-size:20px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
 .cd-u small{margin-top:4px;font-size:9px;font-weight:600;opacity:.92}
 .cd.is-over{opacity:.55}
-.h1{margin-top:14px;color:var(--ink);line-height:.94}
-.h1-word{display:block;font-family:var(--f-sans);font-weight:700;font-size:80px;letter-spacing:-.035em}
-.h1-num{display:block;margin-top:6px;font-family:"Source Serif 4", Georgia, serif;font-weight:700;font-size:112px;letter-spacing:-.03em;color:var(--coral)}
-.hero-sub{margin-top:10px;font-family:var(--f-serif);font-weight:500;font-size:30px;line-height:1.25;letter-spacing:-.01em;color:var(--ink)}
-.aud{display:inline-flex;align-items:center;gap:14px;height:53px;margin-top:26px;padding:0 28px 0 9px;border-radius:var(--r-pill);background:var(--navy);color:#fff;font-size:15px;font-weight:600;box-shadow:0 12px 26px -16px rgba(28,33,64,.8)}
-.aud .play{display:grid;place-items:center;width:35px;height:35px;border-radius:50%;background:var(--coral-strong)}
-.aud .play .ic{width:15px;height:15px;fill:#fff;stroke:#fff;margin-inline-start:2px}
-[dir="rtl"] .aud .play .ic{transform:scaleX(-1);margin-inline-start:0;margin-inline-end:2px}
-.hero-ctas{display:flex;flex-wrap:wrap;gap:16px;margin-top:20px}
+/* "Fandaqah 360" sits on one line; both words scale from the h1 font-size */
+.h1{display:flex;align-items:baseline;gap:.24em;margin-top:14px;font-size:80px;line-height:.94;white-space:nowrap;color:var(--ink)}
+.h1-word{font-family:var(--f-sans);font-weight:700;font-size:1em;letter-spacing:-.035em}
+.h1-num{font-family:"Source Serif 4", Georgia, serif;font-weight:700;font-size:1.2em;letter-spacing:-.03em;color:var(--coral)}
+.hero-sub{margin-top:12px;font-family:var(--f-serif);font-weight:500;font-size:30px;line-height:1.25;letter-spacing:-.01em;color:var(--ink)}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:16px;margin-top:30px}
 .proof{display:flex;align-items:center;gap:14px;margin-top:24px;font-size:13px;color:var(--ink-3)}
 .avatars{display:flex;flex:none}
 .avatars img{width:34px;height:34px;border-radius:50%;object-fit:cover;border:2px solid #fff;box-shadow:0 2px 6px rgba(28,33,64,.15)}
 .avatars img+img{margin-inline-start:-9px}
 
-/* value card floats over the photograph on desktop */
-.value-plane{position:absolute;z-index:4;top:58px;inset-inline-end:114px;width:415px}
-.value{padding:26px 30px 24px;border-radius:var(--r-lg);background:rgba(255,255,255,.96);box-shadow:var(--e3), inset 0 1px 0 #fff}
-.value h2{font-family:var(--f-serif);font-weight:700;font-size:24px;line-height:1.2;letter-spacing:-.015em;color:var(--ink)}
-.value p{margin-top:12px;font-size:13px;line-height:1.6;color:var(--ink-2)}
-.checks{display:flex;flex-wrap:wrap;gap:10px 14px;margin-top:14px}
-.checks li{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:var(--ink-2)}
+/* value card sits under the hero copy, in the same column */
+.value-plane{position:relative;z-index:3;max-width:540px;margin-top:30px}
+.value{padding:22px 26px;border-radius:var(--r-lg);background:rgba(255,255,255,.86);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:var(--e2), inset 0 0 0 1px rgba(255,255,255,.9)}
+.value-head{display:flex;align-items:center;gap:14px}
+.value h2{font-family:var(--f-serif);font-weight:700;font-size:21px;line-height:1.25;letter-spacing:-.015em;color:var(--ink);text-wrap:balance}
+.value p{margin-top:12px;font-size:14px;line-height:1.6;color:var(--ink-2);text-wrap:pretty}
+.checks{display:flex;flex-wrap:wrap;gap:10px 16px;margin-top:14px}
+.checks li{display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:500;color:var(--ink-2)}
 .checks .tick{display:grid;place-items:center;width:17px;height:17px;border-radius:50%;background:var(--peach-100);color:var(--coral-strong)}
 .checks .tick .ic{width:11px;height:11px;stroke-width:3}
+/* English labels are too long for one row in the desktop column: a 2x2 grid instead of a lone wrapped item */
+@media (min-width:1181px){ html[lang="en"] .checks{display:grid;grid-template-columns:repeat(2, max-content);column-gap:40px} }
 
 /* layered scene: photo (far) / wave / plant (mid) / devices (near) */
 .hero-visual{position:absolute;inset:0;z-index:1;pointer-events:none}
@@ -316,6 +322,11 @@ button{font:inherit;color:inherit}
 .pcard-rec h3 span{color:var(--coral)}
 .rec-flag{position:absolute !important;top:-13px;left:50%;transform:translateX(-50%);height:27px;padding:0 20px;border-radius:var(--r-pill);background:var(--coral-strong);color:#fff;font-size:13px;font-weight:600;line-height:27px;white-space:nowrap;box-shadow:0 8px 16px -8px rgba(212,65,59,.8)}
 .pcard-rec .feats{font-size:14px;line-height:1.4;gap:4px}
+/* jump back up to the full module list from the 360 card */
+.see-all{display:inline-flex;align-items:center;align-self:flex-start;gap:8px;height:36px;margin-top:14px;padding:0 16px;border-radius:var(--r-pill);background:rgba(255,255,255,.72);color:var(--coral-strong);font-size:13.5px;font-weight:700;text-decoration:none;box-shadow:inset 0 0 0 1.5px rgba(212,65,59,.35);transition:background-color .16s var(--ease), transform .16s var(--ease)}
+.see-all .ic{width:16px;height:16px;stroke-width:2.4;transition:transform .2s var(--spring)}
+.see-all:active{transform:translateY(1px)}
+@media (hover:hover) and (pointer:fine){ .see-all:hover{background:#fff} .see-all:hover .ic{transform:translateY(-3px)} }
 .fine{margin-top:12px;font-size:11.5px;line-height:1.55;color:var(--ink-3)}
 .pcard-rec > .fine{position:absolute;inset-inline:26px;bottom:20px;margin:0}
 .pcard-ref{padding-bottom:24px}
@@ -371,15 +382,21 @@ button{font:inherit;color:inherit}
 .foot{position:relative;z-index:1;background:var(--navy-foot);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.08);--focus:#FBCDAB}
 .foot-in{display:flex;align-items:center;gap:56px;min-height:88px;padding:14px 0}
 .foot-brand img{height:52px;width:auto}
-.social{display:flex;flex-wrap:wrap;gap:12px 40px}
-.social a{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;text-decoration:none;border-radius:8px}
-.social .sb{display:grid;place-items:center;width:29px;height:29px;border-radius:50%;color:#fff}
-.social .sb .ic{width:15px;height:15px}
+/* one "Follow us" label + brand-coloured icon buttons: scales to more networks without wrapping the footer */
+.follow{display:flex;align-items:center;gap:16px}
+.follow-label{font-size:13px;font-weight:600;color:rgba(255,255,255,.72)}
+.social{display:flex;gap:10px}
+.social a{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.14), 0 6px 14px -8px rgba(5,8,25,.8);transition:transform .16s var(--ease)}
+.social .ic{width:17px;height:17px}
+.social .fill{fill:#fff;stroke:none}
+.social .in{background:#0A66C2}
+.social .x{background:#0B0B0F;box-shadow:inset 0 0 0 1px rgba(255,255,255,.32), 0 6px 14px -8px rgba(5,8,25,.8)}
+.social .x .ic{width:14px;height:14px}
 .social .fb{background:#1877F2}
-.social .fb .ic{fill:#fff;stroke:none}
 .social .ig{background:radial-gradient(circle at 30% 107%, #FDF497 0%, #FD5949 45%, #D6249F 60%, #285AEB 90%)}
-@media (hover:hover) and (pointer:fine){ .social a:hover span:last-child,.legal a:hover{text-decoration:underline;text-underline-offset:3px} }
-.social a:active,.legal a:active{transform:translateY(1px)}
+@media (hover:hover) and (pointer:fine){ .social a:hover{transform:translateY(-2px)} .legal a:hover{text-decoration:underline;text-underline-offset:3px} }
+.social a:active{transform:scale(.94)}
+.legal a:active{transform:translateY(1px)}
 .foot-end{margin-inline-start:auto;text-align:end}
 .legal{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:4px 0;font-size:13px;font-weight:600}
 .legal a{text-decoration:none;border-radius:6px}
@@ -396,7 +413,7 @@ button{font:inherit;color:inherit}
 @keyframes lift{from{opacity:0;transform:translate3d(0,40px,0) scale(.97)}to{opacity:1;transform:none}}
 .js .hero-copy > *{animation:rise .9s var(--ease) both;animation-delay:calc(var(--i, 0) * 70ms + 80ms)}
 .js .hero-photo img{animation:settle 1.6s var(--ease) both}
-.js .value{animation:lift 1s var(--ease) .35s both}
+.js .value{animation:rise .9s var(--ease) .45s both}
 .js .devices-in{animation:lift 1.1s var(--ease) .5s both}
 .js .plant-in{animation:rise 1.2s var(--ease) .65s both}
 .devices-in,.plant-in{height:100%}
@@ -407,13 +424,12 @@ button{font:inherit;color:inherit}
   .js [data-reveal].is-in{transition:opacity .4s linear}
   .js .hero-copy > *,.js .value,.js .devices-in,.js .plant-in{animation:none}
   .js .hero-photo img{animation:none}
-  .btn,.mod,.pcard{transition:none}
+  .btn,.mod,.pcard,.see-all,.see-all .ic,.social a{transition:none}
 }
 
 /* ---------- Responsive ---------- */
 @media (max-width:1360px){
   .devices{transform:scale(.88)}
-  .value-plane{inset-inline-end:80px;width:390px}
 }
 @media (max-width:1320px){ .plant{display:none} }
 @media (max-width:1240px){
@@ -437,7 +453,7 @@ button{font:inherit;color:inherit}
   .hero-grid{display:contents}
   .hero-copy{order:1;width:calc(100% - 2 * var(--gutter));max-width:none;margin-inline:auto}
   .hero-visual{order:2;position:relative;inset:auto;width:calc(100% - 2 * var(--gutter));height:430px;margin-inline:auto;border-radius:24px;overflow:hidden;box-shadow:var(--e2)}
-  .value-plane{order:3;position:relative;top:auto;inset-inline-end:auto;width:calc(100% - 2 * var(--gutter));max-width:640px;margin-inline-start:var(--gutter)}
+  .value-plane{order:3;width:calc(100% - 2 * var(--gutter));max-width:640px;margin:0;margin-inline-start:var(--gutter)}
   .hero-photo{inset:0;width:100%;height:100%;-webkit-mask-image:none;mask-image:none}
   [dir="rtl"] .hero-photo{-webkit-mask-image:none;mask-image:none}
   .hero-photo img{object-position:60% 45%}
@@ -472,18 +488,15 @@ button{font:inherit;color:inherit}
   .cta .btn{grid-column:auto;justify-self:stretch;margin:0 22px}
   .contacts{gap:10px 24px}
   .contacts a{min-height:40px}
-  .social a{min-height:40px}
+  .social a{width:40px;height:40px}
   .legal a{display:inline-flex;align-items:center;min-height:40px}
   .sec-inc{padding:48px 0 40px}
   .sec-price{padding:40px 0 52px}
 }
 @media (max-width:560px){
-  .h1-word{font-size:56px}
-  .h1-num{font-size:80px}
+  .h1{font-size:clamp(36px, 12.4vw, 48px)}
   .hero-sub{font-size:23px}
-  .aud{height:auto;min-height:48px;padding:7px 20px 7px 7px;font-size:14px}
-  .aud .play{width:32px;height:32px}
-  .hero-ctas{flex-direction:column}
+  .hero-ctas{margin-top:24px;flex-direction:column}
   .hero-ctas .btn{width:100%}
   .proof{align-items:flex-start}
   .hero-visual{height:300px;border-radius:20px}
@@ -501,7 +514,6 @@ button{font:inherit;color:inherit}
   .gcard{min-height:0}
   .cta-copy h2{font-size:25px}
   .price .amt{font-size:38px}
-  .social{gap:12px 24px}
   .legal{font-size:12.5px}
   .legal li+li::before{margin:0 8px}
 }
@@ -509,7 +521,6 @@ button{font:inherit;color:inherit}
   .devices{transform:translateX(50%) scale(.45)}
   [dir="rtl"] .devices{transform:translateX(50%) scale(.45)}
   .offer-badge{font-size:12.5px}
-  .h1-word{font-size:50px}
 }
 </style>
 </head>
@@ -548,8 +559,8 @@ button{font:inherit;color:inherit}
 <symbol id="i-refresh-ccw" viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16" /><path d="M16 16h5v5" /></symbol>
 <symbol id="i-timer" viewBox="0 0 24 24"><line x1="10" x2="14" y1="2" y2="2" /><line x1="12" x2="15" y1="14" y2="11" /><circle cx="12" cy="14" r="8" /></symbol>
 <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></symbol>
-<symbol id="i-play" viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3" /></symbol>
 <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></symbol>
+<symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7" /><path d="M12 19V5" /></symbol>
 <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></symbol>
 <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></symbol>
 <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></symbol>
@@ -630,12 +641,11 @@ button{font:inherit;color:inherit}
         </div>
         <h1 class="h1" id="hero-title" style="--i:1"><span class="h1-word" data-i18n="hero.word">Fandaqah</span> <span class="h1-num">360</span></h1>
         <p class="hero-sub" style="--i:2" data-i18n="hero.sub">The Complete Hospitality Upgrade</p>
-        <p class="aud" style="--i:3"><span class="play" aria-hidden="true"><svg class="ic"><use href="#i-play"/></svg></span><span data-i18n="hero.aud">For New &amp; Existing Customers</span></p>
-        <div class="hero-ctas" style="--i:4">
-          <a class="btn btn-coral" data-wa="general" href="https://wa.me/966555947522" target="_blank" rel="noopener"><span data-i18n="cta.today">Activate your upgrade today</span><svg class="ic ic-go" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+        <div class="hero-ctas" style="--i:3">
+          <a class="btn btn-coral" data-wa="general" href="https://wa.me/966555947522" target="_blank" rel="noopener"><span data-i18n="cta.today">Upgrade today</span><svg class="ic ic-go" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
           <a class="btn btn-ghost" href="#included" data-i18n="cta.see">See what’s included</a>
         </div>
-        <div class="proof" style="--i:5">
+        <div class="proof" style="--i:4">
           <span class="avatars" aria-hidden="true">
             <img src="assets/img/av-resort.webp" width="112" height="112" alt="">
             <img src="assets/img/av-lobby.webp" width="112" height="112" alt="">
@@ -645,9 +655,9 @@ button{font:inherit;color:inherit}
         </div>
       </div>
 
-      <div class="value-plane plane" data-plane="card">
+      <div class="value-plane">
         <div class="value">
-          <h2 data-i18n="val.title">One Platform. More Control. More Value.</h2>
+          <div class="value-head"><span class="tile" aria-hidden="true"><svg class="ic"><use href="#i-layers"/></svg></span><h2 data-i18n="val.title">One Platform. More Control. More Value.</h2></div>
           <p data-i18n="val.text">Upgrade from core PMS to a complete hospitality operating stack, combining compliance, distribution, guest experience and property operations.</p>
           <ul class="checks">
             <li><span class="tick" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg></span><span data-i18n="val.c1">Reservations</span></li>
@@ -763,35 +773,34 @@ button{font:inherit;color:inherit}
     <div class="wrap">
       <div class="sec-head" data-reveal>
         <div><h2 class="h2" id="integ-title" data-i18n="integ.title">Integrations &amp; Ecosystem</h2><span class="rule"></span></div>
-        <p class="sec-desc" data-i18n="integ.desc">Connected to the platforms, payment providers and booking channels that your hospitality business relies on.</p>
+        <p class="sec-desc" data-i18n="integ.desc">Seamless integration with the platforms, payment providers and booking channels that your hospitality business relies on.</p>
       </div>
       <div class="integ-grid">
         <article class="icard" data-reveal style="--i:0">
           <h3><span class="tile"><svg class="ic"><use href="#i-landmark"/></svg></span><span data-i18n="integ.gov">Government Services</span></h3>
           <ul class="pills pills-stack">
             <li data-i18n="gov.mot">Ministry of Tourism</li>
-            <li data-i18n="gov.moi">Ministry of Interior</li>
-            <li data-i18n="gov.ntmp">NTMP</li>
+            <li data-i18n="gov.zatca">ZATCA Phase 2</li>
             <li data-i18n="gov.shomoos">Shomoos</li>
-            <li data-i18n="gov.elm">Elm</li>
+            <li data-i18n="m.shw">Shomoos Wallet</li>
           </ul>
         </article>
         <article class="icard" data-reveal style="--i:1">
           <h3><span class="tile"><svg class="ic"><use href="#i-wallet-cards"/></svg></span><span data-i18n="integ.pay">Payment Options</span></h3>
           <ul class="pills">
-            <li>Apple Pay</li><li data-i18n="pay.mada">mada</li><li>VISA</li><li>Mastercard</li><li>tabby</li><li>tamara</li>
+            <li data-i18n="pay.apple">Apple Pay</li><li data-i18n="pay.mada">mada</li><li data-i18n="pay.visa">VISA</li><li data-i18n="pay.mc">Mastercard</li><li data-i18n="pay.tabby">tabby</li><li data-i18n="pay.tamara">tamara</li>
           </ul>
         </article>
         <article class="icard" data-reveal style="--i:2">
           <h3><span class="tile"><svg class="ic"><use href="#i-globe"/></svg></span><span data-i18n="integ.ota">OTAs &amp; Distribution</span></h3>
           <ul class="pills">
-            <li>Booking.com</li><li>agoda</li><li>Expedia</li><li>Trip.com</li><li>airbnb</li><li>Hotels.com</li><li>HRS</li>
+            <li data-i18n="ota.booking">Booking.com</li><li data-i18n="ota.agoda">agoda</li><li data-i18n="ota.expedia">Expedia</li><li data-i18n="ota.trip">Trip.com</li><li data-i18n="ota.airbnb">airbnb</li><li data-i18n="ota.hotels">Hotels.com</li><li data-i18n="ota.hrs">HRS</li>
           </ul>
         </article>
         <article class="icard" data-reveal style="--i:3">
-          <h3><span class="tile"><svg class="ic"><use href="#i-fingerprint"/></svg></span><span data-i18n="integ.bio">Biometric Devices</span></h3>
+          <h3><span class="tile"><svg class="ic"><use href="#i-fingerprint"/></svg></span><span data-i18n="integ.bio">Attendance Devices</span></h3>
           <ul class="pills">
-            <li class="alt">ZKTeco</li>
+            <li class="alt" data-i18n="bio.zk">ZKTeco</li>
             <li class="more"><svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg><span data-i18n="bio.more">More</span></li>
           </ul>
         </article>
@@ -904,11 +913,12 @@ button{font:inherit;color:inherit}
           <p class="per" data-i18n="pr.year">/year</p>
           <ul class="feats">
             <li data-i18n="pr.r1">Everything in Compliance + Premium Support</li>
-            <li data-i18n="pr.r2">Full Access to All Modules</li>
+            <li data-i18n="pr.r2">All Fandaqah services available now, plus those added later</li>
             <li data-i18n="pr.r3">Priority Onboarding</li>
           </ul>
+          <a class="see-all" href="#included"><span data-i18n="pr.seeAll">See all features</span><svg class="ic" aria-hidden="true"><use href="#i-arrow-up"/></svg></a>
           <div class="bnpl" aria-label="Pay with tabby or tamara"><span>tabby</span><span class="tamara">tamara</span></div>
-          <a class="btn btn-coral" data-wa="360" href="https://wa.me/966555947522" target="_blank" rel="noopener" data-i18n="cta.today">Activate your upgrade today</a>
+          <a class="btn btn-coral" data-wa="360" href="https://wa.me/966555947522" target="_blank" rel="noopener" data-i18n="cta.today">Upgrade today</a>
           <p class="fine" data-i18n="pr.fine">*Two-year purchase of Fandaqah 360 includes special pricing and priority support. Terms &amp; Conditions apply.</p>
         </article>
       </div>
@@ -967,8 +977,8 @@ button{font:inherit;color:inherit}
         <div class="cta" data-reveal>
           <figure class="cta-art" aria-hidden="true"><img src="assets/img/cta-host.webp" width="640" height="412" alt="" loading="lazy"></figure>
           <div class="cta-copy">
-            <h2 id="cta-title" data-i18n="cta.title">Activate your upgrade today</h2>
-            <p data-i18n="cta.text">Limited-time offer, may end soon. Lock in the special price for two years.</p>
+            <h2 id="cta-title" data-i18n="cta.title">Upgrade today</h2>
+            <p data-i18n="cta.text">Limited-time offer. Subscribe for 2 years to enjoy this special price.</p>
             <div class="bnpl" aria-label="Pay with tabby or tamara"><span>tabby</span><span class="tamara">tamara</span></div>
             <div class="contacts">
               <a href="tel:+966920066456"><span class="ci dark" aria-hidden="true"><svg class="ic"><use href="#i-phone"/></svg></span><span dir="ltr">+966 9200 66456</span></a>
@@ -986,10 +996,15 @@ button{font:inherit;color:inherit}
 <footer class="foot">
   <div class="wrap foot-in">
     <a class="foot-brand" href="#top" data-i18n-aria="aria.home" aria-label="Fandaqah home"><img src="assets/img/brand-light-340.webp" width="340" height="144" alt="Fandaqah" loading="lazy"></a>
-    <ul class="social">
-      <li><a href="https://www.facebook.com/pmsfandaqah/" target="_blank" rel="noopener"><span class="sb fb" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24"><path d="M13.5 21v-7.2h2.4l.4-2.9h-2.8V9.1c0-.8.2-1.4 1.4-1.4h1.5V5.1c-.3 0-1.1-.1-2.2-.1-2.2 0-3.6 1.3-3.6 3.7v2.2H8.2v2.9h2.4V21z"/></svg></span><span data-i18n="f.fb">Follow us on Facebook</span></a></li>
-      <li><a href="https://www.instagram.com/fandaqah.pms" target="_blank" rel="noopener"><span class="sb ig" aria-hidden="true"><svg class="ic"><use href="#i-instagram"/></svg></span><span data-i18n="f.ig">Follow us on Instagram</span></a></li>
-    </ul>
+    <div class="follow">
+      <span class="follow-label" id="follow-label" data-i18n="f.follow">Follow us</span>
+      <ul class="social" aria-labelledby="follow-label">
+        <li><a class="in" href="https://www.linkedin.com/company/fandaqah/" target="_blank" rel="noopener" aria-label="Fandaqah on LinkedIn" data-i18n-aria="f.in"><svg class="ic fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 9h3.6v11.5H3.6zM5.4 3.3a2.08 2.08 0 1 1 0 4.16 2.08 2.08 0 0 1 0-4.16ZM9.6 9H13v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.32h-3.55v-5.6c0-1.34-.03-3.06-1.86-3.06-1.86 0-2.15 1.45-2.15 2.95v5.71H9.6Z"/></svg></a></li>
+        <li><a class="x" href="https://x.com/fandaqah" target="_blank" rel="noopener" aria-label="Fandaqah on X (Twitter)" data-i18n-aria="f.x"><svg class="ic fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></a></li>
+        <li><a class="ig" href="https://www.instagram.com/fandaqah.pms" target="_blank" rel="noopener" aria-label="Fandaqah on Instagram" data-i18n-aria="f.ig"><svg class="ic" aria-hidden="true"><use href="#i-instagram"/></svg></a></li>
+        <li><a class="fb" href="https://www.facebook.com/pmsfandaqah/" target="_blank" rel="noopener" aria-label="Fandaqah on Facebook" data-i18n-aria="f.fb"><svg class="ic fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.2h2.4l.4-2.9h-2.8V9.1c0-.8.2-1.4 1.4-1.4h1.5V5.1c-.3 0-1.1-.1-2.2-.1-2.2 0-3.6 1.3-3.6 3.7v2.2H8.2v2.9h2.4V21z"/></svg></a></li>
+      </ul>
+    </div>
     <div class="foot-end">
       <ul class="legal">
         <li><a href="https://fandaqah.com/en/store/policy" data-href-ar="https://fandaqah.com/store/policy" data-i18n="f.terms">Terms &amp; Conditions</a></li>
@@ -1000,7 +1015,7 @@ button{font:inherit;color:inherit}
     </div>
   </div>
 </footer>
-<div class="pattern" aria-hidden="true"><svg viewBox="0 0 1272 34" focusable="false"><rect x="0" y="0" width="22" height="15" rx="7" fill="#E95A54"/><rect x="0" y="19" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="26" y="0" width="22" height="15" rx="7" fill="#B5454A"/><rect x="26" y="19" width="22" height="15" rx="7" fill="#2A2D4A"/><rect x="52" y="0" width="15" height="34" rx="7" fill="#2A2D4A"/><rect x="71" y="0" width="15" height="15" rx="7" fill="#E95A54"/><rect x="71" y="19" width="15" height="15" rx="7" fill="#E95A54"/><rect x="90" y="0" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="90" y="19" width="22" height="15" rx="7" fill="#2A2D4A"/><rect x="116" y="0" width="15" height="15" rx="7" fill="#93A09C"/><rect x="116" y="19" width="15" height="15" rx="7" fill="#E95A54"/><rect x="135" y="0" width="15" height="15" rx="7" fill="#E95A54"/><rect x="135" y="19" width="15" height="15" rx="7" fill="#FBCDAB"/><rect x="154" y="0" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="154" y="19" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="180" y="0" width="15" height="15" rx="7" fill="#2A2D4A"/><rect x="180" y="19" width="15" height="15" rx="7" fill="#93A09C"/><rect x="199" y="0" width="30" height="15" rx="7" fill="#FBCDAB"/><rect x="199" y="19" width="30" height="15" rx="7" fill="#E95A54"/><rect x="233" y="0" width="22" height="15" rx="7" fill="#E4DDD2"/><rect x="233" y="19" width="22" height="15" rx="7" fill="#E95A54"/><rect x="259" y="0" width="30" height="15" rx="7" fill="#F6DDCB"/><rect x="259" y="19" width="13" height="15" rx="7" fill="#93A09C"/><rect x="276" y="19" width="13" height="15" rx="7" fill="#FBCDAB"/><rect x="293" y="0" width="15" height="34" rx="7" fill="#2A2D4A"/><rect x="312" y="0" width="15" height="15" rx="7" fill="#E95A54"/><rect x="312" y="19" width="15" height="15" rx="7" fill="#E95A54"/><rect x="331" y="0" width="15" height="15" rx="7" fill="#E95A54"/><rect x="331" y="19" width="15" height="15" rx="7" fill="#F6DDCB"/><rect x="350" y="0" width="40" height="15" rx="7" fill="#E95A54"/><rect x="350" y="19" width="40" height="15" rx="7" fill="#2A2D4A"/><rect x="394" y="0" width="22" height="15" rx="7" fill="#E4DDD2"/><rect x="394" y="19" width="22" height="15" rx="7" fill="#E95A54"/><rect x="420" y="0" width="22" height="15" rx="7" fill="#E4DDD2"/><rect x="420" y="19" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="446" y="0" width="30" height="15" rx="7" fill="#E4DDD2"/><rect x="446" y="19" width="30" height="15" rx="7" fill="#93A09C"/><rect x="480" y="0" width="40" height="15" rx="7" fill="#F6DDCB"/><rect x="480" y="19" width="18" height="15" rx="7" fill="#E4DDD2"/><rect x="502" y="19" width="18" height="15" rx="7" fill="#93A09C"/><rect x="524" y="0" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="524" y="19" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="550" y="0" width="22" height="15" rx="7" fill="#E4DDD2"/><rect x="550" y="19" width="22" height="15" rx="7" fill="#93A09C"/><rect x="576" y="0" width="40" height="15" rx="7" fill="#FBCDAB"/><rect x="576" y="19" width="18" height="15" rx="7" fill="#E95A54"/><rect x="598" y="19" width="18" height="15" rx="7" fill="#B5454A"/><rect x="620" y="0" width="15" height="15" rx="7" fill="#E95A54"/><rect x="620" y="19" width="15" height="15" rx="7" fill="#E4DDD2"/><rect x="639" y="0" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="639" y="19" width="22" height="15" rx="7" fill="#E95A54"/><rect x="665" y="0" width="15" height="15" rx="7" fill="#E4DDD2"/><rect x="665" y="19" width="15" height="15" rx="7" fill="#B5454A"/><rect x="684" y="0" width="22" height="15" rx="7" fill="#B5454A"/><rect x="684" y="19" width="22" height="15" rx="7" fill="#E4DDD2"/><rect x="710" y="0" width="15" height="15" rx="7" fill="#93A09C"/><rect x="710" y="19" width="15" height="15" rx="7" fill="#FBCDAB"/><rect x="729" y="0" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="729" y="19" width="22" height="15" rx="7" fill="#E4DDD2"/><rect x="755" y="0" width="22" height="15" rx="7" fill="#F6DDCB"/><rect x="755" y="19" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="781" y="0" width="15" height="15" rx="7" fill="#F6DDCB"/><rect x="781" y="19" width="15" height="15" rx="7" fill="#F6DDCB"/><rect x="800" y="0" width="22" height="15" rx="7" fill="#B5454A"/><rect x="800" y="19" width="22" height="15" rx="7" fill="#93A09C"/><rect x="826" y="0" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="826" y="19" width="22" height="15" rx="7" fill="#E4DDD2"/><rect x="852" y="0" width="30" height="15" rx="7" fill="#FBCDAB"/><rect x="852" y="19" width="30" height="15" rx="7" fill="#E95A54"/><rect x="886" y="0" width="15" height="15" rx="7" fill="#E95A54"/><rect x="886" y="19" width="15" height="15" rx="7" fill="#93A09C"/><rect x="905" y="0" width="22" height="15" rx="7" fill="#2A2D4A"/><rect x="905" y="19" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="931" y="0" width="30" height="15" rx="7" fill="#E4DDD2"/><rect x="931" y="19" width="13" height="15" rx="7" fill="#FBCDAB"/><rect x="948" y="19" width="13" height="15" rx="7" fill="#2A2D4A"/><rect x="965" y="0" width="30" height="15" rx="7" fill="#E95A54"/><rect x="965" y="19" width="13" height="15" rx="7" fill="#93A09C"/><rect x="982" y="19" width="13" height="15" rx="7" fill="#FBCDAB"/><rect x="999" y="0" width="22" height="15" rx="7" fill="#93A09C"/><rect x="999" y="19" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="1025" y="0" width="40" height="15" rx="7" fill="#93A09C"/><rect x="1025" y="19" width="40" height="15" rx="7" fill="#FBCDAB"/><rect x="1069" y="0" width="30" height="15" rx="7" fill="#2A2D4A"/><rect x="1069" y="19" width="13" height="15" rx="7" fill="#E4DDD2"/><rect x="1086" y="19" width="13" height="15" rx="7" fill="#F6DDCB"/><rect x="1103" y="0" width="30" height="15" rx="7" fill="#F6DDCB"/><rect x="1103" y="19" width="30" height="15" rx="7" fill="#F6DDCB"/><rect x="1137" y="0" width="22" height="15" rx="7" fill="#E95A54"/><rect x="1137" y="19" width="22" height="15" rx="7" fill="#2A2D4A"/><rect x="1163" y="0" width="15" height="15" rx="7" fill="#B5454A"/><rect x="1163" y="19" width="15" height="15" rx="7" fill="#E95A54"/><rect x="1182" y="0" width="15" height="15" rx="7" fill="#E4DDD2"/><rect x="1182" y="19" width="15" height="15" rx="7" fill="#E4DDD2"/><rect x="1201" y="0" width="15" height="15" rx="7" fill="#FBCDAB"/><rect x="1201" y="19" width="15" height="15" rx="7" fill="#FBCDAB"/><rect x="1220" y="0" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="1220" y="19" width="22" height="15" rx="7" fill="#E95A54"/><rect x="1246" y="0" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="1246" y="19" width="22" height="15" rx="7" fill="#E4DDD2"/></svg></div>
+<!-- <div class="pattern" aria-hidden="true"><svg viewBox="0 0 1272 34" focusable="false"><rect x="0" y="0" width="22" height="15" rx="7" fill="#E95A54"/><rect x="0" y="19" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="26" y="0" width="22" height="15" rx="7" fill="#B5454A"/><rect x="26" y="19" width="22" height="15" rx="7" fill="#2A2D4A"/><rect x="52" y="0" width="15" height="34" rx="7" fill="#2A2D4A"/><rect x="71" y="0" width="15" height="15" rx="7" fill="#E95A54"/><rect x="71" y="19" width="15" height="15" rx="7" fill="#E95A54"/><rect x="90" y="0" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="90" y="19" width="22" height="15" rx="7" fill="#2A2D4A"/><rect x="116" y="0" width="15" height="15" rx="7" fill="#93A09C"/><rect x="116" y="19" width="15" height="15" rx="7" fill="#E95A54"/><rect x="135" y="0" width="15" height="15" rx="7" fill="#E95A54"/><rect x="135" y="19" width="15" height="15" rx="7" fill="#FBCDAB"/><rect x="154" y="0" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="154" y="19" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="180" y="0" width="15" height="15" rx="7" fill="#2A2D4A"/><rect x="180" y="19" width="15" height="15" rx="7" fill="#93A09C"/><rect x="199" y="0" width="30" height="15" rx="7" fill="#FBCDAB"/><rect x="199" y="19" width="30" height="15" rx="7" fill="#E95A54"/><rect x="233" y="0" width="22" height="15" rx="7" fill="#E4DDD2"/><rect x="233" y="19" width="22" height="15" rx="7" fill="#E95A54"/><rect x="259" y="0" width="30" height="15" rx="7" fill="#F6DDCB"/><rect x="259" y="19" width="13" height="15" rx="7" fill="#93A09C"/><rect x="276" y="19" width="13" height="15" rx="7" fill="#FBCDAB"/><rect x="293" y="0" width="15" height="34" rx="7" fill="#2A2D4A"/><rect x="312" y="0" width="15" height="15" rx="7" fill="#E95A54"/><rect x="312" y="19" width="15" height="15" rx="7" fill="#E95A54"/><rect x="331" y="0" width="15" height="15" rx="7" fill="#E95A54"/><rect x="331" y="19" width="15" height="15" rx="7" fill="#F6DDCB"/><rect x="350" y="0" width="40" height="15" rx="7" fill="#E95A54"/><rect x="350" y="19" width="40" height="15" rx="7" fill="#2A2D4A"/><rect x="394" y="0" width="22" height="15" rx="7" fill="#E4DDD2"/><rect x="394" y="19" width="22" height="15" rx="7" fill="#E95A54"/><rect x="420" y="0" width="22" height="15" rx="7" fill="#E4DDD2"/><rect x="420" y="19" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="446" y="0" width="30" height="15" rx="7" fill="#E4DDD2"/><rect x="446" y="19" width="30" height="15" rx="7" fill="#93A09C"/><rect x="480" y="0" width="40" height="15" rx="7" fill="#F6DDCB"/><rect x="480" y="19" width="18" height="15" rx="7" fill="#E4DDD2"/><rect x="502" y="19" width="18" height="15" rx="7" fill="#93A09C"/><rect x="524" y="0" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="524" y="19" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="550" y="0" width="22" height="15" rx="7" fill="#E4DDD2"/><rect x="550" y="19" width="22" height="15" rx="7" fill="#93A09C"/><rect x="576" y="0" width="40" height="15" rx="7" fill="#FBCDAB"/><rect x="576" y="19" width="18" height="15" rx="7" fill="#E95A54"/><rect x="598" y="19" width="18" height="15" rx="7" fill="#B5454A"/><rect x="620" y="0" width="15" height="15" rx="7" fill="#E95A54"/><rect x="620" y="19" width="15" height="15" rx="7" fill="#E4DDD2"/><rect x="639" y="0" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="639" y="19" width="22" height="15" rx="7" fill="#E95A54"/><rect x="665" y="0" width="15" height="15" rx="7" fill="#E4DDD2"/><rect x="665" y="19" width="15" height="15" rx="7" fill="#B5454A"/><rect x="684" y="0" width="22" height="15" rx="7" fill="#B5454A"/><rect x="684" y="19" width="22" height="15" rx="7" fill="#E4DDD2"/><rect x="710" y="0" width="15" height="15" rx="7" fill="#93A09C"/><rect x="710" y="19" width="15" height="15" rx="7" fill="#FBCDAB"/><rect x="729" y="0" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="729" y="19" width="22" height="15" rx="7" fill="#E4DDD2"/><rect x="755" y="0" width="22" height="15" rx="7" fill="#F6DDCB"/><rect x="755" y="19" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="781" y="0" width="15" height="15" rx="7" fill="#F6DDCB"/><rect x="781" y="19" width="15" height="15" rx="7" fill="#F6DDCB"/><rect x="800" y="0" width="22" height="15" rx="7" fill="#B5454A"/><rect x="800" y="19" width="22" height="15" rx="7" fill="#93A09C"/><rect x="826" y="0" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="826" y="19" width="22" height="15" rx="7" fill="#E4DDD2"/><rect x="852" y="0" width="30" height="15" rx="7" fill="#FBCDAB"/><rect x="852" y="19" width="30" height="15" rx="7" fill="#E95A54"/><rect x="886" y="0" width="15" height="15" rx="7" fill="#E95A54"/><rect x="886" y="19" width="15" height="15" rx="7" fill="#93A09C"/><rect x="905" y="0" width="22" height="15" rx="7" fill="#2A2D4A"/><rect x="905" y="19" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="931" y="0" width="30" height="15" rx="7" fill="#E4DDD2"/><rect x="931" y="19" width="13" height="15" rx="7" fill="#FBCDAB"/><rect x="948" y="19" width="13" height="15" rx="7" fill="#2A2D4A"/><rect x="965" y="0" width="30" height="15" rx="7" fill="#E95A54"/><rect x="965" y="19" width="13" height="15" rx="7" fill="#93A09C"/><rect x="982" y="19" width="13" height="15" rx="7" fill="#FBCDAB"/><rect x="999" y="0" width="22" height="15" rx="7" fill="#93A09C"/><rect x="999" y="19" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="1025" y="0" width="40" height="15" rx="7" fill="#93A09C"/><rect x="1025" y="19" width="40" height="15" rx="7" fill="#FBCDAB"/><rect x="1069" y="0" width="30" height="15" rx="7" fill="#2A2D4A"/><rect x="1069" y="19" width="13" height="15" rx="7" fill="#E4DDD2"/><rect x="1086" y="19" width="13" height="15" rx="7" fill="#F6DDCB"/><rect x="1103" y="0" width="30" height="15" rx="7" fill="#F6DDCB"/><rect x="1103" y="19" width="30" height="15" rx="7" fill="#F6DDCB"/><rect x="1137" y="0" width="22" height="15" rx="7" fill="#E95A54"/><rect x="1137" y="19" width="22" height="15" rx="7" fill="#2A2D4A"/><rect x="1163" y="0" width="15" height="15" rx="7" fill="#B5454A"/><rect x="1163" y="19" width="15" height="15" rx="7" fill="#E95A54"/><rect x="1182" y="0" width="15" height="15" rx="7" fill="#E4DDD2"/><rect x="1182" y="19" width="15" height="15" rx="7" fill="#E4DDD2"/><rect x="1201" y="0" width="15" height="15" rx="7" fill="#FBCDAB"/><rect x="1201" y="19" width="15" height="15" rx="7" fill="#FBCDAB"/><rect x="1220" y="0" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="1220" y="19" width="22" height="15" rx="7" fill="#E95A54"/><rect x="1246" y="0" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="1246" y="19" width="22" height="15" rx="7" fill="#E4DDD2"/></svg></div> -->
 
 <script>
 (() => {
@@ -1014,16 +1029,18 @@ button{font:inherit;color:inherit}
     'skip':'تخطَّ إلى المحتوى',
     'aria.home':'فندقة، الصفحة الرئيسية','aria.main':'القائمة الرئيسية','aria.lang':'اللغة','aria.menu':'فتح القائمة','aria.timer':'الوقت المتبقي على عرض الإطلاق',
     'nav.home':'الرئيسية','nav.features':'المزايا','nav.pricing':'الأسعار','nav.integrations':'التكاملات','nav.about':'من نحن','nav.contact':'تواصل معنا',
-    'cta.nav':'فعّل ترقيتك','cta.today':'فعّل ترقيتك اليوم','cta.see':'اطّلع على ما تشمله الباقة','cta.start':'ابدأ الآن',
+    'cta.nav':'فعّل ترقيتك','cta.today':'قم بالترقية اليوم','cta.see':'اطّلع على ما تشمله الباقة','cta.start':'ابدأ الآن',
     'offer.badge':'عرض إطلاق لفترة محدودة','cd.d':'يوم','cd.h':'ساعة','cd.m':'دقيقة','cd.s':'ثانية',
-    'hero.word':'فندقة','hero.sub':'الترقية المتكاملة لإدارة الضيافة','hero.aud':'للعملاء الجدد والحاليين',
+    'hero.word':'فندقة','hero.sub':'الترقية المتكاملة لإدارة الضيافة',
     'hero.proof':'انضم إلى الفنادق الجديدة والحالية التي تطوّر عملياتها اليوم.',
     'val.title':'منصة واحدة. تحكم أكبر. قيمة أعلى.',
     'val.text':'طوّر من نظام إدارة الفندق الأساسي إلى منظومة تشغيل متكاملة تشمل الامتثال والتوزيع وتجربة الضيوف وتشغيل المنشأة.',
     'val.c1':'الحجوزات','val.c2':'التوزيع','val.c3':'تجربة الضيوف','val.c4':'تشغيل المنشأة',
-    'integ.title':'التكاملات والمنظومة','integ.desc':'متصلة بالمنصات ومزودي الدفع وقنوات الحجز التي تعتمد عليها منشأتك الفندقية.',
-    'integ.gov':'الخدمات الحكومية','gov.mot':'وزارة السياحة','gov.moi':'وزارة الداخلية','gov.ntmp':'منصة الرصد السياحي','gov.shomoos':'شموس','gov.elm':'علم',
-    'integ.pay':'خيارات الدفع','pay.mada':'مدى','integ.ota':'قنوات الحجز والتوزيع','integ.bio':'أجهزة البصمة','bio.more':'المزيد',
+    'integ.title':'التكاملات والمنظومة','integ.desc':'تكامل سلس مع المنصات ومزودي الدفع وقنوات الحجز التي تعتمد عليها منشأتك الفندقية.',
+    'integ.gov':'الخدمات الحكومية','gov.mot':'وزارة السياحة','gov.zatca':'زاتكا المرحلة الثانية','gov.shomoos':'شموس',
+    'integ.pay':'خيارات الدفع','pay.apple':'أبل باي','pay.mada':'مدى','pay.visa':'فيزا','pay.mc':'ماستركارد','pay.tabby':'تابي','pay.tamara':'تمارا',
+    'integ.ota':'قنوات الحجز والتوزيع','ota.booking':'بوكينج.كوم','ota.agoda':'أجودا','ota.expedia':'إكسبيديا','ota.trip':'تريب.كوم','ota.airbnb':'إير بي إن بي','ota.hotels':'هوتيلز.كوم','ota.hrs':'إتش آر إس',
+    'integ.bio':'أجهزة الحضور والانصراف','bio.zk':'زد كي تيكو','bio.more':'المزيد',
     'inc.title':'ماذا يشمل','inc.desc':'عشرون وحدة تغطي التشغيل والمبيعات وتجربة الضيوف والامتثال الحكومي، في منظومة واحدة.',
     'inc.core':'النظام والتشغيل','inc.sales':'المبيعات والمالية','inc.guest':'الضيوف والمطاعم','inc.gov':'الجهات الحكومية والدعم',
     'm.pms':'نظام إدارة الفندق','m.hk':'التدبير الفندقي','m.mnt':'الصيانة','m.inv':'المخزون','m.hr':'الموارد البشرية',
@@ -1035,15 +1052,15 @@ button{font:inherit;color:inherit}
     'pr.ref1':'القيمة المجمّعة لاستخدام فندقة 360 عبر جميع الوحدات والخدمات.','pr.ref2':'عرض حصري: لا تُباع بشكل منفصل.',
     'pr.basic':'الاشتراك الأساسي','pr.year':'/ سنوياً','pr.b1':'نظام إدارة الفندق','pr.b2':'الدعم القياسي','pr.b3':'التدريب الأساسي','pr.askBasic':'استفسر عن الأساسية',
     'pr.comp':'باقة الامتثال','pr.c1':'نظام إدارة الفندق + تكامل الزكاة والضريبة','pr.c2':'محفظة شموس + منصة الرصد السياحي <bdi dir="ltr">I-II</bdi>','pr.c3':'دعم ذو أولوية','pr.c4':'تدريب كامل','pr.askComp':'استفسر عن باقة الامتثال',
-    'pr.rec':'الأفضل','pr.360':'فندقة <span>360</span>','pr.r1':'كل ما في باقة الامتثال + دعم مميز','pr.r2':'وصول كامل لجميع الوحدات','pr.r3':'تهيئة وتشغيل بأولوية',
+    'pr.rec':'الأفضل','pr.360':'فندقة <span>360</span>','pr.r1':'كل ما في باقة الامتثال + دعم مميز','pr.r2':'جميع الخدمات المتوفرة في فندقة الآن والتي سيتم إضافتها لاحقاً','pr.r3':'تهيئة وتشغيل بأولوية','pr.seeAll':'استعرض جميع المزايا',
     'pr.fine':'*يشمل شراء فندقة 360 لمدة سنتين سعراً خاصاً ودعماً ذا أولوية. تطبق الشروط والأحكام.',
     'g.title':'الضمانات','g.sub':'نجاحك أولويتنا',
     'g1.t':'ضمان التفعيل','g1.d':'ابدأ بسرعة مع عملية تهيئة مجرّبة.',
     'g2.t':'حماية الترقية لمدة 30 يوماً','g2.d':'جرّب دون مخاطر مع حماية الترقية لمدة 30 يوماً.',
     'g3.t':'عرض لفترة محدودة','g3.d':'أسعار حصرية لفترة محدودة فقط.',
     'g.trusted':'موثوق من','g.count':'أكثر من 800 منشأة','g.alt':'بهو فندق مشمس في الرياض وعلى مكتب الاستقبال لوحة تحكم فندقة',
-    'cta.title':'فعّل ترقيتك اليوم','cta.text':'عرض لفترة محدودة وقد ينتهي قريباً. ثبّت السعر الخاص لمدة سنتين.',
-    'f.fb':'تابعنا على فيسبوك','f.ig':'تابعنا على إنستغرام','f.terms':'الشروط والأحكام','f.privacy':'سياسة الخصوصية','f.contact':'تواصل معنا','f.tag':'فندقة 360 | ضيافتك أولويتنا'
+    'cta.title':'قم بالترقية اليوم','cta.text':'عرض لفترة محدودة وقد ينتهي قريبًا. اشترك لمدة سنتين واستفد من السعر الخاص.',
+    'f.follow':'تابعنا','f.in':'فندقة على لينكدإن','f.x':'فندقة على إكس (تويتر)','f.ig':'فندقة على إنستغرام','f.fb':'فندقة على فيسبوك','f.terms':'الشروط والأحكام','f.privacy':'سياسة الخصوصية','f.contact':'تواصل معنا','f.tag':'فندقة 360 | ضيافتك أولويتنا'
   };
   const META = {
     en: { title: document.title, desc: document.querySelector('meta[name="description"]').content },
@@ -1134,7 +1151,7 @@ button{font:inherit;color:inherit}
   /* ---------- Hero depth: each plane moves at its own rate with scroll and pointer ---------- */
   const hero = document.querySelector('.hero');
   const planes = $$('[data-plane]', hero);
-  const RATE = { photo: { y: .16, s: .00008, px: -6 }, card: { y: -.1, px: 10 }, devices: { y: -.18, px: 16 }, plant: { y: -.06, px: 22 } };
+  const RATE = { photo: { y: .16, s: .00008, px: -6 }, devices: { y: -.18, px: 16 }, plant: { y: -.06, px: 22 } };
   const wide = matchMedia('(min-width: 1181px)');
   const fine = matchMedia('(hover: hover) and (pointer: fine)');
   let sy = 0, cy = 0, tx = 0, ty = 0, cx = 0, cyp = 0, running = false;
