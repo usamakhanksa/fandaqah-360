@@ -10,7 +10,7 @@
 <link rel="manifest" href="site.webmanifest">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Fandaqah 360 | The Complete Hospitality Upgrade">
-<meta property="og:description" content="One platform. More control. More value. Twenty modules across operations, sales, guest experience and government compliance.">
+<meta property="og:description" content="One platform. More control. More value. More than 20 integrated solutions across operations, sales, guest experience and government compliance.">
 <meta property="og:image" content="assets/img/og-card.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@fandaqah">
@@ -141,15 +141,13 @@ button{font:inherit;color:inherit}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;background-image:var(--grain);opacity:.05;mix-blend-mode:multiply;pointer-events:none}
 .hero-grid{position:relative;z-index:2;min-height:641px;padding:40px 0 64px}
 .hero-copy{position:relative;z-index:3;max-width:580px}
-.offer{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
-.offer-badge{display:inline-flex;align-items:center;gap:10px;height:39px;padding:0 20px 0 6px;border-radius:var(--r-pill);background:var(--coral-strong);color:#fff;font-size:13.5px;font-weight:600;box-shadow:0 8px 18px -10px rgba(212,65,59,.7)}
-.offer-badge .clock{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#fff;color:var(--coral-strong)}
-.offer-badge .clock .ic{width:16px;height:16px;stroke-width:2.2}
-.cd{display:flex;gap:4px;padding:4px;border-radius:12px;background:var(--peach-100);box-shadow:0 8px 18px -12px rgba(212,65,59,.55)}
-.cd-u{display:grid;justify-items:center;align-content:center;width:42px;height:47px;border-radius:9px;background:var(--coral-strong);color:#fff;line-height:1}
-.cd-u b{font-size:20px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
-.cd-u small{margin-top:4px;font-size:9px;font-weight:600;opacity:.92}
-.cd.is-over{opacity:.55}
+/* offer note: what the offer is and why to act, no countdown */
+.offer{display:inline-flex;align-items:center;gap:14px;max-width:100%;padding-block:10px;padding-inline:10px 22px;border-radius:18px;background:rgba(255,255,255,.8);box-shadow:var(--e1), inset 0 0 0 1px rgba(238,86,80,.16)}
+.offer-ic{display:grid;place-items:center;flex:none;width:44px;height:44px;border-radius:50%;background:var(--peach-50);color:var(--coral-strong)}
+.offer-ic .ic{width:22px;height:22px;stroke-width:2.2}
+.offer p{display:grid;gap:2px;line-height:1.35}
+.offer strong{font-size:15px;font-weight:700;color:var(--ink)}
+.offer p span{font-size:13px;color:var(--ink-2)}
 /* "Fandaqah 360" sits on one line; both words scale from the h1 font-size */
 .h1{display:flex;align-items:baseline;gap:.24em;margin-top:14px;font-size:80px;line-height:.94;white-space:nowrap;color:var(--ink)}
 .h1-word{font-family:var(--f-sans);font-weight:700;font-size:1em;letter-spacing:-.035em}
@@ -262,7 +260,12 @@ button{font:inherit;color:inherit}
 .pills li{display:inline-flex;align-items:center;gap:10px;height:33px;padding:0 16px;border-radius:var(--r-pill);background:var(--pill);font-size:13.5px;font-weight:600;color:var(--ink);box-shadow:0 1px 0 rgba(255,255,255,.8) inset, 0 2px 6px -3px rgba(28,33,64,.12)}
 .pills li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--coral);flex:none}
 .pills-stack{flex-direction:column;align-items:stretch;gap:12px}
-.pills-stack li{width:88%}
+/* stacked pills may carry a second line (official programme name), so they grow instead of clipping */
+.pills-stack li{width:88%;height:auto;min-height:33px;align-items:flex-start;padding-block:7px;line-height:1.35}
+.pills-stack li:has(.pl){width:100%;border-radius:16px}
+.pills-stack li::before{margin-top:6px}
+.pills .pl{display:grid;gap:1px}
+.pills .pl small{font-size:11.5px;font-weight:500;color:var(--ink-3)}
 .pills .alt::before{background:#8C6A4F;box-shadow:0 0 0 2px #E8D9CB}
 .pills .more::before{display:none}
 .pills .more .ic{width:14px;height:14px;color:var(--coral-strong);stroke-width:2.4}
@@ -291,6 +294,8 @@ button{font:inherit;color:inherit}
 .price .cur{font-size:19px;font-weight:400;color:var(--ink-3)}
 .price .amt{font-size:42px;font-weight:800;letter-spacing:-.03em;color:var(--coral);font-variant-numeric:tabular-nums}
 .per{margin-top:4px;font-size:15px;font-weight:600;color:var(--ink-2)}
+.vat{display:inline-block;margin-inline-start:6px;padding:2px 9px;border-radius:var(--r-pill);background:var(--peach-50);color:var(--coral-strong);font-size:12px;font-weight:700;vertical-align:1px}
+.pcard-rec .vat{background:#fff}
 .feats{display:grid;gap:2px;margin-top:16px;font-size:14.5px;line-height:1.5;color:var(--ink-2)}
 .feats li{position:relative;padding-inline-start:18px}
 .feats li::before{content:"";position:absolute;inset-inline-start:2px;top:.62em;width:5px;height:5px;border-radius:50%;background:var(--ink)}
@@ -405,6 +410,45 @@ button{font:inherit;color:inherit}
 .pattern{display:flex;justify-content:center;overflow:hidden;padding:18px 0 44px;background:var(--bg)}
 .pattern svg{width:1272px;max-width:none;height:34px;flex:none}
 
+/* ---------- Lead form (every CTA opens it; leads go to the CRM) ---------- */
+.lead{width:min(520px, 100% - 32px);max-height:calc(100dvh - 32px);margin:auto;padding:0;border:0;border-radius:22px;background:#FDFCFA;color:var(--ink);box-shadow:var(--e3);overflow:auto;overscroll-behavior:contain}
+.lead::backdrop{background:rgba(22,26,51,.55);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+.lead[open]{animation:lift .45s var(--ease) both}
+html:has(.lead[open]){overflow:hidden}
+.lead-in{position:relative;padding:28px 28px 24px}
+.lead-x{position:absolute;top:14px;inset-inline-end:14px;display:grid;place-items:center;width:40px;height:40px;border:0;border-radius:50%;background:var(--pill);cursor:pointer;transition:transform .16s var(--ease)}
+.lead-x:active{transform:scale(.94)}
+.lead-plan{display:inline-flex;align-items:center;max-width:calc(100% - 48px);padding:5px 12px;border-radius:var(--r-pill);background:var(--peach-50);color:var(--coral-strong);font-size:12.5px;font-weight:700;line-height:1.4}
+.lead h2{margin-top:14px;font-family:var(--f-serif);font-weight:700;font-size:26px;line-height:1.2;letter-spacing:-.015em}
+.lead h2:focus{outline:0}
+.lead-sub{margin-top:6px;font-size:14px;color:var(--ink-2)}
+.lead-form{display:grid;gap:14px;margin-top:20px}
+.field{display:grid;gap:6px}
+.field label{font-size:13.5px;font-weight:600}
+.field .opt{font-weight:500;color:var(--ink-3)}
+.field input,.field textarea{width:100%;min-height:48px;padding:0 14px;border:1.5px solid #C9BFB2;border-radius:12px;background:#fff;color:var(--ink);font:500 16px/1.4 var(--f-sans);transition:border-color .16s var(--ease), box-shadow .16s var(--ease)}
+.field textarea{min-height:96px;padding:12px 14px;resize:vertical}
+.field input:focus,.field textarea:focus{outline:0;border-color:var(--coral);box-shadow:0 0 0 4px rgba(238,86,80,.16)}
+.field [aria-invalid="true"]{border-color:var(--coral-press)}
+.tel{display:flex;border:1.5px solid #C9BFB2;border-radius:12px;background:#fff;overflow:hidden;transition:border-color .16s var(--ease), box-shadow .16s var(--ease)}
+.tel:focus-within{border-color:var(--coral);box-shadow:0 0 0 4px rgba(238,86,80,.16)}
+.tel:has([aria-invalid="true"]){border-color:var(--coral-press)}
+.tel-cc{display:flex;align-items:center;flex:none;padding:0 12px;background:var(--pill);border-inline-end:1.5px solid #C9BFB2;font-size:15px;font-weight:600;color:var(--ink-2)}
+.field .tel input{border:0;border-radius:0;box-shadow:none}
+.err{font-size:12.5px;font-weight:600;color:var(--coral-press)}
+.hp{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.lead-alert{padding:10px 14px;border-radius:12px;background:#FDECEA;color:var(--coral-press);font-size:13.5px;font-weight:600}
+.lead-submit{width:100%;margin-top:4px}
+.lead-submit:disabled{opacity:.75;cursor:progress}
+.lead-note{font-size:12px;line-height:1.5;color:var(--ink-3);text-align:center}
+.lead-done{display:grid;justify-items:center;gap:4px;padding:16px 0 4px;text-align:center}
+.lead-done[hidden]{display:none}
+.lead-done .tick-lg{display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:var(--peach-50);color:var(--coral-strong)}
+.lead-done .tick-lg .ic{width:30px;height:30px;stroke-width:2.6}
+.lead-done .btn{margin-top:16px}
+@media (hover:hover) and (pointer:fine){ .lead-x:hover{background:var(--peach-100)} }
+@media (max-width:560px){ .lead-in{padding:24px 20px 20px} .lead h2{font-size:23px} }
+
 /* ---------- Reveal ---------- */
 .js [data-reveal]{opacity:0;transform:translate3d(0,22px,0)}
 .js [data-reveal].is-in{opacity:1;transform:none;transition:opacity .7s var(--ease), transform .9s var(--ease);transition-delay:calc(var(--i, 0) * 60ms)}
@@ -425,6 +469,7 @@ button{font:inherit;color:inherit}
   .js .hero-copy > *,.js .value,.js .devices-in,.js .plant-in{animation:none}
   .js .hero-photo img{animation:none}
   .btn,.mod,.pcard,.see-all,.see-all .ic,.social a{transition:none}
+  .lead[open]{animation:none}
 }
 
 /* ---------- Responsive ---------- */
@@ -520,7 +565,6 @@ button{font:inherit;color:inherit}
 @media (max-width:380px){
   .devices{transform:translateX(50%) scale(.45)}
   [dir="rtl"] .devices{transform:translateX(50%) scale(.45)}
-  .offer-badge{font-size:12.5px}
 }
 </style>
 </head>
@@ -602,7 +646,7 @@ button{font:inherit;color:inherit}
         <button type="button" data-lang="en" lang="en" aria-pressed="true">EN</button>
         <button type="button" data-lang="ar" lang="ar" aria-pressed="false">عربي</button>
       </div>
-      <a class="btn btn-coral btn-sm" data-wa="general" href="https://wa.me/966555947522" target="_blank" rel="noopener" data-i18n="cta.nav">Activate your upgrade</a>
+      <button class="btn btn-coral btn-sm" type="button" data-lead="general" data-i18n="cta.nav">Activate your upgrade</button>
       <button class="burger" type="button" aria-expanded="false" aria-controls="mnav" data-i18n-aria="aria.menu" aria-label="Open menu"><svg class="ic"><use href="#i-menu"/></svg></button>
     </div>
   </div>
@@ -619,7 +663,7 @@ button{font:inherit;color:inherit}
           <button type="button" data-lang="en" lang="en" aria-pressed="true">EN</button>
           <button type="button" data-lang="ar" lang="ar" aria-pressed="false">عربي</button>
         </div>
-        <a class="btn btn-coral btn-sm" data-wa="general" href="https://wa.me/966555947522" target="_blank" rel="noopener" data-i18n="cta.nav">Activate your upgrade</a>
+        <button class="btn btn-coral btn-sm" type="button" data-lead="general" data-i18n="cta.nav">Activate your upgrade</button>
       </div>
     </nav>
   </div>
@@ -631,18 +675,13 @@ button{font:inherit;color:inherit}
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <div class="offer" style="--i:0">
-          <span class="offer-badge"><span class="clock"><svg class="ic"><use href="#i-clock"/></svg></span><span data-i18n="offer.badge">Limited-Time Introduction Offer</span></span>
-          <div class="cd" data-deadline="2026-11-07T23:59:59+03:00" role="timer" data-i18n-aria="aria.timer" aria-label="Time left in the introduction offer">
-            <span class="cd-u"><b data-cd="d">13</b><small data-i18n="cd.d">Days</small></span>
-            <span class="cd-u"><b data-cd="h">23</b><small data-i18n="cd.h">Hrs</small></span>
-            <span class="cd-u"><b data-cd="m">24</b><small data-i18n="cd.m">Min</small></span>
-            <span class="cd-u"><b data-cd="s">03</b><small data-i18n="cd.s">Sec</small></span>
-          </div>
+          <span class="offer-ic" aria-hidden="true"><svg class="ic"><use href="#i-clock"/></svg></span>
+          <p><strong data-i18n="offer.title">Limited-Time Offer</strong><span data-i18n="offer.text">May end soon. Subscribe for 2 years to enjoy this special price.</span></p>
         </div>
         <h1 class="h1" id="hero-title" style="--i:1"><span class="h1-word" data-i18n="hero.word">Fandaqah</span> <span class="h1-num">360</span></h1>
         <p class="hero-sub" style="--i:2" data-i18n="hero.sub">The Complete Hospitality Upgrade</p>
         <div class="hero-ctas" style="--i:3">
-          <a class="btn btn-coral" data-wa="general" href="https://wa.me/966555947522" target="_blank" rel="noopener"><span data-i18n="cta.today">Upgrade today</span><svg class="ic ic-go" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+          <button class="btn btn-coral" type="button" data-lead="general"><span data-i18n="cta.today">Upgrade today</span><svg class="ic ic-go" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
           <a class="btn btn-ghost" href="#included" data-i18n="cta.see">See what’s included</a>
         </div>
         <div class="proof" style="--i:4">
@@ -651,7 +690,7 @@ button{font:inherit;color:inherit}
             <img src="assets/img/av-lobby.webp" width="112" height="112" alt="">
             <img src="assets/img/av-chalet.webp" width="112" height="112" alt="">
           </span>
-          <span data-i18n="hero.proof">Join new and existing hotels upgrading their operations today.</span>
+          <span data-i18n="hero.proof">Join the hospitality properties upgrading their operations today.</span>
         </div>
       </div>
 
@@ -779,8 +818,8 @@ button{font:inherit;color:inherit}
         <article class="icard" data-reveal style="--i:0">
           <h3><span class="tile"><svg class="ic"><use href="#i-landmark"/></svg></span><span data-i18n="integ.gov">Government Services</span></h3>
           <ul class="pills pills-stack">
-            <li data-i18n="gov.mot">Ministry of Tourism</li>
-            <li data-i18n="gov.zatca">ZATCA Phase 2</li>
+            <li><span class="pl"><span data-i18n="gov.mot">Ministry of Tourism</span><small data-i18n="gov.motSub">NTMP · Phases I &amp; II</small></span></li>
+            <li><span class="pl"><span data-i18n="gov.zatca">ZATCA</span><small data-i18n="gov.zatcaSub">E-Invoicing · Phase 2</small></span></li>
             <li data-i18n="gov.shomoos">Shomoos</li>
             <li data-i18n="m.shw">Shomoos Wallet</li>
           </ul>
@@ -813,7 +852,7 @@ button{font:inherit;color:inherit}
     <div class="wrap">
       <div class="sec-head" data-reveal>
         <div><h2 class="h2" id="inc-title" data-i18n="inc.title">What’s Included</h2><span class="rule"></span></div>
-        <p class="sec-desc" data-i18n="inc.desc">Twenty modules across operations, sales, guest experience and government compliance, in one stack.</p>
+        <p class="sec-desc" data-i18n="inc.desc">More than 20 integrated solutions covering operations, sales, guest experience and government compliance, in one stack.</p>
       </div>
       <div class="mod-grid">
         <div class="mod-col" data-reveal style="--i:0">
@@ -841,18 +880,18 @@ button{font:inherit;color:inherit}
           <ul class="mods">
             <li class="mod"><span class="glyph"><svg class="ic"><use href="#i-id-card"/></svg></span><span data-i18n="m.pass">Passport &amp; ID Scanner (Fast Pass)</span></li>
             <li class="mod"><span class="glyph"><svg class="ic"><use href="#i-signature"/></svg></span><span data-i18n="m.sign">Digital Signature on iPad (Sign Stay)</span></li>
-            <li class="mod"><span class="glyph"><svg class="ic"><use href="#i-qr-code"/></svg></span><span data-i18n="m.qr">Guest Room QR Code</span></li>
+            <li class="mod"><span class="glyph"><svg class="ic"><use href="#i-qr-code"/></svg></span><span data-i18n="m.qr">Room Services via QR</span></li>
             <li class="mod"><span class="glyph"><svg class="ic"><use href="#i-heart-handshake"/></svg></span><span data-i18n="m.crm">CRM</span></li>
             <li class="mod"><span class="glyph"><svg class="ic"><use href="#i-utensils-crossed"/></svg></span><span data-i18n="m.pos">POS / Restaurant Management</span></li>
             <li class="mod"><span class="glyph"><svg class="ic"><use href="#i-chef-hat"/></svg></span><span data-i18n="m.recipe">Recipe Management</span></li>
           </ul>
         </div>
         <div class="mod-col" data-reveal style="--i:3">
-          <h3 class="mod-head is-coral"><span class="tile"><svg class="ic"><use href="#i-landmark"/></svg></span><span data-i18n="inc.gov">Government &amp; Support</span></h3>
+          <h3 class="mod-head is-coral"><span class="tile"><svg class="ic"><use href="#i-landmark"/></svg></span><span data-i18n="inc.gov">Government Compliance &amp; Support</span></h3>
           <ul class="mods">
             <li class="mod"><span class="glyph"><svg class="ic"><use href="#i-wallet"/></svg></span><span data-i18n="m.shw">Shomoos Wallet</span></li>
             <li class="mod"><span class="glyph"><svg class="ic"><use href="#i-file-check"/></svg></span><span data-i18n="m.zatca">ZATCA Integration</span></li>
-            <li class="mod"><span class="glyph"><svg class="ic"><use href="#i-chart-line"/></svg></span><span data-i18n="m.ntmp">NTMP I-II</span></li>
+            <li class="mod"><span class="glyph"><svg class="ic"><use href="#i-chart-line"/></svg></span><span data-i18n="m.ntmp">NTMP (Phases I &amp; II)</span></li>
             <li class="mod"><span class="glyph"><svg class="ic"><use href="#i-headset"/></svg></span><span data-i18n="m.sup">Support &amp; Training</span></li>
           </ul>
         </div>
@@ -881,28 +920,28 @@ button{font:inherit;color:inherit}
           <span class="ptile" aria-hidden="true"><svg class="ic"><use href="#i-box"/></svg></span>
           <h3 data-i18n="pr.basic">Basic Subscription</h3>
           <p class="price"><span class="cur">SAR</span><span class="amt">1,200</span></p>
-          <p class="per" data-i18n="pr.year">/year</p>
+          <p class="per"><span data-i18n="pr.year">/year</span><span class="vat" data-i18n="pr.vat">+ VAT</span></p>
           <ul class="feats">
             <li data-i18n="pr.b1">PMS Core</li>
             <li data-i18n="pr.b2">Standard Support</li>
             <li data-i18n="pr.b3">Basic Training</li>
           </ul>
           <div class="bnpl" aria-label="Pay with tabby or tamara"><span>tabby</span><span class="tamara">tamara</span></div>
-          <a class="btn btn-navy" data-wa="basic" href="https://wa.me/966555947522" target="_blank" rel="noopener" data-i18n="pr.askBasic">Ask about Basic</a>
+          <button class="btn btn-navy" type="button" data-lead="basic" data-i18n="pr.askBasic">Ask about Basic</button>
         </article>
         <article class="pcard" data-reveal style="--i:2">
           <span class="ptile" aria-hidden="true"><svg class="ic"><use href="#i-shield"/></svg></span>
           <h3 data-i18n="pr.comp">Compliance Package</h3>
           <p class="price"><span class="cur">SAR</span><span class="amt">3,200</span></p>
-          <p class="per" data-i18n="pr.year">/year</p>
+          <p class="per"><span data-i18n="pr.year">/year</span><span class="vat" data-i18n="pr.vat">+ VAT</span></p>
           <ul class="feats">
             <li data-i18n="pr.c1">PMS Core + ZATCA Integration</li>
-            <li data-i18n="pr.c2">Shomoos Wallet + NTMP I-II</li>
+            <li data-i18n="pr.c2">Shomoos Wallet + NTMP (Phases I &amp; II)</li>
             <li data-i18n="pr.c3">Priority Support</li>
             <li data-i18n="pr.c4">Full Training</li>
           </ul>
           <div class="bnpl" aria-label="Pay with tabby or tamara"><span>tabby</span><span class="tamara">tamara</span></div>
-          <a class="btn btn-navy" data-wa="compliance" href="https://wa.me/966555947522" target="_blank" rel="noopener" data-i18n="pr.askComp">Ask about Compliance</a>
+          <button class="btn btn-navy" type="button" data-lead="compliance" data-i18n="pr.askComp">Ask about Compliance</button>
         </article>
         <article class="pcard pcard-rec" data-reveal style="--i:3">
           <figure class="rec-photo" aria-hidden="true"><img src="assets/img/rec-room-a.webp" width="520" height="478" alt="" loading="lazy"></figure>
@@ -910,7 +949,7 @@ button{font:inherit;color:inherit}
           <span class="ptile" aria-hidden="true"><svg class="ic"><use href="#i-crown"/></svg></span>
           <h3 data-i18n="pr.360">Fandaqah <span>360</span></h3>
           <p class="price"><span class="cur">SAR</span><span class="amt">3,495</span></p>
-          <p class="per" data-i18n="pr.year">/year</p>
+          <p class="per"><span data-i18n="pr.year">/year</span><span class="vat" data-i18n="pr.vat">+ VAT</span></p>
           <ul class="feats">
             <li data-i18n="pr.r1">Everything in Compliance + Premium Support</li>
             <li data-i18n="pr.r2">All Fandaqah services available now, plus those added later</li>
@@ -918,7 +957,7 @@ button{font:inherit;color:inherit}
           </ul>
           <a class="see-all" href="#included"><span data-i18n="pr.seeAll">See all features</span><svg class="ic" aria-hidden="true"><use href="#i-arrow-up"/></svg></a>
           <div class="bnpl" aria-label="Pay with tabby or tamara"><span>tabby</span><span class="tamara">tamara</span></div>
-          <a class="btn btn-coral" data-wa="360" href="https://wa.me/966555947522" target="_blank" rel="noopener" data-i18n="cta.today">Upgrade today</a>
+          <button class="btn btn-coral" type="button" data-lead="360" data-i18n="cta.today">Upgrade today</button>
           <p class="fine" data-i18n="pr.fine">*Two-year purchase of Fandaqah 360 includes special pricing and priority support. Terms &amp; Conditions apply.</p>
         </article>
       </div>
@@ -986,7 +1025,7 @@ button{font:inherit;color:inherit}
               <a href="mailto:info@fandaqah.com"><span class="ci" aria-hidden="true"><svg class="ic"><use href="#i-mail"/></svg></span><span>info@fandaqah.com</span></a>
             </div>
           </div>
-          <a class="btn btn-coral" data-wa="general" href="https://wa.me/966555947522" target="_blank" rel="noopener"><span data-i18n="cta.start">Get Started Now</span><svg class="ic ic-go" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+          <button class="btn btn-coral" type="button" data-lead="general"><span data-i18n="cta.start">Get Started Now</span><svg class="ic ic-go" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
         </div>
       </div>
     </section>
@@ -1017,6 +1056,48 @@ button{font:inherit;color:inherit}
 </footer>
 <!-- <div class="pattern" aria-hidden="true"><svg viewBox="0 0 1272 34" focusable="false"><rect x="0" y="0" width="22" height="15" rx="7" fill="#E95A54"/><rect x="0" y="19" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="26" y="0" width="22" height="15" rx="7" fill="#B5454A"/><rect x="26" y="19" width="22" height="15" rx="7" fill="#2A2D4A"/><rect x="52" y="0" width="15" height="34" rx="7" fill="#2A2D4A"/><rect x="71" y="0" width="15" height="15" rx="7" fill="#E95A54"/><rect x="71" y="19" width="15" height="15" rx="7" fill="#E95A54"/><rect x="90" y="0" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="90" y="19" width="22" height="15" rx="7" fill="#2A2D4A"/><rect x="116" y="0" width="15" height="15" rx="7" fill="#93A09C"/><rect x="116" y="19" width="15" height="15" rx="7" fill="#E95A54"/><rect x="135" y="0" width="15" height="15" rx="7" fill="#E95A54"/><rect x="135" y="19" width="15" height="15" rx="7" fill="#FBCDAB"/><rect x="154" y="0" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="154" y="19" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="180" y="0" width="15" height="15" rx="7" fill="#2A2D4A"/><rect x="180" y="19" width="15" height="15" rx="7" fill="#93A09C"/><rect x="199" y="0" width="30" height="15" rx="7" fill="#FBCDAB"/><rect x="199" y="19" width="30" height="15" rx="7" fill="#E95A54"/><rect x="233" y="0" width="22" height="15" rx="7" fill="#E4DDD2"/><rect x="233" y="19" width="22" height="15" rx="7" fill="#E95A54"/><rect x="259" y="0" width="30" height="15" rx="7" fill="#F6DDCB"/><rect x="259" y="19" width="13" height="15" rx="7" fill="#93A09C"/><rect x="276" y="19" width="13" height="15" rx="7" fill="#FBCDAB"/><rect x="293" y="0" width="15" height="34" rx="7" fill="#2A2D4A"/><rect x="312" y="0" width="15" height="15" rx="7" fill="#E95A54"/><rect x="312" y="19" width="15" height="15" rx="7" fill="#E95A54"/><rect x="331" y="0" width="15" height="15" rx="7" fill="#E95A54"/><rect x="331" y="19" width="15" height="15" rx="7" fill="#F6DDCB"/><rect x="350" y="0" width="40" height="15" rx="7" fill="#E95A54"/><rect x="350" y="19" width="40" height="15" rx="7" fill="#2A2D4A"/><rect x="394" y="0" width="22" height="15" rx="7" fill="#E4DDD2"/><rect x="394" y="19" width="22" height="15" rx="7" fill="#E95A54"/><rect x="420" y="0" width="22" height="15" rx="7" fill="#E4DDD2"/><rect x="420" y="19" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="446" y="0" width="30" height="15" rx="7" fill="#E4DDD2"/><rect x="446" y="19" width="30" height="15" rx="7" fill="#93A09C"/><rect x="480" y="0" width="40" height="15" rx="7" fill="#F6DDCB"/><rect x="480" y="19" width="18" height="15" rx="7" fill="#E4DDD2"/><rect x="502" y="19" width="18" height="15" rx="7" fill="#93A09C"/><rect x="524" y="0" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="524" y="19" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="550" y="0" width="22" height="15" rx="7" fill="#E4DDD2"/><rect x="550" y="19" width="22" height="15" rx="7" fill="#93A09C"/><rect x="576" y="0" width="40" height="15" rx="7" fill="#FBCDAB"/><rect x="576" y="19" width="18" height="15" rx="7" fill="#E95A54"/><rect x="598" y="19" width="18" height="15" rx="7" fill="#B5454A"/><rect x="620" y="0" width="15" height="15" rx="7" fill="#E95A54"/><rect x="620" y="19" width="15" height="15" rx="7" fill="#E4DDD2"/><rect x="639" y="0" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="639" y="19" width="22" height="15" rx="7" fill="#E95A54"/><rect x="665" y="0" width="15" height="15" rx="7" fill="#E4DDD2"/><rect x="665" y="19" width="15" height="15" rx="7" fill="#B5454A"/><rect x="684" y="0" width="22" height="15" rx="7" fill="#B5454A"/><rect x="684" y="19" width="22" height="15" rx="7" fill="#E4DDD2"/><rect x="710" y="0" width="15" height="15" rx="7" fill="#93A09C"/><rect x="710" y="19" width="15" height="15" rx="7" fill="#FBCDAB"/><rect x="729" y="0" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="729" y="19" width="22" height="15" rx="7" fill="#E4DDD2"/><rect x="755" y="0" width="22" height="15" rx="7" fill="#F6DDCB"/><rect x="755" y="19" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="781" y="0" width="15" height="15" rx="7" fill="#F6DDCB"/><rect x="781" y="19" width="15" height="15" rx="7" fill="#F6DDCB"/><rect x="800" y="0" width="22" height="15" rx="7" fill="#B5454A"/><rect x="800" y="19" width="22" height="15" rx="7" fill="#93A09C"/><rect x="826" y="0" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="826" y="19" width="22" height="15" rx="7" fill="#E4DDD2"/><rect x="852" y="0" width="30" height="15" rx="7" fill="#FBCDAB"/><rect x="852" y="19" width="30" height="15" rx="7" fill="#E95A54"/><rect x="886" y="0" width="15" height="15" rx="7" fill="#E95A54"/><rect x="886" y="19" width="15" height="15" rx="7" fill="#93A09C"/><rect x="905" y="0" width="22" height="15" rx="7" fill="#2A2D4A"/><rect x="905" y="19" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="931" y="0" width="30" height="15" rx="7" fill="#E4DDD2"/><rect x="931" y="19" width="13" height="15" rx="7" fill="#FBCDAB"/><rect x="948" y="19" width="13" height="15" rx="7" fill="#2A2D4A"/><rect x="965" y="0" width="30" height="15" rx="7" fill="#E95A54"/><rect x="965" y="19" width="13" height="15" rx="7" fill="#93A09C"/><rect x="982" y="19" width="13" height="15" rx="7" fill="#FBCDAB"/><rect x="999" y="0" width="22" height="15" rx="7" fill="#93A09C"/><rect x="999" y="19" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="1025" y="0" width="40" height="15" rx="7" fill="#93A09C"/><rect x="1025" y="19" width="40" height="15" rx="7" fill="#FBCDAB"/><rect x="1069" y="0" width="30" height="15" rx="7" fill="#2A2D4A"/><rect x="1069" y="19" width="13" height="15" rx="7" fill="#E4DDD2"/><rect x="1086" y="19" width="13" height="15" rx="7" fill="#F6DDCB"/><rect x="1103" y="0" width="30" height="15" rx="7" fill="#F6DDCB"/><rect x="1103" y="19" width="30" height="15" rx="7" fill="#F6DDCB"/><rect x="1137" y="0" width="22" height="15" rx="7" fill="#E95A54"/><rect x="1137" y="19" width="22" height="15" rx="7" fill="#2A2D4A"/><rect x="1163" y="0" width="15" height="15" rx="7" fill="#B5454A"/><rect x="1163" y="19" width="15" height="15" rx="7" fill="#E95A54"/><rect x="1182" y="0" width="15" height="15" rx="7" fill="#E4DDD2"/><rect x="1182" y="19" width="15" height="15" rx="7" fill="#E4DDD2"/><rect x="1201" y="0" width="15" height="15" rx="7" fill="#FBCDAB"/><rect x="1201" y="19" width="15" height="15" rx="7" fill="#FBCDAB"/><rect x="1220" y="0" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="1220" y="19" width="22" height="15" rx="7" fill="#E95A54"/><rect x="1246" y="0" width="22" height="15" rx="7" fill="#FBCDAB"/><rect x="1246" y="19" width="22" height="15" rx="7" fill="#E4DDD2"/></svg></div> -->
 
+<dialog class="lead" id="lead" aria-labelledby="lead-title">
+  <div class="lead-in">
+    <button class="lead-x" type="button" data-lead-close data-i18n-aria="lead.close" aria-label="Close"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></button>
+    <div data-lead-step="form">
+      <p class="lead-plan" data-lead-plan>Fandaqah 360 upgrade</p>
+      <h2 id="lead-title" data-i18n="lead.title">Request your upgrade</h2>
+      <p class="lead-sub" data-i18n="lead.sub">Leave your details and our team will contact you shortly to activate your offer.</p>
+      <form class="lead-form" novalidate>
+        <div class="field">
+          <label for="lead-name" data-i18n="lead.name">Full name</label>
+          <input id="lead-name" name="name" type="text" autocomplete="name" maxlength="80" required aria-describedby="lead-name-err">
+          <p class="err" id="lead-name-err" data-i18n="lead.nameErr" hidden>Please enter your name.</p>
+        </div>
+        <div class="field">
+          <label for="lead-email" data-i18n="lead.email">Email</label>
+          <input id="lead-email" name="email" type="email" autocomplete="email" maxlength="120" dir="ltr" required aria-describedby="lead-email-err">
+          <p class="err" id="lead-email-err" data-i18n="lead.emailErr" hidden>Please enter a valid email address.</p>
+        </div>
+        <div class="field">
+          <label for="lead-phone" data-i18n="lead.phone">Mobile number (Saudi Arabia)</label>
+          <div class="tel" dir="ltr"><span class="tel-cc" aria-hidden="true">+966</span><input id="lead-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="5X XXX XXXX" maxlength="20" required aria-describedby="lead-phone-err"></div>
+          <p class="err" id="lead-phone-err" data-i18n="lead.phoneErr" hidden>Enter a Saudi mobile number: 9 digits starting with 5.</p>
+        </div>
+        <div class="field">
+          <label for="lead-msg"><span data-i18n="lead.msg">Message</span> <span class="opt" data-i18n="lead.opt">(optional)</span></label>
+          <textarea id="lead-msg" name="message" rows="3" maxlength="1000"></textarea>
+        </div>
+        <div class="hp" aria-hidden="true"><label>Website <input name="website" type="text" tabindex="-1" autocomplete="off"></label></div>
+        <p class="lead-alert" role="alert" hidden></p>
+        <button class="btn btn-coral lead-submit" type="submit"><span data-i18n="lead.send">Send request</span></button>
+        <p class="lead-note" data-i18n="lead.note">We only use your details to contact you about Fandaqah.</p>
+      </form>
+    </div>
+    <div class="lead-done" data-lead-step="done" hidden>
+      <span class="tick-lg" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg></span>
+      <h2 tabindex="-1" data-i18n="lead.doneT">Thank you!</h2>
+      <p class="lead-sub" data-i18n="lead.doneD">We’ve received your request. Our team will contact you shortly.</p>
+      <button class="btn btn-navy" type="button" data-lead-close data-i18n="lead.closeBtn">Close</button>
+    </div>
+  </div>
+</dialog>
+
 <script>
 (() => {
   const root = document.documentElement;
@@ -1027,49 +1108,48 @@ button{font:inherit;color:inherit}
   /* ---------- Language: English is in the markup, Arabic lives here ---------- */
   const AR = {
     'skip':'تخطَّ إلى المحتوى',
-    'aria.home':'فندقة، الصفحة الرئيسية','aria.main':'القائمة الرئيسية','aria.lang':'اللغة','aria.menu':'فتح القائمة','aria.timer':'الوقت المتبقي على عرض الإطلاق',
+    'aria.home':'فندقة، الصفحة الرئيسية','aria.main':'القائمة الرئيسية','aria.lang':'اللغة','aria.menu':'فتح القائمة',
     'nav.home':'الرئيسية','nav.features':'المزايا','nav.pricing':'الأسعار','nav.integrations':'التكاملات','nav.about':'من نحن','nav.contact':'تواصل معنا',
-    'cta.nav':'فعّل ترقيتك','cta.today':'قم بالترقية اليوم','cta.see':'اطّلع على ما تشمله الباقة','cta.start':'ابدأ الآن',
-    'offer.badge':'عرض إطلاق لفترة محدودة','cd.d':'يوم','cd.h':'ساعة','cd.m':'دقيقة','cd.s':'ثانية',
+    'cta.nav':'ابدأ الترقية الآن','cta.today':'قم بالترقية اليوم','cta.see':'اطّلع على ما تشمله الباقة','cta.start':'ابدأ الآن',
+    'offer.title':'عرض لفترة محدودة','offer.text':'قد ينتهي قريباً. اشترك لمدة سنتين واستفد من السعر الخاص.',
     'hero.word':'فندقة','hero.sub':'الترقية المتكاملة لإدارة الضيافة',
-    'hero.proof':'انضم إلى الفنادق الجديدة والحالية التي تطوّر عملياتها اليوم.',
+    'hero.proof':'انضم إلى المنشآت الفندقية التي تطوّر عملياتها اليوم.',
     'val.title':'منصة واحدة. تحكم أكبر. قيمة أعلى.',
-    'val.text':'طوّر من نظام إدارة الفندق الأساسي إلى منظومة تشغيل متكاملة تشمل الامتثال والتوزيع وتجربة الضيوف وتشغيل المنشأة.',
+    'val.text':'انتقل من نظام إدارة المنشآت الفندقية الأساسي إلى منظومة تشغيل متكاملة تشمل الامتثال والتوزيع وتجربة الضيوف وتشغيل المنشأة.',
     'val.c1':'الحجوزات','val.c2':'التوزيع','val.c3':'تجربة الضيوف','val.c4':'تشغيل المنشأة',
     'integ.title':'التكاملات والمنظومة','integ.desc':'تكامل سلس مع المنصات ومزودي الدفع وقنوات الحجز التي تعتمد عليها منشأتك الفندقية.',
-    'integ.gov':'الخدمات الحكومية','gov.mot':'وزارة السياحة','gov.zatca':'زاتكا المرحلة الثانية','gov.shomoos':'شموس',
-    'integ.pay':'خيارات الدفع','pay.apple':'أبل باي','pay.mada':'مدى','pay.visa':'فيزا','pay.mc':'ماستركارد','pay.tabby':'تابي','pay.tamara':'تمارا',
+    'integ.gov':'الخدمات الحكومية','gov.mot':'وزارة السياحة','gov.motSub':'منصة الرصد السياحي (المرحلتان الأولى والثانية)','gov.zatca':'هيئة الزكاة والضريبة والجمارك','gov.zatcaSub':'الفوترة الإلكترونية (المرحلة الثانية)','gov.shomoos':'شموس',
+    'integ.pay':'خيارات الدفع','pay.apple':'آبل باي','pay.mada':'مدى','pay.visa':'فيزا','pay.mc':'ماستركارد','pay.tabby':'تابي','pay.tamara':'تمارا',
     'integ.ota':'قنوات الحجز والتوزيع','ota.booking':'بوكينج.كوم','ota.agoda':'أجودا','ota.expedia':'إكسبيديا','ota.trip':'تريب.كوم','ota.airbnb':'إير بي إن بي','ota.hotels':'هوتيلز.كوم','ota.hrs':'إتش آر إس',
     'integ.bio':'أجهزة الحضور والانصراف','bio.zk':'زد كي تيكو','bio.more':'المزيد',
-    'inc.title':'ماذا يشمل','inc.desc':'عشرون وحدة تغطي التشغيل والمبيعات وتجربة الضيوف والامتثال الحكومي، في منظومة واحدة.',
-    'inc.core':'النظام والتشغيل','inc.sales':'المبيعات والمالية','inc.guest':'الضيوف والمطاعم','inc.gov':'الجهات الحكومية والدعم',
-    'm.pms':'نظام إدارة الفندق','m.hk':'التدبير الفندقي','m.mnt':'الصيانة','m.inv':'المخزون','m.hr':'الموارد البشرية',
+    'inc.title':'ماذا يشمل','inc.desc':'أكثر من عشرين حلاً متكاملاً يغطي التشغيل والمبيعات وتجربة الضيف والامتثال الحكومي، ضمن منظومة واحدة.',
+    'inc.core':'النظام والتشغيل','inc.sales':'المبيعات والمالية','inc.guest':'الضيوف والمطاعم','inc.gov':'الامتثال الحكومي والدعم',
+    'm.pms':'نظام إدارة المنشآت الفندقية <bdi dir="ltr">(PMS)</bdi>','m.hk':'التدبير الفندقي <bdi dir="ltr" class="nw">(Housekeeping)</bdi>','m.mnt':'الصيانة','m.inv':'المخزون','m.hr':'الموارد البشرية',
     'm.chm':'مدير القنوات','m.be':'محرك الحجز','m.pg':'بوابة الدفع','m.pur':'المشتريات','m.acc':'المحاسبة',
-    'm.pass':'ماسح الجواز والهوية <bdi dir="ltr" class="nw">(Fast Pass)</bdi>','m.sign':'التوقيع الرقمي على <bdi dir="ltr">iPad</bdi> <bdi dir="ltr" class="nw">(Sign Stay)</bdi>','m.qr':'رمز QR لغرفة النزيل','m.crm':'إدارة علاقات العملاء','m.pos':'نقاط البيع وإدارة المطاعم','m.recipe':'إدارة الوصفات',
-    'm.shw':'محفظة شموس','m.zatca':'تكامل الزكاة والضريبة','m.ntmp':'منصة الرصد السياحي <bdi dir="ltr">I-II</bdi>','m.sup':'الدعم والتدريب',
+    'm.pass':'ماسح الجواز والهوية <bdi dir="ltr" class="nw">(Fast Pass)</bdi>','m.sign':'التوقيع الرقمي على <bdi dir="ltr">iPad</bdi> <bdi dir="ltr" class="nw">(Sign Stay)</bdi>','m.qr':'خدمات الغرفة عبر <bdi dir="ltr">QR</bdi>','m.crm':'إدارة علاقات العملاء','m.pos':'نقاط البيع وإدارة المطاعم','m.recipe':'إدارة الوصفات',
+    'm.shw':'محفظة شموس','m.zatca':'التكامل مع هيئة الزكاة والضريبة والجمارك','m.ntmp':'منصة الرصد السياحي (المرحلتان الأولى والثانية)','m.sup':'الدعم والتدريب',
     'pr.title':'الأسعار والعروض','pr.desc':'قارن القيمة المرجعية الكاملة بسعر الإطلاق، واطّلع على ما تشمله كل باقة في الطريق إلى الترقية المتكاملة.',
     'pr.ref':'إجمالي القيمة المرجعية','pr.was':'قيمة مرجعية وليست السعر المدفوع:','pr.yearly':'سنوياً',
     'pr.ref1':'القيمة المجمّعة لاستخدام فندقة 360 عبر جميع الوحدات والخدمات.','pr.ref2':'عرض حصري: لا تُباع بشكل منفصل.',
-    'pr.basic':'الاشتراك الأساسي','pr.year':'/ سنوياً','pr.b1':'نظام إدارة الفندق','pr.b2':'الدعم القياسي','pr.b3':'التدريب الأساسي','pr.askBasic':'استفسر عن الأساسية',
-    'pr.comp':'باقة الامتثال','pr.c1':'نظام إدارة الفندق + تكامل الزكاة والضريبة','pr.c2':'محفظة شموس + منصة الرصد السياحي <bdi dir="ltr">I-II</bdi>','pr.c3':'دعم ذو أولوية','pr.c4':'تدريب كامل','pr.askComp':'استفسر عن باقة الامتثال',
+    'pr.basic':'الاشتراك الأساسي','pr.year':'/ سنوياً','pr.vat':'+ ضريبة القيمة المضافة','pr.b1':'نظام إدارة المنشآت الفندقية <bdi dir="ltr">(PMS)</bdi>','pr.b2':'الدعم القياسي','pr.b3':'التدريب الأساسي','pr.askBasic':'استفسر عن الاشتراك الأساسي',
+    'pr.comp':'باقة الامتثال','pr.c1':'نظام إدارة المنشآت الفندقية + التكامل مع هيئة الزكاة والضريبة والجمارك','pr.c2':'محفظة شموس + منصة الرصد السياحي (المرحلتان الأولى والثانية)','pr.c3':'دعم ذو أولوية','pr.c4':'تدريب كامل','pr.askComp':'استفسر عن باقة الامتثال',
     'pr.rec':'الأفضل','pr.360':'فندقة <span>360</span>','pr.r1':'كل ما في باقة الامتثال + دعم مميز','pr.r2':'جميع الخدمات المتوفرة في فندقة الآن والتي سيتم إضافتها لاحقاً','pr.r3':'تهيئة وتشغيل بأولوية','pr.seeAll':'استعرض جميع المزايا',
     'pr.fine':'*يشمل شراء فندقة 360 لمدة سنتين سعراً خاصاً ودعماً ذا أولوية. تطبق الشروط والأحكام.',
     'g.title':'الضمانات','g.sub':'نجاحك أولويتنا',
     'g1.t':'ضمان التفعيل','g1.d':'ابدأ بسرعة مع عملية تهيئة مجرّبة.',
     'g2.t':'حماية الترقية لمدة 30 يوماً','g2.d':'جرّب دون مخاطر مع حماية الترقية لمدة 30 يوماً.',
     'g3.t':'عرض لفترة محدودة','g3.d':'أسعار حصرية لفترة محدودة فقط.',
-    'g.trusted':'موثوق من','g.count':'أكثر من 800 منشأة','g.alt':'بهو فندق مشمس في الرياض وعلى مكتب الاستقبال لوحة تحكم فندقة',
-    'cta.title':'قم بالترقية اليوم','cta.text':'عرض لفترة محدودة وقد ينتهي قريبًا. اشترك لمدة سنتين واستفد من السعر الخاص.',
-    'f.follow':'تابعنا','f.in':'فندقة على لينكدإن','f.x':'فندقة على إكس (تويتر)','f.ig':'فندقة على إنستغرام','f.fb':'فندقة على فيسبوك','f.terms':'الشروط والأحكام','f.privacy':'سياسة الخصوصية','f.contact':'تواصل معنا','f.tag':'فندقة 360 | ضيافتك أولويتنا'
+    'g.trusted':'تثق بنا','g.count':'أكثر من 800 منشأة','g.alt':'بهو فندق مشمس في الرياض وعلى مكتب الاستقبال لوحة تحكم فندقة',
+    'cta.title':'قم بالترقية اليوم','cta.text':'عرض لفترة محدودة وقد ينتهي قريباً. اشترك لمدة سنتين واستفد من السعر الخاص.',
+    'f.follow':'تابعنا','f.in':'فندقة على لينكدإن','f.x':'فندقة على إكس (تويتر)','f.ig':'فندقة على إنستغرام','f.fb':'فندقة على فيسبوك','f.terms':'الشروط والأحكام','f.privacy':'سياسة الخصوصية','f.contact':'تواصل معنا','f.tag':'فندقة 360 | ضيافتك أولويتنا',
+    'lead.close':'إغلاق','lead.title':'اطلب الترقية الآن','lead.sub':'اترك بياناتك وسيتواصل معك فريقنا قريباً لتفعيل العرض.',
+    'lead.name':'الاسم الكامل','lead.nameErr':'يرجى إدخال الاسم.','lead.email':'البريد الإلكتروني','lead.emailErr':'يرجى إدخال بريد إلكتروني صحيح.',
+    'lead.phone':'رقم الجوال (السعودية)','lead.phoneErr':'أدخل رقم جوال سعودياً من 9 أرقام يبدأ بـ 5.','lead.msg':'رسالتك','lead.opt':'(اختياري)',
+    'lead.send':'إرسال الطلب','lead.note':'نستخدم بياناتك للتواصل معك بخصوص فندقة فقط.','lead.doneT':'شكراً لك!','lead.doneD':'استلمنا طلبك، وسيتواصل معك فريقنا قريباً.','lead.closeBtn':'إغلاق'
   };
   const META = {
     en: { title: document.title, desc: document.querySelector('meta[name="description"]').content },
-    ar: { title: 'فندقة 360 | الترقية المتكاملة لإدارة الضيافة', desc: 'فندقة 360 تطوّر نظام إدارة الفندق الأساسي إلى منظومة تشغيل متكاملة: الامتثال والتوزيع وتجربة الضيوف وتشغيل المنشأة. عرض إطلاق لفترة محدودة.' }
-  };
-  const WA = 'https://wa.me/966555947522?text=';
-  const WA_MSG = {
-    en: { general: 'Hello Fandaqah, I would like to activate the Fandaqah 360 upgrade.', basic: 'Hello Fandaqah, I would like to ask about the Basic Subscription (SAR 1,200 / year).', compliance: 'Hello Fandaqah, I would like to ask about the Compliance Package (SAR 3,200 / year).', '360': 'Hello Fandaqah, I would like to activate Fandaqah 360 (SAR 3,495 / year).' },
-    ar: { general: 'مرحباً فندقة، أرغب في تفعيل ترقية فندقة 360.', basic: 'مرحباً فندقة، أود الاستفسار عن الاشتراك الأساسي (1,200 ريال سنوياً).', compliance: 'مرحباً فندقة، أود الاستفسار عن باقة الامتثال (3,200 ريال سنوياً).', '360': 'مرحباً فندقة، أرغب في تفعيل فندقة 360 (3,495 ريال سنوياً).' }
+    ar: { title: 'فندقة 360 | الترقية المتكاملة لإدارة الضيافة', desc: 'فندقة 360 تطوّر نظام إدارة المنشآت الفندقية الأساسي إلى منظومة تشغيل متكاملة: الامتثال والتوزيع وتجربة الضيوف وتشغيل المنشأة. عرض إطلاق لفترة محدودة.' }
   };
   const textNodes = $$('[data-i18n]'), ariaNodes = $$('[data-i18n-aria]'), altNodes = $$('[data-i18n-alt]');
   const EN = {}, EN_ARIA = new Map(), EN_ALT = new Map();
@@ -1087,7 +1167,6 @@ button{font:inherit;color:inherit}
     document.title = META[root.lang].title;
     document.querySelector('meta[name="description"]').content = META[root.lang].desc;
     $$('[data-lang]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === root.lang)));
-    $$('[data-wa]').forEach(a => { a.href = WA + encodeURIComponent(WA_MSG[root.lang][a.dataset.wa]); });
     $$('[data-href-ar]').forEach(a => { if (!a.dataset.hrefEn) a.dataset.hrefEn = a.getAttribute('href'); a.href = ar ? a.dataset.hrefAr : a.dataset.hrefEn; });
     if (persist) { try { localStorage.setItem('fq360-lang', root.lang); } catch (e) {} }
   }
@@ -1097,21 +1176,77 @@ button{font:inherit;color:inherit}
   const fromUrl = new URLSearchParams(location.search).get('lang');
   setLang(fromUrl === 'ar' || fromUrl === 'en' ? fromUrl : (saved || 'en'), false);
 
-  /* ---------- Countdown to the offer deadline (set data-deadline on .cd) ---------- */
-  const cd = document.querySelector('.cd');
-  const end = Date.parse(cd.dataset.deadline);
-  const cells = { d: cd.querySelector('[data-cd="d"]'), h: cd.querySelector('[data-cd="h"]'), m: cd.querySelector('[data-cd="m"]'), s: cd.querySelector('[data-cd="s"]') };
-  const pad = n => String(n).padStart(2, '0');
-  let timer;
-  function tick() {
-    const left = Math.max(0, Math.floor((end - Date.now()) / 1000));
-    cells.d.textContent = pad(Math.floor(left / 86400));
-    cells.h.textContent = pad(Math.floor(left % 86400 / 3600));
-    cells.m.textContent = pad(Math.floor(left % 3600 / 60));
-    cells.s.textContent = pad(left % 60);
-    if (!left) { cd.classList.add('is-over'); clearInterval(timer); }
+  /* ---------- Lead form: every CTA opens it, leads post straight to the CRM ---------- */
+  /* NOTE: this key ships to every visitor's browser. Keep it ingest-only, rate-limited on the CRM side, and switch to the production URL before launch. */
+  const API_URL = 'https://crm-dev.fandaqah.com/api/ingest/lead';
+  const API_KEY = 'fdq_d0930f18b74a5153c68b174748b5ed7ba17b8723ca05c21e';
+  const PLATFORM = 'fandaqah_tourism_platform_contact';
+  const PLANS = {
+    en: { general: 'Fandaqah 360 upgrade', basic: 'Basic Subscription · SAR 1,200 / year + VAT', compliance: 'Compliance Package · SAR 3,200 / year + VAT', '360': 'Fandaqah 360 · SAR 3,495 / year + VAT' },
+    ar: { general: 'ترقية فندقة 360', basic: 'الاشتراك الأساسي · 1,200 ريال سنوياً + ضريبة القيمة المضافة', compliance: 'باقة الامتثال · 3,200 ريال سنوياً + ضريبة القيمة المضافة', '360': 'فندقة 360 · 3,495 ريال سنوياً + ضريبة القيمة المضافة' }
+  };
+  const LEAD_TXT = {
+    en: { sending: 'Sending…', fail: 'We couldn’t send your request. Please try again, or call us on +966 9200 66456.' },
+    ar: { sending: 'جارٍ الإرسال…', fail: 'تعذّر إرسال طلبك. حاول مرة أخرى أو اتصل بنا على <bdi dir="ltr">+966 9200 66456</bdi>.' }
+  };
+  const lead = document.getElementById('lead'), form = lead.querySelector('form');
+  const planEl = lead.querySelector('[data-lead-plan]'), alertEl = lead.querySelector('.lead-alert'), submit = lead.querySelector('.lead-submit');
+  const fields = { name: form.elements.name, email: form.elements.email, phone: form.elements.phone };
+  // Saudi mobiles only: accepts 05XXXXXXXX, 5XXXXXXXX, +9665…, 009665… and Arabic-Indic digits; returns the 9-digit national number or null
+  const latinDigits = s => s.replace(/[٠-٩۰-۹]/g, d => String(d.charCodeAt(0) & 0xF));
+  const saMobile = raw => { const d = latinDigits(raw).replace(/\D/g, '').replace(/^(00966|966)/, '').replace(/^0/, ''); return /^5\d{8}$/.test(d) ? d : null; };
+  const CHECKS = { name: v => v.trim().length >= 2, email: v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()), phone: v => !!saMobile(v) };
+  const validate = key => {
+    const el = fields[key], ok = CHECKS[key](el.value);
+    el.setAttribute('aria-invalid', String(!ok));
+    document.getElementById(el.getAttribute('aria-describedby')).hidden = ok;
+    return ok;
+  };
+  let plan = 'general', opener = null;
+  const showStep = s => $$('[data-lead-step]', lead).forEach(x => { x.hidden = x.dataset.leadStep !== s; });
+  const setBusy = on => { submit.disabled = on; submit.firstElementChild.textContent = on ? LEAD_TXT[root.lang].sending : (root.lang === 'ar' ? AR['lead.send'] : EN['lead.send']); };
+  function openLead(p, from) {
+    plan = p in PLANS.en ? p : 'general'; opener = from;
+    planEl.textContent = PLANS[root.lang][plan];
+    alertEl.hidden = true; showStep('form');
+    lead.showModal();
+    fields.name.focus();
   }
-  if (!Number.isNaN(end)) { tick(); timer = setInterval(tick, 1000); }
+  function done() {
+    showStep('done'); form.reset(); delete form.dataset.tried;
+    Object.keys(fields).forEach(k => { fields[k].removeAttribute('aria-invalid'); document.getElementById(fields[k].getAttribute('aria-describedby')).hidden = true; });
+    lead.querySelector('[data-lead-step="done"] h2').focus();
+  }
+  document.addEventListener('click', e => { const b = e.target.closest('[data-lead]'); if (b) openLead(b.dataset.lead, b); });
+  lead.addEventListener('click', e => { if (e.target === lead || e.target.closest('[data-lead-close]')) lead.close(); });
+  lead.addEventListener('close', () => { if (opener) opener.focus(); });
+  form.addEventListener('input', e => { if (form.dataset.tried && fields[e.target.name]) validate(e.target.name); });
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (submit.disabled) return;
+    form.dataset.tried = '1';
+    const bad = Object.keys(fields).filter(k => !validate(k));
+    if (bad.length) { fields[bad[0]].focus(); return; }
+    if (form.elements.website.value) { done(); return; } // honeypot filled: a bot, so fake success and send nothing
+    const lang = root.lang, msg = form.elements.message.value.trim(), qs = new URLSearchParams(location.search), utm = {};
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(k => { if (qs.get(k)) utm[k] = qs.get(k); });
+    const payload = {
+      name: fields.name.value.trim(), email: fields.email.value.trim(), phone: '+966' + saMobile(fields.phone.value),
+      // the plan also goes in the message so sales sees it even if the CRM ignores the extra fields
+      message: (msg ? msg + '\n\n' : '') + `[Fandaqah 360 landing · ${PLANS.en[plan]} · ${lang.toUpperCase()}]`,
+      platform: PLATFORM, source: 'fandaqah_360_landing', interest: plan, language: lang, page_url: location.href.split('#')[0], ...utm
+    };
+    setBusy(true); alertEl.hidden = true;
+    const ctrl = new AbortController(), stop = setTimeout(() => ctrl.abort(), 15000);
+    try {
+      const res = await fetch(API_URL, { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-API-Key': API_KEY }, body: JSON.stringify(payload), signal: ctrl.signal });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      if (window.dataLayer) window.dataLayer.push({ event: 'generate_lead', lead_plan: plan });
+      done();
+    } catch (err) {
+      alertEl.innerHTML = LEAD_TXT[lang].fail; alertEl.hidden = false;
+    } finally { clearTimeout(stop); setBusy(false); }
+  });
 
   /* ---------- Mobile menu ---------- */
   const burger = document.querySelector('.burger'), mnav = document.getElementById('mnav');
@@ -1127,7 +1262,7 @@ button{font:inherit;color:inherit}
     setMenu(open);
     if (open) mnav.querySelector('a').focus();
   });
-  mnav.addEventListener('click', e => { if (e.target.closest('a')) closeMenu(); });
+  mnav.addEventListener('click', e => { if (e.target.closest('a, [data-lead]')) closeMenu(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && !mnav.hidden) { closeMenu(); burger.focus(); } });
   matchMedia('(min-width: 1041px)').addEventListener('change', e => { if (e.matches) closeMenu(); });
 
