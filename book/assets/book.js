@@ -25,7 +25,7 @@
     },
     ar: {
       chapter: 'الفصل', buyer: 'المشتري', action: 'الإجراء المطلوب', cta: 'دعوة الإجراء', landing: 'افتح صفحة الهبوط',
-      reels: 'الريلز', reelsMeta: '25 ثانية · 1080×1920 · MP4 · ترجمة مدمجة', download: 'تحميل MP4', live: 'نسخة GSAP الحية',
+      reels: 'الريلز', reelsMeta: '25 ثانية · <bdi dir="ltr">1080×1920</bdi> · MP4 · ترجمة مدمجة', download: 'تحميل MP4', live: 'نسخة GSAP الحية',
       arabic: 'العربية', english: 'الإنجليزية', pending: 'جارٍ تجهيز الريل', play: 'تشغيل الريل أو إيقافه',
       storyboard: 'القصة المصورة', beats: ['0–3 ث · الجذب', '3–10 ث · الحل', '10–20 ث · الإثبات', '20–25 ث · دعوة الإجراء'],
       book: 'كتاب البنرات', bookMeta: n => `${n} صفحة · اضغط على الصفحة لتقليبها`, prev: 'الصفحة السابقة', next: 'الصفحة التالية', zoom: 'عرض بالحجم الكامل',
@@ -101,8 +101,8 @@
           <div class="bk-reels-in">${phone(lang)}${phone(lang === 'ar' ? 'en' : 'ar')}<ol class="bk-beats" aria-label="${T.storyboard}">${beats}</ol></div></div>
         <div class="wrap bk-flip-wrap"><h3 class="bk-sub">${T.book}<small>${T.bookMeta(pages.length)}</small></h3>
           <div class="bk-flip" tabindex="0" role="group" aria-roledescription="book" aria-label="${T.book} ${c}" data-code="${c}"></div>
-          <div class="bk-flip-ctrl"><button type="button" data-turn="prev" aria-label="${T.prev}">${ico('i-arrow-right')}</button><span class="bk-count" aria-live="polite"></span><button type="button" data-turn="next" aria-label="${T.next}">${ico('i-arrow-right')}</button></div></div>
-        <div class="wrap"><h3 class="bk-sub">${T.rail}<small>${T.carousel} 1080×1350 · ${T.stories} 1080×1920</small></h3><div class="bk-rail">${rail}</div></div>
+          <div class="bk-flip-ctrl"><button type="button" data-turn="prev" aria-label="${T.prev}">${ico('i-arrow-right')}</button><span class="bk-count" dir="ltr" aria-live="polite"></span><button type="button" data-turn="next" aria-label="${T.next}">${ico('i-arrow-right')}</button></div></div>
+        <div class="wrap"><h3 class="bk-sub">${T.rail}<small>${T.carousel} <bdi dir="ltr">1080×1350</bdi> · ${T.stories} <bdi dir="ltr">1080×1920</bdi></small></h3><div class="bk-rail">${rail}</div></div>
       </section>`;
     }).join('');
     // the "previous" arrow points backwards in reading direction
@@ -226,7 +226,8 @@
         G.from($$('.bk-ch-copy > *', ch), { y: 40, opacity: 0, duration: .8, stagger: .1, scrollTrigger: { trigger: ch, start: 'top 70%' } });
         G.from($$('.bk-phone', ch), { y: 90, opacity: 0, rotation: (i) => (i ? 4 : -4), duration: 1, stagger: .15, scrollTrigger: { trigger: $('.bk-reels-in', ch), start: 'top 80%' } });
         G.from($$('.bk-beats li', ch), { x: 40, opacity: 0, duration: .7, stagger: .1, scrollTrigger: { trigger: $('.bk-beats', ch), start: 'top 85%' } });
-        G.from($('.bk-flip', ch), { rotationX: 22, y: 80, opacity: 0, duration: 1.1, transformPerspective: 1600, scrollTrigger: { trigger: $('.bk-flip', ch), start: 'top 85%' } });
+        // animate the wrapper, never .bk-flip itself: GSAP would freeze its CSS open/closed shift into an inline transform
+        G.from($('.bk-flip-wrap', ch), { y: 80, opacity: 0, duration: 1.1, scrollTrigger: { trigger: $('.bk-flip-wrap', ch), start: 'top 85%' } });
         G.from($$('.bk-rail > *', ch), { y: 40, opacity: 0, duration: .6, stagger: .05, scrollTrigger: { trigger: $('.bk-rail', ch), start: 'top 90%' } });
       });
       G.from('.bk-routes a', { y: 30, opacity: 0, duration: .7, stagger: .08, scrollTrigger: { trigger: '.bk-routes', start: 'top 90%' } });
