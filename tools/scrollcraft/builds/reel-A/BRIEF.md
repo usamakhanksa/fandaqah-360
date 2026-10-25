@@ -54,3 +54,8 @@ All four captions share one grid cell, so a one-line caption was stretched to th
 (text at the top, empty band below). It already affected the shipped Arabic B and C reels. Fixed in `reel.css`
 (`align-self:end`, bottom edge stays on the Reels interface line); re-rendered A (AR/EN), B-ar and C-ar. B-en, C-en
 and D have uniform caption heights, so their frames are unchanged.
+
+## Owner revision (25 Oct 2026)
+
+Scene 3 caption changed by the owner to «والمزيد من الخدمات الأخرى.» / "And many more services.": the five ticked
+modules are shown as a sample of the wider platform rather than one task.

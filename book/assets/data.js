@@ -13,7 +13,7 @@ window.BOOK_DATA = {
         scenes: [
           { h: 'Already with Fandaqah? <em>Get more value.</em>', cap: 'Still on paper and spreadsheets?' },
           { h: 'Connect more of <em>your daily work.</em>', s: 'Same system, same team, more of your hotel.', cap: 'Accounting and purchasing join the Fandaqah you already use.' },
-          { h: 'See what your <em>upgrade includes.</em>', list: ['Accounting', 'Purchasing', 'Housekeeping', 'Maintenance', 'Inventory'], cap: 'Enter a purchase order once, and it reaches your accounts.' },
+          { h: 'See what your <em>upgrade includes.</em>', list: ['Accounting', 'Purchasing', 'Housekeeping', 'Maintenance', 'Inventory'], cap: 'And many more services.' },
           { h: 'Lock in the <em>launch price for two years.</em>', s: 'Fandaqah 360, all 20 modules: SAR 3,495 a year, excl. VAT. 30-day Golden Guarantee.', cap: 'This launch price won’t be offered again. Lock it in today.' }
         ]
       },
@@ -24,7 +24,7 @@ window.BOOK_DATA = {
         scenes: [
           { h: 'تستخدم فندقة؟ <em>احصل على قيمة أكبر.</em>', cap: 'ما زلت على الورق وجداول البيانات؟' },
           { h: 'اربط مزيداً من <em>عملك اليومي.</em>', s: 'النظام نفسه والفريق نفسه، وجزء أكبر من فندقك مترابط.', cap: 'المحاسبة والمشتريات تنضمّان إلى فندقة التي تستخدمها.' },
-          { h: 'اكتشف ما <em>تشمله ترقيتك.</em>', list: ['المحاسبة', 'المشتريات', 'التدبير الفندقي', 'الصيانة', 'المخزون'], cap: 'أدخل أمر الشراء مرة واحدة، ويصل إلى حساباتك.' },
+          { h: 'اكتشف ما <em>تشمله ترقيتك.</em>', list: ['المحاسبة', 'المشتريات', 'التدبير الفندقي', 'الصيانة', 'المخزون'], cap: 'والمزيد من الخدمات الأخرى.' },
           { h: 'ثبّت <em>سعر الإطلاق لمدة سنتين.</em>', s: 'فندقة 360 بوحداتها العشرين: 3,495 ريالاً سنوياً غير شاملة الضريبة. ضمان ذهبي لمدة 30 يوماً.', cap: 'سعر الإطلاق هذا لن يتكرر. ثبّته اليوم.' }
         ]
       }
