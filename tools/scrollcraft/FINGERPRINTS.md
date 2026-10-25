@@ -33,6 +33,7 @@ changes only grammar and world will fail it.
 | campaign-v2-C (Opera / mandated PMS) | Comp-led conversion page (structure supplied by the owner) | Anchor bar with section highlight | Reception photo masked away from the type, glass PMS map whose connectors draw in, leaf silhouette at the trail edge, script note | parallax hero > navy roles band > workflow cards > pin(cost lens) > four steps > navy/peach split form > three-column FAQ; 1 pinned act, about 5.8vh | Navy promise beside the form card, then FAQ columns and a light footer with the trademark notice | The cost lens: each cost line passed is placed on the review card, current against proposed, no values | Campaign palette, owned photography + markup desk scene | 8766 |
 | linkedin-kit (`linkdein-message.html`, sales tool, EN/AR) | Live surface: the page is the outreach tool, running on real merge, scheduling and copy logic | App chrome: top bar with track and language switches, sidebar of the five dated touches with readiness dots (a step strip on phones), navy status bar | The surface already in a state: a labelled demo prospect merged into every message, the invitation already in the inbox | prospect panel > five flow steps beside a sticky inbox that accumulates > replies > subject lines > playbook (all flow, no pinned act); 10 sections, length set by content | An input: a "next prospect" first-name field on a navy plate, with copy-full-sequence for the CRM | The conversation writes itself: passing each touch drops it into the inbox, dated on Saudi working days, until the thread completes | Campaign palette, no imagery (dense corporate tool) | 8766 |
 
+| campaign-v2-D (hotel groups & operators) | Co-branded dossier (new): every chapter wears one group identity the visitor sets | Four-anchor site header plus an identity chip (mark and group name in the chosen colour) that opens the brand studio | Aerial portfolio photograph with its own coral thread, three property pins on the buildings, the group board glass overlapping the photo edge, blurred leaf near; pointer and scroll depth | parallax hero > still ledger > pin(platform scope walk, 2.6vh) > live brand studio > sticky-split workshop > drawn rollout + navy commercials > FAQ > navy close; 1 pin, about 9.7vh | Navy close: the visitor's branded portal greets them by name while a two-step request fills it, then shows the reference | The group identity: a typed name and a chosen colour re-skin the platform everywhere it appears and persist on the device | Campaign palette with one visitor-chosen colour, owned aerial image + markup | 4500 |
 
 ---
 
@@ -57,6 +58,11 @@ as a constraint, so writing them down is the whole point.
 - **Close:** a "next prospect" input that resets the tool.
 - **Signature:** scroll-accumulated inbox thread dated on working days.
 - **Shape band:** 10 flow sections, 0 pinned acts, sticky side panel.
+- **Grammar:** co-branded dossier, one visitor-set identity through every chapter (campaign-v2-D).
+- **Nav:** an identity chip in the header that carries the visitor's brand and opens the studio.
+- **Close:** a branded portal welcome screen beside a two-step request.
+- **Signature:** visitor-set name and colour re-skin the product surfaces page-wide.
+- **Shape band:** 8 acts, 1 pin third in sequence plus a sticky split, about 9.7vh.
 - linkedin-kit revised 25 Oct 2026 to the Marketing Campaign Playbook (campaigns A to D, routing and eligibility gate, ads and posts for C and D). Same build, same row: a revision is not a new build.
 
 ---

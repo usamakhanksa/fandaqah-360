@@ -20,193 +20,370 @@
 <meta name="twitter:site" content="@fandaqah">
 <link rel="preload" href="../assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="../assets/img/hero-groups.webp" as="image" type="image/webp">
+<link rel="preload" as="image" type="image/webp" imagesrcset="../assets/img/hero-portfolio-900.webp 900w, ../assets/img/hero-portfolio.webp 1672w" imagesizes="(max-width: 960px) 100vw, 60vw" fetchpriority="high">
+<link rel="stylesheet" href="../assets/vendor/scrollcraft/scrollcraft.css">
 <link rel="stylesheet" href="../assets/css/site.css">
-<script>document.documentElement.classList.add('js')</script>
+<link rel="stylesheet" href="../assets/css/v2.css">
+<link rel="stylesheet" href="../assets/css/groups.css">
+<script>
+document.documentElement.classList.add('js');
+/* the visitor's group identity is applied before first paint, so the page never flashes the default */
+try { const g = JSON.parse(localStorage.getItem('fq360-group-id')); if (g && g.c) document.documentElement.style.setProperty('--gb', g.c); } catch (e) {}
+</script>
 </head>
-<body>
+<body class="v2 pd">
 <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
 
 <header class="site-head">
   <div class="wrap head-in">
     <a class="logo" href="../" data-i18n-aria="aria.home" aria-label="Fandaqah 360 home"><img src="../assets/img/brand-dark-340.webp" width="340" height="146" alt="Fandaqah"><span class="logo-360" aria-hidden="true">360</span></a>
     <nav class="nav" data-i18n-aria="aria.main" aria-label="Main">
-      <a href="#solutions" data-i18n="nav.solutions">Solutions</a>
-      <a href="#how" data-i18n="nav.how">How it works</a>
-      <a href="#contact" data-i18n="nav.contact">Contact</a>
+      <a href="#platform" data-i18n="nav.platform">The platform</a>
+      <a href="#your-group" data-i18n="nav.brand">Your group</a>
+      <a href="#workshop" data-i18n="nav.workshop">Discovery workshop</a>
+      <a href="#faq" data-i18n="nav.faq">FAQs</a>
     </nav>
     <div class="head-end">
-      <div class="lang" role="group" data-i18n-aria="aria.lang" aria-label="Language"><button type="button" data-lang="en" lang="en" aria-pressed="true">EN</button><span class="sep" aria-hidden="true"></span><button type="button" data-lang="ar" lang="ar" aria-pressed="false">عربي</button></div>
-      <a class="btn btn-sm" href="#contact" data-i18n="cta.head">Book a discovery meeting</a>
+      <a class="pd-idchip" href="#your-group" data-i18n-aria="aria.idchip" aria-label="Your group identity: open the brand studio">
+        <span class="pd-mark" aria-hidden="true"><svg class="ic g-glyph"><use href="../assets/icons.svg#i-building-2"/></svg><b class="g-mono"></b></span>
+        <span class="g-name"><span class="g-def" data-i18n="g.def">Your hotel group</span><span class="g-cus"></span></span>
+      </a>
+      <div class="lang lang--pill" role="group" data-i18n-aria="aria.lang" aria-label="Language"><button type="button" data-lang="en" lang="en" aria-pressed="true">EN</button><span class="sep" aria-hidden="true"></span><button type="button" data-lang="ar" lang="ar" aria-pressed="false">عربي</button></div>
+      <a class="btn btn-sm btn--pill" href="#contact"><span data-i18n="nav.cta">Let’s talk</span><svg class="ic ic-go" aria-hidden="true"><use href="../assets/icons.svg#i-arrow-right"/></svg></a>
       <button class="burger" type="button" aria-expanded="false" aria-controls="mnav" data-i18n-aria="aria.menu" aria-label="Open menu"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-menu"/></svg></button>
     </div>
   </div>
   <div class="mnav" id="mnav" hidden>
     <nav class="wrap mnav-in" data-i18n-aria="aria.main" aria-label="Main">
-      <a href="#solutions" data-i18n="nav.solutions">Solutions</a>
-      <a href="#how" data-i18n="nav.how">How it works</a>
-      <a href="#contact" data-i18n="nav.contact">Contact</a>
+      <a href="#platform" data-i18n="nav.platform">The platform</a>
+      <a href="#your-group" data-i18n="nav.brand">Your group</a>
+      <a href="#workshop" data-i18n="nav.workshop">Discovery workshop</a>
+      <a href="#faq" data-i18n="nav.faq">FAQs</a>
     </nav>
   </div>
 </header>
 
 <main id="main">
-  <!-- ============ HERO ============ -->
-  <section class="hero" aria-labelledby="hero-title">
-    <nav class="seg" data-i18n-aria="aria.routes" aria-label="Choose your route">
-      <div class="seg-in">
-        <a href="../existing-customers/" data-route="A" data-i18n="seg.A">Existing customers</a>
-        <a href="../new-hotels/" data-route="B" data-i18n="seg.B">New hotels</a>
-        <a href="../opera-pms/" data-route="C" data-i18n="seg.C">Opera / PMS</a>
-        <a href="../hotel-groups/" data-route="D" aria-current="page" data-i18n="seg.D">Hotel groups</a>
+  <!-- ============ HERO: the portfolio from above. Far: the aerial photograph and its coral thread; mid: property pins;
+       glass: the group board, wearing the visitor's identity; near: a blurred leaf. Type stays on the cream ground. ============ -->
+  <section class="pd-hero" id="top" aria-labelledby="hero-title">
+    <div class="wrap pd-line"><span data-i18n="line.campaign">Fandaqah 360 · Hotel groups &amp; operators</span><span class="pd-line-r"><i class="pd-dot"></i><span data-i18n="region">For Saudi hotel groups</span></span></div>
+    <div class="wrap pd-hero-in">
+      <div class="pd-copy">
+        <p class="v2-eyebrow pd-eyebrow"><i></i><span data-i18n="hero.eyebrow">Your group. One technology strategy.</span></p>
+        <h1 class="pd-h1" id="hero-title" data-i18n="hero.title">A dedicated platform.<br>Built around <em>your hotel group.</em></h1>
+        <p class="pd-lead" data-i18n="hero.lead">Explore a dedicated Fandaqah environment with agreed branding, workflows, integrations and group reporting.</p>
+        <p class="pd-detail" data-i18n="hero.detail">Standardise supported processes across your properties with one accountable technology partner and a clearly scoped implementation plan.</p>
+        <div class="pd-actions">
+          <a class="btn btn--pill" href="#contact"><span data-i18n="cta.main">Book a group discovery meeting</span><svg class="ic ic-go" aria-hidden="true"><use href="../assets/icons.svg#i-arrow-right"/></svg></a>
+          <a class="v2-link" href="#platform"><span data-i18n="hero.explore">Explore the group view</span><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-arrow-right"/></svg></a>
+        </div>
+        <p class="pd-fit"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-building-2"/></svg><span data-i18n="hero.fit">For owners and operators responsible for about <strong>10 or more properties.</strong></span></p>
       </div>
-    </nav>
-    <div class="wrap hero-in">
-      <div class="hero-copy">
-        <p class="eyebrow" style="--i:0" data-i18n="hero.eyebrow">For hotel groups &amp; operators</p>
-        <h1 class="h1" id="hero-title" style="--i:1" data-i18n="hero.title">A dedicated technology platform <span class="hl">built around your group.</span></h1>
-        <p class="hero-lead" style="--i:2" data-i18n="hero.lead">Explore a dedicated Fandaqah environment with agreed branding, workflows, integrations and group reporting. Standardise supported processes across your properties with one accountable technology partner.</p>
-        <div class="hero-cta" style="--i:3"><a class="btn" href="#contact"><span data-i18n="cta.main">Book a group discovery meeting</span><svg class="ic ic-go" aria-hidden="true"><use href="../assets/icons.svg#i-arrow-right"/></svg></a></div>
-        <p class="hero-note" style="--i:4" data-i18n="hero.note">For operators and owners managing around 10 or more properties.</p>
+      <div class="pd-art">
+        <figure class="pd-photo">
+          <img src="../assets/img/hero-portfolio.webp" srcset="../assets/img/hero-portfolio-900.webp 900w, ../assets/img/hero-portfolio.webp 1672w" sizes="(max-width: 960px) 100vw, 60vw" width="1672" height="941" alt="Illustrative architectural scene of three Saudi hotel properties linked by one coral thread." data-i18n-alt="hero.imageAlt" fetchpriority="high">
+          <figcaption><i class="pd-dot"></i><span data-i18n="hero.caption">A portfolio of properties. A shared direction.</span></figcaption>
+        </figure>
+        <div class="pd-pins">
+          <a class="pd-pin" href="#platform" data-scope="1" style="--x:58%;--y:22%"><i aria-hidden="true"></i><span><b data-i18n="city.riyadh">Riyadh</b><small data-i18n="hero.propView">Property dashboard</small></span></a>
+          <a class="pd-pin" href="#platform" data-scope="2" style="--x:24%;--y:44%"><i aria-hidden="true"></i><span><b data-i18n="city.jeddah">Jeddah</b><small data-i18n="hero.propView">Property dashboard</small></span></a>
+          <a class="pd-pin" href="#platform" data-scope="3" style="--x:69%;--y:62%"><i aria-hidden="true"></i><span><b data-i18n="city.khobar">Al Khobar</b><small data-i18n="hero.propView">Property dashboard</small></span></a>
+        </div>
+        <div class="pd-board" aria-hidden="true">
+          <div class="pd-board-top"><span class="pd-gbrand"><span class="pd-mark"><svg class="ic g-glyph"><use href="../assets/icons.svg#i-building-2"/></svg><b class="g-mono"></b></span><span class="g-name"><span class="g-def" data-i18n="g.def">Your hotel group</span><span class="g-cus"></span></span></span><span class="pd-tag" data-i18n="hero.sample">Illustrative group view</span></div>
+          <p class="pd-board-h" data-i18n="hero.boardTitle">Your group, in focus.</p>
+          <p class="pd-board-sub" data-i18n="hero.boardSub">One view. Property-level detail.</p>
+          <div class="pd-board-stats">
+            <div><b>12</b><span data-i18n="hero.12">Sample properties</span></div>
+            <div><b>03</b><span data-i18n="hero.3">Property views shown</span></div>
+            <div class="pd-spark"><i style="--h:.35"></i><i style="--h:.5"></i><i style="--h:.42"></i><i style="--h:.7"></i><i style="--h:.58"></i><i style="--h:.86"></i><i style="--h:.78"></i></div>
+          </div>
+          <p class="pd-board-foot"><i class="pd-dot"></i><span data-i18n="hero.branding">Illustrative branding · Sample data</span></p>
+        </div>
+        <svg class="pd-leaf" viewBox="0 0 220 320" aria-hidden="true"><use href="../assets/icons.svg#art-leaves"/></svg>
       </div>
     </div>
-    <div class="hero-media">
-      <figure class="hero-photo"><img src="../assets/img/hero-groups.webp" width="1600" height="685" alt="" fetchpriority="high" style="object-position:62% 50%"></figure>
-      <div class="hero-visual" aria-hidden="true" style="--vx:8%;--vy:40px">
-        <div class="laptop" style="--w:460px">
-          <div class="laptop-screen"><div class="ui">
-            <div class="ui-side">
-              <div class="ui-brand"><i></i>Your <b>group</b></div>
-              <ul>
-                <li class="on"><svg class="ic"><use href="../assets/icons.svg#i-network"/></svg>Group overview</li>
-                <li><svg class="ic"><use href="../assets/icons.svg#i-building-2"/></svg>Properties</li>
-                <li><svg class="ic"><use href="../assets/icons.svg#i-chart-line"/></svg>Reports</li>
-                <li><svg class="ic"><use href="../assets/icons.svg#i-key"/></svg>Permissions</li>
-              </ul>
-            </div>
-            <div class="ui-main">
-              <div class="ui-top"><span class="grp-brand">● Your brand</span><span class="ui-tag" data-i18n="ui.brandTag">Illustrative branding</span></div>
-              <div class="ui-h">Group overview<small>Group and property-level views</small></div>
-              <div class="ui-card ui-chart"><svg viewBox="0 0 220 60" preserveAspectRatio="none"><g stroke="#EDE8E1" stroke-width="1"><path d="M0 15H220M0 30H220M0 45H220"/></g><path d="M4 50 L40 40 L76 44 L112 30 L148 34 L184 20 L216 14" fill="none" stroke="#E9584D" stroke-width="2"/><path d="M4 54 L40 50 L76 52 L112 44 L148 46 L184 38 L216 34" fill="none" stroke="#282639" stroke-width="1.5" stroke-dasharray="3 3"/></svg></div>
-              <div class="ui-grid" style="--n:4">
-                <div class="ui-card grp-tile"><b>Property 1</b><small>Riyadh</small><div class="grp-bar"><i style="--v:78%"></i></div></div>
-                <div class="ui-card grp-tile"><b>Property 2</b><small>Jeddah</small><div class="grp-bar"><i style="--v:64%"></i></div></div>
-                <div class="ui-card grp-tile"><b>Property 3</b><small>Al Khobar</small><div class="grp-bar"><i style="--v:71%"></i></div></div>
-                <div class="ui-card grp-tile"><b>Property 4</b><small>Madinah</small><div class="grp-bar"><i style="--v:58%"></i></div></div>
-              </div>
-            </div>
-          </div></div>
-          <div class="laptop-base"></div>
+  </section>
+
+  <!-- ============ LEDGER: the quiet act before the peak. Many properties, one direction, three things the group owns ============ -->
+  <section class="v2-sec pd-ledger" aria-labelledby="intro-title">
+    <div class="wrap">
+      <div class="pd-ledger-head" data-reveal>
+        <div>
+          <p class="v2-eyebrow" data-i18n="intro.kicker">Built around the way you operate</p>
+          <h2 class="v2-h2" id="intro-title" data-i18n="intro.title">Many properties.<br><em>One shared direction.</em></h2>
+        </div>
+        <div>
+          <p class="pd-ledger-lead" data-i18n="intro.lead">A dedicated hotel technology platform built around your group.</p>
+          <p class="v2-sub" data-i18n="intro.text">Your properties may serve different guests, in different cities, under different operating structures. Start with a shared technology strategy that respects those differences.</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ============ GROUP VIEW ============ -->
-  <section class="sec" id="solutions" aria-labelledby="sol-title">
-    <div class="wrap">
-      <div class="sec-head" data-reveal>
-        <h2 class="h2" id="sol-title" data-i18n="sol.title">See your group and each property clearly.</h2>
-        <p class="sec-sub" data-i18n="sol.sub">One technology strategy, from group reporting to property-level detail.</p>
-      </div>
-      <div class="cards">
-        <div class="card card--info" data-reveal style="--i:0"><span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-chart-column"/></svg></span><div><h3 data-i18n="g1.t">Group reporting</h3><p class="card-text" data-i18n="g1.d">One view across properties, with property-level detail.</p></div></div>
-        <div class="card card--info" data-reveal style="--i:1"><span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-palette"/></svg></span><div><h3 data-i18n="g2.t">Your brand &amp; policies</h3><p class="card-text" data-i18n="g2.d">Align supported workflows with your standards.</p></div></div>
-        <div class="card card--info" data-reveal style="--i:2"><span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-shield-check"/></svg></span><div><h3 data-i18n="g3.t">One accountable partner</h3><p class="card-text" data-i18n="g3.d">A clearly scoped implementation plan and support.</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ DEDICATED DEPLOYMENT ============ -->
-  <section class="split" aria-labelledby="ded-title">
-    <figure class="split-media"><img src="../assets/img/lobby-dashboard.webp" width="800" height="456" alt="A hotel lobby with a reporting dashboard on the front desk" data-i18n-alt="ded.alt" loading="lazy" style="object-position:70% 50%"></figure>
-    <div class="split-body" data-reveal>
-      <h2 class="h2" id="ded-title" data-i18n="ded.title">Dedicated deployment and branding to an agreed scope.</h2>
-      <ul class="checklist">
-        <li><span class="tick" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="ded.1">Agreed branding and workflows</span></li>
-        <li><span class="tick" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="ded.2">Group and property-level reporting</span></li>
-        <li><span class="tick" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="ded.3">Supported integrations across properties</span></li>
-        <li><span class="tick" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="ded.4">One accountable technology partner</span></li>
-      </ul>
-      <p class="split-note" data-i18n="ded.note">Hosting, customisation, ownership terms and service responsibilities are agreed in your proposal.</p>
-    </div>
-  </section>
-
-  <!-- ============ DISCOVERY WORKSHOP ============ -->
-  <section class="sec" aria-labelledby="ws-title">
-    <div class="wrap">
-      <div class="sec-head" data-reveal>
-        <p class="eyebrow" data-i18n="ws.eyebrow">Discovery workshop</p>
-        <h2 class="h2" id="ws-title" data-i18n="ws.title">What we’ll map together.</h2>
-        <p class="sec-sub" data-i18n="ws.sub">A focused workshop with your owners, operations, IT and finance teams.</p>
-      </div>
-      <ul class="topics">
-        <li class="topic" data-reveal style="--i:0"><span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-network"/></svg></span><div><h3 data-i18n="t1.t">Property structure</h3><p data-i18n="t1.d">Managed, owned and franchised properties.</p></div></li>
-        <li class="topic" data-reveal style="--i:1"><span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-chart-column"/></svg></span><div><h3 data-i18n="t2.t">Reports</h3><p data-i18n="t2.d">The group and property views you need.</p></div></li>
-        <li class="topic" data-reveal style="--i:2"><span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-key"/></svg></span><div><h3 data-i18n="t3.t">Permissions</h3><p data-i18n="t3.d">Who sees and approves what, by property.</p></div></li>
-        <li class="topic" data-reveal style="--i:3"><span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-plug"/></svg></span><div><h3 data-i18n="t4.t">Integrations</h3><p data-i18n="t4.d">The systems each property relies on.</p></div></li>
-        <li class="topic" data-reveal style="--i:4"><span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-server"/></svg></span><div><h3 data-i18n="t5.t">Hosting</h3><p data-i18n="t5.d">Deployment and data requirements.</p></div></li>
-        <li class="topic" data-reveal style="--i:5"><span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-life-buoy"/></svg></span><div><h3 data-i18n="t6.t">Support &amp; implementation</h3><p data-i18n="t6.d">Rollout plan, training and service model.</p></div></li>
+      <ul class="pd-principles">
+        <li data-reveal style="--i:0"><span class="pd-pic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-palette"/></svg></span><h3 data-i18n="principle1.title">Your brand.</h3><p data-i18n="principle1.text">An identity agreed with your group.</p></li>
+        <li data-reveal style="--i:1"><span class="pd-pic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-clipboard-check"/></svg></span><h3 data-i18n="principle2.title">Your policies.</h3><p data-i18n="principle2.text">Supported workflows, aligned to your standards.</p></li>
+        <li data-reveal style="--i:2"><span class="pd-pic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-shield-check"/></svg></span><h3 data-i18n="principle3.title">Your technology.</h3><p data-i18n="principle3.text">One accountable technology partnership.</p></li>
       </ul>
     </div>
   </section>
 
-  <!-- ============ DISCOVERY TO ROLLOUT (navy) ============ -->
-  <section class="sec sec-navy sec-navy--lift" id="how" aria-labelledby="how-title">
-    <svg class="band-leaf" viewBox="0 0 220 320" aria-hidden="true"><use href="../assets/icons.svg#art-leaves"/></svg>
+  <!-- ============ PLATFORM (peak): the section holds, and scroll walks one dashboard from the whole group into each property.
+       The tabs do the same by hand. Every value is illustrative and labelled so. ============ -->
+  <section class="pd-platform" id="platform" data-sc-act="pin" data-sc-span="2.6" aria-labelledby="platform-title">
+    <div class="pd-platform-stage" data-sc-stage>
+      <div class="wrap">
+        <div class="pd-platform-head">
+          <div>
+            <p class="v2-eyebrow" data-i18n="platform.kicker">From group overview to property detail</p>
+            <h2 class="v2-h2" id="platform-title" data-i18n="platform.title">The bigger picture.<br><em>The detail that matters.</em></h2>
+          </div>
+          <p class="v2-sub" data-i18n="platform.text">Explore this illustrative dashboard. Choose a property to see how a group view could connect to local operational detail.</p>
+        </div>
+        <div class="pd-dash" data-scope="0">
+          <div class="pd-dash-top">
+            <span class="pd-gbrand"><span class="pd-mark"><svg class="ic g-glyph" aria-hidden="true"><use href="../assets/icons.svg#i-building-2"/></svg><b class="g-mono"></b></span><span class="g-name"><span class="g-def" data-i18n="g.def">Your hotel group</span><span class="g-cus"></span></span></span>
+            <span class="pd-tag" data-i18n="demo.sample">Illustrative branding</span>
+          </div>
+          <div class="pd-dash-shell">
+            <div class="pd-dash-side">
+              <p class="pd-side-k" data-i18n="demo.overview">Portfolio overview</p>
+              <div class="pd-tabs" role="tablist" data-i18n-aria="aria.scope" aria-label="Dashboard scope" aria-orientation="vertical">
+                <button type="button" role="tab" id="pd-tab-0" aria-controls="pd-panel" aria-selected="true" data-scope="0"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-network"/></svg><span data-i18n="demo.group">Group overview</span><b>12</b></button>
+                <button type="button" role="tab" id="pd-tab-1" aria-controls="pd-panel" aria-selected="false" tabindex="-1" data-scope="1"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-building-2"/></svg><span data-i18n="city.riyadh">Riyadh</span><b>01</b></button>
+                <button type="button" role="tab" id="pd-tab-2" aria-controls="pd-panel" aria-selected="false" tabindex="-1" data-scope="2"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-building-2"/></svg><span data-i18n="city.jeddah">Jeddah</span><b>02</b></button>
+                <button type="button" role="tab" id="pd-tab-3" aria-controls="pd-panel" aria-selected="false" tabindex="-1" data-scope="3"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-building-2"/></svg><span data-i18n="city.khobar">Al Khobar</span><b>03</b></button>
+              </div>
+              <span class="pd-rail" aria-hidden="true"><i></i></span>
+              <p class="pd-side-note" data-i18n="scope.hint">Scroll to move from the group into each property, or choose one.</p>
+            </div>
+            <div class="pd-dash-main" id="pd-panel" role="tabpanel" aria-labelledby="pd-tab-0" tabindex="0">
+              <div class="pd-dash-h">
+                <div><p class="pd-scope-k"><span class="s-group" data-i18n="demo.overview">Portfolio overview</span><span class="s-prop" data-i18n="demo.propertyOverview">Property overview</span></p>
+                  <h3 class="pd-scope-t"><span data-scope-name="0" data-i18n="demo.group">Group overview</span><span data-scope-name="1" data-i18n="city.riyadh">Riyadh</span><span data-scope-name="2" data-i18n="city.jeddah">Jeddah</span><span data-scope-name="3" data-i18n="city.khobar">Al Khobar</span></h3></div>
+                <span class="pd-period"><i class="pd-dot"></i><span data-i18n="demo.period">Sample week</span></span>
+              </div>
+              <div class="pd-metrics" aria-live="polite">
+                <div><span data-i18n="demo.properties">Properties in view</span><b><span data-m="props">12</span><small>/ 12</small></b></div>
+                <div><span data-i18n="demo.occupancy">Sample occupancy</span><b><span data-m="occ">76</span><small>%</small></b></div>
+                <div><span data-i18n="demo.reports">Reports available</span><b><span data-m="rep">9</span><small data-m="repOf">/ 12</small></b></div>
+              </div>
+              <div class="pd-dash-row">
+                <div class="pd-chart">
+                  <p class="pd-card-h" data-i18n="demo.chart">Occupancy by day</p>
+                  <div class="pd-bars" role="img" data-i18n-aria="demo.chartLabel" aria-label="Illustrative occupancy percentages over seven days">
+                    <div><i></i><span data-i18n="day.mon">M</span></div><div><i></i><span data-i18n="day.tue">T</span></div><div><i></i><span data-i18n="day.wed">W</span></div><div><i></i><span data-i18n="day.thu">T</span></div><div><i></i><span data-i18n="day.fri">F</span></div><div><i></i><span data-i18n="day.sat">S</span></div><div><i></i><span data-i18n="day.sun">S</span></div>
+                  </div>
+                </div>
+                <div class="pd-flow">
+                  <p class="pd-card-h" data-i18n="demo.progress">Illustrative reporting workflow</p>
+                  <ol>
+                    <li><span>1</span><span data-i18n="demo.progress1">Property prepares</span></li>
+                    <li><span>2</span><span data-i18n="demo.progress2">Group reviews</span></li>
+                    <li><span>3</span><span data-i18n="demo.progress3">Finance approves</span></li>
+                  </ol>
+                </div>
+              </div>
+              <table class="pd-table">
+                <caption data-i18n="demo.summary">Property reporting</caption>
+                <thead><tr><th scope="col" data-i18n="demo.property">Property</th><th scope="col" data-i18n="demo.occupancyShort">Occupancy</th><th scope="col" data-i18n="demo.status">Sample status</th></tr></thead>
+                <tbody>
+                  <tr data-row="1"><th scope="row"><span class="pd-sq">01</span><span data-i18n="city.riyadh">Riyadh</span></th><td>81%</td><td><span class="pd-st" data-i18n="demo.review">For group review</span></td></tr>
+                  <tr data-row="2"><th scope="row"><span class="pd-sq">02</span><span data-i18n="city.jeddah">Jeddah</span></th><td>74%</td><td><span class="pd-st" data-i18n="demo.review">For group review</span></td></tr>
+                  <tr data-row="3"><th scope="row"><span class="pd-sq">03</span><span data-i18n="city.khobar">Al Khobar</span></th><td>72%</td><td><span class="pd-st is-pending" data-i18n="demo.preparing">In preparation</span></td></tr>
+                </tbody>
+              </table>
+              <p class="pd-dash-note"><span class="s-group" data-i18n="demo.tableNote">Three of twelve example properties shown. All names, values and workflows are illustrative.</span><span class="s-prop" data-i18n="demo.propertyNote">Example property view. Permissions, reporting and approval routes are defined during discovery.</span></p>
+            </div>
+          </div>
+        </div>
+        <p class="pd-scope-note"><span aria-hidden="true">i</span><span data-i18n="platform.note">Concept demonstration only. Deployment, customisation, branding, metrics and supported integrations are agreed in the proposal.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ YOUR GROUP: the brand studio (signature). The visitor's name and colour are worn by the header chip,
+       the hero board, the dashboard and the welcome screen of the close. Stored on this device only. ============ -->
+  <section class="v2-sec pd-studio" id="your-group" aria-labelledby="brand-title">
     <div class="wrap">
-      <h2 class="h2" id="how-title" data-reveal data-i18n="how.title">From discovery to rollout.</h2>
-      <ol class="steps" data-reveal style="--i:1">
-        <li class="step"><span class="step-num">01</span><h3 data-i18n="s1.t">Discovery workshop</h3><p data-i18n="s1.d">Structure, reports, permissions and integrations.</p></li>
-        <li class="step"><span class="step-num">02</span><h3 data-i18n="s2.t">Scoped proposal</h3><p data-i18n="s2.d">Setup, service and agreed customisation priced separately.</p></li>
-        <li class="step"><span class="step-num">03</span><h3 data-i18n="s3.t">Pilot &amp; rollout</h3><p data-i18n="s3.d">Start with agreed properties, then expand.</p></li>
+      <div class="pd-studio-head" data-reveal>
+        <p class="v2-eyebrow" data-i18n="brand.kicker">Your brand. Your policies. Your hotel technology.</p>
+        <h2 class="v2-h2" id="brand-title" data-i18n="brand.title">Dedicated to your group.<br><em>Defined together.</em></h2>
+        <p class="v2-sub" data-i18n="brand.text">Build your hospitality technology partnership with Fandaqah. Agree what your group needs, what is supported and how it will be delivered.</p>
+      </div>
+      <div class="pd-studio-grid">
+        <form class="pd-kit" id="pd-kit" data-reveal autocomplete="off">
+          <p class="pd-kit-h" data-i18n="studio.title">Try it with your group.</p>
+          <div class="f"><label for="pd-gname" data-i18n="studio.name">Your group name</label><input id="pd-gname" type="text" maxlength="32" spellcheck="false"></div>
+          <fieldset class="pd-swatches"><legend data-i18n="studio.colour">Group colour</legend>
+            <label style="--s:#282639"><input type="radio" name="gcolour" value="#282639" checked><span class="sr" data-i18n="c.navy">Navy</span></label>
+            <label style="--s:#0F5B4A"><input type="radio" name="gcolour" value="#0F5B4A"><span class="sr" data-i18n="c.emerald">Emerald</span></label>
+            <label style="--s:#1E3A7B"><input type="radio" name="gcolour" value="#1E3A7B"><span class="sr" data-i18n="c.royal">Royal blue</span></label>
+            <label style="--s:#6B1D33"><input type="radio" name="gcolour" value="#6B1D33"><span class="sr" data-i18n="c.burgundy">Burgundy</span></label>
+            <label style="--s:#7A5A22"><input type="radio" name="gcolour" value="#7A5A22"><span class="sr" data-i18n="c.gold">Desert gold</span></label>
+            <label style="--s:#2E2E33"><input type="radio" name="gcolour" value="#2E2E33"><span class="sr" data-i18n="c.charcoal">Charcoal</span></label>
+          </fieldset>
+          <div class="pd-kit-foot"><button class="pd-reset" type="reset" data-i18n="studio.reset">Reset</button><span data-i18n="studio.hint">Stays on this device only.</span></div>
+          <p class="pd-kit-note" data-i18n="studio.note">Illustrative branding. Your identity is agreed in the proposal.</p>
+        </form>
+        <div class="pd-window" aria-hidden="true">
+          <div class="pd-window-bar"><i></i><i></i><i></i><span class="pd-url"><span class="g-slug">group</span>.fandaqah360.sa</span></div>
+          <div class="pd-window-in">
+            <aside class="pd-wside">
+              <span class="pd-gbrand pd-gbrand--inv"><span class="pd-mark"><svg class="ic g-glyph"><use href="../assets/icons.svg#i-building-2"/></svg><b class="g-mono"></b></span><span class="g-name"><span class="g-def" data-i18n="g.def">Your hotel group</span><span class="g-cus"></span></span></span>
+              <ul><li class="on"><svg class="ic"><use href="../assets/icons.svg#i-network"/></svg><span data-i18n="demo.group">Group overview</span></li><li><svg class="ic"><use href="../assets/icons.svg#i-building-2"/></svg><span data-i18n="bw.props">Properties</span></li><li><svg class="ic"><use href="../assets/icons.svg#i-chart-line"/></svg><span data-i18n="bw.reports">Reports</span></li><li><svg class="ic"><use href="../assets/icons.svg#i-key"/></svg><span data-i18n="bw.perms">Permissions</span></li></ul>
+            </aside>
+            <div class="pd-wmain">
+              <p class="pd-wk" data-i18n="brand.sample">Illustrative branding</p>
+              <p class="pd-wt" data-i18n="brand.previewTitle">A platform that feels<br>like your group.</p>
+              <p class="pd-wb" data-i18n="brand.previewBody">Your identity. Agreed workflows. A shared view.</p>
+              <div class="pd-wcards"><div><b data-i18n="city.riyadh">Riyadh</b><i style="--v:.81"></i></div><div><b data-i18n="city.jeddah">Jeddah</b><i style="--v:.74"></i></div><div><b data-i18n="city.khobar">Al Khobar</b><i style="--v:.72"></i></div></div>
+              <div class="pd-wtags"><span data-i18n="brand.tag1">Group identity</span><span data-i18n="brand.tag2">Defined permissions</span><span data-i18n="brand.tag3">Supported workflows</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pd-areas">
+        <details data-reveal style="--i:0" open><summary><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-palette"/></svg><h3 data-i18n="brand.a1.title">Branding &amp; supported workflows</h3><svg class="ic pd-plus" aria-hidden="true"><use href="../assets/icons.svg#i-plus"/></svg></summary><p data-i18n="brand.a1.text">Agree the visual identity and the supported operational processes your group wants to standardise. Customisation is delivered to an agreed scope, with clear acceptance criteria.</p></details>
+        <details data-reveal style="--i:1"><summary><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-key"/></svg><h3 data-i18n="brand.a2.title">Reporting &amp; permissions</h3><svg class="ic pd-plus" aria-hidden="true"><use href="../assets/icons.svg#i-plus"/></svg></summary><p data-i18n="brand.a2.text">Map group reporting, property-level views and who can see, change or approve information. Define the responsibilities of group teams and property teams before rollout.</p></details>
+        <details data-reveal style="--i:2"><summary><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-plug"/></svg><h3 data-i18n="brand.a3.title">Integrations &amp; hosting</h3><svg class="ic pd-plus" aria-hidden="true"><use href="../assets/icons.svg#i-plus"/></svg></summary><p data-i18n="brand.a3.text">Review your existing systems, required interfaces, deployment approach and data requirements. Confirm technical feasibility, approvals and responsibilities in the proposal.</p></details>
+        <details data-reveal style="--i:3"><summary><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-life-buoy"/></svg><h3 data-i18n="brand.a4.title">Support &amp; accountability</h3><svg class="ic pd-plus" aria-hidden="true"><use href="../assets/icons.svg#i-plus"/></svg></summary><p data-i18n="brand.a4.text">Agree the service model, support responsibilities, training and escalation routes with one accountable technology partner. Define the implementation plan and checkpoints together.</p></details>
+      </div>
+      <p class="pd-contract" data-i18n="brand.note">Branding, hosting, customisation and service responsibilities are proposal-specific. Contract terms determine ownership and other rights.</p>
+    </div>
+  </section>
+
+  <!-- ============ WORKSHOP: the copy holds while the seven questions pass ============ -->
+  <section class="v2-sec pd-workshop" id="workshop" aria-labelledby="workshop-title">
+    <div class="wrap pd-workshop-grid">
+      <div class="pd-workshop-copy">
+        <p class="v2-eyebrow" data-i18n="workshop.kicker">The group discovery workshop</p>
+        <h2 class="v2-h2" id="workshop-title" data-i18n="workshop.title">A better platform starts<br>with <em>the right questions.</em></h2>
+        <p class="pd-ws-lead" data-i18n="workshop.lead">Bring your owners, operations, IT and finance teams into one focused conversation.</p>
+        <p class="v2-sub" data-i18n="workshop.text">We will map your property structure, priorities and technology decisions before preparing a scoped proposal. Bring your property list, current systems and reporting requirements.</p>
+        <ul class="pd-seats">
+          <li><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-user"/></svg><span data-i18n="workshop.owner">Owner / CEO</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-settings"/></svg><span data-i18n="workshop.ops">COO / Operations</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-server"/></svg><span data-i18n="workshop.it">IT</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-coins"/></svg><span data-i18n="workshop.finance">Finance</span></li>
+        </ul>
+        <div class="pd-outcome"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-file-text"/></svg><div><p class="pd-outcome-k" data-i18n="workshop.outcomeLabel">What you leave with</p><p data-i18n="workshop.outcome">A documented group brief and agreed next steps toward a clearly scoped proposal.</p></div></div>
+      </div>
+      <ol class="pd-agenda">
+        <li data-reveal><span class="pd-aic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-network"/></svg></span><div><h3 data-i18n="workshop.1.title">Property structure</h3><p data-i18n="workshop.1.text">Owned, managed and franchised properties, approximate count and technology purchasing authority.</p></div></li>
+        <li data-reveal><span class="pd-aic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-chart-column"/></svg></span><div><h3 data-i18n="workshop.2.title">Reports</h3><p data-i18n="workshop.2.text">The group and property-level information your teams need to review and act on.</p></div></li>
+        <li data-reveal><span class="pd-aic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-key"/></svg></span><div><h3 data-i18n="workshop.3.title">Permissions</h3><p data-i18n="workshop.3.text">Who sees what, who approves what and which decisions stay with each property.</p></div></li>
+        <li data-reveal><span class="pd-aic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-plug"/></svg></span><div><h3 data-i18n="workshop.4.title">Integrations</h3><p data-i18n="workshop.4.text">Current systems, required interfaces, feasibility and the approval process.</p></div></li>
+        <li data-reveal><span class="pd-aic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-server"/></svg></span><div><h3 data-i18n="workshop.5.title">Hosting</h3><p data-i18n="workshop.5.text">Deployment preferences, data requirements and agreed responsibilities.</p></div></li>
+        <li data-reveal><span class="pd-aic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-life-buoy"/></svg></span><div><h3 data-i18n="workshop.6.title">Support</h3><p data-i18n="workshop.6.text">Service expectations, escalation routes, training and accountable owners.</p></div></li>
+        <li data-reveal><span class="pd-aic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-route"/></svg></span><div><h3 data-i18n="workshop.7.title">Implementation</h3><p data-i18n="workshop.7.text">An agreed pilot, rollout sequence, acceptance criteria and success measures.</p></div></li>
       </ol>
     </div>
   </section>
 
-  <!-- ============ LEAD FORM ============ -->
-  <section class="lift" id="contact" aria-labelledby="lead-title">
+  <!-- ============ ROLLOUT: a path drawn on one line, then priced in three parts ============ -->
+  <section class="v2-sec pd-rollout" id="rollout" aria-labelledby="journey-title">
     <div class="wrap">
-      <div class="lead" data-reveal>
-        <div class="lead-intro">
-          <h2 class="h2" id="lead-title" data-i18n="lead.title">Let’s plan your group platform.</h2>
-          <p data-i18n="lead.sub">Bring owners, operations, IT and finance into one discovery.</p>
-          <figure class="lead-photo" aria-hidden="true"><img src="../assets/img/panel-lounge.webp" width="672" height="426" alt="" loading="lazy"></figure>
-        </div>
-        <span class="lead-rule" aria-hidden="true"></span>
+      <div class="pd-rollout-head" data-reveal>
         <div>
-          <form class="form" id="lead-form" novalidate>
-            <div class="f"><label for="f-company" data-i18n="f.group">Group / company</label><input id="f-company" name="company" type="text" autocomplete="organization" maxlength="120" required aria-describedby="f-company-err"><p class="f-err" id="f-company-err" data-i18n="err.company" hidden>Please enter your hotel or company name.</p></div>
-            <div class="f"><label for="f-city" data-i18n="f.hq">Headquarters city</label><input id="f-city" name="city" type="text" autocomplete="address-level2" maxlength="60"></div>
-            <div class="f"><label for="f-name" data-i18n="f.name">Contact name</label><input id="f-name" name="name" type="text" autocomplete="name" maxlength="80" required aria-describedby="f-name-err"><p class="f-err" id="f-name-err" data-i18n="err.name" hidden>Please enter a contact name.</p></div>
-            <div class="f"><label for="f-role" data-i18n="f.role">Role</label><input id="f-role" name="role" type="text" autocomplete="organization-title" maxlength="80"></div>
-            <div class="f f--full"><label for="f-contact" data-i18n="f.contact">Business email or phone</label><input id="f-contact" name="contact" type="text" inputmode="email" autocomplete="email" maxlength="120" dir="auto" required aria-describedby="f-contact-err f-contact-hint"><p class="f-hint" id="f-contact-hint" data-i18n="f.contactHint">For example name@hotel.sa or 05XXXXXXXX</p><p class="f-err" id="f-contact-err" data-i18n="err.contact" hidden>Enter a valid email address or a phone number such as 05XXXXXXXX.</p></div>
-            <div class="f"><label for="f-count" data-i18n="f.count">Number of properties</label><select id="f-count" name="property_count"><option value="" data-i18n="f.select">Please select</option><option value="under_10" data-i18n="cnt.1">Under 10</option><option value="10_20" data-i18n="cnt.2">10–20</option><option value="21_50" data-i18n="cnt.3">21–50</option><option value="over_50" data-i18n="cnt.4">More than 50</option></select></div>
-            <div class="f"><label for="f-own" data-i18n="f.own">Property structure</label><select id="f-own" name="ownership"><option value="" data-i18n="f.select">Please select</option><option value="managed" data-i18n="own.managed">Managed</option><option value="owned" data-i18n="own.owned">Owned</option><option value="franchised" data-i18n="own.franchised">Franchised</option><option value="mixed" data-i18n="own.mixed">Mixed</option></select></div>
-            <div class="f f--full"><label for="f-channel" data-i18n="f.channel">Preferred contact channel</label><select id="f-channel" name="channel"><option value="" data-i18n="f.select">Please select</option><option value="phone" data-i18n="ch.phone">Phone call</option><option value="whatsapp" data-i18n="ch.whatsapp">WhatsApp</option><option value="email" data-i18n="ch.email">Email</option></select></div>
-            <div class="f f--full"><label for="f-interest" data-i18n="f.interest">Selected interest</label><select id="f-interest" name="interest"><option value="existing_upgrade" data-i18n="int.A">Existing customer upgrade</option><option value="new_hotel_demo" data-i18n="int.B">New hotel demo</option><option value="technology_cost_review" data-i18n="int.C">Technology cost review</option><option value="group_discovery" selected data-i18n="int.D">Group discovery meeting</option></select></div>
-            <p class="form-privacy"><span data-i18n="f.privacy">We use your details to respond to this enquiry.</span> <a href="https://fandaqah.com/en/store/policy" data-href-ar="https://fandaqah.com/store/policy" target="_blank" rel="noopener" data-i18n="f.privacyLink">Privacy notice</a>.</p>
-            <label class="consent"><input type="checkbox" name="consent" value="yes"><span data-i18n="f.consent">I would also like marketing updates.</span></label>
-            <p class="form-alert" role="alert" hidden></p>
-            <div class="form-actions"><button class="btn" type="submit"><span data-i18n="cta.main">Book a group discovery meeting</span><svg class="ic ic-go" aria-hidden="true"><use href="../assets/icons.svg#i-arrow-right"/></svg></button></div>
-            <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
-          </form>
-          <div class="done" id="lead-done" hidden>
-            <span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span>
-            <h3 tabindex="-1" data-i18n="done.t">Thank you. Your request is with our team.</h3>
-            <p data-i18n="done.d">A Fandaqah specialist will contact you through your preferred channel to arrange the next step.</p>
-            <p class="ref"><span data-i18n="done.ref">Reference:</span> <b></b></p>
-          </div>
+          <p class="v2-eyebrow" data-i18n="journey.kicker">A clear path from conversation to rollout</p>
+          <h2 class="v2-h2" id="journey-title" data-i18n="journey.title">Start with alignment.<br><em>Expand with a plan.</em></h2>
         </div>
+        <p class="v2-sub" data-i18n="journey.text">Define the work, test it with agreed properties and expand through documented checkpoints.</p>
+      </div>
+      <ol class="pd-path" data-reveal>
+        <li><span class="pd-node" aria-hidden="true"></span><h3 data-i18n="journey.1.title">Discover</h3><p data-i18n="journey.1.text">Confirm the group structure, decision-makers, priorities and requirements.</p><span class="pd-out"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-check"/></svg><span data-i18n="journey.1.output">A documented group brief</span></span></li>
+        <li><span class="pd-node" aria-hidden="true"></span><h3 data-i18n="journey.2.title">Scope</h3><p data-i18n="journey.2.text">Agree deliverables, interfaces, responsibilities, commercials and acceptance criteria.</p><span class="pd-out"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-check"/></svg><span data-i18n="journey.2.output">A clearly scoped proposal</span></span></li>
+        <li><span class="pd-node" aria-hidden="true"></span><h3 data-i18n="journey.3.title">Pilot</h3><p data-i18n="journey.3.text">Validate agreed workflows with selected properties before wider implementation.</p><span class="pd-out"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-check"/></svg><span data-i18n="journey.3.output">An agreed pilot review</span></span></li>
+        <li><span class="pd-node" aria-hidden="true"></span><h3 data-i18n="journey.4.title">Roll out</h3><p data-i18n="journey.4.text">Expand in agreed phases with training, support and implementation checkpoints.</p><span class="pd-out"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-check"/></svg><span data-i18n="journey.4.output">A group rollout plan</span></span></li>
+      </ol>
+      <div class="pd-price" data-reveal>
+        <div>
+          <p class="v2-eyebrow" data-i18n="price.kicker">Clear commercials</p>
+          <h3 data-i18n="price.title">A proposal with every part in view.</h3>
+          <p data-i18n="price.text">Setup, ongoing service and agreed customisation are priced separately. Your property structure and agreed requirements determine the proposal.</p>
+        </div>
+        <ul class="pd-parts">
+          <li><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-settings"/></svg><span data-i18n="price.1">Setup &amp; implementation</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-life-buoy"/></svg><span data-i18n="price.2">Ongoing service</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-palette"/></svg><span data-i18n="price.3">Agreed customisation</span></li>
+        </ul>
       </div>
     </div>
   </section>
 
   <!-- ============ QUESTIONS ============ -->
-  <section class="wrap faq" aria-label="Questions">
-    <div class="faq-item" data-reveal><span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-message"/></svg></span><div><h3 data-i18n="q1.q">Is the platform fully customised?</h3><p data-i18n="q1.a">Customisation is delivered to an agreed scope, defined in your proposal.</p></div></div>
-    <span class="faq-rule" aria-hidden="true"></span>
-    <div class="faq-item" data-reveal style="--i:1"><span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-file-text"/></svg></span><div><h3 data-i18n="q2.q">Who owns the branded platform?</h3><p data-i18n="q2.a">Hosting, branding and ownership terms are set out in your contract.</p></div></div>
+  <section class="v2-sec pd-faq" id="faq" aria-labelledby="faq-title">
+    <div class="wrap pd-faq-grid">
+      <div class="pd-faq-copy" data-reveal>
+        <p class="v2-eyebrow" data-i18n="faq.kicker">Before we meet</p>
+        <h2 class="v2-h2" id="faq-title" data-i18n="faq.title">Good questions.<br><em>Clear expectations.</em></h2>
+        <p class="pd-faq-mail"><span data-i18n="contact.email">Prefer email?</span> <a href="mailto:info@fandaqah.com">info@fandaqah.com</a></p>
+      </div>
+      <div class="pd-faq-list">
+        <details><summary><span data-i18n="faq.1.q">Who is this group platform for?</span><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-plus"/></svg></summary><p data-i18n="faq.1.a">Local hotel operators, group owners and asset managers responsible for about 10 or more properties, with group-level operations, IT and finance involvement. We confirm managed, owned and franchised properties and who controls technology purchasing. A DMC is relevant only if it manages accommodation assets or technology decisions.</p></details>
+        <details><summary><span data-i18n="faq.2.q">How much can we customise?</span><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-plus"/></svg></summary><p data-i18n="faq.2.a">Customisation is delivered to an agreed scope. Branding, supported workflows, integrations and reporting requirements are assessed during discovery and documented in the proposal, with responsibilities and acceptance criteria.</p></details>
+        <details><summary><span data-i18n="faq.3.q">Does white labelling transfer source-code ownership?</span><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-plus"/></svg></summary><p data-i18n="faq.3.a">White labelling does not imply transfer of source-code ownership, unlimited changes or exclusivity. Your contract determines branding rights, ownership, hosting and other commercial terms.</p></details>
+        <details><summary><span data-i18n="faq.4.q">Can we connect existing systems?</span><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-plus"/></svg></summary><p data-i18n="faq.4.a">We review your current systems and required interfaces, including technical feasibility, approvals, implementation effort and ongoing responsibilities. Only supported, agreed integrations are included in the proposal.</p></details>
+        <details><summary><span data-i18n="faq.5.q">How is the group proposal priced?</span><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-plus"/></svg></summary><p data-i18n="faq.5.a">Setup, ongoing service and agreed customisation are priced separately. The proposal reflects the property structure, deployment approach, supported interfaces and implementation scope agreed with your group.</p></details>
+        <details><summary><span data-i18n="faq.6.q">What happens before a wider rollout?</span><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-plus"/></svg></summary><p data-i18n="faq.6.a">We agree the pilot properties, supported workflows, acceptance criteria and implementation checkpoints. The pilot review informs the next rollout phase and training plan.</p></details>
+        <details><summary><span data-i18n="faq.7.q">Can we include AI use cases?</span><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-plus"/></svg></summary><p data-i18n="faq.7.a">AI is demonstrated only through approved working use cases. Any proposed use case must be reviewed, validated and explicitly included in the agreed scope.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSE: the visitor's branded portal greets them while they fill a two-step request ============ -->
+  <section class="pd-close" id="contact" aria-labelledby="lead-title">
+    <div class="wrap pd-close-grid">
+      <div class="pd-close-copy">
+        <p class="v2-eyebrow" data-i18n="contact.kicker">Your next step</p>
+        <h2 class="pd-close-h" id="lead-title" data-i18n="contact.title">Bring your group<br><em>into focus.</em></h2>
+        <p class="pd-close-p" data-i18n="contact.text">Discuss a dedicated technology platform with the people responsible for your group’s operations, IT and finance.</p>
+        <div class="pd-portal" data-state="0" aria-live="polite">
+          <div class="pd-portal-bar"><span class="pd-gbrand pd-gbrand--inv"><span class="pd-mark"><svg class="ic g-glyph" aria-hidden="true"><use href="../assets/icons.svg#i-building-2"/></svg><b class="g-mono"></b></span><span class="g-name"><span class="g-def" data-i18n="g.def">Your hotel group</span><span class="g-cus"></span></span></span><span class="pd-portal-k" data-i18n="w.portal">Group portal</span></div>
+          <div class="pd-portal-in">
+            <p class="pd-portal-hello"><span class="w-def" data-i18n="w.helloDef">Welcome to your group platform.</span><span class="w-named"><span data-i18n="w.hello">Welcome,</span> <b class="w-name"></b></span></p>
+            <dl class="pd-portal-facts">
+              <div><dt data-i18n="w.hq">Headquarters</dt><dd data-w="city"><span class="ph" data-i18n="w.empty">Not added yet</span><span class="v"></span></dd></div>
+              <div><dt data-i18n="w.props">Properties</dt><dd data-w="count"><span class="ph" data-i18n="w.empty">Not added yet</span><span class="v"></span></dd></div>
+              <div><dt data-i18n="w.structure">Structure</dt><dd data-w="structure"><span class="ph" data-i18n="w.empty">Not added yet</span><span class="v"></span></dd></div>
+            </dl>
+            <p class="pd-portal-st"><i></i><span class="st0" data-i18n="w.s0">Discovery meeting not requested yet</span><span class="st1" data-i18n="w.s1">Ready to request your discovery meeting</span><span class="st2"><span data-i18n="w.s2">Discovery meeting requested</span> <b class="pd-portal-ref" dir="ltr"></b></span></p>
+          </div>
+          <p class="pd-portal-tag" data-i18n="hero.branding">Illustrative branding · Sample data</p>
+        </div>
+      </div>
+      <div class="v2-formcard pd-formcard">
+        <h3 class="v2-formcard-h" data-i18n="form.title">Let’s plan your group platform.</h3>
+        <ol class="pd-steps" aria-hidden="true"><li class="is-on"><b>1</b><span data-i18n="form.step1">Your group</span></li><li><b>2</b><span data-i18n="form.step2">Your details</span></li></ol>
+        <form class="form pd-form" id="lead-form" novalidate data-step="1">
+          <fieldset class="pd-step" data-step="1"><legend class="sr" data-i18n="form.step1">Your group</legend>
+            <div class="f f--full"><label for="f-company" data-i18n="f.group">Group / company</label><input id="f-company" name="company" type="text" autocomplete="organization" maxlength="120" required aria-describedby="f-company-err"><p class="f-err" id="f-company-err" data-i18n="err.company" hidden>Please enter your hotel or company name.</p></div>
+            <div class="f f--full"><label for="f-city" data-i18n="f.hq">Headquarters city</label><input id="f-city" name="city" type="text" autocomplete="address-level2" maxlength="60"></div>
+            <div class="f"><label for="f-count" data-i18n="f.count">Number of properties</label><select id="f-count" name="property_count"><option value="" data-i18n="f.select">Please select</option><option value="under_10" data-i18n="cnt.1">Under 10</option><option value="10_20" data-i18n="cnt.2">10–20</option><option value="21_50" data-i18n="cnt.3">21–50</option><option value="over_50" data-i18n="cnt.4">More than 50</option></select></div>
+            <div class="f"><label for="f-own" data-i18n="f.own">Property structure</label><select id="f-own" name="ownership"><option value="" data-i18n="f.select">Please select</option><option value="managed" data-i18n="own.managed">Managed</option><option value="owned" data-i18n="own.owned">Owned</option><option value="franchised" data-i18n="own.franchised">Franchised</option><option value="mixed" data-i18n="own.mixed">Mixed</option></select></div>
+            <div class="form-actions"><button class="btn btn--pill pd-next" type="button"><span data-i18n="form.next">Continue to your details</span><svg class="ic ic-go" aria-hidden="true"><use href="../assets/icons.svg#i-arrow-right"/></svg></button></div>
+          </fieldset>
+          <fieldset class="pd-step" data-step="2"><legend class="sr" data-i18n="form.step2">Your details</legend>
+            <div class="f"><label for="f-name" data-i18n="f.name">Contact name</label><input id="f-name" name="name" type="text" autocomplete="name" maxlength="80" required aria-describedby="f-name-err"><p class="f-err" id="f-name-err" data-i18n="err.name" hidden>Please enter a contact name.</p></div>
+            <div class="f"><label for="f-role" data-i18n="f.role">Role</label><input id="f-role" name="role" type="text" autocomplete="organization-title" maxlength="80"></div>
+            <div class="f f--full"><label for="f-contact" data-i18n="f.contact">Business email or phone</label><input id="f-contact" name="contact" type="text" inputmode="email" autocomplete="email" maxlength="120" dir="auto" required aria-describedby="f-contact-err f-contact-hint"><p class="f-hint" id="f-contact-hint" data-i18n="f.contactHint">For example name@hotel.sa or 05XXXXXXXX</p><p class="f-err" id="f-contact-err" data-i18n="err.contact" hidden>Enter a valid email address or a phone number such as 05XXXXXXXX.</p></div>
+            <div class="f f--full"><label for="f-channel" data-i18n="f.channel">Preferred contact channel</label><select id="f-channel" name="channel"><option value="" data-i18n="f.select">Please select</option><option value="phone" data-i18n="ch.phone">Phone call</option><option value="whatsapp" data-i18n="ch.whatsapp">WhatsApp</option><option value="email" data-i18n="ch.email">Email</option></select></div>
+            <input type="hidden" name="interest" value="group_discovery" data-label="Group discovery meeting">
+            <label class="consent"><input type="checkbox" name="consent" value="yes"><span data-i18n="f.consent">I would also like marketing updates.</span></label>
+            <p class="form-privacy"><span data-i18n="f.privacy">We use your details to respond to this enquiry.</span> <a href="https://fandaqah.com/en/store/policy" data-href-ar="https://fandaqah.com/store/policy" target="_blank" rel="noopener" data-i18n="f.privacyLink">Privacy notice</a>.</p>
+            <p class="form-alert" role="alert" hidden></p>
+            <div class="form-actions pd-actions2"><button class="pd-back" type="button" data-i18n="form.back">Back</button><button class="btn btn--pill" type="submit"><span data-i18n="cta.main">Book a group discovery meeting</span><svg class="ic ic-go" aria-hidden="true"><use href="../assets/icons.svg#i-arrow-right"/></svg></button></div>
+            <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+          </fieldset>
+        </form>
+        <div class="done" id="lead-done" hidden>
+          <span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span>
+          <h3 tabindex="-1" data-i18n="done.t">Thank you. Your request is with our team.</h3>
+          <p data-i18n="done.d">A Fandaqah specialist will contact you through your preferred channel to arrange the next step.</p>
+          <p class="ref"><span data-i18n="done.ref">Reference:</span> <b></b></p>
+        </div>
+      </div>
+    </div>
   </section>
 </main>
 
@@ -222,7 +399,7 @@
       <li><a href="https://fandaqah.com/en/store/policy" data-href-ar="https://fandaqah.com/store/policy" target="_blank" rel="noopener" data-i18n="foot.terms">Terms</a></li>
     </ul>
   </div>
-  <p class="wrap foot-legal" data-i18n="foot.legal">© 2026 Fandaqah. All rights reserved.</p>
+  <p class="wrap foot-legal"><span data-i18n="footer.scope">Deployment, customisation and branding are agreed in the proposal. All dashboard screens and property data are illustrative.</span> <span data-i18n="foot.legal">© 2026 Fandaqah. All rights reserved.</span></p>
 </footer>
 
 <div class="m-cta"><a class="btn" href="#contact"><span data-i18n="cta.main">Book a group discovery meeting</span><svg class="ic ic-go" aria-hidden="true"><use href="../assets/icons.svg#i-arrow-right"/></svg></a></div>
@@ -232,35 +409,199 @@ window.FQ_PAGE = {
   segment: 'D',
   meta: { title: 'فندقة 360 لمجموعات الفنادق | احجز اجتماعاً استكشافياً للمجموعة', desc: 'منصة تقنية مخصّصة لمجموعتك الفندقية: هوية ومسارات عمل وتكاملات وتقارير للمجموعة وفق نطاق متفق عليه، مع شريك تقني واحد مسؤول.' },
   ar: {
-    'cta.main': 'احجز اجتماعاً استكشافياً للمجموعة', 'cta.head': 'احجز اجتماعاً استكشافياً',
-    'hero.eyebrow': 'لمجموعات الفنادق والمشغّلين',
-    'hero.title': 'منصة تقنية مخصّصة <span class="hl">مبنية حول مجموعتك.</span>',
-    'hero.lead': 'استكشف بيئة فندقة مخصّصة بهوية ومسارات عمل وتكاملات وتقارير للمجموعة متفق عليها. وحّد الإجراءات المدعومة عبر منشآتك مع شريك تقني واحد مسؤول.',
-    'hero.note': 'للمشغّلين والملّاك الذين يديرون نحو 10 منشآت أو أكثر.',
-    'sol.title': 'رؤية واضحة لمجموعتك ولكل منشأة.', 'sol.sub': 'استراتيجية تقنية واحدة، من تقارير المجموعة إلى تفاصيل كل منشأة.',
-    'g1.t': 'تقارير المجموعة', 'g1.d': 'رؤية موحّدة عبر المنشآت مع تفاصيل كل منشأة.',
-    'g2.t': 'هويتك وسياساتك', 'g2.d': 'مواءمة مسارات العمل المدعومة مع معاييرك.',
-    'g3.t': 'شريك واحد مسؤول', 'g3.d': 'خطة تنفيذ محددة النطاق ودعم واضح.',
-    'ded.title': 'نشر مخصّص وهوية خاصة وفق نطاق متفق عليه.', 'ded.alt': 'بهو فندق وعلى مكتب الاستقبال لوحة تقارير',
-    'ded.1': 'هوية ومسارات عمل متفق عليها', 'ded.2': 'تقارير على مستوى المجموعة والمنشأة', 'ded.3': 'تكاملات مدعومة عبر المنشآت', 'ded.4': 'شريك تقني واحد مسؤول',
-    'ded.note': 'تُحدَّد الاستضافة والتخصيص وشروط الملكية ومسؤوليات الخدمة في عرض السعر.',
-    'ws.eyebrow': 'ورشة العمل الاستكشافية', 'ws.title': 'ما الذي سنرسمه معاً.', 'ws.sub': 'ورشة مركّزة تجمع الملّاك وفرق التشغيل والتقنية والمالية.',
-    't1.t': 'هيكل المنشآت', 't1.d': 'المنشآت المُدارة والمملوكة وبنظام الامتياز.',
-    't2.t': 'التقارير', 't2.d': 'ما تحتاجه من رؤى للمجموعة ولكل منشأة.',
-    't3.t': 'الصلاحيات', 't3.d': 'من يطّلع ومن يعتمد، لكل منشأة.',
-    't4.t': 'التكاملات', 't4.d': 'الأنظمة التي تعتمد عليها كل منشأة.',
-    't5.t': 'الاستضافة', 't5.d': 'متطلبات النشر والبيانات.',
-    't6.t': 'الدعم والتنفيذ', 't6.d': 'خطة الإطلاق والتدريب ونموذج الخدمة.',
-    'how.title': 'من الاستكشاف إلى الإطلاق.',
-    's1.t': 'ورشة استكشافية', 's1.d': 'الهيكل والتقارير والصلاحيات والتكاملات.',
-    's2.t': 'عرض سعر محدد النطاق', 's2.d': 'التجهيز والخدمة والتخصيص المتفق عليه بأسعار منفصلة.',
-    's3.t': 'تجربة ثم إطلاق', 's3.d': 'نبدأ بمنشآت متفق عليها ثم نتوسّع.',
-    'lead.title': 'لنخطّط منصة مجموعتك.', 'lead.sub': 'اجمع الملّاك والتشغيل والتقنية والمالية في جلسة استكشاف واحدة.',
-    'q1.q': 'هل المنصة مخصّصة بالكامل؟', 'q1.a': 'يتم التخصيص وفق نطاق متفق عليه يحدّده عرض السعر.',
-    'q2.q': 'من يملك المنصة بالهوية الخاصة؟', 'q2.a': 'تُحدَّد شروط الاستضافة والهوية والملكية في العقد.'
+    "nav.platform": "المنصة",
+    "nav.brand": "مجموعتك",
+    "nav.workshop": "الورشة الاستكشافية",
+    "nav.faq": "الأسئلة الشائعة",
+    "g.def": "مجموعتك الفندقية",
+    "nav.cta": "لنتحدث",
+    "line.campaign": "فندقة 360 · المجموعات الفندقية والمشغّلون",
+    "region": "للمجموعات الفندقية السعودية",
+    "hero.eyebrow": "مجموعتك. استراتيجية تقنية واحدة.",
+    "hero.title": "منصة تقنية مخصّصة.<br>مبنية حول<br><em>مجموعتك الفندقية.</em>",
+    "hero.lead": "استكشف بيئة فندقة مخصّصة بهوية ومسارات عمل وتكاملات وتقارير للمجموعة وفق ما يتم الاتفاق عليه.",
+    "hero.detail": "وحّد الإجراءات المدعومة عبر منشآتك مع شريك تقني واحد مسؤول وخطة تنفيذ واضحة ومحددة النطاق.",
+    "cta.main": "احجز اجتماعاً استكشافياً للمجموعة",
+    "hero.explore": "استكشف رؤية المجموعة",
+    "hero.fit": "للملّاك والمشغّلين المسؤولين عن نحو <strong>10 منشآت أو أكثر.</strong>",
+    "hero.caption": "منشآت متعددة. توجه مشترك.",
+    "city.riyadh": "الرياض",
+    "hero.propView": "لوحة المنشأة",
+    "city.jeddah": "جدة",
+    "city.khobar": "الخبر",
+    "hero.sample": "رؤية توضيحية للمجموعة",
+    "hero.boardTitle": "مجموعتك، بصورة أوضح.",
+    "hero.boardSub": "رؤية واحدة. وتفاصيل لكل منشأة.",
+    "hero.12": "منشآت افتراضية",
+    "hero.3": "لوحات منشآت معروضة",
+    "hero.branding": "هوية توضيحية · بيانات افتراضية",
+    "intro.kicker": "مبنية حول أسلوب تشغيلك",
+    "intro.title": "منشآت متعددة.<br><em>توجه مشترك واحد.</em>",
+    "intro.lead": "منصة تقنية فندقية مخصّصة مبنية حول مجموعتك.",
+    "intro.text": "قد تستقبل منشآتك ضيوفاً مختلفين، في مدن مختلفة، وضمن هياكل تشغيل متنوعة. ابدأ باستراتيجية تقنية مشتركة تراعي هذه الاختلافات.",
+    "principle1.title": "هويتك.",
+    "principle1.text": "هوية متفق عليها مع مجموعتك.",
+    "principle2.title": "سياساتك.",
+    "principle2.text": "مسارات عمل مدعومة تتوافق مع معاييرك.",
+    "principle3.title": "تقنياتك.",
+    "principle3.text": "شراكة تقنية واحدة بمسؤوليات واضحة.",
+    "platform.kicker": "من رؤية المجموعة إلى تفاصيل المنشأة",
+    "platform.title": "الصورة الأشمل.<br><em>والتفاصيل المهمة.</em>",
+    "platform.text": "استكشف لوحة التحكم التوضيحية. اختر منشأة لترى كيف يمكن ربط رؤية المجموعة بالتفاصيل التشغيلية لكل منشأة.",
+    "demo.sample": "هوية توضيحية",
+    "demo.overview": "نظرة عامة على المنشآت",
+    "demo.group": "نظرة عامة للمجموعة",
+    "scope.hint": "مرّر للانتقال من المجموعة إلى كل منشأة، أو اختر واحدة.",
+    "demo.propertyOverview": "نظرة عامة على المنشأة",
+    "demo.period": "أسبوع افتراضي",
+    "demo.properties": "المنشآت المعروضة",
+    "demo.occupancy": "إشغال افتراضي",
+    "demo.reports": "التقارير المتاحة",
+    "demo.chart": "الإشغال حسب اليوم",
+    "day.mon": "ن",
+    "day.tue": "ث",
+    "day.wed": "ر",
+    "day.thu": "خ",
+    "day.fri": "ج",
+    "day.sat": "س",
+    "day.sun": "ح",
+    "demo.progress": "مسار عمل توضيحي للتقارير",
+    "demo.progress1": "إعداد المنشأة",
+    "demo.progress2": "مراجعة المجموعة",
+    "demo.progress3": "اعتماد المالية",
+    "demo.summary": "تقارير المنشآت",
+    "demo.property": "المنشأة",
+    "demo.occupancyShort": "الإشغال",
+    "demo.status": "حالة افتراضية",
+    "demo.review": "لمراجعة المجموعة",
+    "demo.preparing": "قيد الإعداد",
+    "demo.tableNote": "ثلاث منشآت من أصل اثنتي عشرة منشأة افتراضية. جميع الأسماء والقيم ومسارات العمل توضيحية.",
+    "demo.propertyNote": "مثال على رؤية المنشأة. تحدّد الصلاحيات والتقارير ومسارات الاعتماد خلال الاستكشاف.",
+    "platform.note": "عرض توضيحي فقط. يتم الاتفاق في عرض السعر على النشر والتخصيص والهوية والمؤشرات والتكاملات المدعومة.",
+    "brand.kicker": "هويتك. سياساتك. تقنيات مجموعتك الفندقية.",
+    "brand.title": "مخصّصة لمجموعتك.<br><em>نحدّدها معاً.</em>",
+    "brand.text": "ابنِ شراكتك التقنية في قطاع الضيافة مع فندقة. نتفق على احتياجات مجموعتك، وما هو مدعوم، وكيفية تنفيذه.",
+    "studio.title": "جرّبها باسم مجموعتك.",
+    "studio.name": "اسم مجموعتك",
+    "studio.colour": "لون المجموعة",
+    "c.navy": "كحلي",
+    "c.emerald": "زمردي",
+    "c.royal": "أزرق ملكي",
+    "c.burgundy": "عنابي",
+    "c.gold": "ذهبي صحراوي",
+    "c.charcoal": "فحمي",
+    "studio.reset": "إعادة الضبط",
+    "studio.hint": "تبقى على جهازك فقط.",
+    "studio.note": "هوية توضيحية. يتم الاتفاق على هويتك في عرض السعر.",
+    "bw.props": "المنشآت",
+    "bw.reports": "التقارير",
+    "bw.perms": "الصلاحيات",
+    "brand.sample": "هوية توضيحية",
+    "brand.previewTitle": "منصة تعبّر<br>عن مجموعتك.",
+    "brand.previewBody": "هويتك. مسارات عمل متفق عليها. رؤية مشتركة.",
+    "brand.tag1": "هوية المجموعة",
+    "brand.tag2": "صلاحيات محددة",
+    "brand.tag3": "مسارات عمل مدعومة",
+    "brand.a1.title": "الهوية ومسارات العمل المدعومة",
+    "brand.a1.text": "نتفق على الهوية البصرية والإجراءات التشغيلية المدعومة التي ترغب مجموعتك في توحيدها. ينفّذ التخصيص وفق نطاق متفق عليه ومعايير قبول واضحة.",
+    "brand.a2.title": "التقارير والصلاحيات",
+    "brand.a2.text": "نحدّد تقارير المجموعة ورؤى المنشآت ومن يمكنه الاطلاع على المعلومات أو تعديلها أو اعتمادها. تتضح مسؤوليات فرق المجموعة والمنشآت قبل الإطلاق.",
+    "brand.a3.title": "التكاملات والاستضافة",
+    "brand.a3.text": "نراجع أنظمتك الحالية والواجهات المطلوبة ونهج النشر ومتطلبات البيانات. توثّق الجدوى التقنية والموافقات والمسؤوليات في عرض السعر.",
+    "brand.a4.title": "الدعم والمسؤولية",
+    "brand.a4.text": "نتفق على نموذج الخدمة ومسؤوليات الدعم والتدريب ومسارات التصعيد مع شريك تقني واحد مسؤول. ونحدّد معاً خطة التنفيذ ونقاط المراجعة.",
+    "brand.note": "الهوية والاستضافة والتخصيص ومسؤوليات الخدمة خاصة بكل عرض. تحدّد شروط العقد الملكية والحقوق الأخرى.",
+    "workshop.kicker": "الورشة الاستكشافية للمجموعة",
+    "workshop.title": "منصة أفضل تبدأ<br><em>بالأسئلة الصحيحة.</em>",
+    "workshop.lead": "اجمع الملّاك وفرق التشغيل والتقنية والمالية في حوار واحد مركّز.",
+    "workshop.text": "نرسم هيكل منشآتك وأولوياتك وآلية اتخاذ القرارات التقنية قبل إعداد عرض محدد النطاق. أحضر قائمة المنشآت والأنظمة الحالية ومتطلبات التقارير.",
+    "workshop.owner": "المالك / الرئيس التنفيذي",
+    "workshop.ops": "مدير العمليات / التشغيل",
+    "workshop.it": "تقنية المعلومات",
+    "workshop.finance": "المالية",
+    "workshop.outcomeLabel": "مخرجات الورشة",
+    "workshop.outcome": "ملخص موثّق لاحتياجات المجموعة وخطوات تالية متفق عليها نحو عرض واضح ومحدد النطاق.",
+    "workshop.1.title": "هيكل المنشآت",
+    "workshop.1.text": "المنشآت المملوكة والمُدارة وبنظام الامتياز، وعددها التقريبي، والجهة المخوّلة بالشراء التقني.",
+    "workshop.2.title": "التقارير",
+    "workshop.2.text": "المعلومات التي تحتاجها فرقك على مستوى المجموعة والمنشأة للمراجعة واتخاذ القرار.",
+    "workshop.3.title": "الصلاحيات",
+    "workshop.3.text": "من يطّلع ومن يعتمد، وما القرارات التي تبقى لدى كل منشأة.",
+    "workshop.4.title": "التكاملات",
+    "workshop.4.text": "الأنظمة الحالية والواجهات المطلوبة والجدوى ومسار الموافقات.",
+    "workshop.5.title": "الاستضافة",
+    "workshop.5.text": "تفضيلات النشر ومتطلبات البيانات والمسؤوليات المتفق عليها.",
+    "workshop.6.title": "الدعم",
+    "workshop.6.text": "توقعات الخدمة والتصعيد والتدريب والمسؤولون عن كل جانب.",
+    "workshop.7.title": "التنفيذ",
+    "workshop.7.text": "تجربة متفق عليها وتسلسل الإطلاق ومعايير القبول ومقاييس النجاح.",
+    "journey.kicker": "مسار واضح من الحوار إلى الإطلاق",
+    "journey.title": "ابدأ بالتوافق.<br><em>وتوسّع بخطة.</em>",
+    "journey.text": "نحدّد العمل ونختبره مع منشآت متفق عليها، ثم نتوسّع عبر نقاط مراجعة موثّقة.",
+    "journey.1.title": "الاستكشاف",
+    "journey.1.text": "تأكيد هيكل المجموعة وصنّاع القرار والأولويات والمتطلبات.",
+    "journey.1.output": "ملخص موثّق للمجموعة",
+    "journey.2.title": "تحديد النطاق",
+    "journey.2.text": "الاتفاق على المخرجات والواجهات والمسؤوليات والتكاليف ومعايير القبول.",
+    "journey.2.output": "عرض واضح ومحدد النطاق",
+    "journey.3.title": "التجربة",
+    "journey.3.text": "التحقق من مسارات العمل المتفق عليها في منشآت مختارة قبل التوسع.",
+    "journey.3.output": "مراجعة تجربة متفق عليها",
+    "journey.4.title": "الإطلاق",
+    "journey.4.text": "التوسّع على مراحل متفق عليها مع التدريب والدعم ونقاط متابعة التنفيذ.",
+    "journey.4.output": "خطة إطلاق للمجموعة",
+    "price.kicker": "تكاليف واضحة",
+    "price.title": "عرض تتضح فيه جميع الأجزاء.",
+    "price.text": "تُسعّر التهيئة والخدمة المستمرة والتخصيص المتفق عليه بشكل منفصل. يحدّد هيكل منشآتك ومتطلباتك المتفق عليها تفاصيل العرض.",
+    "price.1": "التهيئة والتنفيذ",
+    "price.2": "الخدمة المستمرة",
+    "price.3": "التخصيص المتفق عليه",
+    "faq.kicker": "قبل أن نلتقي",
+    "faq.title": "أسئلة مهمة.<br><em>وتوقعات واضحة.</em>",
+    "contact.email": "تفضّل البريد الإلكتروني؟",
+    "faq.1.q": "لمن تناسب منصة المجموعة؟",
+    "faq.1.a": "للمشغّلين المحليين وملّاك المجموعات ومديري الأصول المسؤولين عن نحو 10 منشآت أو أكثر، بمشاركة التشغيل والتقنية والمالية على مستوى المجموعة. نؤكد وضع المنشآت المُدارة والمملوكة وبنظام الامتياز ومن يملك قرار شراء التقنية. تكون شركة إدارة الوجهات ذات صلة فقط إذا كانت تدير أصول الإقامة أو القرارات التقنية.",
+    "faq.2.q": "ما نطاق التخصيص الممكن؟",
+    "faq.2.a": "ينفّذ التخصيص وفق نطاق متفق عليه. تُقيّم الهوية ومسارات العمل المدعومة والتكاملات ومتطلبات التقارير خلال الاستكشاف، وتوثّق في عرض السعر مع المسؤوليات ومعايير القبول.",
+    "faq.3.q": "هل تعني الهوية الخاصة نقل ملكية الكود المصدري؟",
+    "faq.3.a": "لا تعني الهوية الخاصة نقل ملكية الكود المصدري أو تعديلات غير محدودة أو حصرية. يحدّد العقد حقوق الهوية والملكية والاستضافة والشروط التجارية الأخرى.",
+    "faq.4.q": "هل يمكن ربط الأنظمة الحالية؟",
+    "faq.4.a": "نراجع أنظمتك الحالية والواجهات المطلوبة، بما يشمل الجدوى التقنية والموافقات وجهد التنفيذ والمسؤوليات المستمرة. يشمل العرض التكاملات المدعومة والمتفق عليها فقط.",
+    "faq.5.q": "كيف يتم تسعير عرض المجموعة؟",
+    "faq.5.a": "تُسعّر التهيئة والخدمة المستمرة والتخصيص المتفق عليه بشكل منفصل. يعكس العرض هيكل المنشآت ونهج النشر والواجهات المدعومة ونطاق التنفيذ المتفق عليه مع مجموعتك.",
+    "faq.6.q": "ماذا يسبق الإطلاق الأوسع؟",
+    "faq.6.a": "نتفق على منشآت التجربة ومسارات العمل المدعومة ومعايير القبول ونقاط متابعة التنفيذ. وتوجّه مراجعة التجربة مرحلة الإطلاق التالية وخطة التدريب.",
+    "faq.7.q": "هل يمكن تضمين حالات استخدام للذكاء الاصطناعي؟",
+    "faq.7.a": "يُعرض الذكاء الاصطناعي عبر حالات استخدام عملية ومعتمدة فقط. يجب مراجعة أي حالة مقترحة والتحقق منها وإدراجها صراحة ضمن النطاق المتفق عليه.",
+    "contact.kicker": "خطوتك التالية",
+    "contact.title": "اجعل رؤية<br><em>مجموعتك أوضح.</em>",
+    "contact.text": "ناقش منصة تقنية مخصّصة مع المسؤولين عن تشغيل مجموعتك وتقنية المعلومات والمالية.",
+    "w.portal": "بوابة المجموعة",
+    "w.helloDef": "أهلاً بك في منصة مجموعتك.",
+    "w.hello": "أهلاً بك،",
+    "w.hq": "المقر الرئيسي",
+    "w.empty": "لم يُضف بعد",
+    "w.props": "المنشآت",
+    "w.structure": "الهيكل",
+    "w.s0": "لم يُطلب الاجتماع الاستكشافي بعد",
+    "w.s1": "جاهز لطلب الاجتماع الاستكشافي",
+    "w.s2": "تم طلب الاجتماع الاستكشافي",
+    "form.title": "لنخطّط منصة مجموعتك.",
+    "form.step1": "مجموعتك",
+    "form.step2": "بياناتك",
+    "form.next": "المتابعة إلى بياناتك",
+    "form.back": "رجوع",
+    "footer.scope": "يتم الاتفاق في عرض السعر على النشر والتخصيص والهوية. جميع شاشات لوحات التحكم وبيانات المنشآت توضيحية.",
+    "aria.idchip": "هوية مجموعتك: افتح استوديو الهوية",
+    "aria.scope": "نطاق لوحة التحكم",
+    "demo.chartLabel": "نسب إشغال توضيحية خلال سبعة أيام",
+    "hero.imageAlt": "مشهد معماري توضيحي لثلاث منشآت فندقية سعودية يربطها مسار مرجاني واحد."
   }
 };
 </script>
+<script src="../assets/vendor/scrollcraft/scrollcraft.js" defer></script>
 <script src="../assets/js/site.js" defer></script>
+<script src="../assets/js/v2.js" defer></script>
+<script src="../assets/js/groups.js" defer></script>
 </body>
 </html>

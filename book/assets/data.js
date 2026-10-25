@@ -8,23 +8,24 @@ window.BOOK_DATA = {
       en: {
         name: 'Existing customers', buyer: 'Owner, GM or finance manager already on Fandaqah', action: 'Upgrade review',
         promise: 'More value from the Fandaqah you already use.', cta: 'Check my upgrade offer', chip: 'For existing Fandaqah customers',
-        motif: ['Spreadsheet', 'Paper log', 'Manual report'],
+        // the hook's three manual records pay off in scene 3: purchasing, housekeeping and accounting get ticked
+        motif: ['Purchase spreadsheet', 'Paper room log', 'Month-end by hand'],
         scenes: [
-          { h: 'Already with Fandaqah? <em>Get more value.</em>', cap: 'Already with Fandaqah? There’s more value waiting.' },
-          { h: 'Connect more of <em>your daily work.</em>', s: 'Accounting, purchasing, housekeeping, maintenance and inventory in the system you know.', cap: 'Connect accounting and purchasing to the system you know.' },
-          { h: 'See what your <em>upgrade includes.</em>', list: ['Accounting', 'Purchasing', 'Housekeeping', 'Maintenance', 'Inventory'], cap: 'See each step flow into the next, without entering it twice.' },
-          { h: 'Check your <em>limited-time upgrade offer.</em>', s: 'Your review confirms eligibility, modules, fees and any approved credit.', cap: 'Request your upgrade review. Ask about our limited-time offer.' }
+          { h: 'Already with Fandaqah? <em>Get more value.</em>', cap: 'Still on paper and spreadsheets?' },
+          { h: 'Connect more of <em>your daily work.</em>', s: 'Same system, same team, more of your hotel.', cap: 'Accounting and purchasing join the Fandaqah you already use.' },
+          { h: 'See what your <em>upgrade includes.</em>', list: ['Accounting', 'Purchasing', 'Housekeeping', 'Maintenance', 'Inventory'], cap: 'Enter a purchase order once, and it reaches your accounts.' },
+          { h: 'Check your <em>limited-time upgrade offer.</em>', s: 'Your review confirms eligibility, the modules you need, fees and any approved credit.', cap: 'Request your upgrade review today.' }
         ]
       },
       ar: {
         name: 'العملاء الحاليون', buyer: 'المالك أو المدير العام أو المدير المالي من عملاء فندقة', action: 'مراجعة الترقية',
         promise: 'قيمة أكبر من فندقة التي تستخدمها اليوم.', cta: 'تحقّق من عرض الترقية', chip: 'لعملاء فندقة الحاليين',
-        motif: ['جدول بيانات', 'سجل ورقي', 'تقرير يدوي'],
+        motif: ['جدول المشتريات', 'سجل الغرف الورقي', 'إقفال الشهر يدوياً'],
         scenes: [
-          { h: 'تستخدم فندقة؟ <em>احصل على قيمة أكبر.</em>', cap: 'تستخدم فندقة؟ هناك قيمة أكبر بانتظارك.' },
-          { h: 'اربط مزيداً من <em>عملك اليومي.</em>', s: 'المحاسبة والمشتريات والتدبير الفندقي والصيانة والمخزون في النظام الذي تستخدمه.', cap: 'اربط المحاسبة والمشتريات بالنظام الذي تعرفه.' },
-          { h: 'اكتشف ما <em>تشمله ترقيتك.</em>', list: ['المحاسبة', 'المشتريات', 'التدبير الفندقي', 'الصيانة', 'المخزون'], cap: 'شاهد كيف تنتقل العملية من خطوة إلى أخرى دون إدخال مكرر.' },
-          { h: 'تحقّق من <em>عرض الترقية لفترة محدودة.</em>', s: 'تؤكّد المراجعة أهليتك والوحدات والرسوم وأي رصيد معتمد.', cap: 'اطلب مراجعة الترقية، واسأل عن عرضنا لفترة محدودة.' }
+          { h: 'تستخدم فندقة؟ <em>احصل على قيمة أكبر.</em>', cap: 'ما زلت على الورق وجداول البيانات؟' },
+          { h: 'اربط مزيداً من <em>عملك اليومي.</em>', s: 'النظام نفسه والفريق نفسه، وجزء أكبر من فندقك مترابط.', cap: 'المحاسبة والمشتريات تنضمّان إلى فندقة التي تستخدمها.' },
+          { h: 'اكتشف ما <em>تشمله ترقيتك.</em>', list: ['المحاسبة', 'المشتريات', 'التدبير الفندقي', 'الصيانة', 'المخزون'], cap: 'أدخل أمر الشراء مرة واحدة، ويصل إلى حساباتك.' },
+          { h: 'تحقّق من <em>عرض الترقية لفترة محدودة.</em>', s: 'تؤكّد المراجعة أهليتك والوحدات التي تحتاجها والرسوم وأي رصيد معتمد.', cap: 'اطلب مراجعة الترقية اليوم.' }
         ]
       }
     },

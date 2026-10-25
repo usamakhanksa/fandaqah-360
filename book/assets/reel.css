@@ -122,7 +122,8 @@ html[lang="ar"] .s4 h2{font-size:90px}
 
 /* captions: burned in, at the edge of the Reels interface zone */
 .r-caps{position:absolute;z-index:30;inset:auto 70px 575px;display:grid;justify-items:center}
-.r-caps p{grid-area:1 / 1;margin:0;max-width:900px;padding:18px 30px;border-radius:18px;background:rgba(14,15,26,.78);color:#fff;font:600 37px/1.4 var(--f-sans);text-align:center;text-wrap:balance;opacity:0}
+/* all captions share one cell: align-self keeps a one-line caption from stretching to the tallest one's box */
+.r-caps p{grid-area:1 / 1;align-self:end;margin:0;max-width:900px;padding:18px 30px;border-radius:18px;background:rgba(14,15,26,.78);color:#fff;font:600 37px/1.4 var(--f-sans);text-align:center;text-wrap:balance;opacity:0}
 
 /* live-view controls (not in rendered video) */
 .ctrl{position:fixed;z-index:50;left:50%;bottom:18px;display:flex;align-items:center;gap:10px;padding:8px;border-radius:999px;background:rgba(255,255,255,.1);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transform:translateX(-50%)}

@@ -466,7 +466,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (list.dataset.key !== key) {
       list.dataset.key = key;
       list.querySelectorAll('li:not(.ph)').forEach(li => li.remove());
-      picked.forEach(b => { const li = document.createElement('li'); li.innerHTML = `<svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#${ICON[b.value]}"/></svg>`; li.append(b.closest('label').querySelector('span').textContent); list.append(li); });
+      picked.forEach(b => { const li = document.createElement('li'); li.innerHTML = `<svg class="ic" aria-hidden="true"><use href='../assets/icons.svg#${ICON[b.value]}'/></svg>`; li.append(b.closest('label').querySelector('span').textContent); list.append(li); });
       list.classList.toggle('is-set', picked.length > 0);
     }
     if (sheet.dataset.state === 'sent') return;

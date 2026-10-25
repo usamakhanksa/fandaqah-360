@@ -15,9 +15,9 @@ window.STUDIO = {
         ],
         slides: [
           { h: 'Already with Fandaqah? <em>Get more value.</em>' },
-          { h: 'Connect more of <em>your daily work.</em>', s: 'Accounting, purchasing, housekeeping, maintenance and inventory in the system you know.' },
+          { h: 'Connect more of <em>your daily work.</em>', s: 'Same system, same team, more of your hotel.' },
           { h: 'See what your <em>upgrade includes.</em>', list: ['Accounting', 'Purchasing', 'Housekeeping', 'Maintenance', 'Inventory'] },
-          { h: 'Check your <em><span style="white-space:nowrap">limited-time</span> upgrade offer.</em>', s: 'Your review confirms eligibility, modules, fees and any approved credit.' }
+          { h: 'Check your <em><span style="white-space:nowrap">limited-time</span> upgrade offer.</em>', s: 'Your review confirms eligibility, the modules you need, fees and any approved credit.' }
         ]
       },
       ar: {
@@ -28,9 +28,9 @@ window.STUDIO = {
         ],
         slides: [
           { h: 'تستخدم فندقة؟ <em>احصل على قيمة أكبر.</em>' },
-          { h: 'اربط مزيداً من <em>عملك اليومي.</em>', s: 'المحاسبة والمشتريات والتدبير الفندقي والصيانة والمخزون في النظام الذي تستخدمه.' },
+          { h: 'اربط مزيداً من <em>عملك اليومي.</em>', s: 'النظام نفسه والفريق نفسه، وجزء أكبر من فندقك مترابط.' },
           { h: 'اكتشف ما <em>تشمله ترقيتك.</em>', list: ['المحاسبة', 'المشتريات', 'التدبير الفندقي', 'الصيانة', 'المخزون'] },
-          { h: 'تحقّق من <em>عرض الترقية لفترة محدودة.</em>', s: 'تؤكّد المراجعة أهليتك والوحدات والرسوم وأي رصيد معتمد.' }
+          { h: 'تحقّق من <em>عرض الترقية لفترة محدودة.</em>', s: 'تؤكّد المراجعة أهليتك والوحدات التي تحتاجها والرسوم وأي رصيد معتمد.' }
         ]
       }
     },
