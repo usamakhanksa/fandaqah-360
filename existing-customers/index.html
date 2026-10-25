@@ -259,39 +259,64 @@
     </div>
   </section>
 
-  <!-- ============ REQUEST ============ -->
+  <!-- ============ REQUEST: a review desk. The form on one side; on the other, the review sheet, which writes itself
+       from what the visitor types (hotel, contact, renewal, channel, modules) and is stamped with the reference on send ============ -->
   <section class="v2-sec pa-contact" id="contact" aria-labelledby="lead-title">
     <div class="wrap">
-      <div class="pa-panel">
-        <div class="pa-panel-copy">
-          <p class="v2-eyebrow" data-i18n="lead.eyebrow">Let’s review your upgrade</p>
-          <h2 class="pa-panel-h" id="lead-title" data-i18n="lead.title">More value starts with your hotel.</h2>
-          <p class="pa-panel-sub" data-i18n="lead.sub">Tell us what you use today and what you need next.</p>
-          <p class="pa-panel-p" data-i18n="lead.p">Your proposal will confirm the modules, fees and terms before you decide.</p>
+      <div class="pa-desk">
+        <div class="pa-brief">
+          <div class="pa-brief-copy">
+            <p class="v2-eyebrow" data-i18n="lead.eyebrow">Let’s review your upgrade</p>
+            <h2 class="pa-brief-h" id="lead-title" data-i18n="lead.title">More value starts with your hotel.</h2>
+            <p class="pa-brief-sub" data-i18n="lead.sub">Tell us what you use today and what you need next.</p>
+          </div>
+          <div class="pa-stage">
+            <figure class="pa-brief-photo" aria-hidden="true"><span class="pa-arch"><img src="../assets/img/palms-resort.webp" width="1400" height="599" alt="" loading="lazy"></span></figure>
+          <article class="pa-sheet" data-state="draft" aria-label="Your upgrade review summary" data-i18n-aria="brief.aria">
+            <span class="pa-sheet-bar" aria-hidden="true"><i></i></span>
+            <header class="pa-sheet-top">
+              <span class="pa-sheet-logo"><img src="../assets/img/brand-dark-340.webp" width="340" height="146" alt="Fandaqah" loading="lazy"><b>360</b></span>
+              <span class="pa-sheet-state" aria-live="polite"><span class="s-draft" data-i18n="brief.draft">Draft</span><span class="s-ready" data-i18n="brief.ready">Ready to send</span><span class="s-sent"><span data-i18n="brief.sent">Sent</span> <b class="pa-sheet-ref" dir="ltr"></b></span></span>
+            </header>
+            <p class="pa-sheet-kicker" data-i18n="brief.doc">Upgrade review</p>
+            <p class="pa-sheet-for"><small data-i18n="brief.for">Prepared for</small><b class="pa-slot" data-slot="company"><span class="ph" data-i18n="brief.hotel">Your hotel</span><span class="v"></span></b><span class="pa-slot pa-sheet-city" data-slot="city"><span class="v"></span></span></p>
+            <dl class="pa-sheet-rows">
+              <div><dt data-i18n="brief.contact">Contact</dt><dd class="pa-slot" data-slot="person"><span class="ph" data-i18n="brief.empty">Not added yet</span><span class="v"></span></dd></div>
+              <div><dt data-i18n="f.renewal">Renewal date</dt><dd class="pa-slot" data-slot="renewal"><span class="ph" data-i18n="brief.empty">Not added yet</span><span class="v"></span></dd></div>
+              <div><dt data-i18n="brief.channel">Contact channel</dt><dd class="pa-slot" data-slot="channel"><span class="ph" data-i18n="brief.empty">Not added yet</span><span class="v"></span></dd></div>
+            </dl>
+            <div class="pa-sheet-mods">
+              <p data-i18n="f.modules">Modules to review</p>
+              <ul class="pa-slot" data-slot="modules"><li class="ph" data-i18n="brief.nomods">Choose modules in the form</li></ul>
+            </div>
+            <p class="pa-sheet-foot" data-i18n="lead.p">Your proposal will confirm the modules, fees and terms before you decide.</p>
+          </article>
+          </div>
           <p class="pa-reach"><a href="mailto:info@fandaqah.com"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-mail"/></svg>info@fandaqah.com</a><a href="https://www.fandaqah.com" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-globe"/></svg>fandaqah.com</a></p>
         </div>
-        <figure class="pa-panel-photo" aria-hidden="true">
-          <span class="pa-arch b1"><img src="../assets/img/palms-resort.webp" width="1400" height="599" alt="" loading="lazy"></span>
-          <!-- <span class="pa-arch b2"><img src="../assets/img/palms-resort.webp" width="1400" height="599" alt="" loading="lazy"></span> -->
-          <svg class="pa-panel-leaf" viewBox="0 0 220 320"><use href="../assets/icons.svg#art-leaves"/></svg>
-        </figure>
         <div class="v2-formcard pa-formcard">
           <h3 class="v2-formcard-h" data-i18n="form.title">Check my upgrade offer</h3>
-          <form class="form" id="lead-form" novalidate>
-            <div class="f"><label for="f-company" data-i18n="f.company">Hotel / company</label><input id="f-company" name="company" type="text" autocomplete="organization" maxlength="120" required aria-describedby="f-company-err"><p class="f-err" id="f-company-err" data-i18n="err.company" hidden>Please enter your hotel or company name.</p></div>
-            <div class="f"><label for="f-city" data-i18n="f.city">City</label><input id="f-city" name="city" type="text" autocomplete="address-level2" maxlength="60"></div>
-            <div class="f"><label for="f-name" data-i18n="f.name">Contact name</label><input id="f-name" name="name" type="text" autocomplete="name" maxlength="80" required aria-describedby="f-name-err"><p class="f-err" id="f-name-err" data-i18n="err.name" hidden>Please enter a contact name.</p></div>
-            <div class="f"><label for="f-role" data-i18n="f.role">Role</label><input id="f-role" name="role" type="text" autocomplete="organization-title" maxlength="80"></div>
-            <div class="f f--full"><label for="f-contact" data-i18n="f.contact">Business email or phone</label><input id="f-contact" name="contact" type="text" inputmode="email" autocomplete="email" maxlength="120" dir="auto" required aria-describedby="f-contact-err f-contact-hint"><p class="f-hint" id="f-contact-hint" data-i18n="f.contactHint">For example name@hotel.sa or 05XXXXXXXX</p><p class="f-err" id="f-contact-err" data-i18n="err.contact" hidden>Enter a valid email address or a phone number such as 05XXXXXXXX.</p></div>
-            <div class="f"><label for="f-account"><span data-i18n="f.account">Account ID</span> <span class="opt" data-i18n="f.opt">(optional)</span></label><input id="f-account" name="account_id" type="text" maxlength="40" dir="ltr"></div>
-            <div class="f"><label for="f-renewal"><span data-i18n="f.renewal">Renewal date</span> <span class="opt" data-i18n="f.opt">(optional)</span></label><input id="f-renewal" name="renewal_date" type="date" dir="ltr"></div>
-            <div class="f f--full"><label for="f-channel" data-i18n="f.channel">Preferred contact channel</label><select id="f-channel" name="channel"><option value="" data-i18n="f.select">Please select</option><option value="phone" data-i18n="ch.phone">Phone call</option><option value="whatsapp" data-i18n="ch.whatsapp">WhatsApp</option><option value="email" data-i18n="ch.email">Email</option></select></div>
-            <fieldset class="f f--full pa-modfield"><legend data-i18n="f.modules">Modules to review</legend>
-              <label class="pa-check"><input type="checkbox" name="modules" value="accounting"><span data-i18n="m1.t">Accounting</span></label>
-              <label class="pa-check"><input type="checkbox" name="modules" value="purchasing"><span data-i18n="m2.t">Purchasing</span></label>
-              <label class="pa-check"><input type="checkbox" name="modules" value="housekeeping"><span data-i18n="m3.t">Housekeeping</span></label>
-              <label class="pa-check"><input type="checkbox" name="modules" value="maintenance"><span data-i18n="m4.t">Maintenance</span></label>
-              <label class="pa-check"><input type="checkbox" name="modules" value="inventory"><span data-i18n="m5.t">Inventory</span></label>
+          <form class="form pa-form" id="lead-form" novalidate>
+            <fieldset class="pa-group"><legend data-i18n="grp.hotel">Your hotel</legend>
+              <div class="f"><label for="f-company" data-i18n="f.company">Hotel / company</label><input id="f-company" name="company" type="text" autocomplete="organization" maxlength="120" required aria-describedby="f-company-err"><p class="f-err" id="f-company-err" data-i18n="err.company" hidden>Please enter your hotel or company name.</p></div>
+              <div class="f"><label for="f-city" data-i18n="f.city">City</label><input id="f-city" name="city" type="text" autocomplete="address-level2" maxlength="60"></div>
+            </fieldset>
+            <fieldset class="pa-group"><legend data-i18n="grp.contact">Your contact</legend>
+              <div class="f"><label for="f-name" data-i18n="f.name">Contact name</label><input id="f-name" name="name" type="text" autocomplete="name" maxlength="80" required aria-describedby="f-name-err"><p class="f-err" id="f-name-err" data-i18n="err.name" hidden>Please enter a contact name.</p></div>
+              <div class="f"><label for="f-role" data-i18n="f.role">Role</label><input id="f-role" name="role" type="text" autocomplete="organization-title" maxlength="80"></div>
+              <div class="f f--full"><label for="f-contact" data-i18n="f.contact">Business email or phone</label><input id="f-contact" name="contact" type="text" inputmode="email" autocomplete="email" maxlength="120" dir="auto" required aria-describedby="f-contact-err f-contact-hint"><p class="f-hint" id="f-contact-hint" data-i18n="f.contactHint">For example name@hotel.sa or 05XXXXXXXX</p><p class="f-err" id="f-contact-err" data-i18n="err.contact" hidden>Enter a valid email address or a phone number such as 05XXXXXXXX.</p></div>
+              <div class="f f--full"><label for="f-channel" data-i18n="f.channel">Preferred contact channel</label><select id="f-channel" name="channel"><option value="" data-i18n="f.select">Please select</option><option value="phone" data-i18n="ch.phone">Phone call</option><option value="whatsapp" data-i18n="ch.whatsapp">WhatsApp</option><option value="email" data-i18n="ch.email">Email</option></select></div>
+            </fieldset>
+            <fieldset class="pa-group"><legend><span data-i18n="grp.account">Your account</span> <span class="opt" data-i18n="f.opt">(optional)</span></legend>
+              <div class="f"><label for="f-account" data-i18n="f.account">Account ID</label><input id="f-account" name="account_id" type="text" maxlength="40" dir="ltr"></div>
+              <div class="f"><label for="f-renewal" data-i18n="f.renewal">Renewal date</label><input id="f-renewal" name="renewal_date" type="date" dir="ltr"></div>
+            </fieldset>
+            <fieldset class="pa-group pa-modfield"><legend data-i18n="f.modules">Modules to review</legend>
+              <label class="pa-check"><input type="checkbox" name="modules" value="accounting"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-coins"/></svg><span data-i18n="m1.t">Accounting</span></label>
+              <label class="pa-check"><input type="checkbox" name="modules" value="purchasing"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-shopping-cart"/></svg><span data-i18n="m2.t">Purchasing</span></label>
+              <label class="pa-check"><input type="checkbox" name="modules" value="housekeeping"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-bed-double"/></svg><span data-i18n="m3.t">Housekeeping</span></label>
+              <label class="pa-check"><input type="checkbox" name="modules" value="maintenance"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-wrench"/></svg><span data-i18n="m4.t">Maintenance</span></label>
+              <label class="pa-check"><input type="checkbox" name="modules" value="inventory"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-package"/></svg><span data-i18n="m5.t">Inventory</span></label>
             </fieldset>
             <label class="consent f--full"><input type="checkbox" name="contact_ok" value="yes" aria-describedby="f-agree-err"><span data-i18n="f.agree">I agree to be contacted about this upgrade review.</span></label>
             <p class="f-err f--full" id="f-agree-err" data-i18n="err.agree" hidden>Please confirm that we may contact you about this review.</p>
@@ -391,6 +416,10 @@ window.FQ_PAGE = {
     'how.note': 'لديك مشكلة خدمة لم تُحل بعد؟ يمكن لفريق حسابك المساعدة أولاً.',
     'lead.eyebrow': 'لنراجع ترقيتك', 'lead.title': 'القيمة الأكبر تبدأ من فندقك.',
     'lead.sub': 'أخبرنا بما تستخدمه اليوم وما تحتاجه بعد ذلك.', 'lead.p': 'سيؤكد عرضك الوحدات والرسوم والشروط قبل أن تقرر.',
+    'grp.hotel': 'فندقك', 'grp.contact': 'بيانات التواصل', 'grp.account': 'حسابك',
+    'brief.aria': 'ملخّص مراجعة الترقية', 'brief.draft': 'مسودة', 'brief.ready': 'جاهز للإرسال', 'brief.sent': 'تم الإرسال',
+    'brief.doc': 'مراجعة الترقية', 'brief.for': 'مقدَّمة إلى', 'brief.hotel': 'فندقك', 'brief.contact': 'جهة التواصل', 'brief.channel': 'قناة التواصل',
+    'brief.empty': 'لم يُضف بعد', 'brief.nomods': 'اختر الوحدات من النموذج',
     'form.title': 'تحقّق من عرض الترقية', 'f.renewal': 'تاريخ التجديد', 'f.modules': 'الوحدات المطلوب مراجعتها',
     'f.agree': 'أوافق على التواصل معي بشأن مراجعة الترقية هذه.', 'err.agree': 'يرجى تأكيد موافقتك على التواصل معك بشأن هذه المراجعة.',
     'form.note': 'إرسال هذا الطلب لا يغيّر اشتراكك.',
@@ -404,6 +433,59 @@ window.FQ_PAGE = {
     'tray.label': 'مراجعتك', 'foot.tag2': 'ضيافتك. أولويتنا.'
   }
 };
+</script>
+<script>
+/* The review sheet mirrors the request form as it is filled: hotel, contact, renewal, channel and modules.
+   It reads Draft until the required details and consent are in, then Ready to send, then Sent with the reference. */
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('lead-form'), sheet = document.querySelector('.pa-sheet'), done = document.getElementById('lead-done');
+  if (!form || !sheet) return;
+  const root = document.documentElement, still = matchMedia('(prefers-reduced-motion: reduce)');
+  const ICON = { accounting: 'i-coins', purchasing: 'i-shopping-cart', housekeeping: 'i-bed-double', maintenance: 'i-wrench', inventory: 'i-package' };
+  const slot = k => sheet.querySelector(`[data-slot="${k}"]`);
+  const val = n => (form.elements[n] && form.elements[n].value.trim()) || '';
+  const written = {};
+  const put = (k, text, quiet) => {
+    if (written[k] === text) return;
+    const s = slot(k), first = !written[k] && text;
+    written[k] = text; s.querySelector('.v').textContent = text; s.classList.toggle('is-set', !!text);
+    if (first && !quiet && !still.matches) { s.classList.remove('is-new'); void s.offsetWidth; s.classList.add('is-new'); }
+  };
+  const day = iso => {
+    const d = iso && new Date(iso + 'T00:00:00');
+    return !d || isNaN(d) ? iso : new Intl.DateTimeFormat(root.lang === 'ar' ? 'ar-u-ca-gregory-nu-latn' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric' }).format(d);
+  };
+  const render = quiet => {
+    put('company', val('company'), quiet);
+    put('city', val('city'), quiet);
+    put('person', [val('name'), val('role')].filter(Boolean).join(' · '), quiet);
+    put('renewal', day(val('renewal_date')), quiet);
+    const ch = form.elements.channel;
+    put('channel', ch.value ? ch.options[ch.selectedIndex].text : '', quiet);
+    const picked = [...form.querySelectorAll('input[name="modules"]:checked')], list = slot('modules'), key = picked.map(b => b.value).join() + root.lang;
+    if (list.dataset.key !== key) {
+      list.dataset.key = key;
+      list.querySelectorAll('li:not(.ph)').forEach(li => li.remove());
+      picked.forEach(b => { const li = document.createElement('li'); li.innerHTML = `<svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#${ICON[b.value]}"/></svg>`; li.append(b.closest('label').querySelector('span').textContent); list.append(li); });
+      list.classList.toggle('is-set', picked.length > 0);
+    }
+    if (sheet.dataset.state === 'sent') return;
+    const filled = ['company', 'city', 'name', 'role', 'contact', 'channel', 'account_id', 'renewal_date'].filter(val).length + (picked.length ? 1 : 0);
+    sheet.style.setProperty('--done', (filled / 9).toFixed(3));
+    sheet.dataset.state = val('company').length >= 2 && val('name').length >= 2 && val('contact') && form.elements.contact_ok.checked ? 'ready' : 'draft';
+  };
+  ['input', 'change'].forEach(t => form.addEventListener(t, () => render()));
+  // module picks made on the cards above reach the form through site.js
+  document.addEventListener('fq:modules', () => setTimeout(render));
+  // the language switch rewrites labels and dates, so the sheet re-reads them without the ink glow
+  document.querySelectorAll('[data-lang]').forEach(b => b.addEventListener('click', () => setTimeout(() => { Object.keys(written).forEach(k => delete written[k]); render(true); })));
+  new MutationObserver(() => {
+    if (done.hidden) return;
+    sheet.dataset.state = 'sent'; sheet.style.setProperty('--done', 1);
+    sheet.querySelector('.pa-sheet-ref').textContent = done.querySelector('.ref b').textContent;
+  }).observe(done, { attributes: true, attributeFilter: ['hidden'] });
+  render(true);
+});
 </script>
 <script src="../assets/vendor/scrollcraft/scrollcraft.js" defer></script>
 <script src="../assets/js/site.js" defer></script>

@@ -182,3 +182,27 @@ differs from it. Still self-authored under the same explicit creative delegation
 | Ads and posts (C/D) | Reach | The same story at scale, on the real creatives |
 | Replies, subjects, playbook | Preparedness, choice, trust | Reference, compressed |
 | Next account | Readiness | An input |
+
+## Revision 2 verification (25 Oct 2026)
+
+Automated, 60 of 60 passing (`scratchpad/scripts/verify-k2.mjs`): no horizontal overflow for all four campaigns at
+1440, 1280, 1024, 768, 390 and 360 in English and Arabic, with no console or network errors; routing A, B, C, D and the
+research queue, the conflicting-offer flag and "switch to"; the eligibility gate (shared route and missing permission
+block; copy still works with a warning; the inbox shows the gate); cadence on working days 3, 5 and 7; C IT and finance
+versions, tags, playbook subject; C sponsored link identical to `links.csv` (`ad_v1_en`), v1/v2 creative swap; A plan,
+renewal date and module list (three join naturally, a fourth is blocked); release off keeps the price lock out and
+blocks the held headlines, release on adds the price-lock line, the playbook subject and the record's figures with
+VAT, editable; D band phrase, no "100%", scoped-proposal price reply, post and carousel tags, carousel images load;
+Arabic band phrase, module join with و, no "فندق 360"; next account clears, keeps the rep and forces re-routing and
+re-clearing; inbox completion and the CRM record (campaign code, verification, permission, owner, next action, five
+touches); phone drawer focus and Escape; reduced motion. Repo checks: `check-i18n` 101/101 keys, `check-links` clean
+for this page. Every account-panel row fills on desktop and phone.
+
+Fixed during verification: three template-built `src`/`href` attributes that the repo link checker read as local
+files (now single-quoted); repeated action and CTA in the brief for C; a blank ad avatar (now the Fandaqah app icon);
+empty trailing cells in the account grid for A, B and C.
+
+**Feel check (cold):** oriented · in control · precise · recognised · moving · reassured · complete · reach · prepared ·
+ready. Matches the revised curve; the peak is still the inbox completing, now beside the cleared status.
+
+Not verified: a real phone, and paste behaviour inside LinkedIn and Campaign Manager.

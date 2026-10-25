@@ -57,6 +57,7 @@ as a constraint, so writing them down is the whole point.
 - **Close:** a "next prospect" input that resets the tool.
 - **Signature:** scroll-accumulated inbox thread dated on working days.
 - **Shape band:** 10 flow sections, 0 pinned acts, sticky side panel.
+- linkedin-kit revised 25 Oct 2026 to the Marketing Campaign Playbook (campaigns A to D, routing and eligibility gate, ads and posts for C and D). Same build, same row: a revision is not a new build.
 
 ---
 
