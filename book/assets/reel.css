@@ -21,7 +21,6 @@ body.render .reel{position:relative;left:auto;top:auto;margin:0;transform:none !
 .r-logo{display:inline-flex;align-items:flex-end;gap:8px;padding:14px 22px 14px 18px;border-radius:20px;background:rgba(255,255,255,.95);box-shadow:var(--e2)}
 .r-logo img{width:auto;height:66px}
 .r-logo b{padding-bottom:4px;font:600 38px/1 "Source Serif 4",Georgia,serif;color:var(--coral)}
-.r-chip{padding:12px 22px;border-radius:999px;background:rgba(255,255,255,.95);color:var(--ink);font-size:25px;font-weight:700;box-shadow:var(--e1);white-space:nowrap}
 
 /* scenes */
 .r-s{position:absolute;inset:0;overflow:hidden;isolation:isolate;visibility:hidden}
@@ -128,7 +127,7 @@ html[lang="ar"] .s4 h2{font-size:90px}
 
 /* live-view controls (not in rendered video) */
 .ctrl{position:fixed;z-index:50;left:50%;bottom:18px;display:flex;align-items:center;gap:10px;padding:8px;border-radius:999px;background:rgba(255,255,255,.1);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transform:translateX(-50%)}
-.ctrl button{display:grid;place-items:center;min-width:44px;height:44px;padding:0 14px;border:0;border-radius:999px;background:rgba(255,255,255,.14);color:#fff;font:600 14px/1 "Inter",system-ui,sans-serif;cursor:pointer}
-.ctrl button:hover{background:rgba(255,255,255,.24)}
+.ctrl button,.ctrl a{display:grid;place-items:center;min-width:44px;height:44px;padding:0 14px;border:0;border-radius:999px;background:rgba(255,255,255,.14);color:#fff;font:600 14px/1 "Inter",system-ui,sans-serif;cursor:pointer}
+.ctrl button:hover,.ctrl a:hover{background:rgba(255,255,255,.24)}
 .ctrl .ic{width:18px;height:18px;stroke-width:2.2}
 body.render .ctrl,body.embed .ctrl{display:none}

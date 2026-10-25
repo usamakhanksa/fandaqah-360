@@ -34,6 +34,7 @@
   </nav>
   <div class="bk-actions">
     <div class="lang" role="group" data-i18n-aria="aria.lang" aria-label="Language"><button type="button" data-lang="en" lang="en" aria-pressed="true">EN</button><span class="sep" aria-hidden="true"></span><button type="button" data-lang="ar" lang="ar" aria-pressed="false">عربي</button></div>
+    <a class="bk-dl-head" href="#downloads"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-download"/></svg><span data-i18n="head.dl">Downloads</span></a>
     <button class="bk-share" type="button" data-copy><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-link"/></svg><span data-i18n="share">Copy link</span></button>
   </div>
 </header>
@@ -61,6 +62,16 @@
       <p class="bk-eyebrow dark" data-i18n="contents.eyebrow">Contents</p>
       <h2 id="contents-title" data-i18n="contents.title">One chapter per campaign.</h2>
       <ol class="bk-toc"></ol>
+    </div>
+  </section>
+
+  <!-- every reel, one click each: named by campaign and language (filled by book.js) -->
+  <section class="bk-dl" id="downloads" aria-labelledby="dl-title">
+    <div class="wrap">
+      <p class="bk-eyebrow dark" data-i18n="dl.eyebrow">Downloads</p>
+      <h2 id="dl-title" data-i18n="dl.title">Every reel, ready to post.</h2>
+      <p class="bk-dl-lead" data-i18n="dl.lead">MP4 · 1080×1920 · 25 seconds, with music and burned-in captions. One click saves the file, named by campaign and language.</p>
+      <ul class="bk-dl-grid"></ul>
     </div>
   </section>
 
@@ -99,6 +110,8 @@ window.BOOK_I18N = {
     'cover.lead': 'الريلز والبنرات والتصاميم لكل مسار: العربية أولاً والإنجليزية بجانبها، جاهزة للمراجعة.',
     'cover.open': 'افتح الكتاب', 'cover.site': 'موقع الحملات المباشر', 'cover.scroll': 'مرّر',
     'contents.eyebrow': 'المحتويات', 'contents.title': 'فصل لكل حملة.',
+    'head.dl': 'التنزيلات', 'dl.eyebrow': 'التنزيلات', 'dl.title': 'كل الريلز، جاهزة للنشر.',
+    'dl.lead': 'ملفات MP4 بمقاس <bdi dir="ltr">1080×1920</bdi> ومدة 25 ثانية، مع الموسيقى والترجمة المدمجة. نقرة واحدة تحفظ الملف باسم الحملة واللغة.',
     'end.eyebrow': 'المشاركة', 'end.title': 'رابط واحد للفريق كله.',
     'end.lead': 'أرسل هذا الكتاب للمراجعة والاعتماد. كل تصميم يقود إلى رابط الحملات الموحّد، والكتاب غير مفهرس في محركات البحث.',
     'r.A': 'العملاء الحاليون', 'r.B': 'الفنادق الجديدة', 'r.C': 'Opera / أنظمة PMS', 'r.D': 'مجموعات الفنادق',

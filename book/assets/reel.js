@@ -44,7 +44,7 @@
   reel.className = `reel theme-${C.theme}`;
   reel.innerHTML = `
     <div class="r-bars">${'<i><b></b></i>'.repeat(4)}</div>
-    <header class="r-top"><span class="r-logo"><img src="${A}img/brand-dark-340.webp" alt=""><b>360</b></span><span class="r-chip">${T.chip}</span></header>
+    <header class="r-top"><span class="r-logo"><img src="${A}img/brand-dark-340.webp" alt=""><b>360</b></span></header>
     <section class="r-s s1"><figure class="photo"><img src="${A}img/${C.photo}" style="object-position:${C.photoPos}" alt=""></figure><div class="shade"></div><div class="motif">${motif}</div><div class="copy"><h2>${S[0].h}</h2></div></section>
     <section class="r-s s2"><div class="floor"></div><span class="wm" aria-hidden="true">360</span><div class="copy"><h2>${S[1].h}</h2><p class="sub">${S[1].s}</p></div><div class="dev">${DEV[C.device]()}</div><span class="r-tag">${C.device === 'laptopD' ? TAG.brand : TAG.ui}</span>${code === 'C' ? legal : ''}</section>
     <section class="r-s s3"><div class="floor"></div><span class="wm" aria-hidden="true">360</span><div class="copy"><h2>${S[2].h}</h2></div>${proof}</section>
@@ -152,9 +152,11 @@
     // the campaign's score (tools/reel-audio.py); browsers only start sound after a tap, so it begins off
     const snd = new Audio(`media/${C.folder}/reels/${code}-score.m4a`); snd.preload = 'auto';
     let soundOn = false;
+    // the download keeps a descriptive name, e.g. Fandaqah-360-Reel-C-Opera-PMS-AR.mp4
+    const file = `Fandaqah-360-Reel-${code}-${D.campaigns[code].en.name.replace(/[^A-Za-z0-9]+/g, '-').replace(/^-|-$/g, '')}-${lang.toUpperCase()}.mp4`;
     const speaker = on => `<svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4z"/>${on ? '<path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/>' : '<path d="m16 9 5 6"/><path d="m21 9-5 6"/>'}</svg>`;
     const sync = () => { if (soundOn && !tl.paused()) { snd.currentTime = Math.min(tl.time(), TOTAL - 0.05); snd.play().catch(() => {}); } else snd.pause(); };
-    ctrl.innerHTML = `<button type="button" data-a="toggle" aria-label="Play or pause">❚❚</button><button type="button" data-a="restart" aria-label="Restart">↺</button><button type="button" data-a="sound" aria-pressed="false" aria-label="${lang === 'ar' ? 'تشغيل الصوت' : 'Turn the sound on'}">${speaker(false)}</button><button type="button" data-a="lang">${other === 'ar' ? 'عربي' : 'EN'}</button>`;
+    ctrl.innerHTML = `<button type="button" data-a="toggle" aria-label="Play or pause">❚❚</button><button type="button" data-a="restart" aria-label="Restart">↺</button><button type="button" data-a="sound" aria-pressed="false" aria-label="${lang === 'ar' ? 'تشغيل الصوت' : 'Turn the sound on'}">${speaker(false)}</button><a data-a="dl" href="media/${C.folder}/reels/${code}-reel-${lang}.mp4" download="${file}" aria-label="${lang === 'ar' ? 'تنزيل الريل MP4' : 'Download this reel (MP4)'}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/></svg></a><button type="button" data-a="lang">${other === 'ar' ? 'عربي' : 'EN'}</button>`;
     document.body.append(ctrl);
     const btn = ctrl.querySelector('[data-a="toggle"]'), sbtn = ctrl.querySelector('[data-a="sound"]');
     ctrl.addEventListener('click', e => {

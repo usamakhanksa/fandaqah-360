@@ -11,6 +11,8 @@
   // speaker, with waves when the sound is on and a cross when it is off (the site sprite has no audio icons)
   const speaker = on => `<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/>${on ? '<path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/>' : '<path d="m16 9 5 6"/><path d="m21 9-5 6"/>'}</svg>`;
   const strip = html => html.replace(/<[^>]+>/g, '');
+  // downloads keep a descriptive name in either language, e.g. Fandaqah-360-Reel-C-Opera-PMS-AR.mp4
+  const reelFile = (c, l) => `Fandaqah-360-Reel-${c}-${D.campaigns[c].en.name.replace(/[^A-Za-z0-9]+/g, '-').replace(/^-|-$/g, '')}-${l.toUpperCase()}.mp4`;
 
   /* ---------- strings for the generated parts ---------- */
   const TXT = {
@@ -80,6 +82,18 @@
 
   const imgPage = (item, kind) => `<img src="${item.src}" width="${item.w}" height="${item.h}" alt="${(item.title || '').replace(/"/g, '&quot;')}" loading="lazy"><span class="page-tag">${TXT[lang][kind]} · ${item.lang.toUpperCase()}</span><button class="page-zoom" type="button" data-zoom="${item.src}" data-title="${(item.title || item.name || '').replace(/"/g, '&quot;')}" aria-label="${TXT[lang].zoom}">${ico('i-search')}</button>`;
 
+  function renderDownloads() {
+    const T = TXT[lang];
+    $('.bk-dl-grid').innerHTML = CODES.map(c => {
+      const X = D.campaigns[c][lang], m = media(c);
+      const files = [lang, lang === 'ar' ? 'en' : 'ar'].filter(l => m.reels[l]).map(l => {
+        const r = m.reels[l], name = l === 'ar' ? T.arabic : T.english;
+        return `<a class="bk-dl-file" href="${r.mp4}" download="${reelFile(c, l)}" aria-label="${T.download} · ${c} · ${X.name} · ${name} · ${r.mb} MB"><img src="${r.poster}" width="108" height="192" alt="" loading="lazy"><span class="bk-dl-meta"><b>${name}</b><small>MP4 · ${r.mb} MB</small></span><span class="bk-dl-go" aria-hidden="true">${ico('i-download')}</span></a>`;
+      }).join('');
+      return `<li class="bk-dl-card"><a class="bk-dl-top" href="#ch-${c}"><span class="code">${c}</span><b>${X.name}</b></a><div class="bk-dl-files">${files}</div></li>`;
+    }).join('');
+  }
+
   function renderChapters() {
     const T = TXT[lang];
     $('#chapters').innerHTML = CODES.map(c => {
@@ -88,7 +102,7 @@
         const r = m.reels[l];
         const body = r ? `<video muted playsinline loop preload="none" poster="${r.poster}"><source src="${r.mp4}" type="video/mp4"></video><button class="bk-play" type="button" aria-label="${T.play}"><span>${ico('i-play')}</span></button><button class="bk-sound" type="button" aria-pressed="false" aria-label="${T.soundOn}">${speaker(false)}<span>${T.sound}</span></button>`
           : `<div class="bk-missing">${T.pending}</div>`;
-        return `<figure class="bk-phone" data-lang="${l}"><div class="bk-phone-frame">${body}</div><figcaption><b>${l === 'ar' ? T.arabic : T.english}</b><span>${r ? `<a href="${r.mp4}" download>${T.download} (${r.mb} MB)</a>` : ''}<a href="reel.html?c=${c}&lang=${l}" target="_blank" rel="noopener">${T.live}</a></span></figcaption></figure>`;
+        return `<figure class="bk-phone" data-lang="${l}"><div class="bk-phone-frame">${body}</div><figcaption><b>${l === 'ar' ? T.arabic : T.english}</b><span>${r ? `<a class="bk-dl-btn" href="${r.mp4}" download="${reelFile(c, l)}">${ico('i-download')}${T.download} · ${r.mb} MB</a>` : ''}<a href="reel.html?c=${c}&lang=${l}" target="_blank" rel="noopener">${T.live}</a></span></figcaption></figure>`;
       };
       const beats = X.scenes.map((s, i) => `<li><b>${T.beats[i]}</b><strong>${strip(s.h)}</strong><p>${s.cap}</p></li>`).join('');
       const pages = [`<div class="page-title"><span class="code">${c}</span><b>${X.name}</b><p>${T.book} · ${T.coverNote}</p></div>`,
@@ -264,7 +278,7 @@
     document.title = meta.title; $('meta[name="description"]').content = meta.desc;
     $$('[data-lang]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
     if (persist) { try { localStorage.setItem('fq360-lang', lang); } catch (e) {} }
-    renderCover(); renderToc(); renderChapters();
+    renderCover(); renderToc(); renderDownloads(); renderChapters();
     books.length = 0; $$('.bk-flip').forEach(el => books.push(new Flipbook(el)));
     initReels();
     animate(!persist);

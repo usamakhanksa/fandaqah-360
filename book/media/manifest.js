@@ -435,12 +435,12 @@ window.BOOK_MEDIA = {
    "ar": {
     "mp4": "media/C-opera-pms/reels/C-reel-ar.mp4",
     "poster": "media/C-opera-pms/reels/C-reel-ar.jpg",
-    "mb": 2.8
+    "mb": 2.7
    },
    "en": {
     "mp4": "media/C-opera-pms/reels/C-reel-en.mp4",
     "poster": "media/C-opera-pms/reels/C-reel-en.jpg",
-    "mb": 3.2
+    "mb": 3.1
    }
   }
  },
@@ -595,7 +595,7 @@ window.BOOK_MEDIA = {
    "en": {
     "mp4": "media/D-hotel-groups/reels/D-reel-en.mp4",
     "poster": "media/D-hotel-groups/reels/D-reel-en.jpg",
-    "mb": 3.0
+    "mb": 2.9
    }
   }
  }
