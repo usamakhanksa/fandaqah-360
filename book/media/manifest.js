@@ -435,12 +435,12 @@ window.BOOK_MEDIA = {
    "ar": {
     "mp4": "media/C-opera-pms/reels/C-reel-ar.mp4",
     "poster": "media/C-opera-pms/reels/C-reel-ar.jpg",
-    "mb": 2.0
+    "mb": 2.2
    },
    "en": {
     "mp4": "media/C-opera-pms/reels/C-reel-en.mp4",
     "poster": "media/C-opera-pms/reels/C-reel-en.jpg",
-    "mb": 2.4
+    "mb": 2.6
    }
   }
  },

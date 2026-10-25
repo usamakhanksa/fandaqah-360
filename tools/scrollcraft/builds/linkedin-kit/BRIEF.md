@@ -206,3 +206,23 @@ empty trailing cells in the account grid for A, B and C.
 ready. Matches the revised curve; the peak is still the inbox completing, now beside the cleared status.
 
 Not verified: a real phone, and paste behaviour inside LinkedIn and Campaign Manager.
+
+## Revision 3 · Campaign C outcome-first (25 Oct 2026)
+
+**Reviewer direction (verbatim):** shift from "Technical Review → Integration Assessment → Scope Definition" to
+"Operational Challenge → Business Outcome → Review → Meeting". "Sell the outcome first and the integration second."
+
+**What changed in the kit:** a third role, GM or owner, beside IT and finance, and the default. Every C message now opens
+on the operational problem (HR, procurement, inventory, finance, compliance and reporting spread across disconnected
+systems), names what Fandaqah adds while Opera stays the core PMS, states the first objective (simplify, consolidate or
+improve without disrupting the PMS) and closes on "Request an operational and technology review". Beats, sponsored intro,
+headline bank (new v1/v2), replies ("what exactly does Fandaqah add", "we already have systems"), qualification and
+scorecard follow the same order. Arabic avoids «بـ {pms}», because the PMS value already begins with «نظام».
+
+**Carried through the campaign:** `/opera-pms/` (H1 matches ad v1; challenge, outcome, review and meeting in that order),
+the studio creatives (feed v1/v2, story, carousel, reel frames, link preview), both reels, the book's chapter C, search ads
+and the C campaign docs. The four designed banners still carry the earlier headline and need the designer.
+
+**Verified:** all three roles in both languages have every step Ready, within LinkedIn limits, with no unmerged tokens or
+errors. The landing page has no overflow at 1440 and 390 in either language. Reels and creatives were checked frame by
+frame, and the reel MP4s are 25 s. `check-i18n` and `check-links` pass.

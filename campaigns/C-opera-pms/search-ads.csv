@@ -1,22 +1,26 @@
 ﻿language,asset,text,characters,limit,ok
+en,headline,Fewer Systems Around Opera,26,30,yes
+en,headline,"One Platform, Keep Your PMS",27,30,yes
+en,headline,Consolidate Hotel Operations,28,30,yes
+en,headline,"HR, Procurement and Finance",27,30,yes
 en,headline,Opera Back Office Integration,29,30,yes
-en,headline,Strengthen Your Opera PMS,25,30,yes
-en,headline,Hotel Technology Cost Review,28,30,yes
-en,headline,Connected Hotel Operations,26,30,yes
 en,headline,Keep Your Existing PMS,22,30,yes
-en,headline,Request a Cost Review,21,30,yes
+en,headline,Operations & Technology Review,30,30,yes
+en,headline,Hotel Technology Cost Review,28,30,yes
 en,headline,Built for Saudi Hospitality,27,30,yes
-en,description,"Explore supported back-office, operations and regulatory workflows around your PMS.",83,90,yes
-en,description,"We review costs, interfaces and approvals before a scoped proposal.",67,90,yes
-en,description,See where your hotel can reduce technology costs. Like-for-like scope comparison.,81,90,yes
-en,description,Compatibility and delivery are confirmed after technical assessment.,68,90,yes
+en,description,"Bring HR, procurement, inventory, finance and compliance into one platform.",75,90,yes
+en,description,"Less duplicated work and a clearer view of your hotel, with Opera kept as your PMS.",83,90,yes
+en,description,"We map your systems, costs and interfaces first, then confirm compatibility.",76,90,yes
+en,description,Request an operational and technology review. No PMS replacement needed.,72,90,yes
+ar,headline,أنظمة أقل حول Opera,19,30,yes
+ar,headline,منصة واحدة مع بقاء نظامك,24,30,yes
+ar,headline,وحّد عمليات فندقك,17,30,yes
+ar,headline,الموارد البشرية والمشتريات,26,30,yes
 ar,headline,تكامل الإدارة الخلفية مع Opera,30,30,yes
-ar,headline,عزّز نظام Opera PMS لديك,24,30,yes
-ar,headline,مراجعة تكاليف تقنية الفندق,26,30,yes
-ar,headline,عمليات فندقية مترابطة,21,30,yes
 ar,headline,احتفظ بنظام PMS الحالي,22,30,yes
-ar,headline,اطلب مراجعة التكاليف,20,30,yes
-ar,description,مسارات عمل مدعومة للإدارة الخلفية والتشغيل والإجراءات التنظيمية حول نظامك.,74,90,yes
-ar,description,نراجع التكاليف والواجهات والاعتمادات قبل إعداد عرض سعر محدد النطاق.,67,90,yes
-ar,description,اكتشف أين يمكن لفندقك خفض تكاليف التقنية بمقارنة دقيقة للنطاق.,62,90,yes
-ar,description,يُؤكَّد التوافق والتسليم بعد التقييم الفني.,43,90,yes
+ar,headline,اطلب مراجعة تشغيلية وتقنية,26,30,yes
+ar,headline,مراجعة تكاليف تقنية الفندق,26,30,yes
+ar,description,اجمع الموارد البشرية والمشتريات والمخزون والمالية والامتثال في منصة واحدة.,74,90,yes
+ar,description,عمل مكرر أقل ورؤية أوضح لفندقك، ويبقى Opera نظامك الأساسي.,58,90,yes
+ar,description,نحصر أنظمتك وتكاليفك وواجهاتك أولاً، ثم نؤكّد التوافق.,54,90,yes
+ar,description,اطلب مراجعة تشغيلية وتقنية، دون الحاجة إلى استبدال نظامك.,57,90,yes

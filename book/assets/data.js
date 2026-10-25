@@ -57,26 +57,27 @@ window.BOOK_DATA = {
     C: {
       folder: 'C-opera-pms', route: 'opera-pms/', theme: 'dark', photo: 'hero-opera.webp', photoPos: '60% 50%', device: 'monitorC',
       en: {
-        name: 'Opera / PMS', buyer: 'IT and finance leaders, with the GM or owner', action: 'Technology cost review',
-        promise: 'Strengthen the workflows around your Opera PMS.', cta: 'Request a technology cost review', chip: 'For Opera & mandated-PMS properties',
-        motif: ['Annual licence', 'Interfaces', 'Support (AMC)'], sample: 'Sample figures',
+        name: 'Opera / PMS', buyer: 'GM or owner, IT manager or director, and finance director', action: 'Operational and technology review',
+        promise: 'Fewer systems around Opera. A clearer view of your hotel.', cta: 'Request an operational and technology review', chip: 'For Opera & mandated-PMS properties',
+        // the hook's three separate systems are what scene 2 brings into one platform
+        motif: ['HR system', 'Procurement & inventory', 'Finance & reporting'], sample: 'Sample figures',
         scenes: [
-          { h: 'How much does your hotel technology <em>really cost?</em>', cap: 'What do you really pay for your hotel technology each year?' },
-          { h: 'Strengthen the workflows <em>around Opera.</em>', s: 'Your existing PMS stays at the centre.', cap: 'Your existing PMS stays. We strengthen what’s around it.' },
-          { h: 'Connect back office, operations and <em>supported integrations.</em>', toast: 'Supported workflow · back-office posting', cap: 'Back office, operations and supported integrations, connected.' },
-          { h: 'Request your <em>technology cost review.</em>', checks: ['PMS product & version', 'Deployment & interfaces', 'Required workflows', 'Approval route'], cap: 'Request a cost review. Compatibility is confirmed after assessment.' }
+          { h: 'Running your hotel around Opera through <em>too many systems?</em>', cap: 'HR, procurement, inventory and finance, each in its own system?' },
+          { h: 'One platform. <em>Opera stays your PMS.</em>', s: 'HR, procurement, inventory and finance.', cap: 'Fandaqah brings them into one platform. Your PMS doesn’t change.' },
+          { h: 'Fewer systems. Clearer visibility. <em>Room to grow.</em>', list: ['Purchases flow to inventory and finance', 'One report across departments', 'Add outlets and properties'], icons: ['i-shopping-cart', 'i-chart-line', 'i-building-2'], cap: 'Less repeated work, one view of the hotel, and room to grow.' },
+          { h: 'See what you can <em>simplify around Opera.</em>', checks: ['Systems in use today', 'Where work is repeated', 'PMS product & interfaces', 'What to consolidate first'], cap: 'We map your systems first and confirm compatibility before any proposal.' }
         ],
         legal: 'Oracle and OPERA are trademarks of Oracle and/or its affiliates. No certification or endorsement implied.'
       },
       ar: {
-        name: 'Opera / أنظمة PMS', buyer: 'قادة التقنية والمالية مع المدير العام أو المالك', action: 'مراجعة تكاليف التقنية',
-        promise: 'عزّز مسارات العمل حول نظام Opera PMS لديك.', cta: 'اطلب مراجعة تكاليف التقنية', chip: 'لمنشآت Opera وأنظمة PMS المعتمدة',
-        motif: ['ترخيص سنوي', 'الواجهات', 'الدعم والصيانة'], sample: 'أرقام توضيحية',
+        name: 'Opera / أنظمة PMS', buyer: 'المدير العام أو المالك، ومدير التقنية، والمدير المالي', action: 'مراجعة تشغيلية وتقنية',
+        promise: 'أنظمة أقل حول Opera، ورؤية أوضح لفندقك.', cta: 'اطلب مراجعة تشغيلية وتقنية', chip: 'لمنشآت Opera وأنظمة PMS المعتمدة',
+        motif: ['نظام الموارد البشرية', 'المشتريات والمخزون', 'المالية والتقارير'], sample: 'أرقام توضيحية',
         scenes: [
-          { h: 'كم تكلّف تقنيات فندقك <em>فعلاً؟</em>', cap: 'كم تدفع فعلاً على تقنيات فندقك كل عام؟' },
-          { h: 'عزّز مسارات العمل <em>حول <bdi>Opera</bdi>.</em>', s: 'يبقى نظام PMS الحالي في قلب المنظومة.', cap: 'نظامك الحالي يبقى كما هو، ونقوّي ما حوله.' },
-          { h: 'اربط الإدارة الخلفية والتشغيل <em>والتكاملات المدعومة.</em>', toast: 'مسار عمل مدعوم · ترحيل للإدارة الخلفية', cap: 'نربط الإدارة الخلفية والتشغيل والتكاملات المدعومة.' },
-          { h: 'اطلب <em>مراجعة تكاليف التقنية.</em>', checks: ['منتج PMS وإصداره', 'التشغيل والواجهات', 'مسارات العمل المطلوبة', 'مسار الاعتماد'], cap: 'اطلب مراجعة التكاليف، ونؤكّد التوافق بعد التقييم الفني.' }
+          { h: 'تدير فندقك حول <bdi>Opera</bdi> <em>بأنظمة كثيرة؟</em>', cap: 'الموارد البشرية والمشتريات والمخزون والمالية، كلٌّ في نظام منفصل؟' },
+          { h: 'منصة واحدة لعملياتك، <em>ويبقى <bdi>Opera</bdi> نظامك.</em>', s: 'الموارد البشرية والمشتريات والمخزون والمالية.', cap: 'فندقة تجمعها في منصة واحدة، ونظام PMS لديك لا يتغيّر.' },
+          { h: 'أنظمة أقل، ورؤية أوضح، <em>ومساحة للنمو.</em>', list: ['المشتريات تصل إلى المخزون والمالية', 'تقرير واحد يجمع الأقسام', 'أضف منافذ ومنشآت جديدة'], icons: ['i-shopping-cart', 'i-chart-line', 'i-building-2'], cap: 'عمل مكرر أقل، ورؤية واحدة للفندق، ومساحة للنمو.' },
+          { h: 'اعرف ما يمكن <em>تبسيطه حول <bdi>Opera</bdi>.</em>', checks: ['الأنظمة المستخدمة اليوم', 'أين يتكرر العمل', 'منتج PMS وواجهاته', 'ما يُوحَّد أولاً'], cap: 'نحصر أنظمتك أولاً، ونؤكّد التوافق قبل أي عرض.' }
         ],
         legal: 'Oracle وOPERA علامتان تجاريتان لشركة Oracle و/أو الشركات التابعة لها. لا يعني ذلك اعتماداً أو تأييداً.'
       }

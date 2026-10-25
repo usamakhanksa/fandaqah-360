@@ -66,30 +66,31 @@ window.STUDIO = {
     C: {
       folder: 'C-opera-pms', theme: 'dark', photo: 'img/hero-opera.webp', photoPos: '60% 50%', device: 'monitorC',
       en: {
-        chip: 'For Opera & mandated-PMS properties', cta: 'Request a technology cost review', url: 'fandaqah.com',
+        chip: 'For Opera & mandated-PMS properties', cta: 'Request an operational and technology review', url: 'fandaqah.com',
+        // outcome first, integration second: the problem, what changes, what the hotel gets, then the review
         ads: [
-          { h: 'Strengthen your Opera PMS with <em>connected hotel operations.</em>', s: 'We review your current costs, required interfaces and approval process before preparing a proposal.' },
-          { h: 'See where your hotel can <em>reduce technology costs.</em>', s: 'Build a like-for-like view of your current and proposed scope.' }
+          { h: 'Fewer systems around Opera. <em>A clearer view of your hotel.</em>', s: 'Bring HR, procurement, inventory, finance and compliance into one platform. Opera stays your core PMS.' },
+          { h: 'Consolidate your hotel operations <em>without replacing Opera.</em>', s: 'We map your systems, costs and interfaces first, and confirm compatibility before any proposal.' }
         ],
         slides: [
-          { h: 'How much does your hotel technology <em>really cost?</em>' },
-          { h: 'Strengthen the workflows <em>around Opera.</em>', s: 'Your existing PMS stays at the centre.' },
-          { h: 'Connect back office, operations and <em>supported integrations.</em>', pms: true },
-          { h: 'Request your <em>technology cost review.</em>', s: 'Compatibility and delivery are confirmed after technical assessment.' }
+          { h: 'Running your hotel around Opera through <em>too many systems?</em>' },
+          { h: 'One platform. <em>Opera stays your PMS.</em>', s: 'HR, procurement, inventory, finance and compliance.' },
+          { h: 'Fewer systems. Clearer visibility. <em>Room to grow.</em>', list: ['Purchases flow to inventory and finance', 'One report across departments', 'Add outlets and properties'], icons: ['i-shopping-cart', 'i-chart-line', 'i-building-2'] },
+          { h: 'See what you can <em>simplify around Opera.</em>', s: 'We map your systems first and confirm compatibility before any proposal.' }
         ],
         legal: 'Oracle and OPERA are trademarks of Oracle and/or its affiliates. No certification or endorsement implied.'
       },
       ar: {
-        chip: 'لمنشآت Opera وأنظمة PMS المعتمدة', cta: 'اطلب مراجعة تكاليف التقنية', url: 'fandaqah.com',
+        chip: 'لمنشآت Opera وأنظمة PMS المعتمدة', cta: 'اطلب مراجعة تشغيلية وتقنية', url: 'fandaqah.com',
         ads: [
-          { h: 'عزّز نظام <bdi>Opera PMS</bdi> لديك <em>بعمليات فندقية مترابطة.</em>', s: 'نراجع تكاليفك الحالية والواجهات المطلوبة ومسار الاعتماد قبل إعداد عرض السعر.' },
-          { h: 'اكتشف أين يمكن لفندقك <em>خفض تكاليف التقنية.</em>', s: 'كوِّن صورة مقارنة دقيقة بين نطاقك الحالي والنطاق المقترح.' }
+          { h: 'أنظمة أقل حول <bdi>Opera</bdi>، <em>ورؤية أوضح لفندقك.</em>', s: 'اجمع الموارد البشرية والمشتريات والمخزون والمالية والامتثال في منصة واحدة، ويبقى <bdi>Opera</bdi> نظامك الأساسي.' },
+          { h: 'وحّد عمليات فندقك <em>دون استبدال <bdi>Opera</bdi>.</em>', s: 'نحصر أنظمتك وتكاليفك وواجهاتك أولاً، ونؤكّد التوافق قبل أي عرض.' }
         ],
         slides: [
-          { h: 'كم تكلّف تقنيات فندقك <em>فعلاً؟</em>' },
-          { h: 'عزّز مسارات العمل <em>حول <bdi>Opera</bdi>.</em>', s: 'يبقى نظام PMS الحالي في قلب المنظومة.' },
-          { h: 'اربط الإدارة الخلفية والتشغيل <em>والتكاملات المدعومة.</em>', pms: true },
-          { h: 'اطلب <em>مراجعة تكاليف التقنية.</em>', s: 'يُؤكَّد التوافق والتسليم بعد التقييم الفني.' }
+          { h: 'تدير فندقك حول <bdi>Opera</bdi> <em>بأنظمة كثيرة؟</em>' },
+          { h: 'منصة واحدة لعملياتك، <em>ويبقى <bdi>Opera</bdi> نظامك.</em>', s: 'الموارد البشرية والمشتريات والمخزون والمالية والامتثال.' },
+          { h: 'أنظمة أقل، ورؤية أوضح، <em>ومساحة للنمو.</em>', list: ['المشتريات تصل إلى المخزون والمالية', 'تقرير واحد يجمع الأقسام', 'أضف منافذ ومنشآت جديدة'], icons: ['i-shopping-cart', 'i-chart-line', 'i-building-2'] },
+          { h: 'اعرف ما يمكن <em>تبسيطه حول <bdi>Opera</bdi>.</em>', s: 'نحصر أنظمتك أولاً، ونؤكّد التوافق قبل أي عرض.' }
         ],
         legal: 'Oracle وOPERA علامتان تجاريتان لشركة Oracle و/أو الشركات التابعة لها. لا يعني ذلك اعتماداً أو تأييداً.'
       }
@@ -129,7 +130,7 @@ window.STUDIO = {
     home: { c: 'A', h: 'Built for Saudi hospitality. <em>Choose your route.</em>', chip: 'Fandaqah 360' },
     'existing-customers': { c: 'A', h: '<em>More value</em> from the Fandaqah you already use.', chip: 'For existing Fandaqah customers' },
     'new-hotels': { c: 'B', h: 'Your hotel operations. <em>One connected platform.</em>', chip: 'For new independent hotels' },
-    'opera-pms': { c: 'C', h: 'Strengthen the workflows around your <em>Opera PMS.</em>', chip: 'For Opera & mandated-PMS properties' },
+    'opera-pms': { c: 'C', h: 'Fewer systems around Opera. <em>A clearer view of your hotel.</em>', chip: 'For Opera & mandated-PMS properties' },
     'hotel-groups': { c: 'D', h: 'A dedicated platform <em>built around your group.</em>', chip: 'For hotel groups & operators' },
     book: { c: 'B', h: 'Campaign Book. <em>Every reel and banner in one link.</em>', chip: 'Fandaqah 360 · Campaign Book' }
   },
