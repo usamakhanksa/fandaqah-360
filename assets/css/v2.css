@@ -283,6 +283,15 @@ html:not(.js) .pc-lines li { opacity: 1; }
 .pa-chips li.is-on { background: var(--coral-btn); color: #fff; transform: translate3d(-6px, 0, 0); }
 [dir="rtl"] .pa-chips li.is-on { transform: translate3d(6px, 0, 0); }
 .pa-chips li.is-on .ic { color: #fff; }
+/* the sixth chip: a dashed "+15 more" that takes the reader down to all twenty modules (the scene ignores the pointer, this link doesn't) */
+.pa-chips .pa-chip-more { padding: 0; background: none; box-shadow: none; }
+.pa-chip-more a { pointer-events: auto; display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; min-height: 44px; padding: 10px 14px;
+  border: 1.5px dashed rgba(230, 77, 68, .6); border-radius: 10px; background: rgba(255, 252, 248, .7); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  color: var(--coral-btn); font-weight: 700; text-decoration: none; cursor: pointer; transition: background .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease); }
+.pa-chip-more a .ic { width: 18px; height: 18px; color: currentColor; animation: pa-nudge 2.2s var(--ease) infinite; }
+@keyframes pa-nudge { 0%, 55%, 100% { transform: none; } 28% { transform: translate3d(0, 3px, 0); } }
+@media (hover: hover) and (pointer: fine) { .pa-chip-more a:hover { border-style: solid; border-color: var(--coral-btn); background: var(--coral-btn); color: #fff; } }
+@media (prefers-reduced-motion: reduce) { .pa-chip-more a .ic { animation: none; } }
 .pa-cap { position: absolute; inset-inline-start: 58%; bottom: -4px; font-size: 11.5px; color: var(--ink-3); }
 .pa-leaf { position: absolute; inset-inline-start: -40px; bottom: -150px; width: clamp(170px, 17vw, 250px); height: auto; filter: blur(2px) saturate(.85);
   transform: scaleX(-1) translate3d(0, calc(var(--hp, 0) * -100px), 0); }
