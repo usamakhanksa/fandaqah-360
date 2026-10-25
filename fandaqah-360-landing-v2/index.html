@@ -6,21 +6,33 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Fandaqah 360 | The Complete Hospitality Upgrade</title>
-<meta name="description" content="Fandaqah 360 upgrades your core PMS to a complete hospitality operating stack: compliance, distribution, guest experience and property operations. Exclusive launch offer for existing customers: lock in your price for 2 years, backed by a 30-day golden guarantee.">
+<title>Fandaqah 360 | Complete Hotel Upgrade · Launch Price</title>
+<meta name="description" content="Upgrade to Fandaqah 360: 20+ integrated hotel modules on one platform. Exclusive launch price for existing customers, with a 30-day golden guarantee.">
 <meta name="theme-color" content="#F4F1EB">
 <link rel="icon" href="favicon.ico">
 <link rel="manifest" href="site.webmanifest">
+<link rel="canonical" href="https://usamakhanksa.github.io/fandaqah-360/fandaqah-360-landing-v2/">
+<link rel="alternate" hreflang="en" href="https://usamakhanksa.github.io/fandaqah-360/fandaqah-360-landing-v2/">
+<link rel="alternate" hreflang="ar" href="https://usamakhanksa.github.io/fandaqah-360/fandaqah-360-landing-v2/?lang=ar">
+<link rel="alternate" hreflang="x-default" href="https://usamakhanksa.github.io/fandaqah-360/fandaqah-360-landing-v2/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Fandaqah 360 | The Complete Hospitality Upgrade">
-<meta property="og:description" content="One platform. More control. More value. More than 20 integrated solutions across operations, sales, guest experience and government compliance.">
-<meta property="og:image" content="assets/img/og-card.jpg">
+<meta property="og:url" content="https://usamakhanksa.github.io/fandaqah-360/fandaqah-360-landing-v2/">
+<meta property="og:site_name" content="Fandaqah">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ar_SA">
+<meta property="og:title" content="Fandaqah 360 | Complete Hotel Upgrade · Launch Price">
+<meta property="og:description" content="20+ integrated hotel modules on one platform. Exclusive launch price for existing customers, with an optional extra year at the same rate and a 30-day golden guarantee.">
+<meta property="og:image" content="https://usamakhanksa.github.io/fandaqah-360/fandaqah-360-landing-v2/assets/img/og-card.jpg">
+<meta property="og:image:alt" content="Fandaqah 360, the complete hospitality upgrade">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@fandaqah">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"Fandaqah","alternateName":"فندقة","url":"https://www.fandaqah.com","email":"info@fandaqah.com","telephone":"+966920066456","slogan":"Your Hospitality, Our Priority",
+{"@context":"https://schema.org","@graph":[
+{"@type":"Organization","@id":"https://www.fandaqah.com/#org","name":"Fandaqah","alternateName":"فندقة","url":"https://www.fandaqah.com","email":"info@fandaqah.com","telephone":"+966920066456","slogan":"Your Hospitality, Our Priority",
  "address":{"@type":"PostalAddress","streetAddress":"Prince Turki Street, Aldughaither Village","addressLocality":"Al Khobar","addressCountry":"SA"},
- "sameAs":["https://www.linkedin.com/company/fandaqah/","https://x.com/fandaqah","https://www.instagram.com/fandaqah.pms","https://www.facebook.com/pmsfandaqah/"]}
+ "sameAs":["https://www.linkedin.com/company/fandaqah/","https://x.com/fandaqah","https://www.instagram.com/fandaqah.pms","https://www.facebook.com/pmsfandaqah/"]},
+{"@type":"SoftwareApplication","name":"Fandaqah 360","alternateName":"فندقة 360","applicationCategory":"BusinessApplication","applicationSubCategory":"Hotel property management system","operatingSystem":"Web","url":"https://usamakhanksa.github.io/fandaqah-360/fandaqah-360-landing-v2/","publisher":{"@id":"https://www.fandaqah.com/#org"},"description":"Upgrade to Fandaqah 360: 20+ integrated hotel modules on one platform. Exclusive launch price for existing customers, with a 30-day golden guarantee.","offers":{"@type":"Offer","name":"Fandaqah 360 launch price for existing customers","url":"https://usamakhanksa.github.io/fandaqah-360/fandaqah-360-landing-v2/#pricing","price":"3495","priceCurrency":"SAR","priceSpecification":{"@type":"UnitPriceSpecification","price":"3495","priceCurrency":"SAR","unitText":"YEAR","valueAddedTaxIncluded":false},"availability":"https://schema.org/InStock"}}
+]}
 </script>
 <link rel="apple-touch-icon" href="assets/img/icon-180.png">
 <link rel="preload" href="assets/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -171,10 +183,10 @@ button{font:inherit;color:inherit}
 .value p{margin-top:12px;font-size:14px;line-height:1.6;color:var(--ink-2);text-wrap:pretty}
 .checks{display:flex;flex-wrap:wrap;gap:10px 16px;margin-top:14px}
 .checks li{display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:500;color:var(--ink-2)}
-.checks .tick{display:grid;place-items:center;width:17px;height:17px;border-radius:50%;background:var(--peach-100);color:var(--coral-strong)}
+.checks .tick{display:grid;place-items:center;flex:none;width:17px;height:17px;border-radius:50%;background:var(--peach-100);color:var(--coral-strong)}
 .checks .tick .ic{width:11px;height:11px;stroke-width:3}
 /* English labels are too long for one row in the desktop column: a 2x2 grid instead of a lone wrapped item */
-@media (min-width:1181px){ html[lang="en"] .checks{display:grid;grid-template-columns:repeat(2, max-content);column-gap:40px} }
+@media (min-width:1181px){ html[lang="en"] .checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:28px} }
 
 /* layered scene: photo (far) / wave / plant (mid) / devices (near) */
 .hero-visual{position:absolute;inset:0;z-index:1;pointer-events:none}
@@ -330,6 +342,8 @@ a.via{display:none}
   .mod:hover .go{opacity:1;transform:none}
   [dir="rtl"] .mod:hover .go{transform:scaleX(-1)}
 }
+/* touch layouts: every tappable control reaches 44px */
+@media (pointer:coarse), (max-width:768px){ a.assure{min-height:44px} a.see-all{height:44px} .social a{width:44px;height:44px} }
 @media (hover:none){ .mod .go{opacity:.55;transform:none} [dir="rtl"] .mod .go{transform:scaleX(-1)} }
 .inc-side{display:grid;justify-items:start;gap:10px}
 .inc-side .link-more .ic{color:var(--coral-strong)}
@@ -394,7 +408,8 @@ a.assure:active{transform:translateY(1px)}
 .see-all:active{transform:translateY(1px)}
 @media (hover:hover) and (pointer:fine){ .see-all:hover{background:#fff} .see-all:hover .ic{transform:translateY(-3px)} }
 .fine{margin-top:12px;font-size:11.5px;line-height:1.55;color:var(--ink-3)}
-.pcard-rec > .fine{position:absolute;inset-inline:26px;bottom:20px;margin:0}
+.pcard-rec{padding-bottom:22px}
+.pcard-rec > .fine{margin-top:12px}
 .pcard-ref{padding-bottom:24px}
 @media (hover:hover) and (pointer:fine){
   .pcard{transition:transform .28s var(--ease)}
@@ -530,7 +545,7 @@ html[lang="ar"] .seal-in small{font-size:12px;margin-top:2px}
 .follow{display:flex;align-items:center;gap:16px}
 .follow-label{font-size:13px;font-weight:600;color:rgba(255,255,255,.72)}
 .social{display:flex;gap:10px}
-.social a{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.14), 0 6px 14px -8px rgba(5,8,25,.8);transition:transform .16s var(--ease)}
+.social a{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.14), 0 6px 14px -8px rgba(5,8,25,.8);transition:transform .16s var(--ease)}
 .social .ic{width:17px;height:17px}
 .social .fill{fill:#fff;stroke:none}
 .social .in{background:#0A66C2}
@@ -816,7 +831,7 @@ html:has(.lead[open]){overflow:hidden}
         <button type="button" data-lang="en" lang="en" aria-pressed="true">EN</button>
         <button type="button" data-lang="ar" lang="ar" aria-pressed="false">عربي</button>
       </div>
-      <button class="btn btn-coral btn-sm" type="button" data-lead="general" data-i18n="cta.nav">Lock in launch pricing</button>
+      <button class="btn btn-coral btn-sm" type="button" data-lead="general" data-i18n="cta.nav">Reserve launch pricing</button>
       <button class="burger" type="button" aria-expanded="false" aria-controls="mnav" data-i18n-aria="aria.menu" aria-label="Open menu"><svg class="ic"><use href="#i-menu"/></svg></button>
     </div>
   </div>
@@ -833,7 +848,7 @@ html:has(.lead[open]){overflow:hidden}
           <button type="button" data-lang="en" lang="en" aria-pressed="true">EN</button>
           <button type="button" data-lang="ar" lang="ar" aria-pressed="false">عربي</button>
         </div>
-        <button class="btn btn-coral btn-sm" type="button" data-lead="general" data-i18n="cta.nav">Lock in launch pricing</button>
+        <button class="btn btn-coral btn-sm" type="button" data-lead="general" data-i18n="cta.nav">Reserve launch pricing</button>
       </div>
     </nav>
   </div>
@@ -846,12 +861,12 @@ html:has(.lead[open]){overflow:hidden}
       <div class="hero-copy">
         <div class="offer" style="--i:0">
           <span class="offer-ic" aria-hidden="true"><svg class="ic"><use href="#i-lock"/></svg></span>
-          <p><strong data-i18n="offer.title">Exclusive launch offer for existing customers</strong><span data-i18n="offer.text">Subscribe for 2 years and lock in the promotional price before the offer ends. Standard pricing applies after the launch.</span></p>
+          <p><strong data-i18n="offer.title">Exclusive launch offer for existing customers</strong><span data-i18n="offer.text">Subscribe now at the launch price and secure an additional year at the same rate before the offer ends. Standard pricing applies after the launch.</span></p>
         </div>
         <h1 class="h1" id="hero-title" style="--i:1"><span class="h1-word" data-i18n="hero.word">Fandaqah</span> <span class="h1-num">360</span></h1>
         <p class="hero-sub" style="--i:2" data-i18n="hero.sub">The Complete Hospitality Upgrade</p>
         <div class="hero-ctas" style="--i:3">
-          <button class="btn btn-coral" type="button" data-lead="general"><span data-i18n="cta.today">Lock in my price for 2 years</span><svg class="ic ic-go" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
+          <button class="btn btn-coral" type="button" data-lead="general"><span data-i18n="cta.today">Reserve launch pricing</span><svg class="ic ic-go" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
           <a class="btn btn-ghost" href="#included" data-i18n="cta.see">See what’s included</a>
         </div>
         <div class="proof" style="--i:4">
@@ -871,7 +886,7 @@ html:has(.lead[open]){overflow:hidden}
           <ul class="checks">
             <li><span class="tick" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg></span><span data-i18n="val.c1">20+ integrated modules</span></li>
             <li><span class="tick" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg></span><span data-i18n="val.c2">One unified platform</span></li>
-            <li><span class="tick" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg></span><span data-i18n="val.c3">Launch pricing for 2 years</span></li>
+            <li><span class="tick" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg></span><span data-i18n="val.c3">Launch price, plus an optional extra year at the same rate</span></li>
             <li><span class="tick" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg></span><span data-i18n="val.c4">30-day golden guarantee</span></li>
           </ul>
         </div>
@@ -1117,8 +1132,8 @@ html:has(.lead[open]){overflow:hidden}
   <section class="sec sec-price" id="pricing" aria-labelledby="price-title">
     <div class="wrap">
       <div class="sec-head" data-reveal>
-        <div><h2 class="h2" id="price-title" data-i18n="pr.title">Launch Pricing, Locked for 2 Years</h2><span class="rule"></span></div>
-        <p class="sec-desc" data-i18n="pr.desc">An exclusive launch offer for existing customers: choose Fandaqah 360 on a 2‑year subscription and lock in the promotional price for both years. Standard pricing applies after the launch.</p>
+        <div><h2 class="h2" id="price-title" data-i18n="pr.title">Exclusive Launch Price for Existing Customers</h2><span class="rule"></span></div>
+        <p class="sec-desc" data-i18n="pr.desc">Subscribe now at the launch price, with the option to add one more year at the same rate during the launch period. Standard pricing applies after the promotion ends.</p>
       </div>
       <div class="price-grid">
         <article class="pcard pcard-ref" data-reveal style="--i:0">
@@ -1165,7 +1180,7 @@ html:has(.lead[open]){overflow:hidden}
           <p class="price"><span class="cur">SAR</span><span class="amt">3,495</span></p>
           <p class="per"><span data-i18n="pr.year">/year</span><span class="vat" data-i18n="pr.vat">+ VAT</span></p>
           <ul class="feats">
-            <li data-i18n="pr.r0"><b>Launch price fixed for 2 years</b></li>
+            <li data-i18n="pr.r0"><b>Launch price available now</b>, with the option to secure a second year at the same rate</li>
             <li data-i18n="pr.r1">Everything in Compliance + Premium Support</li>
             <li data-i18n="pr.r2">Every Fandaqah service available now, plus those we add during your subscription</li>
             <li data-i18n="pr.r3">Priority Onboarding</li>
@@ -1173,8 +1188,8 @@ html:has(.lead[open]){overflow:hidden}
           <a class="see-all" href="#included"><span data-i18n="pr.seeAll">See all features</span><svg class="ic" aria-hidden="true"><use href="#i-arrow-up"/></svg></a>
           <a class="assure" href="#guarantees"><svg class="tok" aria-hidden="true"><use href="#i-seal"/></svg><span data-i18n="pr.guar">30-day golden guarantee</span></a>
           <div class="bnpl" role="group" aria-label="Pay in instalments with tabby or tamara" data-i18n-aria="pr.bnpl" data-bnpl-item><span><img src="assets/img/partners/tabby.svg" width="52" height="14" alt="tabby" loading="lazy"></span><span class="tamara"><img src="assets/img/partners/tamara.svg" width="71" height="14" alt="tamara" loading="lazy"></span></div>
-          <button class="btn btn-coral" type="button" data-lead="360" data-i18n="cta.today">Lock in my price for 2 years</button>
-          <p class="fine" data-i18n="pr.fine">*Existing customers. Applies to a 2‑year subscription, fixed for both years; standard pricing after the launch. T&amp;Cs apply.</p>
+          <button class="btn btn-coral" type="button" data-lead="360" data-i18n="cta.today">Reserve launch pricing</button>
+          <p class="fine" data-i18n="pr.fine">*For existing customers. The launch price applies to a new 1‑year subscription; the same rate can be secured for one additional year during the promotion (2 years maximum). Standard pricing applies after the promotion ends. T&amp;Cs apply.</p>
         </article>
       </div>
     </div>
@@ -1253,8 +1268,8 @@ html:has(.lead[open]){overflow:hidden}
           </article>
           <article class="gcard" data-reveal style="--i:2">
             <span class="tile" aria-hidden="true"><svg class="ic"><use href="#i-lock"/></svg></span>
-            <h3 data-i18n="g3.t">2‑Year Price Lock</h3>
-            <p data-i18n="g3.d">Lock in the launch price for 2 years, before standard pricing applies.</p>
+            <h3 data-i18n="g3.t">Launch Pricing Protection</h3>
+            <p data-i18n="g3.d">Subscribe at the launch price today and secure an additional year at the same rate before the promotion ends.</p>
           </article>
           <figure class="trust" data-reveal style="--i:3">
             <img src="assets/img/lobby-trust.webp" width="800" height="457" alt="A sunlit hotel lobby in Riyadh with a Fandaqah dashboard on the front desk" data-i18n-alt="g.alt" loading="lazy">
@@ -1270,7 +1285,7 @@ html:has(.lead[open]){overflow:hidden}
           <figure class="cta-art" aria-hidden="true"><img src="assets/img/cta-host.webp" width="640" height="412" alt="" loading="lazy"></figure>
           <div class="cta-copy">
             <h2 id="cta-title" data-i18n="cta.title">Why upgrade today, not next month?</h2>
-            <p data-i18n="cta.text">Because the promotional price is only available during the launch. Subscribe for 2 years now and it stays fixed for both years. Once the launch ends, standard pricing applies.</p>
+            <p data-i18n="cta.text">Because the promotional price is only available during the launch. Subscribe now at the launch price, and you can secure a second year at the same rate. Once the launch ends, standard pricing applies.</p>
             <p class="assure"><svg class="tok" aria-hidden="true"><use href="#i-seal"/></svg><span data-i18n="cta.guar">Backed by our 30-day golden guarantee: a full refund and your previous plan back if it isn’t right for you.</span></p>
             <div class="bnpl" role="group" aria-label="Pay in instalments with tabby or tamara" data-i18n-aria="pr.bnpl" data-bnpl-item><span><img src="assets/img/partners/tabby.svg" width="52" height="14" alt="tabby" loading="lazy"></span><span class="tamara"><img src="assets/img/partners/tamara.svg" width="71" height="14" alt="tamara" loading="lazy"></span></div>
             <div class="contacts">
@@ -1279,7 +1294,7 @@ html:has(.lead[open]){overflow:hidden}
               <a href="mailto:info@fandaqah.com"><span class="ci" aria-hidden="true"><svg class="ic"><use href="#i-mail"/></svg></span><span>info@fandaqah.com</span></a>
             </div>
           </div>
-          <button class="btn btn-coral" type="button" data-lead="general"><span data-i18n="cta.start">Lock in my price for 2 years</span><svg class="ic ic-go" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
+          <button class="btn btn-coral" type="button" data-lead="general"><span data-i18n="cta.start">Reserve launch pricing</span><svg class="ic ic-go" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
         </div>
       </div>
     </section>
@@ -1315,8 +1330,8 @@ html:has(.lead[open]){overflow:hidden}
     <button class="lead-x" type="button" data-lead-close data-i18n-aria="lead.close" aria-label="Close"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></button>
     <div data-lead-step="form">
       <p class="lead-plan" data-lead-plan>Fandaqah 360 upgrade</p>
-      <h2 id="lead-title" data-i18n="lead.title">Lock in your price for 2 years</h2>
-      <p class="lead-sub" data-i18n="lead.sub">Leave your details. Our team will contact you shortly to confirm your offer and secure the launch price on a 2‑year subscription.</p>
+      <h2 id="lead-title" data-i18n="lead.title">Reserve your launch pricing</h2>
+      <p class="lead-sub" data-i18n="lead.sub">Leave your details. Our team will contact you shortly to confirm your offer and reserve the launch price, with the option of a second year at the same rate.</p>
       <form class="lead-form" novalidate>
         <div class="field">
           <label for="lead-name" data-i18n="lead.name">Full name</label>
@@ -1365,13 +1380,13 @@ html:has(.lead[open]){overflow:hidden}
     'skip':'تخطَّ إلى المحتوى',
     'aria.home':'فندقة، الصفحة الرئيسية','aria.main':'القائمة الرئيسية','aria.lang':'اللغة','aria.menu':'فتح القائمة',
     'nav.home':'الرئيسية','nav.features':'المزايا','nav.pricing':'الأسعار','nav.integrations':'التكاملات','nav.about':'من نحن','nav.contact':'تواصل معنا',
-    'cta.nav':'احجز سعر الإطلاق','cta.today':'ثبّت السعر لمدة سنتين','cta.see':'اطّلع على ما تشمله الباقة','cta.start':'ثبّت السعر لمدة سنتين',
-    'offer.title':'عرض إطلاق حصري للعملاء الحاليين','offer.text':'اشترك لمدة سنتين وثبّت السعر الترويجي قبل انتهاء العرض. بعد انتهاء فترة الإطلاق ستُطبَّق الأسعار الاعتيادية.',
+    'cta.nav':'احجز سعر الإطلاق','cta.today':'احجز سعر الإطلاق','cta.see':'اطّلع على ما تشمله الباقة','cta.start':'احجز سعر الإطلاق',
+    'offer.title':'عرض إطلاق حصري للعملاء الحاليين','offer.text':'اشترك الآن بسعر الإطلاق، واحجز سنة إضافية بالسعر نفسه قبل انتهاء العرض. بعد انتهاء فترة الإطلاق ستُطبَّق الأسعار الاعتيادية.',
     'hero.word':'فندقة','hero.sub':'الترقية المتكاملة لإدارة الضيافة',
     'hero.proof':'انضم إلى المنشآت الفندقية التي تطوّر عملياتها اليوم.',
     'val.title':'منصة واحدة. تحكم أكبر. قيمة أعلى.',
     'val.text':'انتقل من نظام إدارة المنشآت الفندقية الأساسي إلى منظومة تشغيل متكاملة تشمل الامتثال والتوزيع وتجربة الضيوف وتشغيل المنشأة.',
-    'val.c1':'أكثر من 20 وحدة متكاملة','val.c2':'منصة تشغيل موحّدة','val.c3':'سعر إطلاق خاص باشتراك سنتين','val.c4':'ضمان ذهبي لمدة 30 يوماً',
+    'val.c1':'أكثر من 20 وحدة متكاملة','val.c2':'منصة تشغيل موحّدة','val.c3':'سعر الإطلاق مع خيار سنة إضافية بالسعر نفسه','val.c4':'ضمان ذهبي لمدة 30 يوماً',
     'integ.title':'التكاملات والمنظومة','integ.desc':'تكامل سلس مع المنصات ومزودي الدفع وقنوات الحجز التي تعتمد عليها منشأتك الفندقية.',
     'integ.gov':'الخدمات الحكومية','gov.mot':'وزارة السياحة','gov.motSub':'منصة الرصد السياحي (المرحلتان الأولى والثانية)','gov.zatca':'هيئة الزكاة والضريبة والجمارك','gov.zatcaSub':'الفوترة الإلكترونية (المرحلة الثانية)','gov.shomoos':'شموس','gov.shomoosSub':'بيانات النزلاء · محفظة شموس',
     'integ.pay':'خيارات الدفع','pay.apple':'آبل باي','pay.mada':'مدى','pay.visa':'فيزا','pay.mc':'ماستركارد','pay.tabby':'تابي','pay.tamara':'تمارا',
@@ -1385,19 +1400,19 @@ html:has(.lead[open]){overflow:hidden}
     'm.chm':'مدير القنوات','m.be':'محرك الحجز','m.pg':'بوابة الدفع','m.pur':'المشتريات','m.acc':'المحاسبة',
     'm.pass':'ماسح الجواز والهوية <bdi dir="ltr" class="nw">(Fast Pass)</bdi>','m.sign':'التوقيع الرقمي على <bdi dir="ltr">iPad</bdi> <bdi dir="ltr" class="nw">(Sign Stay)</bdi>','m.qr':'خدمات الغرفة عبر <bdi dir="ltr">QR</bdi>','m.crm':'إدارة علاقات العملاء','m.pos':'نقاط البيع وإدارة المطاعم','m.recipe':'إدارة الوصفات',
     'm.shw':'محفظة شموس','m.zatca':'التكامل مع هيئة الزكاة والضريبة والجمارك','m.ntmp':'منصة الرصد السياحي (المرحلتان الأولى والثانية)','m.sup':'الدعم والتدريب',
-    'pr.title':'سعر الإطلاق، ثابت لمدة سنتين','pr.desc':'عرض إطلاق حصري للعملاء الحاليين: اختر فندقة 360 باشتراك لمدة سنتين، وثبّت السعر الترويجي طوال السنتين. بعد انتهاء فترة الإطلاق ستُطبَّق الأسعار الاعتيادية.',
+    'pr.title':'سعر إطلاق حصري للعملاء الحاليين','pr.desc':'اشترك الآن بسعر الإطلاق، مع خيار إضافة سنة أخرى بالسعر نفسه خلال فترة الإطلاق. بعد انتهاء العرض ستُطبَّق الأسعار الاعتيادية.',
     'pr.ref':'إجمالي القيمة المرجعية','pr.was':'قيمة مرجعية وليست السعر المدفوع:','pr.yearly':'سنوياً',
     'pr.ref1':'القيمة المجمّعة لاستخدام فندقة 360 عبر جميع الوحدات والخدمات.','pr.ref2':'عرض حصري: لا تُباع بشكل منفصل.',
     'pr.basic':'الاشتراك الأساسي','pr.year':'/ سنوياً','pr.vat':'+ ضريبة القيمة المضافة','pr.b1':'نظام إدارة المنشآت الفندقية <bdi dir="ltr">(PMS)</bdi>','pr.b2':'الدعم القياسي','pr.b3':'التدريب الأساسي','pr.askBasic':'استفسر عن الاشتراك الأساسي',
     'pr.comp':'باقة الامتثال','pr.c1':'نظام إدارة المنشآت الفندقية + التكامل مع هيئة الزكاة والضريبة والجمارك','pr.c2':'محفظة شموس + منصة الرصد السياحي (المرحلتان الأولى والثانية)','pr.c3':'دعم ذو أولوية','pr.c4':'تدريب كامل','pr.askComp':'استفسر عن باقة الامتثال',
-    'pr.rec':'عرض الإطلاق','pr.360':'فندقة <span>360</span>','pr.r0':'<b>سعر الإطلاق ثابت لمدة سنتين</b>','pr.r1':'كل ما في باقة الامتثال + دعم مميز','pr.r2':'جميع خدمات فندقة المتوفرة الآن، وكل خدمة نضيفها خلال مدة اشتراكك','pr.r3':'تهيئة وتشغيل بأولوية','pr.seeAll':'استعرض جميع المزايا','pr.guar':'ضمان ذهبي لمدة 30 يوماً','pr.bnpl':'الدفع بالتقسيط عبر تابي أو تمارا',
-    'pr.fine':'*للعملاء الحاليين. لاشتراك مدته سنتان بسعر ثابت طوال المدة، والأسعار الاعتيادية بعد الإطلاق. تطبق الشروط والأحكام.',
+    'pr.rec':'عرض الإطلاق','pr.360':'فندقة <span>360</span>','pr.r0':'<b>سعر الإطلاق متاح الآن</b>، مع خيار حجز سنة ثانية بالسعر نفسه','pr.r1':'كل ما في باقة الامتثال + دعم مميز','pr.r2':'جميع خدمات فندقة المتوفرة الآن، وكل خدمة نضيفها خلال مدة اشتراكك','pr.r3':'تهيئة وتشغيل بأولوية','pr.seeAll':'استعرض جميع المزايا','pr.guar':'ضمان ذهبي لمدة 30 يوماً','pr.bnpl':'الدفع بالتقسيط عبر تابي أو تمارا',
+    'pr.fine':'*للعملاء الحاليين. يسري سعر الإطلاق على اشتراك جديد لمدة سنة، ويمكن حجز السعر نفسه لسنة إضافية واحدة خلال فترة العرض (بحد أقصى سنتان). بعد انتهاء العرض ستُطبَّق الأسعار الاعتيادية. تطبق الشروط والأحكام.',
     'g.title':'الضمانات','g.sub':'نجاحك أولويتنا',
     'g1.t':'ضمان التفعيل','g1.d':'ابدأ بسرعة مع عملية تهيئة مجرّبة.',
-    'g2.t':'ضمان ذهبي لمدة 30 يوماً','g2.d':'إذا لم تكن الترقية مناسبة لمنشأتك خلال أول 30 يوماً، نعيد لك كامل المبلغ ونعيد اشتراكك إلى باقته السابقة.','g2.unit':'يوماً',
-    'g3.t':'تثبيت السعر لمدة سنتين','g3.d':'ثبّت سعر الإطلاق لمدة سنتين، قبل تطبيق الأسعار الاعتيادية.',
+    'g2.t':'ضمان ذهبي لمدة 30 يوماً','g2.d':'إذا لم تكن الترقية مناسبة لمنشأتك خلال أول 30 يوماً، نعيد لك كامل المبلغ ونعيد اشتراكك إلى باقته السابقة.','g2.unit':'يوماً',
+    'g3.t':'حماية سعر الإطلاق','g3.d':'اشترك اليوم بسعر الإطلاق، واحجز سنة إضافية بالسعر نفسه قبل انتهاء العرض.',
     'g.trusted':'تثق بنا','g.count':'أكثر من 1400 منشأة','g.alt':'بهو فندق مشمس في الرياض وعلى مكتب الاستقبال لوحة تحكم فندقة',
-    'cta.title':'لماذا اليوم، وليس الشهر القادم؟','cta.text':'لأن السعر الترويجي متاح خلال فترة الإطلاق فقط. اشترك لمدة سنتين الآن، ويبقى سعرك ثابتاً طوال السنتين. وبعد انتهاء فترة الإطلاق ستُطبَّق الأسعار الاعتيادية.','cta.guar':'مشمول بالضمان الذهبي لمدة 30 يوماً: نعيد لك كامل المبلغ وباقتك السابقة إن لم تناسبك الترقية.',
+    'cta.title':'لماذا اليوم، وليس الشهر القادم؟','cta.text':'لأن السعر الترويجي متاح خلال فترة الإطلاق فقط. اشترك الآن بسعر الإطلاق، ويمكنك حجز سنة ثانية بالسعر نفسه. وبعد انتهاء فترة الإطلاق ستُطبَّق الأسعار الاعتيادية.','cta.guar':'مشمول بالضمان الذهبي لمدة 30 يوماً: نعيد لك كامل المبلغ وباقتك السابقة إن لم تناسبك الترقية.',
     'f.follow':'تابعنا','f.in':'فندقة على لينكدإن','f.x':'فندقة على إكس (تويتر)','f.ig':'فندقة على إنستغرام','f.fb':'فندقة على فيسبوك','f.terms':'الشروط والأحكام','f.privacy':'سياسة الخصوصية','f.contact':'تواصل معنا','f.tag':'فندقة 360 | ضيافتك أولويتنا',
     'about.eyebrow':'تقنية بروح الضيافة','about.title':'ضيافتك أولويتنا.',
     'about.lead':'تربط فندقة جميع أجزاء منشأتك ببعضها، ليتفرّغ فريقك لصناعة إقامات لا تُنسى.',
@@ -1409,14 +1424,14 @@ html:has(.lead[open]){overflow:hidden}
     'about.cta':'تحدّث مع فريقنا','about.more':'المزيد عن فندقة','about.stat':'منشأة تثق بفندقة',
     'about.quote':'واجهتك الرقمية في عالم الضيافة والسياحة.','about.cite':'فندقة · الخبر، المملكة العربية السعودية',
     'about.alt':'مديران في قطاع الضيافة يراجعان تكاملات فندقة الحكومية على جهاز لوحي وشاشة',
-    'lead.close':'إغلاق','lead.title':'ثبّت سعرك لمدة سنتين','lead.sub':'اترك بياناتك، وسيتواصل معك فريقنا قريباً لتأكيد العرض وتثبيت سعر الإطلاق لاشتراكك لمدة سنتين.',
+    'lead.close':'إغلاق','lead.title':'احجز سعر الإطلاق','lead.sub':'اترك بياناتك، وسيتواصل معك فريقنا قريباً لتأكيد العرض وحجز سعر الإطلاق، مع خيار سنة ثانية بالسعر نفسه.',
     'lead.name':'الاسم الكامل','lead.nameErr':'يرجى إدخال الاسم.','lead.email':'البريد الإلكتروني','lead.emailErr':'يرجى إدخال بريد إلكتروني صحيح.',
     'lead.phone':'رقم الجوال (السعودية)','lead.phoneErr':'أدخل رقم جوال سعودياً من 9 أرقام يبدأ بـ 5.','lead.msg':'رسالتك','lead.opt':'(اختياري)',
     'lead.send':'إرسال الطلب','lead.guar':'مشمول بالضمان الذهبي لمدة 30 يوماً.','lead.note':'نستخدم بياناتك للتواصل معك بخصوص فندقة فقط.','lead.doneT':'شكراً لك!','lead.doneD':'استلمنا طلبك، وسيتواصل معك فريقنا قريباً.','lead.closeBtn':'إغلاق'
   };
   const META = {
     en: { title: document.title, desc: document.querySelector('meta[name="description"]').content },
-    ar: { title: 'فندقة 360 | الترقية المتكاملة لإدارة الضيافة', desc: 'فندقة 360 تطوّر نظام إدارة المنشآت الفندقية الأساسي إلى منظومة تشغيل متكاملة: الامتثال والتوزيع وتجربة الضيوف وتشغيل المنشأة. عرض إطلاق حصري للعملاء الحاليين: ثبّت سعرك لمدة سنتين، مع ضمان ذهبي لمدة 30 يوماً.' }
+    ar: { title: 'فندقة 360 | الترقية المتكاملة لإدارة الفنادق · سعر الإطلاق', desc: 'قم بالترقية إلى فندقة 360: أكثر من 20 وحدة فندقية متكاملة في منصة واحدة. سعر إطلاق حصري للعملاء الحاليين مع ضمان ذهبي لمدة 30 يوماً.' }
   };
   const textNodes = $$('[data-i18n]'), ariaNodes = $$('[data-i18n-aria]'), altNodes = $$('[data-i18n-alt]');
   // every feature page has an Arabic twin in landing/ar/features/, so those links follow the page language

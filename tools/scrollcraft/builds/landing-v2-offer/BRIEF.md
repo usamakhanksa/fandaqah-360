@@ -70,3 +70,18 @@ Applied, in the page's own elements:
 
 Campaign B reel close: subline now says what waiting costs. Campaign A's reel was being rewritten in another session
 at the same time, so it was left alone.
+
+## Round 3 (offer correction, 25 Oct 2026)
+
+The owner corrected the offer: **a 1-year subscription at the launch price, plus the option to secure one additional
+year at the same rate during the promotion (2 years maximum)**. Every "two-year subscription / fixed for two years /
+lock for two years" line was removed from the page, the Campaign A reel, ads, slides and docs (the owner's nine
+replacements applied, polished for rhythm). One label everywhere: "Reserve launch pricing" / «احجز سعر الإطلاق».
+Campaign A reel close: "The launch price, plus a year at the same rate." with the owner's price line «فندقة 360 بجميع
+المزايا والخدمات المتوفرة: 3,495 ريال / سنوياً». Campaign B and the LinkedIn kit were corrected by the session that
+owns them.
+
+QA + SXO pass (Playwright, 5 widths × EN/AR): no console or network errors, no horizontal scroll, no escaping text,
+all images with alt, tap targets ≥ 44px on touch layouts, keyboard path to the CTA and dialog (focus trapped, Esc
+closes). Added canonical, hreflang (en, ar, x-default), og:url/locale/site_name, absolute og:image, a 149/132-char
+description, and JSON-LD (Organization + SoftwareApplication with the SAR 3,495 yearly offer, VAT excluded).

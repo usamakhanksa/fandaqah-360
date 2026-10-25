@@ -7,25 +7,25 @@ window.BOOK_DATA = {
       folder: 'A-existing-customers', route: 'existing-customers/', theme: 'light', photo: 'hero-existing.webp', photoPos: '86% 40%', device: 'laptopA',
       en: {
         name: 'Existing customers', buyer: 'Owner, GM or finance manager already on Fandaqah', action: 'Launch-price upgrade',
-        promise: 'More value from the Fandaqah you already use.', cta: 'Lock in my launch price', chip: 'For existing Fandaqah customers',
+        promise: 'More value from the Fandaqah you already use.', cta: 'Reserve launch pricing', chip: 'For existing Fandaqah customers',
         // the hook's three manual records pay off in scene 3: purchasing, housekeeping and accounting get ticked
         motif: ['Purchase spreadsheet', 'Paper room log', 'Month-end by hand'],
         scenes: [
           { h: 'Already with Fandaqah? <em>Get more value.</em>', cap: 'Still on paper and spreadsheets?' },
           { h: 'Connect more of <em>your daily work.</em>', s: 'Same system, same team, more of your hotel.', cap: 'Accounting and purchasing join the Fandaqah you already use.' },
           { h: 'See what your <em>upgrade includes.</em>', list: ['Accounting', 'Purchasing', 'Housekeeping', 'Maintenance', 'Inventory'], cap: 'And many more services.' },
-          { h: 'Lock in the <em>launch price for two years.</em>', s: 'Fandaqah 360, all 20 modules: SAR 3,495 a year, excl. VAT. 30-day Golden Guarantee.', cap: 'This launch price won’t be offered again. Lock it in today.' }
+          { h: 'The launch price, <em>plus a year at the same rate.</em>', s: 'Fandaqah 360 with all available features and services: SAR 3,495 / year, excl. VAT. 30‑day Golden Guarantee.', cap: 'Reserve the launch price today, with the option of a second year at the same rate.' }
         ]
       },
       ar: {
         name: 'العملاء الحاليون', buyer: 'المالك أو المدير العام أو المدير المالي من عملاء فندقة', action: 'الترقية بسعر الإطلاق',
-        promise: 'قيمة أكبر من فندقة التي تستخدمها اليوم.', cta: 'ثبّت سعر الإطلاق', chip: 'لعملاء فندقة الحاليين',
+        promise: 'قيمة أكبر من فندقة التي تستخدمها اليوم.', cta: 'احجز سعر الإطلاق', chip: 'لعملاء فندقة الحاليين',
         motif: ['جدول المشتريات', 'سجل الغرف الورقي', 'إقفال الشهر يدوياً'],
         scenes: [
           { h: 'تستخدم فندقة؟ <em>احصل على قيمة أكبر.</em>', cap: 'ما زلت على الورق وجداول البيانات؟' },
           { h: 'اربط مزيداً من <em>عملك اليومي.</em>', s: 'النظام نفسه والفريق نفسه، وجزء أكبر من فندقك مترابط.', cap: 'المحاسبة والمشتريات تنضمّان إلى فندقة التي تستخدمها.' },
           { h: 'اكتشف ما <em>تشمله ترقيتك.</em>', list: ['المحاسبة', 'المشتريات', 'التدبير الفندقي', 'الصيانة', 'المخزون'], cap: 'والمزيد من الخدمات الأخرى.' },
-          { h: 'ثبّت <em>سعر الإطلاق لمدة سنتين.</em>', s: 'فندقة 360 بوحداتها العشرين: 3,495 ريالاً سنوياً غير شاملة الضريبة. ضمان ذهبي لمدة 30 يوماً.', cap: 'سعر الإطلاق هذا لن يتكرر. ثبّته اليوم.' }
+          { h: 'سعر الإطلاق الآن، <em>وسنة إضافية بالسعر نفسه.</em>', s: 'فندقة 360 بجميع المزايا والخدمات المتوفرة: 3,495 ريال / سنوياً غير شاملة الضريبة. ضمان ذهبي لمدة 30 يوماً.', cap: 'احجز سعر الإطلاق اليوم، مع خيار سنة ثانية بالسعر نفسه.' }
         ]
       }
     },

@@ -10,7 +10,7 @@
 | Who | Owner, GM or finance manager who already uses Fandaqah |
 | Trigger | Renewal, an unused module, repeated manual work, a request for better reporting |
 | Main objection | Paying again for tools they may not need |
-| What answers it | A personal review of the current plan, only the modules that fit, and the two-year prepaid offer |
+| What answers it | A personal review of the current plan, only the modules that fit, and the launch-price offer (1 year, optional second year at the same rate) |
 
 ## Audience and exclusions
 - Verified existing customers only. Personalise with current plan, renewal date and modules in use.
