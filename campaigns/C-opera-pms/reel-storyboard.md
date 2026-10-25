@@ -11,5 +11,7 @@ hotel gets, then the review. Keep the existing PMS visible and unchanged. Sample
 | 10–20 s | Three outcome cards tick in: purchases flow to inventory and finance · one report across departments · add outlets and properties | أنظمة أقل، ورؤية أوضح، ومساحة للنمو. | Fewer systems. Clearer visibility. Room to grow. | عمل مكرر أقل، ورؤية واحدة للفندق، ومساحة للنمو. |
 | 20–25 s | What the review covers (systems in use, repeated work, PMS & interfaces, what to consolidate first) and the CTA button | اعرف ما يمكن تبسيطه حول Opera. | See what you can simplify around Opera. | نحصر أنظمتك أولاً، ونؤكّد التوافق قبل أي عرض. |
 
+**Sound (original Saudi score, made by `tools/reel-audio.py`, shared by both languages, -16 LUFS):** maqam Hijaz, half-time and cinematic: ney over the drone in the hook and solution, oud in the proof, tabl and darbuka with sparse claps. "Your existing PMS" pops on a qanun note and its three modules join on rising notes, the review checks tick up the maqam, and the button lands on a bright qanun chord. Every cut (3, 10 and 20 s) falls on a downbeat with a whoosh and a low impact.
+
 **End card:** logo · اطلب مراجعة تشغيلية وتقنية · fandaqah.com · trademark line.
 Product must approve the modules and interfaces shown at 3–20 s. Never show third-party logos.

@@ -11,6 +11,8 @@ Keyframes: `creatives/reel-frames/B-reel-1…4-ar.jpg` (and `-en`). Rendered ree
 | 10–20 s | A booking flowing through: reservation → room readiness → guest service → accounting (sample data) | أدخِل البيانات مرة واحدة. وشاهدها في كل مكان. | Enter it once. See it everywhere. | حجز واحد يحدّث الغرف والخدمة والحسابات، دون إعادة إدخال. |
 | 20–25 s | The close with the launch line and the CTA button | طريقة أسهل لإدارة فندقك. | An easier way to run your hotel. | اكتشف كم يمكن أن يصبح تشغيل فندقك أبسط، بسعر الإطلاق. |
 
+**Sound (original Saudi score, made by `tools/reel-audio.py`, shared by both languages, -16 LUFS):** maqam Bayati and a light Khaleeji groove: oud lead, qanun, darbuka, riq and claps. The broken links between the separate systems sound as a clashing qanun interval; in scene 3 each flow card answers the last one higher up (tonic, fifth, octave), the same booking reaching every department, and the button pops with a qanun run up the maqam. Every cut (3, 10 and 20 s) falls on a downbeat with a whoosh and a low impact.
+
 **End card:** logo · اكتشف طريقة أبسط لإدارة فندقي · fandaqah.com
 **Launch line (20–25 s):** «ابدأ بسعر الإطلاق مع ضمان استرداد المال خلال 30 يوماً، وتُطبَّق الأسعار الاعتيادية بعد انتهاء الإطلاق.» / "Start at the launch price, with a 30-day money-back guarantee. Standard pricing applies after the launch."
 **English voice-over (20–25 s):** "See how much simpler your hotel can run, at the launch price."

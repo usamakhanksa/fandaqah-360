@@ -36,7 +36,7 @@ Rendered: `creatives/feed/A-ad-v1-ar.jpg`, `A-ad-v2-ar.jpg` (+ `-en`).
 1. تستخدم فندقة؟ احصل على قيمة أكبر. · *Already with Fandaqah? Get more value.*
 2. اربط مزيداً من عملك اليومي. · *Connect more of your daily work.*
 3. اكتشف ما تشمله ترقيتك: المحاسبة، المشتريات، التدبير الفندقي، الصيانة، المخزون. · *See what your upgrade includes: accounting, purchasing, housekeeping, maintenance, inventory.*
-4. سعر الإطلاق الآن، وسنة إضافية بالسعر نفسه. · *The launch price, plus a year at the same rate.* + price line and CTA
+4. سعر الإطلاق الآن، اشترك سنتين للاستفادة من العرض. · *The launch price, now. Subscribe for two years to make the most of it.* + price line and CTA
 
 ## Keep out of A copy
 Any price other than the approved launch price · automatic refunds of remaining subscription (the Golden Guarantee refunds the upgrade payment, not old subscription time) · savings claims · countdowns.

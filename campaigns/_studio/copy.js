@@ -17,7 +17,7 @@ window.STUDIO = {
           { h: 'Already with Fandaqah? <em>Get more value.</em>' },
           { h: 'Connect more of <em>your daily work.</em>', s: 'Same system, same team, more of your hotel.' },
           { h: 'See what your <em>upgrade includes.</em>', list: ['Accounting', 'Purchasing', 'Housekeeping', 'Maintenance', 'Inventory'] },
-          { h: 'The launch price, <em>plus a year at the same rate.</em>', s: 'Fandaqah 360 with all available features and services: SAR 3,495 / year, excl. VAT. 30‑day Golden Guarantee.' }
+          { h: 'The launch price, now. <em>Subscribe for two years to make the most of it.</em>', s: 'Fandaqah 360 with all available features and services: SAR 3,495 / year, excl. VAT. 30‑day Golden Guarantee.' }
         ]
       },
       ar: {
@@ -30,7 +30,7 @@ window.STUDIO = {
           { h: 'تستخدم فندقة؟ <em>احصل على قيمة أكبر.</em>' },
           { h: 'اربط مزيداً من <em>عملك اليومي.</em>', s: 'النظام نفسه والفريق نفسه، وجزء أكبر من فندقك مترابط.' },
           { h: 'اكتشف ما <em>تشمله ترقيتك.</em>', list: ['المحاسبة', 'المشتريات', 'التدبير الفندقي', 'الصيانة', 'المخزون'] },
-          { h: 'سعر الإطلاق الآن، <em>وسنة إضافية بالسعر نفسه.</em>', s: 'فندقة 360 بجميع المزايا والخدمات المتوفرة: 3,495 ريال / سنوياً غير شاملة الضريبة. ضمان ذهبي لمدة 30 يوماً.' }
+          { h: 'سعر الإطلاق الآن، <em>اشترك سنتين للاستفادة من العرض.</em>', s: 'فندقة 360 بجميع المزايا والخدمات المتوفرة: 3,495 ريال / سنوياً غير شاملة الضريبة. ضمان ذهبي لمدة 30 يوماً.' }
         ]
       }
     },

@@ -149,16 +149,27 @@
     const ctrl = document.createElement('div');
     ctrl.className = 'ctrl';
     const other = lang === 'ar' ? 'en' : 'ar';
-    ctrl.innerHTML = `<button type="button" data-a="toggle" aria-label="Play or pause">❚❚</button><button type="button" data-a="restart" aria-label="Restart">↺</button><button type="button" data-a="lang">${other === 'ar' ? 'عربي' : 'EN'}</button>`;
+    // the campaign's score (tools/reel-audio.py); browsers only start sound after a tap, so it begins off
+    const snd = new Audio(`media/${C.folder}/reels/${code}-score.m4a`); snd.preload = 'auto';
+    let soundOn = false;
+    const speaker = on => `<svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4z"/>${on ? '<path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/>' : '<path d="m16 9 5 6"/><path d="m21 9-5 6"/>'}</svg>`;
+    const sync = () => { if (soundOn && !tl.paused()) { snd.currentTime = Math.min(tl.time(), TOTAL - 0.05); snd.play().catch(() => {}); } else snd.pause(); };
+    ctrl.innerHTML = `<button type="button" data-a="toggle" aria-label="Play or pause">❚❚</button><button type="button" data-a="restart" aria-label="Restart">↺</button><button type="button" data-a="sound" aria-pressed="false" aria-label="${lang === 'ar' ? 'تشغيل الصوت' : 'Turn the sound on'}">${speaker(false)}</button><button type="button" data-a="lang">${other === 'ar' ? 'عربي' : 'EN'}</button>`;
     document.body.append(ctrl);
-    const btn = ctrl.querySelector('[data-a="toggle"]');
+    const btn = ctrl.querySelector('[data-a="toggle"]'), sbtn = ctrl.querySelector('[data-a="sound"]');
     ctrl.addEventListener('click', e => {
       const a = e.target.closest('button')?.dataset.a;
-      if (a === 'toggle') { tl.paused(!tl.paused()); btn.textContent = tl.paused() ? '▶' : '❚❚'; }
-      if (a === 'restart') { tl.restart(); btn.textContent = '❚❚'; }
+      if (a === 'toggle') { tl.paused(!tl.paused()); btn.textContent = tl.paused() ? '▶' : '❚❚'; sync(); }
+      if (a === 'restart') { tl.restart(); btn.textContent = '❚❚'; sync(); }
+      if (a === 'sound') {
+        soundOn = !soundOn; sync();
+        sbtn.innerHTML = speaker(soundOn); sbtn.setAttribute('aria-pressed', String(soundOn));
+        sbtn.setAttribute('aria-label', soundOn ? (lang === 'ar' ? 'إيقاف الصوت' : 'Turn the sound off') : (lang === 'ar' ? 'تشغيل الصوت' : 'Turn the sound on'));
+      }
       if (a === 'lang') { q.set('lang', other); location.search = q.toString(); }
     });
-    tl.eventCallback('onComplete', () => gsap.delayedCall(1.2, () => tl.restart()));
+    setInterval(() => { if (soundOn && !tl.paused() && Math.abs(snd.currentTime - tl.time()) > 0.08) snd.currentTime = tl.time(); }, 500);
+    tl.eventCallback('onComplete', () => { snd.pause(); gsap.delayedCall(1.2, () => { tl.restart(); sync(); }); });
   }
   const ready = Promise.all([document.fonts.ready, ...[...reel.querySelectorAll('img')].map(im => im.complete ? 0 : new Promise(r => { im.onload = im.onerror = r; }))]);
   window.REEL = { duration: TOTAL, seek: t => { tl.seek(t, false); }, timeline: tl };

@@ -8,14 +8,17 @@
   if (G && ST) G.registerPlugin(ST);
   const CODES = ['A', 'B', 'C', 'D'];
   const ico = id => `<svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#${id}"/></svg>`;
+  // speaker, with waves when the sound is on and a cross when it is off (the site sprite has no audio icons)
+  const speaker = on => `<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/>${on ? '<path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/>' : '<path d="m16 9 5 6"/><path d="m21 9-5 6"/>'}</svg>`;
   const strip = html => html.replace(/<[^>]+>/g, '');
 
   /* ---------- strings for the generated parts ---------- */
   const TXT = {
     en: {
       chapter: 'Chapter', buyer: 'Buyer', action: 'Desired action', cta: 'Call to action', landing: 'Open the landing page',
-      reels: 'Reels', reelsMeta: '25 s · 1080×1920 · MP4 · captions burned in', download: 'Download MP4', live: 'Live GSAP version',
+      reels: 'Reels', reelsMeta: '25 s · 1080×1920 · MP4 · captions burned in · original Saudi score', download: 'Download MP4', live: 'Live GSAP version',
       arabic: 'Arabic', english: 'English', pending: 'Reel is being rendered', play: 'Play or pause the reel',
+      sound: 'Sound', soundOn: 'Turn the sound on', soundOff: 'Turn the sound off',
       storyboard: 'Storyboard', beats: ['0–3 s · Hook', '3–10 s · Solution', '10–20 s · Proof', '20–25 s · Call to action'],
       book: 'Banner book', bookMeta: n => `${n} pages · tap a page to turn it`, prev: 'Previous page', next: 'Next page', zoom: 'View full size',
       designed: 'Designed banner', studio: 'Studio creative', coverNote: 'Designed banners and studio creatives, Arabic and English.',
@@ -25,8 +28,9 @@
     },
     ar: {
       chapter: 'الفصل', buyer: 'المشتري', action: 'الإجراء المطلوب', cta: 'دعوة الإجراء', landing: 'افتح صفحة الهبوط',
-      reels: 'الريلز', reelsMeta: '25 ثانية · <bdi dir="ltr">1080×1920</bdi> · MP4 · ترجمة مدمجة', download: 'تحميل MP4', live: 'نسخة GSAP الحية',
+      reels: 'الريلز', reelsMeta: '25 ثانية · <bdi dir="ltr">1080×1920</bdi> · MP4 · ترجمة مدمجة · موسيقى سعودية أصلية', download: 'تحميل MP4', live: 'نسخة GSAP الحية',
       arabic: 'العربية', english: 'الإنجليزية', pending: 'جارٍ تجهيز الريل', play: 'تشغيل الريل أو إيقافه',
+      sound: 'الصوت', soundOn: 'تشغيل الصوت', soundOff: 'إيقاف الصوت',
       storyboard: 'القصة المصورة', beats: ['0–3 ث · الجذب', '3–10 ث · الحل', '10–20 ث · الإثبات', '20–25 ث · دعوة الإجراء'],
       book: 'كتاب البنرات', bookMeta: n => `${n} صفحة · اضغط على الصفحة لتقليبها`, prev: 'الصفحة السابقة', next: 'الصفحة التالية', zoom: 'عرض بالحجم الكامل',
       designed: 'بنر مصمَّم', studio: 'تصميم الاستوديو', coverNote: 'البنرات المصمَّمة وتصاميم الاستوديو، بالعربية والإنجليزية.',
@@ -82,7 +86,7 @@
       const C = D.campaigns[c], X = C[lang], m = media(c);
       const phone = l => {
         const r = m.reels[l];
-        const body = r ? `<video muted playsinline loop preload="none" poster="${r.poster}"><source src="${r.mp4}" type="video/mp4"></video><button class="bk-play" type="button" aria-label="${T.play}"><span>${ico('i-play')}</span></button>`
+        const body = r ? `<video muted playsinline loop preload="none" poster="${r.poster}"><source src="${r.mp4}" type="video/mp4"></video><button class="bk-play" type="button" aria-label="${T.play}"><span>${ico('i-play')}</span></button><button class="bk-sound" type="button" aria-pressed="false" aria-label="${T.soundOn}">${speaker(false)}<span>${T.sound}</span></button>`
           : `<div class="bk-missing">${T.pending}</div>`;
         return `<figure class="bk-phone" data-lang="${l}"><div class="bk-phone-frame">${body}</div><figcaption><b>${l === 'ar' ? T.arabic : T.english}</b><span>${r ? `<a href="${r.mp4}" download>${T.download} (${r.mb} MB)</a>` : ''}<a href="reel.html?c=${c}&lang=${l}" target="_blank" rel="noopener">${T.live}</a></span></figcaption></figure>`;
       };
@@ -155,11 +159,25 @@
   }
 
   /* ---------- reels: play while on screen ---------- */
+  // reels start muted (browsers only autoplay silent video); one tap turns the score on, and only one reel plays sound
+  const setSound = (fig, on) => {
+    const b = $('.bk-sound', fig), T = TXT[lang];
+    if (!b) return;
+    b.setAttribute('aria-pressed', String(on)); b.setAttribute('aria-label', on ? T.soundOff : T.soundOn);
+    b.querySelector('svg').outerHTML = speaker(on);
+    fig.classList.toggle('has-sound', on);
+  };
   function initReels() {
     $$('.bk-phone').forEach(fig => {
       const v = $('video', fig), btn = $('.bk-play', fig);
       if (!v) return;
       btn.addEventListener('click', () => (v.paused ? v.play().catch(() => {}) : v.pause()));
+      $('.bk-sound', fig).addEventListener('click', () => {
+        const on = v.muted;
+        if (on) $$('.bk-phone').forEach(o => { const ov = $('video', o); if (ov && o !== fig && !ov.muted) { ov.muted = true; setSound(o, false); } });
+        v.muted = !on; setSound(fig, on);
+        if (on && v.paused) v.play().catch(() => {});
+      });
       v.addEventListener('play', () => fig.classList.add('is-playing'));
       v.addEventListener('pause', () => fig.classList.remove('is-playing'));
       if (ST && !reduce) ST.create({ trigger: fig, start: 'top 80%', end: 'bottom 20%', onToggle: self => (self.isActive ? v.play().catch(() => {}) : v.pause()) });

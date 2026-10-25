@@ -3,9 +3,10 @@
 html,body{margin:0;height:100%;background:#0E0F1A;overflow:hidden}
 body.render{background:#000}
 .stage{position:fixed;inset:0;display:grid;place-items:center}
-.reel{position:relative;flex:none;overflow:hidden;isolation:isolate;width:1080px;height:1920px;background:var(--bg);color:var(--ink);font-family:var(--f-sans);transform-origin:50% 50%}
+/* centred on its unscaled 1080x1920 box, so the scaled reel sits in the middle of any window (grid centring pins an oversized item to the top) */
+.reel{position:absolute;left:50%;top:50%;margin:-960px 0 0 -540px;flex:none;overflow:hidden;isolation:isolate;width:1080px;height:1920px;background:var(--bg);color:var(--ink);font-family:var(--f-sans);transform-origin:50% 50%}
 body.render .stage{place-items:start}
-body.render .reel{transform:none !important}
+body.render .reel{position:relative;left:auto;top:auto;margin:0;transform:none !important}
 .reel em{font-style:normal;color:var(--coral)}
 .reel .w{display:inline-block;will-change:transform,opacity}
 

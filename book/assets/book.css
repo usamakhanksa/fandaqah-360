@@ -90,6 +90,11 @@ html[lang="ar"] .bk-ch-copy h2{font-size:48px;line-height:1.3}
 .bk-play span{display:grid;place-items:center;width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.92);color:var(--ink);box-shadow:var(--e3);transition:transform .25s var(--spring), opacity .25s}
 .bk-play .ic{width:30px;height:30px;fill:currentColor;stroke:none;margin-inline-start:4px}
 .bk-phone.is-playing .bk-play span{opacity:0;transform:scale(.6)}
+.bk-sound{position:absolute;z-index:4;left:50%;bottom:24px;display:inline-flex;align-items:center;gap:7px;min-height:36px;padding:0 14px 0 11px;border:1px solid rgba(255,255,255,.28);border-radius:999px;background:rgba(14,15,26,.55);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#fff;font:700 12.5px/1 var(--f-sans, inherit);letter-spacing:.02em;cursor:pointer;transform:translateX(-50%);transition:background .2s,border-color .2s}
+.bk-sound .ic{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.bk-sound:hover{background:rgba(14,15,26,.75)}
+.bk-sound:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.bk-phone.has-sound .bk-sound{border-color:transparent;background:var(--coral-btn)}
 .bk-phone figcaption{display:grid;gap:8px;margin-top:16px;font-size:14px}
 .bk-phone figcaption b{font:600 18px/1.2 var(--f-serif)}
 .bk-phone figcaption span{display:flex;justify-content:center;flex-wrap:wrap;gap:6px 16px}

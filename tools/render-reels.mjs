@@ -4,7 +4,8 @@
 //   2a) with Playwright:     node tools/render-reels.mjs            (npm i -D playwright, once; needs ffmpeg on PATH)
 //   2b) or hand this file to any runner that calls `export default async (page) => …` with a Playwright page.
 // Options: REELS_ONLY=A,C  REELS_LANGS=ar  REELS_FPS=30  FRAMES_DIR=<temp folder>
-import { mkdirSync, rmSync } from 'node:fs';
+// Sound: run `python -I tools/reel-audio.py` first; each reel then carries its campaign's score (book/media/<X>/reels/<X>-score.m4a).
+import { existsSync, mkdirSync, rmSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import os from 'node:os';
@@ -42,7 +43,10 @@ export default async function run(page) {
     await seek(page, POSTER_AT);
     await page.screenshot({ path: path.join(out, `${c}-reel-${lang}.jpg`), type: 'jpeg', quality: 82 });
     const mp4 = path.join(out, `${c}-reel-${lang}.mp4`);
+    // the campaign's score (tools/reel-audio.py) is muxed in when present; both languages share it
+    const score = path.join(out, `${c}-score.m4a`), audio = existsSync(score);
     const ff = spawnSync('ffmpeg', ['-y', '-loglevel', 'error', '-framerate', String(FPS), '-i', path.join(frames, '%05d.jpg'),
+      ...(audio ? ['-i', score, '-map', '0:v:0', '-map', '1:a:0', '-c:a', 'copy', '-shortest'] : []),
       '-c:v', 'libx264', '-preset', 'slow', '-crf', '21', '-pix_fmt', 'yuv420p', '-profile:v', 'high', '-movflags', '+faststart',
       '-metadata', `title=Fandaqah 360 · Campaign ${c} (${lang})`, mp4], { encoding: 'utf8' });
     if (ff.status !== 0) throw new Error(`ffmpeg failed for ${c}-${lang}: ${ff.stderr}`);
