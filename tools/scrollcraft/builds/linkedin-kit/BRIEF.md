@@ -120,3 +120,65 @@ inbox progress turns green and the conversation-complete line appears.
 
 Not verified: a real phone, and paste behaviour inside LinkedIn itself (the copy is plain text, which LinkedIn
 accepts as-is).
+
+---
+
+# Revision 2 (25 Oct 2026): aligned to the Marketing Campaign Playbook
+
+**Trigger.** The owner supplied `Fandaqah_360_Marketing_Campaign_Playbook.pdf` (20 Oct 2026) and said the kit's content
+differs from it. Still self-authored under the same explicit creative delegation.
+
+## What the playbook changes (evidence)
+
+- **LinkedIn belongs mainly to C and D.** C: "a small named-account campaign, relevant Search terms and professional
+  targeting on LinkedIn. Share a technical brief with IT and a cost comparison with finance." D: "personalised account
+  outreach, LinkedIn content and a focused group-demo invitation." A's channels are account manager, permissioned email
+  and WhatsApp; B's are Search, Arabic social video and direct follow-up to verified, permitted records. Revision 1
+  covered only A and B and sent C/D elsewhere: that was backwards.
+- **One primary campaign per account**, routed: existing customer A; new group of about 10+ properties D; confirmed
+  mandated PMS C; other independents B; unknown PMS, role or ownership to a research queue.
+- **Contact eligibility before sending** (p6): verification status (verified identity and business route / shared
+  hotel route only / unverified / invalid), permission recorded per channel, suppression. A public directory or
+  government registration is not consent.
+- **A personalisation**: current plan, renewal date and the modules they do not use. Exclude customers already on the
+  offer; route open complaints to account care; never promise automatic refunds.
+- **Price lock is a held playbook headline, not a banned one.** It and the figures (working calculation SAR 3,349 a
+  year, SAR 6,698 for 24 months) wait for the commercial release record (VAT, scope, terms, end date).
+- **Follow-up**: at most three agreed follow-ups across seven business days (p8).
+- **Every campaign has a 25-second reel storyboard** (hook, solution, proof, CTA). The LinkedIn sequence now tells the
+  same story beat by beat, so a prospect who saw the reel recognises the conversation.
+- **C and D need a scoped proposal**; never quote the A/B package price for Opera integrations or a dedicated
+  environment. C: no "50% savings", Opera as text only, no certification implied. D: "customised to an agreed scope",
+  white labelling is not source-code ownership.
+
+## Decisions
+
+- Four campaigns, tabbed A to D, each carrying its playbook buyer, concern, desired action, CTA, objections and
+  LinkedIn role ("primary" for C and D, "supporting" for A and B).
+- The account panel becomes the playbook's front door: contact fields per campaign, the routing questions (which set
+  the campaign and flag a conflicting one), the eligibility gate, and for A/B the commercial-release switch with the
+  release-record figures and VAT treatment.
+- C has IT and finance versions of every touch. D adds the discovery-workshop invitation, three LinkedIn posts, the
+  sponsored content test pair and the carousel. C adds its sponsored content test pair. Ad previews use the real
+  published creatives in `book/media/`, with the exact tagged links from each campaign's `links.csv`.
+- Cadence: first message on acceptance, then working days 3, 5 and 7.
+- Replies per campaign, including each campaign's real objections and price rules.
+- Playbook section rebuilt from the PDF: campaigns table, routing, eligibility, offers, claims (p11), enquiry handling
+  (p8), scorecards and qualified-enquiry definitions (p10).
+- Signature unchanged in kind: the conversation writes itself in the inbox. The router and eligibility gate are
+  governance, not a second signature.
+
+## Feeling curve (revised)
+
+| Section | Feeling | Cause |
+|---|---|---|
+| Campaign brief | Orientation | The playbook's buyer, concern and action for this campaign, one glance |
+| Account | Control | Facts in, campaign routed, eligibility cleared |
+| Connection note | Precision | Short note, live meter |
+| Beat 1 | Recognition | The reel's hook, as a question to this person |
+| Beat 2 | Momentum | The solution, the first tracked link, a real date |
+| Beat 3 | Assurance | Proof and objections answered |
+| Beat 4 (peak) | Completion | The inbox completes, the offer lands, status turns ready and cleared |
+| Ads and posts (C/D) | Reach | The same story at scale, on the real creatives |
+| Replies, subjects, playbook | Preparedness, choice, trust | Reference, compressed |
+| Next account | Readiness | An input |
