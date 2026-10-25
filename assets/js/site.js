@@ -129,9 +129,12 @@
     if (contact) new IntersectionObserver(([e]) => { atForm = e.isIntersecting; sync(); }, { threshold: .05 }).observe(contact);
   }
 
-  /* ---------- A: module cards add modules to the upgrade review ---------- */
-  const picks = $$('button.card[data-module]');
+  /* ---------- A: module picks (card toggles and form checkboxes stay in step) ---------- */
+  const picks = $$('button[data-module][aria-pressed]');
+  const boxes = $$('input[type=checkbox][name="modules"]');
   const pickHint = $('.pick-hint'), pickedBox = $('.picked');
+  const chosen = () => [...new Set(picks.filter(b => b.getAttribute('aria-pressed') === 'true').map(b => b.dataset.module)
+    .concat(boxes.filter(c => c.checked).map(c => c.value)))];
   const renderPicks = () => {
     const on = picks.filter(b => b.getAttribute('aria-pressed') === 'true');
     if (pickHint) $('span', pickHint).innerHTML = on.length ? T().pickedSome(on.length) : T().pickedNone;
@@ -139,9 +142,15 @@
       pickedBox.hidden = !on.length;
       $('.picked-list', pickedBox).innerHTML = on.map(b => `<span>${$('.card-title', b).textContent}</span>`).join('');
     }
+    document.dispatchEvent(new CustomEvent('fq:modules', { detail: chosen() }));
   };
-  picks.forEach(b => b.addEventListener('click', () => { b.setAttribute('aria-pressed', String(b.getAttribute('aria-pressed') !== 'true')); renderPicks(); }));
-  if (picks.length) { renderPicks(); listeners.push(renderPicks); }
+  const setModule = (mod, on) => {
+    picks.filter(b => b.dataset.module === mod).forEach(b => b.setAttribute('aria-pressed', String(on)));
+    boxes.filter(c => c.value === mod).forEach(c => { c.checked = on; });
+  };
+  picks.forEach(b => b.addEventListener('click', () => { setModule(b.dataset.module, b.getAttribute('aria-pressed') !== 'true'); renderPicks(); }));
+  boxes.forEach(c => c.addEventListener('change', () => { setModule(c.value, c.checked); renderPicks(); }));
+  if (picks.length || boxes.length) { renderPicks(); listeners.push(renderPicks); }
 
   /* ---------- B: platform cards expand to the module list ---------- */
   $$('.mod-btn').forEach(btn => btn.addEventListener('click', () => {
@@ -199,18 +208,19 @@
       if (d.startsWith('00') && d.length >= 10 && d.length <= 17) return { phone: '+' + d.slice(2), phone_raw: raw.trim() };
       return null;
     };
-    const RULES = { company: v => v.trim().length >= 2, name: v => v.trim().length >= 2, contact: v => !!parseContact(v) };
+    const RULES = { company: v => v.trim().length >= 2, name: v => v.trim().length >= 2, contact: v => !!parseContact(v), contact_ok: v => v === true };
     const check = n => {
-      const el = field(n), ok = RULES[n](el.value), err = document.getElementById(el.getAttribute('aria-describedby').split(' ')[0]);
+      const el = field(n), ok = RULES[n](el.type === 'checkbox' ? el.checked : el.value), err = document.getElementById(el.getAttribute('aria-describedby').split(' ')[0]);
       el.setAttribute('aria-invalid', String(!ok)); err.hidden = ok; return ok;
     };
-    form.addEventListener('input', e => { if (form.dataset.tried && RULES[e.target.name]) check(e.target.name); });
+    ['input', 'change'].forEach(t => form.addEventListener(t, e => { if (form.dataset.tried && RULES[e.target.name]) check(e.target.name); }));
     // keep the interest select in step with the route by default, without touching attribution
     const interest = field('interest');
     if (interest && PAGE.segment && !interest.value) interest.value = INTEREST[PAGE.segment];
 
     const val = n => (field(n) && field(n).value.trim()) || '';
-    const optText = n => { const el = field(n); return el && el.value ? el.options[el.selectedIndex].text : ''; };
+    // a select reports its visible label; a hidden or text field reports its value
+    const optText = n => { const el = field(n); return el && el.value ? (el.options ? el.options[el.selectedIndex].text : (el.dataset.label || el.value)) : ''; };
 
     form.addEventListener('submit', async e => {
       e.preventDefault();
@@ -231,13 +241,13 @@
       const first = attr.first || touch, latest = attr.latest || touch;
       const src = k => latest[k] || first[k] || 'Direct/Unknown';
       const campaign = latest.utm_campaign || first.utm_campaign || 'Direct/Unknown';
-      const modules = picks.filter(b => b.getAttribute('aria-pressed') === 'true').map(b => b.dataset.module);
+      const modules = chosen();
       const consent = !!(field('consent') && field('consent').checked);
       const now = new Date().toISOString();
       const routeName = { A: 'Existing customers', B: 'New hotels', C: 'Opera / PMS', D: 'Hotel groups' }[PAGE.segment] || 'Hub';
       const details = [
         ['Company', val('company')], ['City', val('city')], ['Role', val('role')], ['Preferred channel', optText('channel')],
-        ['Account ID', val('account_id')], ['Current PMS', val('current_pms')], ['PMS version / deployment', val('pms_version')],
+        ['Account ID', val('account_id')], ['Renewal date', val('renewal_date')], ['Current PMS', val('current_pms')], ['PMS version / deployment', val('pms_version')],
         ['Properties', optText('property_count')], ['Property structure', optText('ownership')], ['Modules for review', modules.join(', ')]
       ].filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`);
       const payload = {
@@ -245,7 +255,8 @@
         name: val('name'), ...contactInfo,
         company: val('company'), city: val('city'), role: val('role'),
         preferred_channel: val('channel'), interest: val('interest'), interest_label: optText('interest') || val('interest'),
-        account_id: val('account_id') || undefined, current_pms: val('current_pms') || undefined, pms_version: val('pms_version') || undefined,
+        account_id: val('account_id') || undefined, renewal_date: val('renewal_date') || undefined,
+        contact_consent: field('contact_ok') ? field('contact_ok').checked : undefined, current_pms: val('current_pms') || undefined, pms_version: val('pms_version') || undefined,
         property_count: val('property_count') || undefined, ownership: val('ownership') || undefined, modules: modules.length ? modules : undefined,
         message: [`[Fandaqah 360 · ${PAGE.segment || '-'} ${routeName} · ${optText('interest') || val('interest')}]`, ...details,
           `Campaign: ${campaign} | source: ${src('utm_source')} | medium: ${src('utm_medium')} | creative: ${src('utm_content')}`,

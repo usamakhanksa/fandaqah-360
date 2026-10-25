@@ -12,7 +12,7 @@
 <link rel="manifest" href="../site.webmanifest">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Fandaqah 360">
-<meta property="og:title" content="More value from the Fandaqah you already use">
+<meta property="og:title" content="More value for your hotel">
 <meta property="og:description" content="Review your current subscription, the modules you need and your eligibility for our two-year prepaid offer.">
 <meta property="og:url" content="https://usamakhanksa.github.io/fandaqah-360/existing-customers/">
 <meta property="og:image" content="https://usamakhanksa.github.io/fandaqah-360/assets/img/og/existing-customers.jpg">
@@ -20,167 +20,255 @@
 <meta name="twitter:site" content="@fandaqah">
 <link rel="preload" href="../assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="../assets/img/hero-existing.webp" as="image" type="image/webp">
+<link rel="preload" href="../assets/img/palms-resort.webp" as="image" type="image/webp" fetchpriority="high">
+<link rel="stylesheet" href="../assets/vendor/scrollcraft/scrollcraft.css">
 <link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/v2.css">
 <script>document.documentElement.classList.add('js')</script>
 </head>
-<body>
+<body class="v2 pa">
 <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
 
 <header class="site-head">
   <div class="wrap head-in">
     <a class="logo" href="../" data-i18n-aria="aria.home" aria-label="Fandaqah 360 home"><img src="../assets/img/brand-dark-340.webp" width="340" height="146" alt="Fandaqah"><span class="logo-360" aria-hidden="true">360</span></a>
     <nav class="nav" data-i18n-aria="aria.main" aria-label="Main">
-      <a href="#solutions" data-i18n="nav.solutions">Solutions</a>
-      <a href="#how" data-i18n="nav.how">How it works</a>
-      <a href="#contact" data-i18n="nav.contact">Contact</a>
+      <a href="#upgrade" aria-current="true" data-i18n="nav.upgrade">Your upgrade</a>
+      <a href="#modules" data-i18n="nav.modules">Modules</a>
+      <a href="#offer" data-i18n="nav.offer">Two-year offer</a>
+      <a href="#faq" data-i18n="nav.faq">FAQs</a>
     </nav>
     <div class="head-end">
-      <div class="lang" role="group" data-i18n-aria="aria.lang" aria-label="Language"><button type="button" data-lang="en" lang="en" aria-pressed="true">EN</button><span class="sep" aria-hidden="true"></span><button type="button" data-lang="ar" lang="ar" aria-pressed="false">عربي</button></div>
-      <a class="btn btn-sm" href="#contact" data-i18n="cta.main">Check my upgrade offer</a>
+      <div class="lang lang--pill" role="group" data-i18n-aria="aria.lang" aria-label="Language"><button type="button" data-lang="en" lang="en" aria-pressed="true">EN</button><span class="sep" aria-hidden="true"></span><button type="button" data-lang="ar" lang="ar" aria-pressed="false">عربي</button></div>
+      <a class="btn btn-sm btn--pill" href="#contact"><span data-i18n="cta.main">Check my upgrade offer</span><svg class="ic ic-go" aria-hidden="true"><use href="../assets/icons.svg#i-arrow-right"/></svg></a>
       <button class="burger" type="button" aria-expanded="false" aria-controls="mnav" data-i18n-aria="aria.menu" aria-label="Open menu"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-menu"/></svg></button>
     </div>
   </div>
   <div class="mnav" id="mnav" hidden>
     <nav class="wrap mnav-in" data-i18n-aria="aria.main" aria-label="Main">
-      <a href="#solutions" data-i18n="nav.solutions">Solutions</a>
-      <a href="#how" data-i18n="nav.how">How it works</a>
-      <a href="#contact" data-i18n="nav.contact">Contact</a>
+      <a href="#upgrade" data-i18n="nav.upgrade">Your upgrade</a>
+      <a href="#modules" data-i18n="nav.modules">Modules</a>
+      <a href="#offer" data-i18n="nav.offer">Two-year offer</a>
+      <a href="#faq" data-i18n="nav.faq">FAQs</a>
     </nav>
   </div>
 </header>
 
 <main id="main">
-  <!-- ============ HERO ============ -->
-  <section class="hero" aria-labelledby="hero-title">
-    <nav class="seg" data-i18n-aria="aria.routes" aria-label="Choose your route">
-      <div class="seg-in">
-        <a href="../existing-customers/" data-route="A" aria-current="page" data-i18n="seg.A">Existing customers</a>
-        <a href="../new-hotels/" data-route="B" data-i18n="seg.B">New hotels</a>
-        <a href="../opera-pms/" data-route="C" data-i18n="seg.C">Opera / PMS</a>
-        <a href="../hotel-groups/" data-route="D" data-i18n="seg.D">Hotel groups</a>
+  <!-- ============ HERO: your product on the table, the upgrade around it ============ -->
+  <section class="pa-hero" id="upgrade" aria-labelledby="hero-title">
+    <div class="pa-scene" aria-hidden="true">
+      <div class="pa-wall">
+        <span class="pa-arch a1"><img src="../assets/img/palms-resort.webp" width="1400" height="599" alt="" fetchpriority="high"></span>
+        <span class="pa-arch a2"><img src="../assets/img/palms-resort.webp" width="1400" height="599" alt=""></span>
       </div>
-    </nav>
-    <div class="wrap hero-in">
-      <div class="hero-copy">
-        <p class="eyebrow" style="--i:0" data-i18n="hero.eyebrow">For existing Fandaqah customers</p>
-        <h1 class="h1" id="hero-title" style="--i:1" data-i18n="hero.title"><span class="hl-xl">More value</span> from the Fandaqah you already use.</h1>
-        <p class="hero-lead" style="--i:2" data-i18n="hero.lead">Connect more of your daily operations. Review your current subscription, the modules you need and your eligibility for our two-year prepaid offer.</p>
-        <div class="hero-cta" style="--i:3"><a class="btn" href="#contact"><span data-i18n="cta.main">Check my upgrade offer</span><svg class="ic ic-go" aria-hidden="true"><use href="../assets/icons.svg#i-arrow-right"/></svg></a></div>
-        <p class="hero-note" style="--i:4" data-i18n="hero.note">Start with your current plan and your hotel’s needs.</p>
-      </div>
-    </div>
-    <div class="hero-media">
-      <figure class="hero-photo"><img src="../assets/img/hero-existing.webp" width="1600" height="914" alt="" fetchpriority="high" style="object-position:86% 40%"></figure>
-      <div class="hero-visual" aria-hidden="true" style="--vx:9%;--vy:44px">
-        <div class="laptop" style="--w:470px">
-          <div class="laptop-screen"><div class="ui">
-            <div class="ui-side">
-              <div class="ui-brand"><i></i>fandaqah <b>360</b></div>
-              <ul>
-                <li class="on"><svg class="ic"><use href="../assets/icons.svg#i-calendar-days"/></svg>Reservations</li>
-                <li><svg class="ic"><use href="../assets/icons.svg#i-bed-double"/></svg>Rooms</li>
-                <li><svg class="ic"><use href="../assets/icons.svg#i-sparkles"/></svg>Housekeeping</li>
-                <li><svg class="ic"><use href="../assets/icons.svg#i-chart-line"/></svg>Reports</li>
-              </ul>
-            </div>
-            <div class="ui-main">
-              <div class="ui-top"><span>&larr;</span><span class="ui-tag" data-i18n="ui.tag">Illustrative interface</span></div>
-              <div class="ui-h">Reservations</div>
-              <div class="ui-card ui-chart"><svg viewBox="0 0 220 70" preserveAspectRatio="none"><g stroke="#EDE8E1" stroke-width="1"><path d="M0 17H220M0 35H220M0 53H220"/></g><path d="M4 58 L30 50 L56 54 L82 40 L108 46 L134 30 L160 36 L186 22 L216 12" fill="none" stroke="#E9584D" stroke-width="2" stroke-linejoin="round"/><g fill="#E9584D"><circle cx="30" cy="50" r="2.2"/><circle cx="82" cy="40" r="2.2"/><circle cx="134" cy="30" r="2.2"/><circle cx="186" cy="22" r="2.2"/><circle cx="216" cy="12" r="2.2"/></g></svg></div>
-              <div class="ui-grid" style="--n:2">
-                <div class="ui-card ui-rows"><div class="ui-row"><i style="--c:#F2B9A0"></i><span></span><span></span></div><div class="ui-row"><i style="--c:#E9C9A6"></i><span></span><span></span></div></div>
-                <div class="ui-card ui-rows"><div class="ui-row"><i style="--c:#E9584D"></i><span></span><span></span></div><div class="ui-row"><i style="--c:#C9C2A0"></i><span></span><span></span></div></div>
+      <span class="pa-sun"></span>
+      <div class="pa-table"></div>
+      <div class="pa-devices">
+        <div class="pa-laptop">
+          <div class="pa-screen">
+            <div class="pa-ui">
+              <aside class="pa-ui-side">
+                <p class="pa-ui-brand">Fandaqah <b>360</b></p>
+                <ul>
+                  <li class="on"><i></i><span data-i18n="ui.dash">Dashboard</span></li>
+                  <li><i></i><span data-i18n="ui.res">Reservations</span></li>
+                  <li><i></i><span data-i18n="ui.rooms">Rooms</span></li>
+                  <li><i></i><span data-i18n="ui.guests">Guests</span></li>
+                  <li><i></i><span data-i18n="m3.t">Housekeeping</span></li>
+                  <li><i></i><span data-i18n="m1.t">Accounting</span></li>
+                  <li><i></i><span data-i18n="m2.t">Purchasing</span></li>
+                  <li><i></i><span data-i18n="ui.reports">Reports</span></li>
+                </ul>
+              </aside>
+              <div class="pa-ui-main">
+                <p class="pa-ui-tabs"><span class="on" data-i18n="ui.res">Reservations</span><span data-i18n="ui.rooms">Rooms</span><span data-i18n="ui.reports">Reports</span></p>
+                <div class="pa-ui-card">
+                  <p data-i18n="ui.revenue">Revenue overview</p>
+                  <svg viewBox="0 0 220 70" preserveAspectRatio="none"><defs><linearGradient id="rv" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E64D44" stop-opacity=".28"/><stop offset="1" stop-color="#E64D44" stop-opacity="0"/></linearGradient></defs><path d="M0 58 L20 50 L38 54 L58 40 L78 44 L98 30 L118 36 L140 22 L160 28 L182 14 L202 18 L220 6 V70 H0Z" fill="url(#rv)"/><path d="M0 58 L20 50 L38 54 L58 40 L78 44 L98 30 L118 36 L140 22 L160 28 L182 14 L202 18 L220 6" fill="none" stroke="#E64D44" stroke-width="2.2"/></svg>
+                </div>
+                <div class="pa-ui-card pa-ui-status">
+                  <p data-i18n="ui.status">Room status</p>
+                  <ul>
+                    <li style="--c:#3D7A5B;--w:.72"><i></i><span data-i18n="st.clean">Clean</span><b></b></li>
+                    <li style="--c:#E39A55;--w:.5"><i></i><span data-i18n="st.prog">In progress</span><b></b></li>
+                    <li style="--c:#E64D44;--w:.36"><i></i><span data-i18n="st.due">Due today</span><b></b></li>
+                    <li style="--c:#9C98A8;--w:.18"><i></i><span data-i18n="st.out">Out of service</span><b></b></li>
+                  </ul>
+                </div>
               </div>
             </div>
-          </div></div>
-          <div class="laptop-base"></div>
+          </div>
+          <div class="pa-base"></div>
+        </div>
+        <div class="pa-phone">
+          <p class="pa-phone-brand">Fandaqah <b>360</b></p>
+          <ul>
+            <li><svg class="ic"><use href="../assets/icons.svg#i-calendar-days"/></svg><span data-i18n="ui.res">Reservations</span></li>
+            <li><svg class="ic"><use href="../assets/icons.svg#i-bed-double"/></svg><span data-i18n="m3.t">Housekeeping</span></li>
+            <li><svg class="ic"><use href="../assets/icons.svg#i-chart-column"/></svg><span data-i18n="ui.reports">Reports</span></li>
+            <li><svg class="ic"><use href="../assets/icons.svg#i-layout-dashboard"/></svg><span data-i18n="ui.more">More</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pa-two"><span class="pa-two-ic"><svg class="ic"><use href="../assets/icons.svg#i-calendar-days"/></svg></span><b data-i18n="two.b">2 years</b><small data-i18n="two.s">Fixed subscription price</small></div>
+      <svg class="pa-links" viewBox="0 0 120 200" preserveAspectRatio="none"><path d="M0 0 V40 H60 M60 40 V160 M60 40 H120 M60 100 H120 M60 160 H120"/></svg>
+      <ul class="pa-chips">
+        <li data-chip="accounting"><svg class="ic"><use href="../assets/icons.svg#i-coins"/></svg><span data-i18n="m1.t">Accounting</span></li>
+        <li data-chip="purchasing"><svg class="ic"><use href="../assets/icons.svg#i-shopping-cart"/></svg><span data-i18n="m2.t">Purchasing</span></li>
+        <li data-chip="housekeeping"><svg class="ic"><use href="../assets/icons.svg#i-bed-double"/></svg><span data-i18n="m3.t">Housekeeping</span></li>
+      </ul>
+      <p class="pa-cap" data-i18n="ui.tag">Illustrative interface</p>
+      <svg class="pa-leaf" viewBox="0 0 220 320"><use href="../assets/icons.svg#art-leaves"/></svg>
+    </div>
+    <div class="wrap pa-hero-in">
+      <div class="pa-copy">
+        <p class="pa-pill" data-i18n="hero.eyebrow">Existing customers</p>
+        <h1 class="pa-h1" id="hero-title"><span class="pa-h1-main" data-i18n="hero.title"><span class="hl">More value</span> for your hotel.</span> <span class="pa-h1-sub" data-i18n="hero.sub">A <em>fixed price</em> for two years.</span></h1>
+        <p class="pa-lead" data-i18n="hero.lead">Already using Fandaqah? Discover how Fandaqah 360 can connect more of your daily operations.</p>
+        <p class="pa-lead2" data-i18n="hero.lead2">Review your current subscription, the modules you need and your eligibility for our two-year prepaid offer.</p>
+        <div class="hero-cta"><a class="btn btn--pill" href="#contact"><span data-i18n="cta.main">Check my upgrade offer</span><svg class="ic ic-go" aria-hidden="true"><use href="../assets/icons.svg#i-arrow-right"/></svg></a></div>
+        <p class="pa-note" data-i18n="hero.note">Built around your current plan and your hotel’s needs.</p>
+      </div>
+    </div>
+    <ul class="wrap pa-values">
+      <li data-reveal style="--i:0"><span class="pa-vic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-file-text"/></svg></span><div><p class="pa-v-t" data-i18n="v1.t">Your current plan, reviewed.</p><p data-i18n="v1.d">We’ll check your existing subscription and renewal details.</p></div></li>
+      <li data-reveal style="--i:1"><span class="pa-vic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-settings"/></svg></span><div><p class="pa-v-t" data-i18n="v2.t">Relevant modules, selected.</p><p data-i18n="v2.d">Choose the modules you want to include in your review.</p></div></li>
+      <li data-reveal style="--i:2"><span class="pa-vic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-clipboard-check"/></svg></span><div><p class="pa-v-t" data-i18n="v3.t">Offer terms, confirmed.</p><p data-i18n="v3.d">We’ll confirm your eligibility and outline the two-year offer.</p></div></li>
+    </ul>
+  </section>
+
+  <!-- ============ MODULES: pick what goes into your review ============ -->
+  <section class="v2-sec pa-mods" id="modules" aria-labelledby="mods-title">
+    <div class="wrap">
+      <div class="v2-head v2-head--center" data-reveal>
+        <p class="v2-eyebrow" data-i18n="mods.eyebrow">More connected, more useful</p>
+        <h2 class="v2-h2" id="mods-title" data-i18n="mods.title">Build on what already works.</h2>
+        <p class="v2-sub" data-i18n="mods.sub">Choose the areas you want us to review. We’ll confirm what is already included.</p>
+      </div>
+      <div class="pa-cards">
+        <article class="pa-card" data-reveal style="--i:0">
+          <figure class="pa-card-media" aria-hidden="true">
+            <img src="../assets/img/panel-lounge.webp" width="672" height="426" alt="" loading="lazy" style="object-position:30% 60%">
+            <div class="pa-glass">
+              <p data-i18n="g1.h">Financial overview</p>
+              <div class="pa-bars"><i style="--h:.3"></i><i style="--h:.45"></i><i style="--h:.4"></i><i style="--h:.62"></i><i style="--h:.78"></i><i style="--h:.92"></i></div>
+              <ul class="pa-legend"><li style="--c:#7E9B85" data-i18n="g1.1">Room revenue</li><li style="--c:#E39A55" data-i18n="g1.2">Other income</li><li style="--c:#E64D44" data-i18n="g1.3">Operating costs</li></ul>
+            </div>
+          </figure>
+          <span class="pa-card-ic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-coins"/></svg></span>
+          <h3 data-i18n="m1.t">Accounting</h3><p data-i18n="m1.d">Bring finance into your daily workflow.</p>
+          <button class="pa-pick" type="button" data-module="accounting" aria-pressed="false"><span class="pa-box" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="pick">Include in my review</span><span class="pa-plus" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-plus"/></svg></span></button>
+        </article>
+        <article class="pa-card" data-reveal style="--i:1">
+          <figure class="pa-card-media" aria-hidden="true">
+            <img src="../assets/img/hero-new.webp" width="1180" height="822" alt="" loading="lazy" style="object-position:40% 70%">
+            <div class="pa-glass">
+              <p data-i18n="g2.h">Purchase orders</p>
+              <ul class="pa-list"><li><svg class="ic"><use href="../assets/icons.svg#i-file-text"/></svg><span data-i18n="g2.1">New order</span></li><li><svg class="ic"><use href="../assets/icons.svg#i-share-2"/></svg><span data-i18n="g2.2">Sent to supplier</span></li><li><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg><span data-i18n="g2.3">Delivered</span></li></ul>
+            </div>
+          </figure>
+          <span class="pa-card-ic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-shopping-cart"/></svg></span>
+          <h3 data-i18n="m2.t">Purchasing</h3><p data-i18n="m2.d">Connect purchasing and stock control.</p>
+          <button class="pa-pick" type="button" data-module="purchasing" aria-pressed="false"><span class="pa-box" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="pick">Include in my review</span><span class="pa-plus" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-plus"/></svg></span></button>
+        </article>
+        <article class="pa-card" data-reveal style="--i:2">
+          <figure class="pa-card-media" aria-hidden="true">
+            <img src="../assets/img/hero-existing.webp" width="1600" height="914" alt="" loading="lazy" style="object-position:12% 60%">
+            <div class="pa-glass">
+              <p data-i18n="ui.status">Room status</p>
+              <ul class="pa-status"><li style="--c:#3D7A5B;--w:.7"><i></i><span data-i18n="st.clean">Clean</span><b></b></li><li style="--c:#E39A55;--w:.5"><i></i><span data-i18n="st.prog">In progress</span><b></b></li><li style="--c:#E64D44;--w:.42"><i></i><span data-i18n="st.due">Due today</span><b></b></li><li style="--c:#9C98A8;--w:.2"><i></i><span data-i18n="st.out">Out of service</span><b></b></li></ul>
+            </div>
+          </figure>
+          <span class="pa-card-ic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-bed-double"/></svg></span>
+          <h3 data-i18n="m3.t">Housekeeping</h3><p data-i18n="m3.d">Coordinate room readiness with your team.</p>
+          <button class="pa-pick" type="button" data-module="housekeeping" aria-pressed="false"><span class="pa-box" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="pick">Include in my review</span><span class="pa-plus" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-plus"/></svg></span></button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE OFFER (peak): the card comes up out of the dark and lands on the stone ============ -->
+  <section class="pa-offer" id="offer" data-sc-act="pin" data-sc-span="1.5" aria-labelledby="offer-title">
+    <div class="pa-offer-stage" data-sc-stage>
+      <div class="wrap">
+        <div class="pa-band">
+          <div class="pa-band-copy">
+            <p class="pa-band-eyebrow" data-i18n="offer.eyebrow">A loyalty offer built around your hotel</p>
+            <h2 class="pa-band-h" id="offer-title"><span class="pa-peach" data-i18n="offer.h1">Two years.</span> <span data-i18n="offer.h2">One clear plan.</span></h2>
+            <p class="pa-band-p" data-i18n="offer.p">Ask about our two-year prepaid offer and a fixed subscription price for the agreed term.</p>
+            <ul class="pa-band-list">
+              <li><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="offer.1">Eligibility reviewed against your account</span></li>
+              <li><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="offer.2">Included modules and fees confirmed</span></li>
+              <li><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="offer.3">Any approved upgrade credit agreed in writing</span></li>
+            </ul>
+            <a class="btn btn--pill" href="#contact"><span data-i18n="cta.main">Check my upgrade offer</span><svg class="ic ic-go" aria-hidden="true"><use href="../assets/icons.svg#i-arrow-right"/></svg></a>
+            <p class="pa-band-small" data-i18n="offer.small">Subject to eligibility and proposal terms. Prepayment applies. Remaining subscription value is not automatically refunded.</p>
+          </div>
+          <div class="pa-band-scene" aria-hidden="true">
+            <span class="pa-arcs"></span>
+            <span class="pa-lamp"></span>
+            <div class="pa-plinth pl-back"></div>
+            <div class="pa-card360"><img src="../assets/img/brand-dark-340.webp" width="340" height="146" alt="" loading="lazy"><span>360</span></div>
+            <div class="pa-plinth pl-front"></div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ RELEVANT MODULES ============ -->
-  <section class="sec" id="solutions" aria-labelledby="sol-title">
+  <!-- ============ THREE STEPS ============ -->
+  <section class="v2-sec pa-steps" id="how" aria-labelledby="how-title">
     <div class="wrap">
-      <div class="sec-head" data-reveal>
-        <p class="eyebrow" data-i18n="sol.eyebrow">Explore relevant modules</p>
-        <h2 class="h2" id="sol-title" data-i18n="sol.title">Your next upgrade should fit your hotel.</h2>
-      </div>
-      <div class="cards">
-        <button class="card" type="button" data-module="accounting" aria-pressed="false" data-reveal style="--i:0">
-          <span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-coins"/></svg></span>
-          <span><span class="card-title" data-i18n="m1.t">Accounting</span><span class="card-text" data-i18n="m1.d">Bring finance into your daily workflow.</span></span>
-          <span class="go" aria-hidden="true"><svg class="ic ic-off flip"><use href="../assets/icons.svg#i-arrow-right"/></svg><svg class="ic ic-on"><use href="../assets/icons.svg#i-check"/></svg></span>
-        </button>
-        <button class="card" type="button" data-module="purchasing" aria-pressed="false" data-reveal style="--i:1">
-          <span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-shopping-cart"/></svg></span>
-          <span><span class="card-title" data-i18n="m2.t">Purchasing</span><span class="card-text" data-i18n="m2.d">Connect purchasing and stock control.</span></span>
-          <span class="go" aria-hidden="true"><svg class="ic ic-off flip"><use href="../assets/icons.svg#i-arrow-right"/></svg><svg class="ic ic-on"><use href="../assets/icons.svg#i-check"/></svg></span>
-        </button>
-        <button class="card" type="button" data-module="housekeeping" aria-pressed="false" data-reveal style="--i:2">
-          <span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-bed-double"/></svg></span>
-          <span><span class="card-title" data-i18n="m3.t">Housekeeping</span><span class="card-text" data-i18n="m3.d">Coordinate room readiness with your team.</span></span>
-          <span class="go" aria-hidden="true"><svg class="ic ic-off flip"><use href="../assets/icons.svg#i-arrow-right"/></svg><svg class="ic ic-on"><use href="../assets/icons.svg#i-check"/></svg></span>
-        </button>
-      </div>
-      <p class="pick-hint" aria-live="polite"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-plus"/></svg><span>Select the modules you want included in your review.</span></p>
-    </div>
-  </section>
-
-  <!-- ============ TWO-YEAR OFFER ============ -->
-  <section class="sec-tight" aria-labelledby="offer-title">
-    <div class="wrap">
-      <div class="band" data-reveal>
-        <p class="band-big"><span data-i18n="band.big">Two years.</span> <span class="sm" data-i18n="band.sm">A plan for what comes next.</span></p>
-        <span class="band-rule" aria-hidden="true"></span>
-        <div>
-          <h2 class="band-h" id="offer-title"><span data-i18n="band.h">Ask about our two-year prepaid offer.</span></h2>
-          <p data-i18n="band.p">Your upgrade review confirms eligibility, included modules, fees and any approved upgrade credit.</p>
-          <small data-i18n="band.small">Offer terms and scope are confirmed in your proposal.</small>
-        </div>
-        <svg class="band-leaf" viewBox="0 0 220 320" aria-hidden="true"><use href="../assets/icons.svg#art-leaves"/></svg>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ HOW IT WORKS ============ -->
-  <section class="sec" id="how" aria-labelledby="how-title">
-    <div class="wrap">
-      <div class="sec-head" data-reveal><h2 class="h2" id="how-title" data-i18n="how.title">A clear path to your upgrade.</h2></div>
-      <ol class="steps" data-reveal style="--i:1">
-        <li class="step"><span class="step-num">01</span><h3 data-i18n="s1.t">Review your account</h3><p data-i18n="s1.d">Current subscription and renewal.</p></li>
-        <li class="step"><span class="step-num">02</span><h3 data-i18n="s2.t">Choose useful modules</h3><p data-i18n="s2.d">Match scope to daily operations.</p></li>
-        <li class="step"><span class="step-num">03</span><h3 data-i18n="s3.t">Agree your upgrade</h3><p data-i18n="s3.d">Confirm delivery, support and terms.</p></li>
+      <h2 class="v2-h2 center" id="how-title" data-reveal data-i18n="how.title">Your next upgrade, made clear.</h2>
+      <ol class="pa-steplist">
+        <li data-reveal style="--i:0"><span class="pa-num">01</span><h3 data-i18n="s1.t">Review your account</h3><p data-i18n="s1.d">Current plan, account ID and renewal date.</p></li>
+        <li data-reveal style="--i:1"><span class="pa-num">02</span><h3 data-i18n="s2.t">Choose useful modules</h3><p data-i18n="s2.d">Focus on the work your team needs to connect.</p></li>
+        <li data-reveal style="--i:2"><span class="pa-num">03</span><h3 data-i18n="s3.t">Confirm your upgrade</h3><p data-i18n="s3.d">Agree scope, fees, support and any approved credit.</p></li>
       </ol>
+      <p class="pa-steps-note" data-reveal data-i18n="how.note">Have an unresolved service issue? Your account team can help first.</p>
     </div>
   </section>
 
-  <!-- ============ LEAD FORM ============ -->
-  <section class="sec-tight" id="contact" aria-labelledby="lead-title">
+  <!-- ============ REQUEST ============ -->
+  <section class="v2-sec pa-contact" id="contact" aria-labelledby="lead-title">
     <div class="wrap">
-      <div class="lead" data-reveal>
-        <div class="lead-intro">
-          <h2 class="h2" id="lead-title" data-i18n="lead.title">Let’s review your upgrade.</h2>
-          <p data-i18n="lead.sub">Tell us what your hotel needs next.</p>
-          <figure class="lead-photo" aria-hidden="true"><img src="../assets/img/panel-desk.webp" width="520" height="478" alt="" loading="lazy"></figure>
+      <div class="pa-panel">
+        <div class="pa-panel-copy">
+          <p class="v2-eyebrow" data-i18n="lead.eyebrow">Let’s review your upgrade</p>
+          <h2 class="pa-panel-h" id="lead-title" data-i18n="lead.title">More value starts with your hotel.</h2>
+          <p class="pa-panel-sub" data-i18n="lead.sub">Tell us what you use today and what you need next.</p>
+          <p class="pa-panel-p" data-i18n="lead.p">Your proposal will confirm the modules, fees and terms before you decide.</p>
+          <p class="pa-reach"><a href="mailto:info@fandaqah.com"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-mail"/></svg>info@fandaqah.com</a><a href="https://www.fandaqah.com" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-globe"/></svg>fandaqah.com</a></p>
         </div>
-        <span class="lead-rule" aria-hidden="true"></span>
-        <div>
+        <figure class="pa-panel-photo" aria-hidden="true">
+          <span class="pa-arch b1"><img src="../assets/img/palms-resort.webp" width="1400" height="599" alt="" loading="lazy"></span>
+          <span class="pa-arch b2"><img src="../assets/img/palms-resort.webp" width="1400" height="599" alt="" loading="lazy"></span>
+          <svg class="pa-panel-leaf" viewBox="0 0 220 320"><use href="../assets/icons.svg#art-leaves"/></svg>
+        </figure>
+        <div class="v2-formcard pa-formcard">
+          <h3 class="v2-formcard-h" data-i18n="form.title">Check my upgrade offer</h3>
           <form class="form" id="lead-form" novalidate>
             <div class="f"><label for="f-company" data-i18n="f.company">Hotel / company</label><input id="f-company" name="company" type="text" autocomplete="organization" maxlength="120" required aria-describedby="f-company-err"><p class="f-err" id="f-company-err" data-i18n="err.company" hidden>Please enter your hotel or company name.</p></div>
             <div class="f"><label for="f-city" data-i18n="f.city">City</label><input id="f-city" name="city" type="text" autocomplete="address-level2" maxlength="60"></div>
             <div class="f"><label for="f-name" data-i18n="f.name">Contact name</label><input id="f-name" name="name" type="text" autocomplete="name" maxlength="80" required aria-describedby="f-name-err"><p class="f-err" id="f-name-err" data-i18n="err.name" hidden>Please enter a contact name.</p></div>
             <div class="f"><label for="f-role" data-i18n="f.role">Role</label><input id="f-role" name="role" type="text" autocomplete="organization-title" maxlength="80"></div>
             <div class="f f--full"><label for="f-contact" data-i18n="f.contact">Business email or phone</label><input id="f-contact" name="contact" type="text" inputmode="email" autocomplete="email" maxlength="120" dir="auto" required aria-describedby="f-contact-err f-contact-hint"><p class="f-hint" id="f-contact-hint" data-i18n="f.contactHint">For example name@hotel.sa or 05XXXXXXXX</p><p class="f-err" id="f-contact-err" data-i18n="err.contact" hidden>Enter a valid email address or a phone number such as 05XXXXXXXX.</p></div>
-            <div class="f"><label for="f-account"><span data-i18n="f.account">Account ID</span> <span class="opt" data-i18n="f.opt">(optional)</span></label><input id="f-account" name="account_id" type="text" maxlength="40" autocomplete="off"></div>
-            <div class="f"><label for="f-channel" data-i18n="f.channel">Preferred contact channel</label><select id="f-channel" name="channel"><option value="" data-i18n="f.select">Please select</option><option value="phone" data-i18n="ch.phone">Phone call</option><option value="whatsapp" data-i18n="ch.whatsapp">WhatsApp</option><option value="email" data-i18n="ch.email">Email</option></select></div>
-            <div class="f f--full"><label for="f-interest" data-i18n="f.interest">Selected interest</label><select id="f-interest" name="interest"><option value="existing_upgrade" selected data-i18n="int.A">Existing customer upgrade</option><option value="new_hotel_demo" data-i18n="int.B">New hotel demo</option><option value="technology_cost_review" data-i18n="int.C">Technology cost review</option><option value="group_discovery" data-i18n="int.D">Group discovery meeting</option></select></div>
-            <p class="picked" hidden><span data-i18n="f.picked">Modules for review:</span> <span class="picked-list"></span></p>
+            <div class="f"><label for="f-account"><span data-i18n="f.account">Account ID</span> <span class="opt" data-i18n="f.opt">(optional)</span></label><input id="f-account" name="account_id" type="text" maxlength="40" dir="ltr"></div>
+            <div class="f"><label for="f-renewal"><span data-i18n="f.renewal">Renewal date</span> <span class="opt" data-i18n="f.opt">(optional)</span></label><input id="f-renewal" name="renewal_date" type="date" dir="ltr"></div>
+            <div class="f f--full"><label for="f-channel" data-i18n="f.channel">Preferred contact channel</label><select id="f-channel" name="channel"><option value="" data-i18n="f.select">Please select</option><option value="phone" data-i18n="ch.phone">Phone call</option><option value="whatsapp" data-i18n="ch.whatsapp">WhatsApp</option><option value="email" data-i18n="ch.email">Email</option></select></div>
+            <fieldset class="f f--full pa-modfield"><legend data-i18n="f.modules">Modules to review</legend>
+              <label class="pa-check"><input type="checkbox" name="modules" value="accounting"><span data-i18n="m1.t">Accounting</span></label>
+              <label class="pa-check"><input type="checkbox" name="modules" value="purchasing"><span data-i18n="m2.t">Purchasing</span></label>
+              <label class="pa-check"><input type="checkbox" name="modules" value="housekeeping"><span data-i18n="m3.t">Housekeeping</span></label>
+            </fieldset>
+            <label class="consent f--full"><input type="checkbox" name="contact_ok" value="yes" aria-describedby="f-agree-err"><span data-i18n="f.agree">I agree to be contacted about this upgrade review.</span></label>
+            <p class="f-err f--full" id="f-agree-err" data-i18n="err.agree" hidden>Please confirm that we may contact you about this review.</p>
+            <input type="hidden" name="interest" value="existing_upgrade" data-label="Existing customer upgrade">
             <p class="form-privacy"><span data-i18n="f.privacy">We use your details to respond to this enquiry.</span> <a href="https://fandaqah.com/en/store/policy" data-href-ar="https://fandaqah.com/store/policy" target="_blank" rel="noopener" data-i18n="f.privacyLink">Privacy notice</a>.</p>
-            <label class="consent"><input type="checkbox" name="consent" value="yes"><span data-i18n="f.consent">I would also like marketing updates.</span></label>
             <p class="form-alert" role="alert" hidden></p>
-            <div class="form-actions"><button class="btn" type="submit"><span data-i18n="cta.main">Check my upgrade offer</span><svg class="ic ic-go" aria-hidden="true"><use href="../assets/icons.svg#i-arrow-right"/></svg></button></div>
+            <div class="form-actions"><button class="btn btn--pill" type="submit"><span data-i18n="cta.main">Check my upgrade offer</span><svg class="ic ic-go" aria-hidden="true"><use href="../assets/icons.svg#i-arrow-right"/></svg></button></div>
+            <p class="pa-form-note" data-i18n="form.note">Submitting this request does not change your subscription.</p>
             <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
           </form>
           <div class="done" id="lead-done" hidden>
@@ -195,10 +283,15 @@
   </section>
 
   <!-- ============ QUESTIONS ============ -->
-  <section class="wrap faq" aria-label="Questions">
-    <div class="faq-item" data-reveal><span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-message"/></svg></span><div><h3 data-i18n="q1.q">What happens to my current subscription?</h3><p data-i18n="q1.a">Your account review confirms the options and any approved credit.</p></div></div>
-    <span class="faq-rule" aria-hidden="true"></span>
-    <div class="faq-item" data-reveal style="--i:1"><span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-file-text"/></svg></span><div><h3 data-i18n="q2.q">Is every module included?</h3><p data-i18n="q2.a">Your proposal defines the modules and service scope.</p></div></div>
+  <section class="v2-sec pa-faq" id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="pa-faq-box" data-reveal>
+        <h2 class="v2-h2" id="faq-title" data-i18n="faq.title">A few things, clarified.</h2>
+        <details><summary><span><b data-i18n="q1.q">What happens to my current subscription?</b><small data-i18n="q1.s">Your account review confirms the options and any approved credit. Refunds are not automatic.</small></span><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-plus"/></svg></summary><p data-i18n="q1.a">We start from your current plan and renewal date. Any approved upgrade credit is agreed in writing in your proposal; remaining subscription value is not automatically refunded.</p></details>
+        <details><summary><span><b data-i18n="q2.q">Is every module included?</b><small data-i18n="q2.s">Your proposal confirms the modules and service scope.</small></span><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-plus"/></svg></summary><p data-i18n="q2.a">The modules you select are reviewed against your account. Your proposal lists exactly which modules, services and support are included before you decide.</p></details>
+        <details><summary><span><b data-i18n="q3.q">Is the two-year offer available to every account?</b><small data-i18n="q3.s">Eligibility, fees and prepayment terms are confirmed during your review.</small></span><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-plus"/></svg></summary><p data-i18n="q3.a">The offer is reviewed account by account. Eligibility, the fixed subscription price, fees and prepayment terms are confirmed in writing during your upgrade review.</p></details>
+      </div>
+    </div>
   </section>
 </main>
 
@@ -206,47 +299,79 @@
   <div class="wrap foot-in">
     <a class="logo" href="../" data-i18n-aria="aria.home" aria-label="Fandaqah 360 home"><img src="../assets/img/brand-light-340.webp" width="340" height="144" alt="Fandaqah" loading="lazy"><span class="logo-360" aria-hidden="true">360</span></a>
     <span class="foot-rule" aria-hidden="true"></span>
-    <p class="foot-tag" data-i18n="foot.tag">Your hospitality, our priority.</p>
+    <p class="foot-tag" data-i18n="foot.tag2">Your hospitality. Our priority.</p>
     <ul class="foot-links" data-i18n-aria="aria.foot" aria-label="Footer">
       <li><a href="mailto:info@fandaqah.com">info@fandaqah.com</a></li>
       <li><a href="https://www.fandaqah.com" target="_blank" rel="noopener">fandaqah.com</a></li>
-      <li><a href="https://fandaqah.com/en/store/policy" data-href-ar="https://fandaqah.com/store/policy" target="_blank" rel="noopener" data-i18n="foot.privacy">Privacy</a></li>
-      <li><a href="https://fandaqah.com/en/store/policy" data-href-ar="https://fandaqah.com/store/policy" target="_blank" rel="noopener" data-i18n="foot.terms">Terms</a></li>
     </ul>
   </div>
   <p class="wrap foot-legal" data-i18n="foot.legal">© 2026 Fandaqah. All rights reserved.</p>
 </footer>
+
+<!-- the upgrade tray: your picks travel with you to the form -->
+<aside class="pa-tray" aria-live="polite" hidden>
+  <span class="pa-tray-label" data-i18n="tray.label">Your review</span>
+  <span class="pa-tray-list"></span>
+  <a class="pa-tray-go" href="#contact"><span data-i18n="cta.main">Check my upgrade offer</span><svg class="ic ic-go" aria-hidden="true"><use href="../assets/icons.svg#i-arrow-right"/></svg></a>
+</aside>
 
 <div class="m-cta"><a class="btn" href="#contact"><span data-i18n="cta.main">Check my upgrade offer</span><svg class="ic ic-go" aria-hidden="true"><use href="../assets/icons.svg#i-arrow-right"/></svg></a></div>
 
 <script>
 window.FQ_PAGE = {
   segment: 'A',
-  meta: { title: 'فندقة 360 لعملائنا الحاليين | تحقّق من عرض الترقية', desc: 'تستخدم فندقة حالياً؟ راجع اشتراكك الحالي والوحدات التي تحتاجها وأهليتك لعرض فندقة 360 المدفوع مسبقاً لمدة سنتين.' },
+  meta: { title: 'فندقة 360 للعملاء الحاليين | تحقّق من عرض الترقية', desc: 'تستخدم فندقة؟ راجِع اشتراكك الحالي والوحدات التي تحتاجها وأهليتك لعرض فندقة 360 المدفوع مقدماً لمدة سنتين.' },
   ar: {
+    'nav.upgrade': 'ترقيتك', 'nav.modules': 'الوحدات', 'nav.offer': 'عرض السنتين', 'nav.faq': 'الأسئلة الشائعة',
     'cta.main': 'تحقّق من عرض الترقية',
-    'hero.eyebrow': 'لعملاء فندقة الحاليين',
-    'hero.title': '<span class="hl-xl">قيمة أكبر</span> من فندقة التي تستخدمها اليوم.',
-    'hero.lead': 'اربط مزيداً من عملياتك اليومية. راجع اشتراكك الحالي والوحدات التي تحتاجها وأهليتك لعرضنا المدفوع مسبقاً لمدة سنتين.',
-    'hero.note': 'ابدأ بخطتك الحالية واحتياجات فندقك.',
-    'sol.eyebrow': 'استكشف الوحدات المناسبة', 'sol.title': 'ترقيتك القادمة يجب أن تناسب فندقك.',
-    'm1.t': 'المحاسبة', 'm1.d': 'أدخِل الإدارة المالية في سير عملك اليومي.',
-    'm2.t': 'المشتريات', 'm2.d': 'اربط المشتريات بالتحكم في المخزون.',
+    'hero.eyebrow': 'العملاء الحاليون',
+    'hero.title': '<span class="hl">قيمة أكبر</span> لفندقك.',
+    'hero.sub': '<em>سعر ثابت</em> لمدة سنتين.',
+    'hero.lead': 'تستخدم فندقة؟ اكتشف كيف تربط فندقة 360 المزيد من عملياتك اليومية.',
+    'hero.lead2': 'راجِع اشتراكك الحالي والوحدات التي تحتاجها وأهليتك لعرضنا المدفوع مقدماً لمدة سنتين.',
+    'hero.note': 'مبني على خطتك الحالية واحتياجات فندقك.',
+    'ui.dash': 'لوحة التحكم', 'ui.res': 'الحجوزات', 'ui.rooms': 'الغرف', 'ui.guests': 'النزلاء', 'ui.reports': 'التقارير', 'ui.more': 'المزيد',
+    'ui.revenue': 'نظرة على الإيرادات', 'ui.status': 'حالة الغرف',
+    'st.clean': 'نظيفة', 'st.prog': 'قيد التنظيف', 'st.due': 'مستحقة اليوم', 'st.out': 'خارج الخدمة',
+    'two.b': 'سنتان', 'two.s': 'سعر اشتراك ثابت',
+    'm1.t': 'المحاسبة', 'm1.d': 'أدخِل المالية في سير عملك اليومي.',
+    'm2.t': 'المشتريات', 'm2.d': 'اربط المشتريات بمراقبة المخزون.',
     'm3.t': 'التدبير الفندقي', 'm3.d': 'نسّق جاهزية الغرف مع فريقك.',
-    'band.big': 'سنتان.', 'band.sm': 'خطة لما هو قادم.',
-    'band.h': 'اسأل عن عرضنا المدفوع مسبقاً لمدة سنتين.',
-    'band.p': 'تؤكّد مراجعة الترقية أهليتك والوحدات المشمولة والرسوم وأي رصيد ترقية معتمد.',
-    'band.small': 'تُحدَّد شروط العرض ونطاقه في عرض السعر الخاص بك.',
-    'how.title': 'طريق واضح إلى ترقيتك.',
-    's1.t': 'مراجعة حسابك', 's1.d': 'الاشتراك الحالي وموعد التجديد.',
-    's2.t': 'اختيار الوحدات المفيدة', 's2.d': 'مواءمة النطاق مع عملياتك اليومية.',
-    's3.t': 'اعتماد الترقية', 's3.d': 'تأكيد التسليم والدعم والشروط.',
-    'lead.title': 'لنراجع ترقيتك.', 'lead.sub': 'أخبرنا بما يحتاجه فندقك في المرحلة القادمة.',
-    'q1.q': 'ماذا يحدث لاشتراكي الحالي؟', 'q1.a': 'تؤكّد مراجعة حسابك الخيارات المتاحة وأي رصيد معتمد.',
-    'q2.q': 'هل جميع الوحدات مشمولة؟', 'q2.a': 'يحدّد عرض السعر الوحدات ونطاق الخدمة.'
+    'v1.t': 'خطتك الحالية، مُراجَعة.', 'v1.d': 'سنراجع اشتراكك الحالي وتفاصيل التجديد.',
+    'v2.t': 'الوحدات المناسبة، مختارة.', 'v2.d': 'اختر الوحدات التي تريد إضافتها إلى مراجعتك.',
+    'v3.t': 'شروط العرض، مؤكَّدة.', 'v3.d': 'سنؤكد أهليتك ونوضّح عرض السنتين.',
+    'mods.eyebrow': 'ترابط أكثر، فائدة أكبر', 'mods.title': 'ابنِ على ما يعمل لديك.',
+    'mods.sub': 'اختر المجالات التي تريد أن نراجعها، وسنؤكد ما هو مشمول لديك أصلاً.',
+    'g1.h': 'نظرة مالية', 'g1.1': 'إيرادات الغرف', 'g1.2': 'إيرادات أخرى', 'g1.3': 'تكاليف التشغيل',
+    'g2.h': 'أوامر الشراء', 'g2.1': 'طلب جديد', 'g2.2': 'أُرسل إلى المورد', 'g2.3': 'تم التسليم',
+    'pick': 'أضِف إلى مراجعتي',
+    'offer.eyebrow': 'عرض ولاء مبني حول فندقك', 'offer.h1': 'سنتان.', 'offer.h2': 'خطة واحدة واضحة.',
+    'offer.p': 'اسأل عن عرضنا المدفوع مقدماً لمدة سنتين وسعر اشتراك ثابت طوال المدة المتفق عليها.',
+    'offer.1': 'مراجعة الأهلية وفق حسابك', 'offer.2': 'تأكيد الوحدات المشمولة والرسوم', 'offer.3': 'الاتفاق كتابياً على أي رصيد ترقية معتمد',
+    'offer.small': 'يخضع للأهلية وشروط العرض. يُدفع مقدماً. لا تُسترد القيمة المتبقية من الاشتراك تلقائياً.',
+    'how.title': 'ترقيتك التالية، بوضوح.',
+    's1.t': 'مراجعة حسابك', 's1.d': 'خطتك الحالية ورقم الحساب وتاريخ التجديد.',
+    's2.t': 'اختيار الوحدات المفيدة', 's2.d': 'ركّز على العمل الذي يحتاج فريقك إلى ربطه.',
+    's3.t': 'تأكيد ترقيتك', 's3.d': 'الاتفاق على النطاق والرسوم والدعم وأي رصيد معتمد.',
+    'how.note': 'لديك مشكلة خدمة لم تُحل بعد؟ يمكن لفريق حسابك المساعدة أولاً.',
+    'lead.eyebrow': 'لنراجع ترقيتك', 'lead.title': 'القيمة الأكبر تبدأ من فندقك.',
+    'lead.sub': 'أخبرنا بما تستخدمه اليوم وما تحتاجه بعد ذلك.', 'lead.p': 'سيؤكد عرضك الوحدات والرسوم والشروط قبل أن تقرر.',
+    'form.title': 'تحقّق من عرض الترقية', 'f.renewal': 'تاريخ التجديد', 'f.modules': 'الوحدات المطلوب مراجعتها',
+    'f.agree': 'أوافق على التواصل معي بشأن مراجعة الترقية هذه.', 'err.agree': 'يرجى تأكيد موافقتك على التواصل معك بشأن هذه المراجعة.',
+    'form.note': 'إرسال هذا الطلب لا يغيّر اشتراكك.',
+    'faq.title': 'بعض الأمور، بوضوح.',
+    'q1.q': 'ماذا يحدث لاشتراكي الحالي؟', 'q1.s': 'تؤكد مراجعة حسابك الخيارات وأي رصيد معتمد. لا يُسترد المبلغ تلقائياً.',
+    'q1.a': 'نبدأ من خطتك الحالية وتاريخ تجديدها، ويُتفق كتابياً في عرضك على أي رصيد ترقية معتمد، ولا تُسترد القيمة المتبقية من الاشتراك تلقائياً.',
+    'q2.q': 'هل كل الوحدات مشمولة؟', 'q2.s': 'يؤكد عرضك الوحدات ونطاق الخدمة.',
+    'q2.a': 'تُراجع الوحدات التي تختارها وفق حسابك، ويوضح عرضك بدقة الوحدات والخدمات والدعم المشمولة قبل أن تقرر.',
+    'q3.q': 'هل عرض السنتين متاح لكل الحسابات؟', 'q3.s': 'تُؤكَّد الأهلية والرسوم وشروط الدفع المقدم خلال مراجعتك.',
+    'q3.a': 'يُراجع العرض لكل حساب على حدة، وتُؤكَّد الأهلية وسعر الاشتراك الثابت والرسوم وشروط الدفع المقدم كتابياً خلال مراجعة الترقية.',
+    'tray.label': 'مراجعتك', 'foot.tag2': 'ضيافتك. أولويتنا.'
   }
 };
 </script>
+<script src="../assets/vendor/scrollcraft/scrollcraft.js" defer></script>
 <script src="../assets/js/site.js" defer></script>
+<script src="../assets/js/v2.js" defer></script>
 </body>
 </html>
