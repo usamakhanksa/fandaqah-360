@@ -922,7 +922,8 @@ document.addEventListener('DOMContentLoaded', () => {
       void grid.offsetWidth;                     // start the entrance from the hidden state
       next.forEach(item => item.el.classList.add('is-in'));
       progress();
-      status.textContent = MSG[lang()].added(next.length);
+      // the last load hands over to the "all 20 shown" note, which takes focus and speaks for itself
+      status.textContent = btn.hidden ? '' : MSG[lang()].added(next.length);
       if (btn.hidden) doneEl.focus();
     } catch (e) {
       status.textContent = MSG[lang()].error;

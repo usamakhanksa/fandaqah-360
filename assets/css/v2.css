@@ -439,7 +439,7 @@ html[lang="ar"] .pa-price-per { order: 3; }
 .pa-card.is-new { opacity: 0; transform: translate3d(0, 26px, 0); }
 .pa-card.is-new.is-in { opacity: 1; transform: none; transition: opacity .6s var(--ease), transform .8s var(--ease), border-color .2s, box-shadow .2s; transition-delay: calc(var(--k, 0) * 90ms); }
 .pa-more { display: grid; justify-items: center; gap: 14px; margin-top: 38px; text-align: center; }
-.pa-more[hidden] { display: none; }
+.pa-more[hidden], .pa-more [hidden] { display: none; }   /* the button and notes set their own display */
 .pa-more-count { font-size: 14px; color: var(--ink-2); }
 .pa-more-count b { font-size: 15px; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
 .pa-more-track { position: relative; width: min(280px, 72%); height: 4px; overflow: hidden; border-radius: 4px; background: var(--line); }
