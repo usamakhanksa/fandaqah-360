@@ -11,7 +11,7 @@ Keyframes: `creatives/reel-frames/D-reel-1…4-ar.jpg` (and `-en`). Rendered ree
 | 10–20 s | Three properties in the group's colours, reporting the same way (sample branding) | وحّد العمليات عبر محفظتك كاملة. | Standardise operations across your portfolio. | معايير واحدة تُطبَّق على المجموعة كلها. |
 | 20–25 s | The close and the CTA button | توسّع في محفظتك. وحافظ على السيطرة. | Grow the portfolio. Keep control. | اكتشف كيف تدير مجموعتك عملياتها مركزياً وترى محفظتها كاملة. |
 
-**Sound (original Saudi score, made by `tools/reel-audio.py`, shared by both languages, -16 LUFS):** maqam Nahawand and Ardah-style ceremonial drums (the tabl calls, the small drums answer), with a ney lead and claps in the proof. The three property cards land on three different notes, then turn the group colour on one shared note (the portfolio standardised), and the group chip resolves into a full chord. Every cut (3, 10 and 20 s) falls on a downbeat with a whoosh and a low impact.
+**Sound (the supplied Arabic track, edited by `tools/reel-music.py`, shared by both languages, -16 LUFS):** the edit is cut so chorus 2's drop lands on the proof: the stutter break, half a second of near-silence, then the chorus on the 10 s cut as the proof wipes in. A short fade opens the hook and a 1.8 s fade closes under the call to action.
 
 **End card:** logo · استكشف الإدارة المركزية لمجموعتي · fandaqah.com
 Deployment, customisation and branding are agreed in the proposal; say so if branding is shown.

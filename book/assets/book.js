@@ -16,7 +16,7 @@
   const TXT = {
     en: {
       chapter: 'Chapter', buyer: 'Buyer', action: 'Desired action', cta: 'Call to action', landing: 'Open the landing page',
-      reels: 'Reels', reelsMeta: '25 s · 1080×1920 · MP4 · captions burned in · original Saudi score', download: 'Download MP4', live: 'Live GSAP version',
+      reels: 'Reels', reelsMeta: '25 s · 1080×1920 · MP4 · captions burned in · with music', download: 'Download MP4', live: 'Live GSAP version',
       arabic: 'Arabic', english: 'English', pending: 'Reel is being rendered', play: 'Play or pause the reel',
       sound: 'Sound', soundOn: 'Turn the sound on', soundOff: 'Turn the sound off',
       storyboard: 'Storyboard', beats: ['0–3 s · Hook', '3–10 s · Solution', '10–20 s · Proof', '20–25 s · Call to action'],
@@ -28,7 +28,7 @@
     },
     ar: {
       chapter: 'الفصل', buyer: 'المشتري', action: 'الإجراء المطلوب', cta: 'دعوة الإجراء', landing: 'افتح صفحة الهبوط',
-      reels: 'الريلز', reelsMeta: '25 ثانية · <bdi dir="ltr">1080×1920</bdi> · MP4 · ترجمة مدمجة · موسيقى سعودية أصلية', download: 'تحميل MP4', live: 'نسخة GSAP الحية',
+      reels: 'الريلز', reelsMeta: '25 ثانية · <bdi dir="ltr">1080×1920</bdi> · MP4 · ترجمة مدمجة · مع موسيقى', download: 'تحميل MP4', live: 'نسخة GSAP الحية',
       arabic: 'العربية', english: 'الإنجليزية', pending: 'جارٍ تجهيز الريل', play: 'تشغيل الريل أو إيقافه',
       sound: 'الصوت', soundOn: 'تشغيل الصوت', soundOff: 'إيقاف الصوت',
       storyboard: 'القصة المصورة', beats: ['0–3 ث · الجذب', '3–10 ث · الحل', '10–20 ث · الإثبات', '20–25 ث · دعوة الإجراء'],

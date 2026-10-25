@@ -20,7 +20,7 @@ more of your hotel." · 20–25 s «فندقة 360 بجميع المزايا و�
 **Voice-over timing:** about 5, 9, 11 and 5 words, so each line reads comfortably beside its headline when muted.
 The 10–20 s caption points past the five ticked modules to the rest of the platform (20+ modules).
 
-**Sound (original Saudi score, made by `tools/reel-audio.py`, shared by both languages, -16 LUFS):** maqam Rast and a Khaleeji groove with group hand-claps: oud lead, qanun accents, darbuka, riq and frame drum over a soft drone. The three manual-record cards land on falling oud notes, a riser carries into the first cut, every module card in scene 3 plays the next note up the maqam, and the button pops with a qanun run before the cadence lands on the tonic with the last drum hit. Every cut (3, 10 and 20 s) falls on a downbeat with a whoosh and a low impact.
+**Sound (the supplied Arabic track, edited by `tools/reel-music.py`, shared by both languages, -16 LUFS):** the edit is cut so chorus 1's drop lands on the proof: the energy steps up just after the 3 s cut, the stutter break plays under the last second and a half of the solution, and the chorus hits as the proof wipes in at 10 s; its regular hits fall at 11, 14, 17.5 and 20.7 s. A short fade opens the hook and a 1.8 s fade closes under the call to action.
 
 **End card:** logo · تحقّق من عرض الترقية · fandaqah.com
 **Product approval needed** for the task shown at 10–20 s before recording.

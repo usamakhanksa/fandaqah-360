@@ -11,6 +11,9 @@ nothing to license.
   C  Opera / PMS         maqam Hijaz, half-time, ney over the drone      cinematic, corporate
   D  hotel groups        maqam Nahawand, Ardah-style ceremonial drums   grand, executive
 
+The reels now use the supplied Arabic track, edited per reel by tools/reel-music.py, which writes the same files. This
+synthesised score stays as a fallback: running it replaces those edits.
+
 Usage:  python -I tools/reel-audio.py              write all four scores and mux each into its two reels
         python -I tools/reel-audio.py A C          only these campaigns
         python -I tools/reel-audio.py --no-mux     write the scores only (tools/render-reels.mjs muxes them when it renders)
@@ -463,7 +466,7 @@ def mux(code, score):
         mp4 = reels / f'{code}-reel-{lang}.mp4'
         if not mp4.exists(): continue
         tmp = mp4.with_suffix('.tmp.mp4')
-        ffmpeg('-i', str(mp4), '-i', str(score), '-map', '0:v:0', '-map', '1:a:0', '-c', 'copy', '-shortest', '-movflags', '+faststart', str(tmp))
+        ffmpeg('-i', str(mp4), '-i', str(score), '-map', '0:v:0', '-map', '1:a:0', '-c', 'copy', '-movflags', '+faststart', str(tmp))   # no -shortest: with stream copy it drops the last video frame
         tmp.replace(mp4)
         print(f'  muxed {mp4.relative_to(ROOT).as_posix()}')
 

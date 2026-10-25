@@ -49,3 +49,31 @@ band: the darbuka ring and a thin oud were corrected. All eight MP4s carry the A
 reel's sound on, and only one reel plays sound at a time (audio decode confirmed). The live GSAP reel has a synced sound
 button; its centring on screens shorter than 1920 px was also fixed.
 **Not verified:** listening. The checks are measurements, so the mix still needs a human ear, ideally on phone speakers.
+
+## Revision 2 · the supplied track (25 Oct 2026)
+
+**Asked (verbatim):** "C:\laragon\www\dyafa-github\fandaqah-360\arabic-music.mpeg using this sound all reels complete properly"
+
+The synthesised score is replaced by the supplied track (an MP3 of 3 min, 256 kb/s), edited to each reel by
+`tools/reel-music.py`. The source moved to `_internal/audio/arabic-music.mp3`, which is git-ignored, so the full track is never committed or
+published. Only the 25-second edits inside the reels go public.
+
+**Edit to picture.** The track's map, measured from its energy and onsets:
+
+- 0–12 s quiet intro; 12–45 s verse.
+- A stutter break at 49.8–51.3 s, then chorus 1 from 51.33 s, with hits every 3.2 s (150 bpm).
+- 85–135 s second verse.
+- A stutter break at 139.3–140.3 s, near-silence, then chorus 2 at 140.91 s.
+
+Each edit starts so a chorus downbeat lands on the 10 s cut, the opening of the proof, so the music's biggest moment is the
+reel's peak:
+
+| Reels | Track excerpt | Measured in the edit |
+|---|---|---|
+| A, B | 41.33–66.36 s | stutter 8.51–9.91 s, chorus onset 9.97 s; hook -21.2, solution -16.0, proof -15.4, CTA -16.2 dB |
+| C, D | 130.91–155.94 s | stutter 8.42–9.30 s, chorus onset 9.99 s; hook -17.3, solution -18.4, proof -16.1, CTA -17.5 dB |
+
+There is a 0.25 s fade-in and a 1.8 s fade-out under the CTA. Delivery is -16 LUFS and -2 dBTP, with peaks of -3.8 dBFS
+or lower. All eight MP4s keep their 751 frames: muxing with `-shortest` had dropped the last frame, and it was fixed in
+the mux of both tools and in `tools/render-reels.mjs`.
+**Not verified:** listening, and the rights to use this track in paid media; that needs the owner's confirmation.
