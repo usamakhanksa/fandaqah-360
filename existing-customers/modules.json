@@ -1,0 +1,95 @@
+{
+  "about": "Cards 6 to 20 of the modules section. The first five ship in the page; 'Show 3 more' adds three per click. Text pairs are [English, Arabic]. Slugs are the CRM module names. Glass panels are illustrative.",
+  "ui": { "pick": ["Prioritise in my upgrade", "أولوية في ترقيتي"] },
+  "modules": [
+    { "id": "hr", "icon": "i-users",
+      "img": { "src": "../assets/img/team-people.webp", "w": 760, "h": 933, "pos": "45% 26%" },
+      "glass": { "type": "status", "h": ["Today’s shifts", "ورديات اليوم"], "rows": [
+        { "c": "#3D7A5B", "w": 0.92, "t": ["Front desk", "الاستقبال"] }, { "c": "#3D7A5B", "w": 0.78, "t": ["Housekeeping", "التدبير الفندقي"] },
+        { "c": "#E39A55", "w": 0.55, "t": ["Restaurant", "المطعم"] }, { "c": "#9C98A8", "w": 0.3, "t": ["Night shift", "الوردية الليلية"] } ] },
+      "en": { "k": "HR", "t": "Every shift covered.", "d": "Staff records, shifts and leave in one place, so the roster is clear before the week begins." },
+      "ar": { "k": "الموارد البشرية", "t": "كل وردية مغطّاة.", "d": "سجلات الموظفين والورديات والإجازات في مكان واحد، ليكون جدول العمل واضحاً قبل بداية الأسبوع." } },
+    { "id": "crm", "icon": "i-message",
+      "img": { "src": "../assets/img/panel-lounge.webp", "w": 672, "h": 426, "pos": "85% 55%" },
+      "glass": { "type": "ticket", "h": ["Guest profile", "ملف الضيف"], "rows": [
+        { "dt": ["Stays", "الإقامات"], "dd": ["6", "6"] }, { "dt": ["Prefers", "يفضّل"], "dd": ["High floor", "طابق مرتفع"] } ], "state": ["Returning guest", "ضيف عائد"] },
+      "en": { "k": "CRM", "t": "Guests who come back.", "d": "Guest profiles, preferences and stay history in one view, so every return visit feels personal." },
+      "ar": { "k": "إدارة علاقات العملاء", "t": "ضيوف يعودون إليك.", "d": "ملفات الضيوف وتفضيلاتهم وسجل إقاماتهم في عرض واحد، لتكون كل زيارة متكررة تجربة شخصية." } },
+    { "id": "pos", "icon": "i-concierge-bell",
+      "img": { "src": "../assets/img/hero-groups.webp", "w": 1600, "h": 685, "pos": "25% 60%" },
+      "glass": { "type": "list", "h": ["Table 12", "الطاولة 12"], "items": [
+        { "i": "i-file-text", "t": ["Order taken", "أُخذ الطلب"] }, { "i": "i-bed-double", "t": ["Charged to room 214", "حُمّل على الغرفة 214"] }, { "i": "i-check", "t": ["Posted to accounts", "رُحِّل إلى الحسابات"] } ] },
+      "en": { "k": "POS & restaurants", "t": "Every bill reaches the room.", "d": "Restaurant and café sales post straight to the guest’s folio and your accounts, with no end-of-day re-entry." },
+      "ar": { "k": "نقاط البيع والمطاعم", "t": "كل فاتورة تصل إلى الغرفة.", "d": "مبيعات المطعم والمقهى تُرحَّل مباشرة إلى حساب الضيف وإلى حساباتك، دون إعادة إدخال في نهاية اليوم." } },
+    { "id": "channel", "icon": "i-share-2",
+      "img": { "src": "../assets/img/lobby-dashboard.webp", "w": 800, "h": 456, "pos": "88% 60%" },
+      "glass": { "type": "stock", "h": ["Channels in sync", "القنوات المتزامنة"], "low": ["Few", "قليلة"], "rows": [
+        { "t": ["Travel sites", "مواقع السفر"], "v": ["4", "4"] }, { "t": ["Your website", "موقعك"], "v": ["1", "1"] }, { "t": ["Rooms left tonight", "المتبقي الليلة"], "v": ["3", "3"], "low": true } ] },
+      "en": { "k": "Channel manager", "t": "One rate, every channel.", "d": "Rates and availability stay in step across your booking channels, so a room is never sold twice." },
+      "ar": { "k": "مدير القنوات", "t": "سعر واحد في كل القنوات.", "d": "تبقى الأسعار والتوفر متطابقة عبر قنوات الحجز، فلا تُباع الغرفة مرتين." } },
+    { "id": "booking", "icon": "i-calendar-days",
+      "img": { "src": "../assets/img/hero-portfolio-900.webp", "w": 900, "h": 507, "pos": "55% 45%" },
+      "glass": { "type": "bars", "h": ["Direct bookings", "الحجوزات المباشرة"], "bars": [0.25, 0.32, 0.4, 0.5, 0.66, 0.84], "legend": [ { "c": "#E64D44", "t": ["This season", "هذا الموسم"] } ] },
+      "en": { "k": "Booking engine", "t": "More direct bookings.", "d": "Guests book on your own website, and the reservation arrives in the PMS without anyone retyping it." },
+      "ar": { "k": "محرك الحجز", "t": "حجوزات مباشرة أكثر.", "d": "يحجز الضيوف من موقعك مباشرة، ويصل الحجز إلى نظام الإدارة دون أن يعيد أحد إدخاله." } },
+    { "id": "payments", "icon": "i-credit-card",
+      "img": { "src": "../assets/img/hero-existing-720.webp", "w": 720, "h": 411, "pos": "88% 45%" },
+      "glass": { "type": "ticket", "h": ["Payment link", "رابط الدفع"], "rows": [
+        { "dt": ["Booking", "الحجز"], "dd": ["R-2481", "R-2481"] }, { "dt": ["Deposit", "العربون"], "dd": ["SAR ••••", "•••• ريال"] } ], "state": ["Paid", "مدفوع"] },
+      "en": { "k": "Payment gateway", "t": "Paid before arrival.", "d": "Send a secure payment link, take deposits and see every payment matched to its booking." },
+      "ar": { "k": "بوابة الدفع", "t": "مدفوع قبل الوصول.", "d": "أرسل رابط دفع آمناً، واستلم العربون، وشاهد كل دفعة مطابقة لحجزها." } },
+    { "id": "recipes", "icon": "i-clipboard-check",
+      "img": { "src": "../assets/img/panel-desk.webp", "w": 520, "h": 478, "pos": "15% 30%" },
+      "glass": { "type": "stock", "h": ["Recipe · per plate", "الوصفة · لكل طبق"], "rows": [
+        { "t": ["Rice", "أرز"], "v": ["180 g", "180 غ"] }, { "t": ["Chicken", "دجاج"], "v": ["250 g", "250 غ"] }, { "t": ["Saffron", "زعفران"], "v": ["0.2 g", "0.2 غ"] } ] },
+      "en": { "k": "Recipe management", "t": "Know what every plate costs.", "d": "Recipes linked to stock, so each dish shows its real cost and the kitchen orders only what it uses." },
+      "ar": { "k": "إدارة الوصفات", "t": "اعرف تكلفة كل طبق.", "d": "وصفات مرتبطة بالمخزون، ليظهر لكل طبق تكلفته الحقيقية ويطلب المطبخ ما يستهلكه فقط." } },
+    { "id": "room-service", "icon": "i-phone",
+      "img": { "src": "../assets/img/palms-resort-720.webp", "w": 720, "h": 308, "pos": "70% 50%" },
+      "glass": { "type": "list", "h": ["Room 214", "الغرفة 214"], "items": [
+        { "i": "i-sparkles", "t": ["Extra towels", "مناشف إضافية"] }, { "i": "i-concierge-bell", "t": ["Coffee for two", "قهوة لشخصين"] }, { "i": "i-check", "t": ["On its way", "في الطريق"] } ] },
+      "en": { "k": "Room services via QR", "t": "Requests without the phone call.", "d": "Guests scan the code in their room to order or ask for anything, and the right team sees it at once." },
+      "ar": { "k": "خدمات الغرف عبر QR", "t": "طلبات دون مكالمة هاتفية.", "d": "يمسح الضيف الرمز في غرفته ليطلب ما يحتاجه، ويصل الطلب فوراً إلى الفريق المعني." } },
+    { "id": "signature", "icon": "i-file-text",
+      "img": { "src": "../assets/img/hero-new-720.webp", "w": 720, "h": 502, "pos": "85% 40%" },
+      "glass": { "type": "ticket", "h": ["Registration card", "بطاقة التسجيل"], "rows": [
+        { "dt": ["Room", "الغرفة"], "dd": ["412", "412"] }, { "dt": ["Guests", "الضيوف"], "dd": ["2 adults", "بالغان"] } ], "state": ["Signed", "موقّعة"] },
+      "en": { "k": "Digital signature · Sign Stay", "t": "Check-in without paper.", "d": "Guests sign the registration card on a tablet, and the signed copy is stored with the reservation." },
+      "ar": { "k": "التوقيع الرقمي · Sign Stay", "t": "تسجيل وصول دون ورق.", "d": "يوقّع الضيف بطاقة التسجيل على جهاز لوحي، وتُحفظ النسخة الموقّعة مع الحجز." } },
+    { "id": "id-scanner", "icon": "i-user",
+      "img": { "src": "../assets/img/hero-opera.webp", "w": 1040, "h": 692, "pos": "20% 55%" },
+      "glass": { "type": "list", "h": ["ID scan", "مسح الهوية"], "items": [
+        { "i": "i-file-text", "t": ["Document read", "قُرئت الوثيقة"] }, { "i": "i-user", "t": ["Details filled in", "عُبّئت البيانات"] }, { "i": "i-check", "t": ["Ready to check in", "جاهز لتسجيل الوصول"] } ] },
+      "en": { "k": "Passport & ID scanner · Fast Pass", "t": "Arrivals in seconds.", "d": "Scan a passport or national ID and the guest’s details fill in accurately, with no typing at the desk." },
+      "ar": { "k": "ماسح الجواز والهوية · Fast Pass", "t": "وصول في ثوانٍ.", "d": "امسح الجواز أو الهوية الوطنية لتُعبّأ بيانات الضيف بدقة، دون كتابة في الاستقبال." } },
+    { "id": "zatca", "icon": "i-shield-check",
+      "img": { "src": "../assets/img/lobby-dashboard.webp", "w": 800, "h": 456, "pos": "22% 50%" },
+      "glass": { "type": "list", "h": ["E-invoice", "الفاتورة الإلكترونية"], "items": [
+        { "i": "i-file-text", "t": ["Invoice issued", "صدرت الفاتورة"] }, { "i": "i-check", "t": ["QR code added", "أُضيف رمز QR"] }, { "i": "i-share-2", "t": ["Shared with ZATCA", "أُرسلت إلى الهيئة"] } ] },
+      "en": { "k": "ZATCA integration", "t": "E-invoices, done right.", "d": "Invoices are issued for ZATCA e-invoicing from the same system that raised them, with no separate tool." },
+      "ar": { "k": "التكامل مع هيئة الزكاة", "t": "فوترة إلكترونية سليمة.", "d": "فواتير إلكترونية وفق متطلبات هيئة الزكاة والضريبة والجمارك، من النظام نفسه ودون أداة منفصلة." } },
+    { "id": "shomoos", "icon": "i-key",
+      "img": { "src": "../assets/img/team.webp", "w": 1400, "h": 933, "pos": "88% 45%" },
+      "glass": { "type": "stock", "h": ["Shomoos today", "شموس اليوم"], "rows": [
+        { "t": ["Guests registered", "نزلاء سُجّلوا"], "v": ["18", "18"] }, { "t": ["Pending", "قيد الإرسال"], "v": ["0", "0"] }, { "t": ["Wallet", "المحفظة"], "v": ["Active", "فعّالة"] } ] },
+      "en": { "k": "Shomoos wallet", "t": "Guest records, filed on time.", "d": "Guest registrations reach Shomoos from check-in itself, with the wallet balance in view for your team." },
+      "ar": { "k": "محفظة شموس", "t": "سجلات النزلاء في وقتها.", "d": "تصل تسجيلات النزلاء إلى شموس من تسجيل الوصول نفسه، مع رصيد المحفظة أمام فريقك." } },
+    { "id": "ntmp", "icon": "i-chart-line",
+      "img": { "src": "../assets/img/albalad.webp", "w": 900, "h": 385, "pos": "50% 50%" },
+      "glass": { "type": "bars", "h": ["Daily report", "التقرير اليومي"], "bars": [0.55, 0.6, 0.72, 0.68, 0.8, 0.86], "legend": [ { "c": "#7E9B85", "t": ["Occupancy", "الإشغال"] } ] },
+      "en": { "k": "NTMP · Phases I & II", "t": "Tourism reporting, handled.", "d": "Occupancy and stay data for the National Tourism Monitoring Platform, prepared from your daily operations." },
+      "ar": { "k": "منصة الرصد السياحي · المرحلتان 1 و2", "t": "تقارير سياحية دون عناء.", "d": "تُجهَّز بيانات الإشغال والإقامة لمنصة الرصد السياحي من عملياتك اليومية." } },
+    { "id": "support", "icon": "i-life-buoy",
+      "img": { "src": "../assets/img/team.webp", "w": 1400, "h": 933, "pos": "16% 34%" },
+      "glass": { "type": "status", "h": ["Training plan", "خطة التدريب"], "rows": [
+        { "c": "#3D7A5B", "w": 1, "t": ["Front desk", "الاستقبال"] }, { "c": "#3D7A5B", "w": 0.85, "t": ["Housekeeping", "التدبير الفندقي"] }, { "c": "#E39A55", "w": 0.5, "t": ["Accounts", "الحسابات"] } ] },
+      "en": { "k": "Support & training", "t": "A team that knows your hotel.", "d": "Onboarding for each department, and support from people who know how your property runs." },
+      "ar": { "k": "الدعم والتدريب", "t": "فريق يعرف فندقك.", "d": "تهيئة لكل قسم، ودعم من فريق يعرف طريقة عمل منشأتك." } },
+    { "id": "pms", "icon": "i-hotel",
+      "img": { "src": "../assets/img/hero-groups.webp", "w": 1600, "h": 685, "pos": "75% 45%" },
+      "glass": { "type": "status", "h": ["Tonight", "الليلة"], "rows": [
+        { "c": "#3D7A5B", "w": 0.62, "t": ["Arrivals", "الوصول"] }, { "c": "#E39A55", "w": 0.44, "t": ["Departures", "المغادرة"] }, { "c": "#5B8DB8", "w": 0.86, "t": ["In house", "المقيمون"] } ] },
+      "en": { "k": "PMS core", "t": "The heart of it, unchanged.", "d": "The reservations and front desk your team already uses, now connected to every department above." },
+      "ar": { "k": "نظام إدارة المنشأة", "t": "القلب كما هو.", "d": "الحجوزات والاستقبال اللذان يستخدمهما فريقك اليوم، مترابطان الآن مع كل الأقسام." } }
+  ]
+}

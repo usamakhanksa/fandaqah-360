@@ -435,6 +435,27 @@ html[lang="ar"] .pa-price-per { order: 3; }
 .pa-hero .hero-cta .v2-link { margin-top: 0; }
 .pa-card-k { margin-top: 14px; font-size: 11.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--coral-btn); }
 .pa-card .pa-card-k + h3 { margin-top: 4px; }
+/* modules 6 to 20: cards fetched three at a time rise in, one after another */
+.pa-card.is-new { opacity: 0; transform: translate3d(0, 26px, 0); }
+.pa-card.is-new.is-in { opacity: 1; transform: none; transition: opacity .6s var(--ease), transform .8s var(--ease), border-color .2s, box-shadow .2s; transition-delay: calc(var(--k, 0) * 90ms); }
+.pa-more { display: grid; justify-items: center; gap: 14px; margin-top: 38px; text-align: center; }
+.pa-more[hidden] { display: none; }
+.pa-more-count { font-size: 14px; color: var(--ink-2); }
+.pa-more-count b { font-size: 15px; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+.pa-more-track { position: relative; width: min(280px, 72%); height: 4px; overflow: hidden; border-radius: 4px; background: var(--line); }
+.pa-more-track i { position: absolute; inset: 0; border-radius: 4px; background: var(--coral-btn); transform: scaleX(var(--p, .25)); transform-origin: 0 50%; transition: transform .7s var(--ease); }
+[dir="rtl"] .pa-more-track i { transform-origin: 100% 50%; }
+.pa-more-btn { display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 26px 0 20px; border: 1.5px solid var(--ink); border-radius: 999px; background: transparent; color: var(--ink); font: 600 15px/1 var(--f-sans); cursor: pointer; transition: background-color .2s, color .2s; }
+[dir="rtl"] .pa-more-btn { padding: 0 20px 0 26px; }
+.pa-more-btn .ic { width: 18px; height: 18px; transition: transform .3s var(--ease); }
+.pa-more-btn:focus-visible, .pa-more-done:focus-visible { outline: 2px solid var(--coral-btn); outline-offset: 3px; }
+.pa-more.is-loading .pa-more-btn { cursor: progress; }
+.pa-more.is-loading .pa-more-btn .ic { animation: pa-spin .8s linear infinite; }
+@keyframes pa-spin { to { transform: rotate(360deg); } }
+.pa-more-done { padding: 12px 20px; border-radius: 999px; background: var(--peach-3, #FCE3D4); font-size: 15px; font-weight: 600; color: var(--ink); }
+.pa-more-status { min-height: 1.3em; font-size: 13px; color: var(--ink-3); }
+@media (hover: hover) and (pointer: fine) { .pa-more-btn:hover { background: var(--ink); color: #fff; } .pa-more-btn:hover .ic { transform: rotate(90deg); } }
+@media (prefers-reduced-motion: reduce) { .pa-card.is-new { opacity: 1; transform: none; transition: none; } .pa-more-track i { transition: none; } .pa-more.is-loading .pa-more-btn .ic { animation: none; } }
 
 .pa-compare { padding-top: 0; }
 .pa-cmp { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1.08fr); align-items: stretch; gap: 22px; max-width: 1000px; margin: 0 auto; }

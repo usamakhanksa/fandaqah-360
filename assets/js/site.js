@@ -130,13 +130,14 @@
   }
 
   /* ---------- A: module picks (card toggles and form checkboxes stay in step) ---------- */
-  const picks = $$('button[data-module][aria-pressed]');
-  const boxes = $$('input[type=checkbox][name="modules"]');
+  // re-queried on use, so cards added later (A loads modules 6 to 20 on demand) toggle, count and reach the form too
+  const picks = () => $$('button[data-module][aria-pressed]');
+  const boxes = () => $$('input[type=checkbox][name="modules"]');
   const pickHint = $('.pick-hint'), pickedBox = $('.picked');
-  const chosen = () => [...new Set(picks.filter(b => b.getAttribute('aria-pressed') === 'true').map(b => b.dataset.module)
-    .concat(boxes.filter(c => c.checked).map(c => c.value)))];
+  const chosen = () => [...new Set(picks().filter(b => b.getAttribute('aria-pressed') === 'true').map(b => b.dataset.module)
+    .concat(boxes().filter(c => c.checked).map(c => c.value)))];
   const renderPicks = () => {
-    const on = picks.filter(b => b.getAttribute('aria-pressed') === 'true');
+    const on = picks().filter(b => b.getAttribute('aria-pressed') === 'true');
     if (pickHint) $('span', pickHint).innerHTML = on.length ? T().pickedSome(on.length) : T().pickedNone;
     if (pickedBox) {
       pickedBox.hidden = !on.length;
@@ -145,12 +146,18 @@
     document.dispatchEvent(new CustomEvent('fq:modules', { detail: chosen() }));
   };
   const setModule = (mod, on) => {
-    picks.filter(b => b.dataset.module === mod).forEach(b => b.setAttribute('aria-pressed', String(on)));
-    boxes.filter(c => c.value === mod).forEach(c => { c.checked = on; });
+    picks().filter(b => b.dataset.module === mod).forEach(b => b.setAttribute('aria-pressed', String(on)));
+    boxes().filter(c => c.value === mod).forEach(c => { c.checked = on; });
   };
-  picks.forEach(b => b.addEventListener('click', () => { setModule(b.dataset.module, b.getAttribute('aria-pressed') !== 'true'); renderPicks(); }));
-  boxes.forEach(c => c.addEventListener('change', () => { setModule(c.value, c.checked); renderPicks(); }));
-  if (picks.length || boxes.length) { renderPicks(); listeners.push(renderPicks); }
+  document.addEventListener('click', e => {
+    const b = e.target.closest('button[data-module][aria-pressed]');
+    if (b) { setModule(b.dataset.module, b.getAttribute('aria-pressed') !== 'true'); renderPicks(); }
+  });
+  document.addEventListener('change', e => {
+    const c = e.target.closest('input[type=checkbox][name="modules"]');
+    if (c) { setModule(c.value, c.checked); renderPicks(); }
+  });
+  if (picks().length || boxes().length) { renderPicks(); listeners.push(renderPicks); }
 
   /* ---------- B: platform cards expand to the module list ---------- */
   $$('.mod-btn').forEach(btn => btn.addEventListener('click', () => {

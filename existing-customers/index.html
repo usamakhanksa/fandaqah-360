@@ -317,7 +317,7 @@
         <h2 class="v2-h2" id="mods-title" data-i18n="mods.title">Why existing customers are upgrading.</h2>
         <p class="v2-sub" data-i18n="mods.sub">The PMS your team relies on stays exactly as it is. Fandaqah 360 brings in the departments that still run on spreadsheets, phone calls and paper.</p>
       </div>
-      <div class="pa-cards">
+      <div class="pa-cards" id="pa-cards">
         <article class="pa-card" data-reveal style="--i:0">
           <figure class="pa-card-media" aria-hidden="true">
             <img src="../assets/img/panel-lounge.webp" width="672" height="426" alt="" loading="lazy" style="object-position:30% 60%">
@@ -380,6 +380,14 @@
           <p class="pa-card-k" data-i18n="m5.t">Inventory</p><h3 data-i18n="o5.t">Less waste, fewer surprises.</h3><p data-i18n="m5.d">Stock levels and item movements in view, with low stock easy to spot before it runs out.</p>
           <button class="pa-pick" type="button" data-module="inventory" aria-pressed="false"><span class="pa-box" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="pick">Prioritise in my upgrade</span><span class="pa-plus" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-plus"/></svg></span></button>
         </article>
+      </div>
+      <!-- modules 6 to 20 load three at a time from modules.json; without JavaScript this stays hidden and the five cards stand -->
+      <div class="pa-more" data-src="modules.json" hidden>
+        <p class="pa-more-count"><b data-more-shown>5</b> <span data-i18n="more.of">of 20 modules shown</span></p>
+        <span class="pa-more-track" aria-hidden="true"><i></i></span>
+        <button class="pa-more-btn" type="button" data-more aria-controls="pa-cards"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-plus"/></svg><span data-i18n="more.btn">Show 3 more modules</span></button>
+        <p class="pa-more-done" tabindex="-1" data-i18n="more.done" hidden>All 20 modules shown. Every one is included in Fandaqah 360.</p>
+        <p class="pa-more-status" aria-live="polite"></p>
       </div>
     </div>
   </section>
@@ -664,6 +672,9 @@ window.FQ_PAGE = {
     "o1.t": "رؤية مالية أوضح.",
     "m1.d": "الإيرادات والمصروفات والتقارير التشغيلية في مكان واحد، دون إعادة إدخال الأرقام بين الأنظمة.",
     "pick": "أولوية في ترقيتي",
+    "more.btn": "اعرض 3 وحدات أخرى",
+    "more.of": "من 20 وحدة معروضة",
+    "more.done": "تُعرض الآن الوحدات العشرون كلها، وجميعها مشمولة في فندقة 360.",
     "g2.h": "أوامر الشراء",
     "g2.1": "طلب جديد",
     "g2.2": "أُرسل إلى المورد",
@@ -796,7 +807,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('lead-form'), sheet = document.querySelector('.pa-sheet'), done = document.getElementById('lead-done');
   if (!form || !sheet) return;
   const root = document.documentElement, still = matchMedia('(prefers-reduced-motion: reduce)');
-  const ICON = { accounting: 'i-coins', purchasing: 'i-shopping-cart', housekeeping: 'i-bed-double', maintenance: 'i-wrench', inventory: 'i-package' };
+  const ICON = { accounting: 'i-coins', purchasing: 'i-shopping-cart', housekeeping: 'i-bed-double', maintenance: 'i-wrench', inventory: 'i-package',
+    hr: 'i-users', crm: 'i-message', pos: 'i-concierge-bell', channel: 'i-share-2', booking: 'i-calendar-days', payments: 'i-credit-card',
+    recipes: 'i-clipboard-check', 'room-service': 'i-phone', signature: 'i-file-text', 'id-scanner': 'i-user', zatca: 'i-shield-check',
+    shomoos: 'i-key', ntmp: 'i-chart-line', support: 'i-life-buoy', pms: 'i-hotel' };
+  // every module picked on a card or in the form; site.js sends the full list with each change
+  let mods = [...new Set([...document.querySelectorAll('.pa-pick[aria-pressed="true"]')].map(b => b.dataset.module)
+    .concat([...form.querySelectorAll('input[name="modules"]:checked')].map(b => b.value)))];
+  const nameOf = m => {
+    const card = document.querySelector(`.pa-pick[data-module="${m}"]`), k = card && card.closest('.pa-card').querySelector('.pa-card-k');
+    const box = form.querySelector(`input[name="modules"][value="${m}"]`);
+    return k ? k.textContent : box ? box.closest('label').querySelector('span').textContent : m;
+  };
   const slot = k => sheet.querySelector(`[data-slot="${k}"]`);
   const val = n => (form.elements[n] && form.elements[n].value.trim()) || '';
   const written = {};
@@ -812,12 +834,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // the term reads as its own label and price, in the page's language
     const term = form.querySelector('input[name="term"]:checked'), tl = term && term.closest('label');
     put('term', tl ? `${tl.querySelector('b').textContent} · ${tl.querySelector('small').textContent}` : '', quiet);
-    const picked = [...form.querySelectorAll('input[name="modules"]:checked')], list = slot('modules'), key = picked.map(b => b.value).join() + root.lang;
+    const list = slot('modules'), key = mods.join() + root.lang;
     if (list.dataset.key !== key) {
       list.dataset.key = key;
       list.querySelectorAll('li:not(.ph)').forEach(li => li.remove());
-      picked.forEach(b => { const li = document.createElement('li'); li.innerHTML = `<svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#${ICON[b.value]}"/></svg>`; li.append(b.closest('label').querySelector('span').textContent); list.append(li); });
-      list.classList.toggle('is-set', picked.length > 0);
+      mods.forEach(m => { const li = document.createElement('li'); li.innerHTML = `<svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#${ICON[m] || 'i-check'}"/></svg>`; li.append(nameOf(m)); list.append(li); });
+      list.classList.toggle('is-set', mods.length > 0);
     }
     if (sheet.dataset.state === 'sent') return;
     const filled = ['company', 'name', 'contact'].filter(val).length + (term ? 1 : 0) + (form.elements.contact_ok.checked ? 1 : 0);
@@ -826,7 +848,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   ['input', 'change'].forEach(t => form.addEventListener(t, () => render()));
   // module picks made on the cards above reach the form through site.js
-  document.addEventListener('fq:modules', () => setTimeout(render));
+  document.addEventListener('fq:modules', e => { mods = e.detail || []; setTimeout(render); });
   // the language switch rewrites labels, so the sheet re-reads them without the ink glow
   document.querySelectorAll('[data-lang]').forEach(b => b.addEventListener('click', () => setTimeout(() => { Object.keys(written).forEach(k => delete written[k]); render(true); })));
   new MutationObserver(() => {
@@ -835,6 +857,90 @@ document.addEventListener('DOMContentLoaded', () => {
     sheet.querySelector('.pa-sheet-ref').textContent = done.querySelector('.ref b').textContent;
   }).observe(done, { attributes: true, attributeFilter: ['hidden'] });
   render(true);
+});
+</script>
+<script>
+/* Modules 6 to 20. The first five cards ship with the page; "Show 3 more" fetches modules.json and adds the next three
+   each time, in the reader's language, until all twenty are on the page. Picks on the new cards reach the form through
+   site.js (it re-queries the cards), and a language switch rewrites the loaded cards without touching their picks. */
+document.addEventListener('DOMContentLoaded', () => {
+  const grid = document.getElementById('pa-cards'), more = document.querySelector('.pa-more');
+  if (!grid || !more) return;
+  const btn = more.querySelector('[data-more]'), shownEl = more.querySelector('[data-more-shown]'), track = more.querySelector('.pa-more-track i');
+  const status = more.querySelector('.pa-more-status'), doneEl = more.querySelector('.pa-more-done');
+  const root = document.documentElement, STEP = 3, base = grid.children.length;
+  const MSG = { en: { loading: 'Loading…', error: 'We couldn’t load more modules. Please try again.', added: n => `${n} more modules shown.` },
+                ar: { loading: 'جارٍ التحميل…', error: 'تعذّر تحميل المزيد من الوحدات، حاول مرة أخرى.', added: n => `عُرضت ${n} وحدات أخرى.` } };
+  const lang = () => (root.lang === 'ar' ? 'ar' : 'en'), tx = v => (Array.isArray(v) ? v[lang() === 'ar' ? 1 : 0] : v);
+  const esc = v => String(v).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const ico = id => `<svg class="ic"><use href="../assets/icons.svg#${id}"/></svg>`;
+  let data = null;
+  const loaded = [];
+  // the same illustrative panels the first five cards use: bars, list, status, ticket and stock
+  const glass = g => {
+    const h = `<p>${esc(tx(g.h))}</p>`;
+    if (g.type === 'bars') return h + `<div class="pa-bars">${g.bars.map(v => `<i style="--h:${v}"></i>`).join('')}</div><ul class="pa-legend">${g.legend.map(l => `<li style="--c:${l.c}">${esc(tx(l.t))}</li>`).join('')}</ul>`;
+    if (g.type === 'list') return h + `<ul class="pa-list">${g.items.map(i => `<li>${ico(i.i)}<span>${esc(tx(i.t))}</span></li>`).join('')}</ul>`;
+    if (g.type === 'status') return h + `<ul class="pa-status">${g.rows.map(r => `<li style="--c:${r.c};--w:${r.w}"><i></i><span>${esc(tx(r.t))}</span><b></b></li>`).join('')}</ul>`;
+    if (g.type === 'ticket') return h + `<dl class="pa-ticket">${g.rows.map(r => `<div><dt>${esc(tx(r.dt))}</dt><dd>${esc(tx(r.dd))}</dd></div>`).join('')}</dl><p class="pa-state">${esc(tx(g.state))}</p>`;
+    return h + `<ul class="pa-stock">${g.rows.map(r => `<li${r.low ? ' class="is-low"' : ''}><span>${esc(tx(r.t))}</span><b>${esc(tx(r.v))}</b>${r.low ? `<em>${esc(tx(g.low))}</em>` : ''}</li>`).join('')}</ul>`;
+  };
+  const write = ({ m, el }) => {
+    const t = m[lang()];
+    el.querySelector('.pa-glass').innerHTML = glass(m.glass);
+    el.querySelector('.pa-card-k').textContent = t.k;
+    el.querySelector('h3').textContent = t.t;
+    el.querySelector('.pa-card-d').textContent = t.d;
+    el.querySelector('.pa-pick-t').textContent = tx(data.ui.pick);
+  };
+  const build = (m, k) => {
+    const el = document.createElement('article');
+    el.className = 'pa-card is-new'; el.style.setProperty('--k', k);
+    el.innerHTML = `<figure class="pa-card-media" aria-hidden="true"><img src="${esc(m.img.src)}" width="${m.img.w}" height="${m.img.h}" alt="" loading="lazy" decoding="async" style="object-position:${esc(m.img.pos)}"><div class="pa-glass"></div></figure>`
+      + `<span class="pa-card-ic" aria-hidden="true">${ico(m.icon)}</span><p class="pa-card-k"></p><h3></h3><p class="pa-card-d"></p>`
+      + `<button class="pa-pick" type="button" data-module="${esc(m.id)}" aria-pressed="false"><span class="pa-box" aria-hidden="true">${ico('i-check')}</span><span class="pa-pick-t"></span><span class="pa-plus" aria-hidden="true">${ico('i-plus')}</span></button>`;
+    const item = { m, el };
+    write(item);
+    return item;
+  };
+  const progress = () => {
+    const shown = base + loaded.length, total = base + (data ? data.modules.length : 15);
+    shownEl.textContent = shown;
+    track.style.setProperty('--p', (shown / total).toFixed(3));
+    if (data && loaded.length >= data.modules.length) { btn.hidden = true; doneEl.hidden = false; }
+  };
+  btn.addEventListener('click', async () => {
+    if (btn.getAttribute('aria-busy') === 'true') return;
+    btn.setAttribute('aria-busy', 'true'); more.classList.add('is-loading'); status.textContent = MSG[lang()].loading;
+    try {
+      // one AJAX request per click; after the first, the browser answers it from its cache
+      const res = await fetch(more.dataset.src, { headers: { Accept: 'application/json' } });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      data = await res.json();
+      const next = data.modules.slice(loaded.length, loaded.length + STEP).map(build);
+      next.forEach(item => { grid.append(item.el); loaded.push(item); });
+      void grid.offsetWidth;                     // start the entrance from the hidden state
+      next.forEach(item => item.el.classList.add('is-in'));
+      progress();
+      status.textContent = MSG[lang()].added(next.length);
+      if (btn.hidden) doneEl.focus();
+    } catch (e) {
+      status.textContent = MSG[lang()].error;
+    } finally {
+      btn.removeAttribute('aria-busy'); more.classList.remove('is-loading');
+    }
+  });
+  // site.js switches the language first; then the loaded cards follow, and the tray and sheet re-read their names
+  document.querySelectorAll('[data-lang]').forEach(b => b.addEventListener('click', () => {
+    if (!loaded.length) return;
+    loaded.forEach(write);
+    status.textContent = '';
+    const picked = [...new Set([...document.querySelectorAll('button[data-module][aria-pressed="true"]')].map(x => x.dataset.module)
+      .concat([...document.querySelectorAll('input[name="modules"]:checked')].map(x => x.value)))];
+    document.dispatchEvent(new CustomEvent('fq:modules', { detail: picked }));
+  }));
+  more.hidden = false;
+  progress();
 });
 </script>
 <script src="../assets/vendor/scrollcraft/scrollcraft.js" defer></script>
