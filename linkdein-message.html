@@ -1,0 +1,1348 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Outreach Kit | Fandaqah 360</title>
+<meta name="description" content="Fandaqah 360 LinkedIn outreach kit for the sales team: five-touch sequences for existing customers and new hotels, in Arabic and English, personalised and ready to paste.">
+<!-- internal sales tool: published with the site for the team, kept out of search engines -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#F0EDE9">
+<link rel="icon" href="favicon.ico">
+<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;src:url(assets/fonts/inter-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Source Serif 4";font-style:normal;font-weight:200 900;font-display:swap;src:url(assets/fonts/source-serif-4-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Almarai";font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/almarai-arabic-400.woff2) format("woff2");unicode-range:U+0600-06FF,U+0750-077F,U+0870-08FF,U+200C-200E,U+2010-2011,U+FB50-FDFF,U+FE70-FEFC}
+@font-face{font-family:"Almarai";font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/almarai-arabic-700.woff2) format("woff2");unicode-range:U+0600-06FF,U+0750-077F,U+0870-08FF,U+200C-200E,U+2010-2011,U+FB50-FDFF,U+FE70-FEFC}
+@font-face{font-family:"El Messiri";font-style:normal;font-weight:400 700;font-display:swap;src:url(assets/fonts/el-messiri-arabic.woff2) format("woff2");unicode-range:U+0600-06FF,U+0750-077F,U+0870-08FF,U+200C-200E,U+2010-2011,U+FB50-FDFF,U+FE70-FEFC}
+
+/* campaign site palette (assets/css/site.css), set as surface roles */
+:root{
+  --bg:#F0EDE9; --surface:#FFFFFF; --panel:#F8F6F3; --field:#F5F1ED; --line:#E1DBD2; --line-soft:#ECE7E0;
+  --ink:#18172F; --ink-2:#47455C; --ink-3:#69677C; --navy:#282639; --navy-2:#34324A;
+  --coral:#E64D44; --coral-ink:#B8352E; --coral-btn:#D4413B; --coral-btn-h:#BF3832; --peach:#F7D0B5; --peach-50:#FCEEE5;
+  --ok:#2E7550; --ok-50:#E4F1E9; --warn:#8A5A0A; --warn-50:#FBF0DA;
+  --f-sans:"Inter", "Segoe UI", system-ui, sans-serif; --f-display:"Source Serif 4", Georgia, serif;
+  --r-sm:8px; --r-md:12px; --r-lg:16px;
+  --e1:0 1px 2px rgba(24,23,47,.05), 0 4px 12px -6px rgba(24,23,47,.12);
+  --e2:0 1px 2px rgba(24,23,47,.05), 0 14px 30px -16px rgba(24,23,47,.22);
+  --e3:0 2px 6px rgba(24,23,47,.06), 0 28px 60px -24px rgba(24,23,47,.35);
+  --ease:cubic-bezier(.23,1,.32,1);
+  --bar-h:64px; --status-h:40px; --side-w:252px; --inbox-w:388px;
+}
+html[lang="ar"]{ --f-sans:"Almarai", "Inter", system-ui, sans-serif; --f-display:"El Messiri", "Source Serif 4", serif; }
+html[lang="ar"] body *{letter-spacing:0 !important}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:calc(var(--bar-h) + 20px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 14px/1.55 var(--f-sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;padding-bottom:var(--status-h)}
+h1,h2,h3,p,ul,ol,dl,dd,figure{margin:0}
+ul,ol{padding:0;list-style:none}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+::selection{background:var(--peach);color:var(--ink)}
+:focus-visible{outline:2px solid var(--coral-btn);outline-offset:2px;border-radius:6px}
+input,textarea{caret-color:var(--coral-btn)}
+.ic{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:absolute;inset-inline-start:12px;top:-60px;z-index:100;padding:10px 14px;border-radius:var(--r-sm);background:var(--navy);color:#fff;font-weight:600;text-decoration:none}
+.skip:focus{top:10px}
+[hidden]{display:none !important}
+.num{font-variant-numeric:tabular-nums}
+.thin-scroll{scrollbar-width:thin;scrollbar-color:#CFC7BC transparent}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:36px;padding:0 14px;border:0;border-radius:var(--r-sm);font-size:13px;font-weight:600;line-height:1;white-space:nowrap;text-decoration:none;transition:background-color .15s var(--ease), box-shadow .15s var(--ease), transform .12s var(--ease)}
+.btn:active{transform:translateY(1px)}
+.btn:disabled{opacity:.55;cursor:not-allowed;transform:none}
+.btn-primary{background:var(--coral-btn);color:#fff;box-shadow:0 1px 2px rgba(180,52,46,.25), 0 8px 16px -10px rgba(212,65,59,.7)}
+.btn-ghost{background:var(--surface);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+.btn-sm{height:32px;padding:0 12px;font-size:12.5px}
+.btn-icon{display:inline-grid;place-items:center;width:32px;height:32px;padding:0;border:0;border-radius:var(--r-sm);background:transparent;color:var(--ink-2);transition:background-color .15s var(--ease), color .15s var(--ease)}
+.btn-icon:active{transform:translateY(1px)}
+.btn.is-done{background:var(--ok);box-shadow:none}
+.btn-ghost.is-done,.btn-icon.is-done{background:var(--ok-50);color:var(--ok);box-shadow:inset 0 0 0 1px rgba(46,117,80,.3)}
+@media (hover:hover) and (pointer:fine){
+  .btn-primary:hover{background:var(--coral-btn-h)}
+  .btn-ghost:hover{box-shadow:inset 0 0 0 1px #CFC7BC, var(--e1)}
+  .btn-icon:hover{background:var(--field);color:var(--ink)}
+}
+
+/* ---------- app chrome: bar ---------- */
+.bar{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:18px;height:var(--bar-h);padding:0 20px;background:rgba(255,255,255,.96);-webkit-backdrop-filter:saturate(1.2) blur(8px);backdrop-filter:saturate(1.2) blur(8px);box-shadow:0 1px 0 var(--line)}
+.brand{display:flex;align-items:center;flex:none;border-radius:6px}
+.brand img{height:34px;width:auto}
+.bar-title{display:grid;line-height:1.2;padding-inline-start:18px;border-inline-start:1px solid var(--line);min-width:0}
+.bar-title strong{font-size:14px;font-weight:700;white-space:nowrap}
+.bar-title span{font-size:12px;color:var(--ink-3);white-space:nowrap}
+.bar-ctl{display:flex;align-items:center;gap:10px;margin-inline-start:auto}
+.seg{display:inline-flex;padding:3px;border-radius:10px;background:var(--field);box-shadow:inset 0 0 0 1px var(--line-soft)}
+.seg button{display:inline-flex;align-items:center;gap:7px;height:30px;padding:0 12px;border:0;border-radius:var(--r-sm);background:transparent;color:var(--ink-2);font-size:12.5px;font-weight:600;white-space:nowrap;transition:background-color .15s var(--ease), color .15s var(--ease)}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:var(--e1)}
+.seg button[lang="ar"]{font-family:"Almarai", var(--f-sans);font-weight:700}
+.seg-code{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:5px;background:var(--line-soft);font-size:10.5px;font-weight:800;color:var(--ink-2)}
+.seg button[aria-pressed="true"] .seg-code{background:var(--navy);color:#fff}
+@media (hover:hover) and (pointer:fine){ .seg button[aria-pressed="false"]:hover{color:var(--ink);background:rgba(255,255,255,.6)} }
+.inbox-toggle{display:none;align-items:center;gap:8px;height:36px;padding:0 12px;border:0;border-radius:var(--r-sm);background:var(--navy);color:#fff;font-size:12.5px;font-weight:600}
+.inbox-toggle .count{display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 6px;border-radius:10px;background:var(--coral-btn);font-size:11px;font-weight:700}
+
+/* ---------- app grid ---------- */
+.app{display:grid;grid-template-columns:var(--side-w) minmax(0, 1fr) var(--inbox-w);align-items:start}
+
+/* sidebar: the sequence is the navigation */
+.side{position:sticky;top:var(--bar-h);height:calc(100dvh - var(--bar-h) - var(--status-h));overflow:auto;padding:22px 14px 24px;border-inline-end:1px solid var(--line)}
+.side-h{margin:0 10px 8px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.side-h + * {margin-bottom:22px}
+.nav-steps{position:relative}
+.nav-steps::before{content:"";position:absolute;top:18px;bottom:18px;inset-inline-start:21px;width:1px;background:var(--line)}
+.nav-steps a,.nav-tools a{position:relative;display:grid;grid-template-columns:24px 1fr;align-items:center;column-gap:10px;padding:8px 10px;border-radius:var(--r-sm);text-decoration:none;color:var(--ink-2);transition:background-color .15s var(--ease), color .15s var(--ease)}
+.nav-steps .dot{position:relative;z-index:1;display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--surface);box-shadow:inset 0 0 0 1.5px var(--line);font-size:11px;font-weight:700;color:var(--ink-3)}
+.nav-steps .is-ready .dot{background:var(--ok-50);box-shadow:inset 0 0 0 1.5px rgba(46,117,80,.45);color:var(--ok)}
+.nav-steps .is-missing .dot{background:#FFF3EF;box-shadow:inset 0 0 0 1.5px rgba(212,65,59,.5);color:var(--coral-ink)}
+.nav-l{font-size:13px;font-weight:600;line-height:1.3;color:inherit}
+.nav-d{grid-column:2;font-size:11.5px;color:var(--ink-3)}
+.nav-steps a.is-active,.nav-tools a.is-active{background:var(--surface);color:var(--ink);box-shadow:var(--e1)}
+.nav-tools a{grid-template-columns:24px 1fr}
+.nav-tools .ic{justify-self:center;color:var(--ink-3)}
+@media (hover:hover) and (pointer:fine){ .nav-steps a:hover,.nav-tools a:hover{background:rgba(255,255,255,.7);color:var(--ink)} }
+
+/* ---------- main column ---------- */
+.main{min-width:0;padding:30px clamp(20px, 3vw, 44px) 40px}
+.main-in{max-width:760px;margin-inline:auto}
+.intro h1{font:600 30px/1.15 var(--f-display);letter-spacing:-.015em;text-wrap:balance}
+.intro .lede{max-width:62ch;margin-top:10px;font-size:15px;line-height:1.6;color:var(--ink-2);text-wrap:pretty}
+.route{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin-top:14px;font-size:13px;color:var(--ink-2)}
+.route .tag{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 9px;border-radius:999px;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line);font-size:12px;font-weight:700;color:var(--ink)}
+.route a{font-weight:600;color:var(--coral-ink);text-underline-offset:3px}
+
+/* prospect panel: the surface's first state */
+.prospect{margin-top:22px;padding:20px 22px 22px;border-radius:var(--r-lg);background:var(--surface);box-shadow:var(--e2), inset 0 0 0 1px var(--line-soft)}
+.pr-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.pr-head h2{font-size:15px;font-weight:700}
+.chip-demo{display:inline-flex;align-items:center;height:22px;padding:0 9px;border-radius:999px;background:var(--warn-50);color:var(--warn);font-size:11.5px;font-weight:700}
+.pr-actions{display:flex;gap:8px;margin-inline-start:auto}
+.pr-grid{display:grid;grid-template-columns:repeat(6, minmax(0, 1fr));gap:14px 14px;margin-top:16px}
+.field{display:grid;align-content:start;gap:6px;grid-column:span 2}
+.field label{font-size:12.5px;font-weight:600;color:var(--ink-2)}
+.field .opt{font-weight:500;color:var(--ink-3)}
+.field input,.field select,.field textarea{width:100%;min-height:40px;padding:0 12px;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--field);font-size:14px;transition:border-color .15s var(--ease), box-shadow .15s var(--ease), background-color .15s var(--ease)}
+.field textarea{min-height:64px;padding:10px 12px;line-height:1.5;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:0;border-color:var(--coral);background:#fff;box-shadow:0 0 0 3px rgba(230,77,68,.16)}
+.field.is-empty input{border-color:rgba(212,65,59,.45);background:#FFF8F5}
+.field-note{grid-column:span 6}
+.pr-grid.is-b [data-f="rep"],.pr-grid.is-b [data-f="date"]{grid-column:span 3}
+.field-wide{grid-column:span 3}
+.tenure{display:grid;grid-template-columns:76px 1fr;gap:8px}
+.hint{display:flex;justify-content:space-between;gap:10px;font-size:11.5px;line-height:1.45;color:var(--ink-3)}
+.hint.warn{color:var(--warn)}
+.hint .count{flex:none;font-variant-numeric:tabular-nums}
+
+/* ---------- the sequence ---------- */
+.seq{position:relative;margin-top:34px}
+.seq::before{content:"";position:absolute;top:14px;bottom:40px;inset-inline-start:15px;width:2px;border-radius:2px;background:linear-gradient(var(--line), var(--line)) no-repeat}
+.step{position:relative;padding-inline-start:48px;padding-bottom:38px}
+.step-node{position:absolute;top:0;inset-inline-start:0;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--surface);box-shadow:inset 0 0 0 2px var(--line), var(--e1);font-size:13px;font-weight:800;color:var(--ink-2);transition:background-color .2s var(--ease), color .2s var(--ease), box-shadow .2s var(--ease)}
+.step.is-ready .step-node{background:var(--navy);color:#fff;box-shadow:0 0 0 4px var(--bg), var(--e1)}
+.step-head{display:flex;align-items:flex-start;gap:12px;min-height:32px}
+.step-title{flex:1;min-width:0}
+.step-title h2{font-size:17px;font-weight:700;line-height:1.3}
+.step-when{display:flex;align-items:center;gap:6px;margin-top:3px;font-size:12.5px;color:var(--ink-3)}
+.step-when .ic{width:14px;height:14px}
+.badge{display:inline-flex;align-items:center;gap:6px;flex:none;height:26px;padding:0 10px;border-radius:999px;font-size:12px;font-weight:700;white-space:nowrap}
+.badge .ic{width:14px;height:14px;stroke-width:2.4}
+.badge.is-ready{background:var(--ok-50);color:var(--ok)}
+.badge.is-missing,.badge.is-long{background:#FFF0EB;color:var(--coral-ink)}
+.subj{display:flex;align-items:center;gap:10px;margin-top:14px;padding:9px 8px 9px 14px;border-radius:var(--r-md);background:var(--panel);box-shadow:inset 0 0 0 1px var(--line-soft)}
+html[dir="rtl"] .subj{padding:9px 14px 9px 8px}
+.subj-k{flex:none;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.subj-v{flex:1;min-width:0;font-size:14px;font-weight:600}
+.paper{margin-top:10px;padding:22px 24px;border-radius:var(--r-md);background:var(--surface);box-shadow:var(--e1), inset 0 0 0 1px var(--line-soft);font-size:15px;line-height:1.65;color:var(--ink)}
+.paper p + p,.paper p + ul,.paper ul + p,.paper p + ol,.paper ol + p{margin-top:12px}
+.paper li{position:relative;padding-inline-start:18px}
+.paper li + li{margin-top:4px}
+.paper ul li::before{content:"";position:absolute;inset-inline-start:3px;top:.68em;width:6px;height:6px;border-radius:50%;background:var(--coral)}
+.paper ol{counter-reset:n}
+.paper ol li{counter-increment:n;padding-inline-start:24px}
+.paper ol li::before{content:counter(n) ".";position:absolute;inset-inline-start:0;font-weight:700;color:var(--coral-ink);font-variant-numeric:tabular-nums}
+.paper .sign{color:var(--ink-2)}
+.paper a,.bubble a{color:var(--coral-ink);text-decoration:underline;text-underline-offset:3px;word-break:break-all}
+html[lang="ar"] .paper{font-size:16px;line-height:1.9}
+.paper[dir="ltr"]{text-align:left}
+.paper-edit{display:block;width:100%;min-height:280px;margin-top:10px;padding:20px 22px;border:1px solid var(--coral);border-radius:var(--r-md);background:#fff;font-size:14.5px;line-height:1.65;resize:vertical;box-shadow:0 0 0 3px rgba(230,77,68,.14)}
+.paper-edit:focus{outline:0}
+/* merged fields: filled values carry a highlighter mark, empty ones a dashed slot */
+.v{border-radius:2px;background:linear-gradient(transparent 58%, rgba(247,208,181,.85) 0)}
+.v.miss,.bubble .miss{padding:0 4px;border-radius:4px;background:#FFF3EF;color:var(--coral-ink);outline:1px dashed rgba(212,65,59,.55);outline-offset:-1px;font-weight:600}
+.step-foot{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin-top:12px}
+.meter{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--ink-3)}
+.meter-bar{position:relative;width:96px;height:6px;overflow:hidden;border-radius:3px;background:var(--line-soft)}
+.meter-bar i{position:absolute;inset:0;border-radius:inherit;background:var(--navy);transform-origin:0 50%;transform:scaleX(var(--p, 0));transition:transform .3s var(--ease)}
+html[dir="rtl"] .meter-bar i{transform-origin:100% 50%}
+.meter.is-over .meter-bar i{background:var(--coral-btn)}
+.meter.is-over{color:var(--coral-ink);font-weight:600}
+.link-chip{display:inline-flex;align-items:center;gap:6px;min-width:0;font-size:12px;color:var(--ink-3)}
+.link-chip code{max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:2px 6px;border-radius:5px;background:var(--panel);box-shadow:inset 0 0 0 1px var(--line-soft);font:500 11.5px/1.4 ui-monospace, "Cascadia Code", Consolas, monospace;color:var(--ink-2)}
+.link-chip .btn-icon{width:28px;height:28px}
+.step-actions{display:flex;gap:8px;margin-inline-start:auto}
+.edited-hint{margin-top:8px;font-size:12px;color:var(--warn)}
+.why{display:flex;gap:8px;margin-top:12px;max-width:66ch;font-size:12.5px;line-height:1.55;color:var(--ink-3)}
+.why .ic{margin-top:2px;color:var(--coral)}
+
+/* ---------- toolkit blocks ---------- */
+.block{margin-top:22px;padding-top:34px;border-top:1px solid var(--line)}
+.block > h2{font:600 22px/1.2 var(--f-display);letter-spacing:-.01em}
+.block > .lede{max-width:64ch;margin-top:8px;font-size:14px;color:var(--ink-2)}
+.replies{margin-top:18px;border-top:1px solid var(--line-soft)}
+.reply{display:grid;grid-template-columns:minmax(0, .8fr) minmax(0, 1.6fr) auto;gap:6px 22px;padding:16px 0;border-bottom:1px solid var(--line-soft)}
+.reply-q{font:600 15px/1.4 var(--f-display);color:var(--ink)}
+.reply-a{font-size:14px;line-height:1.6;color:var(--ink)}
+.reply-after{grid-column:2;display:flex;gap:6px;font-size:12px;color:var(--ink-3)}
+.reply-after .ic{width:14px;height:14px;margin-top:2px}
+.reply .btn-icon{grid-row:1;grid-column:3}
+.subjects{width:100%;margin-top:18px;border-collapse:collapse;font-size:14px}
+.subjects th{padding:0 10px 10px;text-align:start;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.subjects td{padding:11px 10px;border-top:1px solid var(--line-soft);vertical-align:middle}
+.subjects td:first-child{font-weight:600}
+.subjects .len{width:64px;font-size:12.5px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.subjects .tagc{width:116px}
+.subjects .act{width:44px}
+.tg{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:999px;font-size:11px;font-weight:700;white-space:nowrap}
+.tg-ok{background:var(--ok-50);color:var(--ok)}
+.tg-new{background:var(--peach-50);color:var(--coral-ink)}
+.tg-draft{background:var(--field);color:var(--ink-2)}
+.tg-off{background:#F1EEEA;color:var(--ink-3)}
+.subjects tr.is-retired td:first-child{color:var(--ink-3);text-decoration:line-through;text-decoration-color:rgba(184,53,46,.55);font-weight:500}
+.subjects .why-off{display:inline-block;width:100%;margin-top:2px;font-size:12px;font-weight:500;color:var(--ink-3);text-decoration:none}
+.play{display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:26px 34px;margin-top:20px}
+.play h3{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700}
+.play h3 .ic{color:var(--coral)}
+.play ul{display:grid;gap:7px;margin-top:10px}
+.play li{position:relative;padding-inline-start:16px;font-size:13.5px;line-height:1.55;color:var(--ink-2)}
+.play li::before{content:"";position:absolute;inset-inline-start:2px;top:.62em;width:5px;height:5px;border-radius:50%;background:var(--ink-3)}
+.claims{grid-column:1 / -1;display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:var(--r-md);overflow:hidden;box-shadow:inset 0 0 0 1px var(--line)}
+.claims > div{padding:16px 18px;background:var(--surface)}
+.claims > div + div{background:var(--panel);border-inline-start:1px solid var(--line)}
+.claims h3 .ic{color:var(--ok)}
+.claims > div + div h3 .ic{color:var(--coral-ink)}
+.claims li::before{background:var(--ok)}
+.claims > div + div li::before{background:var(--coral-btn)}
+.changes{grid-column:1 / -1}
+.changes table{width:100%;margin-top:10px;border-collapse:collapse;font-size:13px}
+.changes th{padding:0 10px 8px;text-align:start;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.changes td{padding:10px;border-top:1px solid var(--line-soft);vertical-align:top;line-height:1.5}
+.changes td:nth-child(1){width:30%;color:var(--ink-3)}
+.changes td:nth-child(2){width:30%;font-weight:600}
+.changes td:nth-child(3){color:var(--ink-2)}
+
+/* the close: an input */
+.next{margin-top:22px;padding:24px 24px 26px;border-radius:var(--r-lg);background:var(--navy);color:#fff;box-shadow:var(--e3);--focus:#F7D0B5}
+.next :focus-visible{outline-color:var(--peach)}
+.next h2{font:600 22px/1.2 var(--f-display)}
+.next > p{max-width:62ch;margin-top:8px;font-size:14px;color:rgba(255,255,255,.78)}
+.next-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.next .btn-ghost{background:rgba(255,255,255,.08);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.2)}
+.next-form{margin-top:18px}
+.next-form label{font-size:12.5px;font-weight:600;color:rgba(255,255,255,.78)}
+.next-input{display:flex;gap:8px;margin-top:6px;max-width:460px}
+.next-input input{flex:1;min-width:0;height:44px;padding:0 14px;border:1px solid rgba(255,255,255,.22);border-radius:var(--r-sm);background:rgba(255,255,255,.06);color:#fff;font-size:15px;caret-color:var(--peach)}
+.next-input input::placeholder{color:rgba(255,255,255,.45)}
+.next-input input:focus{outline:0;border-color:var(--peach);box-shadow:0 0 0 3px rgba(247,208,181,.22)}
+.next-input .btn{height:44px;padding:0 18px}
+@media (hover:hover) and (pointer:fine){ .next .btn-ghost:hover{background:rgba(255,255,255,.14);box-shadow:inset 0 0 0 1px rgba(255,255,255,.3)} }
+.foot{margin-top:26px;padding-top:16px;border-top:1px solid var(--line);font-size:12px;color:var(--ink-3)}
+
+/* ---------- inbox preview: the conversation writes itself ---------- */
+.inbox{position:sticky;top:var(--bar-h);display:flex;flex-direction:column;height:calc(100dvh - var(--bar-h) - var(--status-h));border-inline-start:1px solid var(--line);background:var(--panel)}
+.inbox-head{display:flex;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid var(--line);background:var(--surface)}
+.av{display:grid;place-items:center;flex:none;width:38px;height:38px;border-radius:50%;background:var(--navy);color:#fff;font-size:14px;font-weight:700}
+.av-me{background:var(--coral-btn)}
+.inbox-who{flex:1;min-width:0;line-height:1.3}
+.inbox-who strong{display:block;overflow:hidden;font-size:14px;text-overflow:ellipsis;white-space:nowrap}
+.inbox-who span{display:block;overflow:hidden;font-size:12px;color:var(--ink-3);text-overflow:ellipsis;white-space:nowrap}
+.inbox-k{flex:none;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.inbox-close{display:none}
+.thread{flex:1;overflow:auto;padding:16px 16px 24px;overscroll-behavior:contain}
+.sys{display:flex;justify-content:center;margin:16px 0 10px}
+.sys span{padding:3px 10px;border-radius:999px;background:var(--line-soft);font-size:11px;font-weight:600;color:var(--ink-2)}
+.invite{padding:12px 14px;border-radius:var(--r-md);background:var(--surface);box-shadow:inset 0 0 0 1px var(--line);font-size:13px;line-height:1.55}
+.invite-k{display:flex;align-items:center;gap:6px;margin-bottom:6px;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3)}
+.invite-k .ic{width:14px;height:14px}
+.msg{display:flex;align-items:flex-end;gap:8px}
+.msg .av{width:28px;height:28px;font-size:11px}
+.bubble{flex:1;min-width:0;padding:11px 13px;border-radius:14px 14px 14px 4px;background:var(--surface);box-shadow:var(--e1), inset 0 0 0 1px var(--line-soft);font-size:13px;line-height:1.55}
+html[dir="rtl"] .bubble{border-radius:14px 14px 4px 14px}
+.bubble p + p{margin-top:8px}
+html[lang="ar"] .bubble,html[lang="ar"] .invite{font-size:14px;line-height:1.8}
+.thread .is-new{animation:land .42s var(--ease) both}
+@keyframes land{from{opacity:0;transform:translate3d(0, 10px, 0) scale(.98)}to{opacity:1;transform:none}}
+.inbox-foot{padding:12px 16px 14px;border-top:1px solid var(--line);background:var(--surface)}
+.prog{display:grid;grid-template-columns:repeat(5, 1fr);gap:4px}
+.prog i{height:4px;border-radius:2px;background:var(--line-soft);transition:background-color .3s var(--ease)}
+.prog i.on{background:var(--navy)}
+.inbox-state{margin-top:8px;font-size:12px;color:var(--ink-3)}
+.inbox-done{display:none;margin-top:10px}
+.inbox.is-complete .prog i.on{background:var(--ok)}
+.inbox.is-complete .inbox-done{display:grid;gap:10px}
+.inbox-done p{display:flex;gap:8px;font-size:13px;font-weight:600;line-height:1.45;color:var(--ok)}
+.inbox-done p .ic{margin-top:2px}
+.inbox-done .btn{width:100%}
+.scrim{position:fixed;inset:0;z-index:44;background:rgba(24,23,47,.42)}
+
+/* ---------- status bar ---------- */
+.status{position:fixed;inset-inline:0;bottom:0;z-index:45;display:flex;align-items:center;gap:14px;height:var(--status-h);padding:0 20px;background:var(--navy);color:rgba(255,255,255,.86);font-size:12.5px}
+.status .s-dot{width:8px;height:8px;border-radius:50%;background:var(--coral)}
+.status.is-ok .s-dot{background:#6BC495}
+.status b{color:#fff;font-weight:700}
+.status .s-miss{overflow:hidden;color:#F7B9A4;text-overflow:ellipsis;white-space:nowrap}
+.status .s-next{margin-inline-start:auto;white-space:nowrap}
+.toast{position:fixed;left:50%;bottom:calc(var(--status-h) + 16px);z-index:60;padding:10px 16px;border-radius:10px;background:var(--ink);color:#fff;font-size:13px;font-weight:600;box-shadow:var(--e3);opacity:0;transform:translate(-50%, 8px);pointer-events:none;transition:opacity .18s var(--ease), transform .25s var(--ease)}
+.toast.is-on{opacity:1;transform:translate(-50%, 0)}
+.noscript{margin:20px;padding:16px;border-radius:var(--r-md);background:var(--warn-50);color:var(--warn);font-weight:600}
+
+/* ---------- responsive ---------- */
+@media (max-width:1279px){
+  :root{--side-w:220px}
+  .app{grid-template-columns:var(--side-w) minmax(0, 1fr)}
+  .inbox-toggle{display:inline-flex}
+  .inbox{position:fixed;top:var(--bar-h);bottom:var(--status-h);inset-inline-end:0;z-index:46;width:min(400px, 92vw);height:auto;box-shadow:var(--e3);transform:translateX(105%);visibility:hidden;transition:transform .3s var(--ease), visibility 0s linear .3s}
+  html[dir="rtl"] .inbox{transform:translateX(-105%)}
+  .inbox.is-open{transform:none;visibility:visible;transition:transform .3s var(--ease), visibility 0s}
+  html[dir="rtl"] .inbox.is-open{transform:none}
+  .inbox-close{display:inline-grid}
+}
+@media (max-width:1040px){
+  .bar-title span{display:none}
+}
+@media (max-width:900px){
+  :root{--bar-h:112px}
+  .bar{flex-wrap:wrap;align-content:center;gap:8px 12px;padding:8px 16px}
+  .bar-title{padding-inline-start:12px}
+  /* two rows: brand, language and inbox on top; the track switch gets the full width below */
+  .bar-ctl{display:contents}
+  .bar-ctl > .seg:not(.seg-track){order:3;margin-inline-start:auto}
+  .inbox-toggle{order:4}
+  .seg-track{order:5;width:100%}
+  .seg-track button{flex:1;justify-content:center}
+  .app{grid-template-columns:minmax(0, 1fr)}
+  /* the sidebar becomes a strip of steps under the bar */
+  .side{top:var(--bar-h);z-index:30;display:flex;gap:6px;height:auto;padding:8px 12px;overflow-x:auto;overflow-y:hidden;border:0;border-bottom:1px solid var(--line);background:rgba(240,237,233,.96);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+  .side-h{display:none}
+  .side-h + *{margin:0}
+  .nav-steps,.nav-tools{display:flex;gap:6px}
+  .nav-steps::before{display:none}
+  .nav-steps a,.nav-tools a{grid-template-columns:auto auto;padding:6px 10px 6px 6px;white-space:nowrap;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line-soft)}
+  html[dir="rtl"] .nav-steps a,html[dir="rtl"] .nav-tools a{padding:6px 6px 6px 10px}
+  .nav-steps .dot{width:22px;height:22px}
+  .nav-d{display:none}
+  .nav-tools a{padding:6px 10px}
+  html{scroll-padding-top:calc(var(--bar-h) + 70px)}
+}
+@media (max-width:640px){
+  .main{padding:22px 16px 32px}
+  .intro h1{font-size:25px}
+  .pr-grid{grid-template-columns:repeat(2, minmax(0, 1fr))}
+  .field,.field-wide,.pr-grid.is-b [data-f="rep"],.pr-grid.is-b [data-f="date"]{grid-column:span 2}
+  .field-half{grid-column:span 1}
+  .prospect{padding:16px}
+  .pr-actions{margin-inline-start:0;width:100%}
+  .pr-actions .btn{flex:1}
+  .seq::before{inset-inline-start:13px}
+  .step{padding-inline-start:40px}
+  .step-node{width:28px;height:28px;font-size:12px}
+  .paper{padding:16px}
+  .paper-edit{padding:14px}
+  .step-actions{width:100%;margin:0}
+  .step-actions .btn{flex:1}
+  .step-actions .btn-primary{flex:2}
+  .subj{flex-wrap:wrap}
+  .reply{grid-template-columns:1fr auto}
+  .reply-q{grid-column:1}
+  .reply-a,.reply-after{grid-column:1 / -1}
+  .reply .btn-icon{grid-row:1;grid-column:2}
+  .subjects .tagc,.subjects th:nth-child(3){display:none}
+  .play{grid-template-columns:1fr}
+  .claims{grid-template-columns:1fr}
+  .claims > div + div{border-inline-start:0;border-top:1px solid var(--line)}
+  .changes table,.changes tbody,.changes tr,.changes td{display:block;width:auto !important}
+  .changes thead{display:none}
+  .changes tr{padding:10px 0;border-top:1px solid var(--line-soft)}
+  .changes td{padding:2px 0;border:0}
+  .seg button{padding:0 9px}
+  .status{gap:10px;padding:0 14px;font-size:12px}
+  .status .s-next{display:none}
+  .next{padding:20px 18px 22px}
+}
+@media (max-width:420px){
+  .bar-title{display:none}
+  .seg-track button span:not(.seg-code){font-size:12px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .thread .is-new{animation:none}
+  .inbox,.meter-bar i,.btn,.seg button,.toast,.step-node{transition:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Skip to the sequence</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+<!-- Lucide icons v0.469.0, ISC licence, https://lucide.dev (the icon family used across the campaign site) -->
+<symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
+<symbol id="i-pencil-line" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.854z"/><path d="m15 5 3 3"/></symbol>
+<symbol id="i-rotate-ccw" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></symbol>
+<symbol id="i-send" viewBox="0 0 24 24"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+<symbol id="i-circle-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></symbol>
+<symbol id="i-inbox" viewBox="0 0 24 24"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></symbol>
+<symbol id="i-user-plus" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></symbol>
+<symbol id="i-reply" viewBox="0 0 24 24"><polyline points="9 17 4 12 9 7"/><path d="M20 18v-2a4 4 0 0 0-4-4H4"/></symbol>
+<symbol id="i-book-open" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+<symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
+<symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></symbol>
+<symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+<symbol id="i-calendar-days" viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></symbol>
+<symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+<symbol id="i-list-checks" viewBox="0 0 24 24"><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></symbol>
+<symbol id="i-message-square-text" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M13 8H7"/><path d="M17 12H7"/></symbol>
+<symbol id="i-circle-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+<symbol id="i-type" viewBox="0 0 24 24"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" x2="15" y1="20" y2="20"/><line x1="12" x2="12" y1="4" y2="20"/></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+</svg>
+
+<header class="bar">
+  <a class="brand" href="./" data-i18n-aria="aria.site" aria-label="Fandaqah 360 campaign site"><img src="assets/img/brand-dark-340.webp" width="340" height="146" alt="Fandaqah"></a>
+  <div class="bar-title"><strong data-i18n="kit.title">LinkedIn outreach kit</strong><span data-i18n="kit.sub">Fandaqah 360 · Campaigns A and B · Internal</span></div>
+  <div class="bar-ctl">
+    <div class="seg seg-track" role="group" data-i18n-aria="aria.track" aria-label="Campaign track">
+      <button type="button" data-track="B" aria-pressed="true"><span class="seg-code">B</span><span data-i18n="track.B">New hotels</span></button>
+      <button type="button" data-track="A" aria-pressed="false"><span class="seg-code">A</span><span data-i18n="track.A">Existing customers</span></button>
+    </div>
+    <div class="seg" role="group" data-i18n-aria="aria.lang" aria-label="Message language">
+      <button type="button" data-lang="en" lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="ar" lang="ar" aria-pressed="false">عربي</button>
+    </div>
+  </div>
+  <button class="inbox-toggle" type="button" aria-controls="inbox" aria-expanded="false"><svg class="ic" aria-hidden="true"><use href="#i-inbox"/></svg><span data-i18n="inbox.toggle">Inbox</span><b class="count num" data-inbox-count>0</b></button>
+</header>
+
+<div class="app">
+  <nav class="side thin-scroll" data-i18n-aria="aria.kit" aria-label="Kit">
+    <p class="side-h" data-i18n="side.seq">Sequence</p>
+    <ol class="nav-steps" data-nav-steps></ol>
+    <p class="side-h" data-i18n="side.tools">Toolkit</p>
+    <ul class="nav-tools">
+      <li><a href="#replies" data-spy="replies"><svg class="ic" aria-hidden="true"><use href="#i-reply"/></svg><span class="nav-l" data-i18n="nav.replies">Replies</span></a></li>
+      <li><a href="#subjects" data-spy="subjects"><svg class="ic" aria-hidden="true"><use href="#i-type"/></svg><span class="nav-l" data-i18n="nav.subjects">Subject lines</span></a></li>
+      <li><a href="#playbook" data-spy="playbook"><svg class="ic" aria-hidden="true"><use href="#i-book-open"/></svg><span class="nav-l" data-i18n="nav.playbook">Playbook</span></a></li>
+      <li><a href="#next" data-spy="next"><svg class="ic" aria-hidden="true"><use href="#i-user-plus"/></svg><span class="nav-l" data-i18n="nav.next">Next prospect</span></a></li>
+    </ul>
+  </nav>
+
+  <main class="main" id="main">
+    <div class="main-in">
+      <section class="intro" aria-labelledby="kit-h1">
+        <h1 id="kit-h1" data-i18n="kit.h1">Five touches, one prospect, both languages</h1>
+        <p class="lede" data-i18n="kit.lede">Fill in the prospect once. Every message, tracked link and send date below becomes theirs, ready to paste into LinkedIn as plain text.</p>
+        <p class="route" data-route></p>
+      </section>
+
+      <section class="prospect" id="prospect" aria-labelledby="prospect-h">
+        <div class="pr-head">
+          <h2 id="prospect-h" data-i18n="pr.title">Prospect</h2>
+          <span class="chip-demo" data-demo-chip hidden data-i18n="pr.demo">Demo profile</span>
+          <div class="pr-actions">
+            <button class="btn btn-ghost btn-sm" type="button" data-load-demo><svg class="ic" aria-hidden="true"><use href="#i-user-plus"/></svg><span data-i18n="pr.loadDemo">Load demo</span></button>
+            <button class="btn btn-ghost btn-sm" type="button" data-clear><svg class="ic" aria-hidden="true"><use href="#i-rotate-ccw"/></svg><span data-i18n="pr.clear">Clear</span></button>
+          </div>
+        </div>
+        <form class="pr-grid" data-prospect autocomplete="off" onsubmit="return false">
+          <div class="field" data-f="first"><label for="f-first" data-i18n="f.first">Owner’s first name</label><input id="f-first" name="first" maxlength="40" spellcheck="false"></div>
+          <div class="field" data-f="hotel"><label for="f-hotel" data-i18n="f.hotel">Hotel name</label><input id="f-hotel" name="hotel" maxlength="60" spellcheck="false"></div>
+          <div class="field" data-f="city"><label for="f-city" data-i18n="f.city">City</label><input id="f-city" name="city" maxlength="40" list="cities" spellcheck="false"></div>
+          <div class="field" data-f="rep"><label for="f-rep" data-i18n="f.rep">Your name</label><input id="f-rep" name="rep" maxlength="50" spellcheck="false"></div>
+          <div class="field" data-f="date"><label for="f-date" data-i18n="f.date">First message on</label><input id="f-date" name="date" type="date" required><p class="hint warn" data-weekend hidden></p></div>
+          <div class="field" data-f="tenure" data-only="A"><label for="f-tn"><span data-i18n="f.tenure">Time with Fandaqah</span> <span class="opt" data-i18n="f.opt">optional</span></label>
+            <div class="tenure"><input id="f-tn" name="tn" type="number" min="1" max="40" inputmode="numeric"><select id="f-tu" name="tu" data-i18n-aria="f.unit" aria-label="Unit"><option value="y" data-i18n="f.years">years</option><option value="m" data-i18n="f.months">months</option></select></div>
+          </div>
+          <div class="field field-note" data-f="note"><label for="f-note"><span data-i18n="f.note">Personal line</span> <span class="opt" data-i18n="f.opt">optional</span></label>
+            <textarea id="f-note" name="note" rows="2" maxlength="160"></textarea>
+            <p class="hint"><span data-note-hint data-i18n="f.noteHint">One sentence only you could write: a recent opening, a post, an award.</span><span class="count" data-note-count>0/160</span></p>
+          </div>
+        </form>
+        <datalist id="cities"></datalist>
+      </section>
+
+      <div class="seq" data-seq></div>
+
+      <section class="block" id="replies" aria-labelledby="replies-h">
+        <h2 id="replies-h" data-i18n="rep.title">Replies</h2>
+        <p class="lede" data-i18n="rep.lede">When they answer, the sequence stops. Reply the same day during staffed hours, then do what the note under each answer says.</p>
+        <ul class="replies" data-replies></ul>
+      </section>
+
+      <section class="block" id="subjects" aria-labelledby="subjects-h">
+        <h2 id="subjects-h" data-i18n="sub.title">Subject lines</h2>
+        <p class="lede" data-i18n="sub.lede">For InMail, when you are not yet connected. Test one change at a time and keep the winner.</p>
+        <table class="subjects">
+          <thead><tr><th scope="col" data-i18n="sub.colLine">Subject</th><th scope="col" data-i18n="sub.colLen">Length</th><th scope="col" data-i18n="sub.colTag">Status</th><th scope="col"><span class="sr-only" data-i18n="sub.colCopy">Copy</span></th></tr></thead>
+          <tbody data-subjects></tbody>
+        </table>
+      </section>
+
+      <section class="block" id="playbook" aria-labelledby="playbook-h">
+        <h2 id="playbook-h" data-i18n="play.title">Playbook</h2>
+        <p class="lede" data-i18n="play.lede">The rules behind every line above, taken from the campaign playbook. When in doubt, the playbook wins.</p>
+        <div class="play" data-play></div>
+      </section>
+
+      <section class="next" id="next" aria-labelledby="next-h">
+        <h2 id="next-h" data-i18n="next.title">Next prospect</h2>
+        <p data-i18n="next.text">Paste the full sequence into the CRM against this account, then start the next one. Your name and the date stay; everything else clears, including edits.</p>
+        <div class="next-row">
+          <button class="btn btn-ghost" type="button" data-copy-all><svg class="ic" aria-hidden="true"><use href="#i-copy"/></svg><span data-i18n="next.copyAll">Copy the full sequence</span></button>
+        </div>
+        <form class="next-form" data-next-form>
+          <label for="n-first" data-i18n="next.label">Next owner’s first name</label>
+          <div class="next-input"><input id="n-first" maxlength="40" autocomplete="off" spellcheck="false"><button class="btn btn-primary" type="submit"><span data-i18n="next.start">Start</span><svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></button></div>
+        </form>
+      </section>
+
+      <footer class="foot"><p data-i18n="foot">Fandaqah 360 · LinkedIn outreach kit for campaigns A and B · Internal, October 2026 · Every link uses the one campaign URL with LinkedIn tags.</p></footer>
+    </div>
+  </main>
+
+  <aside class="inbox" id="inbox" aria-labelledby="inbox-h">
+    <div class="inbox-head">
+      <span class="av" data-av-them aria-hidden="true">?</span>
+      <div class="inbox-who"><strong id="inbox-h" data-them-name>Prospect</strong><span data-them-sub></span></div>
+      <span class="inbox-k" data-i18n="inbox.k">Inbox preview</span>
+      <button class="btn-icon inbox-close" type="button" data-inbox-close data-i18n-aria="inbox.close" aria-label="Close preview"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></button>
+    </div>
+    <div class="thread thin-scroll" data-thread role="log" aria-live="off"></div>
+    <div class="inbox-foot">
+      <div class="prog" aria-hidden="true" data-prog><i></i><i></i><i></i><i></i><i></i></div>
+      <p class="inbox-state" data-inbox-state></p>
+      <div class="inbox-done">
+        <p><svg class="ic" aria-hidden="true"><use href="#i-circle-check"/></svg><span data-inbox-done></span></p>
+        <button class="btn btn-primary" type="button" data-copy-all><svg class="ic" aria-hidden="true"><use href="#i-copy"/></svg><span data-i18n="next.copyAll">Copy the full sequence</span></button>
+      </div>
+    </div>
+  </aside>
+</div>
+<div class="scrim" data-scrim hidden></div>
+
+<div class="status" data-status>
+  <span class="s-dot" aria-hidden="true"></span><span data-s-main></span><span class="s-miss" data-s-miss></span><span class="s-next" data-s-next></span>
+</div>
+<div class="toast" role="status" aria-live="polite" data-toast></div>
+<noscript><p class="noscript">This kit needs JavaScript to merge the prospect into the messages.</p></noscript>
+
+<script>
+(() => {
+  /* ---------- interface strings: English is in the markup, Arabic lives here ---------- */
+  const AR = {
+    'skip':'تخطَّ إلى التسلسل',
+    'aria.site':'موقع حملة فندقة 360','aria.track':'مسار الحملة','aria.lang':'لغة الرسائل','aria.kit':'الحزمة',
+    'kit.title':'حزمة التواصل عبر لينكدإن','kit.sub':'فندقة 360 · الحملتان A و B · للاستخدام الداخلي',
+    'track.B':'الفنادق الجديدة','track.A':'العملاء الحاليون',
+    'inbox.toggle':'المعاينة','inbox.k':'معاينة الوارد','inbox.close':'إغلاق المعاينة',
+    'side.seq':'التسلسل','side.tools':'الأدوات','nav.replies':'الردود','nav.subjects':'عناوين الرسائل','nav.playbook':'دليل الاستخدام','nav.next':'العميل التالي',
+    'kit.h1':'خمس رسائل، عميل واحد، بلغتين',
+    'kit.lede':'أدخل بيانات العميل مرة واحدة، فتصبح كل رسالة ورابط متتبَّع وتاريخ إرسال أدناه خاصة به، وجاهزة للصق في لينكدإن كنص عادي.',
+    'pr.title':'العميل المحتمل','pr.demo':'بيانات تجريبية','pr.loadDemo':'تحميل مثال','pr.clear':'مسح',
+    'f.first':'الاسم الأول للمالك','f.hotel':'اسم الفندق','f.city':'المدينة','f.rep':'اسمك','f.date':'تاريخ أول رسالة',
+    'f.tenure':'مدة العمل مع فندقة','f.opt':'اختياري','f.unit':'الوحدة','f.years':'سنوات','f.months':'أشهر',
+    'f.note':'سطر شخصي','f.noteHint':'جملة واحدة لا يكتبها غيرك: افتتاح حديث، منشور، جائزة.',
+    'rep.title':'الردود','rep.lede':'عندما يردّ العميل يتوقف التسلسل. ردّ في اليوم نفسه خلال ساعات العمل، ثم نفّذ ما تذكره الملاحظة تحت كل رد.',
+    'sub.title':'عناوين الرسائل','sub.lede':'لرسائل InMail عندما لا يوجد تواصل بعد. اختبر تغييراً واحداً في كل مرة واحتفظ بالأفضل.',
+    'sub.colLine':'العنوان','sub.colLen':'الطول','sub.colTag':'الحالة','sub.colCopy':'نسخ',
+    'play.title':'دليل الاستخدام','play.lede':'القواعد التي بُني عليها كل سطر أعلاه، مأخوذة من دليل الحملة. وعند الشك، يُقدَّم دليل الحملة.',
+    'next.title':'العميل التالي','next.text':'الصق التسلسل كاملاً في نظام إدارة العملاء على هذا الحساب، ثم ابدأ مع العميل التالي. يبقى اسمك والتاريخ، ويُمسح كل ما عداهما بما في ذلك التعديلات.',
+    'next.copyAll':'نسخ التسلسل كاملاً','next.label':'الاسم الأول للمالك التالي','next.start':'ابدأ',
+    'foot':'فندقة 360 · حزمة التواصل عبر لينكدإن للحملتين A و B · للاستخدام الداخلي، أكتوبر 2026 · تستخدم كل الروابط رابط الحملة الموحّد مع وسوم لينكدإن.'
+  };
+
+  const $ = (s, c = document) => c.querySelector(s);
+  const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+  const root = document.documentElement;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+  /* ---------- campaign facts (campaigns/README.md, A and B links.csv) ---------- */
+  const BASE = 'https://usamakhanksa.github.io/fandaqah-360/';
+  const TRACKS = {
+    A: { campaign: 'A_existing_upgrade_2610', name: { en: 'Existing customers', ar: 'العملاء الحاليون' }, session: { en: 'review', ar: 'المراجعة' } },
+    B: { campaign: 'B_new_hotels_2610', name: { en: 'New hotels', ar: 'الفنادق الجديدة' }, session: { en: 'demo', ar: 'العرض التوضيحي' } }
+  };
+  const FIELDS = { first: { en: 'First name', ar: 'الاسم الأول' }, hotel: { en: 'Hotel name', ar: 'اسم الفندق' }, city: { en: 'City', ar: 'المدينة' }, rep: { en: 'Your name', ar: 'اسمك' } };
+  const BRAND = { en: 'Fandaqah', ar: 'فندقة' };
+  const DEMO = {
+    en: { first: 'Faisal', hotel: 'Al Waha Suites', city: 'Al Khobar', rep: 'Noura', note: 'I saw your post about the new rooftop lounge. Congratulations.' },
+    ar: { first: 'فيصل', hotel: 'أجنحة الواحة', city: 'الخبر', rep: 'نورة', note: 'اطّلعت على منشوركم عن افتتاح الصالة الجديدة، مبارك لكم.' },
+    tn: '3', tu: 'y'
+  };
+  const CITIES = {
+    en: ['Riyadh', 'Jeddah', 'Makkah', 'Madinah', 'Al Khobar', 'Dammam', 'Abha', 'Taif', 'AlUla', 'Tabuk', 'Al Ahsa', 'Jazan'],
+    ar: ['الرياض', 'جدة', 'مكة المكرمة', 'المدينة المنورة', 'الخبر', 'الدمام', 'أبها', 'الطائف', 'العلا', 'تبوك', 'الأحساء', 'جازان']
+  };
+
+  /* ---------- interface strings used by the logic ---------- */
+  const T = {
+    en: {
+      ready: 'Ready', missing: 'Missing {n}', tooLong: 'Over the limit', chars: '{n} / {max} characters', words: '{n} words',
+      copy: 'Copy message', copyNote: 'Copy note', copySubject: 'Copy subject', copyLink: 'Copy link', edit: 'Edit', done: 'Done', reset: 'Reset',
+      copied: '{x} copied', copyFail: 'Copy failed. Select the text and copy it manually.', subject: 'Subject', link: 'Tracked link', noLink: 'No link in this touch',
+      editedHint: 'Edited by hand: prospect changes no longer update this message. Reset to bring them back.',
+      whenNote: 'Send with the connection request', navNote: 'With the invitation', whenFirst: '{date} · when they accept', whenAfter: '{date} · {n} working days after the first message',
+      invite: 'Invitation with note', accepted: '{date} · after {first} accepts', on: '{date}',
+      inboxState: '{n} of 5 touches in the conversation', inboxDone: 'Conversation complete: 5 touches, {a} to {b}.',
+      sMain: '<b>{track}</b> · {lang} · {r} of 5 ready', sMiss: 'Missing: {list}', sNext: 'First message {date}',
+      weekend: '{day} is a weekend day in Saudi Arabia, so the first message moves to {date}.',
+      noteDefault: 'Empty: Track B uses a default line. A line only you could write reads better.',
+      routeB: 'Independent properties new to Fandaqah. Links open the demo request.', routeA: 'Customers already on Fandaqah. Links open the upgrade review.', routeRules: 'Routing rules',
+      lang: { en: 'English', ar: 'Arabic' }, them: 'Prospect',
+      crmHead: 'Fandaqah 360 · LinkedIn sequence', crmTrack: 'Track', crmLang: 'Language', crmProspect: 'Prospect', crmRep: 'Sent by', crmSubject: 'Subject (InMail)',
+      tag: { ok: 'Approved', new: 'New', draft: 'From the draft', off: 'Retired' }, after: 'Then'
+    },
+    ar: {
+      ready: 'جاهزة', missing: 'ناقص {n}', tooLong: 'أطول من الحد', chars: 'الأحرف: {n} / {max}', words: 'الكلمات: {n}',
+      copy: 'نسخ الرسالة', copyNote: 'نسخ الملاحظة', copySubject: 'نسخ العنوان', copyLink: 'نسخ الرابط', edit: 'تعديل', done: 'تم', reset: 'استعادة',
+      copied: 'تم نسخ {x}', copyFail: 'تعذّر النسخ. حدّد النص وانسخه يدوياً.', subject: 'العنوان', link: 'رابط متتبَّع', noLink: 'لا رابط في هذه الرسالة',
+      editedHint: 'عُدّلت يدوياً: لن تُحدِّث بيانات العميل هذه الرسالة بعد الآن. استعد النص لإرجاعها.',
+      whenNote: 'تُرسل مع طلب التواصل', navNote: 'مع الدعوة', whenFirst: '{date} · عند قبول الدعوة', whenAfter: '{date} · بعد {n} أيام عمل من الرسالة الأولى',
+      invite: 'دعوة مع ملاحظة', accepted: '{date} · بعد قبول {first}', on: '{date}',
+      inboxState: '{n} من 5 رسائل في المحادثة', inboxDone: 'اكتملت المحادثة: 5 رسائل من {a} إلى {b}.',
+      sMain: '<b>{track}</b> · {lang} · {r} من 5 جاهزة', sMiss: 'ناقص: {list}', sNext: 'أول رسالة {date}',
+      weekend: '{day} عطلة نهاية الأسبوع في المملكة، لذا تنتقل أول رسالة إلى {date}.',
+      noteDefault: 'فارغ: يستخدم المسار B سطراً افتراضياً، والسطر الذي لا يكتبه غيرك أفضل.',
+      routeB: 'منشآت مستقلة جديدة على فندقة. الروابط تفتح طلب العرض التوضيحي.', routeA: 'عملاء يستخدمون فندقة حالياً. الروابط تفتح مراجعة الترقية.', routeRules: 'قواعد التوجيه',
+      lang: { en: 'الإنجليزية', ar: 'العربية' }, them: 'العميل المحتمل',
+      crmHead: 'فندقة 360 · تسلسل لينكدإن', crmTrack: 'المسار', crmLang: 'اللغة', crmProspect: 'العميل', crmRep: 'المرسل', crmSubject: 'العنوان (InMail)',
+      tag: { ok: 'معتمد', new: 'جديد', draft: 'من المسودة', off: 'مستبعد' }, after: 'بعدها'
+    }
+  };
+
+  /* ---------- the sequences ----------
+     Copy follows campaigns/A and B: approved CTAs and headlines, no prices or fixed-price wording, no savings claims,
+     no invented reviews. Arabic uses the respectful plural so it reads correctly for any recipient.
+     Tokens: {first} {hotel} {city} {rep} {note} {link} {tenure} {tenure_for} {tenure_since} {session}. */
+  const STEPS = {
+    B: [
+      { id: 'note', offset: null, limit: 200, link: false,
+        label: { en: 'Connection note', ar: 'ملاحظة طلب التواصل' },
+        why: { en: 'No pitch in the invitation. The note earns the accept; the messages do the work.', ar: 'لا عرض بيعي في الدعوة. الملاحظة تكسب القبول، والرسائل تتولّى الباقي.' },
+        en: [{ p: 'Hello {first}, I work with independent hotels across Saudi Arabia at Fandaqah. I’d be glad to connect and follow how {hotel} grows in {city}.' }],
+        ar: [{ p: 'مرحباً {first}، أعمل مع الفنادق المستقلة في المملكة ضمن فريق فندقة، ويسعدني التواصل معكم ومتابعة نمو {hotel} في {city}.' }] },
+      { id: 'msg1', offset: 0, limit: 1900, link: false,
+        label: { en: 'First message', ar: 'الرسالة الأولى' },
+        subject: { en: 'Is {hotel} running on separate systems?', ar: 'هل يعمل {hotel} بأنظمة منفصلة؟' },
+        why: { en: 'Ends on a question and carries no link. A question invites a reply; a link in a first message reads like a campaign.', ar: 'تنتهي بسؤال ودون رابط. السؤال يدعو إلى الرد، والرابط في الرسالة الأولى يبدو كحملة إعلانية.' },
+        en: [{ p: 'Hello {first},' }, { p: 'Thanks for connecting. {note}' },
+          { p: 'Most independent hotels I speak with run reservations, accounting and housekeeping in separate tools. The same guest gets typed in twice, reports wait for someone to compile them, and when something breaks it is not clear which supplier owns it.' },
+          { p: 'Fandaqah 360 brings these into one platform built for Saudi hospitality, with ZATCA e-invoicing, Shomoos and NTMP connected.' },
+          { p: 'Is that close to how things run at {hotel} today, or have you already solved it?' }, { sign: 1 }],
+        ar: [{ p: 'مرحباً {first}،' }, { p: 'شكراً لقبول الدعوة. {note}' },
+          { p: 'كثير من الفنادق المستقلة التي أتحدث معها تدير الحجوزات والمحاسبة والتدبير الفندقي بأنظمة منفصلة، فتُدخل بيانات النزيل نفسه مرتين، وتنتظر التقارير من يجمعها، وعند أي خلل لا يتضح أي مورّد هو المسؤول.' },
+          { p: 'فندقة 360 تجمع هذه العمليات في منصة واحدة مصمَّمة لقطاع الضيافة السعودي، مع الربط بالفوترة الإلكترونية وشموس ومنصة الرصد السياحي.' },
+          { p: 'هل يشبه هذا واقع العمل في {hotel} اليوم، أم أنكم تجاوزتموه؟' }, { sign: 1 }] },
+      { id: 'msg2', offset: 3, limit: 1900, link: true,
+        label: { en: 'Follow-up 1', ar: 'المتابعة الأولى' },
+        subject: { en: 'What your morning report could look like', ar: 'كيف يمكن أن يبدو تقريركم الصباحي' },
+        why: { en: 'Turns the problem into a picture of their day, answers the data question, then adds the first link.', ar: 'تحوّل المشكلة إلى صورة من يومهم، وتجيب عن سؤال البيانات، ثم تضيف أول رابط.' },
+        en: [{ p: 'Hello {first},' }, { p: 'A short follow-up with something concrete. With Fandaqah 360, the picture of {hotel} sits in one place:' },
+          { ul: ['Occupancy, reservations and revenue on one dashboard', 'Housekeeping and maintenance status your front desk can see', 'Channel manager, booking engine and payments in the same system', 'E-invoicing and guest reporting inside your daily workflow'] },
+          { p: 'We start by assessing your current data and systems, then agree the training plan and support scope before you commit to anything.' },
+          { p: 'A short overview for independent hotels:\n{link}' }, { sign: 1 }],
+        ar: [{ p: 'مرحباً {first}،' }, { p: 'متابعة قصيرة بشيء عملي. مع فندقة 360 تجتمع صورة {hotel} في مكان واحد:' },
+          { ul: ['الإشغال والحجوزات والإيرادات في لوحة واحدة', 'حالة التدبير الفندقي والصيانة أمام موظف الاستقبال', 'مدير القنوات ومحرك الحجز والمدفوعات في النظام نفسه', 'الفوترة الإلكترونية وربط بيانات النزلاء ضمن سير العمل اليومي'] },
+          { p: 'نبدأ بتقييم بياناتكم وأنظمتكم الحالية، ثم نتفق على خطة التدريب ونطاق الدعم قبل أي التزام.' },
+          { p: 'نظرة سريعة مخصّصة للفنادق المستقلة:\n{link}' }, { sign: 1 }] },
+      { id: 'msg3', offset: 6, limit: 1900, link: true,
+        label: { en: 'Follow-up 2', ar: 'المتابعة الثانية' },
+        subject: { en: 'Three questions owners ask before switching', ar: 'ثلاثة أسئلة يطرحها الملاك قبل الانتقال' },
+        why: { en: 'Answers the three objections from the campaign brief: moving data, training and support.', ar: 'تجيب عن الاعتراضات الثلاثة في موجز الحملة: نقل البيانات والتدريب والدعم.' },
+        en: [{ p: 'Hello {first},' }, { p: 'When owners consider moving to Fandaqah 360, the same three questions come up. The short answers:' },
+          { ol: ['Moving our data: we assess your current system first and plan the move with your team.', 'Training: we agree a plan for front office, housekeeping and finance before go-live.', 'Support: you work with our team in Al Khobar, with the support scope written down before you sign.'] },
+          { p: 'More than 800 properties already run on Fandaqah.' },
+          { p: 'Would a short demo built around {hotel}’s own workflow help, from reservation to accounting?\n{link}' }, { sign: 1 }],
+        ar: [{ p: 'مرحباً {first}،' }, { p: 'عندما يفكّر الملاك في الانتقال إلى فندقة 360 تتكرّر ثلاثة أسئلة، وهذه إجاباتها باختصار:' },
+          { ol: ['نقل البيانات: نقيّم نظامكم الحالي أولاً ونخطّط للانتقال مع فريقكم.', 'التدريب: نتفق على خطة للاستقبال والتدبير الفندقي والمالية قبل التشغيل.', 'الدعم: تتعاملون مع فريقنا في الخبر، ونطاق الدعم مكتوب قبل التوقيع.'] },
+          { p: 'أكثر من 800 منشأة تعمل اليوم على فندقة.' },
+          { p: 'هل يفيدكم عرض توضيحي قصير مبني على سير عمل {hotel} نفسه، من الحجز حتى المحاسبة؟\n{link}' }, { sign: 1 }] },
+      { id: 'msg4', offset: 10, limit: 1900, link: true,
+        label: { en: 'Last message', ar: 'الرسالة الأخيرة' },
+        subject: { en: 'Closing the loop on {hotel}', ar: 'ختام تواصلنا بخصوص {hotel}' },
+        why: { en: 'A clean ending keeps the door open, asks for a referral and stops the sequence.', ar: 'الختام الواضح يُبقي الباب مفتوحاً، ويطلب ترشيحاً، وينهي التسلسل.' },
+        en: [{ p: 'Hello {first},' }, { p: 'I don’t want to crowd your inbox, so this is my last note for now.' },
+          { p: 'If running {hotel} on one connected system becomes a priority, the demo request stays open:\n{link}' },
+          { p: 'And if someone else looks after systems at {hotel}, I’d appreciate a name.' },
+          { p: 'Wishing you a strong season in {city}.' }, { sign: 1 }],
+        ar: [{ p: 'مرحباً {first}،' }, { p: 'لا أريد أن أُثقل عليكم بالرسائل، لذا هذه رسالتي الأخيرة حالياً.' },
+          { p: 'إن أصبح تشغيل {hotel} على نظام واحد مترابط من أولوياتكم، فطلب العرض التوضيحي متاح متى شئتم:\n{link}' },
+          { p: 'وإن كان شخص آخر يتولّى الأنظمة في {hotel}، فسأقدّر لكم الدلالة عليه.' },
+          { p: 'أتمنى لكم موسماً موفقاً في {city}.' }, { sign: 1 }] }
+    ],
+    A: [
+      { id: 'note', offset: null, limit: 200, link: false,
+        label: { en: 'Connection note', ar: 'ملاحظة طلب التواصل' },
+        why: { en: 'A customer already knows you. Thank them and connect; the offer can wait.', ar: 'العميل يعرفكم مسبقاً، فابدأ بالشكر والتواصل، والعرض يأتي لاحقاً.' },
+        en: [{ p: 'Hello {first}, I’m {rep} from Fandaqah. Thank you for trusting us at {hotel}. I’d be glad to stay connected here too.' }],
+        ar: [{ p: 'مرحباً {first}، معكم {rep} من فندقة. شكراً لثقتكم بنا في {hotel}، ويسعدني أن نبقى على تواصل هنا أيضاً.' }] },
+      { id: 'msg1', offset: 0, limit: 1900, link: false,
+        label: { en: 'First message', ar: 'الرسالة الأولى' },
+        subject: { en: 'More value from the Fandaqah you already use', ar: 'قيمة أكبر من فندقة التي تستخدمها اليوم' },
+        why: { en: 'Offers a review rather than a sale, which suits an existing relationship. No link yet.', ar: 'تعرض مراجعة لا بيعاً، وهذا يناسب علاقة قائمة. لا رابط بعد.' },
+        en: [{ p: 'Hello {first},' }, { p: 'Thank you for running {hotel} on Fandaqah{tenure_for}. {note}' },
+          { p: 'I’d like to offer you a short review of your current subscription. In about 20 minutes we would cover:' },
+          { ul: ['The modules your team uses today, and any you have but don’t use', 'The Fandaqah 360 modules that fit your operations next, such as accounting, purchasing and housekeeping', 'Your eligibility for our two-year prepaid offer'] },
+          { p: 'No obligation, just a clear view of whether upgrading makes sense for {hotel}. Would that be useful?' }, { sign: 1 }],
+        ar: [{ p: 'مرحباً {first}،' }, { p: 'شكراً لثقتكم بفندقة في إدارة {hotel}{tenure_since}. {note}' },
+          { p: 'أودّ أن أعرض عليكم مراجعة قصيرة لاشتراككم الحالي، نغطّي فيها خلال 20 دقيقة تقريباً:' },
+          { ul: ['الوحدات التي يستخدمها فريقكم اليوم، وأي وحدة متاحة لكم لا تُستخدم', 'وحدات فندقة 360 المناسبة لعملياتكم في الخطوة التالية، مثل المحاسبة والمشتريات والتدبير الفندقي', 'أهليتكم لعرضنا المدفوع مسبقاً لمدة سنتين'] },
+          { p: 'دون أي التزام، فقط صورة واضحة عن جدوى الترقية لـ {hotel}. هل يناسبكم ذلك؟' }, { sign: 1 }] },
+      { id: 'msg2', offset: 3, limit: 1900, link: true,
+        label: { en: 'Follow-up 1', ar: 'المتابعة الأولى' },
+        subject: { en: 'A loyalty offer built around your hotel', ar: 'عرض ولاء مصمَّم حول فندقك' },
+        why: { en: 'Recognises their time with Fandaqah before the offer, then links to the upgrade review.', ar: 'تقدّر مدة شراكتهم قبل ذكر العرض، ثم تضيف رابط مراجعة الترقية.' },
+        en: [{ p: 'Hello {first},' }, { p: 'Following up on the subscription review I mentioned.' },
+          { p: 'You’ve been with Fandaqah for {tenure}, and that matters to us.', if: 'tenure' },
+          { p: 'Your trust in Fandaqah matters to us.', unless: 'tenure' },
+          { p: 'That is why the review is about making sure Fandaqah keeps earning its place at {hotel}:' },
+          { ul: ['Every module you pay for, working for your team', 'Newer features that could save your staff time', 'The two-year prepaid Fandaqah 360 offer, if it fits your plans'] },
+          { p: 'You can check your upgrade offer here, and I’ll prepare the details before we speak:\n{link}' }, { sign: 1 }],
+        ar: [{ p: 'مرحباً {first}،' }, { p: 'متابعةً لمراجعة الاشتراك التي ذكرتها.' },
+          { p: 'نعمل معكم في {hotel} منذ {tenure}، وهذا يعني لنا الكثير.', if: 'tenure' },
+          { p: 'ثقتكم بفندقة تعني لنا الكثير.', unless: 'tenure' },
+          { p: 'لذلك نريد أن نتأكد من أن فندقة تقدّم لـ {hotel} أفضل قيمة ممكنة:' },
+          { ul: ['كل وحدة تدفعون مقابلها تعمل لصالح فريقكم', 'مزايا أحدث قد توفّر وقت موظفيكم', 'عرض فندقة 360 المدفوع مسبقاً لمدة سنتين، إن كان يناسب خططكم'] },
+          { p: 'يمكنكم التحقّق من عرض الترقية من هنا، وسأجهّز التفاصيل قبل حديثنا:\n{link}' }, { sign: 1 }] },
+      { id: 'msg3', offset: 6, limit: 1900, link: true,
+        label: { en: 'Follow-up 2', ar: 'المتابعة الثانية' },
+        subject: { en: 'Connecting more of {hotel}’s operations', ar: 'ربط مزيد من عمليات {hotel}' },
+        why: { en: 'Shows what Fandaqah 360 adds in operational terms and asks to look at it together.', ar: 'توضّح ما تضيفه فندقة 360 عملياً وتدعو إلى مراجعته معاً.' },
+        en: [{ p: 'Hello {first},' }, { p: 'Since {hotel} joined Fandaqah, your operation has changed, and the platform has grown with it. Fandaqah 360 connects more of the daily work in one system:' },
+          { ul: ['Deeper reporting for owners and management', 'Housekeeping, maintenance and inventory in one place', 'Accounting and purchasing linked to the front office', 'ZATCA e-invoicing, Shomoos and NTMP inside your workflow'] },
+          { p: 'I can prepare a short assessment of the modules that would help {hotel} most, and confirm your eligibility for the two-year prepaid offer. Shall we look at it together?\n{link}' }, { sign: 1 }],
+        ar: [{ p: 'مرحباً {first}،' }, { p: 'منذ انضمام {hotel} إلى فندقة تطوّرت أعمالكم، وتطوّرت المنصة معها. فندقة 360 تربط مزيداً من العمل اليومي في نظام واحد:' },
+          { ul: ['تقارير أعمق للملاك والإدارة', 'التدبير الفندقي والصيانة والمخزون في مكان واحد', 'المحاسبة والمشتريات مرتبطة بالمكتب الأمامي', 'الفوترة الإلكترونية وشموس ومنصة الرصد السياحي ضمن سير عملكم'] },
+          { p: 'يمكنني تجهيز تقييم قصير للوحدات الأكثر فائدة لـ {hotel}، مع تأكيد أهليتكم لعرضنا المدفوع مسبقاً لمدة سنتين. هل نراجعه معاً؟\n{link}' }, { sign: 1 }] },
+      { id: 'msg4', offset: 10, limit: 1900, link: true,
+        label: { en: 'Last message', ar: 'الرسالة الأخيرة' },
+        subject: { en: 'Your upgrade review, whenever it suits you', ar: 'مراجعة الترقية متى ما ناسبكم' },
+        why: { en: 'Ends warmly and reminds them their account team is there either way.', ar: 'تختم بودّ وتذكّرهم بأن فريق حسابهم حاضر في كل الأحوال.' },
+        en: [{ p: 'Hello {first},' }, { p: 'I’ll leave it here so I don’t crowd your inbox.' },
+          { p: 'Whenever the timing suits you, the upgrade review is one click away, and I’ll prepare it for {hotel}:\n{link}' },
+          { p: 'Thank you again for choosing Fandaqah. Your account team is here for anything you need in the meantime.' }, { sign: 1 }],
+        ar: [{ p: 'مرحباً {first}،' }, { p: 'سأكتفي بهذا حتى لا أُثقل عليكم بالرسائل.' },
+          { p: 'متى ما ناسبكم الوقت، فمراجعة الترقية على بُعد نقرة، وسأجهّزها لـ {hotel}:\n{link}' },
+          { p: 'شكراً مجدداً لاختياركم فندقة، وفريق حسابكم في خدمتكم لأي احتياج في هذه الأثناء.' }, { sign: 1 }] }
+    ]
+  };
+  const NOTE_FALLBACK = { B: { en: 'I came across {hotel} while looking at independent properties in {city}.', ar: 'اطّلعت على {hotel} أثناء متابعتي للمنشآت المستقلة في {city}.' }, A: { en: '', ar: '' } };
+
+  /* replies to the answers that actually come back */
+  const REPLIES = [
+    { id: 'yes', tracks: 'AB', q: { en: '“Sounds interesting. Let’s talk.”', ar: '«يبدو مثيراً للاهتمام، لنتحدث.»' },
+      a: { en: 'Thank you, {first}. Which day this week or next suits you for a 20-minute call? I’ll send an invite, and if there is anything you’d like us to prepare for {hotel}, just tell me.', ar: 'شكراً لكم. أي يوم هذا الأسبوع أو القادم يناسبكم لمكالمة مدتها 20 دقيقة؟ سأرسل دعوة بالموعد، وإن كان هناك ما تودّون أن نجهّزه لـ {hotel} فأخبروني.' },
+      after: { en: 'Stop the sequence, book the {session} and log it in the CRM.', ar: 'أوقف التسلسل، واحجز موعد {session} وسجّله في نظام إدارة العملاء.' } },
+    { id: 'later', tracks: 'AB', q: { en: '“Not now. Maybe later.”', ar: '«ليس الآن، ربما لاحقاً.»' },
+      a: { en: 'Completely understood, {first}. When would be better to reconnect, next month or after the season? I’ll note it and won’t follow up before then.', ar: 'مفهوم تماماً. متى يناسبكم أن نتواصل مجدداً، الشهر القادم أم بعد الموسم؟ سأدوّن ذلك ولن أتابع قبله.' },
+      after: { en: 'Stop the sequence and set a CRM reminder for the date they give.', ar: 'أوقف التسلسل وضع تذكيراً في نظام إدارة العملاء بالموعد الذي يحدّدونه.' } },
+    { id: 'system', tracks: 'B', q: { en: '“We already have a system.”', ar: '«لدينا نظام بالفعل.»' },
+      a: { en: 'That makes sense, most hotels we speak with do. The question is usually how many systems, and how much gets typed twice between them. If a short comparison with your current setup would help, I can prepare it around {hotel}’s workflow. If not, no problem at all.', ar: 'هذا متوقع، فأغلب الفنادق التي نتحدث معها لديها نظام بالفعل. السؤال عادةً: كم نظاماً، وكم من البيانات يُدخل مرتين بينها؟ إن كانت مقارنة قصيرة مع إعدادكم الحالي مفيدة فسأجهّزها حول سير عمل {hotel}، وإن لم تكن فلا بأس إطلاقاً.' },
+      after: { en: 'If they accept, book it. If not, thank them and stop.', ar: 'إن وافقوا فاحجز الموعد، وإن لم يوافقوا فاشكرهم وتوقّف.' } },
+    { id: 'happy', tracks: 'A', q: { en: '“We’re happy with our current plan.”', ar: '«نحن راضون عن باقتنا الحالية.»' },
+      a: { en: 'Good to hear, {first}, and thank you. The review is useful even then: it confirms you are using everything you pay for and shows what the two-year prepaid offer would include, so you can decide with the full picture. Twenty minutes, no obligation.', ar: 'يسعدنا ذلك، وشكراً لكم. المراجعة مفيدة حتى في هذه الحالة: تؤكّد أنكم تستفيدون من كل ما تدفعون مقابله، وتوضّح ما يشمله العرض المدفوع مسبقاً لمدة سنتين، لتقرّروا والصورة كاملة. عشرون دقيقة دون أي التزام.' },
+      after: { en: 'If they decline, thank them and stop. Their account team stays their contact.', ar: 'إن اعتذروا فاشكرهم وتوقّف، ويبقى فريق حسابهم نقطة التواصل.' } },
+    { id: 'price', tracks: 'AB', q: { en: '“What does it cost?”', ar: '«كم التكلفة؟»' },
+      a: { en: 'Good question. The price depends on the modules and the term, so I’d rather give you an exact figure than a range. We can confirm it in the {session}, together with the two-year prepaid offer and what it includes.', ar: 'سؤال في محلّه. يعتمد السعر على الوحدات ومدة الاشتراك، لذا أفضّل أن أعطيكم رقماً دقيقاً بدلاً من نطاق تقريبي. نؤكّده خلال {session} مع تفاصيل عرضنا المدفوع مسبقاً لمدة سنتين وما يشمله.' },
+      after: { en: 'No prices in writing until the commercial release record is signed off.', ar: 'لا تُرسل أسعاراً مكتوبة قبل اعتماد سجل الإطلاق التجاري.' } },
+    { id: 'switch', tracks: 'B', q: { en: '“Switching sounds like a lot of work.”', ar: '«الانتقال يبدو مجهوداً كبيراً.»' },
+      a: { en: 'A fair concern. We start by assessing your current data and systems, plan the move with your team, agree training for each department and write down the support scope before anything is signed. I’m happy to walk you through it on a short call.', ar: 'مخاوف مشروعة. نبدأ بتقييم بياناتكم وأنظمتكم الحالية، ونخطّط للانتقال مع فريقكم، ونتفق على تدريب كل قسم، ونكتب نطاق الدعم قبل أي توقيع. يسعدني شرح ذلك في مكالمة قصيرة.' },
+      after: { en: 'Don’t promise dates, zero downtime or instant migration.', ar: 'لا تَعِد بمواعيد محددة أو بانتقال فوري دون توقف.' } },
+    { id: 'term', tracks: 'AB', q: { en: '“Two years is a long commitment.”', ar: '«سنتان التزام طويل.»' },
+      a: { en: 'Understood. The two-year prepaid offer is there for hotels that want it, and we confirm the scope, fees and terms in writing before anything is signed, so you can compare it properly. We can go through it in the {session}.', ar: 'مفهوم. العرض المدفوع مسبقاً لمدة سنتين متاح للفنادق التي تريده، ونؤكّد النطاق والرسوم والشروط كتابياً قبل أي توقيع لتقارنوا براحتكم. يمكننا استعراضه خلال {session}.' },
+      after: { en: 'Confirm terms with the commercial team before quoting any.', ar: 'أكّد الشروط مع الفريق التجاري قبل ذكر أي منها.' } },
+    { id: 'stop', tracks: 'AB', q: { en: '“Please don’t message me again.”', ar: '«أرجو عدم مراسلتي مجدداً.»' },
+      a: { en: 'Understood, {first}. I won’t message you again about this. Thank you for letting me know, and all the best to the team at {hotel}.', ar: 'مفهوم تماماً، ولن أراسلكم مجدداً بهذا الخصوص. شكراً لإبلاغي، وكل التوفيق لفريق {hotel}.' },
+      after: { en: 'Mark the contact as opted out in the CRM today. No further messages about this offer on any channel.', ar: 'سجّل إلغاء الاشتراك في نظام إدارة العملاء اليوم، ولا رسائل أخرى بخصوص هذا العرض عبر أي قناة.' } }
+  ];
+
+  const SUBJECTS = {
+    B: [
+      { tag: 'ok', en: 'Your hotel operations in one connected platform', ar: 'عمليات فندقك في منصة واحدة' },
+      { tag: 'ok', en: 'See {hotel}’s workflow in Fandaqah 360', ar: 'شاهد سير عمل {hotel} في فندقة 360' },
+      { tag: 'draft', en: 'Is {hotel} running on separate systems?', ar: 'هل يعمل {hotel} بأنظمة منفصلة؟' },
+      { tag: 'new', en: 'What your morning report could look like', ar: 'كيف يمكن أن يبدو تقريركم الصباحي' },
+      { tag: 'new', en: 'Three questions owners ask before switching', ar: 'ثلاثة أسئلة يطرحها الملاك قبل الانتقال' },
+      { tag: 'off', en: 'What if your hotel ran itself?', ar: 'ماذا لو كان فندقك يُدار ذاتياً؟', why: { en: 'Promises automation the product team has not approved.', ar: 'يعِد بأتمتة لم يعتمدها فريق المنتج.' } },
+      { tag: 'off', en: 'How [hotel type] eliminated 12 hours of weekly reporting', ar: 'كيف تخلّص [نوع الفندق] من 12 ساعة تقارير أسبوعية', why: { en: 'An unverified saving from an invented example.', ar: 'توفير غير موثّق من مثال مختلق.' } }
+    ],
+    A: [
+      { tag: 'ok', en: 'More value from the Fandaqah you already use', ar: 'قيمة أكبر من فندقة التي تستخدمها اليوم' },
+      { tag: 'ok', en: 'A loyalty offer built around your hotel', ar: 'عرض ولاء مصمَّم حول فندقك' },
+      { tag: 'ok', en: 'An upgrade review for {hotel}', ar: 'مراجعة ترقية مخصّصة لـ {hotel}' },
+      { tag: 'new', en: 'Connecting more of {hotel}’s operations', ar: 'ربط مزيد من عمليات {hotel}' },
+      { tag: 'new', en: 'Your two-year prepaid offer, explained', ar: 'عرضكم المدفوع مسبقاً لمدة سنتين' },
+      { tag: 'off', en: 'Lock your subscription price for two years', ar: 'ثبّت سعر اشتراكك لمدة سنتين', why: { en: 'Fixed-price wording waits for the commercial release sign-off.', ar: 'صياغة السعر الثابت بانتظار اعتماد الإطلاق التجاري.' } }
+    ]
+  };
+
+  const PLAY = {
+    groups: [
+      { id: 'route', icon: 'i-route', t: { en: 'Route the account first', ar: 'وجّه الحساب أولاً' }, items: [
+        { en: 'Already a Fandaqah customer: Track A, always, even groups and Opera users.', ar: 'عميل حالي لدى فندقة: المسار A دائماً، حتى لو كان مجموعة أو يستخدم أوبرا.' },
+        { en: 'New independent property: Track B.', ar: 'منشأة مستقلة جديدة: المسار B.' },
+        { en: 'New local group of about 10 or more properties: use the Campaign D sales brief, not this kit.', ar: 'مجموعة محلية جديدة من نحو 10 منشآت أو أكثر: استخدم موجز مبيعات الحملة D وليس هذه الحزمة.' },
+        { en: 'New property with a confirmed mandated PMS such as Opera: use the Campaign C sales brief.', ar: 'منشأة جديدة بنظام إدارة مفروض ومؤكَّد مثل أوبرا: استخدم موجز مبيعات الحملة C.' },
+        { en: 'Unknown PMS, role or ownership: research first. Never send two tracks to one account.', ar: 'نظام أو دور أو ملكية غير معروفة: ابحث أولاً، ولا ترسل مسارين للحساب نفسه.' } ] },
+      { id: 'time', icon: 'i-calendar-days', t: { en: 'Send at the right time', ar: 'أرسل في الوقت المناسب' }, items: [
+        { en: 'The Saudi working week runs Sunday to Thursday. Send Sunday to Wednesday, around 9:00 to 11:00 Riyadh time.', ar: 'أسبوع العمل في المملكة من الأحد إلى الخميس. أرسل من الأحد إلى الأربعاء، بين 9:00 و11:00 بتوقيت الرياض تقريباً.' },
+        { en: 'Avoid Thursday afternoon, Friday and Saturday. Every date in this kit skips the weekend.', ar: 'تجنّب عصر الخميس والجمعة والسبت. كل التواريخ في هذه الحزمة تتخطّى عطلة نهاية الأسبوع.' },
+        { en: 'In Ramadan, working hours shorten: send late morning and keep messages shorter.', ar: 'في رمضان تقصر ساعات العمل: أرسل في آخر الصباح واختصر الرسائل.' },
+        { en: 'Pause the sequence over Eid, Founding Day (22 February) and National Day (23 September).', ar: 'أوقف التسلسل خلال العيدين ويوم التأسيس (22 فبراير) واليوم الوطني (23 سبتمبر).' } ] },
+      { id: 'limits', icon: 'i-type', t: { en: 'Stay inside LinkedIn’s limits', ar: 'التزم بحدود لينكدإن' }, items: [
+        { en: 'Connection note: 200 characters, which works on every account (Premium allows 300).', ar: 'ملاحظة طلب التواصل: 200 حرف، وهو حد يعمل على كل الحسابات (الحساب المميز يسمح بـ 300).' },
+        { en: 'InMail: subject up to 200 characters, body up to 1,900.', ar: 'رسائل InMail: العنوان حتى 200 حرف، والنص حتى 1,900 حرف.' },
+        { en: 'Messages are plain text. Bold, buttons and markdown do not render, so copy from this kit, which gives you plain text.', ar: 'الرسائل نص عادي، فالخط العريض والأزرار والتنسيق لا تظهر. انسخ من هذه الحزمة لأنها تعطيك نصاً عادياً.' },
+        { en: 'No link in the note or the first message. The tracked link starts at follow-up 1.', ar: 'لا رابط في الملاحظة ولا في الرسالة الأولى. يبدأ الرابط المتتبَّع من المتابعة الأولى.' } ] },
+      { id: 'cadence', icon: 'i-clock', t: { en: 'Cadence and when to stop', ar: 'الإيقاع ومتى تتوقف' }, items: [
+        { en: 'First message when they accept, then follow-ups after 3, 6 and 10 working days. Three follow-ups, then stop.', ar: 'الرسالة الأولى عند قبول الدعوة، ثم المتابعات بعد 3 و6 و10 أيام عمل. ثلاث متابعات ثم توقّف.' },
+        { en: 'Stop the moment they reply, and answer the same day during staffed hours.', ar: 'توقّف فور ردّهم، وأجب في اليوم نفسه خلال ساعات العمل.' },
+        { en: 'For inbound enquiries the playbook rule applies instead: at most three follow-ups across seven business days.', ar: 'للاستفسارات الواردة تنطبق قاعدة دليل الحملة: ثلاث متابعات كحد أقصى خلال سبعة أيام عمل.' } ] },
+      { id: 'respect', icon: 'i-shield-check', t: { en: 'Respect and record', ar: 'الاحترام والتوثيق' }, items: [
+        { en: 'Opt-outs: confirm once, mark the CRM the same day, never message again about this offer.', ar: 'طلبات الإيقاف: أكّد مرة واحدة، وسجّلها في نظام إدارة العملاء في اليوم نفسه، ولا تراسل بخصوص هذا العرض مجدداً.' },
+        { en: 'A LinkedIn connection is not permission for WhatsApp or email. Each channel needs its own recorded permission.', ar: 'التواصل على لينكدإن ليس إذناً للمراسلة عبر واتساب أو البريد، فلكل قناة إذنها المسجَّل.' },
+        { en: 'Never put names, phone numbers or emails in a link. Tags only, exactly as this kit builds them.', ar: 'لا تضع أسماء أو أرقام هواتف أو بريداً إلكترونياً في أي رابط، بل الوسوم فقط كما تبنيها هذه الحزمة.' },
+        { en: 'Log every touch against the account in the CRM.', ar: 'سجّل كل رسالة على حساب العميل في نظام إدارة العملاء.' } ] },
+      { id: 'arabic', icon: 'i-list-checks', t: { en: 'Before launch', ar: 'قبل الإطلاق' }, items: [
+        { en: 'A fluent Saudi Arabic reviewer signs off every Arabic line.', ar: 'يعتمد مراجعٌ متمكّن من العربية السعودية كل سطر عربي.' },
+        { en: 'Pilot with 20 to 30 accounts per track before scaling up.', ar: 'جرّب على 20 إلى 30 حساباً لكل مسار قبل التوسّع.' },
+        { en: 'Confirm the sales team can answer replies within staffed hours.', ar: 'تأكّد من قدرة فريق المبيعات على الرد خلال ساعات العمل.' } ] }
+    ],
+    claims: {
+      doT: { en: 'You can say', ar: 'يمكنك قول' }, dontT: { en: 'Don’t say', ar: 'لا تقل' },
+      do: [
+        { en: 'Built for Saudi hospitality, with supported regulatory workflows', ar: 'مصمَّمة لقطاع الضيافة السعودي، مع دعم سير العمل التنظيمي' },
+        { en: 'ZATCA e-invoicing, Shomoos and NTMP integrations', ar: 'الربط بالفوترة الإلكترونية وشموس ومنصة الرصد السياحي' },
+        { en: 'More than 800 properties run on Fandaqah (as published on fandaqah.com)', ar: 'أكثر من 800 منشأة تعمل على فندقة (كما هو منشور في fandaqah.com)' },
+        { en: 'A local team in Al Khobar for onboarding, training and support', ar: 'فريق محلي في الخبر للتهيئة والتدريب والدعم' },
+        { en: '“Ask about our two-year prepaid offer”', ar: '«اسأل عن عرضنا المدفوع مسبقاً لمدة سنتين»' },
+        { en: 'Migration assessment, training plan and support scope agreed before signing', ar: 'تقييم النقل وخطة التدريب ونطاق الدعم قبل التوقيع' } ],
+      dont: [
+        { en: 'Prices or “fixed price” wording, until the commercial release is signed off', ar: 'الأسعار أو صياغة «السعر الثابت» قبل اعتماد الإطلاق التجاري' },
+        { en: 'Savings percentages or hours saved', ar: 'نسب التوفير أو عدد الساعات الموفَّرة' },
+        { en: '“100% Saudi compliant”, “Saudi made”, “AI powered”, “24/7 local support”', ar: '«متوافق 100%»، «صُنع في السعودية»، «مدعوم بالذكاء الاصطناعي»، «دعم محلي 24/7»' },
+        { en: 'Invented reviews, countdowns or limited availability', ar: 'آراء مختلقة أو عدّاد تنازلي أو «كمية محدودة»' },
+        { en: 'Zero downtime or instant migration', ar: 'انتقال فوري أو دون أي توقف' },
+        { en: 'The 30-day money-back guarantee from the Fandaqah 360 page, until the commercial team confirms its terms for outreach', ar: 'ضمان استرداد المال خلال 30 يوماً المذكور في صفحة فندقة 360، حتى يؤكّد الفريق التجاري شروطه للتواصل المباشر' } ]
+    },
+    changes: {
+      t: { en: 'What changed from the draft', ar: 'ما الذي تغيّر عن المسودة' },
+      cols: { en: ['Draft', 'Now', 'Why'], ar: ['المسودة', 'الآن', 'السبب'] },
+      rows: [
+        { from: { en: '“40% less time on manual reconciliation”', ar: '«توفير 40% من وقت التسوية اليدوية»' }, to: { en: 'Removed', ar: 'حُذف' }, why: { en: 'No verified source, and the playbook forbids savings claims.', ar: 'لا مصدر موثّق، ودليل الحملة يمنع ادعاءات التوفير.' } },
+        { from: { en: 'A quoted boutique-hotel testimonial', ar: 'شهادة منسوبة لفندق بوتيك' }, to: { en: 'The three questions owners ask before switching', ar: 'الأسئلة الثلاثة التي يطرحها الملاك قبل الانتقال' }, why: { en: 'Invented reviews are not allowed. Add a real quote only with the client’s written approval.', ar: 'الآراء المختلقة ممنوعة، ولا تُضاف شهادة حقيقية إلا بموافقة العميل الكتابية.' } },
+        { from: { en: 'فندق 360', ar: 'فندق 360' }, to: { en: 'فندقة 360', ar: 'فندقة 360' }, why: { en: 'The brand is فندقة; فندق means “hotel”.', ar: 'العلامة هي فندقة، أما «فندق» فاسم عام.' } },
+        { from: { en: '“Lock your subscription price for two years”', ar: '«ثبّت سعر اشتراكك لمدة سنتين»' }, to: { en: '“Your eligibility for our two-year prepaid offer”', ar: '«أهليتكم لعرضنا المدفوع مسبقاً لمدة سنتين»' }, why: { en: 'Fixed-price wording waits for the commercial release sign-off.', ar: 'صياغة السعر الثابت بانتظار اعتماد الإطلاق التجاري.' } },
+        { from: { en: '“What if your hotel ran itself?”, “zero manual data entry”, “automated night audit”', ar: '«ماذا لو كان فندقك يُدار ذاتياً؟»، «صفر إدخال يدوي»، «تدقيق ليلي آلي»' }, to: { en: 'Concrete outcomes from real modules', ar: 'نتائج ملموسة من وحدات حقيقية' }, why: { en: 'Capabilities appear in outreach only once product has approved them.', ar: 'لا تظهر القدرات في التواصل إلا بعد اعتماد فريق المنتج لها.' } },
+        { from: { en: 'Bold text and [Book a call] buttons', ar: 'نص عريض وأزرار مثل [احجز مكالمة]' }, to: { en: 'Plain text with a tracked link', ar: 'نص عادي مع رابط متتبَّع' }, why: { en: 'LinkedIn messages do not render formatting or buttons.', ar: 'رسائل لينكدإن لا تعرض التنسيق ولا الأزرار.' } },
+        { from: { en: 'Tuesday to Thursday, 9 to 11', ar: 'من الثلاثاء إلى الخميس، 9 إلى 11' }, to: { en: 'Sunday to Wednesday, 9:00 to 11:00 Riyadh time', ar: 'من الأحد إلى الأربعاء، 9:00 إلى 11:00 بتوقيت الرياض' }, why: { en: 'The Saudi working week runs Sunday to Thursday.', ar: 'أسبوع العمل في المملكة من الأحد إلى الخميس.' } },
+        { from: { en: 'Day 1, 4, 8 and 15, with no final message written', ar: 'اليوم 1 و4 و8 و15، دون كتابة الرسالة الأخيرة' }, to: { en: 'Working days 0, 3, 6 and 10, with a written last message', ar: 'أيام العمل 0 و3 و6 و10، مع رسالة أخيرة مكتوبة' }, why: { en: 'Dates skip Friday and Saturday, and the sequence ends cleanly.', ar: 'التواريخ تتخطّى الجمعة والسبت، والتسلسل ينتهي بوضوح.' } },
+        { from: { en: 'No connection notes, no reply handling', ar: 'لا ملاحظات تواصل ولا ردود جاهزة' }, to: { en: 'Notes under 200 characters and ready replies', ar: 'ملاحظات أقل من 200 حرف وردود جاهزة' }, why: { en: 'Most outreach starts with an invitation, and every reply needs a ready answer.', ar: 'معظم التواصل يبدأ بدعوة، وكل ردّ يحتاج إجابة جاهزة.' } },
+        { from: { en: 'عزيزي and singular address', ar: '«عزيزي» وخطاب المفرد' }, to: { en: 'مرحباً with the respectful plural', ar: '«مرحباً» مع صيغة الجمع للاحترام' }, why: { en: 'Reads correctly for any recipient and matches Fandaqah’s Arabic campaign tone.', ar: 'تصلح لأي متلقٍّ وتوافق نبرة حملات فندقة العربية.' } },
+        { from: { en: 'التدبير المنزلي', ar: 'التدبير المنزلي' }, to: { en: 'التدبير الفندقي', ar: 'التدبير الفندقي' }, why: { en: 'The term used across Fandaqah’s Arabic pages.', ar: 'المصطلح المستخدم في صفحات فندقة العربية.' } }
+      ]
+    }
+  };
+
+  /* ---------- state ---------- */
+  const S = { track: 'B', lang: 'en', f: { first: '', hotel: '', city: '', rep: '', note: '', tn: '', tu: 'y', date: '' }, edits: {}, editing: null, passed: new Set(['note']), demo: false };
+  const t = (k, vars = {}) => String(T[S.lang][k]).replace(/\{(\w+)\}/g, (m, v) => (v in vars ? vars[v] : m));
+  const steps = () => STEPS[S.track];
+  const key = id => `${S.track}:${S.lang}:${id}`;
+
+  /* ---------- dates: the Saudi working week runs Sunday to Thursday ---------- */
+  const pad = n => String(n).padStart(2, '0');
+  const iso = d => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+  const parse = v => { const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(v || ''); return m ? new Date(+m[1], +m[2] - 1, +m[3]) : null; };
+  const weekend = d => d.getDay() === 5 || d.getDay() === 6;
+  const nextWork = d => { const x = new Date(d); while (weekend(x)) x.setDate(x.getDate() + 1); return x; };
+  const addWork = (d, n) => { const x = new Date(d); let k = 0; while (k < n) { x.setDate(x.getDate() + 1); if (!weekend(x)) k++; } return x; };
+  const fmtDate = (d, long) => new Intl.DateTimeFormat(S.lang === 'ar' ? 'ar' : 'en-GB', { weekday: long ? 'long' : 'short', day: 'numeric', month: 'short', calendar: 'gregory', numberingSystem: 'latn' }).format(d);
+  const start = () => nextWork(parse(S.f.date) || new Date());
+  const stepDate = st => (st.offset == null ? null : addWork(start(), st.offset));
+
+  /* ---------- time with Fandaqah, with Arabic number agreement ---------- */
+  const tenureN = () => { const n = parseInt(S.f.tn, 10); return n > 0 && n < 100 ? n : 0; };
+  const tenureText = lang => {
+    const n = tenureN(); if (!n) return '';
+    const y = S.f.tu !== 'm';
+    if (lang === 'ar') {
+      if (n === 1) return y ? 'سنة' : 'شهر';
+      if (n === 2) return y ? 'سنتين' : 'شهرين';
+      if (n <= 10) return `${n} ${y ? 'سنوات' : 'أشهر'}`;
+      return `${n} ${y ? 'سنة' : 'شهراً'}`;
+    }
+    if (n === 1) return y ? 'a year' : 'a month';
+    return `${n} ${y ? 'years' : 'months'}`;
+  };
+
+  /* ---------- merge: one tokenizer feeds both the highlighted view and the plain text ---------- */
+  const trackLink = id => {
+    const q = new URLSearchParams({ utm_campaign: TRACKS[S.track].campaign, utm_source: 'linkedin', utm_medium: 'direct_outreach', utm_content: `li_${id}_${S.lang}` });
+    if (S.lang === 'ar') q.set('lang', 'ar');
+    return `${BASE}?${q}`;
+  };
+  function tokens(str, ctx) {
+    const out = [];
+    str.split(/(\{\w+\})/).forEach(part => {
+      const m = /^\{(\w+)\}$/.exec(part);
+      if (!m) { if (part) out.push({ t: part }); return; }
+      const k = m[1], L = S.lang;
+      if (k in FIELDS) { const v = S.f[k].trim(); if (v) out.push({ v: k, val: v }); else { out.push({ miss: k, val: `[${FIELDS[k][L]}]` }); ctx.missing.add(k); } }
+      else if (k === 'note') { const v = S.f.note.trim(); out.push(...(v ? [{ v: 'note', val: v }] : tokens(NOTE_FALLBACK[S.track][L], ctx))); }
+      else if (k === 'link') { const u = trackLink(ctx.id); out.push({ link: u }); ctx.link = u; }
+      else if (k === 'tenure') out.push({ v: 'tenure', val: tenureText(L) });
+      else if (k === 'tenure_for') { if (tenureN()) out.push({ t: tenureN() === 1 ? ` for the past ${S.f.tu === 'm' ? 'month' : 'year'}` : ` for the past ${tenureText('en')}` }); }
+      else if (k === 'tenure_since') { if (tenureN()) out.push({ t: ` منذ ${tenureText('ar')}` }); }
+      else if (k === 'session') out.push({ t: TRACKS[S.track].session[L] });
+      else out.push({ t: part });
+    });
+    return out;
+  }
+  const visible = b => !(b.if && !tenureN()) && !(b.unless && tenureN());
+  const lineText = tk => tk.map(x => x.val != null ? x.val : x.link != null ? x.link : x.t).join('').replace(/[ \t]+$/gm, '').replace(/ {2,}/g, ' ').trim();
+  function blocksText(blocks, ctx) {
+    const L = S.lang, parts = [];
+    blocks.filter(visible).forEach(b => {
+      if (b.p != null) { const s = lineText(tokens(b.p, ctx)); if (s) parts.push(s); }
+      else if (b.ul) parts.push(b.ul.map(i => '• ' + lineText(tokens(i, ctx))).join('\n'));
+      else if (b.ol) parts.push(b.ol.map((i, n) => `${n + 1}. ` + lineText(tokens(i, ctx))).join('\n'));
+      else if (b.sign) parts.push(lineText(tokens('{rep}', ctx)) + '\n' + BRAND[L]);
+    });
+    return parts.join('\n\n');
+  }
+  // highlighted DOM: filled fields get a highlighter mark, empty ones a dashed slot
+  function tokensDom(tk, el) {
+    tk.forEach(x => {
+      if (x.miss) { const s = document.createElement('span'); s.className = 'v miss'; s.textContent = x.val; el.append(s); }
+      else if (x.v) { if (!x.val) return; const s = document.createElement('bdi'); s.className = 'v'; s.textContent = x.val; el.append(s); }
+      else if (x.link) { const a = document.createElement('a'); a.href = x.link; a.target = '_blank'; a.rel = 'noopener'; a.dir = 'ltr'; a.textContent = x.link; el.append(a); }
+      else String(x.t).split('\n').forEach((seg, i) => { if (i) el.append(document.createElement('br')); el.append(seg); });
+    });
+  }
+  function trimDom(el) { // drop the dangling space a missing personal line leaves behind
+    const last = el.lastChild; if (last && last.nodeType === 3) last.textContent = last.textContent.replace(/\s+$/, '');
+  }
+  function blocksDom(blocks, ctx) {
+    const f = document.createDocumentFragment();
+    blocks.filter(visible).forEach(b => {
+      if (b.p != null) { const tk = tokens(b.p, ctx); if (!lineText(tk)) return; const p = document.createElement('p'); tokensDom(tk, p); trimDom(p); f.append(p); }
+      else if (b.ul || b.ol) { const l = document.createElement(b.ul ? 'ul' : 'ol'); (b.ul || b.ol).forEach(i => { const li = document.createElement('li'); tokensDom(tokens(i, ctx), li); l.append(li); }); f.append(l); }
+      else if (b.sign) { const p = document.createElement('p'); p.className = 'sign'; tokensDom(tokens('{rep}', ctx), p); p.append(document.createElement('br'), BRAND[S.lang]); f.append(p); }
+    });
+    return f;
+  }
+  // plain text (an edit, or a bubble) back to readable DOM: paragraphs, links, empty slots
+  function plainDom(text) {
+    const f = document.createDocumentFragment();
+    text.split(/\n{2,}/).forEach(par => {
+      if (!par.trim()) return;
+      const p = document.createElement('p');
+      par.split('\n').forEach((line, i) => {
+        if (i) p.append(document.createElement('br'));
+        line.split(/(https?:\/\/\S+|\[[^\]\n]{2,40}\])/).forEach(seg => {
+          if (/^https?:\/\//.test(seg)) { const a = document.createElement('a'); a.href = seg; a.target = '_blank'; a.rel = 'noopener'; a.dir = 'ltr'; a.textContent = seg; p.append(a); }
+          else if (/^\[[^\]]+\]$/.test(seg)) { const s = document.createElement('span'); s.className = 'miss'; s.textContent = seg; p.append(s); }
+          else if (seg) p.append(seg);
+        });
+      });
+      f.append(p);
+    });
+    return f;
+  }
+
+  // everything about one touch, computed once per update
+  function model(st) {
+    const ctx = { id: st.id, missing: new Set(), link: null };
+    const blocks = st[S.lang];
+    const tplText = blocksText(blocks, ctx);
+    const subject = st.subject ? lineText(tokens(st.subject[S.lang], ctx)) : '';
+    const edited = S.edits[key(st.id)];
+    const text = edited != null ? edited : tplText;
+    const len = [...text].length;
+    const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+    const editMissing = edited != null && /\[[^\]\n]{2,40}\]/.test(edited);
+    const missing = edited != null ? (editMissing ? ctx.missing : new Set()) : ctx.missing;
+    const ready = missing.size === 0 && !editMissing && len <= st.limit;
+    return { st, ctx, blocks, text, subject, edited: edited != null, len, words, missing, ready, over: len > st.limit, date: stepDate(st) };
+  }
+
+  /* ---------- the interface ---------- */
+  const seqEl = $('[data-seq]'), navSteps = $('[data-nav-steps]'), thread = $('[data-thread]'), inbox = $('#inbox');
+  const form = $('[data-prospect]'), toastEl = $('[data-toast]');
+  const textNodes = $$('[data-i18n]'), ariaNodes = $$('[data-i18n-aria]');
+  const EN = {}, EN_ARIA = new Map();
+  textNodes.forEach(n => { if (!(n.dataset.i18n in EN)) EN[n.dataset.i18n] = n.innerHTML; });
+  ariaNodes.forEach(n => EN_ARIA.set(n, n.getAttribute('aria-label')));
+
+  function applyChrome() {
+    const ar = S.lang === 'ar';
+    root.lang = S.lang; root.dir = ar ? 'rtl' : 'ltr';
+    textNodes.forEach(n => { const v = ar ? AR[n.dataset.i18n] : EN[n.dataset.i18n]; if (v != null) n.innerHTML = v; });
+    ariaNodes.forEach(n => n.setAttribute('aria-label', ar ? (AR[n.dataset.i18nAria] || EN_ARIA.get(n)) : EN_ARIA.get(n)));
+    $$('[data-lang]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === S.lang)));
+    $$('[data-track]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.track === S.track)));
+    $('#cities').innerHTML = CITIES[S.lang].map(c => `<option value="${esc(c)}">`).join('');
+    $$('[data-only]').forEach(el => { el.hidden = el.dataset.only !== S.track; });
+    form.classList.toggle('is-b', S.track === 'B');
+    const r = $('[data-route]');
+    r.innerHTML = `<span class="tag">${S.track} · ${esc(TRACKS[S.track].name[S.lang])}</span><span>${esc(t(S.track === 'A' ? 'routeA' : 'routeB'))}</span><a href="#play-route">${esc(t('routeRules'))}</a>`;
+  }
+
+  function buildSequence() {
+    S.editing = null;
+    seqEl.innerHTML = ''; navSteps.innerHTML = '';
+    const dir = S.lang === 'ar' ? 'rtl' : 'ltr';
+    steps().forEach((st, i) => {
+      const sec = document.createElement('section');
+      sec.className = 'step'; sec.id = 's-' + st.id; sec.dataset.step = st.id; sec.setAttribute('aria-labelledby', 'h-' + st.id);
+      sec.innerHTML = `
+        <div class="step-node num" aria-hidden="true">${i + 1}</div>
+        <header class="step-head">
+          <div class="step-title"><h2 id="h-${st.id}">${esc(st.label[S.lang])}</h2><p class="step-when"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg><span data-when></span></p></div>
+          <span class="badge" data-badge></span>
+        </header>
+        ${st.subject ? `<div class="subj"><span class="subj-k">${esc(t('subject'))}</span><p class="subj-v" data-subject></p><button class="btn-icon" type="button" data-act="subject" aria-label="${esc(t('copySubject'))}" title="${esc(t('copySubject'))}"><svg class="ic" aria-hidden="true"><use href="#i-copy"/></svg></button></div>` : ''}
+        <div class="paper" data-paper lang="${S.lang}" dir="${dir}"></div>
+        <div class="step-foot">
+          <div class="meter" data-meter><span class="meter-bar" aria-hidden="true"><i></i></span><span class="num" data-meter-txt></span></div>
+          <div class="link-chip" data-linkchip></div>
+          <div class="step-actions">
+            <button class="btn btn-ghost" type="button" data-act="reset" hidden><svg class="ic" aria-hidden="true"><use href="#i-rotate-ccw"/></svg><span>${esc(t('reset'))}</span></button>
+            <button class="btn btn-ghost" type="button" data-act="edit"><svg class="ic" aria-hidden="true"><use href="#i-pencil-line"/></svg><span>${esc(t('edit'))}</span></button>
+            <button class="btn btn-primary" type="button" data-act="copy"><svg class="ic" aria-hidden="true"><use href="#i-copy"/></svg><span>${esc(t(st.id === 'note' ? 'copyNote' : 'copy'))}</span></button>
+          </div>
+        </div>
+        <p class="edited-hint" data-edited-hint hidden>${esc(t('editedHint'))}</p>
+        <p class="why"><svg class="ic" aria-hidden="true"><use href="#i-route"/></svg><span>${esc(st.why[S.lang])}</span></p>`;
+      seqEl.append(sec);
+      const li = document.createElement('li');
+      li.innerHTML = `<a href="#s-${st.id}" data-spy="s-${st.id}"><span class="dot num">${i + 1}</span><span class="nav-l">${esc(st.label[S.lang])}</span><span class="nav-d num" data-nav-date></span></a>`;
+      navSteps.append(li);
+    });
+    observe();
+  }
+
+  function whenText(m) {
+    if (!m.date) return t('whenNote');
+    return m.st.offset === 0 ? t('whenFirst', { date: fmtDate(m.date) }) : t('whenAfter', { date: fmtDate(m.date), n: m.st.offset });
+  }
+
+  function update() {
+    const models = steps().map(model);
+    models.forEach((m, i) => {
+      const sec = seqEl.children[i];
+      if (!sec) return;
+      sec.classList.toggle('is-ready', m.ready);
+      $('[data-when]', sec).textContent = whenText(m);
+      const badge = $('[data-badge]', sec);
+      badge.className = 'badge ' + (m.ready ? 'is-ready' : m.over ? 'is-long' : 'is-missing');
+      badge.innerHTML = m.ready ? `<svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>${esc(t('ready'))}`
+        : m.over ? `<svg class="ic" aria-hidden="true"><use href="#i-circle-alert"/></svg>${esc(t('tooLong'))}`
+        : `<svg class="ic" aria-hidden="true"><use href="#i-circle-alert"/></svg>${esc(t('missing', { n: [...m.missing].map(k => FIELDS[k][S.lang]).join(S.lang === 'ar' ? '، ' : ', ') }))}`;
+      const subj = $('[data-subject]', sec);
+      if (subj) { subj.textContent = ''; const c = { id: m.st.id, missing: new Set() }; tokensDom(tokens(m.st.subject[S.lang], c), subj); }
+      if (S.editing !== m.st.id) {
+        const paper = $('[data-paper]', sec);
+        paper.textContent = '';
+        paper.append(m.edited ? plainDom(m.text) : blocksDom(m.blocks, { id: m.st.id, missing: new Set() }));
+      }
+      const meter = $('[data-meter]', sec);
+      meter.classList.toggle('is-over', m.over);
+      meter.querySelector('i').style.setProperty('--p', Math.min(1, m.len / m.st.limit).toFixed(3));
+      $('[data-meter-txt]', sec).textContent = `${t('chars', { n: m.len.toLocaleString('en'), max: m.st.limit.toLocaleString('en') })} · ${t('words', { n: m.words })}`;
+      const chip = $('[data-linkchip]', sec);
+      chip.innerHTML = m.st.link
+        ? `<svg class="ic" aria-hidden="true"><use href="#i-link"/></svg><span>${esc(t('link'))}</span><code dir="ltr" title="${esc(trackLink(m.st.id))}">li_${m.st.id}_${S.lang}</code><button class="btn-icon" type="button" data-act="link" aria-label="${esc(t('copyLink'))}" title="${esc(t('copyLink'))}"><svg class="ic" aria-hidden="true"><use href="#i-copy"/></svg></button>`
+        : `<svg class="ic" aria-hidden="true"><use href="#i-link"/></svg><span>${esc(t('noLink'))}</span>`;
+      $('[data-act="reset"]', sec).hidden = !m.edited;
+      $('[data-edited-hint]', sec).hidden = !m.edited;
+      const a = navSteps.children[i] && navSteps.children[i].firstElementChild;
+      if (a) { a.classList.toggle('is-ready', m.ready); a.classList.toggle('is-missing', !m.ready); $('[data-nav-date]', a).textContent = m.date ? fmtDate(m.date) : t('navNote'); }
+    });
+    renderThread(models);
+    renderStatus(models);
+    renderReplies(); renderSubjects();
+    // prospect form state
+    ['first', 'hotel', 'city', 'rep'].forEach(k => $(`[data-f="${k}"]`).classList.toggle('is-empty', !S.f[k].trim()));
+    $('[data-note-count]').textContent = `${[...S.f.note].length}/160`;
+    const noteHint = $('[data-note-hint]');
+    noteHint.textContent = !S.f.note.trim() && S.track === 'B' ? t('noteDefault') : (S.lang === 'ar' ? AR['f.noteHint'] : EN['f.noteHint']);
+    const raw = parse(S.f.date), w = $('[data-weekend]');
+    w.hidden = !(raw && weekend(raw));
+    if (!w.hidden) w.textContent = t('weekend', { day: fmtDate(raw, true), date: fmtDate(start(), true) });
+    $('[data-demo-chip]').hidden = !S.demo;
+    save();
+    return models;
+  }
+
+  /* ---------- signature: the conversation builds itself as the sequence is read ---------- */
+  const shown = new Set();
+  const initials = s => (s.trim().split(/\s+/).map(w => [...w][0] || '').join('').slice(0, 2) || '?').toUpperCase();
+  function renderThread(models) {
+    const f = S.f, first = f.first.trim(), them = first || t('them');
+    $('[data-av-them]').textContent = initials(first || '?');
+    $('[data-them-name]').textContent = them;
+    $('[data-them-sub]').textContent = [f.hotel.trim(), f.city.trim()].filter(Boolean).join(' · ');
+    thread.textContent = '';
+    thread.setAttribute('dir', S.lang === 'ar' ? 'rtl' : 'ltr');
+    let count = 0, lastDate = null;
+    models.forEach(m => {
+      if (!S.passed.has(m.st.id)) return;
+      count++;
+      const isNew = !shown.has(m.st.id) && !reduce.matches;
+      shown.add(m.st.id);
+      let node;
+      if (m.st.id === 'note') {
+        node = document.createElement('div'); node.className = 'invite';
+        node.innerHTML = `<p class="invite-k"><svg class="ic" aria-hidden="true"><use href="#i-user-plus"/></svg>${esc(t('invite'))}</p>`;
+        node.append(plainDom(m.text));
+      } else {
+        const sys = document.createElement('p'); sys.className = 'sys';
+        const label = m.st.offset === 0 ? t('accepted', { date: fmtDate(m.date), first: them }) : t('on', { date: fmtDate(m.date, true) });
+        sys.innerHTML = `<span>${esc(label)}</span>`;
+        thread.append(sys);
+        node = document.createElement('div'); node.className = 'msg';
+        node.innerHTML = `<span class="av av-me" aria-hidden="true">${esc(initials(f.rep.trim() || 'F'))}</span>`;
+        const b = document.createElement('div'); b.className = 'bubble'; b.append(plainDom(m.text)); node.append(b);
+        lastDate = m.date;
+      }
+      if (isNew) node.classList.add('is-new');
+      thread.append(node);
+    });
+    if (count) requestAnimationFrame(() => { thread.scrollTop = thread.scrollHeight; });
+    $$('[data-prog] i').forEach((i, n) => i.classList.toggle('on', n < count));
+    $('[data-inbox-count]').textContent = count;
+    $('[data-inbox-state]').textContent = t('inboxState', { n: count });
+    const complete = count === models.length;
+    inbox.classList.toggle('is-complete', complete);
+    if (complete) {
+      const first1 = models.find(m => m.date);
+      $('[data-inbox-done]').textContent = t('inboxDone', { a: fmtDate(first1.date), b: fmtDate(lastDate) });
+    }
+  }
+
+  function renderStatus(models) {
+    const r = models.filter(m => m.ready).length;
+    const miss = new Set(); models.forEach(m => m.missing.forEach(k => miss.add(k)));
+    const st = $('[data-status]');
+    st.classList.toggle('is-ok', r === models.length);
+    $('[data-s-main]').innerHTML = t('sMain', { track: esc(TRACKS[S.track].name[S.lang]), lang: esc(T[S.lang].lang[S.lang]), r });
+    $('[data-s-miss]').textContent = miss.size ? t('sMiss', { list: [...miss].map(k => FIELDS[k][S.lang]).join(S.lang === 'ar' ? '، ' : ', ') }) : '';
+    $('[data-s-next]').textContent = t('sNext', { date: fmtDate(start(), true) });
+  }
+
+  function renderReplies() {
+    const ul = $('[data-replies]'); ul.textContent = '';
+    REPLIES.filter(r => r.tracks.includes(S.track)).forEach(r => {
+      const li = document.createElement('li'); li.className = 'reply'; li.dataset.reply = r.id;
+      const ctx = { id: 'reply', missing: new Set() };
+      li.innerHTML = `<p class="reply-q">${esc(r.q[S.lang])}</p><p class="reply-a" lang="${S.lang}"></p><button class="btn-icon" type="button" data-act="reply" aria-label="${esc(t('copy'))}" title="${esc(t('copy'))}"><svg class="ic" aria-hidden="true"><use href="#i-copy"/></svg></button><p class="reply-after"><svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg><span>${esc(lineText(tokens(r.after[S.lang], ctx)))}</span></p>`;
+      tokensDom(tokens(r.a[S.lang], ctx), $('.reply-a', li));
+      ul.append(li);
+    });
+  }
+  function renderSubjects() {
+    const tb = $('[data-subjects]'); tb.textContent = '';
+    SUBJECTS[S.track].forEach((s, i) => {
+      const tr = document.createElement('tr'); tr.dataset.subject = i;
+      const ctx = { id: 'subject', missing: new Set() };
+      const text = lineText(tokens(s[S.lang], ctx));
+      tr.className = s.tag === 'off' ? 'is-retired' : '';
+      tr.innerHTML = `<td></td><td class="len num">${[...text].length}</td><td class="tagc"><span class="tg tg-${s.tag}">${esc(T[S.lang].tag[s.tag])}</span></td><td class="act">${s.tag === 'off' ? '' : `<button class="btn-icon" type="button" data-act="subjectline" aria-label="${esc(t('copySubject'))}" title="${esc(t('copySubject'))}"><svg class="ic" aria-hidden="true"><use href="#i-copy"/></svg></button>`}</td>`;
+      const td = tr.firstElementChild;
+      if (s.tag === 'off') { td.textContent = text; const w = document.createElement('span'); w.className = 'why-off'; w.textContent = s.why[S.lang]; td.append(w); }
+      else tokensDom(tokens(s[S.lang], ctx), td);
+      tb.append(tr);
+    });
+  }
+  function renderPlay() {
+    const L = S.lang, el = $('[data-play]');
+    const list = items => `<ul>${items.map(i => `<li>${esc(i[L])}</li>`).join('')}</ul>`;
+    el.innerHTML = PLAY.groups.map(g => `<div id="play-${g.id}"><h3><svg class="ic" aria-hidden="true"><use href="#${g.icon}"/></svg>${esc(g.t[L])}</h3>${list(g.items)}</div>`).join('')
+      + `<div class="claims"><div><h3><svg class="ic" aria-hidden="true"><use href="#i-circle-check"/></svg>${esc(PLAY.claims.doT[L])}</h3>${list(PLAY.claims.do)}</div><div><h3><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg>${esc(PLAY.claims.dontT[L])}</h3>${list(PLAY.claims.dont)}</div></div>`
+      + `<div class="changes"><h3><svg class="ic" aria-hidden="true"><use href="#i-pencil-line"/></svg>${esc(PLAY.changes.t[L])}</h3><table><thead><tr>${PLAY.changes.cols[L].map(c => `<th scope="col">${esc(c)}</th>`).join('')}</tr></thead><tbody>${PLAY.changes.rows.map(r => `<tr><td>${esc(r.from[L])}</td><td>${esc(r.to[L])}</td><td>${esc(r.why[L])}</td></tr>`).join('')}</tbody></table></div>`;
+  }
+
+  /* ---------- copy as plain text (works over http, https and file) ---------- */
+  let toastTimer;
+  function toast(msg) { toastEl.textContent = msg; toastEl.classList.add('is-on'); clearTimeout(toastTimer); toastTimer = setTimeout(() => toastEl.classList.remove('is-on'), 1800); }
+  async function copy(text, label, btn) {
+    let ok = false;
+    try { await navigator.clipboard.writeText(text); ok = true; } catch (e) {
+      const ta = document.createElement('textarea'); ta.value = text; ta.setAttribute('readonly', ''); ta.style.cssText = 'position:fixed;top:-1000px;opacity:0';
+      document.body.append(ta); ta.select();
+      try { ok = document.execCommand('copy'); } catch (e2) { ok = false; }
+      ta.remove();
+    }
+    toast(ok ? t('copied', { x: label }) : t('copyFail'));
+    if (ok && btn) { btn.classList.add('is-done'); setTimeout(() => btn.classList.remove('is-done'), 1400); }
+    return ok;
+  }
+  function fullSequence() {
+    const L = S.lang, f = S.f, out = [];
+    out.push(t('crmHead'));
+    out.push(`${t('crmTrack')}: ${S.track} · ${TRACKS[S.track].name[L]} · ${t('crmLang')}: ${T[L].lang[L]}`);
+    out.push(`${t('crmProspect')}: ${[f.first, f.hotel, f.city].map(s => s.trim()).filter(Boolean).join(' · ')}`);
+    out.push(`${t('crmRep')}: ${f.rep.trim()}`);
+    steps().map(model).forEach((m, i) => {
+      out.push('', '────────', `${i + 1}. ${m.st.label[L]} · ${whenText(m)}`);
+      if (m.subject) out.push(`${t('crmSubject')}: ${m.subject}`);
+      out.push('', m.text);
+    });
+    return out.join('\n');
+  }
+
+  /* ---------- sequence actions ---------- */
+  seqEl.addEventListener('click', e => {
+    const btn = e.target.closest('[data-act]'); if (!btn) return;
+    const sec = btn.closest('.step'), st = steps().find(s => s.id === sec.dataset.step), m = model(st);
+    const act = btn.dataset.act;
+    if (act === 'copy') copy(S.editing === st.id ? $('.paper-edit', sec).value : m.text, st.label[S.lang], btn);
+    else if (act === 'subject') copy(m.subject, t('subject'), btn);
+    else if (act === 'link') copy(trackLink(st.id), t('link'), btn);
+    else if (act === 'reset') { delete S.edits[key(st.id)]; if (S.editing === st.id) closeEdit(sec, st, false); update(); }
+    else if (act === 'edit') { if (S.editing === st.id) closeEdit(sec, st, true); else openEdit(sec, st, m); }
+  });
+  function openEdit(sec, st, m) {
+    if (S.editing) { const o = $(`#s-${S.editing}`); const ost = steps().find(s => s.id === S.editing); if (o && ost) closeEdit(o, ost, true); }
+    S.editing = st.id;
+    const paper = $('[data-paper]', sec);
+    const ta = document.createElement('textarea');
+    ta.className = 'paper-edit'; ta.value = m.text; ta.dir = S.lang === 'ar' ? 'rtl' : 'ltr'; ta.lang = S.lang;
+    ta.setAttribute('aria-label', st.label[S.lang]);
+    paper.hidden = true; paper.after(ta);
+    ta.style.height = Math.max(280, paper.offsetHeight || 0) + 'px';
+    ta.addEventListener('input', () => { S.edits[key(st.id)] = ta.value; update(); });
+    const b = $('[data-act="edit"]', sec); b.querySelector('span').textContent = t('done'); b.querySelector('use').setAttribute('href', '#i-check');
+    ta.focus();
+  }
+  function closeEdit(sec, st, keep) {
+    const ta = $('.paper-edit', sec);
+    if (ta && keep) { const tplCtx = { id: st.id, missing: new Set() }; if (ta.value === blocksText(st[S.lang], tplCtx)) delete S.edits[key(st.id)]; }
+    if (ta) ta.remove();
+    $('[data-paper]', sec).hidden = false;
+    const b = $('[data-act="edit"]', sec); b.querySelector('span').textContent = t('edit'); b.querySelector('use').setAttribute('href', '#i-pencil-line');
+    S.editing = null;
+    update();
+  }
+  $('[data-replies]').addEventListener('click', e => {
+    const b = e.target.closest('[data-act="reply"]'); if (!b) return;
+    const r = REPLIES.find(x => x.id === b.closest('[data-reply]').dataset.reply);
+    copy(lineText(tokens(r.a[S.lang], { id: 'reply', missing: new Set() })), r.q[S.lang], b);
+  });
+  $('[data-subjects]').addEventListener('click', e => {
+    const b = e.target.closest('[data-act="subjectline"]'); if (!b) return;
+    const s = SUBJECTS[S.track][+b.closest('tr').dataset.subject];
+    copy(lineText(tokens(s[S.lang], { id: 'subject', missing: new Set() })), t('subject'), b);
+  });
+  $$('[data-copy-all]').forEach(b => b.addEventListener('click', () => copy(fullSequence(), AR['next.copyAll'] && S.lang === 'ar' ? AR['next.copyAll'] : EN['next.copyAll'], b)));
+
+  /* ---------- prospect fields ---------- */
+  const inputs = { first: $('#f-first'), hotel: $('#f-hotel'), city: $('#f-city'), rep: $('#f-rep'), note: $('#f-note'), tn: $('#f-tn'), tu: $('#f-tu'), date: $('#f-date') };
+  const writeForm = () => Object.entries(inputs).forEach(([k, el]) => { el.value = S.f[k]; });
+  form.addEventListener('input', e => {
+    const k = Object.keys(inputs).find(x => inputs[x] === e.target); if (!k) return;
+    S.f[k] = e.target.value;
+    if (['first', 'hotel', 'city', 'rep', 'note'].includes(k)) S.demo = false;
+    update();
+  });
+  form.addEventListener('change', e => { if (e.target === inputs.tu || e.target === inputs.date) { S.f.tu = inputs.tu.value; S.f.date = inputs.date.value; update(); } });
+  function loadDemo() { Object.assign(S.f, DEMO[S.lang], { tn: DEMO.tn, tu: DEMO.tu }); S.demo = true; S.edits = {}; writeForm(); }
+  $('[data-load-demo]').addEventListener('click', () => { loadDemo(); buildSequence(); update(); });
+  $('[data-clear]').addEventListener('click', () => { Object.assign(S.f, { first: '', hotel: '', city: '', note: '', tn: '' }); S.demo = false; S.edits = {}; writeForm(); buildSequence(); update(); inputs.first.focus(); });
+
+  /* ---------- the close: start the next prospect ---------- */
+  $('[data-next-form]').addEventListener('submit', e => {
+    e.preventDefault();
+    const n = $('#n-first');
+    Object.assign(S.f, { first: n.value.trim(), hotel: '', city: '', note: '', tn: '' });
+    S.demo = false; S.edits = {}; S.passed = new Set(['note']); shown.clear();
+    n.value = ''; writeForm(); buildSequence(); update();
+    document.getElementById('prospect').scrollIntoView({ behavior: reduce.matches ? 'auto' : 'smooth', block: 'start' });
+    setTimeout(() => (S.f.first ? inputs.hotel : inputs.first).focus({ preventScroll: true }), reduce.matches ? 0 : 450);
+  });
+
+  /* ---------- track and language ---------- */
+  $$('[data-track]').forEach(b => b.addEventListener('click', () => { if (S.track === b.dataset.track) return; S.track = b.dataset.track; applyChrome(); buildSequence(); update(); }));
+  $$('[data-lang]').forEach(b => b.addEventListener('click', () => {
+    if (S.lang === b.dataset.lang) return;
+    S.lang = b.dataset.lang;
+    if (S.demo) loadDemo();            // a demo prospect switches to the demo names in the new language
+    shown.clear(); applyChrome(); renderPlay(); buildSequence(); update();
+  }));
+
+  /* ---------- scroll: passing a touch sends it into the inbox; the nav follows the reader ---------- */
+  let passIO, spyIO;
+  function observe() {
+    passIO && passIO.disconnect(); spyIO && spyIO.disconnect();
+    passIO = new IntersectionObserver(entries => {
+      let changed = false;
+      entries.forEach(en => {
+        if (!en.isIntersecting) return;
+        const idx = steps().findIndex(s => s.id === en.target.dataset.step);
+        steps().slice(0, idx + 1).forEach(s => { if (!S.passed.has(s.id)) { S.passed.add(s.id); changed = true; } });
+      });
+      if (changed) renderThread(steps().map(model));
+    }, { rootMargin: '0px 0px -38% 0px' });
+    $$('.step', seqEl).forEach(s => passIO.observe(s));
+    spyIO = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (!en.isIntersecting) return;
+        const id = en.target.id;
+        $$('[data-spy]').forEach(a => a.classList.toggle('is-active', a.dataset.spy === id));
+        const act = $(`[data-spy="${id}"]`);
+        if (act && matchMedia('(max-width: 900px)').matches) act.scrollIntoView({ block: 'nearest', inline: 'center' });
+      });
+    }, { rootMargin: '-35% 0px -60% 0px' });
+    [...$$('.step', seqEl), ...['replies', 'subjects', 'playbook', 'next'].map(id => document.getElementById(id))].forEach(el => spyIO.observe(el));
+  }
+
+  /* ---------- inbox drawer on narrow screens ---------- */
+  const toggle = $('.inbox-toggle'), scrim = $('[data-scrim]');
+  const setInbox = open => {
+    inbox.classList.toggle('is-open', open); toggle.setAttribute('aria-expanded', String(open)); scrim.hidden = !open;
+    if (open) $('[data-inbox-close]').focus(); else if (document.activeElement && inbox.contains(document.activeElement)) toggle.focus();
+  };
+  toggle.addEventListener('click', () => setInbox(!inbox.classList.contains('is-open')));
+  $('[data-inbox-close]').addEventListener('click', () => setInbox(false));
+  scrim.addEventListener('click', () => setInbox(false));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && inbox.classList.contains('is-open')) setInbox(false); });
+  matchMedia('(min-width: 1280px)').addEventListener('change', e => { if (e.matches) setInbox(false); });
+
+  /* ---------- per-viewer convenience: remember the prospect, track and language ---------- */
+  const STORE = 'fq360-linkedin-kit';
+  let saveTimer;
+  function save() { clearTimeout(saveTimer); saveTimer = setTimeout(() => { try { localStorage.setItem(STORE, JSON.stringify({ track: S.track, lang: S.lang, f: S.f, demo: S.demo })); } catch (e) {} }, 250); }
+  let saved = null;
+  try { saved = JSON.parse(localStorage.getItem(STORE) || 'null'); } catch (e) {}
+  const qs = new URLSearchParams(location.search);
+  if (saved && saved.f) { S.track = saved.track === 'A' ? 'A' : 'B'; S.lang = saved.lang === 'ar' ? 'ar' : 'en'; Object.assign(S.f, saved.f); S.demo = !!saved.demo; }
+  if (qs.get('lang') === 'ar' || qs.get('lang') === 'en') S.lang = qs.get('lang');
+  if (qs.get('track') === 'A' || qs.get('track') === 'B') S.track = qs.get('track');
+  if (!saved || !saved.f) loadDemo();
+  else if (S.demo) loadDemo();
+  const d = parse(S.f.date);
+  if (!d || d < new Date(new Date().setHours(0, 0, 0, 0))) S.f.date = iso(nextWork(new Date()));
+  writeForm(); applyChrome(); renderPlay(); buildSequence(); update();
+})();
+</script>
+</body>
+</html>

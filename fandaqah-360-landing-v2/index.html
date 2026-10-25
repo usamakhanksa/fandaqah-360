@@ -1,6 +1,7 @@
 <!doctype html>
 <!-- data-bnpl: tabby / tamara instalments are paused ("off"). Every badge and logo for them carries data-bnpl-item;
-     set this to "on" when the offer returns and they all come back. -->
+     set this to "on" when the offer returns and they all come back. The Integrations "Payment Options" card is the
+     exception: it lists tabby and tamara as payment methods guests can use, so it shows them either way. -->
 <html lang="en" dir="ltr" data-bnpl="off">
 <head>
 <meta charset="utf-8">
@@ -258,6 +259,8 @@ button{font:inherit;color:inherit}
 .integ-grid{display:grid;grid-template-columns:1.36fr 1.29fr 1.4fr 1fr;gap:24px;margin-top:28px}
 .icard{position:relative;overflow:hidden;display:flex;flex-direction:column;min-height:298px;padding:22px 22px 18px;border-radius:var(--r-lg);background:var(--surface);box-shadow:var(--e2), inset 0 1px 0 #fff}
 .icard::after{content:"";position:absolute;inset-inline-end:-38px;bottom:-38px;width:92px;height:92px;border-radius:50%;background:radial-gradient(circle at 35% 35%, #FDE6D8, #FAD3BE);opacity:.85}
+/* content rides above the peach corner, so the last row of marks can sit over it */
+.icard > *{position:relative;z-index:1}
 .icard h3{display:flex;align-items:center;gap:14px;min-height:46px;font-size:16.5px;font-weight:700;line-height:1.3;color:var(--ink)}
 /* partner marks: official artwork only, each sized optically (width/height in the markup) so the wall reads even */
 .logos{display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:10px;margin-top:16px}
@@ -267,6 +270,16 @@ button{font:inherit;color:inherit}
 .logos > .logo:last-child:nth-child(odd):not(:first-child){grid-column:1 / -1}
 .logo-more{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:0 6px;background:transparent;box-shadow:none;border:1.5px dashed #DCD3C7;font-size:12.5px;font-weight:600;line-height:1.2;text-align:center;color:var(--ink-2)}
 .logo-more .ic{width:15px;height:15px;color:var(--coral-strong);stroke-width:2.4}
+/* payment options as a timeline: a node per group, joined by a dashed rail that reads as the instalments in between */
+.pay-flow{display:grid;gap:16px;margin-top:16px;padding-inline-start:20px}
+.pay-step{position:relative}
+.pay-step .logos{margin-top:10px}
+.pay-when{position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:2px 8px;min-height:18px;font-size:12px;font-weight:600;line-height:1.3;color:var(--ink-3)}
+.pay-when b{font-weight:700;color:var(--ink)}
+.pay-when span::before{content:"";display:inline-block;width:3px;height:3px;margin-inline-end:8px;border-radius:50%;background:currentColor;vertical-align:middle;opacity:.6}
+.pay-when::before{content:"";position:absolute;inset-inline-start:-20px;top:4px;box-sizing:border-box;width:10px;height:10px;border-radius:50%;background:var(--coral-strong)}
+.is-later .pay-when::before{background:var(--surface);border:2px solid var(--coral-strong)}
+.pay-step:not(.is-later)::after{content:"";position:absolute;inset-inline-start:-16px;top:20px;bottom:-14px;width:2px;border-radius:2px;background:repeating-linear-gradient(to bottom, var(--coral) 0 7px, transparent 7px 12px);opacity:.55}
 /* government programmes: each row opens the feature page for that integration */
 .gov-list{display:grid;gap:10px;margin-top:16px}
 .gov{position:relative;display:grid;grid-template-columns:1fr auto;align-items:center;gap:6px 10px;padding:11px 14px 10px;border-radius:14px;background:#FCFBF8;box-shadow:inset 0 0 0 1px var(--line), 0 1px 2px rgba(28,33,64,.04);color:var(--ink);text-decoration:none;transition:transform .2s var(--ease), box-shadow .2s var(--ease)}
@@ -280,6 +293,8 @@ button{font:inherit;color:inherit}
 .via{position:relative;z-index:1;display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px;margin-top:auto;padding-top:16px;font-size:13px;line-height:1.35;color:var(--ink-3);text-decoration:none;border-radius:8px}
 .via-v{font-weight:700;color:var(--ink);text-decoration:underline;text-decoration-color:rgba(22,26,51,.25);text-underline-offset:4px;transition:text-decoration-color .16s var(--ease)}
 .via:active{transform:translateY(1px)}
+/* card footers are switched off for now; delete this rule to bring the module links back */
+a.via{display:none}
 @media (hover:hover) and (pointer:fine){
   .gov:hover{transform:translateY(-2px);box-shadow:inset 0 0 0 1px rgba(238,86,80,.35), 0 10px 22px -14px rgba(28,33,64,.3)}
   .gov:hover .go{transform:translate(2px, -2px)}
@@ -590,12 +605,19 @@ html:has(.lead[open]){overflow:hidden}
 .js .icard.is-in .logo img,.js .icard.is-in .gov-logo img{filter:none;opacity:1;transform:none;transition:filter .7s var(--ease), opacity .6s var(--ease), transform .8s var(--spring);transition-delay:calc(var(--i, 0) * 60ms + 220ms + var(--j, 0) * 85ms)}
 .js .icard .via{opacity:0;transform:translateY(6px)}
 .js .icard.is-in .via{opacity:1;transform:none;transition:opacity .5s var(--ease), transform .6s var(--ease);transition-delay:calc(var(--i, 0) * 60ms + 760ms)}
+/* payment timeline: once the cards and wallets colour in, the rail draws down and the "later" node lands as tabby and tamara arrive */
+.js .icard .pay-step:not(.is-later)::after{clip-path:inset(0 0 100% 0)}
+.js .icard.is-in .pay-step:not(.is-later)::after{clip-path:inset(0);transition:clip-path .6s var(--ease) calc(var(--i, 0) * 60ms + 420ms)}
+.js .icard .is-later .pay-when::before{border-color:#DCD3C7;transform:scale(.6)}
+.js .icard.is-in .is-later .pay-when::before{border-color:var(--coral-strong);transform:none;transition:border-color .3s var(--ease) calc(var(--i, 0) * 60ms + 880ms), transform .5s var(--spring) calc(var(--i, 0) * 60ms + 880ms)}
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .js [data-reveal]{transform:none}
   .js [data-reveal].is-in{transition:opacity .4s linear}
   .js .icard .logo img,.js .icard .gov-logo img,.js .icard .via{filter:none;opacity:1;transform:none;transition:none}
+  .js .icard .pay-step:not(.is-later)::after{clip-path:none}
+  .js .icard .is-later .pay-when::before{border-color:var(--coral-strong);transform:none}
   .mod .go,.gov,.gov .go,.via .ic,.mod{transition:none}
   .js .hero-copy > *,.js .value,.js .devices-in,.js .plant-in{animation:none}
   .js .hero-photo img{animation:none}
@@ -983,14 +1005,26 @@ html:has(.lead[open]){overflow:hidden}
         </article>
         <article class="icard" data-reveal style="--i:1">
           <h3><span class="tile" aria-hidden="true"><svg class="ic"><use href="#i-wallet-cards"/></svg></span><span data-i18n="integ.pay">Payment Options</span></h3>
-          <ul class="logos">
-            <li class="logo" style="--j:0"><img src="assets/img/partners/apple-pay.svg" width="58" height="24" alt="Apple Pay" data-i18n-alt="pay.apple" decoding="async"></li>
-            <li class="logo" style="--j:1"><img src="assets/img/partners/mada.svg" width="66" height="22" alt="mada" data-i18n-alt="pay.mada" decoding="async"></li>
-            <li class="logo" style="--j:2"><img src="assets/img/partners/visa.svg" width="62" height="20" alt="Visa" data-i18n-alt="pay.visa" decoding="async"></li>
-            <li class="logo" style="--j:3"><img src="assets/img/partners/mastercard.svg" width="45" height="28" alt="Mastercard" data-i18n-alt="pay.mc" decoding="async"></li>
-            <li class="logo" style="--j:4" data-bnpl-item><img src="assets/img/partners/tabby.svg" width="66" height="18" alt="tabby" data-i18n-alt="pay.tabby" decoding="async"></li>
-            <li class="logo" style="--j:5" data-bnpl-item><img src="assets/img/partners/tamara.svg" width="77" height="15" alt="tamara" data-i18n-alt="pay.tamara" decoding="async"></li>
-          </ul>
+          <!-- the guest's choice read as a timeline: cards and wallets settle now, tabby and tamara split it into instalments.
+               tabby / tamara are their current badges as shipped (tabby's checkout widget, tamara's 2025 merchant kit); tamara has an Arabic badge. -->
+          <div class="pay-flow">
+            <div class="pay-step">
+              <p class="pay-when" id="pay-now"><b data-i18n="pay.now">Pay now</b><span data-i18n="pay.nowSub">Cards &amp; wallets</span></p>
+              <ul class="logos" aria-labelledby="pay-now">
+                <li class="logo" style="--j:0"><img src="assets/img/partners/apple-pay.svg" width="58" height="24" alt="Apple Pay" data-i18n-alt="pay.apple" decoding="async"></li>
+                <li class="logo" style="--j:1"><img src="assets/img/partners/mada.svg" width="66" height="22" alt="mada" data-i18n-alt="pay.mada" decoding="async"></li>
+                <li class="logo" style="--j:2"><img src="assets/img/partners/visa.svg" width="62" height="20" alt="Visa" data-i18n-alt="pay.visa" decoding="async"></li>
+                <li class="logo" style="--j:3"><img src="assets/img/partners/mastercard.svg" width="45" height="28" alt="Mastercard" data-i18n-alt="pay.mc" decoding="async"></li>
+              </ul>
+            </div>
+            <div class="pay-step is-later">
+              <p class="pay-when" id="pay-later"><b data-i18n="pay.later">Pay later</b><span data-i18n="pay.laterSub">In instalments</span></p>
+              <ul class="logos" aria-labelledby="pay-later">
+                <li class="logo" style="--j:7"><img src="assets/img/partners/tabby-badge.svg" width="62" height="24" alt="tabby" data-i18n-alt="pay.tabby" decoding="async"></li>
+                <li class="logo" style="--j:8"><img src="assets/img/partners/tamara-badge.webp" data-src-ar="assets/img/partners/tamara-badge-ar.webp" width="76" height="25" alt="tamara" data-i18n-alt="pay.tamara" decoding="async"></li>
+              </ul>
+            </div>
+          </div>
           <a class="via" href="../landing/features/payment-gateway.html"><span data-i18n="via.pay">Accepted via</span><span class="via-v" data-i18n="m.pg">Payment Gateway</span><svg class="ic ic-go" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
         </article>
         <article class="icard" data-reveal style="--i:2">
@@ -1146,7 +1180,7 @@ html:has(.lead[open]){overflow:hidden}
     <div class="wrap about-grid">
       <figure class="about-media" data-reveal>
         <div class="about-photo"><img src="assets/img/about-team.webp" width="1536" height="1024" alt="Two hospitality managers reviewing Fandaqah’s government integrations on a tablet and a screen" data-i18n-alt="about.alt" loading="lazy" decoding="async"></div>
-        <p class="about-stat"><b data-count="800" data-suffix="+">800+</b><span data-i18n="about.stat">properties trust Fandaqah</span></p>
+        <p class="about-stat"><b data-count="1400" data-suffix="+">1400+</b><span data-i18n="about.stat">properties trust Fandaqah</span></p>
         <div class="about-quote">
           <svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>
           <p data-i18n="about.quote">Your digital interface in the world of hospitality and tourism.</p>
@@ -1218,7 +1252,7 @@ html:has(.lead[open]){overflow:hidden}
           </article>
           <figure class="trust" data-reveal style="--i:3">
             <img src="assets/img/lobby-trust.webp" width="800" height="457" alt="A sunlit hotel lobby in Riyadh with a Fandaqah dashboard on the front desk" data-i18n-alt="g.alt" loading="lazy">
-            <figcaption><span class="shield" aria-hidden="true"><svg class="ic"><use href="#i-shield-check"/></svg></span><span><small data-i18n="g.trusted">Trusted by</small><b data-i18n="g.count">800+ properties</b></span></figcaption>
+            <figcaption><span class="shield" aria-hidden="true"><svg class="ic"><use href="#i-shield-check"/></svg></span><span><small data-i18n="g.trusted">Trusted by</small><b data-i18n="g.count">1400+ properties</b></span></figcaption>
           </figure>
         </div>
       </div>
@@ -1335,6 +1369,7 @@ html:has(.lead[open]){overflow:hidden}
     'integ.title':'التكاملات والمنظومة','integ.desc':'تكامل سلس مع المنصات ومزودي الدفع وقنوات الحجز التي تعتمد عليها منشأتك الفندقية.',
     'integ.gov':'الخدمات الحكومية','gov.mot':'وزارة السياحة','gov.motSub':'منصة الرصد السياحي (المرحلتان الأولى والثانية)','gov.zatca':'هيئة الزكاة والضريبة والجمارك','gov.zatcaSub':'الفوترة الإلكترونية (المرحلة الثانية)','gov.shomoos':'شموس','gov.shomoosSub':'بيانات النزلاء · محفظة شموس',
     'integ.pay':'خيارات الدفع','pay.apple':'آبل باي','pay.mada':'مدى','pay.visa':'فيزا','pay.mc':'ماستركارد','pay.tabby':'تابي','pay.tamara':'تمارا',
+    'pay.now':'ادفع الآن','pay.nowSub':'البطاقات والمحافظ الرقمية','pay.later':'ادفع لاحقاً','pay.laterSub':'على دفعات',
     'integ.ota':'قنوات الحجز والتوزيع','ota.booking':'بوكينج.كوم','ota.agoda':'أجودا','ota.expedia':'إكسبيديا','ota.trip':'تريب.كوم','ota.airbnb':'إير بي إن بي','ota.hotels':'هوتيلز.كوم','ota.hrs':'إتش آر إس','ota.more':'قنوات أخرى',
     'integ.bio':'أجهزة الحضور والانصراف','bio.zk':'زد كي تيكو','bio.more':'أجهزة أخرى',
     'via.gov':'مشمولة في','via.pay':'تُقبل عبر','via.ota':'تتم مزامنتها عبر','via.bio':'تُسجَّل في',
@@ -1355,7 +1390,7 @@ html:has(.lead[open]){overflow:hidden}
     'g1.t':'ضمان التفعيل','g1.d':'ابدأ بسرعة مع عملية تهيئة مجرّبة.',
     'g2.t':'ضمان استرداد المال خلال 30 يوماً','g2.d':'لم يكن الخيار المناسب لمنشأتك؟ اطلب استرداد مبلغك خلال 30 يوماً. تطبق الشروط.','g2.unit':'يوماً',
     'g3.t':'عرض لفترة محدودة','g3.d':'أسعار حصرية لفترة محدودة فقط.',
-    'g.trusted':'تثق بنا','g.count':'أكثر من 800 منشأة','g.alt':'بهو فندق مشمس في الرياض وعلى مكتب الاستقبال لوحة تحكم فندقة',
+    'g.trusted':'تثق بنا','g.count':'أكثر من 1400 منشأة','g.alt':'بهو فندق مشمس في الرياض وعلى مكتب الاستقبال لوحة تحكم فندقة',
     'cta.title':'قم بالترقية اليوم','cta.text':'عرض لفترة محدودة وقد ينتهي قريباً. اشترك لمدة سنتين واستفد من السعر الخاص.','cta.guar':'ترقيتك مشمولة بضمان استرداد المال خلال 30 يوماً.',
     'f.follow':'تابعنا','f.in':'فندقة على لينكدإن','f.x':'فندقة على إكس (تويتر)','f.ig':'فندقة على إنستغرام','f.fb':'فندقة على فيسبوك','f.terms':'الشروط والأحكام','f.privacy':'سياسة الخصوصية','f.contact':'تواصل معنا','f.tag':'فندقة 360 | ضيافتك أولويتنا',
     'about.eyebrow':'تقنية بروح الضيافة','about.title':'ضيافتك أولويتنا.',
@@ -1397,6 +1432,8 @@ html:has(.lead[open]){overflow:hidden}
     document.querySelector('meta[name="description"]').content = META[root.lang].desc;
     $$('[data-lang]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === root.lang)));
     $$('[data-href-ar]').forEach(a => { if (!a.dataset.hrefEn) a.dataset.hrefEn = a.getAttribute('href'); a.href = ar ? a.dataset.hrefAr : a.dataset.hrefEn; });
+    // partner marks with an Arabic edition (tamara's badge) swap artwork with the language
+    $$('[data-src-ar]').forEach(i => { if (!i.dataset.srcEn) i.dataset.srcEn = i.getAttribute('src'); i.setAttribute('src', ar ? i.dataset.srcAr : i.dataset.srcEn); });
     featLinks.forEach(a => a.setAttribute('href', ar ? a.dataset.hrefEn.replace('landing/features/', 'landing/ar/features/') : a.dataset.hrefEn));
     if (persist) { try { localStorage.setItem('fq360-lang', root.lang); } catch (e) {} }
   }

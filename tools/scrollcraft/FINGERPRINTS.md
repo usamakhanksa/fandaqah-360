@@ -31,6 +31,7 @@ changes only grammar and world will fail it.
 | landing-features (Fandaqah, 20 modules × EN/AR) | Hotel day (new): sections are hours of one operating day | Site header kept; page chrome is a fixed hotel-clock readout that opens into the hours and jumps to them | Pinned dawn shot: wall with an arched opening (vector, scales past the viewer), property photo moving slower behind it, module board on the ledge overlapping the arch, light shaft | pin(hero) > flow > held sticky board with 4 hour entries (peak entry longest) > flow > pin(lateral rail) > flow > night; 2 pinned acts, about 9.2vh desktop | Night section: the day's report printed from the hours the reader passed, price line and one action as its last lines; clock docks | Scroll is the hotel's clock: 06:00 to 23:59, the ground regrades dawn to night, each hour stamps the report | Brand beige/navy/coral, photographic arch | 8766 |
 | campaign-v2-A (existing customers) | Comp-led conversion page (structure supplied by the owner) | Anchor bar with section highlight, pill language switch; a floating upgrade tray carries the reader's picks | Two arched openings onto palms in a plaster wall, laptop and phone standing on a marble table, glass two-year card and module chips, blurred leaves at the lead edge | parallax hero > value strip > pickable module cards > pin(offer band, card lands on plinth) > steps > triptych form > FAQ; 1 pinned act, about 5.6vh | Peach triptych (copy, arches, form) then accordion FAQ and navy footer | The upgrade tray: picks light the hero chips, travel in a tray and pre-tick the form | Campaign palette, owned photography + markup devices | 8766 |
 | campaign-v2-C (Opera / mandated PMS) | Comp-led conversion page (structure supplied by the owner) | Anchor bar with section highlight | Reception photo masked away from the type, glass PMS map whose connectors draw in, leaf silhouette at the trail edge, script note | parallax hero > navy roles band > workflow cards > pin(cost lens) > four steps > navy/peach split form > three-column FAQ; 1 pinned act, about 5.8vh | Navy promise beside the form card, then FAQ columns and a light footer with the trademark notice | The cost lens: each cost line passed is placed on the review card, current against proposed, no values | Campaign palette, owned photography + markup desk scene | 8766 |
+| linkedin-kit (`linkdein-message.html`, sales tool, EN/AR) | Live surface: the page is the outreach tool, running on real merge, scheduling and copy logic | App chrome: top bar with track and language switches, sidebar of the five dated touches with readiness dots (a step strip on phones), navy status bar | The surface already in a state: a labelled demo prospect merged into every message, the invitation already in the inbox | prospect panel > five flow steps beside a sticky inbox that accumulates > replies > subject lines > playbook (all flow, no pinned act); 10 sections, length set by content | An input: a "next prospect" first-name field on a navy plate, with copy-full-sequence for the CRM | The conversation writes itself: passing each touch drops it into the inbox, dated on Saudi working days, until the thread completes | Campaign palette, no imagery (dense corporate tool) | 8766 |
 
 
 ---
@@ -51,6 +52,11 @@ as a constraint, so writing them down is the whole point.
 - **Grammar:** comp-led conversion page (owner-supplied structure), used by campaign-v2-A and -C.
 - **Signatures:** selection that travels into the form (A); scroll-indexed checklist-to-comparison pairing (C).
 - **Shape band:** 7 sections, 1 pinned act, about 5.5 to 6vh.
+- **Grammar:** live surface as a working sales tool (linkedin-kit).
+- **Nav:** app chrome (switch bar, dated-step sidebar, status bar).
+- **Close:** a "next prospect" input that resets the tool.
+- **Signature:** scroll-accumulated inbox thread dated on working days.
+- **Shape band:** 10 flow sections, 0 pinned acts, sticky side panel.
 
 ---
 
