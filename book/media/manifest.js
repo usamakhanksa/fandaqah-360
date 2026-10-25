@@ -144,7 +144,7 @@ window.BOOK_MEDIA = {
    "en": {
     "mp4": "media/A-existing-customers/reels/A-reel-en.mp4",
     "poster": "media/A-existing-customers/reels/A-reel-en.jpg",
-    "mb": 2.0
+    "mb": 2.1
    }
   }
  },

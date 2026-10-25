@@ -78,6 +78,8 @@
                   <li><i></i><span data-i18n="m3.t">Housekeeping</span></li>
                   <li><i></i><span data-i18n="m1.t">Accounting</span></li>
                   <li><i></i><span data-i18n="m2.t">Purchasing</span></li>
+                  <li><i></i><span data-i18n="m4.t">Maintenance</span></li>
+                  <li><i></i><span data-i18n="m5.t">Inventory</span></li>
                   <li><i></i><span data-i18n="ui.reports">Reports</span></li>
                 </ul>
               </aside>
@@ -112,11 +114,13 @@
         </div>
       </div>
       <div class="pa-two"><span class="pa-two-ic"><svg class="ic"><use href="../assets/icons.svg#i-calendar-days"/></svg></span><b data-i18n="two.b">2 years</b><small data-i18n="two.s">Fixed subscription price</small></div>
-      <svg class="pa-links" viewBox="0 0 120 200" preserveAspectRatio="none"><path d="M0 0 V40 H60 M60 40 V160 M60 40 H120 M60 100 H120 M60 160 H120"/></svg>
+      <svg class="pa-links" viewBox="0 0 120 200" preserveAspectRatio="none"><path d="M0 0 V45 H60 M60 45 V192 M60 45 H120 M60 81 H120 M60 118 H120 M60 155 H120 M60 192 H120"/></svg>
       <ul class="pa-chips">
         <li data-chip="accounting"><svg class="ic"><use href="../assets/icons.svg#i-coins"/></svg><span data-i18n="m1.t">Accounting</span></li>
         <li data-chip="purchasing"><svg class="ic"><use href="../assets/icons.svg#i-shopping-cart"/></svg><span data-i18n="m2.t">Purchasing</span></li>
         <li data-chip="housekeeping"><svg class="ic"><use href="../assets/icons.svg#i-bed-double"/></svg><span data-i18n="m3.t">Housekeeping</span></li>
+        <li data-chip="maintenance"><svg class="ic"><use href="../assets/icons.svg#i-wrench"/></svg><span data-i18n="m4.t">Maintenance</span></li>
+        <li data-chip="inventory"><svg class="ic"><use href="../assets/icons.svg#i-package"/></svg><span data-i18n="m5.t">Inventory</span></li>
       </ul>
       <p class="pa-cap" data-i18n="ui.tag">Illustrative interface</p>
       <svg class="pa-leaf" viewBox="0 0 220 320"><use href="../assets/icons.svg#art-leaves"/></svg>
@@ -183,6 +187,31 @@
           <span class="pa-card-ic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-bed-double"/></svg></span>
           <h3 data-i18n="m3.t">Housekeeping</h3><p data-i18n="m3.d">Coordinate room readiness with your team.</p>
           <button class="pa-pick" type="button" data-module="housekeeping" aria-pressed="false"><span class="pa-box" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="pick">Include in my review</span><span class="pa-plus" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-plus"/></svg></span></button>
+        </article>
+        <article class="pa-card" data-reveal style="--i:3">
+          <figure class="pa-card-media" aria-hidden="true">
+            <img src="../assets/img/lobby-reception.webp" width="1040" height="692" alt="" loading="lazy" style="object-position:30% 55%">
+            <div class="pa-glass">
+              <p data-i18n="g4.h">Work order</p>
+              <dl class="pa-ticket"><div><dt data-i18n="g4.room">Room</dt><dd>308</dd></div><div><dt data-i18n="g4.issue">Issue</dt><dd data-i18n="g4.ac">Air conditioning</dd></div></dl>
+              <p class="pa-state" data-i18n="g4.st">In progress</p>
+            </div>
+          </figure>
+          <span class="pa-card-ic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-wrench"/></svg></span>
+          <h3 data-i18n="m4.t">Maintenance</h3><p data-i18n="m4.d">Create and track maintenance requests.</p>
+          <button class="pa-pick" type="button" data-module="maintenance" aria-pressed="false"><span class="pa-box" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="pick">Include in my review</span><span class="pa-plus" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-plus"/></svg></span></button>
+        </article>
+        <article class="pa-card" data-reveal style="--i:4">
+          <figure class="pa-card-media" aria-hidden="true">
+            <img src="../assets/img/panel-desk.webp" width="520" height="478" alt="" loading="lazy" style="object-position:50% 70%">
+            <div class="pa-glass">
+              <p data-i18n="g5.h">Stock levels</p>
+              <ul class="pa-stock"><li><span data-i18n="g5.1">Towels</span><b>240</b></li><li><span data-i18n="g5.2">Bed linen</span><b>180</b></li><li class="is-low"><span data-i18n="g5.3">Shampoo</span><b>12</b><em data-i18n="g5.low">Low</em></li></ul>
+            </div>
+          </figure>
+          <span class="pa-card-ic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-package"/></svg></span>
+          <h3 data-i18n="m5.t">Inventory</h3><p data-i18n="m5.d">See stock levels and item movements.</p>
+          <button class="pa-pick" type="button" data-module="inventory" aria-pressed="false"><span class="pa-box" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="pick">Include in my review</span><span class="pa-plus" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-plus"/></svg></span></button>
         </article>
       </div>
     </div>
@@ -261,6 +290,8 @@
               <label class="pa-check"><input type="checkbox" name="modules" value="accounting"><span data-i18n="m1.t">Accounting</span></label>
               <label class="pa-check"><input type="checkbox" name="modules" value="purchasing"><span data-i18n="m2.t">Purchasing</span></label>
               <label class="pa-check"><input type="checkbox" name="modules" value="housekeeping"><span data-i18n="m3.t">Housekeeping</span></label>
+              <label class="pa-check"><input type="checkbox" name="modules" value="maintenance"><span data-i18n="m4.t">Maintenance</span></label>
+              <label class="pa-check"><input type="checkbox" name="modules" value="inventory"><span data-i18n="m5.t">Inventory</span></label>
             </fieldset>
             <label class="consent f--full"><input type="checkbox" name="contact_ok" value="yes" aria-describedby="f-agree-err"><span data-i18n="f.agree">I agree to be contacted about this upgrade review.</span></label>
             <p class="f-err f--full" id="f-agree-err" data-i18n="err.agree" hidden>Please confirm that we may contact you about this review.</p>
@@ -337,6 +368,8 @@ window.FQ_PAGE = {
     'm1.t': 'المحاسبة', 'm1.d': 'أدخِل المالية في سير عملك اليومي.',
     'm2.t': 'المشتريات', 'm2.d': 'اربط المشتريات بمراقبة المخزون.',
     'm3.t': 'التدبير الفندقي', 'm3.d': 'نسّق جاهزية الغرف مع فريقك.',
+    'm4.t': 'الصيانة', 'm4.d': 'أنشئ طلبات الصيانة وتابعها.',
+    'm5.t': 'المخزون', 'm5.d': 'تابع مستويات المخزون وحركة الأصناف.',
     'v1.t': 'خطتك الحالية، مُراجَعة.', 'v1.d': 'سنراجع اشتراكك الحالي وتفاصيل التجديد.',
     'v2.t': 'الوحدات المناسبة، مختارة.', 'v2.d': 'اختر الوحدات التي تريد إضافتها إلى مراجعتك.',
     'v3.t': 'شروط العرض، مؤكَّدة.', 'v3.d': 'سنؤكد أهليتك ونوضّح عرض السنتين.',
@@ -344,6 +377,8 @@ window.FQ_PAGE = {
     'mods.sub': 'اختر المجالات التي تريد أن نراجعها، وسنؤكد ما هو مشمول لديك أصلاً.',
     'g1.h': 'نظرة مالية', 'g1.1': 'إيرادات الغرف', 'g1.2': 'إيرادات أخرى', 'g1.3': 'تكاليف التشغيل',
     'g2.h': 'أوامر الشراء', 'g2.1': 'طلب جديد', 'g2.2': 'أُرسل إلى المورد', 'g2.3': 'تم التسليم',
+    'g4.h': 'أمر صيانة', 'g4.room': 'الغرفة', 'g4.issue': 'البلاغ', 'g4.ac': 'التكييف', 'g4.st': 'قيد التنفيذ',
+    'g5.h': 'مستويات المخزون', 'g5.1': 'المناشف', 'g5.2': 'أغطية الأسرّة', 'g5.3': 'الشامبو', 'g5.low': 'منخفض',
     'pick': 'أضِف إلى مراجعتي',
     'offer.eyebrow': 'عرض ولاء مبني حول فندقك', 'offer.h1': 'سنتان.', 'offer.h2': 'خطة واحدة واضحة.',
     'offer.p': 'اسأل عن عرضنا المدفوع مقدماً لمدة سنتين وسعر اشتراك ثابت طوال المدة المتفق عليها.',

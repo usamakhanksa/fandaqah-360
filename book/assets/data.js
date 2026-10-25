@@ -11,9 +11,9 @@ window.BOOK_DATA = {
         motif: ['Spreadsheet', 'Paper log', 'Manual report'],
         scenes: [
           { h: 'Already with Fandaqah? <em>Get more value.</em>', cap: 'Already with Fandaqah? There’s more value waiting.' },
-          { h: 'Connect more of <em>your daily work.</em>', s: 'Accounting, purchasing and housekeeping in the system you already use.', cap: 'Connect accounting and purchasing to the system you know.' },
-          { h: 'See what your <em>upgrade includes.</em>', list: ['Accounting', 'Purchasing', 'Housekeeping'], cap: 'See each step flow into the next, without entering it twice.' },
-          { h: 'Check your <em>two-year upgrade offer.</em>', s: 'Your review confirms eligibility, modules, fees and any approved credit.', cap: 'Request your upgrade review. Ask about our two-year offer.' }
+          { h: 'Connect more of <em>your daily work.</em>', s: 'Accounting, purchasing, housekeeping, maintenance and inventory in the system you know.', cap: 'Connect accounting and purchasing to the system you know.' },
+          { h: 'See what your <em>upgrade includes.</em>', list: ['Accounting', 'Purchasing', 'Housekeeping', 'Maintenance', 'Inventory'], cap: 'See each step flow into the next, without entering it twice.' },
+          { h: 'Check your <em>limited-time upgrade offer.</em>', s: 'Your review confirms eligibility, modules, fees and any approved credit.', cap: 'Request your upgrade review. Ask about our limited-time offer.' }
         ]
       },
       ar: {
@@ -22,9 +22,9 @@ window.BOOK_DATA = {
         motif: ['جدول بيانات', 'سجل ورقي', 'تقرير يدوي'],
         scenes: [
           { h: 'تستخدم فندقة؟ <em>احصل على قيمة أكبر.</em>', cap: 'تستخدم فندقة؟ هناك قيمة أكبر بانتظارك.' },
-          { h: 'اربط مزيداً من <em>عملك اليومي.</em>', s: 'المحاسبة والمشتريات والتدبير الفندقي في النظام الذي تستخدمه.', cap: 'اربط المحاسبة والمشتريات بالنظام الذي تعرفه.' },
-          { h: 'اكتشف ما <em>تشمله ترقيتك.</em>', list: ['المحاسبة', 'المشتريات', 'التدبير الفندقي'], cap: 'شاهد كيف تنتقل العملية من خطوة إلى أخرى دون إدخال مكرر.' },
-          { h: 'تحقّق من <em>عرض الترقية لمدة سنتين.</em>', s: 'تؤكّد المراجعة أهليتك والوحدات والرسوم وأي رصيد معتمد.', cap: 'اطلب مراجعة الترقية، واسأل عن عرضنا لمدة سنتين.' }
+          { h: 'اربط مزيداً من <em>عملك اليومي.</em>', s: 'المحاسبة والمشتريات والتدبير الفندقي والصيانة والمخزون في النظام الذي تستخدمه.', cap: 'اربط المحاسبة والمشتريات بالنظام الذي تعرفه.' },
+          { h: 'اكتشف ما <em>تشمله ترقيتك.</em>', list: ['المحاسبة', 'المشتريات', 'التدبير الفندقي', 'الصيانة', 'المخزون'], cap: 'شاهد كيف تنتقل العملية من خطوة إلى أخرى دون إدخال مكرر.' },
+          { h: 'تحقّق من <em>عرض الترقية لفترة محدودة.</em>', s: 'تؤكّد المراجعة أهليتك والوحدات والرسوم وأي رصيد معتمد.', cap: 'اطلب مراجعة الترقية، واسأل عن عرضنا لفترة محدودة.' }
         ]
       }
     },

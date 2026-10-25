@@ -75,6 +75,11 @@
   .proof-card{display:flex;align-items:center;gap:26px;padding:30px 34px;border:2px solid var(--line);border-radius:24px;background:#fff;box-shadow:var(--e1);font:600 40px/1.2 var(--f-serif)}
   .proof-card .icon-circle{width:92px;height:92px}
   .proof-card .icon-circle .ic{width:42px;height:42px}
+  /* five modules: a tighter stack so the list stays clear of the headline */
+  .proof.dense{gap:12px}
+  .proof.dense .proof-card{gap:22px;padding:16px 28px;border-radius:20px;font-size:34px}
+  .proof.dense .proof-card .icon-circle{width:68px;height:68px}
+  .proof.dense .proof-card .icon-circle .ic{width:32px;height:32px}
   .proof-flow{display:grid;gap:14px}
   .proof-flow .proof-card{padding:24px 30px}
   .proof-flow i{display:block;width:3px;height:26px;margin-inline-start:76px;background:var(--line-2)}
@@ -148,7 +153,7 @@
     } else {
       cls += ' kind-content';
       let body = '';
-      if (sl.list) body = `<div class="proof">${sl.list.map((t, k) => `<div class="proof-card"><span class="icon-circle">${ico(['i-coins', 'i-shopping-cart', 'i-bed-double'][k])}</span>${t}</div>`).join('')}</div>`;
+      if (sl.list) body = `<div class="proof${sl.list.length > 3 ? ' dense' : ''}">${sl.list.map((t, k) => `<div class="proof-card"><span class="icon-circle">${ico(['i-coins', 'i-shopping-cart', 'i-bed-double', 'i-wrench', 'i-package'][k])}</span>${t}</div>`).join('')}</div>`;
       else if (sl.flow) body = `<div class="proof proof-flow">${sl.flow.map((t, k) => `${k ? '<i></i>' : ''}<div class="proof-card"><span class="icon-circle">${ico(['i-calendar-days', 'i-bed-double', 'i-user', 'i-coins'][k])}</span>${t}</div>`).join('')}</div>`;
       else body = `<div class="art-device">${DEV[C.device]()}</div>${tag}`;
       html = `${top}<div class="art-copy"><h1>${sl.h}</h1>${sl.s ? `<p class="sub">${sl.s}</p>` : ''}</div>${body}${count}${legal}`;

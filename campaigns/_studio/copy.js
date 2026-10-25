@@ -1,7 +1,7 @@
 /* Creative copy for the four Fandaqah 360 campaigns (playbook, 20 Oct 2026).
    Edit text here, then re-render: see campaigns/_studio/README.md.
-   Rules baked in (playbook p.7 and p.11): one promise and one CTA per creative, no public price (A/B use
-   "Ask about our two-year prepaid offer"), no savings figures, countdowns, reviews or limited availability. */
+   Rules baked in (playbook p.7 and p.11): one promise and one CTA per creative, no public price (A uses
+   "Ask about our limited-time offer", B "Ask about our two-year prepaid offer"), no savings figures, countdowns, reviews or limited availability. */
 window.STUDIO = {
   base: '/assets/',
   campaigns: {
@@ -10,27 +10,27 @@ window.STUDIO = {
       en: {
         chip: 'For existing Fandaqah customers', cta: 'Check my upgrade offer', url: 'fandaqah.com',
         ads: [
-          { h: '<em>More value</em> from the Fandaqah you already use.', s: 'Review your subscription, the modules you need and your eligibility for our two-year prepaid offer.' },
-          { h: 'A loyalty offer <em>built around your hotel.</em>', s: 'Connect more of your daily operations. Ask about our two-year prepaid offer.' }
+          { h: '<em>More value</em> from the Fandaqah you already use.', s: 'Review your subscription, the modules you need and your eligibility for our limited-time offer.' },
+          { h: 'A loyalty offer <em>built around your hotel.</em>', s: 'Connect more of your daily operations. Ask about our limited-time offer.' }
         ],
         slides: [
           { h: 'Already with Fandaqah? <em>Get more value.</em>' },
-          { h: 'Connect more of <em>your daily work.</em>', s: 'Accounting, purchasing and housekeeping in the system you already use.' },
-          { h: 'See what your <em>upgrade includes.</em>', list: ['Accounting', 'Purchasing', 'Housekeeping'] },
-          { h: 'Check your <em>two-year upgrade offer.</em>', s: 'Your review confirms eligibility, modules, fees and any approved credit.' }
+          { h: 'Connect more of <em>your daily work.</em>', s: 'Accounting, purchasing, housekeeping, maintenance and inventory in the system you know.' },
+          { h: 'See what your <em>upgrade includes.</em>', list: ['Accounting', 'Purchasing', 'Housekeeping', 'Maintenance', 'Inventory'] },
+          { h: 'Check your <em><span style="white-space:nowrap">limited-time</span> upgrade offer.</em>', s: 'Your review confirms eligibility, modules, fees and any approved credit.' }
         ]
       },
       ar: {
         chip: 'لعملاء فندقة الحاليين', cta: 'تحقّق من عرض الترقية', url: 'fandaqah.com',
         ads: [
-          { h: '<em>قيمة أكبر</em> من فندقة التي تستخدمها اليوم.', s: 'راجع اشتراكك والوحدات التي تحتاجها وأهليتك لعرضنا المدفوع مسبقاً لمدة سنتين.' },
-          { h: 'عرض ولاء <em>مصمَّم حول فندقك.</em>', s: 'اربط مزيداً من عملياتك اليومية، واسأل عن عرضنا المدفوع مسبقاً لمدة سنتين.' }
+          { h: '<em>قيمة أكبر</em> من فندقة التي تستخدمها اليوم.', s: 'راجع اشتراكك والوحدات التي تحتاجها وأهليتك لعرضنا لفترة محدودة.' },
+          { h: 'عرض ولاء <em>مصمَّم حول فندقك.</em>', s: 'اربط مزيداً من عملياتك اليومية، واسأل عن عرضنا لفترة محدودة.' }
         ],
         slides: [
           { h: 'تستخدم فندقة؟ <em>احصل على قيمة أكبر.</em>' },
-          { h: 'اربط مزيداً من <em>عملك اليومي.</em>', s: 'المحاسبة والمشتريات والتدبير الفندقي في النظام الذي تستخدمه.' },
-          { h: 'اكتشف ما <em>تشمله ترقيتك.</em>', list: ['المحاسبة', 'المشتريات', 'التدبير الفندقي'] },
-          { h: 'تحقّق من <em>عرض الترقية لمدة سنتين.</em>', s: 'تؤكّد المراجعة أهليتك والوحدات والرسوم وأي رصيد معتمد.' }
+          { h: 'اربط مزيداً من <em>عملك اليومي.</em>', s: 'المحاسبة والمشتريات والتدبير الفندقي والصيانة والمخزون في النظام الذي تستخدمه.' },
+          { h: 'اكتشف ما <em>تشمله ترقيتك.</em>', list: ['المحاسبة', 'المشتريات', 'التدبير الفندقي', 'الصيانة', 'المخزون'] },
+          { h: 'تحقّق من <em>عرض الترقية لفترة محدودة.</em>', s: 'تؤكّد المراجعة أهليتك والوحدات والرسوم وأي رصيد معتمد.' }
         ]
       }
     },

@@ -33,7 +33,8 @@
     + (T.sample ? `<span class="msample">${T.sample}</span>` : '');
   const legal = T.legal ? `<p class="legal">${T.legal}</p>` : '';
   let proof = '';
-  if (S[2].list) proof = `<div class="proof">${S[2].list.map((t, n) => `<div class="pcard"><span class="icon-circle">${ico(['i-coins', 'i-shopping-cart', 'i-bed-double'][n])}</span>${t}<span class="ok">${ico('i-check')}</span></div>`).join('')}</div>`;
+  // more than three modules switch to the dense stack so the list still clears the caption and the Reels interface
+  if (S[2].list) proof = `<div class="proof${S[2].list.length > 3 ? ' dense' : ''}">${S[2].list.map((t, n) => `<div class="pcard"><span class="icon-circle">${ico(['i-coins', 'i-shopping-cart', 'i-bed-double', 'i-wrench', 'i-package'][n])}</span>${t}<span class="ok">${ico('i-check')}</span></div>`).join('')}</div>`;
   else if (S[2].flow) proof = `<div class="proof flow">${S[2].flow.map((t, n) => `${n ? '<i class="link"></i>' : ''}<div class="pcard"><span class="icon-circle">${ico(['i-calendar-days', 'i-bed-double', 'i-user', 'i-coins'][n])}</span>${t}</div>`).join('')}</div>`;
   else if (S[2].toast) proof = `<div class="dev">${DEV.monitorC(true)}</div><div class="toast">${ico('i-check')}${S[2].toast}</div><span class="r-tag" style="top:1240px">${TAG.ui}</span>${legal}`;
   else if (S[2].brand) proof = `<div class="brand">${S[2].brand.map((c, n) => `<div class="bcard" style="--hc:${['#5B8DB8', '#6BA37A', '#A97FB3'][n]};--bc:${['#5B8DB8', '#6BA37A', '#A97FB3'][n]}"><header><i></i>${c}</header><div class="bbody"><b>${lang === 'ar' ? 'المنشأة' : 'Property'} ${n + 1}</b><div class="bar"><i style="--v:${[78, 64, 71][n]}%"></i></div><div class="bar"><i style="--v:${[52, 70, 46][n]}%"></i></div></div></div>`).join('')}</div><div class="brand-chip"><i></i>${lang === 'ar' ? 'هوية مجموعتك' : 'Your group brand'}</div><span class="r-tag" style="top:1180px">${TAG.brand}</span>`;
