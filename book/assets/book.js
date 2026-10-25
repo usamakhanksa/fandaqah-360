@@ -52,8 +52,8 @@
   const qs = new URLSearchParams(location.search);
   const initial = () => {
     const u = qs.get('lang'); if (u === 'ar' || u === 'en') return u;
-    try { const s = localStorage.getItem('fq360-lang'); if (s) return s; } catch (e) {}
-    return (navigator.languages || [navigator.language || '']).some(l => /^ar\b/i.test(l)) ? 'ar' : 'en';
+    try { if (localStorage.getItem('fq360-lang') === 'en') return 'en'; } catch (e) {}
+    return 'ar';   // Arabic by default
   };
 
   /* ---------- builders ---------- */
@@ -283,6 +283,7 @@
     initReels();
     animate(!persist);
     if (ST) ST.refresh();
+    root.classList.remove('i18n-wait');   // the head guard can show the page now
   }
   $$('[data-lang]').forEach(b => b.addEventListener('click', () => { if (b.dataset.lang !== lang) setLang(b.dataset.lang, true); }));
   let resizeTimer, wasSingle = matchMedia('(max-width: 860px)').matches;

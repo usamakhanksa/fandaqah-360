@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
-<meta charset="utf-8">
+<meta charset="utf-8"><script>/* Arabic by default: English only when the link asks (?lang=en) or the reader chose it before. The page stays hidden until its text is in that language, with a 1.5 s safety net. */(function(r){var l;try{l=new URLSearchParams(location.search).get('lang')||(JSON.parse(localStorage.getItem('fq360-linkedin-kit-v2')||'{}').lang)}catch(e){}if(l!=='en'){r.lang='ar';r.dir='rtl';r.classList.add('i18n-wait');setTimeout(function(){r.classList.remove('i18n-wait')},1500)}})(document.documentElement)</script><style>.i18n-wait body{visibility:hidden}</style>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>LinkedIn Outreach Kit | Fandaqah 360</title>
 <meta name="description" content="Fandaqah 360 LinkedIn kit for campaigns A to D, built from the Marketing Campaign Playbook: routing, contact eligibility, five-touch sequences that follow each campaign's storyboard, sponsored content and posts, in Arabic and English.">
@@ -1288,7 +1288,7 @@ html[lang="ar"] .bubble,html[lang="ar"] .invite{font-size:14px;line-height:1.8}
 
   /* ---------- state ---------- */
   const blankF = () => ({ first: '', company: '', city: '', rep: '', note: '', date: '', account: '', plan: '', renewal: '', modules: [], pms: '', count: '' });
-  const S = { track: 'C', lang: 'en', persona: 'GM', f: blankF(), r: { existing: 'no', props: '1', pms: 'unknown' }, g: { ver: 'unverified', perm: false, clean: false, extra: false },
+  const S = { track: 'C', lang: 'ar', persona: 'GM', f: blankF(), r: { existing: 'no', props: '1', pms: 'unknown' }, g: { ver: 'unverified', perm: false, clean: false, extra: false },
     rel: { on: false, annual: '3,495', vat: 'plus' }, edits: {}, editing: null, passed: new Set(['note']), demo: false, adv: { sc: 'v1', sd: 'v1' } };
   const t = (k, vars = {}) => String(T[S.lang][k]).replace(/\{(\w+)\}/g, (m, v) => (v in vars ? vars[v] : m));
   const steps = () => STEPS[S.track];
@@ -1433,6 +1433,7 @@ html[lang="ar"] .bubble,html[lang="ar"] .invite{font-size:14px;line-height:1.8}
   function applyChrome() {
     const ar = S.lang === 'ar', C = CAMP[S.track];
     root.lang = S.lang; root.dir = ar ? 'rtl' : 'ltr';
+    root.classList.remove('i18n-wait');
     textNodes.forEach(n => { const v = ar ? AR[n.dataset.i18n] : EN[n.dataset.i18n]; if (v != null) n.innerHTML = v; });
     ariaNodes.forEach(n => n.setAttribute('aria-label', ar ? (AR[n.dataset.i18nAria] || EN_ARIA.get(n)) : EN_ARIA.get(n)));
     $$('[data-lang]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === S.lang)));
@@ -1905,7 +1906,7 @@ html[lang="ar"] .bubble,html[lang="ar"] .invite{font-size:14px;line-height:1.8}
   try { saved = JSON.parse(localStorage.getItem(STORE) || 'null'); } catch (e) {}
   const qs = new URLSearchParams(location.search);
   if (saved && saved.f) {
-    S.track = /^[ABCD]$/.test(saved.track) ? saved.track : 'C'; S.lang = saved.lang === 'ar' ? 'ar' : 'en'; S.persona = ['GM', 'IT', 'FIN'].includes(saved.persona) ? saved.persona : 'GM';
+    S.track = /^[ABCD]$/.test(saved.track) ? saved.track : 'C'; S.lang = saved.lang === 'en' ? 'en' : 'ar'; S.persona = ['GM', 'IT', 'FIN'].includes(saved.persona) ? saved.persona : 'GM';
     S.f = Object.assign(blankF(), saved.f); if (!Array.isArray(S.f.modules)) S.f.modules = [];
     Object.assign(S.r, saved.r || {}); Object.assign(S.g, saved.g || {}); Object.assign(S.rel, saved.rel || {}); Object.assign(S.adv, saved.adv || {}); S.demo = !!saved.demo;
   }

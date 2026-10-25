@@ -86,13 +86,14 @@
     $$('[data-href-ar]').forEach(a => { if (!a.dataset.hrefEn) a.dataset.hrefEn = a.getAttribute('href'); a.href = ar ? a.dataset.hrefAr : a.dataset.hrefEn; });
     if (persist) { try { localStorage.setItem('fq360-lang', root.lang); } catch (e) {} }
     listeners.forEach(fn => fn());
+    root.classList.remove('i18n-wait');   // the head guard can show the page now
   }
   $$('[data-lang]').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang, true)));
   let saved = null;
   try { saved = localStorage.getItem('fq360-lang'); } catch (e) {}
   const urlLang = qs.get('lang');
-  const browserAr = (navigator.languages || [navigator.language || '']).some(l => /^ar\b/i.test(l));
-  setLang(urlLang === 'ar' || urlLang === 'en' ? urlLang : (saved || (browserAr ? 'ar' : 'en')), false);
+  // Arabic by default; English when the link asks for it or the reader chose it before
+  setLang(urlLang === 'ar' || urlLang === 'en' ? urlLang : (saved === 'en' ? 'en' : 'ar'), false);
 
   /* ---------- Header: shadow once scrolled, mobile menu ---------- */
   const head = $('.site-head');

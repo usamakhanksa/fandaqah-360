@@ -3,7 +3,7 @@
    ?embed=1 hides the controls (for iframes). */
 (() => {
   const D = window.BOOK_DATA, q = new URLSearchParams(location.search);
-  const code = (q.get('c') || 'A').toUpperCase(), lang = q.get('lang') === 'ar' ? 'ar' : 'en';
+  const code = (q.get('c') || 'A').toUpperCase(), lang = q.get('lang') === 'en' ? 'en' : 'ar';   // Arabic unless ?lang=en
   const render = q.get('render') === '1', embed = q.get('embed') === '1';
   const C = D.campaigns[code] || D.campaigns.A, T = C[lang], S = T.scenes, TAG = D.tags[lang];
   const root = document.documentElement;

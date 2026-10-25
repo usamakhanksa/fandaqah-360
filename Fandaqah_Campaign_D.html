@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8"><script>/* Arabic by default: English only when the link asks (?lang=en) or the reader chose it before. The page stays hidden until its text is in that language, with a 1.5 s safety net. */(function(r){var l;try{l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('fandaqah-group-language-v3')}catch(e){}if(l!=='en'){r.lang='ar';r.dir='rtl';r.classList.add('i18n-wait');setTimeout(function(){r.classList.remove('i18n-wait')},1500)}})(document.documentElement)</script><style>.i18n-wait body{visibility:hidden}</style>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#2a273c">
   <title>Fandaqah 360 for Hotel Groups | Your Group. One Strategy.</title>
@@ -349,6 +349,7 @@ html[lang=ar]{--sans:Almarai,system-ui,sans-serif;--serif:ElMessiri,Georgia,seri
 
   function setLanguage(nextLanguage, persist = false) {
     language = nextLanguage === 'ar' ? 'ar' : 'en';
+    document.documentElement.classList.remove('i18n-wait');
     const root = document.documentElement;
     root.lang = language; root.dir = language === 'ar' ? 'rtl' : 'ltr';
     $$('[data-t]').forEach(node => { node.innerHTML = t(node.dataset.t); });
@@ -377,8 +378,8 @@ html[lang=ar]{--sans:Almarai,system-ui,sans-serif;--serif:ElMessiri,Georgia,seri
   }
   $$('[data-lang]').forEach(button => button.addEventListener('click', () => setLanguage(button.dataset.lang, true)));
   matchMedia('(max-width: 700px)').addEventListener('change', event => $('.scope-tabs').setAttribute('aria-orientation', event.matches ? 'horizontal' : 'vertical'));
-  let savedLanguage = 'en';
-  try { savedLanguage = localStorage.getItem('fandaqah-group-language-v3') || 'en'; } catch (_) { /* No storage required. */ }
+  let savedLanguage = 'ar';   // Arabic by default
+  try { savedLanguage = localStorage.getItem('fandaqah-group-language-v3') || 'ar'; } catch (_) { /* No storage required. */ }
   const requestedLanguage = new URLSearchParams(location.search).get('lang');
   showFormStep(1, false);
   setLanguage(requestedLanguage === 'ar' || requestedLanguage === 'en' ? requestedLanguage : savedLanguage);
