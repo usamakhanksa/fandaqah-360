@@ -2,3 +2,4 @@
 User-agent: *
 Allow: /
 Sitemap: https://usamakhanksa.github.io/fandaqah-360/sitemap.xml
+Sitemap: https://usamakhanksa.github.io/fandaqah-360/landing/sitemap.xml

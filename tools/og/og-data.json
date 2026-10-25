@@ -1,0 +1,245 @@
+[
+ {
+  "key": "home",
+  "kicker": "Hotel management software",
+  "en": "Smart hotel management for Saudi hotels",
+  "ar": "إدارة فندقية ذكية للفنادق السعودية",
+  "sub": "",
+  "photo": "assets/redesign/reception-hero.webp",
+  "pos": "62% 50%"
+ },
+ {
+  "key": "features",
+  "kicker": "All features",
+  "en": "Twenty modules. One connected platform.",
+  "ar": "عشرون وحدة في منصة واحدة",
+  "sub": "",
+  "photo": "assets/site/photos/hotel-reception-lobby-1040.webp",
+  "pos": "46% 55%"
+ },
+ {
+  "key": "fandaqah-360",
+  "kicker": "Fandaqah 360",
+  "en": "The complete hospitality upgrade",
+  "ar": "الترقية المتكاملة لإدارة الضيافة",
+  "sub": "",
+  "photo": "assets/site/photos/gulf-resort-pool-1920.webp",
+  "pos": "40% 60%"
+ },
+ {
+  "key": "pricing",
+  "kicker": "Packages",
+  "en": "Packages from SAR 1,200 a year",
+  "ar": "باقات تبدأ من 1,200 ريال سنوياً",
+  "sub": "",
+  "photo": "assets/redesign/reception-hero.webp",
+  "pos": "62% 50%"
+ },
+ {
+  "key": "about",
+  "kicker": "About Fandaqah",
+  "en": "Your hospitality. Our priority.",
+  "ar": "ضيافتك. أولويتنا.",
+  "sub": "",
+  "photo": "assets/site/about-photo-1536.webp",
+  "pos": "38% 40%"
+ },
+ {
+  "key": "blog",
+  "kicker": "Hospitality Journal",
+  "en": "Fresh perspectives. Better operations.",
+  "ar": "رؤى جديدة لعمليات أفضل",
+  "sub": "",
+  "photo": "assets/site/photos/chalet-pool-terrace-1040.webp",
+  "pos": "50% 50%"
+ },
+ {
+  "key": "contact",
+  "kicker": "Contact",
+  "en": "Let’s build a better stay.",
+  "ar": "لنصنع معاً إقامة أفضل.",
+  "sub": "",
+  "photo": "assets/site/photos/jeddah-albalad-1440.webp",
+  "pos": "14% 40%"
+ },
+ {
+  "key": "hotel-pms",
+  "kicker": "Core & Operations · النظام والتشغيل",
+  "en": "PMS Core",
+  "ar": "نظام إدارة الفندق",
+  "sub": "Reservations, room status, arrivals and departures on one dashboard.",
+  "photo": "assets/site/photos/hotel-reception-lobby-1040.webp",
+  "pos": "46% 55%"
+ },
+ {
+  "key": "housekeeping",
+  "kicker": "Core & Operations · النظام والتشغيل",
+  "en": "Housekeeping",
+  "ar": "التدبير الفندقي",
+  "sub": "Room cleaning and room readiness, connected to the front desk.",
+  "photo": "assets/site/photos/hotel-reception-lobby-1040.webp",
+  "pos": "46% 55%"
+ },
+ {
+  "key": "maintenance",
+  "kicker": "Core & Operations · النظام والتشغيل",
+  "en": "Maintenance",
+  "ar": "الصيانة",
+  "sub": "Property maintenance organised alongside room operations.",
+  "photo": "assets/site/photos/hotel-reception-lobby-1040.webp",
+  "pos": "46% 55%"
+ },
+ {
+  "key": "inventory",
+  "kicker": "Core & Operations · النظام والتشغيل",
+  "en": "Inventory",
+  "ar": "المخزون",
+  "sub": "Hotel stock and supplies, tracked in the same platform.",
+  "photo": "assets/site/photos/chalet-pool-terrace-1040.webp",
+  "pos": "50% 50%"
+ },
+ {
+  "key": "hotel-hr",
+  "kicker": "Core & Operations · النظام والتشغيل",
+  "en": "HR",
+  "ar": "الموارد البشرية",
+  "sub": "Employee information and staff attendance in one place.",
+  "photo": "assets/site/about-photo-1536.webp",
+  "pos": "38% 40%"
+ },
+ {
+  "key": "channel-manager",
+  "kicker": "Sales & Finance · المبيعات والمالية",
+  "en": "Channel Manager",
+  "ar": "مدير القنوات",
+  "sub": "Rates and availability in sync across online booking platforms.",
+  "photo": "assets/redesign/reception-hero.webp",
+  "pos": "62% 50%"
+ },
+ {
+  "key": "booking-engine",
+  "kicker": "Sales & Finance · المبيعات والمالية",
+  "en": "Booking Engine",
+  "ar": "محرك الحجز",
+  "sub": "Direct reservations through your own website, in Arabic and English.",
+  "photo": "assets/site/photos/gulf-resort-pool-1920.webp",
+  "pos": "40% 60%"
+ },
+ {
+  "key": "payment-gateway",
+  "kicker": "Sales & Finance · المبيعات والمالية",
+  "en": "Payment Gateway",
+  "ar": "بوابة الدفع",
+  "sub": "Payment options connected to bookings, arrival and checkout.",
+  "photo": "assets/redesign/reception-hero.webp",
+  "pos": "62% 50%"
+ },
+ {
+  "key": "purchasing",
+  "kicker": "Sales & Finance · المبيعات والمالية",
+  "en": "Purchasing",
+  "ar": "المشتريات",
+  "sub": "Procurement from request to supplier payment.",
+  "photo": "assets/redesign/reception-hero.webp",
+  "pos": "62% 50%"
+ },
+ {
+  "key": "hotel-accounting",
+  "kicker": "Sales & Finance · المبيعات والمالية",
+  "en": "Accounting",
+  "ar": "المحاسبة",
+  "sub": "Receivables, expenses, cash flow, revenue and tax reports.",
+  "photo": "assets/redesign/reception-hero.webp",
+  "pos": "62% 50%"
+ },
+ {
+  "key": "passport-id-scanner",
+  "kicker": "Guest & Dining · الضيوف والمطاعم",
+  "en": "Fast Pass",
+  "ar": "المسح السريع",
+  "sub": "Passports, Saudi IDs and residency permits read at arrival.",
+  "photo": "assets/site/photos/hotel-reception-lobby-1040.webp",
+  "pos": "46% 55%"
+ },
+ {
+  "key": "digital-signature",
+  "kicker": "Guest & Dining · الضيوف والمطاعم",
+  "en": "Sign Stay",
+  "ar": "التوقيع الرقمي",
+  "sub": "Guests sign on an iPad at check-in and check-out.",
+  "photo": "assets/site/photos/hotel-reception-lobby-1040.webp",
+  "pos": "46% 55%"
+ },
+ {
+  "key": "guest-room-qr",
+  "kicker": "Guest & Dining · الضيوف والمطاعم",
+  "en": "Room QR Code",
+  "ar": "رمز الغرفة",
+  "sub": "A digital access point in every guest room.",
+  "photo": "assets/site/photos/gulf-resort-pool-1920.webp",
+  "pos": "40% 60%"
+ },
+ {
+  "key": "hotel-crm",
+  "kicker": "Guest & Dining · الضيوف والمطاعم",
+  "en": "CRM",
+  "ar": "إدارة علاقات العملاء",
+  "sub": "Guest information, notes and feedback kept together.",
+  "photo": "assets/site/photos/gulf-resort-pool-1920.webp",
+  "pos": "40% 60%"
+ },
+ {
+  "key": "pos-restaurant",
+  "kicker": "Guest & Dining · الضيوف والمطاعم",
+  "en": "Restaurant POS",
+  "ar": "نقاط البيع",
+  "sub": "Point of sale and restaurant operations inside the hotel platform.",
+  "photo": "assets/site/photos/chalet-pool-terrace-1040.webp",
+  "pos": "50% 50%"
+ },
+ {
+  "key": "recipe-management",
+  "kicker": "Guest & Dining · الضيوف والمطاعم",
+  "en": "Recipe Management",
+  "ar": "إدارة الوصفات",
+  "sub": "Recipes and the food and beverage workflow, organised.",
+  "photo": "assets/site/photos/chalet-pool-terrace-1040.webp",
+  "pos": "50% 50%"
+ },
+ {
+  "key": "shomoos-integration",
+  "kicker": "Government & Support · الجهات الحكومية والدعم",
+  "en": "Shomoos",
+  "ar": "شموس",
+  "sub": "Guest information connected with Shomoos services.",
+  "photo": "assets/site/about-photo-1536.webp",
+  "pos": "38% 40%"
+ },
+ {
+  "key": "zatca-e-invoicing",
+  "kicker": "Government & Support · الجهات الحكومية والدعم",
+  "en": "ZATCA",
+  "ar": "الزكاة والضريبة",
+  "sub": "Tax invoicing and notifications connected with ZATCA.",
+  "photo": "assets/redesign/reception-hero.webp",
+  "pos": "62% 50%"
+ },
+ {
+  "key": "ntmp-tourism-platform",
+  "kicker": "Government & Support · الجهات الحكومية والدعم",
+  "en": "NTMP",
+  "ar": "منصة الرصد",
+  "sub": "Tourism reporting with the National Tourism Monitoring Platform.",
+  "photo": "assets/site/photos/jeddah-albalad-1440.webp",
+  "pos": "14% 40%"
+ },
+ {
+  "key": "support-training",
+  "kicker": "Government & Support · الجهات الحكومية والدعم",
+  "en": "Support & Training",
+  "ar": "الدعم والتدريب",
+  "sub": "Onboarding, training and support for your team.",
+  "photo": "assets/site/about-photo-1536.webp",
+  "pos": "38% 40%"
+ }
+]

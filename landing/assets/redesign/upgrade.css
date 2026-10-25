@@ -1,0 +1,69 @@
+/* Landing site upgrades shared by every page: the CRM lead dialog, VAT lines, the package comparison and the
+   footer social icons. Loaded after site.css; built by tools/build-landing.py, styled here. */
+
+/* ---------- lead dialog ---------- */
+#demo-dialog { overscroll-behavior: contain; }
+#demo-dialog .demo-intro { font-size: 14px; line-height: 1.55; margin: 0 0 20px; color: rgb(42 39 60 / .74); }
+#demo-dialog label { display: block; }
+#demo-dialog input[aria-invalid="true"] { border-color: #c2432b; background: #fff5f1; }
+#demo-dialog input:focus-visible, #demo-dialog select:focus-visible { outline: 2px solid var(--coral); outline-offset: 2px; border-color: transparent; }
+#demo-dialog .field-error { display: block; margin-top: 6px; font-size: 11px; font-weight: 600; color: #b03a24; }
+#demo-dialog .field-error[hidden] { display: none; }
+#demo-dialog .demo-hp { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+#demo-dialog .demo-alert { margin: 0; padding: 12px 14px; border-radius: 8px; background: #fbe6de; color: #8a2f1d; font-size: 13px; line-height: 1.5; }
+#demo-dialog .demo-alert[hidden] { display: none; }
+#demo-dialog .demo-alert a { color: inherit; text-decoration: underline; font-weight: 650; }
+#demo-dialog button[type="submit"]:disabled { opacity: .7; cursor: progress; transform: none; }
+#demo-dialog .demo-consent { font-size: 11px; line-height: 1.5; color: rgb(42 39 60 / .72); text-align: center; }
+#demo-dialog .demo-consent a { color: var(--coral); text-decoration: underline; text-underline-offset: .2em; }
+#demo-dialog > .demo-foot { color: rgb(42 39 60 / .72); }
+#demo-dialog > .demo-foot a { text-decoration: underline; text-underline-offset: .2em; }
+#demo-dialog [data-demo-step][hidden] { display: none; }
+#demo-dialog [data-demo-step="done"] { padding: 6px 0 4px; }
+#demo-dialog [data-demo-step="done"] h2:focus { outline: none; }
+#demo-dialog [data-demo-step="done"] p { font-size: 15px; line-height: 1.6; margin: 0 0 22px; color: rgb(42 39 60 / .78); }
+#demo-dialog .demo-package {
+  margin: 4px 0 18px; padding: 16px 18px; border-radius: 12px; border: 1px solid rgb(233 90 84 / .35);
+  background: linear-gradient(180deg, rgb(251 205 171 / .28), rgb(251 205 171 / .08));
+}
+#demo-dialog .demo-package[hidden] { display: none; }
+#demo-dialog .demo-package-name { font-family: Georgia, 'Times New Roman', serif; font-size: 20px; font-weight: 700; color: var(--navy); }
+html[dir=rtl] #demo-dialog .demo-package-name { font-family: Arabic, Georgia, serif; }
+#demo-dialog .demo-package-price { margin-top: 4px; font-size: 13px; font-weight: 650; color: var(--coral); font-variant-numeric: tabular-nums; }
+#demo-dialog .demo-package-items { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 10px 0 0; padding: 0; list-style: none; font-size: 12px; color: var(--navy); }
+#demo-dialog .demo-package-items li::before { content: '✓ '; color: var(--coral); font-weight: 700; }
+#demo-dialog .demo-package-note { margin-top: 10px; font-size: 11px; color: rgb(42 39 60 / .7); }
+html[dir=rtl] .dialog-close { right: auto; left: 17px; }
+@media (max-width: 560px) { #demo-dialog form { grid-template-columns: 1fr; } }
+
+/* ---------- prices ---------- */
+.vat-line { margin: -8px 0 14px; font-size: 11px; font-weight: 600; color: rgb(42 39 60 / .72); font-variant-numeric: tabular-nums; }
+.reference .vat-line { color: rgb(242 240 235 / .75); }
+
+/* ---------- package comparison ---------- */
+.compare { padding-top: 10px; }
+/* position: relative keeps the absolutely positioned screen-reader labels inside the scroll box */
+.compare-scroll { position: relative; overflow-x: auto; border-radius: 14px; border: 1px solid var(--line); background: rgb(255 253 249 / .7); }
+.compare-scroll:focus-visible { outline: 2px solid var(--coral); outline-offset: 3px; }
+.compare-table { width: 100%; min-width: 720px; border-collapse: collapse; font-size: 14px; }
+.compare-table th, .compare-table td { padding: 15px 18px; text-align: center; border-bottom: 1px solid var(--line); vertical-align: middle; }
+.compare-table thead th { position: sticky; top: 0; background: #f7f4ee; font-size: 15px; font-weight: 700; color: var(--navy); }
+.compare-table thead th small { display: block; margin-top: 4px; font-size: 12px; font-weight: 600; color: rgb(42 39 60 / .66); font-variant-numeric: tabular-nums; }
+.compare-table thead th.is-rec { color: var(--coral); box-shadow: inset 0 3px 0 var(--coral); }
+.compare-table tbody th { text-align: start; font-weight: 600; color: var(--navy); width: 30%; }
+.compare-table tbody th a { text-decoration: underline; text-decoration-color: rgb(233 90 84 / .5); text-underline-offset: .25em; }
+.compare-table tbody th a:hover { color: var(--coral); }
+.compare-table td { color: rgb(42 39 60 / .82); font-variant-numeric: tabular-nums; }
+.compare-table td:last-child { background: rgb(251 205 171 / .12); }
+.compare-table .icon { width: 22px; height: 22px; display: inline-block; }
+.compare-table .icon.ok { color: #24704f; }
+.compare-table .icon.no { color: rgb(42 39 60 / .35); }
+.compare-table tr:last-child th, .compare-table tr:last-child td { border-bottom: 0; }
+.compare-table .compare-cta td { padding-block: 18px; }
+.compare-table .compare-cta .button { white-space: nowrap; }
+
+/* ---------- footer social icons ---------- */
+.site-footer .social-links { gap: 12px; }
+.site-footer .social-links a { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgb(242 240 235 / .2); color: var(--peach); transition: background .16s, color .16s, border-color .16s; }
+.site-footer .social-links a:hover { background: var(--coral); border-color: var(--coral); color: #fff; }
+.site-footer .social-links .icon { width: 18px; height: 18px; }
