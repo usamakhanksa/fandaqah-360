@@ -59,11 +59,14 @@ Never put names, phone numbers or emails in a URL. Every folder's `links.csv` ha
 
 ## What reaches the CRM
 
-The form posts to `https://crm-dev.fandaqah.com/api/ingest/lead` (switch to production before launch). Each lead carries:
+A page names its CRM in `FQ_PAGE.api`; without one it posts to `https://crm-dev.fandaqah.com/api/ingest/lead`.
+**A (existing customers) is live on production, `https://crm.fandaqah.com/api/ingest/lead`.** B, C and D still post to dev:
+switch each one before its launch. Each lead carries:
 
 | Field | Source |
 |---|---|
-| `name`, `email` or `phone` (+966 normalised, raw kept in `phone_raw`) | form |
+| `name`, `email` or `phone` (+966 normalised, raw kept in `phone_raw`); A asks for both, in their own fields | form |
+| `customer_message` (A): the visitor's own note, also placed first in `message` | form |
 | `company`, `city`, `role`, `preferred_channel`, `interest` | form |
 | `account_id` (A), `modules` (A), `current_pms`, `pms_version` (C), `property_count`, `ownership` (D) | form |
 | `campaign`, `campaign_code`, `utm_source`, `utm_medium`, `utm_content`, `utm_term` (missing → `Direct/Unknown`) | latest tagged visit, else first |

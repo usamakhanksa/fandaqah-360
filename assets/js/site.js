@@ -45,6 +45,7 @@
     'f.company': 'الفندق / الشركة', 'f.group': 'المجموعة / الشركة', 'f.city': 'المدينة', 'f.hq': 'مدينة المقر الرئيسي',
     'f.name': 'اسم المسؤول', 'f.role': 'المنصب', 'f.contact': 'البريد الإلكتروني للعمل أو رقم الهاتف',
     'f.contactHint': 'مثال: name@hotel.sa أو 05XXXXXXXX', 'f.account': 'رقم الحساب', 'f.opt': '(اختياري)',
+    'f.phone': 'رقم الجوال', 'f.email': 'البريد الإلكتروني للعمل', 'f.message': 'رسالتك',
     'f.channel': 'قناة التواصل المفضّلة', 'f.select': 'يرجى الاختيار', 'ch.phone': 'مكالمة هاتفية', 'ch.whatsapp': 'واتساب', 'ch.email': 'البريد الإلكتروني',
     'f.interest': 'الاهتمام المحدد', 'int.A': 'ترقية عميل حالي', 'int.B': 'عرض توضيحي لفندق جديد', 'int.C': 'مراجعة تكاليف التقنية', 'int.D': 'اجتماع استكشافي للمجموعة',
     'f.pms': 'نظام PMS الحالي', 'f.pmsv': 'الإصدار / طريقة التشغيل', 'f.count': 'عدد المنشآت', 'f.own': 'هيكل المنشآت',
@@ -53,6 +54,7 @@
     'f.privacy': 'نستخدم بياناتك للرد على هذا الاستفسار.', 'f.privacyLink': 'إشعار الخصوصية', 'f.consent': 'أرغب أيضاً في تلقي التحديثات التسويقية.',
     'f.picked': 'وحدات للمراجعة:',
     'err.company': 'يرجى إدخال اسم الفندق أو الشركة.', 'err.name': 'يرجى إدخال اسم المسؤول.', 'err.contact': 'أدخل بريداً إلكترونياً صحيحاً أو رقم هاتف مثل 05XXXXXXXX.',
+    'err.phone': 'يرجى إدخال رقم جوال صحيح، مثل 05XXXXXXXX.', 'err.email': 'يرجى إدخال بريد إلكتروني صحيح، مثل name@hotel.sa.',
     'done.t': 'شكراً لك. وصل طلبك إلى فريقنا.', 'done.d': 'سيتواصل معك أحد مختصي فندقة عبر قناة التواصل التي اخترتها لترتيب الخطوة التالية.', 'done.ref': 'رقم المرجع:',
     'foot.tag': 'ضيافتك أولويتنا.', 'foot.privacy': 'الخصوصية', 'foot.terms': 'الشروط', 'foot.legal': '© 2026 فندقة. جميع الحقوق محفوظة.'
   };
@@ -168,17 +170,18 @@
 
   /* ---------- Lead form → Fandaqah CRM ---------- */
   /* The key ships to every visitor's browser: keep it ingest-only and rate-limited on the CRM side.
-     Switch API_URL to production before launch. */
-  const API_URL = 'https://crm-dev.fandaqah.com/api/ingest/lead';
+     A page that is live on the production CRM names it in FQ_PAGE.api; the others still post to the dev CRM. */
+  const API_DEV = 'https://crm-dev.fandaqah.com/api/ingest/lead';
+  const API_URL = PAGE.api || API_DEV;
   const API_KEY = 'fdq_d0930f18b74a5153c68b174748b5ed7ba17b8723ca05c21e';
   const PLATFORM = 'fandaqah_tourism_platform_contact';
   const OUTBOX = 'fq360_outbox';
 
-  async function post(body) {
+  async function post(body, url = API_URL) {
     for (let attempt = 0; attempt < 3; attempt++) {
       const ctrl = new AbortController(), stop = setTimeout(() => ctrl.abort(), 12000);
       try {
-        const res = await fetch(API_URL, { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-API-Key': API_KEY }, body: JSON.stringify(body), signal: ctrl.signal });
+        const res = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-API-Key': API_KEY }, body: JSON.stringify(body), signal: ctrl.signal });
         if (res.ok) return 'ok';
         if (res.status < 500 && res.status !== 429) return 'rejected'; // a 4xx will not fix itself on retry
       } catch (e) { /* network or timeout: retry */ } finally { clearTimeout(stop); }
@@ -186,12 +189,13 @@
     }
     return 'failed';
   }
-  // enquiries that could not be delivered earlier are retried on the next visit (same submission_id, so the CRM can de-duplicate)
+  // enquiries that could not be delivered earlier are retried on the next visit (same submission_id, so the CRM can de-duplicate),
+  // to the CRM they were first sent to, whichever page the visitor comes back to
   (async () => {
     const box = store.get(OUTBOX) || [];
     if (!box.length || !navigator.onLine) return;
     const left = [];
-    for (const item of box) { if ((await post(item)) === 'failed') left.push(item); }
+    for (const item of box) { if ((await (item.body ? post(item.body, item.to) : post(item, API_DEV))) === 'failed') left.push(item); }
     store.set(OUTBOX, left);
   })();
 
@@ -216,7 +220,11 @@
       if (d.startsWith('00') && d.length >= 10 && d.length <= 17) return { phone: '+' + d.slice(2), phone_raw: raw.trim() };
       return null;
     };
-    const RULES = { company: v => v.trim().length >= 2, name: v => v.trim().length >= 2, contact: v => !!parseContact(v), contact_ok: v => v === true };
+    // pages that ask for both: a mobile number and a business email in their own fields
+    const parsePhone = raw => { const c = parseContact(raw); return c && c.phone ? c : null; };
+    const parseEmail = raw => { const c = parseContact(raw); return c && c.email ? c : null; };
+    const RULES = { company: v => v.trim().length >= 2, name: v => v.trim().length >= 2, contact: v => !!parseContact(v),
+                    phone: v => !!parsePhone(v), email: v => !!parseEmail(v), contact_ok: v => v === true };
     const check = n => {
       const el = field(n), ok = RULES[n](el.type === 'checkbox' ? el.checked : el.value), err = document.getElementById(el.getAttribute('aria-describedby').split(' ')[0]);
       el.setAttribute('aria-invalid', String(!ok)); err.hidden = ok; return ok;
@@ -245,7 +253,9 @@
       // bots: honeypot filled or submitted faster than a person can type, so fake success and send nothing
       if (val('website') || Date.now() - started < 2500) { showDone(); return; }
 
-      const contactInfo = parseContact(val('contact'));
+      const split = !!(field('phone') || field('email'));
+      const contactInfo = split ? Object.assign({}, parseEmail(val('email')), parsePhone(val('phone'))) : parseContact(val('contact'));
+      const note = val('message');
       const first = attr.first || touch, latest = attr.latest || touch;
       const src = k => latest[k] || first[k] || 'Direct/Unknown';
       const campaign = latest.utm_campaign || first.utm_campaign || 'Direct/Unknown';
@@ -254,7 +264,7 @@
       const now = new Date().toISOString();
       const routeName = { A: 'Existing customers', B: 'New hotels', C: 'Opera / PMS', D: 'Hotel groups' }[PAGE.segment] || 'Hub';
       const details = [
-        ['Company', val('company')], ['City', val('city')], ['Role', val('role')], ['Preferred channel', optText('channel')],
+        ['Company', val('company')], ['Mobile', split ? contactInfo.phone : ''], ['Email', split ? contactInfo.email : ''], ['City', val('city')], ['Role', val('role')], ['Preferred channel', optText('channel')],
         ['Account ID', val('account_id')], ['Renewal date', val('renewal_date')], ['Current PMS', val('current_pms')], ['PMS version / deployment', val('pms_version')],
         ['Properties', optText('property_count')], ['Property structure', optText('ownership')], ['Modules for review', modules.join(', ')], ['Offer term', val('term')]
       ].filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`);
@@ -266,9 +276,11 @@
         account_id: val('account_id') || undefined, renewal_date: val('renewal_date') || undefined,
         contact_consent: field('contact_ok') ? field('contact_ok').checked : undefined, current_pms: val('current_pms') || undefined, pms_version: val('pms_version') || undefined,
         property_count: val('property_count') || undefined, ownership: val('ownership') || undefined, modules: modules.length ? modules : undefined, term: val('term') || undefined,
-        message: [`[Fandaqah 360 · ${PAGE.segment || '-'} ${routeName} · ${optText('interest') || val('interest')}]`, ...details,
+        // the visitor's own words come first, so they are the first thing the team reads; the summary follows
+        message: [...(note ? [note, '———'] : []), `[Fandaqah 360 · ${PAGE.segment || '-'} ${routeName} · ${optText('interest') || val('interest')}]`, ...details,
           `Campaign: ${campaign} | source: ${src('utm_source')} | medium: ${src('utm_medium')} | creative: ${src('utm_content')}`,
           `Marketing updates: ${consent ? 'yes' : 'no'}`].join('\n'),
+        customer_message: note || undefined,
         platform: PLATFORM, source: 'fandaqah_360_campaign_site', segment: PAGE.segment || null,
         campaign, campaign_code: codeOf(campaign) || 'Direct/Unknown',
         utm_campaign: campaign, utm_source: src('utm_source'), utm_medium: src('utm_medium'), utm_content: src('utm_content'), utm_term: latest.utm_term || first.utm_term || undefined,
@@ -289,7 +301,7 @@
       } else if (result === 'rejected') {
         alertEl.innerHTML = T().reject; alertEl.hidden = false;
       } else {
-        const box = store.get(OUTBOX) || []; box.push(payload); store.set(OUTBOX, box.slice(-5));
+        const box = store.get(OUTBOX) || []; box.push({ to: API_URL, body: payload }); store.set(OUTBOX, box.slice(-5));
         alertEl.innerHTML = T().fail; alertEl.hidden = false;
       }
     });

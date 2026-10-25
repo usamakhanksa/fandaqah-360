@@ -452,7 +452,8 @@
               <div><dt data-i18n="brief.plan">Plan</dt><dd data-i18n="brief.planV">Fandaqah 360 · all 20 modules</dd></div>
               <div><dt data-i18n="brief.term">Term and price</dt><dd class="pa-slot" data-slot="term"><span class="ph" data-i18n="brief.empty">Not added yet</span><span class="v"></span></dd></div>
               <div><dt data-i18n="brief.guar">Guarantee</dt><dd class="pa-sheet-guar"><svg class="pa-sheet-seal" viewBox="0 0 120 120" aria-hidden="true"><use href="../assets/icons.svg#i-seal"/></svg><span data-i18n="brief.guarV">30-day Golden Guarantee</span></dd></div>
-              <div><dt data-i18n="brief.contact">Contact</dt><dd class="pa-slot" data-slot="person"><span class="ph" data-i18n="brief.empty">Not added yet</span><span class="v"></span></dd></div>
+              <div><dt data-i18n="brief.contact">Contact</dt><dd><span class="pa-slot" data-slot="person"><span class="ph" data-i18n="brief.empty">Not added yet</span><span class="v"></span></span><small class="pa-slot pa-sheet-reach" data-slot="reach"><span class="ph"></span><bdi class="v" dir="ltr"></bdi></small></dd></div>
+              <div class="pa-sheet-note" hidden><dt data-i18n="brief.note">Your note</dt><dd class="pa-slot" data-slot="note"><span class="ph"></span><span class="v"></span></dd></div>
             </dl>
             <p class="pa-sheet-foot" data-i18n="lead.p">Submitting doesn’t charge you or change your subscription. We confirm the price and activation date with you first.</p>
           </article>
@@ -463,13 +464,17 @@
           <h3 class="v2-formcard-h" data-i18n="form.title">Lock in my launch price</h3>
           <form class="form pa-form" id="lead-form" novalidate>
             <fieldset class="pa-group"><legend data-i18n="grp.you">You and your hotel</legend>
-              <div class="f f--full"><label for="f-company" data-i18n="f.company">Hotel / company</label><input id="f-company" name="company" type="text" autocomplete="organization" maxlength="120" required aria-describedby="f-company-err"><p class="f-err" id="f-company-err" data-i18n="err.company" hidden>Please enter your hotel or company name.</p></div>
+              <div class="f"><label for="f-company" data-i18n="f.company">Hotel / company</label><input id="f-company" name="company" type="text" autocomplete="organization" maxlength="120" required aria-describedby="f-company-err"><p class="f-err" id="f-company-err" data-i18n="err.company" hidden>Please enter your hotel or company name.</p></div>
               <div class="f"><label for="f-name" data-i18n="f.name">Contact name</label><input id="f-name" name="name" type="text" autocomplete="name" maxlength="80" required aria-describedby="f-name-err"><p class="f-err" id="f-name-err" data-i18n="err.name" hidden>Please enter a contact name.</p></div>
-              <div class="f"><label for="f-contact" data-i18n="f.contact">Business email or phone</label><input id="f-contact" name="contact" type="text" inputmode="email" autocomplete="email" maxlength="120" dir="auto" required aria-describedby="f-contact-err f-contact-hint"><p class="f-hint" id="f-contact-hint" data-i18n="f.contactHint">For example name@hotel.sa or 05XXXXXXXX</p><p class="f-err" id="f-contact-err" data-i18n="err.contact" hidden>Enter a valid email address or a phone number such as 05XXXXXXXX.</p></div>
+              <div class="f"><label for="f-phone" data-i18n="f.phone">Mobile number</label><input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" dir="ltr" placeholder="05XXXXXXXX" required aria-describedby="f-phone-err"><p class="f-err" id="f-phone-err" data-i18n="err.phone" hidden>Please enter a valid mobile number, for example 05XXXXXXXX.</p></div>
+              <div class="f"><label for="f-email" data-i18n="f.email">Business email</label><input id="f-email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="120" dir="ltr" placeholder="name@hotel.sa" required aria-describedby="f-email-err"><p class="f-err" id="f-email-err" data-i18n="err.email" hidden>Please enter a valid email address, for example name@hotel.sa.</p></div>
             </fieldset>
             <fieldset class="pa-group pa-termfield"><legend data-i18n="grp.term">Your term</legend>
               <label class="pa-term"><input type="radio" name="term" value="2-year price lock, paid upfront" checked><span class="pa-term-t"><b data-i18n="term.2t">2 years, price locked</b><small data-i18n="term.2s">SAR 6,990 paid upfront · excl. VAT</small></span><span class="pa-term-tag" data-i18n="term.rec">Recommended</span></label>
               <label class="pa-term"><input type="radio" name="term" value="1 year"><span class="pa-term-t"><b data-i18n="term.1t">1 year</b><small data-i18n="term.1s">SAR 3,495 · excl. VAT</small></span></label>
+            </fieldset>
+            <fieldset class="pa-group pa-notefield"><legend><span data-i18n="grp.note">Anything we should know?</span> <span class="opt" data-i18n="f.opt">(optional)</span></legend>
+              <div class="f f--full"><label for="f-message" class="sr-only" data-i18n="f.message">Your message</label><textarea id="f-message" name="message" rows="3" maxlength="1000" dir="auto" placeholder="The best time to call, a question about the offer, or anything about your property." data-i18n-ph="f.messagePh" aria-describedby="f-message-count"></textarea><p class="f-count" id="f-message-count"><bdi dir="ltr"><span>0</span> / 1000</bdi></p></div>
             </fieldset>
             <label class="consent f--full"><input type="checkbox" name="contact_ok" value="yes" aria-describedby="f-agree-err"><span data-i18n="f.agree">I agree to be contacted about this upgrade.</span></label>
             <p class="f-err f--full" id="f-agree-err" data-i18n="err.agree" hidden>Please confirm that we may contact you about your upgrade.</p>
@@ -531,6 +536,7 @@
 <script>
 window.FQ_PAGE = {
   segment: 'A',
+  api: 'https://crm.fandaqah.com/api/ingest/lead',   // this page's leads go to the production CRM
   meta: {"title": "الترقية إلى فندقة 360 | سعر الإطلاق 3,495 ريال", "desc": "قم بالترقية إلى فندقة 360 بسعر 3,495 ريالاً سنوياً غير شاملة الضريبة. سعر إطلاق لمرة واحدة، ثابت لمدة سنتين، مع ضمان ذهبي لمدة 30 يوماً."},
   ar: {
     "nav.upgrade": "العرض",
@@ -709,16 +715,24 @@ window.FQ_PAGE = {
     "q8.a": "نبدأ من باقتك الحالية وتاريخ تجديدها، ويُتفق كتابياً على أي رصيد ترقية معتمد، ولا تُسترد القيمة المتبقية من الاشتراك تلقائياً.",
     "foot.tag2": "ضيافتك. أولويتنا.",
     "tray.label": "أولوياتك",
-    "brief.aria": "ملخّص ترقيتك"
+    "brief.aria": "ملخّص ترقيتك",
+    "grp.note": "هل من شيء تودّ إخبارنا به؟",
+    "f.messagePh": "أفضل وقت للاتصال بك، أو سؤال عن العرض، أو أي تفاصيل عن منشأتك.",
+    "brief.note": "ملاحظتك"
   }
 };
 </script>
 <script>
-/* The upgrade sheet mirrors the request as it is filled: hotel, contact, the chosen term with its price, and the modules
-   to start with. It reads Draft until the required details and consent are in, then Ready to send, then Sent with the reference. */
+/* The upgrade sheet mirrors the request as it is filled: hotel, contact (name, mobile, email), the chosen term with its price,
+   and the visitor's note. It reads Draft until the required details and consent are in, then Ready to send, then Sent with the reference. */
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('lead-form'), sheet = document.querySelector('.pa-sheet'), done = document.getElementById('lead-done');
   if (!form || !sheet) return;
+  const noteRow = sheet.querySelector('.pa-sheet-note'), count = document.getElementById('f-message-count');
+  // the same shapes site.js accepts, loosely: a Saudi or international mobile, and an address with a domain
+  const digits = s => s.replace(/[٠-٩۰-۹]/g, d => String(d.charCodeAt(0) & 0xF)).replace(/\D/g, '');
+  const phoneOk = v => { const d = digits(v); return d.length >= 9 && d.length <= 15; };
+  const emailOk = v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
   const root = document.documentElement, still = matchMedia('(prefers-reduced-motion: reduce)');
   const slot = k => sheet.querySelector(`[data-slot="${k}"]`);
   const val = n => (form.elements[n] && form.elements[n].value.trim()) || '';
@@ -732,14 +746,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const render = quiet => {
     put('company', val('company'), quiet);
     put('person', val('name'), quiet);
+    put('reach', [val('phone'), val('email')].filter(Boolean).join(' · '), quiet);
+    const note = val('message').replace(/\s+/g, ' ');
+    put('note', note.length > 96 ? note.slice(0, 95).replace(/\s+\S*$/, '') + '…' : note, quiet);   // cut at a word, never inside one
+    noteRow.hidden = !note;
     // the term reads as its own label and price, in the page's language
     const term = form.querySelector('input[name="term"]:checked'), tl = term && term.closest('label');
     put('term', tl ? `${tl.querySelector('b').textContent} · ${tl.querySelector('small').textContent}` : '', quiet);
     if (sheet.dataset.state === 'sent') return;
-    const filled = ['company', 'name', 'contact'].filter(val).length + (term ? 1 : 0) + (form.elements.contact_ok.checked ? 1 : 0);
-    sheet.style.setProperty('--done', (filled / 5).toFixed(3));
-    sheet.dataset.state = val('company').length >= 2 && val('name').length >= 2 && val('contact') && form.elements.contact_ok.checked ? 'ready' : 'draft';
+    const ok = [val('company').length >= 2, val('name').length >= 2, phoneOk(val('phone')), emailOk(val('email')), !!term, form.elements.contact_ok.checked];
+    sheet.style.setProperty('--done', (ok.filter(Boolean).length / ok.length).toFixed(3));
+    sheet.dataset.state = ok.every(Boolean) ? 'ready' : 'draft';
   };
+  // the note counts down quietly and warms up near the limit
+  const tally = () => { const n = form.elements.message.value.length; count.querySelector('span').textContent = n; count.classList.toggle('is-near', n > 900); };
+  form.elements.message.addEventListener('input', tally);
   ['input', 'change'].forEach(t => form.addEventListener(t, () => render()));
   // the language switch rewrites labels, so the sheet re-reads them without the ink glow
   document.querySelectorAll('[data-lang]').forEach(b => b.addEventListener('click', () => setTimeout(() => { Object.keys(written).forEach(k => delete written[k]); render(true); })));

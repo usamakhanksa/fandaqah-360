@@ -617,6 +617,20 @@ html[lang="ar"] .pa-group legend, html[lang="ar"] .pa-sheet-kicker { letter-spac
 .pa-check:has(input:focus-visible) { outline: 2px solid var(--coral-btn); outline-offset: 2px; }
 @media (hover: hover) and (pointer: fine) { .pa-check:hover { border-color: rgba(212, 65, 59, .5); } }
 .pa-formcard .consent input { width: 18px; height: 18px; accent-color: var(--coral-btn); }
+/* mobile and email are typed left to right, but sit on the reading edge of an Arabic form */
+html[dir="rtl"] .pa-form input[dir="ltr"] { text-align: right; }
+html[dir="rtl"] .pa-form input[dir="ltr"]::placeholder { text-align: right; }
+.pa-notefield legend { margin-bottom: 10px; }
+.pa-notefield .f { position: relative; }
+.f-count { justify-self: end; margin: -2px 0 0; font-size: 11.5px; font-variant-numeric: tabular-nums; color: var(--ink-3); transition: color .2s var(--ease); }
+.f-count.is-near { color: var(--coral-btn); font-weight: 600; }
+/* the sheet: who to reach under the name, and the visitor's note when there is one */
+.pa-sheet-reach { display: block; margin-top: 3px; font-size: 12px; font-weight: 500; color: var(--ink-3); }
+.pa-sheet-reach:not(.is-set) { display: none; }
+.pa-sheet-rows > div.pa-sheet-note { align-items: flex-start; }
+.pa-sheet-rows > div.pa-sheet-note[hidden] { display: none; }
+.pa-sheet-note dd { max-width: 70%; font-weight: 500; font-style: italic; line-height: 1.45; color: var(--ink-2); }
+html[lang="ar"] .pa-sheet-note dd { font-style: normal; }
 .pa-form-note { grid-column: 1 / -1; text-align: center; font-size: 12px; color: var(--ink-3); }
 
 /* ---------- questions ---------- */
