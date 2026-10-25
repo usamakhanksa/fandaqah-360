@@ -65,7 +65,7 @@
   const tray = $('.pa-tray');
   if (tray) {
     const list = $('.pa-tray-list', tray), chips = $$('.pa-chips [data-chip]');
-    const nameOf = mod => { const b = $(`.pa-pick[data-module="${mod}"]`); return b ? $('h3', b.closest('.pa-card')).textContent : mod; };
+    const nameOf = mod => { const b = $(`.pa-pick[data-module="${mod}"]`); const card = b && b.closest('.pa-card'); return card ? ($('.pa-card-k', card) || $('h3', card)).textContent : mod; };
     let picked = $$('.pa-pick[aria-pressed="true"]').map(b => b.dataset.module);
     let pastHero = false, atForm = false, hideTimer = 0;
     const sync = () => {

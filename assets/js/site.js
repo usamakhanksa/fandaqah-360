@@ -248,7 +248,7 @@
       const details = [
         ['Company', val('company')], ['City', val('city')], ['Role', val('role')], ['Preferred channel', optText('channel')],
         ['Account ID', val('account_id')], ['Renewal date', val('renewal_date')], ['Current PMS', val('current_pms')], ['PMS version / deployment', val('pms_version')],
-        ['Properties', optText('property_count')], ['Property structure', optText('ownership')], ['Modules for review', modules.join(', ')]
+        ['Properties', optText('property_count')], ['Property structure', optText('ownership')], ['Modules for review', modules.join(', ')], ['Offer term', val('term')]
       ].filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`);
       const payload = {
         submission_id: id,
@@ -257,7 +257,7 @@
         preferred_channel: val('channel'), interest: val('interest'), interest_label: optText('interest') || val('interest'),
         account_id: val('account_id') || undefined, renewal_date: val('renewal_date') || undefined,
         contact_consent: field('contact_ok') ? field('contact_ok').checked : undefined, current_pms: val('current_pms') || undefined, pms_version: val('pms_version') || undefined,
-        property_count: val('property_count') || undefined, ownership: val('ownership') || undefined, modules: modules.length ? modules : undefined,
+        property_count: val('property_count') || undefined, ownership: val('ownership') || undefined, modules: modules.length ? modules : undefined, term: val('term') || undefined,
         message: [`[Fandaqah 360 · ${PAGE.segment || '-'} ${routeName} · ${optText('interest') || val('interest')}]`, ...details,
           `Campaign: ${campaign} | source: ${src('utm_source')} | medium: ${src('utm_medium')} | creative: ${src('utm_content')}`,
           `Marketing updates: ${consent ? 'yes' : 'no'}`].join('\n'),

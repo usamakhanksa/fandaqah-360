@@ -8,7 +8,10 @@ Keyframes: `creatives/reel-frames/B-reel-1…4-ar.jpg` (and `-en`).
 | 0–3 s | Several disconnected software windows piling up on a front-desk screen | ما زلت تدير فندقك بأنظمة متفرقة؟ | Still managing your hotel in separate systems? | أنظمة كثيرة، وإدخال متكرر، ومسؤوليات غير واضحة؟ |
 | 3–10 s | A reservation in Fandaqah 360 creating the related housekeeping task | اجمع عملياتك في منصة واحدة. | Bring your operations together. | مع فندقة 360، يبدأ كل شيء من الحجز. |
 | 10–20 s | Accounting, housekeeping or inventory updating from that reservation (sample data) | شاهد سير العمل في فندقة 360. | See the workflow in Fandaqah 360. | الغرفة تُجهَّز، والخدمة تُسجَّل، والمحاسبة تُحدَّث في مكان واحد. |
-| 20–25 s | Demo button and the approved offer line | احجز عرضاً توضيحياً، واطّلع على عرض السنتين. | Book a demo. Review the two-year offer. | احجز عرضاً توضيحياً لفندقك، واسأل عن عرضنا لمدة سنتين. |
+| 20–25 s | Demo button and the offer line: a padlock closing on the launch price, held for two years | احجز عرضاً توضيحياً. وثبّت سعر الإطلاق. | Demo first. Then lock in your price. | احجز عرضك التوضيحي الآن، وثبّت سعر الإطلاق لمدة سنتين. |
 
 **End card:** logo · احجز عرضاً توضيحياً لفندقي · fandaqah.com
-Keep price separate from any savings claim; do not show figures that are not approved.
+**Supporting line (20–25 s):** «عرض إطلاق لمرة واحدة: اشترك لمدة سنتين، ويبقى سعرك ثابتاً طوال المدة.» / "One-time launch offer: subscribe for 2 years and your price stays fixed for both."
+**English voice-over (20–25 s):** "Book your demo now, and lock in the launch price for two years."
+Why the close changed: "review the two-year offer" named the offer without the reason to act. The close now says what the two years buy (a price that cannot move) and why now (a one-time launch offer), the same message as the landing page.
+Keep price separate from any savings claim; do not show figures that are not approved. The launch period's end date must be in the signed commercial release record before "one-time" runs.

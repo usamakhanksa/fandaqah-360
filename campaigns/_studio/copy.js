@@ -1,7 +1,7 @@
 /* Creative copy for the four Fandaqah 360 campaigns (playbook, 20 Oct 2026).
    Edit text here, then re-render: see campaigns/_studio/README.md.
    Rules baked in (playbook p.7 and p.11): one promise and one CTA per creative, no public price (A uses
-   "Ask about our limited-time offer", B "Ask about our two-year prepaid offer"), no savings figures, countdowns, reviews or limited availability. */
+   "Ask about our limited-time offer", B "Lock in the launch price", a 2-year subscription at a fixed price), no savings figures, countdowns, reviews or limited availability. */
 window.STUDIO = {
   base: '/assets/',
   campaigns: {
@@ -46,7 +46,7 @@ window.STUDIO = {
           { h: 'Still managing your hotel in <em>separate systems?</em>' },
           { h: 'Bring your operations <em>together.</em>', s: 'One connected platform, built for Saudi hospitality.' },
           { h: 'See the workflow in <em>Fandaqah 360.</em>', flow: ['Reservation', 'Room readiness', 'Guest service', 'Accounting'] },
-          { h: 'Book a demo. <em>Review the two-year offer.</em>', s: 'Ask about our two-year prepaid offer.' }
+          { h: 'Demo first. <em>Then lock in your price.</em>', s: 'One-time launch offer: subscribe for 2 years and your price stays fixed for both.' }
         ]
       },
       ar: {
@@ -59,7 +59,7 @@ window.STUDIO = {
           { h: 'ما زلت تدير فندقك <em>بأنظمة متفرقة؟</em>' },
           { h: 'اجمع عملياتك <em>في منصة واحدة.</em>', s: 'منصة مترابطة مصمَّمة لقطاع الضيافة السعودي.' },
           { h: 'شاهد سير العمل في <em>فندقة 360.</em>', flow: ['الحجز', 'جاهزية الغرف', 'خدمة الضيوف', 'المحاسبة'] },
-          { h: 'احجز عرضاً توضيحياً. <em>واطّلع على عرض السنتين.</em>', s: 'اسأل عن عرضنا المدفوع مسبقاً لمدة سنتين.' }
+          { h: 'احجز عرضاً توضيحياً. <em>وثبّت سعر الإطلاق.</em>', s: 'عرض إطلاق لمرة واحدة: اشترك لمدة سنتين، ويبقى سعرك ثابتاً طوال المدة.' }
         ]
       }
     },

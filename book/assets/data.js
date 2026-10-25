@@ -39,7 +39,7 @@ window.BOOK_DATA = {
           { h: 'Still managing your hotel in <em>separate systems?</em>', cap: 'Too many systems, repeated entry, unclear responsibility?' },
           { h: 'Bring your operations <em>together.</em>', s: 'One connected platform, built for Saudi hospitality.', cap: 'With Fandaqah 360, everything starts from the reservation.' },
           { h: 'See the workflow in <em>Fandaqah 360.</em>', flow: ['Reservation', 'Room readiness', 'Guest service', 'Accounting'], cap: 'Rooms get ready, service is logged, accounting updates in one place.' },
-          { h: 'Book a demo. <em>Review the two-year offer.</em>', s: 'Ask about our two-year prepaid offer.', cap: 'Book a demo for your hotel. Ask about our two-year offer.' }
+          { h: 'Demo first. <em>Then lock in your price.</em>', s: 'One-time launch offer: subscribe for 2 years and your price stays fixed for both.', cap: 'Book your demo now, and lock in the launch price for two years.' }
         ]
       },
       ar: {
@@ -50,7 +50,7 @@ window.BOOK_DATA = {
           { h: 'ما زلت تدير فندقك <em>بأنظمة متفرقة؟</em>', cap: 'أنظمة كثيرة، وإدخال متكرر، ومسؤوليات غير واضحة؟' },
           { h: 'اجمع عملياتك <em>في منصة واحدة.</em>', s: 'منصة مترابطة مصمَّمة لقطاع الضيافة السعودي.', cap: 'مع فندقة 360، يبدأ كل شيء من الحجز.' },
           { h: 'شاهد سير العمل في <em>فندقة 360.</em>', flow: ['الحجز', 'جاهزية الغرف', 'خدمة الضيوف', 'المحاسبة'], cap: 'الغرفة تُجهَّز، والخدمة تُسجَّل، والمحاسبة تُحدَّث في مكان واحد.' },
-          { h: 'احجز عرضاً توضيحياً. <em>واطّلع على عرض السنتين.</em>', s: 'اسأل عن عرضنا المدفوع مسبقاً لمدة سنتين.', cap: 'احجز عرضاً توضيحياً لفندقك، واسأل عن عرضنا لمدة سنتين.' }
+          { h: 'احجز عرضاً توضيحياً. <em>وثبّت سعر الإطلاق.</em>', s: 'عرض إطلاق لمرة واحدة: اشترك لمدة سنتين، ويبقى سعرك ثابتاً طوال المدة.', cap: 'احجز عرضك التوضيحي الآن، وثبّت سعر الإطلاق لمدة سنتين.' }
         ]
       }
     },
