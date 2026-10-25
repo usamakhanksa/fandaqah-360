@@ -588,7 +588,7 @@ html[lang="ar"] .bubble,html[lang="ar"] .invite{font-size:14px;line-height:1.8}
           <div class="field" data-f="renewal" data-only="A"><label for="f-renewal" data-i18n="f.renewal">Renewal date</label><input id="f-renewal" name="renewal" type="date"><p class="hint warn" data-renewal-warn hidden></p></div>
           <div class="field field-6" data-f="modules" data-only="A"><span class="lbl" id="mods-l"><span data-i18n="f.modules">Modules they don’t use yet</span> <span class="opt" data-i18n="f.modulesHint">pick up to three</span></span><div class="chips" role="group" aria-labelledby="mods-l" data-modules></div></div>
           <div class="field" data-f="pms" data-only="C"><label for="f-pms" data-i18n="f.pms">Installed PMS</label><input id="f-pms" name="pms" maxlength="50" list="pmsList" spellcheck="false"></div>
-          <div class="field field-3" data-f="persona" data-only="C"><span class="lbl" id="persona-l" data-i18n="f.persona">Writing to</span><div class="mini-seg" role="group" aria-labelledby="persona-l"><button type="button" data-persona="IT" aria-pressed="true" data-i18n="f.personaIT">IT manager or director</button><button type="button" data-persona="FIN" aria-pressed="false" data-i18n="f.personaFIN">Finance director</button></div></div>
+          <div class="field field-3" data-f="persona" data-only="C"><span class="lbl" id="persona-l" data-i18n="f.persona">Writing to</span><div class="mini-seg" role="group" aria-labelledby="persona-l"><button type="button" data-persona="GM" aria-pressed="true" data-i18n="f.personaGM">GM or owner</button><button type="button" data-persona="IT" aria-pressed="false" data-i18n="f.personaIT">IT manager or director</button><button type="button" data-persona="FIN" aria-pressed="false" data-i18n="f.personaFIN">Finance director</button></div></div>
           <div class="field" data-f="count" data-only="D"><label for="f-count" data-i18n="f.count">Properties in the group</label><select id="f-count" name="count"><option value="" data-i18n="f.countPick">Choose</option><option value="10" data-i18n="f.count10">About 10</option><option value="10-20" data-i18n="f.count20">10 to 20</option><option value="21-50" data-i18n="f.count50">21 to 50</option><option value="50+" data-i18n="f.countMore">More than 50</option></select></div>
           <div class="field field-6" data-f="note"><label for="f-note"><span data-i18n="f.note">Personal line</span> <span class="opt" data-i18n="f.opt">optional</span></label>
             <textarea id="f-note" name="note" rows="2" maxlength="160"></textarea>
@@ -726,7 +726,7 @@ html[lang="ar"] .bubble,html[lang="ar"] .invite{font-size:14px;line-height:1.8}
     'f.first':'الاسم الأول لجهة الاتصال','f.city':'المدينة','f.rep':'اسمك','f.date':'تاريخ أول رسالة',
     'f.account':'رقم الحساب','f.crmOnly':'لنظام العملاء فقط','f.plan':'الباقة الحالية','f.renewal':'تاريخ التجديد',
     'f.modules':'وحدات لا يستخدمونها بعد','f.modulesHint':'اختر حتى ثلاث',
-    'f.pms':'نظام PMS المثبّت','f.persona':'الرسالة موجّهة إلى','f.personaIT':'مدير التقنية','f.personaFIN':'المدير المالي',
+    'f.pms':'نظام PMS المثبّت','f.persona':'الرسالة موجّهة إلى','f.personaGM':'المدير العام أو المالك','f.personaIT':'مدير التقنية','f.personaFIN':'المدير المالي',
     'f.count':'عدد منشآت المجموعة','f.countPick':'اختر','f.count10':'نحو 10','f.count20':'من 10 إلى 20','f.count50':'من 21 إلى 50','f.countMore':'أكثر من 50',
     'f.note':'سطر شخصي','f.opt':'اختياري','f.noteHint':'جملة واحدة لا يكتبها غيرك: افتتاح حديث، منشور، جائزة.',
     'route.title':'وجّه الحساب','route.sub':'حملة رئيسية واحدة لكل حساب (دليل الحملة ص 1 وص 6).',
@@ -780,13 +780,13 @@ html[lang="ar"] .bubble,html[lang="ar"] .invite{font-size:14px;line-height:1.8}
       beats: [L2('Still managing your hotel in separate systems?', 'ما زلت تدير فندقك بأنظمة متفرقة؟'), L2('Bring your operations together.', 'اجمع عملياتك في منصة واحدة.'), L2('See the workflow in Fandaqah 360.', 'شاهد سير العمل في فندقة 360.'), L2('Book a demo. Review the two-year offer.', 'احجز عرضاً توضيحياً، واطّلع على عرض السنتين.')] },
     C: { campaign: 'C_opera_cost_review_2610', primary: true,
       name: L2('Opera and brand-mandated PMS', 'أنظمة Opera والأنظمة المفروضة من العلامة'), short: L2('Opera PMS', 'أنظمة Opera'),
-      buyer: L2('IT manager or director and finance director, supported by the GM or owner.', 'مدير التقنية والمدير المالي، بدعم من المدير العام أو المالك.'),
-      concern: L2('Need compatibility, approvals and a defensible cost case, while keeping the required PMS and brand rules.', 'يحتاجون التوافق والاعتمادات وحالة تكلفة يمكن الدفاع عنها، مع الالتزام بالنظام المفروض وقواعد العلامة.'),
-      action: L2('Request a technology cost review', 'طلب مراجعة تكاليف التقنية'), cta: L2('Request a technology cost review', 'اطلب مراجعة تكاليف التقنية'),
-      li: L2('Primary channel. A small named-account campaign with professional targeting on LinkedIn. Share a technical brief with IT and a cost comparison with finance.', 'قناة رئيسية: حملة صغيرة لحسابات محددة بالاسم مع استهداف مهني على لينكدإن. شارك موجزاً تقنياً مع التقنية ومقارنة تكاليف مع المالية.'),
+      buyer: L2('GM or owner, IT manager or director, and finance director.', 'المدير العام أو المالك، ومدير التقنية، والمدير المالي.'),
+      concern: L2('Want simpler operations, clearer visibility across departments and controlled technology costs, while keeping the required PMS and brand rules. Compatibility is confirmed before anything is promised.', 'يريدون تشغيلاً أبسط، ورؤية أوضح بين الأقسام، وتكاليف تقنية تحت السيطرة، مع الالتزام بالنظام المفروض وقواعد العلامة. ويُؤكَّد التوافق قبل أي وعد.'),
+      action: L2('Request an operational and technology review', 'طلب مراجعة تشغيلية وتقنية'), cta: L2('Request an operational and technology review', 'اطلب مراجعة تشغيلية وتقنية'),
+      li: L2('Primary channel. A small named-account campaign with professional targeting on LinkedIn. Share an operations overview with the GM or owner, a technical brief with IT and a cost comparison with finance.', 'قناة رئيسية: حملة صغيرة لحسابات محددة بالاسم مع استهداف مهني على لينكدإن. شارك نظرة تشغيلية مع المدير العام أو المالك، وموجزاً تقنياً مع التقنية، ومقارنة تكاليف مع المالية.'),
       session: L2('review', 'المراجعة'), company: L2('Hotel name', 'اسم الفندق'),
       extra: L2('Mandated PMS verified, not inferred from a brand name or star rating', 'النظام المفروض موثَّق، وليس مستنتجاً من اسم العلامة أو تصنيف النجوم'),
-      beats: [L2('How much does your hotel technology really cost?', 'كم تكلّف تقنيات فندقك فعلاً؟'), L2('Strengthen the workflows around Opera.', 'عزّز مسارات العمل حول Opera.'), L2('Connect back office, operations and supported integrations.', 'اربط الإدارة الخلفية والتشغيل والتكاملات المدعومة.'), L2('Request your technology cost review.', 'اطلب مراجعة تكاليف التقنية.')] },
+      beats: [L2('Running your hotel around Opera through too many systems?', 'تدير فندقك حول Opera بأنظمة كثيرة؟'), L2('One platform for HR, procurement, inventory, finance and compliance. Opera stays your PMS.', 'منصة واحدة للموارد البشرية والمشتريات والمخزون والمالية والامتثال، ويبقى Opera نظامك.'), L2('Fewer systems. Clearer visibility. Room to grow.', 'أنظمة أقل، ورؤية أوضح، ومساحة للنمو.'), L2('Request an operational and technology review.', 'اطلب مراجعة تشغيلية وتقنية.')] },
     D: { campaign: 'D_group_discovery_2610', primary: true,
       name: L2('Local chains and operators', 'السلاسل والمشغّلون المحليون'), short: L2('Groups', 'المجموعات'),
       buyer: L2('Group owner, CEO or COO, with IT and finance approval, at an operator with about 10 or more properties.', 'مالك المجموعة أو رئيسها التنفيذي أو مدير عملياتها، بموافقة التقنية والمالية، لدى مشغّل بنحو 10 منشآت أو أكثر.'),
@@ -906,61 +906,98 @@ html[lang="ar"] .bubble,html[lang="ar"] .invite{font-size:14px;line-height:1.8}
     ],
     C: [
       { id: 'note', offset: null, limit: 200, link: false,
-        why: L2('Two notes, one per role. IT hears about the workflows around their PMS; finance hears about the full cost of technology.', 'ملاحظتان، واحدة لكل دور: التقنية تسمع عن مسارات العمل حول نظامها، والمالية عن التكلفة الكاملة للتقنية.'),
-        IT: { en: [{ p: 'Hello {first}, I work with IT teams at Saudi hotels that run {pms}, on the workflows around it. I’d be glad to connect.' }], ar: [{ p: 'مرحباً {first}، أعمل مع فرق التقنية في الفنادق السعودية التي تعمل على {pms}، على مسارات العمل المحيطة به. يسعدني التواصل معكم.' }] },
-        FIN: { en: [{ p: 'Hello {first}, I work with finance teams at Saudi hotels on the full cost of their hotel technology. I’d be glad to connect.' }], ar: [{ p: 'مرحباً {first}، أعمل مع الفرق المالية في الفنادق السعودية على التكلفة الكاملة لتقنيات الفندق. يسعدني التواصل معكم.' }] } },
+        why: L2('Three notes, one per role, each naming an outcome the role owns: simpler operations for the GM or owner, fewer systems for IT, a clear cost picture for finance. Opera is mentioned only as the PMS that stays.', 'ثلاث ملاحظات، واحدة لكل دور، تذكر كلٌّ منها نتيجة يملكها ذلك الدور: تشغيل أبسط للمدير العام أو المالك، وأنظمة أقل للتقنية، وصورة تكلفة واضحة للمالية. ولا يُذكر Opera إلا بوصفه النظام الذي يبقى.'),
+        GM: { en: [{ p: 'Hello {first}, I work with Saudi hotels that keep {pms} and want simpler operations around it: fewer systems and a clearer view of the hotel. I’d be glad to connect.' }], ar: [{ p: 'مرحباً {first}، أعمل مع فنادق سعودية تعمل على {pms} وتريد تشغيلاً أبسط حوله: أنظمة أقل ورؤية أوضح للفندق. يسعدني التواصل معكم.' }] },
+        IT: { en: [{ p: 'Hello {first}, I work with IT teams at Saudi hotels that run {pms}, on reducing the number of systems they support around it. I’d be glad to connect.' }], ar: [{ p: 'مرحباً {first}، أعمل مع فرق التقنية في الفنادق السعودية التي تعمل على {pms}، على تقليل عدد الأنظمة التي تدعمها حوله. يسعدني التواصل معكم.' }] },
+        FIN: { en: [{ p: 'Hello {first}, I work with finance teams at Saudi hotels on what disconnected systems around {pms} really cost. I’d be glad to connect.' }], ar: [{ p: 'مرحباً {first}، أعمل مع الفرق المالية في الفنادق السعودية على التكلفة الحقيقية للأنظمة غير المترابطة حول {pms}. يسعدني التواصل معكم.' }] } },
       { id: 'msg1', offset: 0, limit: 1900, link: false, beat: 0,
-        subject: { IT: L2('Strengthen your {pms} with connected hotel operations', 'عزّز {pms} لديك بعمليات فندقية مترابطة'), FIN: L2('See where your hotel can reduce technology costs', 'اكتشف أين يمكن لفندقك خفض تكاليف التقنية') },
-        why: L2('The storyboard asks what hotel technology really costs. IT gets the architecture question, finance gets the cost question. No percentages, no link.', 'تسأل القصة المصوّرة عن التكلفة الحقيقية للتقنية: التقنية تتلقى سؤال البنية، والمالية سؤال التكلفة. بلا نسب ولا رابط.'),
+        subject: { GM: L2('Simpler operations around your {pms}', 'تشغيل أبسط حول {pms}'), IT: L2('Fewer systems to support around {pms}', 'أنظمة أقل تدعمونها حول {pms}'), FIN: L2('What disconnected systems cost your hotel', 'ما تكلّفه الأنظمة غير المترابطة فندقكم') },
+        why: L2('Problem first, value second, integration last. The message names the operational challenge (several systems, work done twice, no single view), states what changes, and only then confirms that Opera stays. No percentages, no link.', 'المشكلة أولاً، ثم القيمة، ثم التكامل أخيراً: تسمّي الرسالة التحدي التشغيلي (أنظمة متعددة، وعمل يُنجز مرتين، وغياب الصورة الواحدة)، وتذكر ما الذي يتغير، ثم تؤكد أن Opera يبقى. بلا نسب ولا رابط.'),
+        GM: { en: [{ p: 'Hello {first},' }, { p: 'Thanks for connecting. {note}' },
+            { p: 'Many hotels running {pms} manage HR, procurement, inventory, finance, compliance and reporting through several disconnected systems. The result is usually the same: work entered twice, costs spread across contracts, and no single view of how the hotel is really running.' },
+            { p: 'Fandaqah brings those operations into one platform, while {pms} remains your core PMS. Nothing changes for your PMS or your brand standards.' },
+            { p: 'Is simplifying the systems around {pms} at {company} on your agenda this year?' }, SIG],
+          ar: [{ p: 'مرحباً {first}،' }, { p: 'شكراً لقبول الدعوة. {note}' },
+            { p: 'كثير من الفنادق التي تعمل على {pms} تدير الموارد البشرية والمشتريات والمخزون والمالية والامتثال والتقارير عبر أنظمة متعددة غير مترابطة. والنتيجة غالباً واحدة: بيانات تُدخل مرتين، وتكاليف موزعة على عقود كثيرة، وغياب صورة واحدة لأداء الفندق الفعلي.' },
+            { p: 'فندقة تجمع هذه العمليات في منصة واحدة، ويبقى {pms} نظامكم الأساسي لإدارة الفندق، دون أي تغيير عليه أو على معايير علامتكم.' },
+            { p: 'هل تبسيط الأنظمة العاملة حول {pms} في {company} ضمن أولوياتكم هذا العام؟' }, SIG] },
         IT: { en: [{ p: 'Hello {first},' }, { p: 'Thanks for connecting. {note}' },
-            { p: 'Hotels that must keep {pms} often run back office, payments and regulatory work in separate tools around it, each with its own interface, contract and support line.' },
-            { p: 'Fandaqah works around your existing PMS rather than replacing it: supported back-office workflows, hotel operations, payments and regulatory integrations, with {pms} staying the system of record for its scope.' },
-            { p: 'Is the stack around {pms} at {company} something you’re reviewing this year?' }, SIG],
+            { p: 'Around {pms}, most hotels we speak with run separate tools for HR, procurement, inventory, finance and compliance. Each one is another interface to maintain, another vendor to manage and another place where data drifts out of step.' },
+            { p: 'Fandaqah consolidates those operational systems into one platform and works alongside {pms} through approved interfaces, so the PMS stays the system of record for its scope.' },
+            { p: 'Would fewer systems to support around {pms} be useful for {company}?' }, SIG],
           ar: [{ p: 'مرحباً {first}،' }, { p: 'شكراً لقبول الدعوة. {note}' },
-            { p: 'كثيراً ما تدير الفنادق الملتزمة بـ {pms} الإدارة الخلفية والمدفوعات والمتطلبات التنظيمية بأدوات منفصلة حوله، لكل منها واجهتها وعقدها وجهة دعمها.' },
-            { p: 'فندقة تعمل حول نظامكم الحالي ولا تستبدله: مسارات عمل مدعومة للإدارة الخلفية وعمليات الفندق والمدفوعات والتكاملات التنظيمية، ويبقى {pms} نظام السجل المعتمد في نطاقه.' },
-            { p: 'هل مراجعة المنظومة المحيطة بـ {pms} في {company} ضمن خططكم هذا العام؟' }, SIG] },
+            { p: 'حول {pms} تعمل أغلب الفنادق التي نتحدث معها بأدوات منفصلة للموارد البشرية والمشتريات والمخزون والمالية والامتثال. وكل أداة تعني واجهة أخرى تحتاج صيانة، ومورّداً آخر تحتاج متابعته، وموضعاً آخر تختلف فيه البيانات.' },
+            { p: 'فندقة توحّد هذه الأنظمة التشغيلية في منصة واحدة، وتعمل إلى جانب {pms} عبر واجهات معتمدة، ليبقى نظام السجل المعتمد في نطاقه.' },
+            { p: 'هل يفيد {company} أن تقلّ الأنظمة التي تدعمونها حول {pms}؟' }, SIG] },
         FIN: { en: [{ p: 'Hello {first},' }, { p: 'Thanks for connecting. {note}' },
-            { p: 'A question that is harder than it sounds: what does {company} spend on technology each year, once subscriptions, interfaces, support and usage charges are added together?' },
-            { p: 'We help hotels that keep {pms} build a like-for-like view of their current scope and a proposed one, before anyone talks about savings.' },
-            { p: 'Would that comparison be useful to you?' }, SIG],
+            { p: 'For hotels running {pms}, the real cost of technology rarely sits in one contract. HR, procurement, inventory, finance and compliance often run in separate systems, each with its own subscription, support and duplicated work, so the full picture is hard to see.' },
+            { p: 'Fandaqah consolidates those operations into one platform while {pms} remains your core PMS, so activity and cost can be seen in one place.' },
+            { p: 'Would a clear view of what {company} spends on the systems around {pms} be useful?' }, SIG],
           ar: [{ p: 'مرحباً {first}،' }, { p: 'شكراً لقبول الدعوة. {note}' },
-            { p: 'سؤال أصعب مما يبدو: كم ينفق {company} على التقنية سنوياً بعد جمع الاشتراكات والواجهات والدعم ورسوم الاستخدام؟' },
-            { p: 'نساعد الفنادق الملتزمة بـ {pms} على بناء صورة مقارنة دقيقة بين نطاقها الحالي والنطاق المقترح، قبل أي حديث عن التوفير.' },
-            { p: 'هل تفيدكم هذه المقارنة؟' }, SIG] } },
+            { p: 'في الفنادق التي تعمل على {pms} نادراً ما تكون التكلفة الحقيقية للتقنية في عقد واحد؛ فالموارد البشرية والمشتريات والمخزون والمالية والامتثال تعمل غالباً بأنظمة منفصلة، لكلٍّ منها اشتراكه ودعمه وعمله المكرر، فيصعب رؤية الصورة كاملة.' },
+            { p: 'فندقة توحّد هذه العمليات في منصة واحدة ويبقى {pms} نظامكم الأساسي، لتظهر الأنشطة والتكاليف في مكان واحد.' },
+            { p: 'هل تفيدكم صورة واضحة لما ينفقه {company} على الأنظمة العاملة حول {pms}؟' }, SIG] } },
       { id: 'msg2', offset: 3, limit: 1900, link: true, beat: 1,
-        subject: { IT: L2('More connected workflows around your {pms}', 'مسارات عمل أكثر ترابطاً حول {pms}'), FIN: L2('A like-for-like view of your technology costs', 'صورة مقارنة دقيقة لتكاليف التقنية') },
-        why: L2('The playbook’s two documents: the technical brief for IT and the cost comparison for finance, each summarised in the message.', 'وثيقتا دليل الحملة: الموجز التقني للتقنية ومقارنة التكاليف للمالية، كلٌّ منهما ملخّص في الرسالة.'),
-        IT: { en: [{ p: 'Hello {first},' }, { p: 'To make this concrete, here is the one-page technical brief we prepare for IT:' },
-            { ul: ['What stays: {pms} remains the system of record for its scope', 'What Fandaqah adds: supported back-office, operations, payments and regulatory workflows, through approved interfaces only', 'What we need from you: product and version, deployment, interface access route and required workflows', 'How we confirm: a technical meeting, an integration assessment and a written scope'] },
-            { p: 'I can send it over or walk you through it. The review starts here:\n{link}' }, SIG],
-          ar: [{ p: 'مرحباً {first}،' }, { p: 'ليكون الأمر عملياً، هذا الموجز التقني الذي نعدّه لفرق التقنية في صفحة واحدة:' },
-            { ul: ['ما يبقى: يظل {pms} نظام السجل المعتمد في نطاقه', 'ما تضيفه فندقة: مسارات عمل مدعومة للإدارة الخلفية والتشغيل والمدفوعات والمتطلبات التنظيمية، عبر واجهات معتمدة فقط', 'ما نحتاجه منكم: المنتج والإصدار، وطريقة النشر، ومسار الوصول إلى الواجهات، ومسارات العمل المطلوبة', 'كيف نؤكّد: اجتماع تقني، وتقييم للتكامل، ونطاق مكتوب'] },
-            { p: 'يمكنني إرساله أو شرحه لكم. تبدأ المراجعة من هنا:\n{link}' }, SIG] },
-        FIN: { en: [{ p: 'Hello {first},' }, { p: 'Here is the comparison we prepare for finance, current against proposed, line by line:' },
+        subject: { GM: L2('What Fandaqah adds alongside {pms}', 'ما تضيفه فندقة إلى جانب {pms}'), IT: L2('One platform around {pms}: what stays, what we add', 'منصة واحدة حول {pms}: ما يبقى وما نضيفه'), FIN: L2('Your technology spend, line by line', 'إنفاقكم على التقنية، بنداً بنداً') },
+        why: L2('The first objective, stated plainly: find what can be simplified, consolidated or improved without disrupting the PMS. Then the concrete list of what Fandaqah adds, so the prospect can picture it. The first tracked link appears here.', 'الهدف الأول بوضوح: معرفة ما يمكن تبسيطه أو توحيده أو تحسينه دون المساس بنظام PMS، ثم القائمة الملموسة لما تضيفه فندقة ليتخيّله العميل. وهنا يظهر أول رابط متتبَّع.'),
+        GM: { en: [{ p: 'Hello {first},' }, { p: 'When we review hotels running {pms}, we usually find the same picture: separate systems for HR, procurement, inventory, finance and reporting, with the team bridging the gaps by hand.' },
+            { p: 'Our first objective is simple: find where those processes can be simplified, consolidated or improved, without disrupting your PMS.' },
+            { p: 'What Fandaqah adds, alongside {pms}:' },
+            { ul: ['HR and staff records', 'CRM and guest relationships', 'Procurement and inventory', 'Finance and management reporting', 'Compliance workflows for ZATCA, Shomoos and NTMP'] },
+            { p: 'You can see how it works here:\n{link}' }, SIG],
+          ar: [{ p: 'مرحباً {first}،' }, { p: 'عندما نراجع الفنادق التي تعمل على {pms} نجد في الغالب الصورة نفسها: أنظمة منفصلة للموارد البشرية والمشتريات والمخزون والمالية والتقارير، وفريق يسدّ الفجوات بينها يدوياً.' },
+            { p: 'هدفنا الأول بسيط: معرفة ما يمكن تبسيطه أو توحيده أو تحسينه من هذه العمليات، دون أي مساس بنظامكم.' },
+            { p: 'ما تضيفه فندقة إلى جانب {pms}:' },
+            { ul: ['الموارد البشرية وسجلات الموظفين', 'إدارة علاقات العملاء والنزلاء', 'المشتريات والمخزون', 'المالية والتقارير الإدارية', 'مسارات الامتثال لهيئة الزكاة والضريبة والجمارك وشموس ومنصة الرصد السياحي'] },
+            { p: 'يمكنكم الاطلاع على طريقة العمل من هنا:\n{link}' }, SIG] },
+        IT: { en: [{ p: 'Hello {first},' }, { p: 'When we review {pms} environments, we often find several systems for HR, procurement, inventory, finance and reporting, each connected to the PMS, or not, in its own way.' },
+            { p: 'Our first objective is simple: identify where they can be consolidated into one platform, without disrupting the PMS environment or its brand requirements.' },
+            { ul: ['What stays: {pms} remains the system of record for its scope', 'What Fandaqah adds: HR, CRM, procurement, inventory, finance, compliance workflows and management reporting in one platform', 'How it connects: through supported, approved interfaces, confirmed for your installed version before anything is proposed'] },
+            { p: 'The approach is here, and I can send the one-page technical brief:\n{link}' }, SIG],
+          ar: [{ p: 'مرحباً {first}،' }, { p: 'عندما نراجع بيئات {pms} نجد غالباً عدة أنظمة للموارد البشرية والمشتريات والمخزون والمالية والتقارير، يرتبط كلٌّ منها بالنظام بطريقته، أو لا يرتبط.' },
+            { p: 'هدفنا الأول بسيط: تحديد ما يمكن توحيده منها في منصة واحدة، دون المساس ببيئة النظام أو متطلبات العلامة.' },
+            { ul: ['ما يبقى: يظل {pms} نظام السجل المعتمد في نطاقه', 'ما تضيفه فندقة: الموارد البشرية وإدارة علاقات العملاء والمشتريات والمخزون والمالية ومسارات الامتثال والتقارير الإدارية في منصة واحدة', 'كيف يتم الربط: عبر واجهات مدعومة ومعتمدة، نؤكدها لإصداركم المثبّت قبل تقديم أي عرض'] },
+            { p: 'طريقة العمل هنا، ويمكنني إرسال الموجز التقني في صفحة واحدة:\n{link}' }, SIG] },
+        FIN: { en: [{ p: 'Hello {first},' }, { p: 'When we review hotels running {pms}, the cost picture usually spans many lines: separate subscriptions for HR, procurement, inventory, finance and compliance, plus interfaces, support and the time spent reconciling between them.' },
+            { p: 'Our first objective is simple: show where those systems can be consolidated, and what that would mean for your total technology spend, without touching {pms}.' },
+            { p: 'The comparison covers, line by line:' },
             { ul: ['Recurring subscriptions', 'Interfaces and connection fees', 'Setup and implementation', 'Support and maintenance', 'Usage charges such as SMS, payments and verification'] },
-            { p: 'A saving only appears when both columns cover the same scope and period. Request your review here:\n{link}' }, SIG],
-          ar: [{ p: 'مرحباً {first}،' }, { p: 'هذه المقارنة التي نعدّها للمالية، الوضع الحالي مقابل المقترح، بنداً بنداً:' },
+            { p: 'A saving only counts when both sides cover the same scope and period. More here:\n{link}' }, SIG],
+          ar: [{ p: 'مرحباً {first}،' }, { p: 'عندما نراجع الفنادق التي تعمل على {pms} تمتد صورة التكلفة عادةً على بنود كثيرة: اشتراكات منفصلة للموارد البشرية والمشتريات والمخزون والمالية والامتثال، إضافة إلى الواجهات والدعم والوقت المبذول في المطابقة بينها.' },
+            { p: 'هدفنا الأول بسيط: أن نوضح ما يمكن توحيده من هذه الأنظمة، وما يعنيه ذلك لإجمالي إنفاقكم على التقنية، مع بقاء {pms} كما هو.' },
+            { p: 'تغطي المقارنة، بنداً بنداً:' },
             { ul: ['الاشتراكات المتكررة', 'رسوم الواجهات والربط', 'الإعداد والتنفيذ', 'الدعم والصيانة', 'رسوم الاستخدام مثل الرسائل النصية والمدفوعات والتحقق'] },
-            { p: 'لا يظهر التوفير إلا عندما يغطي العمودان النطاق والمدة نفسيهما. اطلبوا مراجعتكم من هنا:\n{link}' }, SIG] } },
+            { p: 'ولا يُحتسب التوفير إلا عندما يغطي الطرفان النطاق والمدة نفسيهما. التفاصيل هنا:\n{link}' }, SIG] } },
       { id: 'msg3', offset: 5, limit: 1900, link: true, beat: 2,
-        subject: { IT: L2('Before anyone promises compatibility', 'قبل أي وعد بالتوافق'), FIN: L2('What a technology cost review covers', 'ما الذي تشمله مراجعة تكاليف التقنية') },
-        why: L2('Proof by method: sales confirms product, version, deployment, interface access and the approval route before promising compatibility, exactly as the playbook says.', 'الإثبات بالمنهج: يؤكّد فريق المبيعات المنتج والإصدار والنشر والوصول إلى الواجهات ومسار الاعتماد قبل أي وعد بالتوافق، كما ينص الدليل.'),
-        IT: { en: [{ p: 'Hello {first},' }, { p: 'One thing we do differently: we confirm before we promise. Before any proposal, we check the installed {pms} product and version, the deployment, interface access and the brand or owner approval route with you.' },
-            { p: 'A 45-minute technical meeting covers your current stack, required workflows and approvals, and what Fandaqah supports around {pms}. Would next week work?\n{link}' }, SIG],
-          ar: [{ p: 'مرحباً {first}،' }, { p: 'ما نفعله بشكل مختلف: نتحقق قبل أن نَعِد. قبل أي عرض نراجع معكم منتج {pms} المثبّت وإصداره، وطريقة النشر، والوصول إلى الواجهات، ومسار اعتماد العلامة أو المالك.' },
-            { p: 'اجتماع تقني مدته 45 دقيقة يغطي منظومتكم الحالية، ومسارات العمل والاعتمادات المطلوبة، وما تدعمه فندقة حول {pms}. هل يناسبكم الأسبوع القادم؟\n{link}' }, SIG] },
-        FIN: { en: [{ p: 'Hello {first},' }, { p: 'The cost review is a short, structured exercise: your current technology lines, the interfaces {pms} needs, the approval route, then a scoped proposal with setup, service and usage charges shown separately.' },
-            { p: 'No headline percentages, just your numbers side by side. Shall I book it with you and your IT lead?\n{link}' }, SIG],
-          ar: [{ p: 'مرحباً {first}،' }, { p: 'مراجعة التكاليف تمرين قصير ومنظّم: بنود التقنية الحالية، والواجهات التي يحتاجها {pms}، ومسار الاعتماد، ثم عرض محدد النطاق تظهر فيه رسوم الإعداد والخدمة والاستخدام منفصلة.' },
-            { p: 'بلا نسب لافتة، بل أرقامكم جنباً إلى جنب. هل أحجزها معكم ومع مسؤول التقنية لديكم؟\n{link}' }, SIG] } },
+        subject: { GM: L2('Before we recommend anything', 'قبل أن نوصي بأي شيء'), IT: L2('Before anyone promises compatibility', 'قبل أي وعد بالتوافق'), FIN: L2('A business case built on your numbers', 'حالة عمل مبنية على أرقامكم') },
+        why: L2('The meeting request leads with what the prospect gets (less fragmentation, clearer visibility, room to grow) and keeps the playbook’s discipline: nothing is recommended or promised before the environment is assessed and compatibility confirmed.', 'طلب الاجتماع يبدأ بما يحصل عليه العميل (تشتّت أقل، ورؤية أوضح، ومساحة للنمو) مع الالتزام بانضباط الدليل: لا توصية ولا وعد قبل تقييم البيئة وتأكيد التوافق.'),
+        GM: { en: [{ p: 'Hello {first},' }, { p: 'Before recommending anything, we look at how {company} runs today: which systems each department uses, where work is repeated and where visibility breaks down.' },
+            { p: 'The result is a short map of opportunities to reduce system fragmentation, improve visibility across departments and support future growth, while respecting your existing {pms} and brand requirements.' },
+            { p: 'It takes about 45 minutes with you, ideally with your IT and finance leads. Would next week suit you?\n{link}' }, SIG],
+          ar: [{ p: 'مرحباً {first}،' }, { p: 'قبل أن نوصي بأي شيء ننظر في طريقة عمل {company} اليوم: الأنظمة التي يستخدمها كل قسم، وأين يتكرر العمل، وأين تغيب الرؤية.' },
+            { p: 'والنتيجة خريطة مختصرة لفرص الحدّ من تشتّت الأنظمة، وتحسين الرؤية بين الأقسام، ودعم نموكم المستقبلي، مع احترام {pms} الحالي ومتطلبات علامتكم.' },
+            { p: 'يستغرق ذلك نحو 45 دقيقة معكم، ويُفضَّل حضور مسؤولَي التقنية والمالية. هل يناسبكم الأسبوع القادم؟\n{link}' }, SIG] },
+        IT: { en: [{ p: 'Hello {first},' }, { p: 'Before recommending anything, we assess the environment around {pms}: the systems in use, how they connect today, and which interfaces your installed version and brand allow.' },
+            { p: 'From there we show where consolidation reduces the number of systems your team supports, with every interface confirmed before it appears in a proposal.' },
+            { p: 'A 45-minute technical meeting is usually enough to start. Would next week work?\n{link}' }, SIG],
+          ar: [{ p: 'مرحباً {first}،' }, { p: 'قبل أن نوصي بأي شيء نقيّم البيئة العاملة حول {pms}: الأنظمة المستخدمة، وكيف ترتبط اليوم، والواجهات التي يسمح بها إصداركم المثبّت ومتطلبات العلامة.' },
+            { p: 'ومن هناك نوضح أين يقلّل التوحيد عدد الأنظمة التي يدعمها فريقكم، مع تأكيد كل واجهة قبل أن تظهر في أي عرض.' },
+            { p: 'يكفي عادةً اجتماع تقني مدته 45 دقيقة للبدء. هل يناسبكم الأسبوع القادم؟\n{link}' }, SIG] },
+        FIN: { en: [{ p: 'Hello {first},' }, { p: 'Before recommending anything, we assess how {company}’s operations and costs fit together today: which systems are in use, what each one costs and where work and spend overlap.' },
+            { p: 'You receive a like-for-like view of your current and proposed scope, with setup, service and usage charges shown separately, so any business case stands on your numbers rather than ours.' },
+            { p: 'Shall I set up 45 minutes with you and your IT lead next week?\n{link}' }, SIG],
+          ar: [{ p: 'مرحباً {first}،' }, { p: 'قبل أن نوصي بأي شيء نقيّم كيف تتكامل عمليات {company} وتكاليفه اليوم: الأنظمة المستخدمة، وتكلفة كلٍّ منها، وأين يتداخل العمل والإنفاق.' },
+            { p: 'وتحصلون على صورة مقارنة دقيقة بين نطاقكم الحالي والمقترح، تظهر فيها رسوم الإعداد والخدمة والاستخدام منفصلة، لتقوم أي حالة عمل على أرقامكم لا على أرقامنا.' },
+            { p: 'هل أرتّب 45 دقيقة معكم ومع مسؤول التقنية لديكم الأسبوع القادم؟\n{link}' }, SIG] } },
       { id: 'msg4', offset: 7, limit: 1900, link: true, beat: 3,
-        subject: L2('Request your technology cost review', 'اطلب مراجعة تكاليف التقنية'),
-        why: L2('The storyboard’s close is the review checklist and the meeting button. The review works best with IT, finance and the GM together.', 'ختام القصة المصوّرة قائمة المراجعة وزر الاجتماع. وتنجح المراجعة أكثر بحضور التقنية والمالية والمدير العام معاً.'),
-        en: [{ p: 'Hello {first},' }, { p: 'I’ll leave it here for now. If a review of {company}’s technology costs and the workflows around {pms} becomes useful, it starts here:\n{link}' },
-          { p: 'It works best with IT, finance and the GM in one conversation, so feel free to forward this to whoever should join.' }, SIG],
-        ar: [{ p: 'مرحباً {first}،' }, { p: 'سأكتفي بهذا الآن. إن أصبحت مراجعة تكاليف التقنية في {company} ومسارات العمل حول {pms} مفيدة لكم، فهي تبدأ من هنا:\n{link}' },
-          { p: 'وتنجح أكثر بحضور التقنية والمالية والمدير العام في حديث واحد، فلا تترددوا في تحويلها لمن يلزم.' }, SIG] }
+        subject: L2('Request an operational and technology review', 'اطلب مراجعة تشغيلية وتقنية'),
+        why: L2('The close sells the outcome in one line: see whether the systems can be simplified, consolidated or improved without replacing Opera. The CTA widens from cost alone to operations and technology, so the GM and owner have a reason to say yes, not only finance.', 'الختام يبيع النتيجة في سطر واحد: معرفة ما إذا كان يمكن تبسيط الأنظمة أو توحيدها أو تحسينها دون استبدال Opera. ويتسع الإجراء من التكلفة وحدها إلى التشغيل والتقنية، ليجد المدير العام والمالك سبباً للموافقة، لا المالية وحدها.'),
+        en: [{ p: 'Hello {first},' }, { p: 'I’ll leave it here for now.' },
+          { p: 'If it would help to see whether {company}’s systems around {pms} can be simplified, consolidated or improved, without replacing your PMS, you can request an operational and technology review here:\n{link}' },
+          { p: 'It works best with operations, IT and finance in one conversation, so please feel free to forward this to whoever should join.' }, SIG],
+        ar: [{ p: 'مرحباً {first}،' }, { p: 'سأكتفي بهذا الآن.' },
+          { p: 'إن كان من المفيد أن تعرفوا ما إذا كانت الأنظمة العاملة حول {pms} في {company} قابلة للتبسيط أو التوحيد أو التحسين، دون استبدال نظامكم، فيمكنكم طلب مراجعة تشغيلية وتقنية من هنا:\n{link}' },
+          { p: 'وتنجح المراجعة أكثر بحضور التشغيل والتقنية والمالية في حديث واحد، فلا تترددوا في تحويل هذه الرسالة لمن يلزم.' }, SIG] }
     ],
     D: [
       { id: 'note', offset: null, limit: 200, link: false,
@@ -1007,10 +1044,10 @@ html[lang="ar"] .bubble,html[lang="ar"] .invite{font-size:14px;line-height:1.8}
   /* ---------- sponsored content, carousel and posts (C, D), from campaigns/<X>/ad-copy.md and links.csv ---------- */
   const ADS = {
     C: [{ type: 'sponsored', id: 'sc', title: L2('Sponsored content · headline test', 'محتوى مموَّل · اختبار العنوان'),
-      note: L2('Professional targeting: IT, finance and GM titles at hotels in Saudi Arabia. First test: change only the creative’s headline (v1 against v2).', 'استهداف مهني: مسميات التقنية والمالية والمدير العام في فنادق المملكة. الاختبار الأول: غيّر عنوان التصميم فقط (v1 مقابل v2).'),
+      note: L2('Professional targeting: GM, owner, IT and finance titles at hotels in Saudi Arabia. First test: change only the creative’s headline (v1 against v2).', 'استهداف مهني: مسميات المدير العام والمالك والتقنية والمالية في فنادق المملكة. الاختبار الأول: غيّر عنوان التصميم فقط (v1 مقابل v2).'),
       img: 'book/media/C-opera-pms/feed/C-ad-{v}-{lang}.webp', alt: { v1: L2('Campaign C creative v1: Strengthen your Opera PMS with connected hotel operations', 'تصميم الحملة C v1: عزّز نظام Opera PMS لديك بعمليات فندقية مترابطة'), v2: L2('Campaign C creative v2: See where your hotel can reduce technology costs', 'تصميم الحملة C v2: اكتشف أين يمكن لفندقك خفض تكاليف التقنية') },
-      intro: L2('Running Opera or a brand-mandated PMS? See where your hotel can reduce technology costs, with your existing PMS kept at the centre.', 'تعمل على Opera أو نظام PMS تفرضه العلامة؟ اكتشف أين يمكن لفندقك خفض تكاليف التقنية مع بقاء نظامك الحالي في قلب المنظومة.'),
-      headline: L2('Request a technology cost review', 'اطلب مراجعة تكاليف التقنية'), button: L2('Learn more', 'معرفة المزيد'), content: 'ad_{v}_{lang}',
+      intro: L2('Running Opera or a brand-mandated PMS? Bring HR, procurement, inventory, finance and compliance into one platform, and keep Opera as your PMS.', 'تعمل على Opera أو نظام PMS تفرضه العلامة؟ اجمع الموارد البشرية والمشتريات والمخزون والمالية والامتثال في منصة واحدة، ويبقى Opera نظامك.'),
+      headline: L2('Request an operational and technology review', 'اطلب مراجعة تشغيلية وتقنية'), button: L2('Learn more', 'معرفة المزيد'), content: 'ad_{v}_{lang}',
       foot: L2('Every C creative carries the trademark line: Oracle and OPERA are trademarks of Oracle and/or its affiliates. No certification or endorsement implied.', 'يحمل كل تصميم للحملة C سطر العلامة التجارية: Oracle وOPERA علامتان تجاريتان لشركة Oracle و/أو الشركات التابعة لها، دون أي اعتماد أو تأييد ضمني.') }],
     D: [{ type: 'sponsored', id: 'sd', title: L2('Sponsored content · headline test', 'محتوى مموَّل · اختبار العنوان'),
       note: L2('Group-level titles: owner, CEO, COO, IT director, asset manager. First test: change only the creative’s headline (v1 against v2).', 'مسميات على مستوى المجموعة: المالك والرئيس التنفيذي ومدير العمليات ومدير التقنية ومدير الأصول. الاختبار الأول: غيّر عنوان التصميم فقط.'),
@@ -1054,8 +1091,14 @@ html[lang="ar"] .bubble,html[lang="ar"] .invite{font-size:14px;line-height:1.8}
       a: L2('Understood. The two-year prepaid offer is there for properties that want it, and the scope, fees and terms are confirmed in writing before anything is signed, so you can compare it properly.', 'مفهوم. العرض المدفوع مسبقاً لمدة سنتين متاح لمن يريده، ويُؤكَّد النطاق والرسوم والشروط كتابياً قبل أي توقيع لتقارنوا براحتكم.'),
       after: L2('Quote terms only from the signed commercial release record.', 'لا تذكر الشروط إلا من سجل الإطلاق التجاري المعتمد.') },
     { id: 'keep', c: 'C', q: L2('“We have to keep Opera.”', '«يجب أن نبقى على Opera.»'),
-      a: L2('Of course. Your PMS stays the system of record for its scope. We look at the back-office, payments and regulatory workflows around it, through approved interfaces only.', 'بالتأكيد. يبقى نظامكم نظام السجل المعتمد في نطاقه، ونحن ننظر في مسارات الإدارة الخلفية والمدفوعات والمتطلبات التنظيمية حوله، عبر واجهات معتمدة فقط.'),
+      a: L2('Of course, and you won’t need to change it. {pms} stays your core PMS. What we look at is everything around it, such as HR, procurement, inventory, finance and compliance, and how many separate systems that work runs on today.', 'بالتأكيد، ولن تحتاجوا إلى تغييره. يبقى {pms} نظامكم الأساسي، وما ننظر فيه هو كل ما يحيط به، مثل الموارد البشرية والمشتريات والمخزون والمالية والامتثال، وعدد الأنظمة المنفصلة التي يعمل عليها ذلك اليوم.'),
       after: L2('Book the technical meeting; confirm product, version, deployment and interface access first.', 'احجز الاجتماع التقني، وأكّد أولاً المنتج والإصدار والنشر والوصول إلى الواجهات.') },
+    { id: 'adds', c: 'C', q: L2('“So what exactly does Fandaqah add if we keep Opera?”', '«ما الذي تضيفه فندقة بالضبط إن بقينا على Opera؟»'),
+      a: L2('One platform for the operations around your PMS: HR, CRM, procurement, inventory, finance, compliance workflows for ZATCA, Shomoos and NTMP, and management reporting. {pms} keeps its role, and every interface is confirmed for your version before anything is proposed.', 'منصة واحدة للعمليات المحيطة بنظامكم: الموارد البشرية، وإدارة علاقات العملاء، والمشتريات، والمخزون، والمالية، ومسارات الامتثال لهيئة الزكاة والضريبة والجمارك وشموس ومنصة الرصد السياحي، والتقارير الإدارية. ويبقى {pms} في دوره، ونؤكد كل واجهة لإصداركم قبل تقديم أي عرض.'),
+      after: L2('Name only modules on the approved list. Never imply that Fandaqah replaces or modifies Opera.', 'لا تذكر إلا الوحدات المعتمدة، ولا توحِ أبداً بأن فندقة تستبدل Opera أو تعدّله.') },
+    { id: 'already', c: 'C', q: L2('“We already have systems for HR and procurement.”', '«لدينا أنظمة للموارد البشرية والمشتريات بالفعل.»'),
+      a: L2('Most hotels do. The useful question is how many there are, and what it takes to keep them connected to each other and to {pms}. The review shows where consolidation would help, and where it wouldn’t.', 'هذا حال أغلب الفنادق. والسؤال المفيد هو كم عددها، وما الذي يتطلبه إبقاؤها مترابطة فيما بينها ومع {pms}. وتوضح المراجعة أين يفيد التوحيد وأين لا يفيد.'),
+      after: L2('Don’t argue system by system. Offer the review and let the map make the case.', 'لا تجادل نظاماً بنظام، بل اعرض المراجعة ودع الخريطة تقدّم الحجة.') },
     { id: 'cert', c: 'C', q: L2('“Are you certified by Oracle?”', '«هل أنتم معتمدون من Oracle؟»'),
       a: L2('No, and we don’t claim to be. What we do is confirm which interfaces are supported for your installed version in an integration assessment, and write the scope down before any proposal.', 'لا، ولا ندّعي ذلك. ما نفعله هو تأكيد الواجهات المدعومة لإصداركم المثبّت في تقييم للتكامل، وكتابة النطاق قبل أي عرض.'),
       after: L2('Never imply certification, partnership or endorsement. No third-party logos.', 'لا توحِ بأي اعتماد أو شراكة أو تأييد، ولا تستخدم شعارات الغير.') },
@@ -1083,7 +1126,7 @@ html[lang="ar"] .bubble,html[lang="ar"] .invite{font-size:14px;line-height:1.8}
   const QUALIFY = {
     A: L2(['Account ID and current term', 'Modules included today', 'Any approved credit or proration', 'Who decides: owner, GM or finance'], ['رقم الحساب ومدة الاشتراك الحالية', 'الوحدات المشمولة حالياً', 'أي رصيد أو احتساب نسبي معتمد', 'صاحب القرار: المالك أو المدير العام أو المالية']),
     B: L2(['Property type, rooms or units, city', 'Systems in use today and what is painful', 'Who decides and who influences', 'Timeline and what would make them switch'], ['نوع المنشأة وعدد الغرف أو الوحدات والمدينة', 'الأنظمة المستخدمة اليوم وما يزعجهم فيها', 'صاحب القرار ومن يؤثّر فيه', 'الإطار الزمني وما الذي يدفعهم للتغيير']),
-    C: L2(['Installed PMS product and version', 'Deployment: cloud, on-premise or brand-hosted', 'Interface access, and who grants it', 'Required workflows and service scope', 'Brand or owner approval route', 'IT, finance and the GM or owner in one conversation'], ['منتج PMS المثبّت وإصداره', 'طريقة النشر: سحابي أو محلي أو مستضاف لدى العلامة', 'الوصول إلى الواجهات ومن يمنحه', 'مسارات العمل المطلوبة ونطاق الخدمة', 'مسار اعتماد العلامة أو المالك', 'التقنية والمالية والمدير العام أو المالك في حديث واحد']),
+    C: L2(['Systems in use today for HR, procurement, inventory, finance and reporting', 'Where work is repeated or visibility is missing', 'Installed PMS product and version', 'Deployment: cloud, on-premise or brand-hosted', 'Interface access, and who grants it', 'Required workflows and service scope', 'Brand or owner approval route', 'The GM or owner, IT and finance in one conversation'], ['الأنظمة المستخدمة اليوم للموارد البشرية والمشتريات والمخزون والمالية والتقارير', 'أين يتكرر العمل أو تغيب الرؤية', 'منتج PMS المثبّت وإصداره', 'طريقة النشر: سحابي أو محلي أو مستضاف لدى العلامة', 'الوصول إلى الواجهات ومن يمنحه', 'مسارات العمل المطلوبة ونطاق الخدمة', 'مسار اعتماد العلامة أو المالك', 'المدير العام أو المالك والتقنية والمالية في حديث واحد']),
     D: L2(['Managed, owned or franchised properties', 'Approximate property count', 'Who controls technology purchasing', 'Current systems per property', 'Decision-makers: owner or CEO, COO, IT, finance'], ['المنشآت المُدارة أو المملوكة أو بنظام الامتياز', 'العدد التقريبي للمنشآت', 'من يتحكم في شراء التقنية', 'الأنظمة الحالية في كل منشأة', 'أصحاب القرار: المالك أو الرئيس التنفيذي، ومدير العمليات، والتقنية، والمالية'])
   };
 
@@ -1098,6 +1141,7 @@ html[lang="ar"] .bubble,html[lang="ar"] .invite{font-size:14px;line-height:1.8}
       { tag: 'hold', ...L2('Choose Fandaqah 360 and lock your subscription price for two years.', 'اختر فندقة 360 وثبّت سعر اشتراكك لمدة سنتين.') }],
     C: [{ tag: 'v1', ...L2('Strengthen your Opera PMS with connected hotel operations.', 'عزّز نظام Opera PMS لديك بعمليات فندقية مترابطة.') }, { tag: 'v2', ...L2('See where your hotel can reduce technology costs.', 'اكتشف أين يمكن لفندقك خفض تكاليف التقنية.') },
       { tag: 'opt', ...L2('Enhance the efficiency of your Opera-based hotel operations.', 'ارفع كفاءة عمليات فندقك المبنية على Opera.') }, { tag: 'opt', ...L2('More connected workflows around your Opera PMS.', 'مسارات عمل أكثر ترابطاً حول نظام Opera PMS.') },
+      { tag: 'opt', ...L2('Consolidate your operations without replacing Opera PMS.', 'وحّد عملياتك دون استبدال نظام Opera PMS.') }, { tag: 'opt', ...L2('Fewer systems around Opera. A clearer view of your hotel.', 'أنظمة أقل حول Opera، ورؤية أوضح لفندقك.') },
       { tag: 'off', ...L2('50% lower technology costs', 'تكاليف تقنية أقل بنسبة 50%'), why: L2('Only with a documented, comparable cost case, scope and period (p.11).', 'فقط مع حالة تكلفة موثّقة وقابلة للمقارنة ونطاق ومدة واضحين (ص 11).') }],
     D: [{ tag: 'v1', ...L2('A dedicated hotel technology platform built around your group.', 'منصة تقنية فندقية مخصّصة مبنية حول مجموعتك.') }, { tag: 'v2', ...L2('Your brand. Your policies. Your hotel technology.', 'هويتك. سياساتك. تقنيتك الفندقية.') },
       { tag: 'opt', ...L2('Bring every property under one technology strategy.', 'وحّد كل منشآتك تحت استراتيجية تقنية واحدة.') }, { tag: 'opt', ...L2('Build your hospitality technology partnership with Fandaqah.', 'ابنِ شراكتك التقنية في الضيافة مع فندقة.') },
@@ -1147,7 +1191,7 @@ html[lang="ar"] .bubble,html[lang="ar"] .invite{font-size:14px;line-height:1.8}
     scores: { t: L2('Scorecard for this campaign', 'بطاقة قياس هذه الحملة'), src: L2('p.2 to p.5, p.10', 'ص 2 إلى ص 5، ص 10'),
       A: L2(['Completed upgrade reviews', 'Proposals', 'Paid upgrades', 'Collected cash'], ['مراجعات الترقية المكتملة', 'العروض المقدّمة', 'الترقيات المدفوعة', 'المبالغ المحصّلة']),
       B: L2(['Qualified property enquiries', 'Attended demos', 'Proposals', 'Paid subscriptions', 'Collected cash'], ['استفسارات المنشآت المؤهلة', 'العروض التوضيحية التي حُضرت', 'العروض المقدّمة', 'الاشتراكات المدفوعة', 'المبالغ المحصّلة']),
-      C: L2(['Qualified cost reviews', 'Technical meetings', 'Integration assessments', 'Scoped proposals', 'Signed business'], ['مراجعات التكاليف المؤهلة', 'الاجتماعات التقنية', 'تقييمات التكامل', 'العروض محددة النطاق', 'الأعمال الموقّعة']),
+      C: L2(['Qualified operational and technology reviews', 'Technical meetings', 'Integration assessments', 'Scoped proposals', 'Signed business'], ['المراجعات التشغيلية والتقنية المؤهلة', 'الاجتماعات التقنية', 'تقييمات التكامل', 'العروض محددة النطاق', 'الأعمال الموقّعة']),
       D: L2(['Qualified group meetings', 'Workshops', 'Documented opportunities', 'Pilots', 'Signed group agreements'], ['اجتماعات المجموعات المؤهلة', 'الورش', 'الفرص الموثّقة', 'التجارب', 'اتفاقيات المجموعات الموقّعة']),
       qual: L2('A real Saudi property or group, a relevant business contact, a suitable need and an agreed next step.', 'منشأة أو مجموعة سعودية حقيقية، وجهة اتصال عمل مناسبة، وحاجة ملائمة، وخطوة تالية متفق عليها.'),
       qualX: { A: L2('For A, add the existing account ID.', 'وللحملة A أضف رقم الحساب الحالي.'), B: L2('Report upgrades separately from new customers.', 'افصل الترقيات عن العملاء الجدد في التقارير.'), C: L2('For C, add the confirmed mandated PMS.', 'وللحملة C أضف النظام المفروض المؤكَّد.'), D: L2('For D, add the group scope.', 'وللحملة D أضف نطاق المجموعة.') },
@@ -1161,6 +1205,9 @@ html[lang="ar"] .bubble,html[lang="ar"] .invite{font-size:14px;line-height:1.8}
       [L2('Follow-ups on working days 3, 6 and 10', 'متابعات في أيام العمل 3 و6 و10'), L2('Working days 3, 5 and 7', 'أيام العمل 3 و5 و7'), L2('At most three follow-ups across seven business days (p.8).', 'ثلاث متابعات كحد أقصى خلال سبعة أيام عمل (ص 8).')],
       [L2('Messages written freely', 'رسائل مكتوبة بحرية'), L2('Each touch tells one beat of the campaign storyboard', 'كل رسالة تروي مشهداً من القصة المصوّرة للحملة'), L2('One story across reel, ads and messages (p.2 to p.5).', 'قصة واحدة عبر المقطع والإعلانات والرسائل (ص 2 إلى ص 5).')],
       [L2('“More than 800 properties”', '«أكثر من 800 منشأة»'), L2('Removed', 'حُذف'), L2('Not among the playbook’s approved claims; measured results need permission and evidence (p.7).', 'ليس ضمن الادعاءات المعتمدة في الدليل، والنتائج المقيسة تحتاج إذناً ودليلاً (ص 7).')],
+      [L2('C led with method: technical review, integration assessment, scope', 'الحملة C تبدأ بالمنهج: مراجعة تقنية، وتقييم تكامل، ونطاق'), L2('C leads with the outcome: fewer systems, clearer visibility, Opera kept; the method follows', 'الحملة C تبدأ بالنتيجة: أنظمة أقل، ورؤية أوضح، ويبقى Opera؛ ثم يأتي المنهج'), L2('Reviewer feedback: prospects understood that Fandaqah works with Opera, not why it matters to them.', 'ملاحظات المراجعة: فهم العملاء أن فندقة تعمل مع Opera، لا لماذا يهمهم ذلك.')],
+      [L2('Two C roles: IT and finance', 'دوران في الحملة C: التقنية والمالية'), L2('Three: GM or owner first, then IT and finance', 'ثلاثة أدوار: المدير العام أو المالك أولاً، ثم التقنية والمالية'), L2('Operational outcomes are what GMs and owners approve; the playbook already counts them in the C buying group.', 'النتائج التشغيلية هي ما يعتمده المدير العام والمالك، والدليل يعدّهما ضمن مجموعة الشراء في الحملة C.')],
+      [L2('CTA “Request a technology cost review”', 'الإجراء «اطلب مراجعة تكاليف التقنية»'), L2('“Request an operational and technology review”', '«اطلب مراجعة تشغيلية وتقنية»'), L2('A cost-only CTA speaks to finance; operations and technology bring in the GM, the owner and IT.', 'الإجراء المقتصر على التكلفة يخاطب المالية فقط، والتشغيل والتقنية يضيفان المدير العام والمالك والتقنية.')],
       [L2('Draft: invented 40% saving and testimonial; “فندق 360”', 'المسودة: توفير 40% وشهادة مختلقان، و«فندق 360»'), L2('Removed; فندقة 360 throughout', 'حُذفت، و«فندقة 360» في كل المواضع'), L2('No invented reviews or savings (p.7); the brand is فندقة.', 'لا آراء أو توفير مختلق (ص 7)، والعلامة هي فندقة.')]] }
   };
 
@@ -1194,7 +1241,7 @@ html[lang="ar"] .bubble,html[lang="ar"] .invite{font-size:14px;line-height:1.8}
       crm: { head: 'Fandaqah 360 · LinkedIn record', camp: 'Primary campaign', account: 'Account ID', company: 'Property or group', contact: 'Contact', ver: 'Verification', perm: 'Permission', permY: 'recorded, LinkedIn permitted', permN: 'not recorded', owner: 'Sales owner', next: 'Next action', subject: 'Subject (InMail)', today: 'Recorded' },
       tag: { v1: 'Test v1 · control', v2: 'Test v2', opt: 'Playbook option', hold: 'Hold: needs release', off: 'Do not use' },
       ad: { creative: 'Creative', intro: 'Intro text', headline: 'Headline', button: 'Button', dest: 'Destination link', download: 'Download creative', promoted: 'Promoted', seeMore: '…see more', card: 'Card {n}', post: 'Post {n}', copyPost: 'Copy post', file: 'File' },
-      qualify: 'Qualify before you book', scoreQ: 'Qualified enquiry', persona: { IT: 'IT', FIN: 'Finance' }
+      qualify: 'Qualify before you book', scoreQ: 'Qualified enquiry', persona: { GM: 'GM / Owner', IT: 'IT', FIN: 'Finance' }
     },
     ar: {
       ready: 'جاهزة', missing: 'ناقص {n}', tooLong: 'أطول من الحد', chars: 'الأحرف: {n} / {max}', words: 'الكلمات: {n}', soft: 'أطول من المُوصى به {n}',
@@ -1216,14 +1263,14 @@ html[lang="ar"] .bubble,html[lang="ar"] .invite{font-size:14px;line-height:1.8}
       crm: { head: 'فندقة 360 · سجل لينكدإن', camp: 'الحملة الرئيسية', account: 'رقم الحساب', company: 'المنشأة أو المجموعة', contact: 'جهة الاتصال', ver: 'التحقق', perm: 'الإذن', permY: 'مسجَّل ولينكدإن مسموح', permN: 'غير مسجَّل', owner: 'مسؤول المبيعات', next: 'الإجراء التالي', subject: 'العنوان (InMail)', today: 'تاريخ التسجيل' },
       tag: { v1: 'اختبار v1 · أساسي', v2: 'اختبار v2', opt: 'خيار في الدليل', hold: 'معلّق: يحتاج اعتماداً', off: 'لا تستخدم' },
       ad: { creative: 'التصميم', intro: 'النص التمهيدي', headline: 'العنوان', button: 'الزر', dest: 'رابط الوجهة', download: 'تنزيل التصميم', promoted: 'مُروَّج', seeMore: '…عرض المزيد', card: 'البطاقة {n}', post: 'المنشور {n}', copyPost: 'نسخ المنشور', file: 'الملف' },
-      qualify: 'أسئلة التأهيل قبل الحجز', scoreQ: 'الاستفسار المؤهل', persona: { IT: 'التقنية', FIN: 'المالية' }
+      qualify: 'أسئلة التأهيل قبل الحجز', scoreQ: 'الاستفسار المؤهل', persona: { GM: 'المدير العام / المالك', IT: 'التقنية', FIN: 'المالية' }
     }
   };
   const VER = { verified: L2('Verified identity and business route', 'هوية موثَّقة ومسار عمل مؤكَّد'), shared: L2('Shared hotel route only', 'رقم الفندق العام فقط'), unverified: L2('Unverified', 'غير موثَّق'), invalid: L2('Invalid', 'غير صالح') };
 
   /* ---------- state ---------- */
   const blankF = () => ({ first: '', company: '', city: '', rep: '', note: '', date: '', account: '', plan: '', renewal: '', modules: [], pms: '', count: '' });
-  const S = { track: 'C', lang: 'en', persona: 'IT', f: blankF(), r: { existing: 'no', props: '1', pms: 'unknown' }, g: { ver: 'unverified', perm: false, clean: false, extra: false },
+  const S = { track: 'C', lang: 'en', persona: 'GM', f: blankF(), r: { existing: 'no', props: '1', pms: 'unknown' }, g: { ver: 'unverified', perm: false, clean: false, extra: false },
     rel: { on: false, annual: '3,349', total: '6,698', vat: 'plus' }, edits: {}, editing: null, passed: new Set(['note']), demo: false, adv: { sc: 'v1', sd: 'v1' } };
   const t = (k, vars = {}) => String(T[S.lang][k]).replace(/\{(\w+)\}/g, (m, v) => (v in vars ? vars[v] : m));
   const steps = () => STEPS[S.track];
@@ -1336,8 +1383,8 @@ html[lang="ar"] .bubble,html[lang="ar"] .invite{font-size:14px;line-height:1.8}
     });
     return f;
   }
-  const pick = obj => (obj && (obj.IT || obj.FIN) ? obj[S.persona] : obj);
-  const stepBlocks = st => (st.IT ? st[S.persona] : st)[S.lang];
+  const pick = obj => (obj && (obj.GM || obj.IT || obj.FIN) ? obj[S.persona] : obj);
+  const stepBlocks = st => (st.GM || st.IT ? st[S.persona] : st)[S.lang];
   const stepSubject = st => { if (!st.subject) return ''; const s = S.rel.on && st.subjectRel ? st.subjectRel : pick(st.subject); return s[S.lang]; };
 
   function model(st) {
@@ -1840,7 +1887,7 @@ html[lang="ar"] .bubble,html[lang="ar"] .invite{font-size:14px;line-height:1.8}
   try { saved = JSON.parse(localStorage.getItem(STORE) || 'null'); } catch (e) {}
   const qs = new URLSearchParams(location.search);
   if (saved && saved.f) {
-    S.track = /^[ABCD]$/.test(saved.track) ? saved.track : 'C'; S.lang = saved.lang === 'ar' ? 'ar' : 'en'; S.persona = saved.persona === 'FIN' ? 'FIN' : 'IT';
+    S.track = /^[ABCD]$/.test(saved.track) ? saved.track : 'C'; S.lang = saved.lang === 'ar' ? 'ar' : 'en'; S.persona = ['GM', 'IT', 'FIN'].includes(saved.persona) ? saved.persona : 'GM';
     S.f = Object.assign(blankF(), saved.f); if (!Array.isArray(S.f.modules)) S.f.modules = [];
     Object.assign(S.r, saved.r || {}); Object.assign(S.g, saved.g || {}); Object.assign(S.rel, saved.rel || {}); Object.assign(S.adv, saved.adv || {}); S.demo = !!saved.demo;
   }

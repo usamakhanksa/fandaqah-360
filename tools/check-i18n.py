@@ -9,7 +9,7 @@ import re, sys, pathlib
 sys.stdout.reconfigure(encoding='utf-8')
 SKIP = {'campaigns', 'archive', 'tools', 'banners', '_internal', '_site', '.git', '.github', 'node_modules'}  # never deployed
 site = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else '.')
-KEY = re.compile(r"'([\w.]+)'\s*:")
+KEY = re.compile(r"""['"]([\w.]+)['"]\s*:""")  # dictionary keys in single or double quotes
 
 js = (site / 'assets/js/site.js').read_text(encoding='utf-8')
 shared = set(KEY.findall(js[js.index('const SHARED_AR'):js.index('const JS_TXT')]))
@@ -24,7 +24,7 @@ for page in sorted(p for p in site.rglob('*.html') if not SKIP & set(p.relative_
     if standalone:  # self-contained page (the v2 landing) carries its whole dictionary inline
         own, base = set(KEY.findall(standalone.group(1))), set()
     else:
-        m = re.search(r'ar:\s*\{(.*?)\n  \}', html, re.S)
+        m = re.search(r'ar:\s*\{(.*?)\n\s*\}', html, re.S)  # the dictionary closes on a line of its own, at any indent
         own, base = (set(KEY.findall(m.group(1))) if m else set()), shared
     missing = sorted(used - base - own)
     missing_total += len(missing)

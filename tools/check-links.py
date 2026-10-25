@@ -15,8 +15,8 @@ problems = []
 for page in sorted(p for p in site.rglob('*.html') if not SKIP & set(p.relative_to(site).parts)):
     html = page.read_text(encoding='utf-8')
     for attr, url in re.findall(r'\b(href|src)="([^"]+)"', html):
-        if url.startswith(('http:', 'https:', 'mailto:', 'tel:', 'data:', '#', 'javascript:')):
-            continue
+        if url.startswith(('http:', 'https:', 'mailto:', 'tel:', 'data:', '#', 'javascript:')) or '${' in url:
+            continue  # external, or a template literal filled in by the page's own script
         parts = urlsplit(url)
         target = (page.parent / unquote(parts.path)).resolve()
         if parts.path.endswith('/') or target.is_dir():

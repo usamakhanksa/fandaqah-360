@@ -30,7 +30,8 @@ html[lang="ar"] .v2-eyebrow { font-size: 13.5px; }
 .v2-link:hover { text-decoration-color: var(--coral-btn); }
 .btn--pill { border-radius: 999px; }
 .lang--pill { padding: 1px 6px; border: 1.5px solid var(--line-2); border-radius: 999px; }
-.v2 .nav a[aria-current] { color: var(--coral-btn); }
+/* the darker coral keeps the active link above 4.5:1 on the cream header */
+.v2 .nav a[aria-current] { color: var(--coral-btn-h); }
 .v2 .nav a[aria-current]::after { transform: scaleX(1); }
 .v2-formcard { background: #FBF8F4; border: 1px solid var(--line); border-radius: 16px; padding: clamp(22px, 2.6vw, 34px); box-shadow: var(--e3); }
 .v2-formcard-h { margin-bottom: 20px; font: 600 clamp(22px, 2vw, 27px)/1.2 var(--f-serif); color: var(--ink); }
@@ -504,6 +505,10 @@ html[lang="ar"] .pa-price-per { order: 3; }
   .pa-price { width: auto; }
 }
 
+/* thumb-sized targets for the inline links on touch screens */
+@media (max-width: 860px) {
+  .pa-hero .hero-cta .v2-link, .pa-reach a, .v2 .foot-links a { display: inline-flex; align-items: center; min-height: 44px; }
+}
 /* ---------- request: the review desk ---------- */
 .pa-contact { padding-top: 0; }
 .pa-desk { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); overflow: hidden; border-radius: 24px; background: #FBF8F4; box-shadow: var(--e3); }
