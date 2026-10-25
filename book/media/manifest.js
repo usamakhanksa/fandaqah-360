@@ -287,12 +287,12 @@ window.BOOK_MEDIA = {
    "ar": {
     "mp4": "media/B-new-hotels/reels/B-reel-ar.mp4",
     "poster": "media/B-new-hotels/reels/B-reel-ar.jpg",
-    "mb": 2.0
+    "mb": 2.1
    },
    "en": {
     "mp4": "media/B-new-hotels/reels/B-reel-en.mp4",
     "poster": "media/B-new-hotels/reels/B-reel-en.jpg",
-    "mb": 2.2
+    "mb": 2.3
    }
   }
  },

@@ -1,24 +1,25 @@
 ﻿language,asset,text,characters,limit,ok
+en,headline,Easier Way to Run Your Hotel,28,30,yes
 en,headline,Hotel PMS for Saudi Arabia,26,30,yes
-en,headline,One Connected Hotel Platform,28,30,yes
-en,headline,Book Your Fandaqah 360 Demo,27,30,yes
+en,headline,"One Platform, Fewer Vendors",27,30,yes
+en,headline,Less Manual Work Every Day,26,30,yes
 en,headline,Built for Saudi Hospitality,27,30,yes
 en,headline,Reservations to Accounting,26,30,yes
-en,headline,"Housekeeping, POS and More",26,30,yes
 en,headline,Shomoos and ZATCA Workflows,27,30,yes
-en,headline,Ask About Our 2-Year Offer,26,30,yes
-en,description,"Bring reservations, accounting, POS, inventory, HR and housekeeping into one platform.",86,90,yes
-en,description,"Book a demo tailored to your property. Migration, training and support scoped upfront.",86,90,yes
+en,headline,Ask About Launch Pricing,24,30,yes
+en,description,"Manage more of your hotel from one platform, with less manual work and fewer vendors.",85,90,yes
+en,description,Enter a booking once and it reaches housekeeping and accounting. No re-typing.,78,90,yes
 en,description,Built for Saudi hospitality and supported regulatory workflows.,63,90,yes
-en,description,Ask about our two-year prepaid offer. Package terms confirmed before you sign.,78,90,yes
+en,description,"Ask about launch pricing. Migration, training and support scoped upfront.",73,90,yes
+ar,headline,طريقة أسهل لإدارة فندقك,23,30,yes
 ar,headline,نظام إدارة فنادق في السعودية,28,30,yes
-ar,headline,منصة فندقية واحدة مترابطة,25,30,yes
-ar,headline,احجز عرضاً توضيحياً لفندقك,26,30,yes
+ar,headline,منصة واحدة وموردون أقل,22,30,yes
+ar,headline,عمل يدوي أقل كل يوم,19,30,yes
 ar,headline,مصمَّمة لقطاع الضيافة السعودي,29,30,yes
 ar,headline,من الحجز حتى المحاسبة,21,30,yes
 ar,headline,تكامل شموس وهيئة الزكاة,23,30,yes
-ar,headline,اسأل عن عرض السنتين,19,30,yes
-ar,description,اجمع الحجوزات والمحاسبة ونقاط البيع والمخزون والتدبير الفندقي في منصة واحدة.,76,90,yes
-ar,description,احجز عرضاً توضيحياً مصمَّماً لمنشأتك، مع تقييم لنقل البيانات والتدريب والدعم.,77,90,yes
+ar,headline,اسأل عن سعر الإطلاق,19,30,yes
+ar,description,أدِر جزءاً أكبر من فندقك من منصة واحدة، بعمل يدوي أقل وموردين أقل.,66,90,yes
+ar,description,أدخل الحجز مرة واحدة ليصل إلى التدبير الفندقي والمحاسبة دون إعادة إدخال.,72,90,yes
 ar,description,مصمَّمة لقطاع الضيافة السعودي ومسارات العمل التنظيمية المدعومة.,63,90,yes
-ar,description,اسأل عن عرضنا المدفوع مسبقاً لمدة سنتين. نؤكّد الشروط قبل التوقيع.,66,90,yes
+ar,description,اسأل عن سعر الإطلاق. نحدّد نقل البيانات والتدريب والدعم قبل أي التزام.,70,90,yes

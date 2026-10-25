@@ -226,3 +226,35 @@ and the C campaign docs. The four designed banners still carry the earlier headl
 **Verified:** all three roles in both languages have every step Ready, within LinkedIn limits, with no unmerged tokens or
 errors. The landing page has no overflow at 1440 and 390 in either language. Reels and creatives were checked frame by
 frame, and the reel MP4s are 25 s. `check-i18n` and `check-links` pass.
+
+## Revision 4 · Campaigns B and D outcome-first, and the corrected A/B offer (25 Oct 2026)
+
+**Reviewer direction, B (verbatim):** "Make the sequence answer one question consistently: 'Why should I change from my
+current setup?'" and leave the impression "This is an easier way to run my property", not "This software has many modules."
+**Reviewer direction, D (verbatim):** "This is a platform that helps me manage multiple properties more effectively", not
+"This is hotel software."
+
+**B:** every message opens on the owner's day, not the product. Separate systems, data typed twice and several vendors lead
+to less manual work, a clearer view and fewer vendors, with Fandaqah 360 named only as the way there. msg3 answers "why
+change?" with the hidden cost of the current setup, then the three switching worries. New CTA: "Explore a simpler way to
+run my hotel" / «اكتشف طريقة أبسط لإدارة فندقي». The session is now a walkthrough. New replies: "why would we change?"
+and a reworked "we already have a system".
+
+**D:** portfolio and executive language only: centralised visibility, standardised operations, governance (permissions and
+approvals), executive reporting from one set of figures, and growth without new systems. The workshop is framed as a working
+session on the operating model, not a demo. New CTA: "Explore centralised management for my group" /
+«استكشف الإدارة المركزية لمجموعتي». New reply: "we already get reports from each property". The posts and carousel follow
+suit.
+
+**Offer correction (from the user, relayed by the A session):** there is no two-year subscription or commitment. The launch
+price is SAR 3,495 a year excl. VAT on a one-year subscription. A can secure one additional year at the same rate during the
+promotion; for B that option is not confirmed, so B never mentions it. The release record's 24-month field is gone, and every
+"two-year prepaid offer", "lock your price for two years" and "fixed for two years" line in the A and B tracks is replaced.
+
+**Carried through:** `/new-hotels/` and `/hotel-groups/` copy (H1s match ad v1; keys, classes, ids and form fields
+unchanged), studio creatives and link previews, both B and D reels, the book's chapters, B search ads and the B/D docs.
+
+**Verified:** in the kit, A to D in both languages (A and B with the release switch off and on), with every step Ready,
+within limits, with no unmerged tokens or errors. Both pages have no overflow and no untranslated text at 1440 and 390 in either
+language. Creatives and reels were checked frame by frame, and the four MP4s are 25 s. `check-i18n` and `check-links` pass.
+Not verified: a real phone, and paste behaviour inside LinkedIn.

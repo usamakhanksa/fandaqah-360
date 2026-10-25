@@ -35,18 +35,19 @@ CHANNELS = {
 # Responsive search ads: Google limits headlines to 30 and descriptions to 90 characters
 SEARCH = {
     'B': {
-        'en': {'headline': ['Hotel PMS for Saudi Arabia', 'One Connected Hotel Platform', 'Book Your Fandaqah 360 Demo', 'Built for Saudi Hospitality',
-                            'Reservations to Accounting', 'Housekeeping, POS and More', 'Shomoos and ZATCA Workflows', 'Ask About Our 2-Year Offer'],
-               'description': ['Bring reservations, accounting, POS, inventory, HR and housekeeping into one platform.',
-                               'Book a demo tailored to your property. Migration, training and support scoped upfront.',
+        # benefit first (an easier way to run the hotel), with the PMS keywords searchers type kept in rotation
+        'en': {'headline': ['Easier Way to Run Your Hotel', 'Hotel PMS for Saudi Arabia', 'One Platform, Fewer Vendors', 'Less Manual Work Every Day',
+                            'Built for Saudi Hospitality', 'Reservations to Accounting', 'Shomoos and ZATCA Workflows', 'Ask About Launch Pricing'],
+               'description': ['Manage more of your hotel from one platform, with less manual work and fewer vendors.',
+                               'Enter a booking once and it reaches housekeeping and accounting. No re-typing.',
                                'Built for Saudi hospitality and supported regulatory workflows.',
-                               'Ask about our two-year prepaid offer. Package terms confirmed before you sign.']},
-        'ar': {'headline': ['نظام إدارة فنادق في السعودية', 'منصة فندقية واحدة مترابطة', 'احجز عرضاً توضيحياً لفندقك', 'مصمَّمة لقطاع الضيافة السعودي',
-                            'من الحجز حتى المحاسبة', 'تكامل شموس وهيئة الزكاة', 'اسأل عن عرض السنتين'],
-               'description': ['اجمع الحجوزات والمحاسبة ونقاط البيع والمخزون والتدبير الفندقي في منصة واحدة.',
-                               'احجز عرضاً توضيحياً مصمَّماً لمنشأتك، مع تقييم لنقل البيانات والتدريب والدعم.',
+                               'Ask about launch pricing. Migration, training and support scoped upfront.']},
+        'ar': {'headline': ['طريقة أسهل لإدارة فندقك', 'نظام إدارة فنادق في السعودية', 'منصة واحدة وموردون أقل', 'عمل يدوي أقل كل يوم',
+                            'مصمَّمة لقطاع الضيافة السعودي', 'من الحجز حتى المحاسبة', 'تكامل شموس وهيئة الزكاة', 'اسأل عن سعر الإطلاق'],
+               'description': ['أدِر جزءاً أكبر من فندقك من منصة واحدة، بعمل يدوي أقل وموردين أقل.',
+                               'أدخل الحجز مرة واحدة ليصل إلى التدبير الفندقي والمحاسبة دون إعادة إدخال.',
                                'مصمَّمة لقطاع الضيافة السعودي ومسارات العمل التنظيمية المدعومة.',
-                               'اسأل عن عرضنا المدفوع مسبقاً لمدة سنتين. نؤكّد الشروط قبل التوقيع.']},
+                               'اسأل عن سعر الإطلاق. نحدّد نقل البيانات والتدريب والدعم قبل أي التزام.']},
     },
     'C': {
         # outcome first (fewer systems, one platform, Opera kept), with the integration and cost keywords searchers type kept in rotation

@@ -13,23 +13,25 @@ One account owner per group. Every contact, property and conversation sits under
 | Decision-makers | owner/CEO, COO, IT director, finance |
 
 ## 2. Personalised outreach (account owner)
+Speak to the portfolio, never to one property: centralised visibility, standard operations, governance, executive reporting, growth.
 > مرحباً {{الاسم}}،
-> تدير {{اسم المجموعة}} عدداً من المنشآت، ولكل منها غالباً أنظمتها وتقاريرها. نعمل مع المجموعات على بيئة فندقة مخصّصة بهوية ومسارات عمل وتقارير للمجموعة وفق نطاق متفق عليه.
-> هل يناسبكم اجتماع استكشافي قصير لنفهم هيكل منشآتكم وما تحتاجونه من التقارير والصلاحيات والتكاملات؟ [احجز اجتماعاً استكشافياً]({{account_letter link}})
+> تدير {{اسم المجموعة}} عدداً من المنشآت، وفي كثير من المجموعات طوّرت كل منشأة أنظمتها وتقاريرها الخاصة، فتصل صورة المجموعة متأخرة في جدول بيانات. نساعد المجموعات على بيئة إدارة واحدة للمحفظة كاملة: رؤية مركزية لكل منشأة، وإجراءات موحّدة، وتقارير للإدارة العليا من أرقام واحدة.
+> هل يناسبكم لقاء استكشافي لنفهم هيكل منشآتكم وما تحتاج القيادة إلى رؤيته؟ [استكشف الإدارة المركزية لمجموعتك]({{account_letter link}})
 
-*English:* {{Group}} runs several properties, often with different systems and reports. We help groups set up a dedicated
-Fandaqah environment with agreed branding, workflows and group reporting. Could we hold a short discovery meeting to understand
-your property structure and what you need from reports, permissions and integrations?
+*English:* {{Group}} runs several properties, and in many groups each one has grown its own systems and reports, so the group
+view arrives late, in a spreadsheet. We help groups build one management environment for the whole portfolio: centralised
+visibility across every property, standard processes and executive reporting from one set of figures. Could we hold a
+discovery session to understand your property structure and what leadership needs to see?
 
 ## 3. Discovery workshop (90 minutes)
 | Topic | Output |
 |---|---|
 | Property structure | managed / owned / franchised map, rollout order |
-| Reports | group and property views required |
-| Permissions | who sees and approves what, by property |
+| Reports | what leadership needs to see, and how often; group and property views |
+| Governance | who sees and approves what, at group and property level; which standards are set centrally |
 | Integrations | systems each property relies on |
 | Hosting | deployment and data requirements |
-| Support and implementation | rollout plan, training, service model |
+| Growth and implementation | how new properties join, rollout plan, training, service model |
 
 Attendees: owner or CEO/COO, operations, IT, finance. Send the agenda with the invitation (`workshop_invite` link).
 

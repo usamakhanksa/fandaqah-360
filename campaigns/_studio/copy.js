@@ -1,7 +1,7 @@
 /* Creative copy for the four Fandaqah 360 campaigns (playbook, 20 Oct 2026).
    Edit text here, then re-render: see campaigns/_studio/README.md.
    Rules baked in (playbook p.7 and p.11): one promise and one CTA per creative, no public price (A shows its approved
-   launch price, SAR 3,495 a year excl. VAT, locked for two years with the 30-day Golden Guarantee; B "Lock in the launch price", a 2-year subscription at a fixed price), no savings figures, countdowns, reviews or limited availability. */
+   launch price, SAR 3,495 a year excl. VAT, locked for two years with the 30-day Golden Guarantee; B names its launch price without the figure: a 1-year subscription with a 30-day money-back guarantee), no savings figures, countdowns, reviews or limited availability. */
 window.STUDIO = {
   base: '/assets/',
   campaigns: {
@@ -37,29 +37,30 @@ window.STUDIO = {
     B: {
       folder: 'B-new-hotels', theme: 'light', photo: 'img/hero-new.webp', photoPos: '50% 50%', device: 'laptopB',
       en: {
-        chip: 'For new independent hotels', cta: 'Book my hotel demo', url: 'fandaqah.com',
+        chip: 'For new independent hotels', cta: 'Explore a simpler way to run my hotel', url: 'fandaqah.com',
+        // benefit first: the owner's day gets easier; the product is how, not what
         ads: [
-          { h: 'Your hotel operations. <em>One connected platform.</em>', s: 'Spend less time managing disconnected hotel systems.' },
-          { h: 'Too many hotel systems? <em>Bring your operations together.</em>', s: 'Reservations, accounting, POS, housekeeping and more, connected in Fandaqah 360.' }
+          { h: 'An easier way <em>to run your hotel.</em>', s: 'Manage more of your hotel from one platform, with less manual work and fewer vendors.' },
+          { h: 'Too many systems for one hotel? <em>Bring them into one place.</em>', s: 'Less re-typing, clearer reports and one team to call for support.' }
         ],
         slides: [
-          { h: 'Still managing your hotel in <em>separate systems?</em>' },
-          { h: 'Bring your operations <em>together.</em>', s: 'One connected platform, built for Saudi hospitality.' },
-          { h: 'See the workflow in <em>Fandaqah 360.</em>', flow: ['Reservation', 'Room readiness', 'Guest service', 'Accounting'] },
-          { h: 'Demo first. <em>Then lock in your price.</em>', s: 'Subscribe for 2 years at the launch price. Standard pricing applies after the launch.' }
+          { h: 'Still running your hotel on <em>separate systems?</em>' },
+          { h: 'Run more of your hotel <em>from one platform.</em>', s: 'Fewer systems and vendors to manage.' },
+          { h: 'Enter it once. <em>See it everywhere.</em>', flow: ['Reservation', 'Room readiness', 'Guest service', 'Accounting'] },
+          { h: 'An easier way <em>to run your hotel.</em>', s: 'Start at the launch price, with a 30-day money-back guarantee. Standard pricing applies after the launch.' }
         ]
       },
       ar: {
-        chip: 'للفنادق المستقلة الجديدة', cta: 'احجز عرضاً توضيحياً لفندقي', url: 'fandaqah.com',
+        chip: 'للفنادق المستقلة الجديدة', cta: 'اكتشف طريقة أبسط لإدارة فندقي', url: 'fandaqah.com',
         ads: [
-          { h: 'عمليات فندقك. <em>منصة واحدة مترابطة.</em>', s: 'وفّر الوقت الذي تقضيه في إدارة أنظمة فندقية متفرقة.' },
-          { h: 'أنظمة فندقية كثيرة؟ <em>اجمع عملياتك في منصة واحدة.</em>', s: 'الحجوزات والمحاسبة ونقاط البيع والتدبير الفندقي وغيرها، مترابطة في فندقة 360.' }
+          { h: 'طريقة أسهل <em>لإدارة فندقك.</em>', s: 'أدِر جزءاً أكبر من فندقك من منصة واحدة، بعمل يدوي وموردين أقل.' },
+          { h: 'أنظمة كثيرة لفندق واحد؟ <em>اجمعها في مكان واحد.</em>', s: 'إدخال متكرر أقل، وتقارير أوضح، وفريق واحد للدعم.' }
         ],
         slides: [
           { h: 'ما زلت تدير فندقك <em>بأنظمة متفرقة؟</em>' },
-          { h: 'اجمع عملياتك <em>في منصة واحدة.</em>', s: 'منصة مترابطة مصمَّمة لقطاع الضيافة السعودي.' },
-          { h: 'شاهد سير العمل في <em>فندقة 360.</em>', flow: ['الحجز', 'جاهزية الغرف', 'خدمة الضيوف', 'المحاسبة'] },
-          { h: 'احجز عرضاً توضيحياً. <em>وثبّت سعر الإطلاق.</em>', s: 'اشترك لمدة سنتين بسعر الإطلاق، وبعد انتهاء فترة الإطلاق ستُطبَّق الأسعار الاعتيادية.' }
+          { h: 'أدِر جزءاً أكبر من فندقك <em>من منصة واحدة.</em>', s: 'أنظمة وموردون أقل تديرهم.' },
+          { h: 'أدخِل البيانات مرة واحدة. <em>وشاهدها في كل مكان.</em>', flow: ['الحجز', 'جاهزية الغرف', 'خدمة الضيوف', 'المحاسبة'] },
+          { h: 'طريقة أسهل <em>لإدارة فندقك.</em>', s: 'ابدأ بسعر الإطلاق مع ضمان استرداد المال خلال 30 يوماً، وتُطبَّق الأسعار الاعتيادية بعد انتهاء الإطلاق.' }
         ]
       }
     },
@@ -98,29 +99,30 @@ window.STUDIO = {
     D: {
       folder: 'D-hotel-groups', theme: 'light', photo: 'img/hero-groups.webp', photoPos: '62% 50%', device: 'laptopD',
       en: {
-        chip: 'For hotel groups & operators', cta: 'Book a group discovery meeting', url: 'fandaqah.com',
+        chip: 'For hotel groups & operators', cta: 'Explore centralised management for my group', url: 'fandaqah.com',
+        // portfolio and executive outcomes: visibility, standards, governance, growth; never single-property features
         ads: [
-          { h: 'A dedicated hotel technology platform <em>built around your group.</em>', s: 'Agreed branding, workflows, integrations and group reporting, with one accountable partner.' },
-          { h: 'Your brand. Your policies. <em>Your hotel technology.</em>', s: 'Dedicated deployment and branding to an agreed scope.' }
+          { h: 'Centralised visibility <em>across every property.</em>', s: 'One management environment for the whole portfolio, with group reporting and standard processes.' },
+          { h: 'Grow your portfolio. <em>Keep control.</em>', s: 'Standardise operations and governance across every property, scoped to your group.' }
         ],
         slides: [
-          { h: 'Managing a hotel group through <em>disconnected systems?</em>' },
-          { h: 'See your group and <em>each property clearly.</em>', s: 'Group reporting with property-level detail.' },
-          { h: 'Align supported workflows <em>with your brand.</em>', group: true },
-          { h: 'Discuss a <em>dedicated technology platform.</em>', s: 'Customised to an agreed scope, defined in your proposal.' }
+          { h: 'Many properties. Many systems. <em>No single view.</em>' },
+          { h: 'Centralised visibility <em>across every property.</em>', s: 'One management environment for the whole portfolio.' },
+          { h: 'Standardise operations <em>across your portfolio.</em>', group: true },
+          { h: 'Grow the portfolio. <em>Keep control.</em>', s: 'One operating environment for every property, scoped to your group.' }
         ]
       },
       ar: {
-        chip: 'لمجموعات الفنادق والمشغّلين', cta: 'احجز اجتماعاً استكشافياً للمجموعة', url: 'fandaqah.com',
+        chip: 'لمجموعات الفنادق والمشغّلين', cta: 'استكشف الإدارة المركزية لمجموعتي', url: 'fandaqah.com',
         ads: [
-          { h: 'منصة تقنية فندقية مخصّصة <em>مبنية حول مجموعتك.</em>', s: 'هوية ومسارات عمل وتكاملات وتقارير للمجموعة، مع شريك تقني واحد مسؤول.' },
-          { h: 'هويتك. سياساتك. <em>تقنيتك الفندقية.</em>', s: 'نشر مخصّص وهوية خاصة وفق نطاق متفق عليه.' }
+          { h: 'رؤية مركزية <em>لكل منشآتك.</em>', s: 'بيئة إدارة واحدة للمحفظة كاملة، بتقارير للمجموعة وإجراءات موحّدة.' },
+          { h: 'توسّع في محفظتك. <em>وحافظ على السيطرة.</em>', s: 'وحّد العمليات والحوكمة عبر كل منشأة، وفق نطاق يناسب مجموعتك.' }
         ],
         slides: [
-          { h: 'تدير مجموعة فندقية <em>بأنظمة غير مترابطة؟</em>' },
-          { h: 'رؤية واضحة لمجموعتك <em>ولكل منشأة.</em>', s: 'تقارير للمجموعة مع تفاصيل كل منشأة.' },
-          { h: 'وائم مسارات العمل المدعومة <em>مع هويتك.</em>', group: true },
-          { h: 'ناقش منصة تقنية <em>مخصّصة لمجموعتك.</em>', s: 'يتم التخصيص وفق نطاق متفق عليه يحدّده عرض السعر.' }
+          { h: 'منشآت كثيرة، وأنظمة كثيرة، <em>ولا رؤية واحدة.</em>' },
+          { h: 'رؤية مركزية <em>لكل منشآتك.</em>', s: 'بيئة إدارة واحدة للمحفظة كاملة.' },
+          { h: 'وحّد العمليات <em>عبر محفظتك كاملة.</em>', group: true },
+          { h: 'توسّع في محفظتك. <em>وحافظ على السيطرة.</em>', s: 'بيئة تشغيل واحدة لكل منشأة، وفق نطاق يناسب مجموعتك.' }
         ]
       }
     }
@@ -129,9 +131,9 @@ window.STUDIO = {
   og: {
     home: { c: 'A', h: 'Built for Saudi hospitality. <em>Choose your route.</em>', chip: 'Fandaqah 360' },
     'existing-customers': { c: 'A', h: '<em>More value</em> from the Fandaqah you already use.', chip: 'For existing Fandaqah customers' },
-    'new-hotels': { c: 'B', h: 'Your hotel operations. <em>One connected platform.</em>', chip: 'For new independent hotels' },
+    'new-hotels': { c: 'B', h: 'An easier way <em>to run your hotel.</em>', chip: 'For new independent hotels' },
     'opera-pms': { c: 'C', h: 'Fewer systems around Opera. <em>A clearer view of your hotel.</em>', chip: 'For Opera & mandated-PMS properties' },
-    'hotel-groups': { c: 'D', h: 'A dedicated platform <em>built around your group.</em>', chip: 'For hotel groups & operators' },
+    'hotel-groups': { c: 'D', h: 'Centralised visibility <em>across every property.</em>', chip: 'For hotel groups & operators' },
     book: { c: 'B', h: 'Campaign Book. <em>Every reel and banner in one link.</em>', chip: 'Fandaqah 360 · Campaign Book' }
   },
   tags: { en: { ui: 'Illustrative interface', brand: 'Illustrative branding' }, ar: { ui: 'واجهة توضيحية', brand: 'هوية توضيحية' } }

@@ -32,25 +32,26 @@ window.BOOK_DATA = {
     B: {
       folder: 'B-new-hotels', route: 'new-hotels/', theme: 'light', photo: 'hero-new.webp', photoPos: '50% 50%', device: 'laptopB',
       en: {
-        name: 'New hotels', buyer: 'Independent owner or GM', action: 'Hotel demo',
-        promise: 'Your hotel operations. One connected platform.', cta: 'Book my hotel demo', chip: 'For new independent hotels',
-        motif: ['Reservations', 'Accounting', 'POS'],
+        name: 'New hotels', buyer: 'Independent owner or GM', action: 'A walkthrough: a simpler way to run the hotel',
+        promise: 'An easier way to run your hotel.', cta: 'Explore a simpler way to run my hotel', chip: 'For new independent hotels',
+        // the hook's three separate vendors are what scene 2 replaces with one platform
+        motif: ['Booking system', 'Accounts software', 'Restaurant till'],
         scenes: [
-          { h: 'Still managing your hotel in <em>separate systems?</em>', cap: 'Too many systems, repeated entry, unclear responsibility?' },
-          { h: 'Bring your operations <em>together.</em>', s: 'One connected platform, built for Saudi hospitality.', cap: 'With Fandaqah 360, everything starts from the reservation.' },
-          { h: 'See the workflow in <em>Fandaqah 360.</em>', flow: ['Reservation', 'Room readiness', 'Guest service', 'Accounting'], cap: 'Rooms get ready, service is logged, accounting updates in one place.' },
-          { h: 'Demo first. <em>Then lock in your price.</em>', s: 'Subscribe for 2 years at the launch price. Standard pricing applies after the launch.', cap: 'Book your demo now, and lock in the launch price for two years.' }
+          { h: 'Still running your hotel on <em>separate systems?</em>', cap: 'Several vendors, the same data typed twice, and no clear picture?' },
+          { h: 'Run more of your hotel <em>from one platform.</em>', s: 'Fewer systems and vendors to manage.', cap: 'Less to manage, fewer vendors, and one place to see it all.' },
+          { h: 'Enter it once. <em>See it everywhere.</em>', flow: ['Reservation', 'Room readiness', 'Guest service', 'Accounting'], cap: 'One booking updates rooms, service and accounts, with no re-typing.' },
+          { h: 'An easier way <em>to run your hotel.</em>', s: 'Start at the launch price, with a 30-day money-back guarantee. Standard pricing applies after the launch.', cap: 'See how much simpler your hotel can run, at the launch price.' }
         ]
       },
       ar: {
-        name: 'الفنادق الجديدة', buyer: 'مالك أو مدير عام فندق مستقل', action: 'عرض توضيحي',
-        promise: 'عمليات فندقك. منصة واحدة مترابطة.', cta: 'احجز عرضاً توضيحياً لفندقي', chip: 'للفنادق المستقلة الجديدة',
-        motif: ['الحجوزات', 'المحاسبة', 'نقاط البيع'],
+        name: 'الفنادق الجديدة', buyer: 'مالك أو مدير عام فندق مستقل', action: 'جولة: طريقة أبسط لإدارة الفندق',
+        promise: 'طريقة أسهل لإدارة فندقك.', cta: 'اكتشف طريقة أبسط لإدارة فندقي', chip: 'للفنادق المستقلة الجديدة',
+        motif: ['نظام الحجوزات', 'برنامج الحسابات', 'نقاط بيع المطعم'],
         scenes: [
-          { h: 'ما زلت تدير فندقك <em>بأنظمة متفرقة؟</em>', cap: 'أنظمة كثيرة، وإدخال متكرر، ومسؤوليات غير واضحة؟' },
-          { h: 'اجمع عملياتك <em>في منصة واحدة.</em>', s: 'منصة مترابطة مصمَّمة لقطاع الضيافة السعودي.', cap: 'مع فندقة 360، يبدأ كل شيء من الحجز.' },
-          { h: 'شاهد سير العمل في <em>فندقة 360.</em>', flow: ['الحجز', 'جاهزية الغرف', 'خدمة الضيوف', 'المحاسبة'], cap: 'الغرفة تُجهَّز، والخدمة تُسجَّل، والمحاسبة تُحدَّث في مكان واحد.' },
-          { h: 'احجز عرضاً توضيحياً. <em>وثبّت سعر الإطلاق.</em>', s: 'اشترك لمدة سنتين بسعر الإطلاق، وبعد انتهاء فترة الإطلاق ستُطبَّق الأسعار الاعتيادية.', cap: 'احجز عرضك التوضيحي الآن، وثبّت سعر الإطلاق لمدة سنتين.' }
+          { h: 'ما زلت تدير فندقك <em>بأنظمة متفرقة؟</em>', cap: 'عدة موردين، وبيانات تُدخل مرتين، ولا صورة واضحة؟' },
+          { h: 'أدِر جزءاً أكبر من فندقك <em>من منصة واحدة.</em>', s: 'أنظمة وموردون أقل تديرهم.', cap: 'إدارة أقل، وموردون أقل، ومكان واحد ترى فيه كل شيء.' },
+          { h: 'أدخِل البيانات مرة واحدة. <em>وشاهدها في كل مكان.</em>', flow: ['الحجز', 'جاهزية الغرف', 'خدمة الضيوف', 'المحاسبة'], cap: 'حجز واحد يحدّث الغرف والخدمة والحسابات، دون إعادة إدخال.' },
+          { h: 'طريقة أسهل <em>لإدارة فندقك.</em>', s: 'ابدأ بسعر الإطلاق مع ضمان استرداد المال خلال 30 يوماً، وتُطبَّق الأسعار الاعتيادية بعد انتهاء الإطلاق.', cap: 'اكتشف كم يمكن أن يصبح تشغيل فندقك أبسط، بسعر الإطلاق.' }
         ]
       }
     },
@@ -85,25 +86,25 @@ window.BOOK_DATA = {
     D: {
       folder: 'D-hotel-groups', route: 'hotel-groups/', theme: 'light', photo: 'hero-groups.webp', photoPos: '62% 50%', device: 'laptopD',
       en: {
-        name: 'Hotel groups', buyer: 'Group owner, CEO, COO or IT director (10+ properties)', action: 'Group discovery meeting',
-        promise: 'A dedicated platform built around your group.', cta: 'Book a group discovery meeting', chip: 'For hotel groups & operators',
+        name: 'Hotel groups', buyer: 'Group owner, CEO, COO or IT director (10+ properties)', action: 'Group discovery workshop',
+        promise: 'Centralised visibility across every property.', cta: 'Explore centralised management for my group', chip: 'For hotel groups & operators',
         motif: ['Property 1', 'Property 2', 'Property 3'],
         scenes: [
-          { h: 'Managing a hotel group through <em>disconnected systems?</em>', cap: 'Every property with its own system and reports?' },
-          { h: 'See your group and <em>each property clearly.</em>', s: 'Group reporting with property-level detail.', cap: 'See your whole group, and every property in detail.' },
-          { h: 'Align supported workflows <em>with your brand.</em>', brand: ['Riyadh', 'Jeddah', 'Al Khobar'], cap: 'Align supported workflows with your group’s brand.' },
-          { h: 'Discuss a <em>dedicated technology platform.</em>', s: 'Customised to an agreed scope, defined in your proposal.', cap: 'Book a discovery meeting. We’ll map the scope together.' }
+          { h: 'Many properties. Many systems. <em>No single view.</em>', cap: 'Every property with its own systems, processes and reports?' },
+          { h: 'Centralised visibility <em>across every property.</em>', s: 'One environment for every property.', cap: 'See the whole portfolio, and any property in detail, from one place.' },
+          { h: 'Standardise operations <em>across your portfolio.</em>', brand: ['Riyadh', 'Jeddah', 'Al Khobar'], cap: 'One set of standards, applied group-wide.' },
+          { h: 'Grow the portfolio. <em>Keep control.</em>', s: 'One operating environment for every property, scoped to your group.', cap: 'Explore how your group can centralise operations and see the whole portfolio.' }
         ]
       },
       ar: {
-        name: 'مجموعات الفنادق', buyer: 'مالك المجموعة أو الرئيس التنفيذي أو مدير العمليات أو التقنية (10 منشآت فأكثر)', action: 'اجتماع استكشافي',
-        promise: 'منصة مخصّصة مبنية حول مجموعتك.', cta: 'احجز اجتماعاً استكشافياً للمجموعة', chip: 'لمجموعات الفنادق والمشغّلين',
+        name: 'مجموعات الفنادق', buyer: 'مالك المجموعة أو الرئيس التنفيذي أو مدير العمليات أو التقنية (10 منشآت فأكثر)', action: 'ورشة استكشافية للمجموعة',
+        promise: 'رؤية مركزية لكل منشآتك.', cta: 'استكشف الإدارة المركزية لمجموعتي', chip: 'لمجموعات الفنادق والمشغّلين',
         motif: ['المنشأة 1', 'المنشأة 2', 'المنشأة 3'],
         scenes: [
-          { h: 'تدير مجموعة فندقية <em>بأنظمة غير مترابطة؟</em>', cap: 'كل منشأة بنظامها وتقاريرها؟' },
-          { h: 'رؤية واضحة لمجموعتك <em>ولكل منشأة.</em>', s: 'تقارير للمجموعة مع تفاصيل كل منشأة.', cap: 'شاهد مجموعتك كاملة، وكل منشأة بتفاصيلها.' },
-          { h: 'وائم مسارات العمل المدعومة <em>مع هويتك.</em>', brand: ['الرياض', 'جدة', 'الخبر'], cap: 'وحّد مسارات العمل المدعومة بهوية مجموعتك.' },
-          { h: 'ناقش منصة تقنية <em>مخصّصة لمجموعتك.</em>', s: 'يتم التخصيص وفق نطاق متفق عليه يحدّده عرض السعر.', cap: 'احجز اجتماعاً استكشافياً، ونرسم النطاق معاً.' }
+          { h: 'منشآت كثيرة، وأنظمة كثيرة، <em>ولا رؤية واحدة.</em>', cap: 'كل منشأة بأنظمتها وإجراءاتها وتقاريرها؟' },
+          { h: 'رؤية مركزية <em>لكل منشآتك.</em>', s: 'بيئة إدارة واحدة للمحفظة كاملة.', cap: 'شاهد محفظتك كاملة، وأي منشأة بتفاصيلها، من مكان واحد.' },
+          { h: 'وحّد العمليات <em>عبر محفظتك كاملة.</em>', brand: ['الرياض', 'جدة', 'الخبر'], cap: 'معايير واحدة تُطبَّق على المجموعة كلها.' },
+          { h: 'توسّع في محفظتك. <em>وحافظ على السيطرة.</em>', s: 'بيئة تشغيل واحدة لكل منشأة، وفق نطاق يناسب مجموعتك.', cap: 'اكتشف كيف تدير مجموعتك عملياتها مركزياً وترى محفظتها كاملة.' }
         ]
       }
     }
