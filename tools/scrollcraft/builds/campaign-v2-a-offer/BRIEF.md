@@ -53,3 +53,16 @@ row. Two sections are added (comparison, guarantee) inside the existing design v
 - The launch period's end date or ending condition (commercial release record).
 - Guarantee terms in writing: the 30 days start at activation; what "previous plan" restores.
 - That data is kept on rollback (the FAQ says the account and its records stay).
+
+## Verified
+
+- Existing customers, desktop 1440 (English and Arabic) and phone 390: every section screenshotted, no horizontal
+  overflow, no console errors or failed requests.
+- The request against a mocked CRM (no lead reached the CRM): the payload carries hotel, contact, +966-normalised phone,
+  the module picked on the cards, consent, and the new `term` ("2-year price lock, paid upfront"), also written as
+  "Offer term" in the message. The sheet moved Draft, Ready to send, Sent with the reference.
+- Reel A close previewed at 23 s in both languages: headline, price line, button and caption inside the safe area;
+  A reels and creatives re-rendered.
+- New hotels: hero note, offer band and pricing FAQ in both languages, no errors or overflow.
+
+Not verified: a real phone; a live CRM submission. Owner sign-off items above still apply.

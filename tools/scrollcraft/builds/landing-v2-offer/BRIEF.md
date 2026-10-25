@@ -46,3 +46,27 @@ signalled urgency with no reason behind it.
 
 - The launch period's end date (or the condition that ends it) in the commercial release record.
 - That the 2-year price is fixed for the full term and that later services are included during it (T&Cs).
+
+## Round 2 (second review, 25 Oct 2026)
+
+The second reviewer read the **live** page, which still showed the first version: every deploy since `dbe9bdd` failed
+because the playbook PDF committed at the repo root tripped the "no internal files" guard. Fixed in the workflow and
+`_config.yml` (root `*.pdf` excluded); the Arabic check still fails on `hotel-groups/` and `existing-customers/`,
+which are being edited elsewhere.
+
+Applied, in the page's own elements:
+
+1. **Audience and offer named in the hero note:** "Exclusive launch offer for existing customers" (the reviewer's
+   Arabic, verbatim), plus "lock in the promotional price before the offer ends".
+2. **What waiting costs:** "Standard pricing applies after the launch" in the hero note, pricing intro, price-lock
+   card, close and fine print. (Business-supplied claim; replaces "may not return".) No countdown was added: the page
+   never had one, and inventing an end time is not allowed.
+3. **Value summary:** the hero value card's four ticks are now 20+ integrated modules (matches "More than 20" on
+   the page), one unified platform, launch pricing for 2 years, 30-day golden guarantee.
+4. **Golden guarantee:** named and explained (full refund + previous plan restored) on the guarantee card, the 360
+   card, the close and the lead form; the seal, tokens and card tile turned gold (`#gold` gradient in the sprite).
+5. **CTA carries the objective:** "Lock in my price for 2 years" / «ثبّت السعر لمدة سنتين»; nav "Lock in launch
+   pricing" / «احجز سعر الإطلاق».
+
+Campaign B reel close: subline now says what waiting costs. Campaign A's reel was being rewritten in another session
+at the same time, so it was left alone.

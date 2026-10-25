@@ -6,26 +6,26 @@ window.BOOK_DATA = {
     A: {
       folder: 'A-existing-customers', route: 'existing-customers/', theme: 'light', photo: 'hero-existing.webp', photoPos: '86% 40%', device: 'laptopA',
       en: {
-        name: 'Existing customers', buyer: 'Owner, GM or finance manager already on Fandaqah', action: 'Upgrade review',
-        promise: 'More value from the Fandaqah you already use.', cta: 'Check my upgrade offer', chip: 'For existing Fandaqah customers',
+        name: 'Existing customers', buyer: 'Owner, GM or finance manager already on Fandaqah', action: 'Launch-price upgrade',
+        promise: 'More value from the Fandaqah you already use.', cta: 'Lock in my launch price', chip: 'For existing Fandaqah customers',
         // the hook's three manual records pay off in scene 3: purchasing, housekeeping and accounting get ticked
         motif: ['Purchase spreadsheet', 'Paper room log', 'Month-end by hand'],
         scenes: [
           { h: 'Already with Fandaqah? <em>Get more value.</em>', cap: 'Still on paper and spreadsheets?' },
           { h: 'Connect more of <em>your daily work.</em>', s: 'Same system, same team, more of your hotel.', cap: 'Accounting and purchasing join the Fandaqah you already use.' },
           { h: 'See what your <em>upgrade includes.</em>', list: ['Accounting', 'Purchasing', 'Housekeeping', 'Maintenance', 'Inventory'], cap: 'Enter a purchase order once, and it reaches your accounts.' },
-          { h: 'Check your <em>limited-time upgrade offer.</em>', s: 'Your review confirms eligibility, the modules you need, fees and any approved credit.', cap: 'Request your upgrade review today.' }
+          { h: 'Lock in the <em>launch price for two years.</em>', s: 'Fandaqah 360, all 20 modules: SAR 3,495 a year, excl. VAT. 30-day Golden Guarantee.', cap: 'This launch price won’t be offered again. Lock it in today.' }
         ]
       },
       ar: {
-        name: 'العملاء الحاليون', buyer: 'المالك أو المدير العام أو المدير المالي من عملاء فندقة', action: 'مراجعة الترقية',
-        promise: 'قيمة أكبر من فندقة التي تستخدمها اليوم.', cta: 'تحقّق من عرض الترقية', chip: 'لعملاء فندقة الحاليين',
+        name: 'العملاء الحاليون', buyer: 'المالك أو المدير العام أو المدير المالي من عملاء فندقة', action: 'الترقية بسعر الإطلاق',
+        promise: 'قيمة أكبر من فندقة التي تستخدمها اليوم.', cta: 'ثبّت سعر الإطلاق', chip: 'لعملاء فندقة الحاليين',
         motif: ['جدول المشتريات', 'سجل الغرف الورقي', 'إقفال الشهر يدوياً'],
         scenes: [
           { h: 'تستخدم فندقة؟ <em>احصل على قيمة أكبر.</em>', cap: 'ما زلت على الورق وجداول البيانات؟' },
           { h: 'اربط مزيداً من <em>عملك اليومي.</em>', s: 'النظام نفسه والفريق نفسه، وجزء أكبر من فندقك مترابط.', cap: 'المحاسبة والمشتريات تنضمّان إلى فندقة التي تستخدمها.' },
           { h: 'اكتشف ما <em>تشمله ترقيتك.</em>', list: ['المحاسبة', 'المشتريات', 'التدبير الفندقي', 'الصيانة', 'المخزون'], cap: 'أدخل أمر الشراء مرة واحدة، ويصل إلى حساباتك.' },
-          { h: 'تحقّق من <em>عرض الترقية لفترة محدودة.</em>', s: 'تؤكّد المراجعة أهليتك والوحدات التي تحتاجها والرسوم وأي رصيد معتمد.', cap: 'اطلب مراجعة الترقية اليوم.' }
+          { h: 'ثبّت <em>سعر الإطلاق لمدة سنتين.</em>', s: 'فندقة 360 بوحداتها العشرين: 3,495 ريالاً سنوياً غير شاملة الضريبة. ضمان ذهبي لمدة 30 يوماً.', cap: 'سعر الإطلاق هذا لن يتكرر. ثبّته اليوم.' }
         ]
       }
     },
@@ -39,7 +39,7 @@ window.BOOK_DATA = {
           { h: 'Still managing your hotel in <em>separate systems?</em>', cap: 'Too many systems, repeated entry, unclear responsibility?' },
           { h: 'Bring your operations <em>together.</em>', s: 'One connected platform, built for Saudi hospitality.', cap: 'With Fandaqah 360, everything starts from the reservation.' },
           { h: 'See the workflow in <em>Fandaqah 360.</em>', flow: ['Reservation', 'Room readiness', 'Guest service', 'Accounting'], cap: 'Rooms get ready, service is logged, accounting updates in one place.' },
-          { h: 'Demo first. <em>Then lock in your price.</em>', s: 'One-time launch offer: subscribe for 2 years and your price stays fixed for both.', cap: 'Book your demo now, and lock in the launch price for two years.' }
+          { h: 'Demo first. <em>Then lock in your price.</em>', s: 'Subscribe for 2 years at the launch price. Standard pricing applies after the launch.', cap: 'Book your demo now, and lock in the launch price for two years.' }
         ]
       },
       ar: {
@@ -50,7 +50,7 @@ window.BOOK_DATA = {
           { h: 'ما زلت تدير فندقك <em>بأنظمة متفرقة؟</em>', cap: 'أنظمة كثيرة، وإدخال متكرر، ومسؤوليات غير واضحة؟' },
           { h: 'اجمع عملياتك <em>في منصة واحدة.</em>', s: 'منصة مترابطة مصمَّمة لقطاع الضيافة السعودي.', cap: 'مع فندقة 360، يبدأ كل شيء من الحجز.' },
           { h: 'شاهد سير العمل في <em>فندقة 360.</em>', flow: ['الحجز', 'جاهزية الغرف', 'خدمة الضيوف', 'المحاسبة'], cap: 'الغرفة تُجهَّز، والخدمة تُسجَّل، والمحاسبة تُحدَّث في مكان واحد.' },
-          { h: 'احجز عرضاً توضيحياً. <em>وثبّت سعر الإطلاق.</em>', s: 'عرض إطلاق لمرة واحدة: اشترك لمدة سنتين، ويبقى سعرك ثابتاً طوال المدة.', cap: 'احجز عرضك التوضيحي الآن، وثبّت سعر الإطلاق لمدة سنتين.' }
+          { h: 'احجز عرضاً توضيحياً. <em>وثبّت سعر الإطلاق.</em>', s: 'اشترك لمدة سنتين بسعر الإطلاق، وبعد انتهاء فترة الإطلاق ستُطبَّق الأسعار الاعتيادية.', cap: 'احجز عرضك التوضيحي الآن، وثبّت سعر الإطلاق لمدة سنتين.' }
         ]
       }
     },

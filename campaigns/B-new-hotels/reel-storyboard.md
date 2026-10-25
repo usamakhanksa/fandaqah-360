@@ -11,7 +11,7 @@ Keyframes: `creatives/reel-frames/B-reel-1…4-ar.jpg` (and `-en`).
 | 20–25 s | Demo button and the offer line: a padlock closing on the launch price, held for two years | احجز عرضاً توضيحياً. وثبّت سعر الإطلاق. | Demo first. Then lock in your price. | احجز عرضك التوضيحي الآن، وثبّت سعر الإطلاق لمدة سنتين. |
 
 **End card:** logo · احجز عرضاً توضيحياً لفندقي · fandaqah.com
-**Supporting line (20–25 s):** «عرض إطلاق لمرة واحدة: اشترك لمدة سنتين، ويبقى سعرك ثابتاً طوال المدة.» / "One-time launch offer: subscribe for 2 years and your price stays fixed for both."
+**Supporting line (20–25 s):** «اشترك لمدة سنتين بسعر الإطلاق، وبعد انتهاء فترة الإطلاق ستُطبَّق الأسعار الاعتيادية.» / "Subscribe for 2 years at the launch price. Standard pricing applies after the launch." (says what waiting costs)
 **English voice-over (20–25 s):** "Book your demo now, and lock in the launch price for two years."
 Why the close changed: "review the two-year offer" named the offer without the reason to act. The close now says what the two years buy (a price that cannot move) and why now (a one-time launch offer), the same message as the landing page.
 Keep price separate from any savings claim; do not show figures that are not approved. The launch period's end date must be in the signed commercial release record before "one-time" runs.

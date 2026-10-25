@@ -1,36 +1,36 @@
 /* Creative copy for the four Fandaqah 360 campaigns (playbook, 20 Oct 2026).
    Edit text here, then re-render: see campaigns/_studio/README.md.
-   Rules baked in (playbook p.7 and p.11): one promise and one CTA per creative, no public price (A uses
-   "Ask about our limited-time offer", B "Lock in the launch price", a 2-year subscription at a fixed price), no savings figures, countdowns, reviews or limited availability. */
+   Rules baked in (playbook p.7 and p.11): one promise and one CTA per creative, no public price (A shows its approved
+   launch price, SAR 3,495 a year excl. VAT, locked for two years with the 30-day Golden Guarantee; B "Lock in the launch price", a 2-year subscription at a fixed price), no savings figures, countdowns, reviews or limited availability. */
 window.STUDIO = {
   base: '/assets/',
   campaigns: {
     A: {
       folder: 'A-existing-customers', theme: 'light', photo: 'img/hero-existing.webp', photoPos: '86% 40%', device: 'laptopA',
       en: {
-        chip: 'For existing Fandaqah customers', cta: 'Check my upgrade offer', url: 'fandaqah.com',
+        chip: 'For existing Fandaqah customers', cta: 'Lock in my launch price', url: 'fandaqah.com',
         ads: [
-          { h: '<em>More value</em> from the Fandaqah you already use.', s: 'Review your subscription, the modules you need and your eligibility for our limited-time offer.' },
-          { h: 'A loyalty offer <em>built around your hotel.</em>', s: 'Connect more of your daily operations. Ask about our limited-time offer.' }
+          { h: '<em>More value</em> from the Fandaqah you already use.', s: 'Upgrade to Fandaqah 360 for SAR 3,495 a year, excl. VAT. A one-time launch price, locked for two years.' },
+          { h: 'A loyalty offer <em>built around your hotel.</em>', s: 'Try it for 30 days with the Golden Guarantee: a full refund and your previous plan back.' }
         ],
         slides: [
           { h: 'Already with Fandaqah? <em>Get more value.</em>' },
           { h: 'Connect more of <em>your daily work.</em>', s: 'Same system, same team, more of your hotel.' },
           { h: 'See what your <em>upgrade includes.</em>', list: ['Accounting', 'Purchasing', 'Housekeeping', 'Maintenance', 'Inventory'] },
-          { h: 'Check your <em><span style="white-space:nowrap">limited-time</span> upgrade offer.</em>', s: 'Your review confirms eligibility, the modules you need, fees and any approved credit.' }
+          { h: 'Lock in the <em>launch price for two years.</em>', s: 'Fandaqah 360, all 20 modules: SAR 3,495 a year, excl. VAT. 30-day Golden Guarantee.' }
         ]
       },
       ar: {
-        chip: 'لعملاء فندقة الحاليين', cta: 'تحقّق من عرض الترقية', url: 'fandaqah.com',
+        chip: 'لعملاء فندقة الحاليين', cta: 'ثبّت سعر الإطلاق', url: 'fandaqah.com',
         ads: [
-          { h: '<em>قيمة أكبر</em> من فندقة التي تستخدمها اليوم.', s: 'راجع اشتراكك والوحدات التي تحتاجها وأهليتك لعرضنا لفترة محدودة.' },
-          { h: 'عرض ولاء <em>مصمَّم حول فندقك.</em>', s: 'اربط مزيداً من عملياتك اليومية، واسأل عن عرضنا لفترة محدودة.' }
+          { h: '<em>قيمة أكبر</em> من فندقة التي تستخدمها اليوم.', s: 'قم بالترقية إلى فندقة 360 بسعر 3,495 ريالاً سنوياً غير شاملة الضريبة. سعر إطلاق لمرة واحدة، ثابت لمدة سنتين.' },
+          { h: 'عرض ولاء <em>مصمَّم حول فندقك.</em>', s: 'جرّبها 30 يوماً مع الضمان الذهبي: استرداد كامل وعودة إلى باقتك السابقة.' }
         ],
         slides: [
           { h: 'تستخدم فندقة؟ <em>احصل على قيمة أكبر.</em>' },
           { h: 'اربط مزيداً من <em>عملك اليومي.</em>', s: 'النظام نفسه والفريق نفسه، وجزء أكبر من فندقك مترابط.' },
           { h: 'اكتشف ما <em>تشمله ترقيتك.</em>', list: ['المحاسبة', 'المشتريات', 'التدبير الفندقي', 'الصيانة', 'المخزون'] },
-          { h: 'تحقّق من <em>عرض الترقية لفترة محدودة.</em>', s: 'تؤكّد المراجعة أهليتك والوحدات التي تحتاجها والرسوم وأي رصيد معتمد.' }
+          { h: 'ثبّت <em>سعر الإطلاق لمدة سنتين.</em>', s: 'فندقة 360 بوحداتها العشرين: 3,495 ريالاً سنوياً غير شاملة الضريبة. ضمان ذهبي لمدة 30 يوماً.' }
         ]
       }
     },
@@ -46,7 +46,7 @@ window.STUDIO = {
           { h: 'Still managing your hotel in <em>separate systems?</em>' },
           { h: 'Bring your operations <em>together.</em>', s: 'One connected platform, built for Saudi hospitality.' },
           { h: 'See the workflow in <em>Fandaqah 360.</em>', flow: ['Reservation', 'Room readiness', 'Guest service', 'Accounting'] },
-          { h: 'Demo first. <em>Then lock in your price.</em>', s: 'One-time launch offer: subscribe for 2 years and your price stays fixed for both.' }
+          { h: 'Demo first. <em>Then lock in your price.</em>', s: 'Subscribe for 2 years at the launch price. Standard pricing applies after the launch.' }
         ]
       },
       ar: {
@@ -59,7 +59,7 @@ window.STUDIO = {
           { h: 'ما زلت تدير فندقك <em>بأنظمة متفرقة؟</em>' },
           { h: 'اجمع عملياتك <em>في منصة واحدة.</em>', s: 'منصة مترابطة مصمَّمة لقطاع الضيافة السعودي.' },
           { h: 'شاهد سير العمل في <em>فندقة 360.</em>', flow: ['الحجز', 'جاهزية الغرف', 'خدمة الضيوف', 'المحاسبة'] },
-          { h: 'احجز عرضاً توضيحياً. <em>وثبّت سعر الإطلاق.</em>', s: 'عرض إطلاق لمرة واحدة: اشترك لمدة سنتين، ويبقى سعرك ثابتاً طوال المدة.' }
+          { h: 'احجز عرضاً توضيحياً. <em>وثبّت سعر الإطلاق.</em>', s: 'اشترك لمدة سنتين بسعر الإطلاق، وبعد انتهاء فترة الإطلاق ستُطبَّق الأسعار الاعتيادية.' }
         ]
       }
     },
