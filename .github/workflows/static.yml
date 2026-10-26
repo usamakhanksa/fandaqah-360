@@ -33,6 +33,10 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      # Every page asks for its scripts and styles by content stamp (site.js?v=…), so Cloudflare and browsers can never
+      # pair a new page with an old script. Stamp here as well, so a commit that forgot to restamp still deploys correctly.
+      - name: Stamp assets
+        run: python3 -I tools/stamp-assets.py
       # Build the public site: the repo root minus internal folders. Keep this list in step with _config.yml,
       # which gives the same result if Pages is ever set to "Deploy from a branch".
       - name: Build public site
@@ -42,11 +46,10 @@ jobs:
             --exclude '/campaigns' --exclude '/archive' --exclude '/tools' --exclude '/banners' \
             --exclude 'README.md' --exclude '/_config.yml' --exclude '/.scrollcraft.json' \
             --exclude '/*.pdf' --exclude '*.php' --exclude '/api' --exclude '.htaccess' --exclude '/*.zip'
-      # The PHP copies (for a PHP host) never ship to Pages, which cannot run them; they must still match their pages
+      # The PHP copies (for a PHP host) never ship to Pages, which cannot run them. Flag them when they fall behind
+      # their pages, without holding up this deploy.
       - name: Check the PHP copies are current
-        run: |
-          python3 -I tools/stamp-assets.py --check
-          python3 -I tools/build-php.py --check
+        run: python3 -I tools/build-php.py --check || echo "::warning::PHP copies are out of date. Run python tools/stamp-assets.py, then python tools/build-php.py, and commit."
       # Guards: nothing internal ships, every page is fully translated, every link resolves
       - name: Block internal files from the public site
         run: |
