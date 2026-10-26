@@ -475,7 +475,7 @@
               <label class="pa-term"><input type="radio" name="term" value="1 year"><span class="pa-term-t"><b data-i18n="term.1t">1 year</b><small data-i18n="term.1s">SAR 3,495 · excl. VAT</small></span></label>
             </fieldset>
             <fieldset class="pa-group pa-notefield"><legend><span data-i18n="grp.note">Anything we should know?</span> <span class="opt" data-i18n="f.opt">(optional)</span></legend>
-              <div class="f f--full"><label for="f-message" class="sr-only" data-i18n="f.message">Your message</label><textarea id="f-message" name="message" rows="3" maxlength="1000" dir="auto" placeholder="The best time to call, a question about the offer, or anything about your property." data-i18n-ph="f.messagePh" aria-describedby="f-message-count"></textarea><p class="f-count" id="f-message-count"><bdi dir="ltr"><span>0</span> / 1000</bdi></p></div>
+              <div class="f f--full"><label for="f-message" class="sr-only" data-i18n="f.message">Your message</label><textarea id="f-message" name="message" rows="3" maxlength="1000" placeholder="The best time to call, a question about the offer, or anything about your property." data-i18n-ph="f.messagePh" aria-describedby="f-message-count"></textarea><p class="f-count" id="f-message-count"><bdi dir="ltr"><span>0</span> / 1000</bdi></p></div>
             </fieldset>
             <label class="consent f--full"><input type="checkbox" name="contact_ok" value="yes" aria-describedby="f-agree-err"><span data-i18n="f.agree">I agree to be contacted about this upgrade.</span></label>
             <p class="f-err f--full" id="f-agree-err" data-i18n="err.agree" hidden>Please confirm that we may contact you about your upgrade.</p>

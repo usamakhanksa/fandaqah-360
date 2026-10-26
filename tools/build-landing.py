@@ -209,7 +209,7 @@ def dialog_html(lang, root):
             f'<label>{T["prop"]}<input name="property" autocomplete="organization" required placeholder="{T["prop_ph"]}" aria-describedby="demo-err-property"><small class="field-error" id="demo-err-property" hidden>{T["e_prop"]}</small></label>'
             f'<label>{T["phone"]}<input name="phone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="05XXXXXXXX" dir="ltr" aria-describedby="demo-err-phone"><small class="field-error" id="demo-err-phone" hidden>{T["e_phone"]}</small></label>'
             f'<label class="full">{T["interest"]}<select name="interest">{opts}</select></label>'
-            f'<label class="full">{T["msg"]} <span class="demo-opt">{T["optional"]}</span><textarea name="message" rows="3" maxlength="1000" dir="auto" placeholder="{T["msg_ph"]}"></textarea></label>'
+            f'<label class="full">{T["msg"]} <span class="demo-opt">{T["optional"]}</span><textarea name="message" rows="3" maxlength="1000" placeholder="{T["msg_ph"]}"></textarea></label>'
             '<input type="hidden" name="topic" value="">'
             '<label class="demo-hp" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>'
             '<p class="demo-alert full" role="alert" hidden></p>'

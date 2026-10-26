@@ -59,14 +59,22 @@ Never put names, phone numbers or emails in a URL. Every folder's `links.csv` ha
 
 ## What reaches the CRM
 
-A page names its CRM in `FQ_PAGE.api`; without one it posts to `https://crm-dev.fandaqah.com/api/ingest/lead`.
-**A (existing customers) is live on production, `https://crm.fandaqah.com/api/ingest/lead`.** B, C and D still post to dev:
-switch each one before its launch. Each lead carries:
+Every form on the site posts to the production CRM, `https://crm.fandaqah.com/api/ingest/lead`: the four routes, landing-v2,
+Campaign D's meeting request, and the original landing site's lead dialog and newsletter (51 pages). Each asks for a mobile
+and a business email in their own fields, plus an optional message.
+
+**Two ways to host.** GitHub Pages serves the `.html` pages, which post straight to the CRM (the key is in the browser).
+On a PHP host, every page also has a `.php` copy (`python tools/build-php.py` writes them; CI fails if they fall behind):
+its forms post to `api/lead.php`, which adds the key on the server, applies the honeypot, limits each address to 8 requests
+in 10 minutes, checks the essentials and forwards the lead. Set `FQ_CRM_KEY` on that host to keep the key out of the code.
+`.htaccess` sends `.html` addresses to their `.php` copies. Edit the `.html` page, never the `.php` copy.
+
+Each lead carries:
 
 | Field | Source |
 |---|---|
-| `name`, `email` or `phone` (+966 normalised, raw kept in `phone_raw`); A asks for both, in their own fields | form |
-| `customer_message` (A): the visitor's own note, also placed first in `message` | form |
+| `name`, `email`, `phone` (+966 normalised, raw kept in `phone_raw`) | form |
+| `customer_message`: the visitor's own note, also placed first in `message` | form |
 | `company`, `city`, `role`, `preferred_channel`, `interest` | form |
 | `account_id` (A), `modules` (A), `current_pms`, `pms_version` (C), `property_count`, `ownership` (D) | form |
 | `campaign`, `campaign_code`, `utm_source`, `utm_medium`, `utm_content`, `utm_term` (missing → `Direct/Unknown`) | latest tagged visit, else first |
