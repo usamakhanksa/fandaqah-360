@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>فندقة 360 · إعلان سناب شات</title>
-<!-- Campaign A, Snapchat: one 9.5 s, 1080×1920 ad for existing Fandaqah customers (Arabic only).
+<!-- Campaign A, Snapchat: one 17 s, 1080×1920 ad for existing Fandaqah customers (Arabic only). The animation is
+     written on a 9.5 s beat sheet and played at reading pace through SEG below (each scene gets its own length).
      Plays and loops here; ?render=1 holds it paused for tools/render-snap.mjs, which seeks every frame and encodes the MP4.
      Storyboard and voice-over script: campaigns/A-existing-customers/snapchat-storyboard.md -->
 <link rel="icon" href="../favicon.ico">
@@ -312,6 +313,11 @@ body{display:grid;place-items:center;overflow:hidden;font-family:var(--f);-webki
 <script>
 (() => {
   const DUR = 9.5, q = new URLSearchParams(location.search), render = q.has('render');
+  // reading pace: [beat-sheet start, beat-sheet end, seconds on screen] per scene; quick moves stay quick inside each
+  // scene, and the offer and the end frame get time to be read
+  const SEG = [[0, 1.4, 2.2], [1.4, 2.8, 2.0], [2.8, 4.0, 2.2], [4.0, 6.4, 3.4], [6.4, 7.8, 2.2], [7.8, 8.7, 2.4], [8.7, 9.5, 2.6]];
+  const REAL = SEG.reduce((n, s) => n + s[2], 0);
+  const warp = t => { let at = 0; for (const [a, b, len] of SEG) { if (t <= at + len) return a + (b - a) * Math.max(0, t - at) / len; at += len; } return DUR; };
   if (render) document.documentElement.classList.add('render');
   const stage = document.getElementById('stage'), $ = (s, c = document) => c.querySelector(s), $$ = (s, c = document) => [...c.querySelectorAll(s)];
   const fit = () => { const k = render ? 1 : Math.min(innerWidth / 1080, innerHeight / 1920); stage.style.transform = `scale(${k})`; };
@@ -417,13 +423,22 @@ body{display:grid;place-items:center;overflow:hidden;font-family:var(--f);-webki
     $('.s3 .cursor').style.left = `${bx - 6}px`; $('.s3 .cursor').style.top = `${by - 4}px`;
     tl.seek(0, false);
     document.body.dataset.ready = '1';
-    if (!render) { tl.eventCallback('onComplete', () => setTimeout(() => tl.restart(), 900)); tl.play(0); }
+    if (!render) requestAnimationFrame(tick);
   });
-  document.addEventListener('reel:seek', () => { const t = +document.body.dataset.seek || 0; tl.seek(t, false); document.body.dataset.frame = String(t); });
-  window.SNAP = { duration: DUR, seek: t => tl.seek(t, false), timeline: tl };
+  // the preview plays on a real clock through the reading-pace map, and loops with a short pause on the end frame
+  let clock = 0, last = 0, playing = true;
+  const tick = now => {
+    if (playing && last) clock += (now - last) / 1000;
+    last = now;
+    if (clock > REAL + .9) clock = 0;
+    tl.seek(warp(Math.min(clock, REAL)), false);
+    requestAnimationFrame(tick);
+  };
+  document.addEventListener('reel:seek', () => { const t = +document.body.dataset.seek || 0; tl.seek(warp(t), false); document.body.dataset.frame = String(t); });
+  window.SNAP = { duration: REAL, beats: DUR, segments: SEG, seek: t => tl.seek(warp(t), false), timeline: tl };
   document.querySelector('.ctrl').addEventListener('click', e => {
-    const a = e.target.dataset.a; if (a === 'toggle') { tl.paused(!tl.paused()); e.target.textContent = tl.paused() ? '▶' : '❚❚'; }
-    if (a === 'restart') tl.restart();
+    const a = e.target.dataset.a; if (a === 'toggle') { playing = !playing; e.target.textContent = playing ? '❚❚' : '▶'; }
+    if (a === 'restart') clock = 0;
   });
 })();
 </script>
