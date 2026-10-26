@@ -70,8 +70,15 @@
   const API_KEY = 'fdq_d0930f18b74a5153c68b174748b5ed7ba17b8723ca05c21e';
   const PLATFORM = 'fandaqah_tourism_platform_contact';
   const PROXY = ($('meta[name="fq-lead-proxy"]') || {}).content || '';
-  const sendLead = (payload, signal) => fetch(PROXY || API_URL, { method: 'POST', body: JSON.stringify(payload), signal,
-    headers: PROXY ? { 'Content-Type': 'application/json', Accept: 'application/json' } : { 'Content-Type': 'application/json', 'X-API-Key': API_KEY } });
+  // if the proxy is missing (api/ not uploaded) or cannot reach the CRM from the server, the request goes straight to the CRM instead
+  const sendLead = async (payload, signal) => {
+    const direct = () => fetch(API_URL, { method: 'POST', body: JSON.stringify(payload), signal, headers: { 'Content-Type': 'application/json', 'X-API-Key': API_KEY } });
+    if (!PROXY) return direct();
+    try {
+      const res = await fetch(PROXY, { method: 'POST', body: JSON.stringify(payload), signal, headers: { 'Content-Type': 'application/json', Accept: 'application/json' } });
+      return res.status === 404 || res.status === 405 || res.status >= 500 ? direct() : res;
+    } catch (err) { if (signal && signal.aborted) throw err; return direct(); }
+  };
   const PACKAGES = {
     basic: { price: 1200, option: 'Basic Subscription',
       en: ['Basic Subscription', ['PMS Core + 5 modules', 'Standard support', 'Basic training']],

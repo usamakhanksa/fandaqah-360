@@ -179,14 +179,17 @@
   const PROXY = ($('meta[name="fq-lead-proxy"]') || {}).content || '';
 
   async function post(body) {
+    let via = PROXY;
     for (let attempt = 0; attempt < 3; attempt++) {
       const ctrl = new AbortController(), stop = setTimeout(() => ctrl.abort(), 12000);
       try {
-        const res = await fetch(PROXY || API_URL, { method: 'POST', body: JSON.stringify(body), signal: ctrl.signal,
-          headers: PROXY ? { 'Content-Type': 'application/json', Accept: 'application/json' } : { 'Content-Type': 'application/json', 'X-API-Key': API_KEY } });
+        const res = await fetch(via || API_URL, { method: 'POST', body: JSON.stringify(body), signal: ctrl.signal,
+          headers: via ? { 'Content-Type': 'application/json', Accept: 'application/json' } : { 'Content-Type': 'application/json', 'X-API-Key': API_KEY } });
         if (res.ok) return 'ok';
+        // the proxy is missing (api/ not uploaded) or cannot reach the CRM from the server: send straight to the CRM instead
+        if (via && (res.status === 404 || res.status === 405 || res.status >= 500)) { via = ''; attempt--; continue; }
         if (res.status < 500 && res.status !== 429) return 'rejected'; // a 4xx will not fix itself on retry
-      } catch (e) { /* network or timeout: retry */ } finally { clearTimeout(stop); }
+      } catch (e) { if (via) { via = ''; attempt--; continue; } /* network or timeout: retry */ } finally { clearTimeout(stop); }
       if (attempt < 2) await new Promise(r => setTimeout(r, 1200 * (attempt + 1)));
     }
     return 'failed';

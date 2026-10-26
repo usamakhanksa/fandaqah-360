@@ -327,15 +327,18 @@ html[lang=ar]{--sans:Almarai,system-ui,sans-serif;--serif:ElMessiri,Georgia,seri
     };
     const label = $('span', sendButton), idle = label.textContent;
     sendButton.disabled = true; label.textContent = t('form.sending'); alert.textContent = '';
-    let result = 'failed';
+    let result = 'failed', via = PROXY;
     for (let attempt = 0; attempt < 3 && result === 'failed'; attempt++) {
       const ctrl = new AbortController(), stop = setTimeout(() => ctrl.abort(), 12000);
       try {
-        const res = await fetch(PROXY || API_URL, { method: 'POST', body: JSON.stringify(payload), signal: ctrl.signal,
-          headers: PROXY ? { 'Content-Type': 'application/json', Accept: 'application/json' } : { 'Content-Type': 'application/json', 'X-API-Key': API_KEY } });
+        const res = await fetch(via || API_URL, { method: 'POST', body: JSON.stringify(payload), signal: ctrl.signal,
+          headers: via ? { 'Content-Type': 'application/json', Accept: 'application/json' } : { 'Content-Type': 'application/json', 'X-API-Key': API_KEY } });
         if (res.ok) result = 'ok';
+        // the proxy is missing (api/ not uploaded) or cannot reach the CRM from the server: send straight to the CRM instead
+        else if (via && (res.status === 404 || res.status === 405 || res.status >= 500)) { via = ''; attempt--; }
         else if (res.status < 500 && res.status !== 429) result = 'rejected';   // a 4xx will not fix itself on retry
-      } catch (err) { /* network or timeout: retry */ } finally { clearTimeout(stop); }
+      } catch (err) { if (via) { via = ''; attempt--; } /* network or timeout: retry */ } finally { clearTimeout(stop); }
+      if (result === 'failed' && !via && attempt < 0) continue;
       if (result === 'failed' && attempt < 2) await new Promise(r => setTimeout(r, 1200 * (attempt + 1)));
     }
     sendButton.disabled = false; label.textContent = idle;

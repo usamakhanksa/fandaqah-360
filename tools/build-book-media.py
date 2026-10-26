@@ -5,7 +5,7 @@ Sources (internal, never published):  campaigns/<X>/banners/*.png  ·  campaigns
 Output  (published with the book):    book/media/<X>/{banners,feed,story,carousel}/*.webp  ·  book/media/manifest.js
 Reels are rendered separately by tools/render-reels.mjs into book/media/<X>/reels/ and picked up here when present.
 """
-import json, re, sys, pathlib
+import json, re, sys, pathlib, subprocess
 from PIL import Image
 
 sys.stdout.reconfigure(encoding='utf-8')
@@ -48,10 +48,16 @@ for code, folder in FOLDERS.items():
             dst = out / kind / (src.stem + '.webp')
             w, h = webp(src, dst, WIDTH[kind])
             entry[kind].append({'src': rel(dst), 'w': w, 'h': h, 'lang': src.stem.rsplit('-', 1)[-1], 'name': src.stem})
-    # reels (rendered by tools/render-reels.mjs)
-    for mp4 in sorted((out / 'reels').glob('*.mp4')):
+    # reels (rendered by tools/render-reels.mjs); only <X>-reel-<lang>.mp4, so other videos never replace a reel
+    for mp4 in sorted((out / 'reels').glob('*-reel-*.mp4')):
         lang = mp4.stem.rsplit('-', 1)[-1]
         entry['reels'][lang] = {'mp4': rel(mp4), 'poster': rel(mp4.with_suffix('.jpg')), 'mb': round(mp4.stat().st_size / 1048576, 1)}
+    # Snapchat ads (tools/render-snap.mjs): <X>-snap-<lang>.mp4, offered in the book's downloads beside the reels
+    for mp4 in sorted((out / 'reels').glob('*-snap-*.mp4')):
+        lang = mp4.stem.rsplit('-', 1)[-1]
+        probe = subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', str(mp4)], capture_output=True, text=True)
+        sec = round(float(probe.stdout.strip() or 0))
+        entry.setdefault('snap', {})[lang] = {'mp4': rel(mp4), 'poster': rel(mp4.with_suffix('.jpg')), 'mb': round(mp4.stat().st_size / 1048576, 1), 'sec': sec}
     manifest[code] = entry
     n = sum(len(entry[k]) for k in ('banners', 'feed', 'story', 'carousel'))
     total += n

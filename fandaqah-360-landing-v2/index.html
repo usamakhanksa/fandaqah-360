@@ -419,6 +419,7 @@ a.assure:active{transform:translateY(1px)}
 /* ---------- About: who is behind the platform ---------- */
 .sec-about{position:relative;overflow:clip;isolation:isolate;padding:76px 0 84px}
 /* the brand line in Arabic calligraphy, as a quiet watermark in both languages */
+html[lang="en"] .about-mark{display:none}   /* English mode shows English only */
 .about-mark{position:absolute;z-index:-1;top:34px;inset-inline-end:-24px;font:700 clamp(84px, 11vw, 168px)/1 "El Messiri", var(--f-serif);color:var(--ink);opacity:.04;white-space:nowrap;pointer-events:none;user-select:none}
 .about-grid{display:grid;grid-template-columns:minmax(0, .92fr) minmax(0, 1.08fr);gap:72px;align-items:center}
 .about-media{position:relative;margin:0}
@@ -1534,8 +1535,15 @@ html:has(.lead[open]){overflow:hidden}
     setBusy(true); alertEl.hidden = true;
     const ctrl = new AbortController(), stop = setTimeout(() => ctrl.abort(), 15000);
     try {
-      const res = await fetch(PROXY || API_URL, { method: 'POST', body: JSON.stringify(payload), signal: ctrl.signal,
-        headers: PROXY ? { 'Content-Type': 'application/json', Accept: 'application/json' } : { 'Content-Type': 'application/json', 'X-API-Key': API_KEY } });
+      const direct = () => fetch(API_URL, { method: 'POST', body: JSON.stringify(payload), signal: ctrl.signal, headers: { 'Content-Type': 'application/json', 'X-API-Key': API_KEY } });
+      let res;
+      if (!PROXY) res = await direct();
+      else {
+        // if the proxy is missing (api/ not uploaded) or cannot reach the CRM from the server, send straight to the CRM instead
+        try { res = await fetch(PROXY, { method: 'POST', body: JSON.stringify(payload), signal: ctrl.signal, headers: { 'Content-Type': 'application/json', Accept: 'application/json' } }); }
+        catch (err) { if (ctrl.signal.aborted) throw err; res = null; }
+        if (!res || res.status === 404 || res.status === 405 || res.status >= 500) res = await direct();
+      }
       if (!res.ok) throw new Error('HTTP ' + res.status);
       if (window.dataLayer) window.dataLayer.push({ event: 'generate_lead', lead_plan: plan });
       done();

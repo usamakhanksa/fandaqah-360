@@ -75,3 +75,12 @@ html[dir=rtl] .dialog-close { right: auto; left: 17px; }
 /* ---------- newsletter: the sign-up goes to the CRM ---------- */
 .newsletter-form button:disabled { opacity: .7; cursor: progress; }
 .newsletter-status.is-ok { color: var(--peach); }
+
+/* ---------- one language at a time ----------
+   The English pages carry Arabic accents (the mega-menu subtitles, "| سنوياً", the CTA line, the heading tags). English mode
+   shows English only; Arabic mode already says the same in the translated line, so they stay hidden there too.
+   The hero's Arabic tagline and the dashboard's Arabic wordmark are not repeated anywhere, so only English mode drops them. */
+small[lang="ar"], strong[lang="ar"], .per-year [lang="ar"], h2 > span[lang="ar"] { display: none; }
+html[lang="en"] .arabic-tag, html[lang="en"] .live-dashboard aside > b > i[lang="ar"] { display: none; }
+.live-dashboard aside > b > i { font-style: normal; }
+html[lang="en"] .live-dashboard aside > b > span { font-size: 15px; }

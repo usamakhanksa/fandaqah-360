@@ -39,22 +39,34 @@
   a:hover{border-color:var(--coral)}
   a.home{background:var(--coral);border-color:var(--coral);color:#fff} a.home small{color:rgba(255,255,255,.82)}
   :focus-visible{outline:2px solid var(--coral);outline-offset:3px}
+  /* English visitors (?lang=en, or English chosen before) get English only */
+  html[lang="en"] .ar,html[lang="en"] .en-lead{display:none}
+  html[lang="en"] a small{margin:0;font-size:inherit;font-weight:inherit;line-height:inherit;color:inherit}
 </style>
 </head>
 <body>
 <main>
   <p class="code">404</p>
-  <h1>نقلنا هذه الصفحة.</h1>
-  <p>أصبح لفندقة 360 موقع واحد بأربعة مسارات. اختر وجهتك التالية.</p>
+  <h1 data-en="This page has moved.">نقلنا هذه الصفحة.</h1>
+  <p data-en="Fandaqah 360 now has one home with four routes. Choose where to go next.">أصبح لفندقة 360 موقع واحد بأربعة مسارات. اختر وجهتك التالية.</p>
   <p class="en-lead" lang="en" dir="ltr">This page has moved. Fandaqah 360 now has one home with four routes.</p>
   <ul>
-    <li><a class="home" href="./" data-to="">الصفحة الرئيسية لفندقة 360<small lang="en" dir="ltr">Fandaqah 360 home</small></a></li>
-    <li><a href="./existing-customers/" data-to="existing-customers/">العملاء الحاليون: تحقّق من عرض الترقية<small lang="en" dir="ltr">Existing customers: check my upgrade offer</small></a></li>
-    <li><a href="./new-hotels/" data-to="new-hotels/">الفنادق الجديدة: احجز عرضاً توضيحياً لفندقي<small lang="en" dir="ltr">New hotels: book my hotel demo</small></a></li>
-    <li><a href="./opera-pms/" data-to="opera-pms/">Opera / أنظمة PMS: اطلب مراجعة تكاليف التقنية<small lang="en" dir="ltr">Opera / PMS: request a technology cost review</small></a></li>
-    <li><a href="./hotel-groups/" data-to="hotel-groups/">مجموعات الفنادق: احجز اجتماعاً استكشافياً للمجموعة<small lang="en" dir="ltr">Hotel groups: book a group discovery meeting</small></a></li>
+    <li><a class="home" href="./" data-to=""><span class="ar">الصفحة الرئيسية لفندقة 360</span><small lang="en" dir="ltr">Fandaqah 360 home</small></a></li>
+    <li><a href="./existing-customers/" data-to="existing-customers/"><span class="ar">العملاء الحاليون: تحقّق من عرض الترقية</span><small lang="en" dir="ltr">Existing customers: check my upgrade offer</small></a></li>
+    <li><a href="./new-hotels/" data-to="new-hotels/"><span class="ar">الفنادق الجديدة: احجز عرضاً توضيحياً لفندقي</span><small lang="en" dir="ltr">New hotels: book my hotel demo</small></a></li>
+    <li><a href="./opera-pms/" data-to="opera-pms/"><span class="ar">Opera / أنظمة PMS: اطلب مراجعة تكاليف التقنية</span><small lang="en" dir="ltr">Opera / PMS: request a technology cost review</small></a></li>
+    <li><a href="./hotel-groups/" data-to="hotel-groups/"><span class="ar">مجموعات الفنادق: احجز اجتماعاً استكشافياً للمجموعة</span><small lang="en" dir="ltr">Hotel groups: book a group discovery meeting</small></a></li>
   </ul>
 </main>
-<script>document.querySelectorAll('[data-to]').forEach(function (a) { a.href = window.FQ_BASE + a.dataset.to; });</script>
+<script>
+(function () {
+  var l; try { l = new URLSearchParams(location.search).get('lang') || localStorage.getItem('fq360-lang'); } catch (e) {}
+  var en = l === 'en', r = document.documentElement;
+  if (en) { r.lang = 'en'; r.dir = 'ltr'; document.title = 'Page not found | Fandaqah 360';
+    document.querySelectorAll('[data-en]').forEach(function (n) { n.textContent = n.dataset.en; }); }
+  // every route keeps the visitor's language
+  document.querySelectorAll('[data-to]').forEach(function (a) { a.href = window.FQ_BASE + a.dataset.to + (en ? '?lang=en' : ''); });
+})();
+</script>
 </body>
 </html>

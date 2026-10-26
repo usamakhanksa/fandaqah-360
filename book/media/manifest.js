@@ -146,6 +146,14 @@ window.BOOK_MEDIA = {
     "poster": "media/A-existing-customers/reels/A-reel-en.jpg",
     "mb": 2.8
    }
+  },
+  "snap": {
+   "ar": {
+    "mp4": "media/A-existing-customers/reels/A-snap-ar.mp4",
+    "poster": "media/A-existing-customers/reels/A-snap-ar.jpg",
+    "mb": 3.7,
+    "sec": 17
+   }
   }
  },
  "B": {

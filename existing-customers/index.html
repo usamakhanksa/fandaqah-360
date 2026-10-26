@@ -794,8 +794,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (g.type === 'ticket') return h + `<dl class="pa-ticket">${g.rows.map(r => `<div><dt>${esc(tx(r.dt))}</dt><dd>${esc(tx(r.dd))}</dd></div>`).join('')}</dl><p class="pa-state">${esc(tx(g.state))}</p>`;
     return h + `<ul class="pa-stock">${g.rows.map(r => `<li${r.low ? ' class="is-low"' : ''}><span>${esc(tx(r.t))}</span><b>${esc(tx(r.v))}</b>${r.low ? `<em>${esc(tx(g.low))}</em>` : ''}</li>`).join('')}</ul>`;
   };
-  const write = ({ m, el }) => {
-    const t = m[lang()];
+  const write = item => {
+    const { m, el } = item, t = m[lang()];
+    item.lang = lang();
     el.querySelector('.pa-glass').innerHTML = glass(m.glass);
     el.querySelector('.pa-card-k').textContent = t.k;
     el.querySelector('h3').textContent = t.t;
@@ -841,12 +842,12 @@ document.addEventListener('DOMContentLoaded', () => {
   btn.addEventListener('click', () => load(STEP));
   // the hero's "+15 more modules" chip asks for everything that is left
   document.addEventListener('fq:all-modules', () => { if (!data || loaded.length < data.modules.length) load(Infinity, true); });
-  // site.js switches the language first; then the loaded cards follow, and the tray and sheet re-read their names
-  document.querySelectorAll('[data-lang]').forEach(b => b.addEventListener('click', () => {
-    if (!loaded.length) return;
+  // the loaded cards follow <html lang> itself, so they switch whichever script changes the language and whatever order they run in
+  new MutationObserver(() => {
+    if (!loaded.length || loaded[0].lang === lang()) return;
     loaded.forEach(write);
     status.textContent = '';
-  }));
+  }).observe(root, { attributes: true, attributeFilter: ['lang'] });
   more.hidden = false;
   progress();
   // hero chip: glide to the modules (html carries smooth scrolling, the header offset and the reduced-motion fallback)
