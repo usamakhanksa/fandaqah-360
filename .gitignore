@@ -7,3 +7,6 @@ __pycache__/
 
 # upload packages (tools/package-php.py)
 _dist/
+
+# the internal archive: kept on disk, never committed (it outgrew GitHub's 100 MB limit)
+_internal.zip
