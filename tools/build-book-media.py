@@ -52,12 +52,14 @@ for code, folder in FOLDERS.items():
     for mp4 in sorted((out / 'reels').glob('*-reel-*.mp4')):
         lang = mp4.stem.rsplit('-', 1)[-1]
         entry['reels'][lang] = {'mp4': rel(mp4), 'poster': rel(mp4.with_suffix('.jpg')), 'mb': round(mp4.stat().st_size / 1048576, 1)}
-    # Snapchat ads (tools/render-snap.mjs): <X>-snap-<lang>.mp4, offered in the book's downloads beside the reels
-    for mp4 in sorted((out / 'reels').glob('*-snap-*.mp4')):
+    # Snapchat ads (tools/render-snap.mjs): <X>-snap-<lang>.mp4 (motion) and <X>-snap2-<lang>.mp4 (receptionist film),
+    # offered in the book's downloads beside the reels; keyed by ad and language, e.g. snap2-ar
+    for mp4 in sorted((out / 'reels').glob('*-snap*-*.mp4'), key=lambda f: f.stem, reverse=True):
         lang = mp4.stem.rsplit('-', 1)[-1]
         probe = subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', str(mp4)], capture_output=True, text=True)
         sec = round(float(probe.stdout.strip() or 0))
-        entry.setdefault('snap', {})[lang] = {'mp4': rel(mp4), 'poster': rel(mp4.with_suffix('.jpg')), 'mb': round(mp4.stat().st_size / 1048576, 1), 'sec': sec}
+        kind = mp4.stem.split('-')[1]
+        entry.setdefault('snap', {})[f'{kind}-{lang}'] = {'kind': kind, 'lang': lang, 'mp4': rel(mp4), 'poster': rel(mp4.with_suffix('.jpg')), 'mb': round(mp4.stat().st_size / 1048576, 1), 'sec': sec}
     manifest[code] = entry
     n = sum(len(entry[k]) for k in ('banners', 'feed', 'story', 'carousel'))
     total += n

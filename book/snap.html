@@ -287,9 +287,9 @@ body{display:grid;place-items:center;overflow:hidden;font-family:var(--f);-webki
       <span class="logo"><img src="../assets/img/brand-dark-340.webp" width="340" height="144" alt="فندقة"><b>360</b></span>
       <p class="all">جميع الوحدات الـ20</p>
       <hr>
-      <p class="price"><b>3,495</b><span>ر.س سنوياً</span></p>
-      <p class="vat">غير شامل الضريبة</p>
-      <p class="lock"><svg class="ic"><use href="../assets/icons.svg#i-lock"/></svg>يثبت السعر لمدة عامين عند الدفع المسبق</p>
+      <p class="price"><b>3,495</b><span>ر.س</span></p>
+      <p class="vat">سنوياً + الضريبة · خلال فترة العرض</p>
+      <p class="lock"><svg class="ic"><use href="../assets/icons.svg#i-lock"/></svg>ويمكنك تثبيت نفس السعر لسنة إضافية</p>
     </div>
   </section>
 
@@ -315,7 +315,8 @@ body{display:grid;place-items:center;overflow:hidden;font-family:var(--f);-webki
   const DUR = 9.5, q = new URLSearchParams(location.search), render = q.has('render');
   // reading pace: [beat-sheet start, beat-sheet end, seconds on screen] per scene; quick moves stay quick inside each
   // scene, and the offer and the end frame get time to be read
-  const SEG = [[0, 1.4, 2.2], [1.4, 2.8, 2.0], [2.8, 4.0, 2.2], [4.0, 6.4, 3.4], [6.4, 7.8, 2.2], [7.8, 8.7, 2.4], [8.7, 9.5, 2.6]];
+  // owner: slower again, so every scene is 1.5× its reading-pace length (25.5 s in all)
+  const SEG = [[0, 1.4, 3.3], [1.4, 2.8, 3.0], [2.8, 4.0, 3.3], [4.0, 6.4, 5.1], [6.4, 7.8, 3.3], [7.8, 8.7, 3.6], [8.7, 9.5, 3.9]];
   const REAL = SEG.reduce((n, s) => n + s[2], 0);
   const warp = t => { let at = 0; for (const [a, b, len] of SEG) { if (t <= at + len) return a + (b - a) * Math.max(0, t - at) / len; at += len; } return DUR; };
   if (render) document.documentElement.classList.add('render');

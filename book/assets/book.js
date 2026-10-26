@@ -20,7 +20,7 @@
       chapter: 'Chapter', buyer: 'Buyer', action: 'Desired action', cta: 'Call to action', landing: 'Open the landing page',
       reels: 'Reels', reelsMeta: '25 s · 1080×1920 · MP4 · captions burned in · with music', download: 'Download MP4', live: 'Live GSAP version',
       arabic: 'Arabic', english: 'English', pending: 'Reel is being rendered', play: 'Play or pause the reel',
-      snap: 'Snapchat ad', snapMeta: (s, mb) => `${s} s · MP4 · ${mb} MB`,
+      snap: { snap: 'Snapchat · motion', snap2: 'Snapchat · film' }, snapMeta: (s, mb) => `${s} s · MP4 · ${mb} MB`,
       sound: 'Sound', soundOn: 'Turn the sound on', soundOff: 'Turn the sound off',
       storyboard: 'Storyboard', beats: ['0–3 s · Hook', '3–10 s · Solution', '10–20 s · Proof', '20–25 s · Call to action'],
       book: 'Banner book', bookMeta: n => `${n} pages · tap a page to turn it`, prev: 'Previous page', next: 'Next page', zoom: 'View full size',
@@ -33,7 +33,7 @@
       chapter: 'الفصل', buyer: 'المشتري', action: 'الإجراء المطلوب', cta: 'دعوة الإجراء', landing: 'افتح صفحة الهبوط',
       reels: 'الريلز', reelsMeta: '25 ثانية · <bdi dir="ltr">1080×1920</bdi> · MP4 · ترجمة مدمجة · مع موسيقى', download: 'تحميل MP4', live: 'نسخة GSAP الحية',
       arabic: 'العربية', english: 'الإنجليزية', pending: 'جارٍ تجهيز الريل', play: 'تشغيل الريل أو إيقافه',
-      snap: 'إعلان سناب شات', snapMeta: (s, mb) => `${s} ثانية · MP4 · ${mb} MB`,
+      snap: { snap: 'سناب شات · موشن', snap2: 'سناب شات · فيلم' }, snapMeta: (s, mb) => `${s} ثانية · MP4 · ${mb} MB`,
       sound: 'الصوت', soundOn: 'تشغيل الصوت', soundOff: 'إيقاف الصوت',
       storyboard: 'القصة المصورة', beats: ['0–3 ث · الجذب', '3–10 ث · الحل', '10–20 ث · الإثبات', '20–25 ث · دعوة الإجراء'],
       book: 'كتاب البنرات', bookMeta: n => `${n} صفحة · اضغط على الصفحة لتقليبها`, prev: 'الصفحة السابقة', next: 'الصفحة التالية', zoom: 'عرض بالحجم الكامل',
@@ -91,9 +91,9 @@
       const files = [lang, lang === 'ar' ? 'en' : 'ar'].filter(l => m.reels[l]).map(l => {
         const r = m.reels[l], name = l === 'ar' ? T.arabic : T.english;
         return `<a class="bk-dl-file" href="${r.mp4}" download="${reelFile(c, l)}" aria-label="${T.download} · ${c} · ${X.name} · ${name} · ${r.mb} MB"><img src="${r.poster}" width="108" height="192" alt="" loading="lazy"><span class="bk-dl-meta"><b>${name}</b><small>MP4 · ${r.mb} MB</small></span><span class="bk-dl-go" aria-hidden="true">${ico('i-download')}</span></a>`;
-      }).join('') + Object.entries(m.snap || {}).map(([l, s]) =>
+      }).join('') + Object.values(m.snap || {}).map(s =>
         // the campaign's Snapchat ad (Arabic only today), one click like the reels
-        `<a class="bk-dl-file is-snap" href="${s.mp4}" download="${reelFile(c, l, 'Snapchat')}" aria-label="${T.download} · ${c} · ${X.name} · ${T.snap} · ${s.mb} MB"><img src="${s.poster}" width="108" height="192" alt="" loading="lazy"><span class="bk-dl-meta"><b>${T.snap}</b><small>${T.snapMeta(s.sec, s.mb)}</small></span><span class="bk-dl-go" aria-hidden="true">${ico('i-download')}</span></a>`
+        `<a class="bk-dl-file is-snap" href="${s.mp4}" download="${reelFile(c, s.lang, s.kind === 'snap2' ? 'Snapchat-Film' : 'Snapchat')}" aria-label="${T.download} · ${c} · ${X.name} · ${T.snap[s.kind] || T.snap.snap} · ${s.mb} MB"><img src="${s.poster}" width="108" height="192" alt="" loading="lazy"><span class="bk-dl-meta"><b>${T.snap[s.kind] || T.snap.snap}</b><small>${T.snapMeta(s.sec, s.mb)}</small></span><span class="bk-dl-go" aria-hidden="true">${ico('i-download')}</span></a>`
       ).join('');
       return `<li class="bk-dl-card"><a class="bk-dl-top" href="#ch-${c}"><span class="code">${c}</span><b>${X.name}</b></a><div class="bk-dl-files">${files}</div></li>`;
     }).join('');

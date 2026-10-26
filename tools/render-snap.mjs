@@ -7,7 +7,9 @@
 // Sound: the supplied Arabic track (_internal/audio/arabic-music.mp3, git-ignored), cut so its first chorus lands on
 // the 20-module reveal (beat 4.0), under a light sound design written here (paper and card pops, the upgrade click,
 // the counter ticks, a success chime at 20, a rise into the offer and the logo sting). Mixed to -16 LUFS, -2 dBTP.
-// Output: book/media/A-existing-customers/reels/A-snap-ar.mp4, A-snap-ar.jpg (poster) and A-snap-score.m4a
+// Pages: SNAP_PAGE=snap (default, the motion ad) or snap2 (the receptionist film). A page may declare its own sound
+// cues (window.SNAP.cues, in seconds), music peak (SNAP.peak) and output name (SNAP.out).
+// Output: book/media/A-existing-customers/reels/<out>.mp4, <out>.jpg (poster) and <out>-score.m4a
 import { mkdirSync, rmSync, writeFileSync, existsSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -16,7 +18,8 @@ import path from 'node:path';
 
 const ORIGIN = process.env.REELS_ORIGIN || 'http://127.0.0.1:8766';
 const repo = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const FPS = 30, POSTER_BEAT = 6.2;   // the poster: twenty modules, all connected
+const FPS = 30, POSTER_BEAT = 6.2;   // the poster: twenty modules, all connected (the motion ad's beat sheet)
+const PAGE = process.env.SNAP_PAGE || 'snap';
 const OUT = path.join(repo, 'book', 'media', 'A-existing-customers', 'reels');
 const MUSIC = path.join(repo, '_internal', 'audio', 'arabic-music.mp3');
 const DROP = 51.33, PEAK_BEAT = 4.0;   // chorus 1 downbeat in the track (as in tools/reel-music.py), and the beat where the peak opens
@@ -24,7 +27,7 @@ const tmp = path.join(os.tmpdir(), 'fq360-snap');
 
 // ---------- sound design: short synthesised cues, 48 kHz mono 16-bit ----------
 // cue times below are written on the 9.5 s beat sheet; R() places them at their real time
-function sfx(file, DUR, R) {
+function sfx(file, DUR, R, CUES) {
   const SR = 48000, n = Math.ceil(DUR * SR), buf = new Float32Array(n);
   const B = r => { let lo = 0, hi = 9.5; for (let i = 0; i < 40; i++) { const m = (lo + hi) / 2; if (R(m) < r) lo = m; else hi = m; } return (lo + hi) / 2; };
   let seed = 7; const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647) * 2 - 1;
@@ -34,6 +37,14 @@ function sfx(file, DUR, R) {
   const click = (t0, g = .45) => { add(t0, .03, (t) => rnd() * Math.exp(-t * 260), g); add(t0, .12, tone(110, 30), g * .9); };
   const whoosh = (t0, len, g = .16) => { let lp = 0; add(t0, len, (t, p) => { lp += (rnd() - lp) * (.05 + .25 * p); return lp * Math.sin(Math.PI * p); }, g * 3); };
   const chime = (t0, fs, g = .16) => fs.forEach((f, i) => { const r0 = R(t0) + i * .07; add(B(r0), 1.1, tone(f, 4.5), g); });
+  if (CUES) {
+    // the page's own cue sheet, already in real seconds (R is the identity for those pages)
+    const thump = (t0, g) => { add(t0, .35, tone(62, 9), g); add(t0, .05, (t) => rnd() * Math.exp(-t * 200), g * .3); };
+    const tick = (t0, g) => add(t0, .06, tone(2400, 70), g);
+    const rise = (t0, len, g) => add(t0, len, (t, p) => Math.sin(2 * Math.PI * (500 + 700 * p) * t) * p * p, g);
+    for (const c of CUES) ({ pop: () => pop(c.t, c.g), click: () => click(c.t, c.g), whoosh: () => whoosh(c.t, c.len), chime: () => chime(c.t, c.f, c.g),
+      tick: () => tick(c.t, c.g), thump: () => thump(c.t, c.g), rise: () => rise(c.t, c.len, c.g) })[c.k]();
+  } else {
   // 1 · the busy desk: papers land, the phone rings twice
   [0.06, 0.16, 0.26, 0.36, 0.46].forEach(t => pop(t, .12));
   chime(0.62, [1320, 1760], .07); chime(0.98, [1320, 1760], .07);
@@ -48,6 +59,7 @@ function sfx(file, DUR, R) {
   [6.55, 6.65, 6.75, 6.86, 6.96, 7.06].forEach(t => pop(t, .08)); // the workflows move
   add(8.2, 1.1, (t, p) => Math.sin(2 * Math.PI * (500 + 700 * p) * t) * p * p, .05);  // the rise into the call to action
   chime(9.18, [880, 1108.7, 1318.5], .12);                 // logo sting
+  }
   const pcm = Buffer.alloc(44 + n * 2);
   pcm.write('RIFF', 0); pcm.writeUInt32LE(36 + n * 2, 4); pcm.write('WAVEfmt ', 8); pcm.writeUInt32LE(16, 16); pcm.writeUInt16LE(1, 20);
   pcm.writeUInt16LE(1, 22); pcm.writeUInt32LE(SR, 24); pcm.writeUInt32LE(SR * 2, 28); pcm.writeUInt16LE(2, 32); pcm.writeUInt16LE(16, 34);
@@ -69,9 +81,9 @@ async function seek(page, t) {
 export default async function run(page) {
   rmSync(tmp, { recursive: true, force: true }); mkdirSync(path.join(tmp, 'f'), { recursive: true }); mkdirSync(OUT, { recursive: true });
   await page.setViewportSize({ width: 1080, height: 1920 });
-  await page.goto(`${ORIGIN}/book/snap.html?render=1`);
+  await page.goto(`${ORIGIN}/book/${PAGE}.html?render=1`);
   await page.waitForSelector('body[data-ready="1"]', { timeout: 20000 });
-  const { duration: DUR, segments: SEG } = await page.evaluate(() => ({ duration: window.SNAP.duration, segments: window.SNAP.segments }));
+  const { duration: DUR, segments: SEG, cues: CUES, peak: PEAK, out: NAME = 'A-snap-ar' } = await page.evaluate(() => ({ duration: window.SNAP.duration, segments: window.SNAP.segments, cues: window.SNAP.cues, peak: window.SNAP.peak, out: window.SNAP.out }));
   // beat sheet → real seconds (the inverse of the page's warp)
   const R = beat => { let at = 0; for (const [a, b, len] of SEG) { if (beat <= b) return at + len * Math.max(0, beat - a) / (b - a); at += len; } return DUR; };
   const FRAMES = Math.round(DUR * FPS);
@@ -80,13 +92,13 @@ export default async function run(page) {
     await seek(page, t);
     await page.screenshot({ path: path.join(tmp, 'f', `${String(f).padStart(5, '0')}.jpg`), type: 'jpeg', quality: 94 });
   }
-  await seek(page, +R(POSTER_BEAT).toFixed(4));
-  await page.screenshot({ path: path.join(OUT, 'A-snap-ar.jpg'), type: 'jpeg', quality: 84 });
+  await seek(page, PEAK != null ? +(PEAK + 2.8).toFixed(4) : +R(POSTER_BEAT).toFixed(4));
+  await page.screenshot({ path: path.join(OUT, `${NAME}.jpg`), type: 'jpeg', quality: 84 });
 
   // sound: the music cut (if the source is present) under the cues, mixed and normalised
-  const cues = path.join(tmp, 'cues.wav'), score = path.join(OUT, 'A-snap-score.m4a');
-  sfx(cues, DUR, R);
-  const start = (DROP - R(PEAK_BEAT)).toFixed(3);
+  const cues = path.join(tmp, 'cues.wav'), score = path.join(OUT, `${NAME}-score.m4a`);
+  sfx(cues, DUR, R, CUES);
+  const start = (DROP - (PEAK != null ? PEAK : R(PEAK_BEAT))).toFixed(3);
   if (existsSync(MUSIC)) {
     ff(['-ss', start, '-t', String(DUR), '-i', MUSIC, '-i', cues, '-filter_complex',
       `[0:a]aformat=sample_rates=48000:channel_layouts=stereo,afade=t=in:d=0.2,afade=t=out:st=${DUR - 0.75}:d=0.75,volume=0.8[m];` +
@@ -95,7 +107,7 @@ export default async function run(page) {
   } else {
     ff(['-i', cues, '-af', `aformat=sample_rates=48000:channel_layouts=stereo,loudnorm=I=-16:TP=-2`, '-c:a', 'aac', '-b:a', '192k', score], 'cues only');
   }
-  const mp4 = path.join(OUT, 'A-snap-ar.mp4');
+  const mp4 = path.join(OUT, `${NAME}.mp4`);
   // no -shortest: with these inputs it trims the last frame; picture and sound are both exactly 9.5 s
   ff(['-framerate', String(FPS), '-i', path.join(tmp, 'f', '%05d.jpg'), '-i', score, '-map', '0:v', '-map', '1:a',
     '-c:v', 'libx264', '-preset', 'slow', '-crf', '18', '-pix_fmt', 'yuv420p', '-profile:v', 'high', '-r', String(FPS),

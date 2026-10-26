@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>فندقة 360 · إعلان سناب شات (الموظفة)</title>
+<!-- Campaign A, Snapchat, second ad: the receptionist film (media/A-existing-customers/snap/receptionist.mp4, supplied)
+     cut into a 27 s, 1080×1920 spot (written in 18 s, played 1.5× slower), Arabic only. It plays and loops here; ?render=1 holds it for
+     tools/render-snap.mjs (SNAP_PAGE=snap2), which seeks every frame, videos included. The offer is the current one:
+     the launch price for a year, with the option to secure a second year at the same rate during the offer.
+     Storyboard: campaigns/A-existing-customers/snapchat-storyboard.md -->
+<link rel="icon" href="../favicon.ico">
+<style>
+@font-face{font-family:"Almarai";font-weight:400;font-display:block;src:url(../assets/fonts/almarai-arabic-400.woff2) format("woff2");unicode-range:U+0600-06FF,U+0750-077F,U+0870-08FF,U+200C-200E,U+2010-2011,U+FB50-FDFF,U+FE70-FEFC}
+@font-face{font-family:"Almarai";font-weight:700;font-display:block;src:url(../assets/fonts/almarai-arabic-700.woff2) format("woff2");unicode-range:U+0600-06FF,U+0750-077F,U+0870-08FF,U+200C-200E,U+2010-2011,U+FB50-FDFF,U+FE70-FEFC}
+@font-face{font-family:"Inter";font-weight:400 800;font-display:block;src:url(../assets/fonts/inter-latin.woff2) format("woff2")}
+:root{--coral:#e95a54;--navy:#2a273c;--beige:#f2f0eb;--green:#8f9793;--peach:#fbcdab;--ink:#2a273c;--ink-2:#5d5a6c;--line:rgba(42,39,60,.12);--f:"Almarai","Inter",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#15131f}
+body{display:grid;place-items:center;overflow:hidden;font-family:var(--f);-webkit-font-smoothing:antialiased}
+.ic{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--navy);transform-origin:50% 50%;flex:none}
+.sc{position:absolute;inset:0;opacity:0;visibility:hidden}
+.film{position:absolute;inset:0 0 auto;overflow:hidden}
+.film video{position:absolute;left:0;width:1080px;height:1920px;object-fit:cover;display:block}
+.h{font-weight:700;color:#fff;text-align:center;line-height:1.25}
+.pill{display:inline-flex;align-items:center;gap:12px;padding:12px 26px;border-radius:999px;font-weight:700}
+.logo{display:inline-flex;align-items:center;gap:12px}
+.logo img{height:60px;width:auto}
+.logo b{font:800 58px/1 "Inter",sans-serif;color:var(--coral);letter-spacing:-.02em}
+.tag{position:absolute;font-size:22px;color:var(--ink-2)}
+.gold{fill:url(#gold)}
+
+/* 1 · hook: her at the desk, still chasing the rest of the hotel */
+.s1 .film{height:936px}
+.s1 .film video{top:0;height:1920px}
+.s1 .film::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,39,60,0) 62%,var(--navy) 99%)}
+.s1 .frost{position:absolute;left:600px;top:0;width:480px;height:960px;-webkit-backdrop-filter:blur(20px) saturate(.75);backdrop-filter:blur(20px) saturate(.75);background:rgba(42,39,60,.3)}
+.todo{position:absolute;display:flex;align-items:center;gap:14px;padding:16px 22px;border-radius:14px;background:#fff;box-shadow:0 22px 40px -18px rgba(10,8,25,.55);font-size:26px;font-weight:700;color:var(--ink)}
+.todo .ic{width:32px;height:32px;color:var(--coral)}
+.todo small{display:block;margin-top:4px;font-size:20px;font-weight:400;color:var(--ink-2)}
+.todo i{margin-inline-start:6px;width:12px;height:12px;border-radius:50%;background:var(--coral)}
+.s1 .copy{position:absolute;inset:1040px 70px auto}
+.s1 .h1{font-size:84px;white-space:nowrap}
+.s1 .h2{margin-top:14px;font-size:92px;color:var(--peach)}
+
+/* 2 · the gap */
+.s2 .film{height:1920px}
+.s2 .film video{top:0;filter:blur(24px) saturate(.7);transform:scale(1.15)}
+.s2 .veil{position:absolute;inset:0;background:rgba(42,39,60,.8)}
+.s2 .copy{position:absolute;inset:500px 70px auto}
+.s2 .h{font-size:78px}
+.gap{position:absolute;inset:820px 90px auto;display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.gcard{display:flex;align-items:center;gap:18px;padding:24px 26px;border-radius:18px;background:rgba(255,255,255,.07);border:2px dashed rgba(251,205,171,.45);color:#fff;font-size:34px;font-weight:700}
+.gcard .ic{width:44px;height:44px;color:var(--peach)}
+.gcard em{margin-inline-start:auto;font-style:normal;font-size:22px;font-weight:400;color:rgba(255,255,255,.55)}
+.gcard:last-child{grid-column:1/-1;justify-self:center;width:calc(50% - 13px)}
+
+/* 3 · the upgrade: over her shoulder, then the screen */
+.s3 .film{height:1920px}
+.s3 .film video{top:0}
+.s3 .frost{position:absolute;left:0;top:800px;width:400px;height:820px;-webkit-backdrop-filter:blur(20px) saturate(.75);backdrop-filter:blur(20px) saturate(.75);background:rgba(42,39,60,.25)}
+.s3 .film::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,39,60,.75) 0%,rgba(42,39,60,0) 32%)}
+.s3 .copy{position:absolute;inset:260px 70px auto;display:grid;gap:8px;z-index:2}
+.s3 .h.one{font-size:84px}
+.s3 .h.two{font-size:84px;color:var(--coral)}
+.s3 .ui{position:absolute;inset:0;background:var(--beige)}
+.s3 .ui .copy .h.one{color:var(--navy)}
+.app{position:absolute;left:50%;top:590px;width:940px;height:860px;margin-left:-470px;border-radius:26px;background:#fff;box-shadow:0 50px 90px -40px rgba(42,39,60,.55),0 0 0 1px var(--line);overflow:hidden;display:grid;grid-template-columns:1fr 280px;grid-template-rows:96px 1fr}
+.app-top{grid-column:1/-1;display:flex;align-items:center;gap:20px;padding:0 30px;border-bottom:1px solid var(--line)}
+.app-top .logo img{height:44px}.app-top .logo b{font-size:40px;display:inline-block}
+.app-top .hotel{margin-inline-start:auto;display:flex;align-items:center;gap:12px;font-size:26px;font-weight:700;color:var(--ink)}
+.app-top .hotel i{width:46px;height:46px;border-radius:50%;background:var(--peach)}
+.side{grid-column:2;grid-row:2;padding:22px 16px;background:var(--navy);display:flex;flex-direction:column;gap:6px}
+.side li{list-style:none;display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:12px;font-size:25px;color:rgba(255,255,255,.82)}
+.side li .ic{width:28px;height:28px;color:var(--peach)}
+.side li.on{background:rgba(255,255,255,.1);color:#fff}
+.side li.new{color:#fff}.side li.new .ic{color:var(--coral)}
+.main{grid-column:1;grid-row:2;padding:30px;display:flex;flex-direction:column;gap:22px}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.kpi{padding:18px;border-radius:14px;background:var(--beige)}
+.kpi p{font-size:21px;color:var(--ink-2)}
+.kpi b{display:block;margin-top:8px;font:800 40px/1 "Inter",sans-serif;color:var(--ink)}
+.rooms{flex:1;display:grid;grid-template-columns:repeat(5,1fr);gap:10px;align-content:start}
+.rooms i{height:56px;border-radius:10px;background:var(--c,#e7e3dc)}
+.up{align-self:center;display:inline-flex;align-items:center;gap:14px;padding:22px 40px;border-radius:999px;background:var(--coral);color:#fff;font-size:32px;font-weight:700;box-shadow:0 18px 30px -14px rgba(233,90,84,.9)}
+.up .ic{width:30px;height:30px;transform:scaleX(-1)}
+.ripple{position:absolute;width:80px;height:80px;margin:-40px 0 0 -40px;border-radius:50%;border:4px solid #fff;opacity:0}
+.cursor{position:absolute;width:64px;height:64px;filter:drop-shadow(0 8px 10px rgba(0,0,0,.35))}
+.app .tag{bottom:18px;left:30px}
+
+/* 4 · the hero: more than twenty solutions, in four families, one platform */
+.s4{background:radial-gradient(70% 50% at 50% 48%,#3a3654 0%,var(--navy) 72%)}
+.s4 .head{position:absolute;inset:230px 60px auto;display:grid;justify-items:center;gap:22px}
+.s4 .head .logo{padding:12px 24px;border-radius:18px;background:var(--beige)}
+.s4 .head .logo img{height:50px}.s4 .head .logo b{font-size:48px}
+.s4 .head .h{font-size:66px}
+.fams{position:absolute;inset:520px 50px auto;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto 300px auto;column-gap:24px}
+.fam:nth-child(n+3){grid-row:3}
+.fam{position:relative;padding:24px 22px 22px;border-radius:24px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14)}
+.fam h3{display:flex;align-items:center;gap:14px;font-size:34px;font-weight:700;color:#fff}
+.fam h3 span{display:grid;place-items:center;width:56px;height:56px;border-radius:16px;background:var(--coral);flex:none}
+.fam h3 .ic{width:30px;height:30px;color:#fff}
+.fam ul{margin-top:18px;display:flex;flex-wrap:wrap;gap:10px;list-style:none}
+.fam li{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:12px;background:rgba(242,240,235,.92);color:var(--ink);font-size:23px;font-weight:700;white-space:nowrap}
+.fam li .ic{width:22px;height:22px;color:var(--coral)}
+.links{position:absolute;inset:0;width:1080px;height:1920px}
+.links path{fill:none;stroke:rgba(251,205,171,.55);stroke-width:3}
+.hub{position:absolute;left:540px;top:0;width:236px;height:236px;margin:-118px 0 0 -118px;border-radius:50%;background:var(--beige);display:grid;place-items:center;align-content:center;box-shadow:0 0 0 16px rgba(242,240,235,.1),0 30px 60px -20px rgba(0,0,0,.7)}
+.hub b{font:800 96px/1 "Inter",sans-serif;color:var(--coral);letter-spacing:-.03em}
+.hub small{margin-top:4px;font-size:28px;font-weight:700;color:var(--navy)}
+.s4 .foot{position:absolute;inset:auto 60px 330px;display:flex;justify-content:center}
+.s4 .foot .pill{background:var(--coral);color:#fff;font-size:40px;padding:16px 36px}
+
+/* 5 · one workflow, end to end */
+.s5{background:var(--beige)}
+.s5 .copy{position:absolute;inset:250px 70px auto;display:grid;gap:6px}
+.s5 .h{color:var(--navy);font-size:80px}
+.s5 .h.b{color:var(--coral)}
+.flow{position:absolute;left:150px;right:150px;top:600px;display:grid;gap:0}
+.step{display:flex;align-items:center;gap:22px;padding:24px 28px;border-radius:20px;background:#fff;box-shadow:0 20px 40px -26px rgba(42,39,60,.5),0 0 0 1px var(--line);font-size:36px;font-weight:700;color:var(--ink)}
+.step span{display:grid;place-items:center;width:64px;height:64px;border-radius:18px;background:var(--peach);flex:none}
+.step .ic{width:34px;height:34px;color:var(--coral)}
+.step em{margin-inline-start:auto;font-style:normal;display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--green);color:#fff}
+.step em .ic{width:24px;height:24px;color:#fff;stroke-width:3}
+.joint{justify-self:center;width:4px;height:44px;background:var(--coral);transform-origin:50% 0}
+.s5 .tag{left:150px;top:1580px}
+
+/* 6 · the offer */
+.s6{background:var(--navy)}
+.offer{position:absolute;left:70px;right:70px;top:400px;padding:60px 52px 52px;border-radius:36px;background:var(--beige);text-align:center;display:grid;justify-items:center;gap:20px;box-shadow:0 60px 100px -50px rgba(0,0,0,.8)}
+.offer .k{background:var(--peach);color:var(--navy);font-size:31px}
+.offer .price{display:flex;align-items:baseline;gap:16px;color:var(--coral);margin-top:6px}
+.offer .price b{font:800 170px/1 "Inter",sans-serif;letter-spacing:-.035em;font-variant-numeric:tabular-nums}
+.offer .price span{font-size:52px;font-weight:700}
+.offer .per{font-size:32px;color:var(--ink-2)}
+.offer hr{width:140px;border:0;border-top:4px solid var(--coral);border-radius:2px}
+.offer .extra{font-size:38px;font-weight:700;color:var(--navy);line-height:1.35}
+.offer .guar{display:inline-flex;align-items:center;gap:18px;margin-top:10px;padding:16px 28px 16px 22px;border-radius:20px;background:#fff;box-shadow:0 0 0 1px var(--line)}
+.offer .guar svg{width:78px;height:78px}
+.offer .guar b{display:block;font-size:34px;color:var(--navy)}
+.offer .guar small{display:block;margin-top:4px;font-size:22px;color:var(--ink-2)}
+.offer .tc{font-size:21px;color:var(--ink-2)}
+
+/* 7 · the payoff, then the end frame holds */
+.s7 .film{height:1000px}
+.s7 .film video{top:0}
+.s7 .film::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,39,60,.15) 0%,rgba(42,39,60,0) 40%,var(--navy) 100%)}
+.s7 .top{position:absolute;top:230px;left:0;right:0;display:flex;justify-content:center}
+.s7 .top .logo{padding:14px 26px;border-radius:20px;background:rgba(242,240,235,.94)}
+.s7 .top .logo img{height:52px}.s7 .top .logo b{font-size:50px}
+.end{position:absolute;inset:860px 60px auto;display:grid;justify-items:center;gap:16px;text-align:center}
+.end .kick{font-size:31px;font-weight:700;color:var(--peach)}
+.end .h{font-size:92px}
+.end .ben{font-size:40px;color:#fff}
+.end .off{display:flex;align-items:baseline;gap:12px;color:#fff;font-size:30px}
+.end .off b{font:800 54px/1 "Inter",sans-serif;color:var(--coral)}
+.end .off2{font-size:25px;color:rgba(255,255,255,.75)}
+.cta{margin-top:10px;display:inline-flex;align-items:center;gap:18px;padding:28px 60px;border-radius:999px;background:var(--coral);color:#fff;font-size:46px;font-weight:700;box-shadow:0 24px 40px -18px rgba(233,90,84,.95)}
+.cta .ic{width:40px;height:40px;transform:scaleX(-1)}
+.end .meta{display:flex;align-items:center;gap:18px;font-size:27px;color:#fff}
+.end .meta svg{width:42px;height:42px}
+.end .meta .url{font:600 30px/1 "Inter",sans-serif}
+.end .fine{font-size:21px;color:rgba(255,255,255,.6)}
+
+.ctrl{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:9}
+.ctrl button{font:600 14px/1 system-ui;padding:10px 16px;border:0;border-radius:999px;background:#fff;color:#222;cursor:pointer}
+.render .ctrl{display:none}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="seal" viewBox="0 0 120 120"><g fill="url(#gold)"><path d="M60 8A9 9 0 0 1 76.07 10.55A9 9 0 0 1 90.56 17.93A9 9 0 0 1 102.07 29.44A9 9 0 0 1 109.45 43.93A9 9 0 0 1 112 60A9 9 0 0 1 109.45 76.07A9 9 0 0 1 102.07 90.56A9 9 0 0 1 90.56 102.07A9 9 0 0 1 76.07 109.45A9 9 0 0 1 60 112A9 9 0 0 1 43.93 109.45A9 9 0 0 1 29.44 102.07A9 9 0 0 1 17.93 90.56A9 9 0 0 1 10.55 76.07A9 9 0 0 1 8 60A9 9 0 0 1 10.55 43.93A9 9 0 0 1 17.93 29.44A9 9 0 0 1 29.44 17.93A9 9 0 0 1 43.93 10.55A9 9 0 0 1 60 8Z" /></g><circle cx="60" cy="60" r="41" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="1.6" stroke-dasharray="2 4"/><path d="M41 62l13 13 26-28" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></symbol><linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F3DC94"/><stop offset=".48" stop-color="#D9AE52"/><stop offset="1" stop-color="#A9782A"/></linearGradient></defs></svg>
+<div id="stage" aria-label="إعلان فندقة 360 لعملاء فندقة الحاليين">
+
+  <!-- 1 · 0.0–2.4 s: hook (film 0.0–2.0, the desk angle) -->
+  <section class="sc s1" id="s1">
+    <div class="film"><video data-clip="0,2,0,0.85" src="media/A-existing-customers/snap/receptionist.mp4" muted playsinline preload="auto"></video><div class="frost"></div></div>
+    <div class="todo" style="left:640px;top:150px"><svg class="ic"><use href="../assets/icons.svg#i-file-text"/></svg><div>مستند مشتريات<small>بانتظار الاعتماد</small></div><i></i></div>
+    <div class="todo" style="left:680px;top:310px"><svg class="ic"><use href="../assets/icons.svg#i-wrench"/></svg><div>تنبيه صيانة<small>غرفة 214</small></div><i></i></div>
+    <div class="todo" style="left:630px;top:470px"><svg class="ic"><use href="../assets/icons.svg#i-package"/></svg><div>جدول المخزون<small>تحديث يدوي</small></div><i></i></div>
+    <div class="todo" style="left:660px;top:630px"><svg class="ic"><use href="../assets/icons.svg#i-bed-double"/></svg><div>مهمة تدبير فندقي<small>3 غرف</small></div><i></i></div>
+    <div class="todo" style="left:620px;top:790px"><svg class="ic"><use href="../assets/icons.svg#i-chart-column"/></svg><div>تقرير مالي<small>نهاية الشهر</small></div><i></i></div>
+    <div class="copy"><p class="h h1">تستخدم فندقة بالفعل؟</p><p class="h h2">احصل على أكثر.</p></div>
+  </section>
+
+  <!-- 2 · 2.4–4.4 s: the gap (film 2.0–4.0, softened) -->
+  <section class="sc s2" id="s2">
+    <div class="film"><video data-clip="2,4,2.4,1" src="media/A-existing-customers/snap/receptionist.mp4" muted playsinline preload="auto"></video></div>
+    <div class="veil"></div>
+    <div class="copy"><p class="h">لماذا تدير الباقي<br>بشكل منفصل؟</p></div>
+    <div class="gap">
+      <div class="gcard"><svg class="ic"><use href="../assets/icons.svg#i-shopping-cart"/></svg>المشتريات<em>منفصل</em></div>
+      <div class="gcard"><svg class="ic"><use href="../assets/icons.svg#i-package"/></svg>المخزون<em>منفصل</em></div>
+      <div class="gcard"><svg class="ic"><use href="../assets/icons.svg#i-wrench"/></svg>الصيانة<em>منفصل</em></div>
+      <div class="gcard"><svg class="ic"><use href="../assets/icons.svg#i-bed-double"/></svg>التدبير<em>منفصل</em></div>
+      <div class="gcard"><svg class="ic"><use href="../assets/icons.svg#i-coins"/></svg>المحاسبة<em>منفصل</em></div>
+    </div>
+  </section>
+
+  <!-- 3 · 4.4–6.6 s: the upgrade (film 4.0–5.0 over her shoulder, then the screen) -->
+  <section class="sc s3" id="s3">
+    <div class="film"><video data-clip="4,5,4.4,1" src="media/A-existing-customers/snap/receptionist.mp4" muted playsinline preload="auto"></video><div class="frost"></div></div>
+    <div class="copy c1"><p class="h one">فندقة التي تعرفها.</p></div>
+    <div class="ui">
+      <div class="copy"><p class="h one">فندقة التي تعرفها.</p><p class="h two">بإمكانيات أكبر.</p></div>
+      <div class="app">
+        <div class="app-top"><span class="logo"><img src="../assets/img/brand-dark-340.webp" width="340" height="144" alt="فندقة"><b class="b360">360</b></span><span class="hotel">فندقك<i></i></span></div>
+        <ul class="side">
+          <li class="on"><svg class="ic"><use href="../assets/icons.svg#i-layout-dashboard"/></svg>الرئيسية</li>
+          <li><svg class="ic"><use href="../assets/icons.svg#i-calendar-days"/></svg>الحجوزات</li>
+          <li><svg class="ic"><use href="../assets/icons.svg#i-hotel"/></svg>الغرف</li>
+          <li><svg class="ic"><use href="../assets/icons.svg#i-users"/></svg>النزلاء</li>
+          <li class="new"><svg class="ic"><use href="../assets/icons.svg#i-coins"/></svg>المحاسبة</li>
+          <li class="new"><svg class="ic"><use href="../assets/icons.svg#i-shopping-cart"/></svg>المشتريات</li>
+          <li class="new"><svg class="ic"><use href="../assets/icons.svg#i-bed-double"/></svg>التدبير الفندقي</li>
+          <li class="new"><svg class="ic"><use href="../assets/icons.svg#i-wrench"/></svg>الصيانة</li>
+          <li class="new"><svg class="ic"><use href="../assets/icons.svg#i-package"/></svg>المخزون</li>
+          <li class="new"><svg class="ic"><use href="../assets/icons.svg#i-plus"/></svg>والمزيد</li>
+        </ul>
+        <div class="main">
+          <div class="kpis"><div class="kpi"><p>الإشغال</p><b>86%</b></div><div class="kpi"><p>الوصول</p><b>24</b></div><div class="kpi"><p>المغادرة</p><b>19</b></div></div>
+          <div class="rooms"><i style="--c:#cfe0d6"></i><i style="--c:#cfe0d6"></i><i style="--c:#fbcdab"></i><i></i><i style="--c:#cfe0d6"></i><i></i><i style="--c:#fbcdab"></i><i style="--c:#cfe0d6"></i><i style="--c:#cfe0d6"></i><i></i><i style="--c:#cfe0d6"></i><i style="--c:#fbcdab"></i><i></i><i style="--c:#cfe0d6"></i><i style="--c:#cfe0d6"></i></div>
+          <span class="up"><svg class="ic"><use href="../assets/icons.svg#i-arrow-right"/></svg>الترقية إلى فندقة 360</span>
+        </div>
+        <span class="tag">بيانات توضيحية</span>
+      </div>
+      <span class="ripple"></span>
+      <svg class="cursor" viewBox="0 0 24 24"><path d="M4 2l16 9-7 2-3 7z" fill="#fff" stroke="#2a273c" stroke-width="1.4" stroke-linejoin="round"/></svg>
+    </div>
+  </section>
+
+  <!-- 4 · 6.6–10.4 s: the hero, 20+ solutions in four families -->
+  <section class="sc s4" id="s4">
+    <svg class="links" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+    <div class="head"><span class="logo"><img src="../assets/img/brand-dark-340.webp" width="340" height="144" alt="فندقة"><b>360</b></span><p class="h">أكثر من 20 حلاً متكاملاً</p></div>
+    <div class="fams">
+      <div class="fam"><h3><span><svg class="ic"><use href="../assets/icons.svg#i-hotel"/></svg></span>التشغيل</h3>
+        <ul><li>نظام إدارة الفندق</li><li>التدبير الفندقي</li><li>الصيانة</li><li>المخزون</li><li>الموارد البشرية</li></ul></div>
+      <div class="fam"><h3><span><svg class="ic"><use href="../assets/icons.svg#i-coins"/></svg></span>المبيعات والمالية</h3>
+        <ul><li>مدير القنوات</li><li>محرك الحجز</li><li>بوابة الدفع</li><li>المشتريات</li><li>المحاسبة</li></ul></div>
+      <div class="fam"><h3><span><svg class="ic"><use href="../assets/icons.svg#i-concierge-bell"/></svg></span>الضيف والمطاعم</h3>
+        <ul><li>مسح الجواز والهوية</li><li>التوقيع الرقمي</li><li>خدمة الغرف عبر QR</li><li>علاقات العملاء</li><li>نقاط البيع</li><li>إدارة الوصفات</li></ul></div>
+      <div class="fam"><h3><span><svg class="ic"><use href="../assets/icons.svg#i-shield-check"/></svg></span>التكاملات المحلية</h3>
+        <ul><li>شموس</li><li>الفوترة الإلكترونية</li><li>الرصد السياحي</li><li>الدعم والتدريب</li></ul></div>
+    </div>
+    <div class="hub"><b dir="ltr">20+</b><small>حل متكامل</small></div>
+    <div class="foot"><span class="pill">منصة واحدة</span></div>
+  </section>
+
+  <!-- 5 · 10.4–12.6 s: one workflow -->
+  <section class="sc s5" id="s5">
+    <div class="copy"><p class="h a">من الحجز إلى التشغيل.</p><p class="h b">كل شيء مترابط.</p></div>
+    <div class="flow">
+      <div class="step"><span><svg class="ic"><use href="../assets/icons.svg#i-calendar-days"/></svg></span>حجز جديد<em><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></em></div><i class="joint"></i>
+      <div class="step"><span><svg class="ic"><use href="../assets/icons.svg#i-hotel"/></svg></span>تحديث الغرفة<em><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></em></div><i class="joint"></i>
+      <div class="step"><span><svg class="ic"><use href="../assets/icons.svg#i-bed-double"/></svg></span>التدبير<em><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></em></div><i class="joint"></i>
+      <div class="step"><span><svg class="ic"><use href="../assets/icons.svg#i-package"/></svg></span>المخزون<em><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></em></div><i class="joint"></i>
+      <div class="step"><span><svg class="ic"><use href="../assets/icons.svg#i-chart-line"/></svg></span>التقارير<em><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></em></div>
+    </div>
+    <span class="tag">بيانات توضيحية</span>
+  </section>
+
+  <!-- 6 · 12.6–15.0 s: the offer -->
+  <section class="sc s6" id="s6">
+    <div class="offer">
+      <span class="pill k">عرض إطلاق للعملاء الحاليين</span>
+      <p class="price"><b>3,495</b><span>ر.س</span></p>
+      <p class="per">سنوياً + الضريبة</p>
+      <hr>
+      <p class="extra">ويمكنك تثبيت نفس السعر<br>لسنة إضافية خلال العرض</p>
+      <div class="guar"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#seal"/></svg><div><b>ضمان ذهبي 30 يوماً</b><small>إذا لم تناسب الترقية منشأتك، تطبق شروط الضمان.</small></div></div>
+      <p class="tc">تطبق الشروط والأحكام.</p>
+    </div>
+  </section>
+
+  <!-- 7 · 15.0–18.0 s: the payoff (film 8.0–10.0), then the end frame holds -->
+  <section class="sc s7" id="s7">
+    <div class="film"><video data-clip="8,10,15,0.8" src="media/A-existing-customers/snap/receptionist.mp4" muted playsinline preload="auto"></video></div>
+    <div class="top"><span class="logo"><img src="../assets/img/brand-dark-340.webp" width="340" height="144" alt="فندقة"><b>360</b></span></div>
+    <div class="end">
+      <p class="kick">فندقة التي تعرفها. بإمكانيات أكبر.</p>
+      <p class="h">رقِّ إلى فندقة 360</p>
+      <p class="ben">أكثر من 20 حلاً. منصة واحدة.</p>
+      <p class="off"><b>3,495</b>ر.س سنوياً + الضريبة</p>
+      <p class="off2">مع إمكانية تثبيت نفس السعر لسنة إضافية خلال العرض</p>
+      <span class="cta"><svg class="ic"><use href="../assets/icons.svg#i-arrow-right"/></svg>احجز سعر الإطلاق</span>
+      <p class="meta"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#seal"/></svg>ضمان ذهبي 30 يوماً · <span class="url">fandaqah.com</span></p>
+      <p class="fine">للعملاء الحاليين. تطبق الشروط والأحكام.</p>
+    </div>
+  </section>
+</div>
+<div class="ctrl"><button type="button" data-a="toggle">❚❚</button><button type="button" data-a="restart">↺</button></div>
+
+<script src="vendor/gsap.min.js"></script>
+<script>
+(() => {
+  // the piece is written in 18 s and played SLOW times slower (owner: calm, unhurried), film and sound included
+  const SLOW = 1.5, BASE = 18, DUR = BASE * SLOW, q = new URLSearchParams(location.search), render = q.has('render');
+  if (render) document.documentElement.classList.add('render');
+  const stage = document.getElementById('stage'), $ = (s, c = document) => c.querySelector(s), $$ = (s, c = document) => [...c.querySelectorAll(s)];
+  const fit = () => { stage.style.transform = `scale(${render ? 1 : Math.min(innerWidth / 1080, innerHeight / 1920)})`; };
+  addEventListener('resize', fit); fit();
+
+  // film: each <video data-clip="in,out,at,rate"> shows its slice of the supplied clip from `at` seconds, at `rate`
+  const film = $('video[data-clip]').getAttribute('src');
+  const filmBlob = fetch(film).then(r => r.blob()).then(b => URL.createObjectURL(b)).catch(() => film);
+  const vids = $$('video[data-clip]').map(v => { const [cin, cout, at, rate] = v.dataset.clip.split(',').map(Number); return { v, cin, cout, at, rate }; });
+  const clipTime = (c, t) => Math.min(c.cout - .02, Math.max(c.cin, c.cin + (t - c.at) * c.rate));
+
+  const tl = gsap.timeline({ paused: true, defaults: { ease: 'power3.out' } });
+  const show = (sel, at, d = .18) => tl.set(sel, { visibility: 'visible' }, at).to(sel, { opacity: 1, duration: d, ease: 'none' }, at);
+  const hide = (sel, at, d = .2) => tl.to(sel, { opacity: 0, duration: d, ease: 'none' }, at).set(sel, { visibility: 'hidden' }, at + d);
+
+  // 1 · hook
+  tl.set('#s1', { visibility: 'visible', opacity: 1 }, 0);
+  tl.fromTo('.s1 .film video', { scale: 1.0 }, { scale: 1.05, duration: 2.5, ease: 'none', transformOrigin: '40% 25%' }, 0);   // inside the frame, so its edge stays clean
+  $$('.s1 .todo').forEach((el, i) => tl.from(el, { opacity: 0, x: 40, duration: .35 }, .15 + i * .16));
+  tl.from('.s1 .h1', { opacity: 0, y: 40, duration: .4 }, .2);
+  tl.from('.s1 .h2', { opacity: 0, y: 40, duration: .4 }, .8);
+  hide('#s1', 2.32, .1);
+
+  // 2 · the gap
+  show('#s2', 2.34);
+  tl.from('.s2 .h', { opacity: 0, y: 30, duration: .35 }, 2.42);
+  $$('.s2 .gcard').forEach((el, i) => tl.from(el, { opacity: 0, y: 40, scale: .92, duration: .3 }, 2.75 + i * .17));
+  hide('#s2', 4.3, .12);
+
+  // 3 · the upgrade: her shoulder, a cut to the screen, the tap, the menu grows
+  show('#s3', 4.34);
+  tl.from('.s3 .c1 .h', { opacity: 0, y: 30, duration: .3 }, 4.4);
+  tl.set('.s3 .ui', { opacity: 0 }, 0);
+  tl.to('.s3 .ui', { opacity: 1, duration: .15, ease: 'none' }, 5.3);
+  tl.from('.s3 .app', { scale: .92, y: 50, duration: .35 }, 5.3);
+  tl.set('.s3 .side li.new, .s3 .b360', { opacity: 0 }, 0);
+  tl.fromTo('.s3 .cursor', { x: 160, y: 140, opacity: 0 }, { x: 0, y: 0, opacity: 1, duration: .32, ease: 'power2.out' }, 5.45);
+  tl.to('.s3 .up', { scale: .94, duration: .06, yoyo: true, repeat: 1, ease: 'power1.inOut' }, 5.8);
+  tl.fromTo('.s3 .ripple', { scale: .3, opacity: .9 }, { scale: 2.6, opacity: 0, duration: .45, ease: 'power2.out' }, 5.82);
+  tl.to('.s3 .up', { opacity: 0, y: 12, duration: .16 }, 5.95);
+  tl.to('.s3 .cursor', { opacity: 0, duration: .15 }, 5.97);
+  tl.fromTo('.s3 .b360', { opacity: 0, scale: .4 }, { opacity: 1, scale: 1, duration: .35, ease: 'back.out(2.4)' }, 5.92);
+  tl.fromTo('.s3 .side li.new', { opacity: 0, x: 30 }, { opacity: 1, x: 0, duration: .22, stagger: .06 }, 5.95);
+  tl.from('.s3 .ui .two', { opacity: 0, y: 30, duration: .3 }, 6.05);
+  tl.to('.s3 .app', { scale: 1.45, opacity: 0, duration: .22, ease: 'power2.in' }, 6.42);
+  hide('#s3', 6.5, .1);
+
+  // 4 · the hero: four families land one by one, then everything connects to "20+"
+  show('#s4', 6.52);
+  tl.from('.s4 .head > *', { opacity: 0, y: 30, duration: .35, stagger: .12 }, 6.6);
+  $$('.s4 .fam').forEach((el, i) => {
+    tl.from(el, { opacity: 0, y: 50, scale: .94, duration: .35 }, 7.0 + i * .45);
+    tl.from($$('li', el), { opacity: 0, scale: .8, duration: .2, stagger: .04 }, 7.15 + i * .45);
+  });
+  tl.from('.s4 .hub', { scale: 0, opacity: 0, duration: .45, ease: 'back.out(1.8)' }, 9.05);
+  tl.from('.s4 .foot .pill', { opacity: 0, y: 24, duration: .3 }, 9.4);
+  hide('#s4', 10.3, .1);
+
+  // 5 · one workflow
+  show('#s5', 10.32);
+  tl.from('.s5 .a', { opacity: 0, y: 30, duration: .3 }, 10.38);
+  $$('.s5 .flow > *').forEach((el, i) => tl.from(el, el.classList.contains('joint') ? { scaleY: 0, duration: .14, ease: 'none' } : { opacity: 0, x: 40, duration: .22 }, 10.55 + i * .11));
+  tl.from('.s5 .step em', { scale: 0, duration: .2, stagger: .1, ease: 'back.out(3)' }, 11.25);
+  tl.from('.s5 .b', { opacity: 0, y: 30, duration: .3 }, 11.5);
+  hide('#s5', 12.5, .1);
+
+  // 6 · the offer
+  show('#s6', 12.52);
+  tl.from('.s6 .offer', { y: 140, opacity: 0, duration: .4 }, 12.55);
+  tl.from('.s6 .offer > *', { opacity: 0, y: 24, duration: .28, stagger: .1 }, 12.7);
+  tl.fromTo('.s6 .price b', { scale: .85 }, { scale: 1, duration: .5, ease: 'back.out(2)' }, 12.8);
+  hide('#s6', 14.9, .1);
+
+  // 7 · the payoff and the end frame
+  show('#s7', 14.92);
+  tl.from('.s7 .top .logo', { opacity: 0, y: -20, duration: .3 }, 15.0);
+  tl.from('.s7 .end > *', { opacity: 0, y: 26, duration: .3, stagger: .08 }, 15.15);
+  tl.fromTo('.s7 .cta', { scale: .9 }, { scale: 1, duration: .35, ease: 'back.out(2.5)' }, 15.6);
+  tl.set({}, {}, BASE);
+
+  // the cursor lands on the upgrade button, and the four families wire to the hub, wherever layout puts them
+  const place = () => {
+    const k = stage.getBoundingClientRect().width / 1080, sr = stage.getBoundingClientRect();
+    const rel = el => { const r = el.getBoundingClientRect(); return { x: (r.left - sr.left) / k, y: (r.top - sr.top) / k, w: r.width / k, h: r.height / k }; };
+    tl.seek(5.79, false);
+    const b = rel($('.s3 .up')), bx = b.x + b.w * .62, by = b.y + b.h * .55;
+    Object.assign($('.s3 .ripple').style, { left: `${bx}px`, top: `${by}px` });
+    Object.assign($('.s3 .cursor').style, { left: `${bx - 6}px`, top: `${by - 4}px` });
+    tl.seek(9.9, false);
+    const fams = $$('.s4 .fam').map(rel);
+    // the hub sits in the middle row, between the two pairs of families
+    const hx = 540, hy = (Math.max(fams[0].y + fams[0].h, fams[1].y + fams[1].h) + Math.min(fams[2].y, fams[3].y)) / 2;
+    $('.s4 .hub').style.top = `${hy}px`;
+    const svg = $('.s4 .links');
+    svg.innerHTML = fams.map(f => { const fx = f.x + f.w / 2, fy = f.y + f.h / 2; return `<path pathLength="1" style="stroke-dasharray:1" d="M${hx} ${hy} L${fx} ${fy}"/>`; }).join('');
+    // the lines exist only now, so their draw-in joins the timeline here
+    tl.fromTo($$('path', svg), { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: .5, stagger: .08, ease: 'power2.out' }, 9.0);
+    tl.seek(0, false);
+  };
+
+  // frame-accurate render hooks, as book/reel.html: body[data-seek] + "reel:seek" → body[data-frame]
+  const seekVideos = t => Promise.all(vids.map(c => {
+    const ct = clipTime(c, t);
+    if (Math.abs(c.v.currentTime - ct) < .004) return;
+    return new Promise(r => { const done = () => r(); c.v.addEventListener('seeked', done, { once: true }); setTimeout(done, 1500); c.v.currentTime = ct; });
+  }));
+  document.addEventListener('reel:seek', async () => {
+    const t = +document.body.dataset.seek || 0;
+    tl.seek(t / SLOW, false);
+    await seekVideos(t / SLOW);
+    await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+    document.body.dataset.frame = String(t);
+  });
+
+  const imgs = $$('img');
+  const vidsReady = [filmBlob.then(url => Promise.all(vids.map(c => new Promise(r => { c.v.addEventListener('loadeddata', r, { once: true }); c.v.addEventListener('error', r, { once: true }); c.v.src = url; c.v.load(); }))))];
+  Promise.all([document.fonts.ready, ...vidsReady, ...imgs.map(im => im.complete ? 0 : new Promise(r => { im.onload = im.onerror = r; }))]).then(async () => {
+    place();
+    await seekVideos(0);
+    document.body.dataset.ready = '1';
+    if (!render) requestAnimationFrame(tick);
+  });
+  // the sound design, in seconds (tools/render-snap.mjs synthesises it under the music, whose chorus lands on `peak`)
+  const cues = [
+    ...[.15, .31, .47, .63, .79].map(t => ({ t, k: 'pop', g: .1 })), { t: .95, k: 'chime', f: [1320, 1760], g: .06 },
+    { t: 2.22, k: 'whoosh', len: .22 }, ...[2.75, 2.92, 3.09, 3.26, 3.43].map(t => ({ t, k: 'pop', g: .13 })),
+    { t: 4.26, k: 'whoosh', len: .2 }, { t: 5.82, k: 'click' }, { t: 6.4, k: 'whoosh', len: .24 },
+    ...[7.0, 7.45, 7.9, 8.35].map(t => ({ t, k: 'chime', f: [988], g: .07 })), { t: 9.05, k: 'chime', f: [784, 988, 1175], g: .12 },
+    ...[10.55, 10.77, 10.99, 11.21, 11.43].map(t => ({ t, k: 'pop', g: .09 })), ...[11.25, 11.35, 11.45, 11.55, 11.65].map(t => ({ t, k: 'tick', g: .1 })),
+    { t: 12.55, k: 'thump', g: .5 }, { t: 14.3, k: 'rise', len: .65, g: .05 }, { t: 17.1, k: 'chime', f: [880, 1108.7, 1318.5], g: .12 }
+  ];
+  window.SNAP = { duration: DUR, segments: [[0, DUR, DUR]], cues: cues.map(c => ({ ...c, t: c.t * SLOW })), peak: 6.6 * SLOW, out: 'A-snap2-ar', seek: t => tl.seek(t / SLOW, false), timeline: tl };
+
+  // preview: a real clock; each film slice plays while its scene is on, at its own rate, and loops with a short pause
+  let clock = 0, last = 0, playing = true;
+  const tick = now => {
+    if (playing && last) clock += (now - last) / 1000;
+    last = now;
+    if (clock > DUR + 1) clock = 0;
+    const t = Math.min(clock, DUR) / SLOW;
+    tl.seek(t, false);
+    vids.forEach(c => {
+      const on = playing && t >= c.at - .05 && t <= c.at + (c.cout - c.cin) / c.rate;
+      if (on && c.v.paused) { c.v.playbackRate = c.rate / SLOW; c.v.currentTime = clipTime(c, t); c.v.play().catch(() => {}); }
+      if (!on && !c.v.paused) c.v.pause();
+      if (!on) { const ct = clipTime(c, t); if (Math.abs(c.v.currentTime - ct) > .05) c.v.currentTime = ct; }
+    });
+    requestAnimationFrame(tick);
+  };
+  $('.ctrl').addEventListener('click', e => {
+    const a = e.target.dataset.a; if (a === 'toggle') { playing = !playing; e.target.textContent = playing ? '❚❚' : '▶'; }
+    if (a === 'restart') clock = 0;
+  });
+})();
+</script>
+</body>
+</html>
