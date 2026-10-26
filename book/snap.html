@@ -104,7 +104,7 @@ body{display:grid;place-items:center;overflow:hidden;font-family:var(--f);-webki
 .core .logo img{height:52px}
 .core .logo b{font-size:50px}
 .core .count{font:800 92px/1 "Inter",sans-serif;color:var(--navy);font-variant-numeric:tabular-nums}
-.core .unit{font-size:26px;font-weight:700;color:var(--ink-2)}
+.core .unit{max-width:240px;font-size:26px;font-weight:700;line-height:1.3;text-align:center;color:var(--ink-2)}
 .core .tick{position:absolute;top:18px;inset-inline-end:26px;width:58px;height:58px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center}
 .core .tick .ic{width:32px;height:32px;stroke-width:3}
 .r1{position:absolute;display:flex;align-items:center;gap:12px;padding:16px 22px;white-space:nowrap;border-radius:16px;background:#fff;color:var(--ink);font-size:28px;font-weight:700;box-shadow:0 18px 30px -16px rgba(0,0,0,.6)}
@@ -219,7 +219,7 @@ body{display:grid;place-items:center;overflow:hidden;font-family:var(--f);-webki
         <li class="new"><svg class="ic"><use href="../assets/icons.svg#i-bed-double"/></svg>التدبير الفندقي</li>
         <li class="new"><svg class="ic"><use href="../assets/icons.svg#i-wrench"/></svg>الصيانة</li>
         <li class="new"><svg class="ic"><use href="../assets/icons.svg#i-package"/></svg>المخزون</li>
-        <li class="new"><svg class="ic"><use href="../assets/icons.svg#i-plus"/></svg>+15 وحدة</li>
+        <li class="new"><svg class="ic"><use href="../assets/icons.svg#i-plus"/></svg>+15 ميزة</li>
       </ul>
       <div class="main">
         <div class="kpis">
@@ -239,12 +239,12 @@ body{display:grid;place-items:center;overflow:hidden;font-family:var(--f);-webki
   <!-- 4 · 4.0–6.4 s: twenty modules, one platform (peak) -->
   <section class="sc s4" id="s4">
     <svg class="net" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
-    <div class="copy-top"><p class="h a">كل ما يحتاجه فندقك.</p><p class="h b">في فندقة 360.</p></div>
+    <div class="copy-top"><p class="h a">تشغيل فندقك كاملاً.</p><p class="h b">في فندقة 360.</p></div>
     <div class="core">
       <span class="tick"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span>
       <span class="logo"><img src="../assets/img/brand-dark-340.webp" width="340" height="144" alt="فندقة"><b>360</b></span>
       <span class="count">05</span>
-      <span class="unit">وحدات في منصة واحدة</span>
+      <span class="unit">ميزات</span>
     </div>
     <div class="r1" data-a="-90"><svg class="ic"><use href="../assets/icons.svg#i-coins"/></svg>المحاسبة</div>
     <div class="r1" data-a="-18"><svg class="ic"><use href="../assets/icons.svg#i-shopping-cart"/></svg>المشتريات</div>
@@ -266,7 +266,7 @@ body{display:grid;place-items:center;overflow:hidden;font-family:var(--f);-webki
     <div class="r2"><svg class="ic"><use href="../assets/icons.svg#i-key"/></svg><s><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></s></div>
     <div class="r2"><svg class="ic"><use href="../assets/icons.svg#i-chart-line"/></svg><s><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></s></div>
     <div class="r2"><svg class="ic"><use href="../assets/icons.svg#i-life-buoy"/></svg><s><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></s></div>
-    <span class="pill plus15">+15 وحدة إضافية</span>
+    <span class="pill plus15">+15 ميزة إضافية</span>
   </section>
 
   <!-- 5 · 6.4–7.8 s: connected work -->
@@ -285,7 +285,7 @@ body{display:grid;place-items:center;overflow:hidden;font-family:var(--f);-webki
     <div class="offer">
       <span class="pill k">عرض حصري للعملاء الحاليين</span>
       <span class="logo"><img src="../assets/img/brand-dark-340.webp" width="340" height="144" alt="فندقة"><b>360</b></span>
-      <p class="all">جميع الوحدات الـ20</p>
+      <p class="all">جميع الميزات الـ20</p>
       <hr>
       <p class="price"><b>3,495</b><span>ر.س</span></p>
       <p class="vat">سنوياً + الضريبة · خلال فترة العرض</p>
@@ -301,7 +301,7 @@ body{display:grid;place-items:center;overflow:hidden;font-family:var(--f);-webki
     <div class="copy">
       <p class="kick">فندقة التي تعرفها… الآن بإمكانيات أكثر.</p>
       <p class="h">رقِّ إلى فندقة 360</p>
-      <p class="sub">وافتح جميع الوحدات الـ20.</p>
+      <p class="sub">وافتح جميع الميزات الـ20.</p>
       <span class="cta"><svg class="ic"><use href="../assets/icons.svg#i-arrow-right"/></svg>تحقق من عرض ترقيتك</span>
       <p class="url">fandaqah.com<small>للعملاء الحاليين</small></p>
     </div>
@@ -382,7 +382,8 @@ body{display:grid;place-items:center;overflow:hidden;font-family:var(--f);-webki
   tl.to('.s4 .net line', { strokeDashoffset: 0, duration: .5, stagger: .02, ease: 'power2.out' }, 5.35);
   const counter = { v: 5 }, countEl = $('.s4 .count'), unitEl = $('.s4 .unit');
   const setCount = () => { const n = Math.round(counter.v); countEl.textContent = String(n).padStart(2, '0');
-    unitEl.textContent = n <= 10 ? 'وحدات في منصة واحدة' : n < 20 ? 'وحدة في منصة واحدة' : 'وحدة متكاملة'; };
+    // Arabic agreement while it counts (3–10 takes the plural, 11+ the singular), then the promise at twenty
+    unitEl.textContent = n <= 10 ? 'ميزات' : n < 20 ? 'ميزة' : 'كل ما تحتاجه في منصة واحدة'; };
   tl.to(counter, { v: 20, duration: 1.1, ease: 'steps(3)', onUpdate: setCount }, 4.7);
   tl.from('.s4 .tick', { scale: 0, duration: .3, ease: 'back.out(3)' }, 5.85);
   tl.from('.s4 .copy-top .b', { opacity: 0, y: 24, duration: .3 }, 5.7);

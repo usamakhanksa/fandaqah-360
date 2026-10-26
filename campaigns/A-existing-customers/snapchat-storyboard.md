@@ -53,6 +53,8 @@ on the workflow, a low impact on the offer, a rise into the end card and the log
 
 ## Motion ad (A-snap-ar, 25.5 s)
 
+Wording: *features* (ميزة), not modules: «+15 ميزة إضافية», «جميع الميزات الـ20», «كل ما تحتاجه في منصة واحدة» (owner, 26 Oct 2026).
+
 One 25.5-second, 1080×1920 (9:16), 30 fps ad, in Saudi Arabic only, for owners, GMs, finance and operations managers
 **who already use Fandaqah**. The idea it plants: *you already use Fandaqah; one upgrade opens a bigger system inside the
 same account*. Not "buy a new system".
@@ -73,11 +75,11 @@ same account*. Not "buy a new system".
 |---|---|---|---|
 | 0.0–3.3 | Recognition / pain | Two Saudi front-desk colleagues, she in focus; a purchase request, an incoming call from housekeeping, a maintenance note, an inventory sheet and stock documents pile up around them; the desk screen behind is out of focus. Slow push-in. | تستخدم فندقة بالفعل؟ · احصل على أكثر. |
 | 3.3–6.3 | What is still separate | Snap zoom and blur; the five modules appear as dashed cards, each marked «منفصل». | لماذا تدير الباقي بشكل منفصل؟ |
-| 6.3–9.6 | The upgrade | Their Fandaqah screen (same top bar, same hotel): the cursor taps «الترقية إلى فندقة 360», the 360 badge lands, and the side menu grows by the five modules and «+15 وحدة». | نفس حسابك. · إمكانيات أكثر. |
-| 9.6–14.7 | **Peak:** 20 modules | Navy. Fandaqah 360 at the centre; the five named modules on the inner ring, fifteen icon tiles with ticks on the outer ring, «+15 وحدة إضافية»; connections draw in; the counter steps 05 → 10 → 15 → 20, «وحدة متكاملة» and a tick. | كل ما يحتاجه فندقك. · في فندقة 360. |
+| 6.3–9.6 | The upgrade | Their Fandaqah screen (same top bar, same hotel): the cursor taps «الترقية إلى فندقة 360», the 360 badge lands, and the side menu grows by the five modules and «+15 ميزة». | نفس حسابك. · إمكانيات أكثر. |
+| 9.6–14.7 | **Peak:** 20 modules | Navy. Fandaqah 360 at the centre; the five named modules on the inner ring, fifteen icon tiles with ticks on the outer ring, «+15 ميزة إضافية»; connections draw in; the counter steps 05 → 10 → 15 → 20 («ميزات» … «ميزة»), then «كل ما تحتاجه في منصة واحدة» and a tick. | تشغيل فندقك كاملاً. · في فندقة 360. |
 | 14.7–18.0 | Connected work | One Fandaqah 360 panel, three flows moving at once: طلب شراء → اعتماد → المشتريات → المخزون · غرفة تحتاج تنظيف → التدبير الفندقي → جاهزة · بلاغ صيانة → تم الإسناد → تم الإنجاز. | منصة واحدة. · عمل أكثر ترابطاً. |
-| 18.0–21.6 | The offer | Beige card on navy. | عرض حصري للعملاء الحاليين · فندقة 360 · جميع الوحدات الـ20 · 3,495 ر.س · سنوياً + الضريبة · خلال فترة العرض · ويمكنك تثبيت نفس السعر لسنة إضافية |
-| 21.6–25.5 | Call to action (end frame) | A calm, smiling Saudi host at an organised reception, the Fandaqah screen beside him; the frame holds. | فندقة التي تعرفها… الآن بإمكانيات أكثر. · رقِّ إلى فندقة 360 · وافتح جميع الوحدات الـ20. · [تحقق من عرض ترقيتك] · fandaqah.com · للعملاء الحاليين |
+| 18.0–21.6 | The offer | Beige card on navy. | عرض حصري للعملاء الحاليين · فندقة 360 · جميع الميزات الـ20 · 3,495 ر.س · سنوياً + الضريبة · خلال فترة العرض · ويمكنك تثبيت نفس السعر لسنة إضافية |
+| 21.6–25.5 | Call to action (end frame) | A calm, smiling Saudi host at an organised reception, the Fandaqah screen beside him; the frame holds. | فندقة التي تعرفها… الآن بإمكانيات أكثر. · رقِّ إلى فندقة 360 · وافتح جميع الميزات الـ20. · [تحقق من عرض ترقيتك] · fandaqah.com · للعملاء الحاليين |
 
 Interface screens are illustrative and say so («بيانات توضيحية»). No guest data, competitor marks or unapproved claims.
 
@@ -94,12 +96,12 @@ The ad works muted, and Snapchat plays sound by default, so a voice-over lifts i
 30–40, warm and confident, white Saudi dialect. At 17 s the full version fits:
 
 > تستخدم فندقة بالفعل؟ حان الوقت تحصل على أكثر.
-> رقِّ إلى فندقة 360، وفعّل جميع الوحدات العشرين داخل نفس المنصة.
+> رقِّ إلى فندقة 360، وفعّل جميع الميزات العشرين داخل نفس المنصة.
 > المحاسبة، المشتريات، المخزون، الصيانة، والتدبير الفندقي… وأكثر.
 > فندقة 360. نفس حسابك… إمكانيات أكثر.
 > تحقق من عرض ترقيتك.
 
-Lay it over the music at about −8 dB music / 0 dB voice, and keep «جميع الوحدات العشرين» on the peak at 9.6 s.
+Lay it over the music at about −8 dB music / 0 dB voice, and keep «جميع الميزات العشرين» on the peak at 9.6 s.
 
 ## Before it runs
 
