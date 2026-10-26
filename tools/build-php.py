@@ -45,8 +45,10 @@ def convert(rel, src, known):
         raise SystemExit(f'{rel}: no <meta charset="utf-8"> to anchor the proxy tag')
     s = s.replace('<form class="form" id="lead-form" novalidate', f'<form class="form" id="lead-form" action="{up}api/lead.php" method="post" novalidate', 1)
     s = re.sub(r'<form class="form ([\w -]+)" id="lead-form" novalidate', rf'<form class="form \1" id="lead-form" action="{up}api/lead.php" method="post" novalidate', s, count=1)
+    # the first line ends the way the page's lines do, so a copy checked out with CRLF still matches
+    nl = '\r\n' if '\r\n' in src else '\n'
     head = (f"<?php /* {MARK}{posixpath.basename(rel)} by tools/build-php.py: edit the .html page, then run the build. */ "
-            f"require __DIR__ . '/{up}api/page.php'; ?>\n")
+            f"require __DIR__ . '/{up}api/page.php'; ?>{nl}")
     return head + s
 
 def main():
