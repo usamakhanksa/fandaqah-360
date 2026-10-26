@@ -169,19 +169,21 @@
   }));
 
   /* ---------- Lead form → Fandaqah CRM ---------- */
-  /* The key ships to every visitor's browser: keep it ingest-only and rate-limited on the CRM side.
-     A page that is live on the production CRM names it in FQ_PAGE.api; the others still post to the dev CRM. */
-  const API_DEV = 'https://crm-dev.fandaqah.com/api/ingest/lead';
-  const API_URL = PAGE.api || API_DEV;
+  /* On static hosting (GitHub Pages) the form posts straight to the CRM, so this key ships to every visitor's browser: keep it
+     ingest-only and rate-limited on the CRM side. The PHP copy of each page carries <meta name="fq-lead-proxy"> and posts to
+     api/lead.php instead, which adds the key on the server. */
+  const API_URL = 'https://crm.fandaqah.com/api/ingest/lead';
   const API_KEY = 'fdq_d0930f18b74a5153c68b174748b5ed7ba17b8723ca05c21e';
   const PLATFORM = 'fandaqah_tourism_platform_contact';
   const OUTBOX = 'fq360_outbox';
+  const PROXY = ($('meta[name="fq-lead-proxy"]') || {}).content || '';
 
-  async function post(body, url = API_URL) {
+  async function post(body) {
     for (let attempt = 0; attempt < 3; attempt++) {
       const ctrl = new AbortController(), stop = setTimeout(() => ctrl.abort(), 12000);
       try {
-        const res = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-API-Key': API_KEY }, body: JSON.stringify(body), signal: ctrl.signal });
+        const res = await fetch(PROXY || API_URL, { method: 'POST', body: JSON.stringify(body), signal: ctrl.signal,
+          headers: PROXY ? { 'Content-Type': 'application/json', Accept: 'application/json' } : { 'Content-Type': 'application/json', 'X-API-Key': API_KEY } });
         if (res.ok) return 'ok';
         if (res.status < 500 && res.status !== 429) return 'rejected'; // a 4xx will not fix itself on retry
       } catch (e) { /* network or timeout: retry */ } finally { clearTimeout(stop); }
@@ -189,15 +191,22 @@
     }
     return 'failed';
   }
-  // enquiries that could not be delivered earlier are retried on the next visit (same submission_id, so the CRM can de-duplicate),
-  // to the CRM they were first sent to, whichever page the visitor comes back to
+  // enquiries that could not be delivered earlier are retried on the next visit (same submission_id, so the CRM can de-duplicate)
   (async () => {
     const box = store.get(OUTBOX) || [];
     if (!box.length || !navigator.onLine) return;
     const left = [];
-    for (const item of box) { if ((await (item.body ? post(item.body, item.to) : post(item, API_DEV))) === 'failed') left.push(item); }
+    for (const item of box) { if ((await post(item.body || item)) === 'failed') left.push(item); }
     store.set(OUTBOX, left);
   })();
+
+  // a message box counts its characters and warms up near its limit
+  $$('textarea[maxlength][aria-describedby]').forEach(t => {
+    const out = document.getElementById(t.getAttribute('aria-describedby')), n = out && $('span', out);
+    if (!n) return;
+    const tally = () => { n.textContent = t.value.length; out.classList.toggle('is-near', t.value.length > t.maxLength * .9); };
+    t.addEventListener('input', tally); tally();
+  });
 
   if (form) {
     const done = $('#lead-done'), alertEl = $('.form-alert', form), submit = $('button[type=submit]', form);
@@ -301,7 +310,7 @@
       } else if (result === 'rejected') {
         alertEl.innerHTML = T().reject; alertEl.hidden = false;
       } else {
-        const box = store.get(OUTBOX) || []; box.push({ to: API_URL, body: payload }); store.set(OUTBOX, box.slice(-5));
+        const box = store.get(OUTBOX) || []; box.push(payload); store.set(OUTBOX, box.slice(-5));
         alertEl.innerHTML = T().fail; alertEl.hidden = false;
       }
     });

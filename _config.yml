@@ -10,6 +10,9 @@ exclude:
   - "*.pdf"
   - "*.py"
   - "*.mjs"
+  - "*.php"
+  - api
+  - "*.zip"
 # serve the HTML exactly as written (no Jekyll themes, titles or README index)
 plugins: []
 theme: null

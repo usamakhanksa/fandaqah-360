@@ -146,7 +146,7 @@
     portal.classList.toggle('is-named', !!name);
     $('.w-name', portal).textContent = name;
     put('city', val('city'), quiet); put('count', optText('property_count'), quiet); put('structure', optText('ownership'), quiet);
-    if (portal.dataset.state !== '2') portal.dataset.state = val('company').length >= 2 && name.length >= 2 && val('contact') ? '1' : '0';
+    if (portal.dataset.state !== '2') portal.dataset.state = val('company').length >= 2 && name.length >= 2 && val('phone') && val('email') ? '1' : '0';
   }
   ['input', 'change'].forEach(t => form.addEventListener(t, e => { if (e.target === company && !id.n) wear(); syncPortal(); }));
   $$('[data-lang]').forEach(b => b.addEventListener('click', () => setTimeout(() => { Object.keys(written).forEach(k => delete written[k]); syncPortal(true); })));

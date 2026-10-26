@@ -1,0 +1,25 @@
+# Fandaqah 360 on a PHP host (Apache, e.g. Laragon or cPanel). GitHub Pages never reads this file and it is left out of that build.
+# Each page has a PHP copy beside it (tools/build-php.py) whose forms post to api/lead.php, which holds the CRM key.
+
+DirectoryIndex index.php index.html
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # an .html address opens its PHP copy, so every visitor gets the forms that go through the server
+  RewriteCond %{REQUEST_FILENAME} ^(.+)\.html$
+  RewriteCond %1.php -f
+  RewriteCond %{REQUEST_URI} ^(.+)\.html$
+  RewriteRule \.html$ %1.php [R=301,L]
+</IfModule>
+
+# working files never leave the server
+<FilesMatch "\.(md|py|mjs|yml|yaml|zip|psd|log)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>

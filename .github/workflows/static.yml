@@ -41,12 +41,15 @@ jobs:
           rsync -a ./ _site/ --exclude '.git*' --exclude '/.github' --exclude '/_site' --exclude '/_internal' \
             --exclude '/campaigns' --exclude '/archive' --exclude '/tools' --exclude '/banners' \
             --exclude 'README.md' --exclude '/_config.yml' --exclude '/.scrollcraft.json' \
-            --exclude '/*.pdf'
+            --exclude '/*.pdf' --exclude '*.php' --exclude '/api' --exclude '.htaccess' --exclude '/*.zip'
+      # The PHP copies (for a PHP host) never ship to Pages, which cannot run them; they must still match their pages
+      - name: Check the PHP copies are current
+        run: python3 -I tools/build-php.py --check
       # Guards: nothing internal ships, every page is fully translated, every link resolves
       - name: Block internal files from the public site
         run: |
-          if find _site \( -iname '*.pdf' -o -iname '*.psd' -o -iname '*.docx' -o -iname '*.md' -o -iname '*.py' \) | grep -q .; then
-            echo "Internal files found in the public site:"; find _site \( -iname '*.pdf' -o -iname '*.psd' -o -iname '*.docx' -o -iname '*.md' -o -iname '*.py' \); exit 1
+          if find _site \( -iname '*.pdf' -o -iname '*.psd' -o -iname '*.docx' -o -iname '*.md' -o -iname '*.py' -o -iname '*.php' -o -iname '.htaccess' \) | grep -q .; then
+            echo "Internal files found in the public site:"; find _site \( -iname '*.pdf' -o -iname '*.psd' -o -iname '*.docx' -o -iname '*.md' -o -iname '*.py' -o -iname '*.php' -o -iname '.htaccess' \); exit 1
           fi
       - name: Check Arabic translations and links
         run: |

@@ -322,6 +322,10 @@ button.card[aria-pressed="true"] .ic-on{display:block}
 .f-err{font-size:12.5px;font-weight:600;color:#A42E29}
 .f-err[hidden]{display:none}
 .f-hint{font-size:12.5px;color:var(--ink-3)}
+/* mobile and email are typed left to right, but sit on the reading edge of an Arabic form */
+html[dir="rtl"] .form input[dir="ltr"],html[dir="rtl"] .form input[dir="ltr"]::placeholder{text-align:right}
+.f-count{justify-self:end;margin:-2px 0 0;font-size:11.5px;font-variant-numeric:tabular-nums;color:var(--ink-3);transition:color .2s var(--ease)}
+.f-count.is-near{color:var(--coral-btn);font-weight:600}
 .form-privacy{grid-column:1 / -1;font-size:13px;color:var(--ink-2)}
 .form-privacy a{font-weight:600;text-underline-offset:3px}
 .consent{grid-column:1 / -1;display:flex;align-items:flex-start;gap:10px;font-size:14px;cursor:pointer}

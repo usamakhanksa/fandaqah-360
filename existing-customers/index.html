@@ -536,7 +536,6 @@
 <script>
 window.FQ_PAGE = {
   segment: 'A',
-  api: 'https://crm.fandaqah.com/api/ingest/lead',   // this page's leads go to the production CRM
   meta: {"title": "الترقية إلى فندقة 360 | سعر الإطلاق 3,495 ريال", "desc": "قم بالترقية إلى فندقة 360 بسعر 3,495 ريالاً سنوياً غير شاملة الضريبة. سعر إطلاق لمرة واحدة، ثابت لمدة سنتين، مع ضمان ذهبي لمدة 30 يوماً."},
   ar: {
     "nav.upgrade": "العرض",
@@ -728,7 +727,7 @@ window.FQ_PAGE = {
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('lead-form'), sheet = document.querySelector('.pa-sheet'), done = document.getElementById('lead-done');
   if (!form || !sheet) return;
-  const noteRow = sheet.querySelector('.pa-sheet-note'), count = document.getElementById('f-message-count');
+  const noteRow = sheet.querySelector('.pa-sheet-note');
   // the same shapes site.js accepts, loosely: a Saudi or international mobile, and an address with a domain
   const digits = s => s.replace(/[٠-٩۰-۹]/g, d => String(d.charCodeAt(0) & 0xF)).replace(/\D/g, '');
   const phoneOk = v => { const d = digits(v); return d.length >= 9 && d.length <= 15; };
@@ -758,9 +757,6 @@ document.addEventListener('DOMContentLoaded', () => {
     sheet.style.setProperty('--done', (ok.filter(Boolean).length / ok.length).toFixed(3));
     sheet.dataset.state = ok.every(Boolean) ? 'ready' : 'draft';
   };
-  // the note counts down quietly and warms up near the limit
-  const tally = () => { const n = form.elements.message.value.length; count.querySelector('span').textContent = n; count.classList.toggle('is-near', n > 900); };
-  form.elements.message.addEventListener('input', tally);
   ['input', 'change'].forEach(t => form.addEventListener(t, () => render()));
   // the language switch rewrites labels, so the sheet re-reads them without the ink glow
   document.querySelectorAll('[data-lang]').forEach(b => b.addEventListener('click', () => setTimeout(() => { Object.keys(written).forEach(k => delete written[k]); render(true); })));

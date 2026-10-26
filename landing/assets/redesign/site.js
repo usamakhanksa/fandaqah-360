@@ -64,10 +64,14 @@
   }
 
   /* ---------- the lead dialog: every [data-demo] button opens it; requests post straight to Fandaqah CRM ---------- */
-  /* NOTE: this key ships to every visitor's browser. Keep it ingest-only, rate-limited on the CRM side, and switch to the production URL before launch. */
-  const API_URL = 'https://crm-dev.fandaqah.com/api/ingest/lead';
+  /* On static hosting the requests post straight to the CRM, so this key ships to every visitor's browser: keep it ingest-only and
+     rate-limited on the CRM side. The PHP copy of each page carries <meta name="fq-lead-proxy"> and posts to api/lead.php, which adds the key. */
+  const API_URL = 'https://crm.fandaqah.com/api/ingest/lead';
   const API_KEY = 'fdq_d0930f18b74a5153c68b174748b5ed7ba17b8723ca05c21e';
   const PLATFORM = 'fandaqah_tourism_platform_contact';
+  const PROXY = ($('meta[name="fq-lead-proxy"]') || {}).content || '';
+  const sendLead = (payload, signal) => fetch(PROXY || API_URL, { method: 'POST', body: JSON.stringify(payload), signal,
+    headers: PROXY ? { 'Content-Type': 'application/json', Accept: 'application/json' } : { 'Content-Type': 'application/json', 'X-API-Key': API_KEY } });
   const PACKAGES = {
     basic: { price: 1200, option: 'Basic Subscription',
       en: ['Basic Subscription', ['PMS Core + 5 modules', 'Standard support', 'Basic training']],
@@ -160,17 +164,18 @@
       if (bad.length) { form.elements[bad[0]].focus(); return; }
       if (form.elements.website.value) { done(); return; } // honeypot filled: a bot, so fake success and send nothing
       const lang = isAr() ? 'ar' : 'en', get = n => form.elements[n].value.trim();
-      const interest = get('interest'), topic = get('topic'), property = get('property');
+      const interest = get('interest'), topic = get('topic'), property = get('property'), note = get('message');
       const qs = new URLSearchParams(location.search), utm = {};
       ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(k => { if (qs.get(k)) utm[k] = qs.get(k); });
       const pkg = PACKAGES[pkgKey];
       const page = location.pathname.split('/').slice(-2).join('/');
       const payload = {
         name: get('name'), email: get('email'), phone: '+966' + saMobile(get('phone')),
-        // everything also goes in the message, so sales sees it even if the CRM ignores the extra fields
-        message: `Property: ${property}\nInterest: ${interest}${topic && topic !== interest ? ` (${topic})` : ''}`
+        // the visitor's own words first; everything else also goes in the message, so sales sees it even if the CRM ignores the extra fields
+        message: (note ? note + '\n———\n' : '') + `Property: ${property}\nInterest: ${interest}${topic && topic !== interest ? ` (${topic})` : ''}`
           + (pkg ? `\nPackage: ${pkg.en[0]} · SAR ${money(pkg.price)} / year + VAT` : '')
           + `\n[Fandaqah landing · ${page} · ${lang.toUpperCase()}]`,
+        customer_message: note || undefined,
         platform: PLATFORM, source: 'fandaqah_landing', interest, topic, property, package: pkgKey || undefined,
         language: lang, page_url: location.href.split('#')[0], ...utm
       };
@@ -180,7 +185,7 @@
       let sent = false;
       for (let attempt = 0; attempt < 2 && !sent; attempt++) {
         try {
-          const res = await fetch(API_URL, { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-API-Key': API_KEY }, body: JSON.stringify(payload), signal: ctrl.signal });
+          const res = await sendLead(payload, ctrl.signal);
           if (res.ok) sent = true;
           else if (res.status < 500) break; // a 4xx will not succeed on retry
         } catch (err) { if (ctrl.signal.aborted) break; }
@@ -191,21 +196,40 @@
         if (window.dataLayer) window.dataLayer.push({ event: 'generate_lead', lead_interest: interest });
         done();
       } else {
-        const mail = `mailto:info@fandaqah.com?subject=${encodeURIComponent('Fandaqah enquiry: ' + interest)}&body=${encodeURIComponent(payload.message.replace(/\n\[.*\]$/, '') + `\n\nName: ${payload.name}\nEmail: ${payload.email}\nMobile: ${payload.phone}`)}`;
+        const mail = `mailto:info@fandaqah.com?subject=${encodeURIComponent('Fandaqah enquiry: ' + interest)}&body=${encodeURIComponent(payload.message.replace(/\n\[[^\n]*\]$/, '') + `\n\nName: ${payload.name}\nEmail: ${payload.email}\nMobile: ${payload.phone}`)}`;
         alertEl.innerHTML = MSG[lang].fail(mail);
         alertEl.hidden = false;
       }
     });
   }
 
+  /* ---------- newsletter: the address goes to the CRM as a newsletter lead; email is the fallback if the CRM can't be reached ---------- */
   const newsletter = $('.newsletter-form');
-  if (newsletter) newsletter.addEventListener('submit', e => {
+  if (newsletter) newsletter.addEventListener('submit', async e => {
     e.preventDefault();
-    const email = $('#newsletter-email').value;
-    const status = $('.newsletter-status');
-    status.replaceChildren(document.createTextNode(isAr() ? 'أكمل طلب الاشتراك عبر البريد الإلكتروني: ' : 'Finish your subscription request by email: '));
+    const input = $('#newsletter-email'), button = $('button', newsletter), status = $('.newsletter-status');
+    const email = latinDigits(input.value.trim()).toLowerCase(), ar = isAr();
+    status.classList.remove('is-ok');
+    if (!CHECKS.email(email)) { status.textContent = ar ? 'يرجى إدخال بريد إلكتروني صحيح.' : 'Please enter a valid email address.'; input.focus(); return; }
+    if (button.disabled) return;
+    const qs = new URLSearchParams(location.search), utm = {};
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(k => { if (qs.get(k)) utm[k] = qs.get(k); });
+    const page = location.pathname.split('/').slice(-2).join('/');
+    const payload = { email, message: `Newsletter sign-up\n[Fandaqah landing · ${page} · ${ar ? 'AR' : 'EN'}]`, interest: 'Newsletter', topic: 'Newsletter',
+      marketing_consent: true, platform: PLATFORM, source: 'fandaqah_landing_newsletter', language: ar ? 'ar' : 'en', page_url: location.href.split('#')[0], ...utm };
+    button.disabled = true; status.textContent = ar ? 'جارٍ الإرسال…' : 'Sending…';
+    const ctrl = new AbortController(), stop = setTimeout(() => ctrl.abort(), 15000);
+    let ok = false;
+    try { ok = (await sendLead(payload, ctrl.signal)).ok; } catch (err) { /* reported below */ } finally { clearTimeout(stop); button.disabled = false; }
+    if (ok) {
+      newsletter.reset(); status.classList.add('is-ok');
+      status.textContent = ar ? 'شكراً لك. تم تسجيل بريدك في نشرة فندقة.' : 'Thank you. You’re on the Fandaqah newsletter list.';
+      if (window.dataLayer) window.dataLayer.push({ event: 'newsletter_signup' });
+      return;
+    }
+    status.replaceChildren(document.createTextNode(ar ? 'تعذّر تسجيلك الآن. ' : 'We couldn’t sign you up just now. '));
     const link = document.createElement('a');
-    link.textContent = isAr() ? 'افتح طلب البريد ←' : 'Open email request →';
+    link.textContent = ar ? 'أرسل الطلب بالبريد ←' : 'Send the request by email →';
     link.href = `mailto:info@fandaqah.com?subject=Newsletter%20subscription&body=${encodeURIComponent(`Please subscribe ${email} to the Fandaqah newsletter.`)}`;
     status.append(link);
   });
@@ -259,15 +283,15 @@
   const translations = {
     'About Us':'من نحن','Features':'المميزات','Packages':'الباقات','Blogs':'المدونة','Contact Us':'تواصل معنا','Refer & Earn':'شركاء النجاح','Login':'دخول','Free Trial':'تجربة مجانية','Book a Demo':'احجز عرضاً توضيحياً','Subscription Plans':'باقات الاشتراك','Explore All Features':'استكشف جميع المميزات','Home':'الرئيسية','Trusted By Over 1400+ Hotels':'موثوق لدى أكثر من 1400 فندق','Trusted by over 1400+ hotels.':'موثوق لدى أكثر من 1400 فندق.','Hotels Partnered With Fandaqah':'فندق شريك لفندقة','Trusted by':'موثوق لدى','1400+ Hotels':'أكثر من 1400 فندق','Smarter Technologies':'تقنيات أكثر ذكاءً','Saudi Hotels':'الفنادق السعودية','Modern Hospitality':'الضيافة الحديثة','Why Fandaqah?':'لماذا فندقة؟','Core & Operations':'النظام والتشغيل','Sales & Finance':'المبيعات والمالية','Guest & Dining':'الضيوف والمطاعم','Government & Support':'الجهات الحكومية والدعم','PMS Core':'نظام إدارة الفندق','Housekeeping':'التدبير الفندقي','Maintenance':'الصيانة','Inventory':'المخزون','HR':'الموارد البشرية','Channel Manager':'مدير القنوات','Booking Engine':'محرك الحجز','Payment Gateway':'بوابة الدفع','Purchasing':'المشتريات','Accounting':'المحاسبة','Passport & ID Scanner (Fast Pass)':'مسح الجواز والهوية','Digital Signature on iPad (Sign Stay)':'التوقيع الرقمي','Guest Room QR Code':'رمز غرفة النزيل','CRM':'إدارة علاقات العملاء','POS / Restaurant Management':'نقاط البيع وإدارة المطاعم','Recipe Management':'إدارة الوصفات','Shomoos Wallet':'محفظة شموس','ZATCA Integration':'تكامل الزكاة والضريبة','NTMP I – II':'منصة الرصد السياحي','Support & Training':'الدعم والتدريب','Overview':'نظرة عامة','Integrations':'التكاملات','FAQs':'الأسئلة الشائعة','All':'الكل','What is Fandaqah 360?':'ما هي فندقة 360؟','Explore all':'استكشف','20 Fandaqah 360 features':'20 ميزة في فندقة 360','Frequently Asked Questions':'الأسئلة الشائعة','Pricing & Offers':'الباقات والعروض','The Complete Hospitality Upgrade':'الترقية المتكاملة لإدارة الضيافة','Basic Subscription':'الاشتراك الأساسي','Compliance Package':'باقة الامتثال','Total Reference Value':'إجمالي القيمة المرجعية','Recommended':'موصى به','Activate your upgrade today':'فعّل ترقيتك اليوم','Activate your upgrade':'فعّل ترقيتك','What’s Included':'ما الذي تتضمنه الباقة','See what’s included':'اكتشف مميزات الباقة','Integrations & Ecosystem':'التكاملات والمنظومة','Government Services':'الخدمات الحكومية','Payment Options':'خيارات الدفع','OTAs & Distribution':'قنوات الحجز والتوزيع','Business Devices':'الأجهزة المتكاملة','Guarantees':'الضمانات','Your success is our priority':'نجاحك أولويتنا','Activation Guarantee':'ضمان التفعيل','30-Day Upgrade Protection':'حماية الترقية لمدة 30 يوماً','Limited-Time Offer':'عرض لفترة محدودة','Get Started Now':'ابدأ الآن','Quick Links':'روابط سريعة','Contact Info':'معلومات التواصل','Join Our Newsletter':'اشترك في نشرتنا','Sign Me Up':'اشترك الآن','Privacy Policy':'سياسة الخصوصية','Terms And Conditions':'الشروط والأحكام','Explore all packages':'استكشف جميع الباقات','Ease Of Use':'سهولة الاستخدام','Full Control':'تحكم كامل','Real Time Monitoring':'متابعة لحظية','Automated System':'نظام آلي','Technical Support':'الدعم الفني','Secure Cloud-Based System':'نظام سحابي آمن','Multi Connectivity Feature':'تكاملات متعددة','Rapid Development':'تطوير مستمر','Your hospitality.':'ضيافتك.','Our priority.':'أولويتنا.','Let’s build a':'لنصنع معاً','better stay.':'إقامة أفضل.','Good Morning':'صباح الخير','Occupancy Rate':'نسبة الإشغال','Total Bookings':'إجمالي الحجوزات','Revenue':'الإيرادات','New Booking':'حجز جديد','The Right Choice Starts Here':'الخيار الصحيح يبدأ هنا','Because Your Satisfaction Is Our Priority':'لأن رضاكم أولويتنا',
     // lead dialog
-    'LET’S TALK HOSPITALITY':'لنتحدث عن الضيافة','See what’s possible':'اكتشف ما يمكن تحقيقه','with':'مع','Fandaqah.':'فندقة.','Payment in instalments with tabby or tamara.':'الدفع بالتقسيط عبر تابي أو تمارا.','Tell us a little about your property. Our team will contact you to arrange a personal walkthrough.':'أخبرنا قليلاً عن منشأتك، وسيتواصل معك فريقنا لترتيب عرض توضيحي خاص.','Your name':'الاسم','Work email':'البريد الإلكتروني للعمل','Property name':'اسم المنشأة','Mobile number':'رقم الجوال','I’m interested in':'أرغب في','Fandaqah 360 demo':'عرض توضيحي لفندقة 360','Free trial':'تجربة مجانية','Partner with Fandaqah':'الشراكة مع فندقة','Talk to support':'التواصل مع الدعم','Send my request':'أرسل طلبي','Please enter your name.':'يرجى إدخال اسمك.','Please enter a valid email address.':'يرجى إدخال بريد إلكتروني صحيح.','Please enter your property name.':'يرجى إدخال اسم المنشأة.','Please enter a Saudi mobile number, for example 05XXXXXXXX.':'يرجى إدخال رقم جوال سعودي، مثل 05XXXXXXXX.','We use these details only to contact you about your request.':'نستخدم هذه البيانات للتواصل معك بشأن طلبك فقط.','REQUEST RECEIVED':'تم استلام طلبك','Thank you.':'شكراً لك.','We’ll be in touch.':'سنتواصل معك قريباً.','Our team will contact you to arrange a suitable time. Demo hours: Sunday to Thursday, 9:00 to 17:00.':'سيتواصل معك فريقنا لترتيب موعد مناسب. أوقات العروض: من الأحد إلى الخميس، من 9:00 إلى 17:00.','Done':'تم','Prefer a conversation?':'تفضّل المحادثة؟','Start a free trial':'ابدأ تجربة مجانية',
+    'LET’S TALK HOSPITALITY':'لنتحدث عن الضيافة','See what’s possible':'اكتشف ما يمكن تحقيقه','with':'مع','Fandaqah.':'فندقة.','Payment in instalments with tabby or tamara.':'الدفع بالتقسيط عبر تابي أو تمارا.','Tell us a little about your property. Our team will contact you to arrange a personal walkthrough.':'أخبرنا قليلاً عن منشأتك، وسيتواصل معك فريقنا لترتيب عرض توضيحي خاص.','Your name':'الاسم','Work email':'البريد الإلكتروني للعمل','Property name':'اسم المنشأة','Mobile number':'رقم الجوال','I’m interested in':'أرغب في','Fandaqah 360 demo':'عرض توضيحي لفندقة 360','Free trial':'تجربة مجانية','Partner with Fandaqah':'الشراكة مع فندقة','Talk to support':'التواصل مع الدعم','Send my request':'أرسل طلبي','Your message':'رسالتك','(optional)':'(اختياري)','Please enter your name.':'يرجى إدخال اسمك.','Please enter a valid email address.':'يرجى إدخال بريد إلكتروني صحيح.','Please enter your property name.':'يرجى إدخال اسم المنشأة.','Please enter a Saudi mobile number, for example 05XXXXXXXX.':'يرجى إدخال رقم جوال سعودي، مثل 05XXXXXXXX.','We use these details only to contact you about your request.':'نستخدم هذه البيانات للتواصل معك بشأن طلبك فقط.','REQUEST RECEIVED':'تم استلام طلبك','Thank you.':'شكراً لك.','We’ll be in touch.':'سنتواصل معك قريباً.','Our team will contact you to arrange a suitable time. Demo hours: Sunday to Thursday, 9:00 to 17:00.':'سيتواصل معك فريقنا لترتيب موعد مناسب. أوقات العروض: من الأحد إلى الخميس، من 9:00 إلى 17:00.','Done':'تم','Prefer a conversation?':'تفضّل المحادثة؟','Start a free trial':'ابدأ تجربة مجانية',
     // pricing
     'incl. 15% VAT':'شامل ضريبة القيمة المضافة 15%','Compare packages':'قارن الباقات','side by side':'جنباً إلى جنب','What each package includes, taken from the package details above.':'ما تشمله كل باقة، وفق تفاصيل الباقات أعلاه.','Fandaqah 360':'فندقة 360','/ year':'/ سنوياً','Feature':'الميزة','Additional modules':'وحدات إضافية','5 modules':'5 وحدات','ZATCA, Shomoos Wallet and NTMP':'الزكاة والضريبة ومحفظة شموس ومنصة الرصد','All 20 modules':'جميع الوحدات العشرين','Support':'الدعم','Standard':'عادي','Priority':'ذو أولوية','Premium':'مميز','Training':'التدريب','Basic':'أساسي','Full':'كامل','Full, with priority onboarding':'كامل مع تهيئة ذات أولوية','Instalments with tabby or tamara':'التقسيط عبر تابي أو تمارا','Price excluding VAT':'السعر غير شامل الضريبة','Price including 15% VAT':'السعر شامل ضريبة القيمة المضافة 15%','Included':'مشمول','Not included':'غير مشمول','Choose a package':'اختر باقة','Ask about Basic':'استفسر عن الأساسية','Ask about Compliance':'استفسر عن الامتثال','Prices are per year and exclude 15% VAT unless stated. Package inclusions are confirmed during your demo.':'الأسعار سنوية وغير شاملة ضريبة القيمة المضافة 15% ما لم يُذكر خلاف ذلك، وتُؤكد محتويات الباقات خلال العرض التوضيحي.',
     // journal
     'Read about PMS Core':'اقرأ عن نظام إدارة الفندق','Read about the Channel Manager':'اقرأ عن مدير القنوات','Explore Fandaqah 360':'استكشف فندقة 360',
     // privacy and terms
-    'How this website handles the information you share with us.':'كيف يتعامل هذا الموقع مع المعلومات التي تشاركها معنا.','Requests you send us':'الطلبات التي ترسلها إلينا','When you send a demo, package or support request, the details you enter (your name, email address, mobile number, property name and the interest you select) are sent securely to Fandaqah’s customer relationship system, together with the page you sent it from, the language you were using and any campaign tags in the page address. We use them only to respond to your request and arrange your walkthrough.':'عند إرسال طلب عرض توضيحي أو استفسار عن باقة أو طلب دعم، تُرسل البيانات التي تدخلها (الاسم والبريد الإلكتروني ورقم الجوال واسم المنشأة والاهتمام الذي تختاره) بأمان إلى نظام إدارة علاقات العملاء في فندقة، مع الصفحة التي أرسلت منها واللغة التي كنت تستخدمها وأي وسوم حملات في عنوان الصفحة. ونستخدمها فقط للرد على طلبك وترتيب العرض التوضيحي.','Newsletter':'النشرة البريدية','Newsletter sign-ups are prepared in your email application, where you can review the request before sending it.':'يُجهّز طلب الاشتراك في النشرة في تطبيق البريد لديك، حيث يمكنك مراجعته قبل إرساله.','Preferences stored on your device':'التفضيلات المحفوظة على جهازك','Your selected language is stored locally in your browser. This website does not use advertising cookies.':'تُحفظ اللغة التي تختارها محلياً في متصفحك، ولا يستخدم هذا الموقع ملفات تعريف ارتباط إعلانية.','Third parties':'الأطراف الثالثة','Links to social networks, the Fandaqah application and email applications are governed by those services’ own privacy practices.':'تخضع روابط الشبكات الاجتماعية وتطبيق فندقة وتطبيقات البريد لممارسات الخصوصية الخاصة بتلك الخدمات.','Contact':'التواصل','The terms that apply to this website and the package information shown on it.':'الشروط التي تنطبق على هذا الموقع ومعلومات الباقات المعروضة فيه.','Website information':'معلومات الموقع','This website presents Fandaqah hospitality products and the supplied package information for review. Prices, package inclusions, integration availability and offer terms must be confirmed with the Fandaqah team before purchase.':'يعرض هذا الموقع منتجات فندقة للضيافة ومعلومات الباقات للاطلاع. ويجب تأكيد الأسعار ومحتويات الباقات وتوفر التكاملات وشروط العروض مع فريق فندقة قبل الشراء.','Introduction offer':'العرض التعريفي','Displayed prices exclude 15% VAT; prices including VAT are shown for convenience. Any activation guarantee, upgrade protection or special pricing is subject to the agreed commercial terms. This website does not accept payments or create a subscription.':'الأسعار المعروضة غير شاملة ضريبة القيمة المضافة 15%، وتُعرض الأسعار شاملة الضريبة للتسهيل. ويخضع أي ضمان تفعيل أو حماية ترقية أو تسعير خاص للشروط التجارية المتفق عليها. ولا يقبل هذا الموقع المدفوعات ولا ينشئ اشتراكاً.'
+    'How this website handles the information you share with us.':'كيف يتعامل هذا الموقع مع المعلومات التي تشاركها معنا.','Requests you send us':'الطلبات التي ترسلها إلينا','When you send a demo, package or support request, the details you enter (your name, email address, mobile number, property name, the interest you select and any message you write) are sent securely to Fandaqah’s customer relationship system, together with the page you sent it from, the language you were using and any campaign tags in the page address. We use them only to respond to your request and arrange your walkthrough.':'عند إرسال طلب عرض توضيحي أو استفسار عن باقة أو طلب دعم، تُرسل البيانات التي تدخلها (الاسم والبريد الإلكتروني ورقم الجوال واسم المنشأة والاهتمام الذي تختاره وأي رسالة تكتبها) بأمان إلى نظام إدارة علاقات العملاء في فندقة، مع الصفحة التي أرسلت منها واللغة التي كنت تستخدمها وأي وسوم حملات في عنوان الصفحة. ونستخدمها فقط للرد على طلبك وترتيب العرض التوضيحي.','Newsletter':'النشرة البريدية','Newsletter sign-ups send only your email address to Fandaqah’s customer relationship system, and we use it only to send you our newsletter.':'عند الاشتراك في النشرة يُرسل بريدك الإلكتروني فقط إلى نظام إدارة علاقات العملاء في فندقة، ونستخدمه لإرسال نشرتنا إليك فقط.','Preferences stored on your device':'التفضيلات المحفوظة على جهازك','Your selected language is stored locally in your browser. This website does not use advertising cookies.':'تُحفظ اللغة التي تختارها محلياً في متصفحك، ولا يستخدم هذا الموقع ملفات تعريف ارتباط إعلانية.','Third parties':'الأطراف الثالثة','Links to social networks, the Fandaqah application and email applications are governed by those services’ own privacy practices.':'تخضع روابط الشبكات الاجتماعية وتطبيق فندقة وتطبيقات البريد لممارسات الخصوصية الخاصة بتلك الخدمات.','Contact':'التواصل','The terms that apply to this website and the package information shown on it.':'الشروط التي تنطبق على هذا الموقع ومعلومات الباقات المعروضة فيه.','Website information':'معلومات الموقع','This website presents Fandaqah hospitality products and the supplied package information for review. Prices, package inclusions, integration availability and offer terms must be confirmed with the Fandaqah team before purchase.':'يعرض هذا الموقع منتجات فندقة للضيافة ومعلومات الباقات للاطلاع. ويجب تأكيد الأسعار ومحتويات الباقات وتوفر التكاملات وشروط العروض مع فريق فندقة قبل الشراء.','Introduction offer':'العرض التعريفي','Displayed prices exclude 15% VAT; prices including VAT are shown for convenience. Any activation guarantee, upgrade protection or special pricing is subject to the agreed commercial terms. This website does not accept payments or create a subscription.':'الأسعار المعروضة غير شاملة ضريبة القيمة المضافة 15%، وتُعرض الأسعار شاملة الضريبة للتسهيل. ويخضع أي ضمان تفعيل أو حماية ترقية أو تسعير خاص للشروط التجارية المتفق عليها. ولا يقبل هذا الموقع المدفوعات ولا ينشئ اشتراكاً.'
   };
-  const placeholders = { 'Full name': 'الاسم الكامل', 'Your hotel or property': 'اسم الفندق أو المنشأة', 'Email Address': 'البريد الإلكتروني', 'Search all features…': 'ابحث عن جميع المميزات…' };
+  const placeholders = { 'Rooms, your current system, or anything you would like us to prepare for your demo.': 'عدد الغرف، أو نظامك الحالي، أو أي شيء تودّ أن نجهّزه لعرضك التوضيحي.', 'Full name': 'الاسم الكامل', 'Your hotel or property': 'اسم الفندق أو المنشأة', 'Email Address': 'البريد الإلكتروني', 'Search all features…': 'ابحث عن جميع المميزات…' };
   const originalNodes = [];
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {acceptNode(node) {
     // skip Arabic islands, not the page itself: the head guard may already have set <html lang="ar">

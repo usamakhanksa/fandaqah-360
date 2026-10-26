@@ -209,6 +209,7 @@ def dialog_html(lang, root):
             f'<label>{T["prop"]}<input name="property" autocomplete="organization" required placeholder="{T["prop_ph"]}" aria-describedby="demo-err-property"><small class="field-error" id="demo-err-property" hidden>{T["e_prop"]}</small></label>'
             f'<label>{T["phone"]}<input name="phone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="05XXXXXXXX" dir="ltr" aria-describedby="demo-err-phone"><small class="field-error" id="demo-err-phone" hidden>{T["e_phone"]}</small></label>'
             f'<label class="full">{T["interest"]}<select name="interest">{opts}</select></label>'
+            f'<label class="full">{T["msg"]} <span class="demo-opt">{T["optional"]}</span><textarea name="message" rows="3" maxlength="1000" dir="auto" placeholder="{T["msg_ph"]}"></textarea></label>'
             '<input type="hidden" name="topic" value="">'
             '<label class="demo-hp" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>'
             '<p class="demo-alert full" role="alert" hidden></p>'
@@ -231,6 +232,7 @@ DIALOG_TXT = {
            'prop': 'Property name', 'prop_ph': 'Your hotel or property', 'e_prop': 'Please enter your property name.',
            'phone': 'Mobile number', 'e_phone': 'Please enter a Saudi mobile number, for example 05XXXXXXXX.',
            'interest': 'I’m interested in', 'opt': DIALOG_OPTS, 'send': 'Send my request',
+           'msg': 'Your message', 'optional': '(optional)', 'msg_ph': 'Rooms, your current system, or anything you would like us to prepare for your demo.',
            'consent': 'We use these details only to contact you about your request.', 'privacy': 'Privacy Policy',
            'd_eyebrow': 'REQUEST RECEIVED', 'd_h2': 'Thank you. <span>We’ll be in touch.</span>',
            'd_p': 'Our team will contact you to arrange a suitable time. Demo hours: Sunday to Thursday, 9:00 to 17:00.', 'd_btn': 'Done',
@@ -242,7 +244,8 @@ DIALOG_TXT = {
            'email': 'البريد الإلكتروني للعمل', 'e_email': 'يرجى إدخال بريد إلكتروني صحيح.',
            'prop': 'اسم المنشأة', 'prop_ph': 'اسم الفندق أو المنشأة', 'e_prop': 'يرجى إدخال اسم المنشأة.',
            'phone': 'رقم الجوال', 'e_phone': 'يرجى إدخال رقم جوال سعودي، مثل 05XXXXXXXX.',
-           'interest': 'أرغب في', 'opt': ['عرض توضيحي لفندقة 360', 'تجربة مجانية', 'الاشتراك الأساسي', 'باقة الامتثال', 'الشراكة مع فندقة', 'التواصل مع الدعم'],
+           'interest': 'أرغب في', 
+           'msg': 'رسالتك', 'optional': '(اختياري)', 'msg_ph': 'عدد الغرف، أو نظامك الحالي، أو أي شيء تودّ أن نجهّزه لعرضك التوضيحي.','opt': ['عرض توضيحي لفندقة 360', 'تجربة مجانية', 'الاشتراك الأساسي', 'باقة الامتثال', 'الشراكة مع فندقة', 'التواصل مع الدعم'],
            'send': 'أرسل طلبي',
            'consent': 'نستخدم هذه البيانات للتواصل معك بشأن طلبك فقط.', 'privacy': 'سياسة الخصوصية',
            'd_eyebrow': 'تم استلام طلبك', 'd_h2': 'شكراً لك. <span>سنتواصل معك قريباً.</span>',
@@ -293,8 +296,8 @@ def compare_html():
 
 PRIVACY_MAIN = ('<main id="main"><section class="page-intro section"><div class="container"><span class="eyebrow">FANDAQAH</span><h1>Privacy Policy</h1>'
                 '<p>How this website handles the information you share with us.</p></div></section><section class="section"><article class="container legal-copy">'
-                '<h2>Requests you send us</h2><p>When you send a demo, package or support request, the details you enter (your name, email address, mobile number, property name and the interest you select) are sent securely to Fandaqah’s customer relationship system, together with the page you sent it from, the language you were using and any campaign tags in the page address. We use them only to respond to your request and arrange your walkthrough.</p>'
-                '<h2>Newsletter</h2><p>Newsletter sign-ups are prepared in your email application, where you can review the request before sending it.</p>'
+                '<h2>Requests you send us</h2><p>When you send a demo, package or support request, the details you enter (your name, email address, mobile number, property name, the interest you select and any message you write) are sent securely to Fandaqah’s customer relationship system, together with the page you sent it from, the language you were using and any campaign tags in the page address. We use them only to respond to your request and arrange your walkthrough.</p>'
+                '<h2>Newsletter</h2><p>Newsletter sign-ups send only your email address to Fandaqah’s customer relationship system, and we use it only to send you our newsletter.</p>'
                 '<h2>Preferences stored on your device</h2><p>Your selected language is stored locally in your browser. This website does not use advertising cookies.</p>'
                 '<h2>Third parties</h2><p>Links to social networks, the Fandaqah application and email applications are governed by those services’ own privacy practices.</p>'
                 f'<h2>Contact</h2><p>For the current published policy or commercial terms, contact <a href="mailto:{EMAIL}">{EMAIL}</a> or call <a href="tel:{PHONE}">{PHONE_TXT}</a>.</p>'

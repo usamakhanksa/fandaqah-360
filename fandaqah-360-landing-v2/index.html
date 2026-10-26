@@ -1466,10 +1466,12 @@ html:has(.lead[open]){overflow:hidden}
   setLang(fromUrl === 'ar' || fromUrl === 'en' ? fromUrl : (saved === 'en' ? 'en' : 'ar'), false);   // Arabic by default
 
   /* ---------- Lead form: every CTA opens it, leads post straight to the CRM ---------- */
-  /* NOTE: this key ships to every visitor's browser. Keep it ingest-only, rate-limited on the CRM side, and switch to the production URL before launch. */
-  const API_URL = 'https://crm-dev.fandaqah.com/api/ingest/lead';
+  /* On static hosting leads post straight to the CRM, so this key ships to every visitor's browser: keep it ingest-only and rate-limited
+     on the CRM side. The PHP copy of this page carries <meta name="fq-lead-proxy"> and posts to api/lead.php, which adds the key. */
+  const API_URL = 'https://crm.fandaqah.com/api/ingest/lead';
   const API_KEY = 'fdq_d0930f18b74a5153c68b174748b5ed7ba17b8723ca05c21e';
   const PLATFORM = 'fandaqah_tourism_platform_contact';
+  const PROXY = (document.querySelector('meta[name="fq-lead-proxy"]') || {}).content || '';
   const PLANS = {
     en: { general: 'Fandaqah 360 upgrade', basic: 'Basic Subscription · SAR 1,200 / year + VAT', compliance: 'Compliance Package · SAR 3,200 / year + VAT', '360': 'Fandaqah 360 · SAR 3,495 / year + VAT' },
     ar: { general: 'ترقية فندقة 360', basic: 'الاشتراك الأساسي · 1,200 ريال سنوياً + ضريبة القيمة المضافة', compliance: 'باقة الامتثال · 3,200 ريال سنوياً + ضريبة القيمة المضافة', '360': 'فندقة 360 · 3,495 ريال سنوياً + ضريبة القيمة المضافة' }
@@ -1526,12 +1528,14 @@ html:has(.lead[open]){overflow:hidden}
       name: fields.name.value.trim(), email: fields.email.value.trim(), phone: '+966' + saMobile(fields.phone.value),
       // the plan also goes in the message so sales sees it even if the CRM ignores the extra fields
       message: (msg ? msg + '\n\n' : '') + `[Fandaqah 360 landing · ${PLANS.en[plan]} · ${lang.toUpperCase()}]`,
+      customer_message: msg || undefined,
       platform: PLATFORM, source: 'fandaqah_360_landing', interest: plan, language: lang, page_url: location.href.split('#')[0], ...utm
     };
     setBusy(true); alertEl.hidden = true;
     const ctrl = new AbortController(), stop = setTimeout(() => ctrl.abort(), 15000);
     try {
-      const res = await fetch(API_URL, { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-API-Key': API_KEY }, body: JSON.stringify(payload), signal: ctrl.signal });
+      const res = await fetch(PROXY || API_URL, { method: 'POST', body: JSON.stringify(payload), signal: ctrl.signal,
+        headers: PROXY ? { 'Content-Type': 'application/json', Accept: 'application/json' } : { 'Content-Type': 'application/json', 'X-API-Key': API_KEY } });
       if (!res.ok) throw new Error('HTTP ' + res.status);
       if (window.dataLayer) window.dataLayer.push({ event: 'generate_lead', lead_plan: plan });
       done();

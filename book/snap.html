@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>فندقة 360 · إعلان سناب شات</title>
+<!-- Campaign A, Snapchat: one 9.5 s, 1080×1920 ad for existing Fandaqah customers (Arabic only).
+     Plays and loops here; ?render=1 holds it paused for tools/render-snap.mjs, which seeks every frame and encodes the MP4.
+     Storyboard and voice-over script: campaigns/A-existing-customers/snapchat-storyboard.md -->
+<link rel="icon" href="../favicon.ico">
+<style>
+@font-face{font-family:"Almarai";font-weight:400;font-display:block;src:url(../assets/fonts/almarai-arabic-400.woff2) format("woff2");unicode-range:U+0600-06FF,U+0750-077F,U+0870-08FF,U+200C-200E,U+2010-2011,U+FB50-FDFF,U+FE70-FEFC}
+@font-face{font-family:"Almarai";font-weight:700;font-display:block;src:url(../assets/fonts/almarai-arabic-700.woff2) format("woff2");unicode-range:U+0600-06FF,U+0750-077F,U+0870-08FF,U+200C-200E,U+2010-2011,U+FB50-FDFF,U+FE70-FEFC}
+@font-face{font-family:"Inter";font-weight:400 800;font-display:block;src:url(../assets/fonts/inter-latin.woff2) format("woff2")}
+/* the brand palette from the brief, nothing else */
+:root{--coral:#e95a54;--navy:#2a273c;--beige:#f2f0eb;--green:#8f9793;--peach:#fbcdab;--ink:#2a273c;--ink-2:#5d5a6c;--line:rgba(42,39,60,.12);--f:"Almarai","Inter",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#15131f}
+body{display:grid;place-items:center;overflow:hidden;font-family:var(--f);-webkit-font-smoothing:antialiased}
+.ic{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+/* the stage is always 1080×1920; the preview scales it to the window */
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--navy);transform-origin:50% 50%;flex:none}
+.sc{position:absolute;inset:0;opacity:0;visibility:hidden}
+.photo{position:absolute;inset:0;overflow:hidden}
+.photo img{position:absolute;display:block;will-change:transform}
+.h{font-weight:700;color:#fff;text-align:center;line-height:1.25;letter-spacing:0}
+.pill{display:inline-flex;align-items:center;gap:12px;padding:12px 26px;border-radius:999px;font-weight:700}
+.logo{display:inline-flex;align-items:center;gap:14px}
+.logo img{height:74px;width:auto}
+.logo b{font:800 70px/1 "Inter",sans-serif;color:var(--coral);letter-spacing:-.02em}
+.tag{position:absolute;font-size:22px;color:rgba(255,255,255,.62)}
+
+/* 1 · the hook: a busy front desk */
+.s1 .photo img{height:1240px;width:auto;right:-470px;top:0;transform-origin:70% 40%}
+.s1 .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,39,60,0) 30%,rgba(42,39,60,.55) 52%,var(--navy) 66%)}
+.clutter{position:absolute;inset:0}
+/* the desk screen behind her is out of focus: shallow depth of field, and no stray UI text on screen */
+.s1 .frost{position:absolute;left:690px;top:0;width:390px;height:1240px;-webkit-backdrop-filter:blur(22px) saturate(.7);backdrop-filter:blur(22px) saturate(.7);background:rgba(42,39,60,.38)}
+.cl{position:absolute;display:flex;align-items:center;gap:14px;padding:16px 22px;border-radius:14px;background:#fff;box-shadow:0 22px 40px -18px rgba(10,8,25,.55);font-size:27px;font-weight:700;color:var(--ink)}
+.cl .ic{width:34px;height:34px;color:var(--coral)}
+.cl small{display:block;margin-top:4px;font-size:21px;font-weight:400;color:var(--ink-2)}
+.cl.paper{background:#fffdf8;transform:rotate(-4deg)}
+.cl.sheet .grid{width:120px;height:70px;background:linear-gradient(var(--line) 1px,transparent 1px) 0 0/30px 23px,linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/30px 23px;border:1px solid var(--line);border-radius:4px}
+.cl.note{background:#fff3c9;transform:rotate(3deg)}
+.cl.call{background:var(--navy);color:#fff}
+.cl.call .ic{color:var(--peach)}
+.cl.call small{color:rgba(255,255,255,.7)}
+.s1 .copy{position:absolute;inset:auto 70px 520px}
+.s1 .h1{font-size:84px;white-space:nowrap}
+.s1 .h2{margin-top:14px;font-size:92px;color:var(--peach)}
+
+/* 2 · what is still separate */
+.s2 .photo img{height:1240px;width:auto;right:-470px;top:0;filter:blur(10px) saturate(.8);transform:scale(1.12)}
+.s2 .veil{position:absolute;inset:0;background:rgba(42,39,60,.78)}
+.s2 .copy{position:absolute;inset:540px 70px auto}
+.s2 .h{font-size:78px}
+.mods{position:absolute;inset:820px 90px auto;display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.mod{display:flex;align-items:center;gap:18px;padding:24px 26px;border-radius:18px;background:rgba(255,255,255,.07);border:2px dashed rgba(251,205,171,.45);color:#fff;font-size:34px;font-weight:700}
+.mod .ic{width:44px;height:44px;color:var(--peach)}
+.mod em{margin-inline-start:auto;font-style:normal;font-size:22px;font-weight:400;color:rgba(255,255,255,.55)}
+.mod:last-child{grid-column:1/-1;justify-self:center;width:calc(50% - 13px)}
+
+/* 3 · the upgrade: same account, more capabilities */
+.s3{background:var(--beige)}
+.s3 .copy{position:absolute;inset:250px 70px auto;display:grid;gap:8px}
+.s3 .h{color:var(--navy);font-size:84px}
+.s3 .h.more{color:var(--coral)}
+.app{position:absolute;left:50%;top:590px;width:940px;height:860px;margin-left:-470px;border-radius:26px;background:#fff;box-shadow:0 50px 90px -40px rgba(42,39,60,.55),0 0 0 1px var(--line);overflow:hidden;display:grid;grid-template-columns:1fr 270px;grid-template-rows:96px 1fr}
+.app-top{grid-column:1/-1;display:flex;align-items:center;gap:20px;padding:0 30px;border-bottom:1px solid var(--line)}
+.app-top .brand{display:flex;align-items:center;gap:10px}
+.app-top .brand img{height:44px;width:auto}
+.app-top .brand b{font:800 40px/1 "Inter",sans-serif;color:var(--coral);display:inline-block;transform-origin:50% 60%}
+.app-top .hotel{margin-inline-start:auto;display:flex;align-items:center;gap:12px;font-size:26px;font-weight:700;color:var(--ink)}
+.app-top .hotel i{width:46px;height:46px;border-radius:50%;background:var(--peach)}
+.side{grid-column:2;grid-row:2;padding:22px 16px;background:var(--navy);display:flex;flex-direction:column;gap:6px}
+.side li{list-style:none;display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:12px;font-size:25px;color:rgba(255,255,255,.82)}
+.side li .ic{width:28px;height:28px;color:var(--peach)}
+.side li.on{background:rgba(255,255,255,.1);color:#fff}
+.side li.new{color:#fff}
+.side li.new .ic{color:var(--coral)}
+.main{grid-column:1;grid-row:2;padding:30px;display:flex;flex-direction:column;gap:22px}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.kpi{padding:18px;border-radius:14px;background:var(--beige)}
+.kpi p{font-size:21px;color:var(--ink-2)}
+.kpi b{display:block;margin-top:8px;font:800 40px/1 "Inter",sans-serif;color:var(--ink)}
+.chart{flex:1;border-radius:14px;background:var(--beige);padding:20px;display:flex;align-items:flex-end;gap:14px}
+.chart i{flex:1;border-radius:6px 6px 0 0;background:var(--coral);opacity:.75;height:var(--h)}
+.up{align-self:center;display:inline-flex;align-items:center;gap:14px;padding:22px 40px;border-radius:999px;background:var(--coral);color:#fff;font-size:32px;font-weight:700;box-shadow:0 18px 30px -14px rgba(233,90,84,.9)}
+.up .ic{width:30px;height:30px;transform:scaleX(-1)}
+.ripple{position:absolute;width:80px;height:80px;margin:-40px 0 0 -40px;border-radius:50%;border:4px solid #fff;opacity:0}
+.cursor{position:absolute;width:64px;height:64px;filter:drop-shadow(0 8px 10px rgba(0,0,0,.35))}
+.app .tag{color:var(--ink-2);bottom:18px;left:30px}
+
+/* 4 · twenty modules, one platform (the peak) */
+.s4{background:radial-gradient(60% 45% at 50% 50%,#3a3654 0%,var(--navy) 70%)}
+.s4 .copy-top{position:absolute;inset:250px 70px auto;display:grid;gap:4px}
+.s4 .copy-top .h{font-size:82px}
+.s4 .copy-top .h.b{font-size:60px;color:var(--peach)}
+.net{position:absolute;left:0;top:0;width:1080px;height:1920px}
+.net line{stroke:rgba(251,205,171,.35);stroke-width:2}
+.core{position:absolute;left:540px;top:1000px;width:330px;height:330px;margin:-165px 0 0 -165px;border-radius:50%;background:var(--beige);display:grid;place-items:center;align-content:center;gap:4px;box-shadow:0 0 0 14px rgba(242,240,235,.08),0 0 0 30px rgba(242,240,235,.04)}
+.core .logo img{height:52px}
+.core .logo b{font-size:50px}
+.core .count{font:800 92px/1 "Inter",sans-serif;color:var(--navy);font-variant-numeric:tabular-nums}
+.core .unit{font-size:26px;font-weight:700;color:var(--ink-2)}
+.core .tick{position:absolute;top:18px;inset-inline-end:26px;width:58px;height:58px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center}
+.core .tick .ic{width:32px;height:32px;stroke-width:3}
+.r1{position:absolute;display:flex;align-items:center;gap:12px;padding:16px 22px;white-space:nowrap;border-radius:16px;background:#fff;color:var(--ink);font-size:28px;font-weight:700;box-shadow:0 18px 30px -16px rgba(0,0,0,.6)}
+.r1 .ic{width:34px;height:34px;color:var(--coral)}
+.r2{position:absolute;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:18px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;color:#fff}
+.r2 .ic{width:36px;height:36px}
+.r2 s{position:absolute;bottom:-9px;inset-inline-start:-9px;width:28px;height:28px;border-radius:50%;background:var(--green);display:grid;place-items:center;text-decoration:none}
+.r2 s .ic{width:17px;height:17px;stroke-width:3.4;color:#fff}
+.plus15{position:absolute;left:540px;top:1530px;white-space:nowrap;background:var(--coral);color:#fff;font-size:34px;padding:14px 30px}
+
+/* 5 · connected work */
+.s5{background:var(--beige)}
+.s5 .copy{position:absolute;inset:390px 70px auto;display:grid;gap:6px}
+.s5 .h{color:var(--navy);font-size:82px}
+.s5 .h.b{color:var(--coral)}
+.flowpanel{position:absolute;left:60px;right:60px;top:730px;padding:40px 36px;border-radius:28px;background:#fff;box-shadow:0 40px 80px -40px rgba(42,39,60,.5),0 0 0 1px var(--line);display:grid;gap:40px}
+.fp-top{display:flex;align-items:center;justify-content:space-between;padding-bottom:22px;border-bottom:1px solid var(--line)}
+.fp-top .logo img{height:44px}.fp-top .logo b{font-size:40px}
+.fp-top span{font-size:24px;color:var(--ink-2)}
+.row{display:flex;align-items:center;gap:12px}
+.st{display:inline-flex;align-items:center;gap:10px;padding:16px 18px;border-radius:14px;background:var(--beige);font-size:26px;font-weight:700;color:var(--ink);white-space:nowrap}
+.st .ic{width:28px;height:28px;color:var(--coral)}
+.st.ok{background:rgba(143,151,147,.2);color:#4f5a55}
+.st.ok .ic{color:#5f6b66}
+.arr{flex:1;min-width:20px;height:3px;background:var(--coral);border-radius:2px;transform-origin:100% 50%;position:relative}
+.arr::after{content:"";position:absolute;left:-2px;top:-7px;border:8px solid transparent;border-right:12px solid var(--coral);border-left:0}
+
+/* 6 · the offer */
+.s6{background:var(--navy)}
+.offer{position:absolute;left:80px;right:80px;top:500px;padding:64px 56px 58px;border-radius:36px;background:var(--beige);text-align:center;display:grid;justify-items:center;gap:20px;box-shadow:0 60px 100px -50px rgba(0,0,0,.8)}
+.offer .k{background:var(--peach);color:var(--navy);font-size:30px}
+.offer .logo img{height:64px}.offer .logo b{font-size:62px}
+.offer .all{font-size:84px;font-weight:700;color:var(--navy);line-height:1.15}
+.offer hr{width:140px;border:0;border-top:4px solid var(--coral);border-radius:2px}
+.offer .price{display:flex;align-items:baseline;gap:16px;color:var(--coral)}
+.offer .price b{font:800 128px/1 "Inter",sans-serif;letter-spacing:-.03em}
+.offer .price span{font-size:42px;font-weight:700}
+.offer .vat{font-size:30px;color:var(--ink-2)}
+.offer .lock{display:inline-flex;align-items:center;gap:14px;padding:18px 28px;border-radius:18px;background:#fff;font-size:31px;font-weight:700;color:var(--navy);box-shadow:0 0 0 1px var(--line)}
+.offer .lock .ic{width:34px;height:34px;color:var(--coral)}
+
+/* 7 · the call to action, and the end frame */
+.s7{background:var(--navy)}
+.s7 .photo{bottom:auto;height:1080px}
+.s7 .photo img{height:1080px;width:auto;right:136px;top:0}
+.s7 .shade{position:absolute;inset:0 0 auto;height:1080px;background:linear-gradient(180deg,rgba(42,39,60,.1) 0%,rgba(42,39,60,0) 50%,var(--navy) 100%)}
+.s7 .top{position:absolute;top:230px;left:0;right:0;display:flex;justify-content:center}
+.s7 .top .logo{padding:16px 28px;border-radius:22px;background:rgba(242,240,235,.94)}
+.s7 .top .logo img{height:58px}.s7 .top .logo b{font-size:56px}
+.s7 .copy{position:absolute;inset:900px 70px auto;display:grid;justify-items:center;gap:20px;text-align:center}
+.s7 .kick{font-size:32px;color:var(--peach);font-weight:700}
+.s7 .h{font-size:100px}
+.s7 .sub{font-size:44px;color:#fff;font-weight:400}
+.cta{margin-top:26px;display:inline-flex;align-items:center;gap:18px;padding:30px 56px;border-radius:999px;background:var(--coral);color:#fff;font-size:44px;font-weight:700;box-shadow:0 24px 40px -18px rgba(233,90,84,.95)}
+.cta .ic{width:40px;height:40px;transform:scaleX(-1)}
+.url{margin-top:14px;font:600 34px/1 "Inter",sans-serif;color:#fff;letter-spacing:.01em}
+.url small{display:block;margin-top:12px;font-family:var(--f);font-size:28px;color:rgba(255,255,255,.7)}
+
+/* the preview controls (never in a render) */
+.ctrl{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:9}
+.ctrl button{font:600 14px/1 system-ui;padding:10px 16px;border:0;border-radius:999px;background:#fff;color:#222;cursor:pointer}
+.render .ctrl{display:none}
+</style>
+</head>
+<body>
+<div id="stage" aria-label="إعلان فندقة 360 لعملاء فندقة الحاليين">
+
+  <!-- 1 · 0.0–1.4 s: hook -->
+  <section class="sc s1" id="s1">
+    <div class="photo"><img src="../fandaqah-360-landing-v2/assets/img/about-team.webp" width="1536" height="1024" alt=""></div>
+    <div class="frost"></div>
+    <div class="clutter">
+      <div class="cl paper" style="left:700px;top:170px"><svg class="ic"><use href="../assets/icons.svg#i-file-text"/></svg><div>طلب شراء<small>بانتظار التوقيع</small></div></div>
+      <div class="cl call" style="left:716px;top:372px"><svg class="ic"><use href="../assets/icons.svg#i-phone"/></svg><div>مكالمة واردة<small>التدبير الفندقي</small></div></div>
+      <div class="cl note" style="left:690px;top:580px"><svg class="ic"><use href="../assets/icons.svg#i-wrench"/></svg><div>ملاحظة صيانة<small>غرفة 214</small></div></div>
+      <div class="cl sheet" style="left:40px;top:760px"><span class="grid"></span><div>جدول المخزون<small>تحديث يدوي</small></div></div>
+      <div class="cl paper" style="left:400px;top:880px;transform:rotate(3deg)"><svg class="ic"><use href="../assets/icons.svg#i-package"/></svg><div>مستندات المخزون<small>3 ملفات</small></div></div>
+    </div>
+    <div class="shade"></div>
+    <div class="copy"><p class="h h1">تستخدم فندقة بالفعل؟</p><p class="h h2">احصل على أكثر.</p></div>
+  </section>
+
+  <!-- 2 · 1.4–2.8 s: what still runs separately -->
+  <section class="sc s2" id="s2">
+    <div class="photo"><img src="../fandaqah-360-landing-v2/assets/img/about-team.webp" width="1536" height="1024" alt=""></div>
+    <div class="veil"></div>
+    <div class="copy"><p class="h">لماذا تدير الباقي<br>بشكل منفصل؟</p></div>
+    <div class="mods">
+      <div class="mod"><svg class="ic"><use href="../assets/icons.svg#i-coins"/></svg>المحاسبة<em>منفصل</em></div>
+      <div class="mod"><svg class="ic"><use href="../assets/icons.svg#i-shopping-cart"/></svg>المشتريات<em>منفصل</em></div>
+      <div class="mod"><svg class="ic"><use href="../assets/icons.svg#i-package"/></svg>المخزون<em>منفصل</em></div>
+      <div class="mod"><svg class="ic"><use href="../assets/icons.svg#i-wrench"/></svg>الصيانة<em>منفصل</em></div>
+      <div class="mod"><svg class="ic"><use href="../assets/icons.svg#i-bed-double"/></svg>التدبير الفندقي<em>منفصل</em></div>
+    </div>
+  </section>
+
+  <!-- 3 · 2.8–4.0 s: the upgrade, same account -->
+  <section class="sc s3" id="s3">
+    <div class="copy"><p class="h one">نفس حسابك.</p><p class="h more">إمكانيات أكثر.</p></div>
+    <div class="app">
+      <div class="app-top">
+        <span class="brand"><img src="../assets/img/brand-dark-340.webp" width="340" height="144" alt="فندقة"><b class="b360">360</b></span>
+        <span class="hotel">فندقك<i></i></span>
+      </div>
+      <ul class="side">
+        <li class="on"><svg class="ic"><use href="../assets/icons.svg#i-layout-dashboard"/></svg>الرئيسية</li>
+        <li><svg class="ic"><use href="../assets/icons.svg#i-calendar-days"/></svg>الحجوزات</li>
+        <li><svg class="ic"><use href="../assets/icons.svg#i-hotel"/></svg>الغرف</li>
+        <li><svg class="ic"><use href="../assets/icons.svg#i-users"/></svg>النزلاء</li>
+        <li class="new"><svg class="ic"><use href="../assets/icons.svg#i-coins"/></svg>المحاسبة</li>
+        <li class="new"><svg class="ic"><use href="../assets/icons.svg#i-shopping-cart"/></svg>المشتريات</li>
+        <li class="new"><svg class="ic"><use href="../assets/icons.svg#i-bed-double"/></svg>التدبير الفندقي</li>
+        <li class="new"><svg class="ic"><use href="../assets/icons.svg#i-wrench"/></svg>الصيانة</li>
+        <li class="new"><svg class="ic"><use href="../assets/icons.svg#i-package"/></svg>المخزون</li>
+        <li class="new"><svg class="ic"><use href="../assets/icons.svg#i-plus"/></svg>+15 وحدة</li>
+      </ul>
+      <div class="main">
+        <div class="kpis">
+          <div class="kpi"><p>الإشغال</p><b>86%</b></div>
+          <div class="kpi"><p>الوصول</p><b>24</b></div>
+          <div class="kpi"><p>المغادرة</p><b>19</b></div>
+        </div>
+        <div class="chart"><i style="--h:38%"></i><i style="--h:52%"></i><i style="--h:44%"></i><i style="--h:63%"></i><i style="--h:58%"></i><i style="--h:74%"></i><i style="--h:69%"></i><i style="--h:86%"></i></div>
+        <span class="up"><svg class="ic"><use href="../assets/icons.svg#i-arrow-right"/></svg>الترقية إلى فندقة 360</span>
+      </div>
+      <span class="tag">بيانات توضيحية</span>
+    </div>
+    <span class="ripple" style="left:395px;top:1335px"></span>
+    <svg class="cursor" viewBox="0 0 24 24" style="left:420px;top:1350px"><path d="M4 2l16 9-7 2-3 7z" fill="#fff" stroke="#2a273c" stroke-width="1.4" stroke-linejoin="round"/></svg>
+  </section>
+
+  <!-- 4 · 4.0–6.4 s: twenty modules, one platform (peak) -->
+  <section class="sc s4" id="s4">
+    <svg class="net" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+    <div class="copy-top"><p class="h a">كل ما يحتاجه فندقك.</p><p class="h b">في فندقة 360.</p></div>
+    <div class="core">
+      <span class="tick"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span>
+      <span class="logo"><img src="../assets/img/brand-dark-340.webp" width="340" height="144" alt="فندقة"><b>360</b></span>
+      <span class="count">05</span>
+      <span class="unit">وحدات في منصة واحدة</span>
+    </div>
+    <div class="r1" data-a="-90"><svg class="ic"><use href="../assets/icons.svg#i-coins"/></svg>المحاسبة</div>
+    <div class="r1" data-a="-18"><svg class="ic"><use href="../assets/icons.svg#i-shopping-cart"/></svg>المشتريات</div>
+    <div class="r1" data-a="54"><svg class="ic"><use href="../assets/icons.svg#i-bed-double"/></svg>التدبير الفندقي</div>
+    <div class="r1" data-a="126"><svg class="ic"><use href="../assets/icons.svg#i-wrench"/></svg>الصيانة</div>
+    <div class="r1" data-a="198"><svg class="ic"><use href="../assets/icons.svg#i-package"/></svg>المخزون</div>
+    <div class="r2"><svg class="ic"><use href="../assets/icons.svg#i-hotel"/></svg><s><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></s></div>
+    <div class="r2"><svg class="ic"><use href="../assets/icons.svg#i-users"/></svg><s><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></s></div>
+    <div class="r2"><svg class="ic"><use href="../assets/icons.svg#i-message"/></svg><s><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></s></div>
+    <div class="r2"><svg class="ic"><use href="../assets/icons.svg#i-concierge-bell"/></svg><s><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></s></div>
+    <div class="r2"><svg class="ic"><use href="../assets/icons.svg#i-share-2"/></svg><s><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></s></div>
+    <div class="r2"><svg class="ic"><use href="../assets/icons.svg#i-calendar-days"/></svg><s><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></s></div>
+    <div class="r2"><svg class="ic"><use href="../assets/icons.svg#i-credit-card"/></svg><s><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></s></div>
+    <div class="r2"><svg class="ic"><use href="../assets/icons.svg#i-clipboard-check"/></svg><s><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></s></div>
+    <div class="r2"><svg class="ic"><use href="../assets/icons.svg#i-phone"/></svg><s><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></s></div>
+    <div class="r2"><svg class="ic"><use href="../assets/icons.svg#i-file-text"/></svg><s><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></s></div>
+    <div class="r2"><svg class="ic"><use href="../assets/icons.svg#i-user"/></svg><s><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></s></div>
+    <div class="r2"><svg class="ic"><use href="../assets/icons.svg#i-shield-check"/></svg><s><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></s></div>
+    <div class="r2"><svg class="ic"><use href="../assets/icons.svg#i-key"/></svg><s><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></s></div>
+    <div class="r2"><svg class="ic"><use href="../assets/icons.svg#i-chart-line"/></svg><s><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></s></div>
+    <div class="r2"><svg class="ic"><use href="../assets/icons.svg#i-life-buoy"/></svg><s><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></s></div>
+    <span class="pill plus15">+15 وحدة إضافية</span>
+  </section>
+
+  <!-- 5 · 6.4–7.8 s: connected work -->
+  <section class="sc s5" id="s5">
+    <div class="copy"><p class="h a">منصة واحدة.</p><p class="h b">عمل أكثر ترابطاً.</p></div>
+    <div class="flowpanel">
+      <div class="fp-top"><span class="logo"><img src="../assets/img/brand-dark-340.webp" width="340" height="144" alt="فندقة"><b>360</b></span><span>بيانات توضيحية</span></div>
+      <div class="row"><span class="st"><svg class="ic"><use href="../assets/icons.svg#i-file-text"/></svg>طلب شراء</span><i class="arr"></i><span class="st">اعتماد</span><i class="arr"></i><span class="st">المشتريات</span><i class="arr"></i><span class="st ok"><svg class="ic"><use href="../assets/icons.svg#i-package"/></svg>المخزون</span></div>
+      <div class="row"><span class="st"><svg class="ic"><use href="../assets/icons.svg#i-bed-double"/></svg>غرفة تحتاج تنظيف</span><i class="arr"></i><span class="st">التدبير الفندقي</span><i class="arr"></i><span class="st ok"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg>جاهزة</span></div>
+      <div class="row"><span class="st"><svg class="ic"><use href="../assets/icons.svg#i-wrench"/></svg>بلاغ صيانة</span><i class="arr"></i><span class="st">تم الإسناد</span><i class="arr"></i><span class="st ok"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg>تم الإنجاز</span></div>
+    </div>
+  </section>
+
+  <!-- 6 · 7.8–8.7 s: the offer -->
+  <section class="sc s6" id="s6">
+    <div class="offer">
+      <span class="pill k">عرض حصري للعملاء الحاليين</span>
+      <span class="logo"><img src="../assets/img/brand-dark-340.webp" width="340" height="144" alt="فندقة"><b>360</b></span>
+      <p class="all">جميع الوحدات الـ20</p>
+      <hr>
+      <p class="price"><b>3,495</b><span>ر.س سنوياً</span></p>
+      <p class="vat">غير شامل الضريبة</p>
+      <p class="lock"><svg class="ic"><use href="../assets/icons.svg#i-lock"/></svg>يثبت السعر لمدة عامين عند الدفع المسبق</p>
+    </div>
+  </section>
+
+  <!-- 7 · 8.7–9.5 s: call to action; its last frame is the end frame -->
+  <section class="sc s7" id="s7">
+    <div class="photo"><img src="../landing/assets/redesign/reception-hero.webp" width="1659" height="948" alt=""></div>
+    <div class="shade"></div>
+    <div class="top"><span class="logo"><img src="../assets/img/brand-dark-340.webp" width="340" height="144" alt="فندقة"><b>360</b></span></div>
+    <div class="copy">
+      <p class="kick">فندقة التي تعرفها… الآن بإمكانيات أكثر.</p>
+      <p class="h">رقِّ إلى فندقة 360</p>
+      <p class="sub">وافتح جميع الوحدات الـ20.</p>
+      <span class="cta"><svg class="ic"><use href="../assets/icons.svg#i-arrow-right"/></svg>تحقق من عرض ترقيتك</span>
+      <p class="url">fandaqah.com<small>للعملاء الحاليين</small></p>
+    </div>
+  </section>
+</div>
+<div class="ctrl"><button type="button" data-a="toggle">❚❚</button><button type="button" data-a="restart">↺</button></div>
+
+<script src="vendor/gsap.min.js"></script>
+<script>
+(() => {
+  const DUR = 9.5, q = new URLSearchParams(location.search), render = q.has('render');
+  if (render) document.documentElement.classList.add('render');
+  const stage = document.getElementById('stage'), $ = (s, c = document) => c.querySelector(s), $$ = (s, c = document) => [...c.querySelectorAll(s)];
+  const fit = () => { const k = render ? 1 : Math.min(innerWidth / 1080, innerHeight / 1920); stage.style.transform = `scale(${k})`; };
+  addEventListener('resize', fit); fit();
+
+  // scene 4 geometry: five named modules on the inner ring, fifteen icons on the outer ring, all wired to the core
+  const CX = 540, CY = 1000;
+  $$('.s4 .r1').forEach(el => { const a = +el.dataset.a * Math.PI / 180; el.style.left = `${CX + 300 * Math.cos(a)}px`; el.style.top = `${CY + 300 * Math.sin(a)}px`; });
+  gsap.set('.s4 .r1, .s4 .plus15', { xPercent: -50, yPercent: -50 });
+  const r2 = $$('.s4 .r2');
+  r2.forEach((el, i) => { const a = (-90 + i * 24 + 12) * Math.PI / 180; el.style.left = `${CX + 452 * Math.cos(a)}px`; el.style.top = `${CY + 452 * Math.sin(a)}px`; });
+  const net = $('.s4 .net'), NS = 'http://www.w3.org/2000/svg';
+  [...$$('.s4 .r1'), ...r2].forEach(el => { const l = document.createElementNS(NS, 'line'); l.setAttribute('x1', CX); l.setAttribute('y1', CY); l.setAttribute('x2', parseFloat(el.style.left)); l.setAttribute('y2', parseFloat(el.style.top)); l.setAttribute('pathLength', '1'); l.style.strokeDasharray = 1; l.style.strokeDashoffset = 1; net.append(l); });
+
+  const tl = gsap.timeline({ paused: true, defaults: { ease: 'power3.out' } });
+  const show = (sel, at) => tl.set(sel, { visibility: 'visible' }, at).to(sel, { opacity: 1, duration: .18, ease: 'none' }, at);
+  const hide = (sel, at, d = .2) => tl.to(sel, { opacity: 0, duration: d, ease: 'none' }, at).set(sel, { visibility: 'hidden' }, at + d);
+
+  // 1 · hook: slow push-in, clutter piles up around her, then the question
+  tl.set('#s1', { visibility: 'visible', opacity: 1 }, 0);
+  tl.fromTo('.s1 .photo img', { scale: 1 }, { scale: 1.08, duration: 1.5, ease: 'none' }, 0);
+  $$('.s1 .cl').forEach((el, i) => tl.from(el, { opacity: 0, y: 30, scale: .9, duration: .3 }, .06 + i * .1));
+  tl.to('.s1 .cl', { x: i => [-6, 5, -4, 6, -5][i], y: i => [4, -5, 6, -3, 5][i], duration: .25, ease: 'sine.inOut', yoyo: true, repeat: 3 }, .55);
+  tl.from('.s1 .h1', { opacity: 0, y: 40, duration: .35 }, .12);
+  tl.from('.s1 .h2', { opacity: 0, y: 40, duration: .35 }, .62);
+  // snap transition: a quick zoom and blur into scene 2
+  tl.to('#s1', { scale: 1.12, filter: 'blur(14px)', duration: .16, ease: 'power2.in' }, 1.3);
+  hide('#s1', 1.4, .06);
+
+  // 2 · the rest still runs separately
+  show('#s2', 1.36);
+  tl.from('#s2', { scale: 1.06, duration: .3 }, 1.36);
+  tl.from('.s2 .h', { opacity: 0, y: 30, duration: .3 }, 1.44);
+  $$('.s2 .mod').forEach((el, i) => tl.from(el, { opacity: 0, y: 40, scale: .92, duration: .26 }, 1.62 + i * .13));
+  hide('#s2', 2.72, .12);
+
+  // 3 · same account, more capabilities: push in, tap the upgrade, the menu grows
+  show('#s3', 2.76);
+  tl.from('.s3 .app', { scale: .9, y: 60, duration: .4 }, 2.76);
+  tl.set('.s3 .side li.new, .s3 .b360', { opacity: 0 }, 0);
+  tl.from('.s3 .one', { opacity: 0, y: 30, duration: .28 }, 2.86);
+  tl.fromTo('.s3 .cursor', { x: 160, y: 140, opacity: 0 }, { x: 0, y: 0, opacity: 1, duration: .32, ease: 'power2.out' }, 2.86);
+  tl.to('.s3 .up', { scale: .94, duration: .06, yoyo: true, repeat: 1, ease: 'power1.inOut' }, 3.18);
+  tl.fromTo('.s3 .ripple', { scale: .3, opacity: .9 }, { scale: 2.6, opacity: 0, duration: .45, ease: 'power2.out' }, 3.2);
+  tl.to('.s3 .up', { opacity: 0, y: 12, duration: .16 }, 3.3);
+  tl.to('.s3 .cursor', { opacity: 0, duration: .15 }, 3.32);
+  tl.fromTo('.s3 .b360', { opacity: 0, scale: .4 }, { opacity: 1, scale: 1, duration: .35, ease: 'back.out(2.4)' }, 3.28);
+  tl.fromTo('.s3 .side li.new', { opacity: 0, x: 30 }, { opacity: 1, x: 0, duration: .22, stagger: .05 }, 3.3);
+  tl.from('.s3 .more', { opacity: 0, y: 30, duration: .28 }, 3.42);
+  // into the screen: the app grows and gives way to the module universe
+  tl.to('.s3 .app', { scale: 1.5, opacity: 0, duration: .22, ease: 'power2.in' }, 3.84);
+  hide('#s3', 3.9, .1);
+
+  // 4 · peak: five named modules, fifteen more, all connected; the count climbs to 20
+  show('#s4', 3.92);
+  tl.from('.s4 .core', { scale: .5, opacity: 0, duration: .45, ease: 'back.out(1.6)' }, 3.95);
+  tl.from('.s4 .copy-top .a', { opacity: 0, y: 30, duration: .3 }, 4.0);
+  tl.from('.s4 .r1', { opacity: 0, scale: .6, duration: .3, stagger: .08, ease: 'back.out(2)' }, 4.15);
+  tl.from(r2, { opacity: 0, scale: .3, duration: .24, stagger: .045, ease: 'back.out(2.2)' }, 4.75);
+  tl.from('.s4 .plus15', { opacity: 0, y: 20, duration: .25 }, 4.9);
+  tl.to('.s4 .net line', { strokeDashoffset: 0, duration: .5, stagger: .02, ease: 'power2.out' }, 5.35);
+  const counter = { v: 5 }, countEl = $('.s4 .count'), unitEl = $('.s4 .unit');
+  const setCount = () => { const n = Math.round(counter.v); countEl.textContent = String(n).padStart(2, '0');
+    unitEl.textContent = n <= 10 ? 'وحدات في منصة واحدة' : n < 20 ? 'وحدة في منصة واحدة' : 'وحدة متكاملة'; };
+  tl.to(counter, { v: 20, duration: 1.1, ease: 'steps(3)', onUpdate: setCount }, 4.7);
+  tl.from('.s4 .tick', { scale: 0, duration: .3, ease: 'back.out(3)' }, 5.85);
+  tl.from('.s4 .copy-top .b', { opacity: 0, y: 24, duration: .3 }, 5.7);
+  tl.to('.s4 .core', { scale: 1.06, duration: .25, yoyo: true, repeat: 1, ease: 'sine.inOut' }, 5.85);
+  hide('#s4', 6.32, .1);
+
+  // 5 · connected work: three flows run in parallel inside one panel
+  show('#s5', 6.36);
+  tl.from('.s5 .flowpanel', { y: 80, opacity: 0, duration: .35 }, 6.36);
+  tl.from('.s5 .a', { opacity: 0, y: 30, duration: .25 }, 6.42);
+  $$('.s5 .row').forEach((row, r) => {
+    [...row.children].forEach((el, i) => tl.from(el, el.classList.contains('arr') ? { scaleX: 0, duration: .14, ease: 'none' } : { opacity: 0, scale: .85, duration: .16 }, 6.55 + r * .1 + i * .085));
+  });
+  tl.from('.s5 .b', { opacity: 0, y: 30, duration: .25 }, 7.05);
+  hide('#s5', 7.72, .1);
+
+  // 6 · the offer: a beige card rises on navy
+  show('#s6', 7.76);
+  tl.from('.s6 .offer', { y: 140, opacity: 0, duration: .3 }, 7.78);
+  tl.from('.s6 .offer > *', { opacity: 0, y: 24, duration: .2, stagger: .045 }, 7.86);
+  hide('#s6', 8.64, .08);
+
+  // 7 · the call to action, then it holds
+  show('#s7', 8.66);
+  tl.fromTo('.s7 .photo img', { scale: 1.08 }, { scale: 1, duration: .84, ease: 'power2.out' }, 8.66);
+  tl.from('.s7 .top .logo', { opacity: 0, y: -20, duration: .2 }, 8.7);
+  tl.from('.s7 .copy > *', { opacity: 0, y: 26, duration: .2, stagger: .04 }, 8.7);
+  tl.fromTo('.s7 .cta', { scale: .9 }, { scale: 1, duration: .3, ease: 'back.out(2.5)' }, 8.86);
+  tl.set({}, {}, DUR);
+
+  // render hooks (same contract as book/reel.html), or a looping preview
+  const imgs = $$('img');
+  Promise.all([document.fonts.ready, ...imgs.map(im => im.complete ? 0 : new Promise(r => { im.onload = im.onerror = r; }))]).then(() => {
+    const k = render ? 1 : stage.getBoundingClientRect().width / 1080, sr = stage.getBoundingClientRect();
+    tl.seek(3.17, false);                       // the moment before the tap: the window has settled
+    const br = $('.s3 .up').getBoundingClientRect();
+    const bx = (br.left - sr.left + br.width * .62) / k, by = (br.top - sr.top + br.height * .55) / k;
+    $('.s3 .ripple').style.left = `${bx}px`; $('.s3 .ripple').style.top = `${by}px`;
+    $('.s3 .cursor').style.left = `${bx - 6}px`; $('.s3 .cursor').style.top = `${by - 4}px`;
+    tl.seek(0, false);
+    document.body.dataset.ready = '1';
+    if (!render) { tl.eventCallback('onComplete', () => setTimeout(() => tl.restart(), 900)); tl.play(0); }
+  });
+  document.addEventListener('reel:seek', () => { const t = +document.body.dataset.seek || 0; tl.seek(t, false); document.body.dataset.frame = String(t); });
+  window.SNAP = { duration: DUR, seek: t => tl.seek(t, false), timeline: tl };
+  document.querySelector('.ctrl').addEventListener('click', e => {
+    const a = e.target.dataset.a; if (a === 'toggle') { tl.paused(!tl.paused()); e.target.textContent = tl.paused() ? '▶' : '❚❚'; }
+    if (a === 'restart') tl.restart();
+  });
+})();
+</script>
+</body>
+</html>

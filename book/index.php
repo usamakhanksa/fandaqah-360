@@ -1,0 +1,129 @@
+<?php /* Generated from index.html by tools/build-php.py: edit the .html page, then run the build. */ require __DIR__ . '/../api/page.php'; ?>
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8"><meta name="fq-lead-proxy" content="../api/lead.php">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fandaqah 360 | Campaign Book</title>
+<meta name="description" content="Every Fandaqah 360 reel, banner and creative in one book: four campaigns, Arabic and English.">
+<!-- an approval book: easy to share, kept out of search results -->
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#282639">
+<link rel="icon" href="../favicon.ico">
+<link rel="apple-touch-icon" href="../assets/img/icon-180.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fandaqah 360">
+<meta property="og:title" content="Fandaqah 360 · Campaign Book">
+<meta property="og:description" content="Four campaigns, eight reels and every banner, Arabic and English, in one link.">
+<meta property="og:url" content="https://usamakhanksa.github.io/fandaqah-360/book/">
+<meta property="og:image" content="https://usamakhanksa.github.io/fandaqah-360/assets/img/og/book.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="../assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="assets/book.css">
+<script>/* Arabic by default: English only when the link asks (?lang=en) or the reader chose it before. The page stays hidden until its text is in that language, with a 1.5 s safety net. */(function(r){var l;try{l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('fq360-lang')}catch(e){}r.classList.add('js');if(l!=='en'){r.lang='ar';r.dir='rtl';r.classList.add('i18n-wait');setTimeout(function(){r.classList.remove('i18n-wait')},1500)}})(document.documentElement)</script><style>.i18n-wait body{visibility:hidden}</style>
+</head>
+<body class="book">
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+
+<header class="bk-head">
+  <a class="bk-brand" href="../" data-i18n-aria="aria.home" aria-label="Fandaqah 360 home"><img src="../assets/img/brand-light-340.webp" width="340" height="144" alt="Fandaqah"><span class="logo-360" aria-hidden="true">360</span></a>
+  <span class="bk-title" data-i18n="head.title">Campaign Book</span>
+  <nav class="bk-nav" data-i18n-aria="aria.chapters" aria-label="Chapters">
+    <a href="#ch-A">A</a><a href="#ch-B">B</a><a href="#ch-C">C</a><a href="#ch-D">D</a>
+  </nav>
+  <div class="bk-actions">
+    <div class="lang" role="group" data-i18n-aria="aria.lang" aria-label="Language"><button type="button" data-lang="en" lang="en" aria-pressed="true">EN</button><span class="sep" aria-hidden="true"></span><button type="button" data-lang="ar" lang="ar" aria-pressed="false">عربي</button></div>
+    <a class="bk-dl-head" href="#downloads"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-download"/></svg><span data-i18n="head.dl">Downloads</span></a>
+    <button class="bk-share" type="button" data-copy><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-link"/></svg><span data-i18n="share">Copy link</span></button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="bk-cover" id="cover" aria-labelledby="cover-title">
+    <div class="wrap bk-cover-in">
+      <div class="bk-cover-copy">
+        <p class="bk-eyebrow" data-i18n="cover.eyebrow">Fandaqah 360 · Campaign Book · October 2026</p>
+        <h1 class="bk-h1" id="cover-title" data-i18n="cover.title">Four campaigns. <em>One connected platform.</em></h1>
+        <p class="bk-lead" data-i18n="cover.lead">Reels, banners and creatives for every route: Arabic first, English beside it, ready for review.</p>
+        <ul class="bk-stats"></ul>
+        <div class="bk-cta">
+          <a class="btn" href="#contents"><span data-i18n="cover.open">Open the book</span><svg class="ic ic-go" aria-hidden="true"><use href="../assets/icons.svg#i-arrow-right"/></svg></a>
+          <a class="btn btn-ghost-light" href="../" target="_blank" rel="noopener" data-i18n="cover.site">Live campaign site</a>
+        </div>
+      </div>
+      <div class="bk-fan" aria-hidden="true"></div>
+    </div>
+    <span class="bk-scroll" aria-hidden="true" data-i18n="cover.scroll">Scroll</span>
+  </section>
+
+  <section class="bk-contents" id="contents" aria-labelledby="contents-title">
+    <div class="wrap">
+      <p class="bk-eyebrow dark" data-i18n="contents.eyebrow">Contents</p>
+      <h2 id="contents-title" data-i18n="contents.title">One chapter per campaign.</h2>
+      <ol class="bk-toc"></ol>
+    </div>
+  </section>
+
+  <!-- every reel, one click each: named by campaign and language (filled by book.js) -->
+  <section class="bk-dl" id="downloads" aria-labelledby="dl-title">
+    <div class="wrap">
+      <p class="bk-eyebrow dark" data-i18n="dl.eyebrow">Downloads</p>
+      <h2 id="dl-title" data-i18n="dl.title">Every reel, ready to post.</h2>
+      <p class="bk-dl-lead" data-i18n="dl.lead">MP4 · 1080×1920 · 25 seconds, with music and burned-in captions. One click saves the file, named by campaign and language.</p>
+      <ul class="bk-dl-grid"></ul>
+    </div>
+  </section>
+
+  <div id="chapters"></div>
+
+  <section class="bk-end" id="share" aria-labelledby="end-title">
+    <div class="wrap">
+      <p class="bk-eyebrow" data-i18n="end.eyebrow">Share</p>
+      <h2 id="end-title" data-i18n="end.title">One link for the whole team.</h2>
+      <p data-i18n="end.lead">Send this book for review and approval. Every creative points to the shared campaign link, and the book is kept out of search engines.</p>
+      <div class="bk-copy"><input type="text" readonly data-i18n-aria="aria.link" aria-label="Book link"><button type="button" data-copy><span data-i18n="share">Copy link</span></button></div>
+      <div class="bk-routes">
+        <a href="../existing-customers/" target="_blank" rel="noopener"><b>A · <span data-i18n="r.A">Existing customers</span></b><span>/existing-customers/</span></a>
+        <a href="../new-hotels/" target="_blank" rel="noopener"><b>B · <span data-i18n="r.B">New hotels</span></b><span>/new-hotels/</span></a>
+        <a href="../opera-pms/" target="_blank" rel="noopener"><b>C · <span data-i18n="r.C">Opera / PMS</span></b><span>/opera-pms/</span></a>
+        <a href="../hotel-groups/" target="_blank" rel="noopener"><b>D · <span data-i18n="r.D">Hotel groups</span></b><span>/hotel-groups/</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="bk-foot" data-i18n="foot">© 2026 Fandaqah · Campaign Book for internal review</footer>
+
+<div class="bk-lb" hidden role="dialog" aria-modal="true" data-i18n-aria="aria.lb" aria-label="Full-size view">
+  <img src="data:," alt="">
+  <div class="bk-lb-bar"><span class="bk-lb-title"></span><a class="bk-lb-save" href="#" download data-i18n="lb.save">Download</a><button class="bk-lb-close" type="button" data-i18n="lb.close">Close</button></div>
+</div>
+
+<script>
+window.BOOK_I18N = {
+  meta: { title: 'فندقة 360 | كتاب الحملات', desc: 'كل ريلز وبنرات وتصاميم حملات فندقة 360 في كتاب واحد: أربع حملات بالعربية والإنجليزية.' },
+  ar: {
+    'skip': 'تخطَّ إلى المحتوى', 'aria.home': 'فندقة 360، الصفحة الرئيسية', 'aria.chapters': 'الفصول', 'aria.lang': 'اللغة',
+    'aria.link': 'رابط الكتاب', 'aria.lb': 'عرض بالحجم الكامل', 'head.title': 'كتاب الحملات', 'share': 'نسخ الرابط',
+    'cover.eyebrow': 'فندقة 360 · كتاب الحملات · أكتوبر 2026',
+    'cover.title': 'أربع حملات. <em>منصة واحدة مترابطة.</em>',
+    'cover.lead': 'الريلز والبنرات والتصاميم لكل مسار: العربية أولاً والإنجليزية بجانبها، جاهزة للمراجعة.',
+    'cover.open': 'افتح الكتاب', 'cover.site': 'موقع الحملات المباشر', 'cover.scroll': 'مرّر',
+    'contents.eyebrow': 'المحتويات', 'contents.title': 'فصل لكل حملة.',
+    'head.dl': 'التنزيلات', 'dl.eyebrow': 'التنزيلات', 'dl.title': 'كل الريلز، جاهزة للنشر.',
+    'dl.lead': 'ملفات MP4 بمقاس <bdi dir="ltr">1080×1920</bdi> ومدة 25 ثانية، مع الموسيقى والترجمة المدمجة. نقرة واحدة تحفظ الملف باسم الحملة واللغة.',
+    'end.eyebrow': 'المشاركة', 'end.title': 'رابط واحد للفريق كله.',
+    'end.lead': 'أرسل هذا الكتاب للمراجعة والاعتماد. كل تصميم يقود إلى رابط الحملات الموحّد، والكتاب غير مفهرس في محركات البحث.',
+    'r.A': 'العملاء الحاليون', 'r.B': 'الفنادق الجديدة', 'r.C': 'Opera / أنظمة PMS', 'r.D': 'مجموعات الفنادق',
+    'foot': '© 2026 فندقة · كتاب الحملات للمراجعة الداخلية', 'lb.save': 'تحميل', 'lb.close': 'إغلاق'
+  }
+};
+</script>
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
+<script src="assets/data.js"></script>
+<script src="media/manifest.js"></script>
+<script src="assets/book.js"></script>
+</body>
+</html>

@@ -1,0 +1,321 @@
+<?php /* Generated from index.html by tools/build-php.py: edit the .html page, then run the build. */ require __DIR__ . '/../api/page.php'; ?>
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8"><meta name="fq-lead-proxy" content="../api/lead.php">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fandaqah 360 for Opera &amp; mandated-PMS hotels | Operational and technology review</title>
+<meta name="description" content="Bring HR, procurement, inventory, finance and compliance into one platform while Opera stays your core PMS. Request an operational and technology review.">
+<link rel="canonical" href="https://usamakhanksa.github.io/fandaqah-360/opera-pms/">
+<meta name="theme-color" content="#F0EDE9">
+<link rel="icon" href="../favicon.ico">
+<link rel="apple-touch-icon" href="../assets/img/icon-180.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fandaqah 360">
+<meta property="og:title" content="Fewer systems around Opera. A clearer view of your hotel.">
+<meta property="og:description" content="Fewer systems around Opera, a clearer view of your hotel, and nothing to replace. Request an operational and technology review.">
+<meta property="og:url" content="https://usamakhanksa.github.io/fandaqah-360/opera-pms/">
+<meta property="og:image" content="https://usamakhanksa.github.io/fandaqah-360/assets/img/og/opera-pms.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@fandaqah">
+<link rel="preload" href="../assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/img/hero-existing.webp" as="image" type="image/webp" fetchpriority="high">
+<link rel="stylesheet" href="../assets/vendor/scrollcraft/scrollcraft.css">
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/v2.css">
+<script>/* Arabic by default: English only when the link asks (?lang=en) or the reader chose it before. The page stays hidden until its text is in that language, with a 1.5 s safety net. */(function(r){var l;try{l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('fq360-lang')}catch(e){}r.classList.add('js');if(l!=='en'){r.lang='ar';r.dir='rtl';r.classList.add('i18n-wait');setTimeout(function(){r.classList.remove('i18n-wait')},1500)}})(document.documentElement)</script><style>.i18n-wait body{visibility:hidden}</style>
+</head>
+<body class="v2 pc">
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="logo" href="../" data-i18n-aria="aria.home" aria-label="Fandaqah 360 home"><img src="../assets/img/brand-dark-340.webp" width="340" height="146" alt="Fandaqah"><span class="logo-360" aria-hidden="true">360</span></a>
+    <nav class="nav" data-i18n-aria="aria.main" aria-label="Main">
+      <a href="#solutions" data-i18n="nav.solutions">Solutions</a>
+      <a href="#cost" data-i18n="nav.cost">Costs</a>
+      <a href="#how" data-i18n="nav.how">How it works</a>
+      <a href="#faq" data-i18n="nav.faq">FAQs</a>
+    </nav>
+    <div class="head-end">
+      <div class="lang" role="group" data-i18n-aria="aria.lang" aria-label="Language"><button type="button" data-lang="en" lang="en" aria-pressed="true">EN</button><span class="sep" aria-hidden="true"></span><button type="button" data-lang="ar" lang="ar" aria-pressed="false">عربي</button></div>
+      <a class="btn btn-sm" href="#contact" data-i18n="cta.head">Request a review</a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="mnav" data-i18n-aria="aria.menu" aria-label="Open menu"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-menu"/></svg></button>
+    </div>
+  </div>
+  <div class="mnav" id="mnav" hidden>
+    <nav class="wrap mnav-in" data-i18n-aria="aria.main" aria-label="Main">
+      <a href="#solutions" data-i18n="nav.solutions">Solutions</a>
+      <a href="#cost" data-i18n="nav.cost">Costs</a>
+      <a href="#how" data-i18n="nav.how">How it works</a>
+      <a href="#faq" data-i18n="nav.faq">FAQs</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <!-- ============ HERO: the property behind, your PMS at the centre of the map ============ -->
+  <section class="pc-hero" aria-labelledby="hero-title">
+    <div class="pc-media" aria-hidden="true">
+      <img class="pc-photo" src="../assets/img/hero-existing.webp" width="1600" height="914" alt="" fetchpriority="high">
+      <span class="pc-warm"></span>
+      <svg class="pc-leaf" viewBox="0 0 220 320"><use href="../assets/icons.svg#art-leaves"/></svg>
+    </div>
+    <div class="wrap pc-hero-in">
+      <div class="pc-copy">
+        <p class="v2-eyebrow" data-i18n="hero.eyebrow">Opera &amp; mandated-PMS hotels</p>
+        <h1 class="pc-h1" id="hero-title" data-i18n="hero.title">Fewer systems around Opera. <span class="hl">A clearer view of your hotel.</span></h1>
+        <p class="pc-lead" data-i18n="hero.lead">Bring HR, procurement, inventory, finance and compliance into one platform. Opera stays your core PMS, so there is nothing to replace.</p>
+        <div class="hero-cta"><a class="btn" href="#contact"><span data-i18n="cta.main">Request an operational and technology review</span><svg class="ic ic-go" aria-hidden="true"><use href="../assets/icons.svg#i-arrow-right"/></svg></a></div>
+        <a class="v2-link" href="#how"><span data-i18n="hero.link">Explore the review process</span><svg class="ic ic-go" aria-hidden="true"><use href="../assets/icons.svg#i-arrow-right"/></svg></a>
+        <p class="pc-note" data-i18n="hero.note">We start by mapping your systems, costs and interfaces, and confirm compatibility before preparing any proposal.</p>
+      </div>
+      <div class="pc-stage" aria-hidden="true">
+        <p class="pc-script" data-i18n="hero.script">Built around<br>your hotel.</p>
+        <div class="pc-hub">
+          <svg class="pc-wires" viewBox="0 0 600 340" preserveAspectRatio="none">
+            <path d="M150 92 H232 V150 H262"/><path d="M450 92 H368 V150 H338"/><path d="M150 248 H232 V190 H262"/><path d="M450 248 H368 V190 H338"/>
+          </svg>
+          <div class="pc-node n1"><svg class="ic"><use href="../assets/icons.svg#i-users"/></svg><span data-i18n="hub.n1">HR &amp; staff</span></div>
+          <div class="pc-node n2"><svg class="ic"><use href="../assets/icons.svg#i-shopping-cart"/></svg><span data-i18n="hub.n2">Procurement &amp; inventory</span></div>
+          <div class="pc-core"><svg class="ic"><use href="../assets/icons.svg#i-database"/></svg><b data-i18n="hub.core">Your existing PMS</b><small data-i18n="hub.coreSub">Opera / brand-mandated PMS</small></div>
+          <div class="pc-node n3"><svg class="ic"><use href="../assets/icons.svg#i-chart-line"/></svg><span data-i18n="hub.n3">Finance &amp; reporting</span></div>
+          <div class="pc-node n4"><svg class="ic"><use href="../assets/icons.svg#i-clipboard-check"/></svg><span data-i18n="hub.n4">Compliance</span></div>
+          <p class="pc-hub-cap" data-i18n="hub.cap">Illustrative scope · Supported interfaces confirmed after review</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ONE REVIEW, THREE OWNERS ============ -->
+  <section class="pc-band" aria-labelledby="band-title">
+    <div class="wrap pc-band-in">
+      <h2 class="pc-band-h" id="band-title" data-reveal data-i18n="band.title">Simpler for operations.<br>Fewer systems for IT.<br>Clearer for finance.</h2>
+      <ul class="pc-roles">
+        <li data-reveal style="--i:1"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-users"/></svg><b data-i18n="role.gm">GM &amp; owner</b><span data-i18n="role.gmd">One view across departments, with brand standards respected</span></li>
+        <li data-reveal style="--i:2"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-laptop"/></svg><b data-i18n="role.it">IT</b><span data-i18n="role.itd">Fewer systems to support, with Opera unchanged</span></li>
+        <li data-reveal style="--i:3"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-coins"/></svg><b data-i18n="role.fin">Finance</b><span data-i18n="role.find">Comparable scope and the full cost of today’s systems</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ WORKFLOWS AROUND THE PMS ============ -->
+  <section class="v2-sec pc-flows" id="solutions" aria-labelledby="sol-title">
+    <div class="wrap">
+      <div class="v2-head" data-reveal>
+        <h2 class="v2-h2" id="sol-title" data-i18n="sol.title">What Fandaqah adds. <span class="hl">Opera stays your PMS.</span></h2>
+        <p class="v2-sub" data-i18n="sol.sub">One platform for the operations around your PMS. Availability and compatibility are confirmed during the review.</p>
+      </div>
+      <div class="pc-cards">
+        <article class="pc-card" data-reveal style="--i:0">
+          <figure class="pc-card-media"><img src="../assets/img/lobby-dashboard.webp" width="800" height="456" alt="" loading="lazy" style="object-position:72% 50%"></figure>
+          <span class="pc-card-ic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-chart-line"/></svg></span>
+          <h3 data-i18n="c1.t">Finance &amp; reporting</h3><p data-i18n="c1.d">Accounting and management reports across departments.</p>
+        </article>
+        <article class="pc-card" data-reveal style="--i:1">
+          <figure class="pc-card-media"><img src="../assets/img/panel-lounge.webp" width="672" height="426" alt="" loading="lazy" style="object-position:50% 60%"></figure>
+          <span class="pc-card-ic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-shopping-cart"/></svg></span>
+          <h3 data-i18n="c2.t">Procurement &amp; inventory</h3><p data-i18n="c2.d">Purchase requests, stock and suppliers, entered once and posted to finance.</p>
+        </article>
+        <article class="pc-card" data-reveal style="--i:2">
+          <figure class="pc-card-media"><img src="../assets/img/panel-desk.webp" width="520" height="478" alt="" loading="lazy" style="object-position:50% 62%"><span class="pc-chip" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg><span data-i18n="c3.chip">Staff record updated</span></span></figure>
+          <span class="pc-card-ic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-users"/></svg></span>
+          <h3 data-i18n="c3.t">HR &amp; staff</h3><p data-i18n="c3.d">Staff records and HR workflows, on the same platform as the rest of the hotel.</p>
+        </article>
+        <article class="pc-card" data-reveal style="--i:3">
+          <figure class="pc-card-media"><img src="../assets/img/albalad.webp" width="900" height="385" alt="" loading="lazy" style="object-position:12% 45%"><span class="pc-chip" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-shield-check"/></svg>NTMP · Shomoos · ZATCA</span></figure>
+          <span class="pc-card-ic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-clipboard-check"/></svg></span>
+          <h3 data-i18n="c4.t">Compliance</h3><p data-i18n="c4.d">NTMP, Shomoos and ZATCA workflows, assessed for your property.</p>
+        </article>
+      </div>
+      <div class="pc-more" data-reveal>
+        <p class="v2-eyebrow" data-i18n="more.t">Additional areas to assess</p>
+        <ul><li data-i18n="more.1">Payments &amp; reconciliation</li><li data-i18n="more.2">Housekeeping &amp; maintenance</li><li data-i18n="more.3">CRM &amp; guest engagement</li><li data-i18n="more.4">Digital guest journey</li></ul>
+      </div>
+      <p class="pc-more-note" data-i18n="more.note">Availability, interfaces and delivery scope are confirmed for each property.</p>
+    </div>
+  </section>
+
+  <!-- ============ THE COST LENS (peak): each line you pass is placed on the review card ============ -->
+  <section class="pc-cost" id="cost" data-sc-act="pin" data-sc-span="1.7" aria-labelledby="cost-title">
+    <div class="pc-cost-stage" data-sc-stage>
+      <div class="pc-desk" aria-hidden="true">
+        <div class="pc-paper p1"><b data-i18n="desk.1">HR system</b><i></i><i></i><i></i></div>
+        <div class="pc-paper p2"><b data-i18n="desk.2">Procurement</b><i></i><i></i><i></i></div>
+        <div class="pc-paper p3"><b data-i18n="desk.3">Reporting</b><i></i><i></i><i></i></div>
+        <div class="pc-folder"><img src="../assets/img/brand-light-340.webp" width="340" height="144" alt="" loading="lazy"></div>
+        <span class="pc-pen"></span>
+      </div>
+      <div class="wrap pc-cost-in">
+        <div class="pc-cost-copy">
+          <h2 class="v2-h2" id="cost-title" data-i18n="cost.title">What do disconnected systems <em>really</em> cost?</h2>
+          <p class="v2-sub" data-i18n="cost.sub">Separate systems mean separate fees, repeated work and reports that don’t agree. The review sets them side by side with one consolidated scope.</p>
+          <ol class="pc-lines">
+            <li><span class="pc-tick" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="cost.1">Separate subscriptions and licences</span></li>
+            <li><span class="pc-tick" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="cost.2">The same data entered twice</span></li>
+            <li><span class="pc-tick" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="cost.3">Interface and connection fees</span></li>
+            <li><span class="pc-tick" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="cost.4">Support spread across vendors</span></li>
+            <li><span class="pc-tick" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="cost.5">Contract terms and renewal dates</span></li>
+          </ol>
+        </div>
+        <div class="pc-review" aria-hidden="true">
+          <p class="pc-review-h" data-i18n="rev.h">Your systems, side by side</p>
+          <div class="pc-review-cols"><span data-i18n="rev.cur">Current systems</span><span data-i18n="rev.pro">Proposed scope</span></div>
+          <ul class="pc-review-rows">
+            <li style="--c:.9;--p:.62"><i class="cur"></i><i class="pro"></i></li>
+            <li style="--c:.7;--p:.48"><i class="cur"></i><i class="pro"></i></li>
+            <li style="--c:.84;--p:.7"><i class="cur"></i><i class="pro"></i></li>
+            <li style="--c:.6;--p:.44"><i class="cur"></i><i class="pro"></i></li>
+            <li style="--c:.76;--p:.56"><i class="cur"></i><i class="pro"></i></li>
+          </ul>
+          <p class="pc-review-cap" data-i18n="rev.cap">Assessment only · Savings depend on confirmed scope</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOUR STEPS ============ -->
+  <section class="v2-sec pc-steps" id="how" aria-labelledby="how-title">
+    <div class="wrap">
+      <h2 class="v2-h2" id="how-title" data-reveal data-i18n="how.title">From how your hotel runs today to a clear proposal.</h2>
+      <ol class="pc-steplist">
+        <li data-reveal style="--i:0"><span class="pc-num">01</span><div><h3 data-i18n="s1.t">Map your operations</h3><p data-i18n="s1.d">Systems in use for HR, procurement, inventory, finance and reporting.</p></div></li>
+        <li data-reveal style="--i:1"><span class="pc-num">02</span><div><h3 data-i18n="s2.t">Find what to consolidate</h3><p data-i18n="s2.d">Where work is repeated or visibility is missing.</p></div></li>
+        <li data-reveal style="--i:2"><span class="pc-num">03</span><div><h3 data-i18n="s3.t">Confirm the PMS</h3><p data-i18n="s3.d">Installed product, version, interfaces and approvals.</p></div></li>
+        <li data-reveal style="--i:3"><span class="pc-num">04</span><div><h3 data-i18n="s4.t">Define the proposal</h3><p data-i18n="s4.d">Agreed scope, costs, responsibilities and delivery.</p></div></li>
+      </ol>
+      <p class="pc-notebar" data-reveal><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-info"/></svg><span data-i18n="how.note">Compatibility starts with your installed system. A hotel brand or star rating does not confirm which PMS is installed.</span></p>
+    </div>
+  </section>
+
+  <!-- ============ REQUEST ============ -->
+  <section class="pc-contact" id="contact" aria-labelledby="lead-title">
+    <div class="pc-contact-in">
+      <div class="pc-promise">
+        <svg class="pc-promise-leaf" viewBox="0 0 220 320" aria-hidden="true"><use href="../assets/icons.svg#art-leaves"/></svg>
+        <h2 id="lead-title" data-i18n="lead.title">Your PMS stays.<br>Your operations get simpler.</h2>
+        <p class="pc-promise-sub" data-i18n="lead.sub">One focused conversation for operations, IT and finance.</p>
+        <ul class="pc-promise-list">
+          <li><span class="pc-tick" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="lead.1">Where your operations can be consolidated</span></li>
+          <li><span class="pc-tick" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="lead.2">Compatibility confirmed with your PMS</span></li>
+          <li><span class="pc-tick" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="lead.3">Like-for-like costs and a proposal for your property</span></li>
+        </ul>
+        <span class="pc-rule" aria-hidden="true"></span>
+        <p class="pc-reach"><a href="mailto:info@fandaqah.com"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-mail"/></svg>info@fandaqah.com</a><a href="https://www.fandaqah.com" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-globe"/></svg>fandaqah.com</a></p>
+      </div>
+      <div class="pc-formwrap">
+        <div class="v2-formcard">
+          <h3 class="v2-formcard-h" data-i18n="form.title">Request your operational and technology review</h3>
+          <form class="form" id="lead-form" action="../api/lead.php" method="post" novalidate>
+            <div class="f"><label for="f-company" data-i18n="f.company">Hotel / company</label><input id="f-company" name="company" type="text" autocomplete="organization" maxlength="120" required aria-describedby="f-company-err"><p class="f-err" id="f-company-err" data-i18n="err.company" hidden>Please enter your hotel or company name.</p></div>
+            <div class="f"><label for="f-city" data-i18n="f.city">City</label><input id="f-city" name="city" type="text" autocomplete="address-level2" maxlength="60"></div>
+            <div class="f"><label for="f-name" data-i18n="f.name">Contact name</label><input id="f-name" name="name" type="text" autocomplete="name" maxlength="80" required aria-describedby="f-name-err"><p class="f-err" id="f-name-err" data-i18n="err.name" hidden>Please enter a contact name.</p></div>
+            <div class="f"><label for="f-role" data-i18n="f.role">Role</label><input id="f-role" name="role" type="text" autocomplete="organization-title" maxlength="80"></div>
+            <div class="f"><label for="f-phone" data-i18n="f.phone">Mobile number</label><input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" dir="ltr" placeholder="05XXXXXXXX" required aria-describedby="f-phone-err"><p class="f-err" id="f-phone-err" data-i18n="err.phone" hidden>Please enter a valid mobile number, for example 05XXXXXXXX.</p></div>
+            <div class="f"><label for="f-email" data-i18n="f.email">Business email</label><input id="f-email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="120" dir="ltr" placeholder="name@hotel.sa" required aria-describedby="f-email-err"><p class="f-err" id="f-email-err" data-i18n="err.email" hidden>Please enter a valid email address, for example name@hotel.sa.</p></div>
+            <div class="f"><label for="f-pms" data-i18n="f.pms">Current PMS</label><input id="f-pms" name="current_pms" type="text" maxlength="80" data-i18n-ph="ph.pms" placeholder="e.g. Opera"></div>
+            <div class="f"><label for="f-pmsv" data-i18n="f.pmsv">Version / deployment</label><input id="f-pmsv" name="pms_version" type="text" maxlength="80" data-i18n-ph="ph.pmsv" placeholder="e.g. cloud or on-premise"></div>
+            <div class="f f--full"><label for="f-channel" data-i18n="f.channel">Preferred contact channel</label><select id="f-channel" name="channel"><option value="" data-i18n="f.select">Please select</option><option value="phone" data-i18n="ch.phone">Phone call</option><option value="whatsapp" data-i18n="ch.whatsapp">WhatsApp</option><option value="email" data-i18n="ch.email">Email</option></select></div>
+            <div class="f f--full"><label for="f-message"><span data-i18n="f.message">Your message</span> <span class="opt" data-i18n="f.opt">(optional)</span></label><textarea id="f-message" name="message" rows="3" maxlength="1000" dir="auto" placeholder="Which systems you run around Opera today, and what you would like us to review." data-i18n-ph="f.messagePh" aria-describedby="f-message-count"></textarea><p class="f-count" id="f-message-count"><bdi dir="ltr"><span>0</span> / 1000</bdi></p></div>
+            <input type="hidden" name="interest" value="technology_cost_review" data-label="Operational and technology review">
+            <p class="form-privacy"><span data-i18n="f.privacy">We use your details to respond to this enquiry.</span> <a href="https://fandaqah.com/en/store/policy" data-href-ar="https://fandaqah.com/store/policy" target="_blank" rel="noopener" data-i18n="f.privacyLink">Privacy notice</a>.</p>
+            <p class="form-alert" role="alert" hidden></p>
+            <div class="form-actions"><button class="btn" type="submit"><span data-i18n="cta.main">Request an operational and technology review</span><svg class="ic ic-go" aria-hidden="true"><use href="../assets/icons.svg#i-arrow-right"/></svg></button></div>
+            <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+          </form>
+          <div class="done" id="lead-done" hidden>
+            <span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span>
+            <h3 tabindex="-1" data-i18n="done.t">Thank you. Your request is with our team.</h3>
+            <p data-i18n="done.d">A Fandaqah specialist will contact you through your preferred channel to arrange the next step.</p>
+            <p class="ref"><span data-i18n="done.ref">Reference:</span> <b></b></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ QUESTIONS ============ -->
+  <section class="wrap pc-faq" id="faq" aria-labelledby="faq-title">
+    <h2 class="pc-faq-h" id="faq-title" data-i18n="faq.title">FAQs</h2>
+    <div class="pc-faq-grid">
+      <div data-reveal><h3 data-i18n="q1.q">Will this work with my PMS?</h3><p data-i18n="q1.a">Your product, version, interface access and approval route are reviewed first.</p></div>
+      <div data-reveal style="--i:1"><h3 data-i18n="q2.q">How is the proposal priced?</h3><p data-i18n="q2.a">Services, setup, interfaces and support are scoped for your property.</p></div>
+      <div data-reveal style="--i:2"><h3 data-i18n="q3.q">Do I need to replace my PMS?</h3><p data-i18n="q3.a">No. Your PMS stays as it is. The review looks at the operations around it.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot site-foot--light">
+  <div class="wrap pc-foot">
+    <a class="logo" href="../" data-i18n-aria="aria.home" aria-label="Fandaqah 360 home"><img src="../assets/img/brand-dark-340.webp" width="340" height="146" alt="Fandaqah" loading="lazy"><span class="logo-360" aria-hidden="true">360</span></a>
+    <p class="pc-foot-tag" data-i18n="foot.tag">Your hospitality, our priority.</p>
+    <ul class="pc-foot-links" data-i18n-aria="aria.foot" aria-label="Footer">
+      <li><a href="https://fandaqah.com/en/store/policy" data-href-ar="https://fandaqah.com/store/policy" target="_blank" rel="noopener" data-i18n="foot.privacy">Privacy</a></li>
+      <li><a href="https://fandaqah.com/en/store/policy" data-href-ar="https://fandaqah.com/store/policy" target="_blank" rel="noopener" data-i18n="foot.terms">Terms</a></li>
+      <li data-i18n="foot.copy">© 2026 Fandaqah</li>
+    </ul>
+    <p class="pc-tm" data-i18n="tm">Oracle and OPERA are trademarks of Oracle and/or its affiliates. References do not imply certification, partnership or endorsement.</p>
+  </div>
+</footer>
+
+<div class="m-cta"><a class="btn" href="#contact"><span data-i18n="cta.main">Request an operational and technology review</span><svg class="ic ic-go" aria-hidden="true"><use href="../assets/icons.svg#i-arrow-right"/></svg></a></div>
+
+<script>
+window.FQ_PAGE = {
+  segment: 'C',
+  meta: { title: 'فندقة 360 لفنادق Opera والأنظمة المعتمدة | مراجعة تشغيلية وتقنية', desc: 'اجمع الموارد البشرية والمشتريات والمخزون والمالية والامتثال في منصة واحدة ويبقى Opera نظامك الأساسي. اطلب مراجعة تشغيلية وتقنية.' },
+  ar: {
+    'nav.cost': 'التكاليف', 'nav.faq': 'الأسئلة الشائعة',
+    'cta.main': 'اطلب مراجعة تشغيلية وتقنية', 'cta.head': 'اطلب المراجعة',
+    'hero.eyebrow': 'فنادق Opera وأنظمة PMS المعتمدة',
+    'hero.title': 'أنظمة أقل حول <bdi>Opera</bdi>، <span class="hl">ورؤية أوضح لفندقك.</span>',
+    'hero.lead': 'اجمع الموارد البشرية والمشتريات والمخزون والمالية والامتثال في منصة واحدة، ويبقى <bdi>Opera</bdi> نظامك الأساسي، فلا شيء تحتاج إلى استبداله.',
+    'hero.link': 'استكشف خطوات المراجعة',
+    'hero.note': 'نبدأ بحصر أنظمتك وتكاليفك وواجهاتك، ونؤكّد التوافق قبل إعداد أي عرض.',
+    'hero.script': 'مصمَّم حول<br>فندقك.',
+    'hub.n1': 'الموارد البشرية', 'hub.n2': 'المشتريات والمخزون', 'hub.core': 'نظام PMS الحالي لديك', 'hub.coreSub': '<bdi>Opera</bdi> / نظام معتمد من العلامة',
+    'hub.n3': 'المالية والتقارير', 'hub.n4': 'الامتثال', 'hub.cap': 'نطاق توضيحي · تُؤكَّد الواجهات المدعومة بعد المراجعة',
+    'band.title': 'أبسط للتشغيل.<br>أنظمة أقل للتقنية.<br>أوضح للمالية.',
+    'role.it': 'التقنية', 'role.itd': 'أنظمة أقل تدعمونها، ويبقى <bdi>Opera</bdi> كما هو',
+    'role.fin': 'المالية', 'role.find': 'نطاق قابل للمقارنة والتكلفة الكاملة لأنظمتكم الحالية',
+    'role.gm': 'المدير العام والمالك', 'role.gmd': 'رؤية واحدة عبر الأقسام مع احترام معايير العلامة',
+    'sol.title': 'ما تضيفه فندقة. <span class="hl">ويبقى <bdi>Opera</bdi> نظامك.</span>',
+    'sol.sub': 'منصة واحدة للعمليات المحيطة بنظامك، ونؤكّد التوفر والتوافق خلال المراجعة.',
+    'c1.t': 'المالية والتقارير', 'c1.d': 'المحاسبة والتقارير الإدارية عبر الأقسام.',
+    'c2.t': 'المشتريات والمخزون', 'c2.d': 'طلبات الشراء والمخزون والموردون، تُدخَل مرة واحدة وتُرحَّل إلى المالية.',
+    'c3.t': 'الموارد البشرية', 'c3.d': 'سجلات الموظفين ومسارات الموارد البشرية على المنصة نفسها مع بقية الفندق.', 'c3.chip': 'حُدِّث سجل الموظف',
+    'c4.t': 'الامتثال', 'c4.d': 'مسارات منصة الرصد السياحي وشموس وهيئة الزكاة والضريبة والجمارك، تُقيَّم لمنشأتك.',
+    'more.t': 'مجالات إضافية للتقييم', 'more.1': 'المدفوعات والتسويات', 'more.2': 'التدبير الفندقي والصيانة', 'more.3': 'إدارة العلاقات وتفاعل النزلاء', 'more.4': 'رحلة النزيل الرقمية',
+    'more.note': 'يُؤكَّد التوفر والواجهات ونطاق التسليم لكل منشأة.',
+    'desk.1': 'نظام الموارد البشرية', 'desk.2': 'المشتريات', 'desk.3': 'التقارير',
+    'cost.title': 'ما التكلفة <em>الحقيقية</em> للأنظمة المنفصلة؟',
+    'cost.sub': 'الأنظمة المنفصلة تعني رسوماً منفصلة، وعملاً مكرراً، وتقارير لا تتطابق. وتضعها المراجعة جنباً إلى جنب مع نطاق موحّد.',
+    'cost.1': 'اشتراكات وتراخيص منفصلة', 'cost.2': 'البيانات نفسها تُدخَل مرتين', 'cost.3': 'رسوم الواجهات والربط', 'cost.4': 'دعم موزّع على عدة موردين', 'cost.5': 'شروط العقود ومواعيد التجديد',
+    'rev.h': 'أنظمتك جنباً إلى جنب', 'rev.cur': 'الأنظمة الحالية', 'rev.pro': 'النطاق المقترح', 'rev.cap': 'تقييم فقط · يعتمد التوفير على النطاق المؤكَّد',
+    'how.title': 'من طريقة تشغيل فندقك اليوم إلى عرض سعر واضح.',
+    's1.t': 'حصر عملياتك', 's1.d': 'الأنظمة المستخدمة للموارد البشرية والمشتريات والمخزون والمالية والتقارير.',
+    's2.t': 'تحديد ما يمكن توحيده', 's2.d': 'أين يتكرر العمل أو تغيب الرؤية.',
+    's3.t': 'تأكيد نظام PMS', 's3.d': 'المنتج المثبّت وإصداره وواجهاته واعتماداته.',
+    's4.t': 'تحديد عرض السعر', 's4.d': 'النطاق والتكاليف والمسؤوليات والتسليم المتفق عليها.',
+    'how.note': 'التوافق يبدأ من نظامك المثبّت. فالعلامة التجارية للفندق أو تصنيفه لا يؤكدان نظام PMS المثبّت لديه.',
+    'lead.title': 'نظامك يبقى.<br>وتشغيلك يصبح أبسط.', 'lead.sub': 'حوار واحد مركّز يجمع التشغيل والتقنية والمالية.',
+    'lead.1': 'أين يمكن توحيد عملياتك', 'lead.2': 'تأكيد التوافق مع نظامك', 'lead.3': 'تكاليف قابلة للمقارنة وعرض خاص بمنشأتك',
+    'form.title': 'اطلب مراجعتك التشغيلية والتقنية',
+    'ph.pms': 'مثال: Opera', 'ph.pmsv': 'مثال: سحابي أو محلي',
+    'faq.title': 'الأسئلة الشائعة',
+    'q1.q': 'هل سيعمل هذا مع نظام PMS لديّ؟', 'q1.a': 'نراجع أولاً المنتج وإصداره والوصول إلى الواجهات ومسار الاعتماد.',
+    'q2.q': 'كيف يُسعَّر عرض السعر؟', 'q2.a': 'يُحدَّد نطاق الخدمات والتجهيز والواجهات والدعم وفق منشأتك.',
+    'q3.q': 'هل أحتاج إلى استبدال نظام PMS؟', 'q3.a': 'لا. يبقى نظام PMS لديك كما هو، وتركّز المراجعة على العمليات المحيطة به.',
+    'foot.copy': '© 2026 فندقة',
+    'tm': 'Oracle وOPERA علامتان تجاريتان لشركة Oracle و/أو الشركات التابعة لها. لا تعني الإشارة إليهما اعتماداً أو شراكة أو تأييداً.',
+    'f.messagePh': 'ما الأنظمة التي تعمل بها حول Opera اليوم، وما الذي تودّ أن نراجعه.'
+  }
+};
+</script>
+<script src="../assets/vendor/scrollcraft/scrollcraft.js" defer></script>
+<script src="../assets/js/site.js" defer></script>
+<script src="../assets/js/v2.js" defer></script>
+</body>
+</html>
