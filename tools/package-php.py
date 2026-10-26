@@ -4,7 +4,8 @@ Everything the site needs and nothing it shouldn't serve: the pages and their PH
 assets, media. Internal material stays out, the same list GitHub Pages leaves out: campaigns, tools, archive, banners,
 _internal, documents and source files. The stamps and PHP copies must be current, so a half-updated site can't ship.
 
-    python tools/package-php.py      writes _dist/fandaqah-360-php.zip  (upload it, extract it over the site folder)
+    python tools/package-php.py      refreshes the stamps and PHP copies, then writes _dist/fandaqah-360-php.zip
+                                     (upload it and extract it over the site folder)
 """
 import pathlib, subprocess, sys, zipfile
 
@@ -16,10 +17,12 @@ SKIP_EXT = {'.md', '.py', '.pdf', '.psd', '.docx', '.zip', '.mjs', '.log'}
 STORED = {'.mp4', '.m4a', '.mp3', '.jpg', '.jpeg', '.png', '.webp', '.woff2', '.gif'}   # already compressed
 
 def main():
+    # bring the stamps and the PHP copies up to date first, so the upload is always one consistent version
     for tool in ('stamp-assets.py', 'build-php.py'):
-        r = subprocess.run([sys.executable, '-I', str(R / 'tools' / tool), '--check'], capture_output=True, text=True)
+        r = subprocess.run([sys.executable, '-I', str(R / 'tools' / tool)], capture_output=True, text=True)
         if r.returncode:
-            sys.exit(r.stdout + r.stderr + f'\nRun  python tools/{tool}  first.')
+            sys.exit(r.stdout + r.stderr)
+        print(r.stdout.strip())
     files = []
     for p in sorted(R.rglob('*')):
         rel = p.relative_to(R)
