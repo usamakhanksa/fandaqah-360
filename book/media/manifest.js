@@ -148,11 +148,21 @@ window.BOOK_MEDIA = {
    }
   },
   "snap": {
-   "ar": {
+   "snap2-ar": {
+    "kind": "snap2",
+    "lang": "ar",
+    "mp4": "media/A-existing-customers/reels/A-snap2-ar.mp4",
+    "poster": "media/A-existing-customers/reels/A-snap2-ar.jpg",
+    "mb": 5.3,
+    "sec": 27
+   },
+   "snap-ar": {
+    "kind": "snap",
+    "lang": "ar",
     "mp4": "media/A-existing-customers/reels/A-snap-ar.mp4",
     "poster": "media/A-existing-customers/reels/A-snap-ar.jpg",
-    "mb": 3.7,
-    "sec": 17
+    "mb": 5.0,
+    "sec": 26
    }
   }
  },

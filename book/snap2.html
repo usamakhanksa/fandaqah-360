@@ -36,7 +36,7 @@ body{display:grid;place-items:center;overflow:hidden;font-family:var(--f);-webki
 .s1 .film{height:936px}
 .s1 .film video{top:0;height:1920px}
 .s1 .film::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,39,60,0) 62%,var(--navy) 99%)}
-.s1 .frost{position:absolute;left:600px;top:0;width:480px;height:960px;-webkit-backdrop-filter:blur(20px) saturate(.75);backdrop-filter:blur(20px) saturate(.75);background:rgba(42,39,60,.3)}
+.s1 .frost{position:absolute;left:600px;top:0;width:480px;height:960px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 22%);mask-image:linear-gradient(90deg,transparent,#000 22%);-webkit-backdrop-filter:blur(20px) saturate(.75);backdrop-filter:blur(20px) saturate(.75);background:rgba(42,39,60,.3)}
 .todo{position:absolute;display:flex;align-items:center;gap:14px;padding:16px 22px;border-radius:14px;background:#fff;box-shadow:0 22px 40px -18px rgba(10,8,25,.55);font-size:26px;font-weight:700;color:var(--ink)}
 .todo .ic{width:32px;height:32px;color:var(--coral)}
 .todo small{display:block;margin-top:4px;font-size:20px;font-weight:400;color:var(--ink-2)}
@@ -60,7 +60,8 @@ body{display:grid;place-items:center;overflow:hidden;font-family:var(--f);-webki
 /* 3 · the upgrade: over her shoulder, then the screen */
 .s3 .film{height:1920px}
 .s3 .film video{top:0}
-.s3 .frost{position:absolute;left:0;top:800px;width:400px;height:820px;-webkit-backdrop-filter:blur(20px) saturate(.75);backdrop-filter:blur(20px) saturate(.75);background:rgba(42,39,60,.25)}
+.s3 .film.f-b{opacity:0}
+.s3 .frost{position:absolute;left:0;top:760px;width:440px;height:900px;-webkit-mask-image:radial-gradient(120% 70% at 0% 50%,#000 55%,transparent 100%);mask-image:radial-gradient(120% 70% at 0% 50%,#000 55%,transparent 100%);-webkit-backdrop-filter:blur(20px) saturate(.75);backdrop-filter:blur(20px) saturate(.75);background:rgba(42,39,60,.25)}
 .s3 .film::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,39,60,.75) 0%,rgba(42,39,60,0) 32%)}
 .s3 .copy{position:absolute;inset:260px 70px auto;display:grid;gap:8px;z-index:2}
 .s3 .h.one{font-size:84px}
@@ -200,7 +201,9 @@ body{display:grid;place-items:center;overflow:hidden;font-family:var(--f);-webki
 
   <!-- 3 · 4.4–6.6 s: the upgrade (film 4.0–5.0 over her shoulder, then the screen) -->
   <section class="sc s3" id="s3">
-    <div class="film"><video data-clip="4,5,4.4,1" src="media/A-existing-customers/snap/receptionist.mp4" muted playsinline preload="auto"></video><div class="frost"></div></div>
+    <!-- two angles from the film: typing in profile (its screen frosted), then her face lighting up -->
+    <div class="film f-a"><video data-clip="3.95,4.42,4.4,1" src="media/A-existing-customers/snap/receptionist.mp4" muted playsinline preload="auto"></video><div class="frost"></div></div>
+    <div class="film f-b"><video data-clip="4.5,4.98,4.85,0.96" src="media/A-existing-customers/snap/receptionist.mp4" muted playsinline preload="auto"></video></div>
     <div class="copy c1"><p class="h one">فندقة التي تعرفها.</p></div>
     <div class="ui">
       <div class="copy"><p class="h one">فندقة التي تعرفها.</p><p class="h two">بإمكانيات أكبر.</p></div>
@@ -329,8 +332,9 @@ body{display:grid;place-items:center;overflow:hidden;font-family:var(--f);-webki
   // 3 · the upgrade: her shoulder, a cut to the screen, the tap, the menu grows
   show('#s3', 4.34);
   tl.from('.s3 .c1 .h', { opacity: 0, y: 30, duration: .3 }, 4.4);
+  tl.set('.s3 .f-b', { opacity: 1 }, 4.85);   // cut to her face lighting up
   tl.set('.s3 .ui', { opacity: 0 }, 0);
-  tl.to('.s3 .ui', { opacity: 1, duration: .15, ease: 'none' }, 5.3);
+  tl.to('.s3 .ui', { opacity: 1, duration: .15, ease: 'none' }, 5.32);
   tl.from('.s3 .app', { scale: .92, y: 50, duration: .35 }, 5.3);
   tl.set('.s3 .side li.new, .s3 .b360', { opacity: 0 }, 0);
   tl.fromTo('.s3 .cursor', { x: 160, y: 140, opacity: 0 }, { x: 0, y: 0, opacity: 1, duration: .32, ease: 'power2.out' }, 5.45);

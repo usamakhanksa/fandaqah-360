@@ -1,4 +1,4 @@
-<?php /* Generated from index.html by tools/build-php.py: edit the .html page, then run the build. */ if (is_file(__DIR__ . '/../api/page.php')) require __DIR__ . '/../api/page.php'; ?>
+<?php /* Generated from -index.html by tools/build-php.py: edit the .html page, then run the build. */ if (is_file(__DIR__ . '/../api/page.php')) require __DIR__ . '/../api/page.php'; ?>
 <!doctype html>
 <!-- data-bnpl: tabby / tamara instalments are paused ("off"). Every badge and logo for them carries data-bnpl-item;
      set this to "on" when the offer returns and they all come back. The Integrations "Payment Options" card is the
