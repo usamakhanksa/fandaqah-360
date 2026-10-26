@@ -4,3 +4,6 @@ _internal/
 # tooling
 node_modules/
 __pycache__/
+
+# upload packages (tools/package-php.py)
+_dist/

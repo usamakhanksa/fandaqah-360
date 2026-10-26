@@ -7,7 +7,7 @@
   const G = window.gsap, ST = window.ScrollTrigger;
   if (G && ST) G.registerPlugin(ST);
   const CODES = ['A', 'B', 'C', 'D'];
-  const ico = id => `<svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#${id}"/></svg>`;
+  const ico = id => `<svg class="ic" aria-hidden="true"><use href="../assets/icons.svg?v=f85b3c06#${id}"/></svg>`;
   // speaker, with waves when the sound is on and a cross when it is off (the site sprite has no audio icons)
   const speaker = on => `<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/>${on ? '<path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/>' : '<path d="m16 9 5 6"/><path d="m21 9-5 6"/>'}</svg>`;
   const strip = html => html.replace(/<[^>]+>/g, '');

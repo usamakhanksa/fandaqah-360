@@ -1,4 +1,4 @@
-<?php /* Generated from index.html by tools/build-php.py: edit the .html page, then run the build. */ require __DIR__ . '/../api/page.php'; ?>
+<?php /* Generated from index.html by tools/build-php.py: edit the .html page, then run the build. */ if (is_file(__DIR__ . '/../api/page.php')) require __DIR__ . '/../api/page.php'; ?>
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
@@ -112,9 +112,9 @@
 <link rel="preload" href="../assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/img/palms-resort.webp" as="image" type="image/webp" fetchpriority="high">
-<link rel="stylesheet" href="../assets/vendor/scrollcraft/scrollcraft.css">
-<link rel="stylesheet" href="../assets/css/site.css">
-<link rel="stylesheet" href="../assets/css/v2.css">
+<link rel="stylesheet" href="../assets/vendor/scrollcraft/scrollcraft.css?v=e19eb3aa">
+<link rel="stylesheet" href="../assets/css/site.css?v=1bc17487">
+<link rel="stylesheet" href="../assets/css/v2.css?v=1e2fb01d">
 <script>/* Arabic by default: English only when the link asks (?lang=en) or the reader chose it before. The page stays hidden until its text is in that language, with a 1.5 s safety net. */(function(r){var l;try{l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('fq360-lang')}catch(e){}r.classList.add('js');if(l!=='en'){r.lang='ar';r.dir='rtl';r.classList.add('i18n-wait');setTimeout(function(){r.classList.remove('i18n-wait')},1500)}})(document.documentElement)</script><style>.i18n-wait body{visibility:hidden}</style>
 </head>
 <body class="v2 pa">
@@ -130,8 +130,8 @@
     </nav>
     <div class="head-end">
       <div class="lang lang--pill" role="group" data-i18n-aria="aria.lang" aria-label="Language"><button type="button" data-lang="en" lang="en" aria-pressed="true">EN</button><span class="sep" aria-hidden="true"></span><button type="button" data-lang="ar" lang="ar" aria-pressed="false">عربي</button></div>
-      <a class="btn btn-sm btn--pill" href="#contact"><span data-i18n="cta.main">Lock in my launch price</span><svg class="ic ic-go" aria-hidden="true"><use href="../assets/icons.svg#i-arrow-right"/></svg></a>
-      <button class="burger" type="button" aria-expanded="false" aria-controls="mnav" data-i18n-aria="aria.menu" aria-label="Open menu"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-menu"/></svg></button>
+      <a class="btn btn-sm btn--pill" href="#contact"><span data-i18n="cta.main">Lock in my launch price</span><svg class="ic ic-go" aria-hidden="true"><use href="../assets/icons.svg?v=f85b3c06#i-arrow-right"/></svg></a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="mnav" data-i18n-aria="aria.menu" aria-label="Open menu"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg?v=f85b3c06#i-menu"/></svg></button>
     </div>
   </div>
   <div class="mnav" id="mnav" hidden>
@@ -195,31 +195,31 @@
         <div class="pa-phone">
           <p class="pa-phone-brand">Fandaqah <b>360</b></p>
           <ul>
-            <li><svg class="ic"><use href="../assets/icons.svg#i-calendar-days"/></svg><span data-i18n="ui.res">Reservations</span></li>
-            <li><svg class="ic"><use href="../assets/icons.svg#i-bed-double"/></svg><span data-i18n="m3.t">Housekeeping</span></li>
-            <li><svg class="ic"><use href="../assets/icons.svg#i-chart-column"/></svg><span data-i18n="ui.reports">Reports</span></li>
-            <li><svg class="ic"><use href="../assets/icons.svg#i-layout-dashboard"/></svg><span data-i18n="ui.more">More</span></li>
+            <li><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-calendar-days"/></svg><span data-i18n="ui.res">Reservations</span></li>
+            <li><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-bed-double"/></svg><span data-i18n="m3.t">Housekeeping</span></li>
+            <li><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-chart-column"/></svg><span data-i18n="ui.reports">Reports</span></li>
+            <li><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-layout-dashboard"/></svg><span data-i18n="ui.more">More</span></li>
           </ul>
         </div>
       </div>
-      <div class="pa-two"><span class="pa-two-ic"><svg class="ic"><use href="../assets/icons.svg#i-lock"/></svg></span><b data-i18n="two.b">SAR 3,495</b><small data-i18n="two.s">Per year · fixed for 2 years</small></div>
+      <div class="pa-two"><span class="pa-two-ic"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-lock"/></svg></span><b data-i18n="two.b">SAR 3,495</b><small data-i18n="two.s">Per year · fixed for 2 years</small></div>
       <svg class="pa-links" viewBox="0 0 120 200" preserveAspectRatio="none"><path d="M0 0 V45 H60 M60 45 V192 M60 45 H120 M60 81 H120 M60 118 H120 M60 155 H120 M60 192 H120"/></svg>
       <ul class="pa-chips">
-        <li data-chip="accounting"><svg class="ic"><use href="../assets/icons.svg#i-coins"/></svg><span data-i18n="m1.t">Accounting</span></li>
-        <li data-chip="purchasing"><svg class="ic"><use href="../assets/icons.svg#i-shopping-cart"/></svg><span data-i18n="m2.t">Purchasing</span></li>
-        <li data-chip="housekeeping"><svg class="ic"><use href="../assets/icons.svg#i-bed-double"/></svg><span data-i18n="m3.t">Housekeeping</span></li>
-        <li data-chip="maintenance"><svg class="ic"><use href="../assets/icons.svg#i-wrench"/></svg><span data-i18n="m4.t">Maintenance</span></li>
-        <li data-chip="inventory"><svg class="ic"><use href="../assets/icons.svg#i-package"/></svg><span data-i18n="m5.t">Inventory</span></li>
+        <li data-chip="accounting"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-coins"/></svg><span data-i18n="m1.t">Accounting</span></li>
+        <li data-chip="purchasing"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-shopping-cart"/></svg><span data-i18n="m2.t">Purchasing</span></li>
+        <li data-chip="housekeeping"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-bed-double"/></svg><span data-i18n="m3.t">Housekeeping</span></li>
+        <li data-chip="maintenance"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-wrench"/></svg><span data-i18n="m4.t">Maintenance</span></li>
+        <li data-chip="inventory"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-package"/></svg><span data-i18n="m5.t">Inventory</span></li>
         <!-- the rest of the twenty, one tap away: scrolls to the modules and opens all of them (keyboard and screen-reader
              readers reach the same section from the "What you gain" link, since this scene is decorative) -->
-        <li class="pa-chip-more"><a href="#modules" tabindex="-1" data-show-all><span data-i18n="chip.more">+15 more modules</span><svg class="ic"><use href="../assets/icons.svg#i-chevron-down"/></svg></a></li>
+        <li class="pa-chip-more"><a href="#modules" tabindex="-1" data-show-all><span data-i18n="chip.more">+15 more modules</span><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-chevron-down"/></svg></a></li>
       </ul>
       <p class="pa-cap" data-i18n="ui.tag">Illustrative interface</p>
-      <svg class="pa-leaf" viewBox="0 0 220 320"><use href="../assets/icons.svg#art-leaves"/></svg>
+      <svg class="pa-leaf" viewBox="0 0 220 320"><use href="../assets/icons.svg?v=f85b3c06#art-leaves"/></svg>
     </div>
     <div class="wrap pa-hero-in">
       <div class="pa-copy">
-        <p class="pa-pill pa-pill--offer"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-sparkles"/></svg><span data-i18n="hero.eyebrow">Exclusive launch offer for existing customers</span></p>
+        <p class="pa-pill pa-pill--offer"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg?v=f85b3c06#i-sparkles"/></svg><span data-i18n="hero.eyebrow">Exclusive launch offer for existing customers</span></p>
         <h1 class="pa-h1" id="hero-title"><span class="pa-h1-main" data-i18n="hero.title">Upgrade to <span class="hl">Fandaqah 360.</span></span> <span class="pa-h1-sub" data-i18n="hero.sub">Lock in the <em>launch price</em> for two years.</span></h1>
         <div class="pa-price">
           <p class="pa-price-k" data-i18n="price.k">All 20 modules for</p>
@@ -227,17 +227,17 @@
           <p class="pa-price-n" data-i18n="price.n">Excluding VAT · one-time launch price</p>
         </div>
         <ul class="pa-hero-checks">
-          <li><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="hero.c1">This launch price will not be offered again.</span></li>
-          <li><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="hero.c2">Price locked for two years when you pay upfront.</span></li>
-          <li><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="hero.c3">30-day Golden Guarantee: a full refund and your previous plan back.</span></li>
+          <li><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-check"/></svg></span><span data-i18n="hero.c1">This launch price will not be offered again.</span></li>
+          <li><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-check"/></svg></span><span data-i18n="hero.c2">Price locked for two years when you pay upfront.</span></li>
+          <li><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-check"/></svg></span><span data-i18n="hero.c3">30-day Golden Guarantee: a full refund and your previous plan back.</span></li>
         </ul>
-        <div class="hero-cta"><a class="btn btn--pill" href="#contact"><span data-i18n="cta.main">Lock in my launch price</span><svg class="ic ic-go" aria-hidden="true"><use href="../assets/icons.svg#i-arrow-right"/></svg></a><a class="v2-link" href="#modules"><span data-i18n="hero.more">See what you gain</span><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-arrow-right"/></svg></a></div>
+        <div class="hero-cta"><a class="btn btn--pill" href="#contact"><span data-i18n="cta.main">Lock in my launch price</span><svg class="ic ic-go" aria-hidden="true"><use href="../assets/icons.svg?v=f85b3c06#i-arrow-right"/></svg></a><a class="v2-link" href="#modules"><span data-i18n="hero.more">See what you gain</span><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg?v=f85b3c06#i-arrow-right"/></svg></a></div>
       </div>
     </div>
     <ul class="wrap pa-values">
-      <li data-reveal style="--i:0"><span class="pa-vic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-coins"/></svg></span><div><p class="pa-v-t" data-i18n="v1.t">One-time launch price.</p><p data-i18n="v1.d">SAR 3,495 a year, excluding VAT. Standard pricing applies once the launch offer ends.</p></div></li>
-      <li data-reveal style="--i:1"><span class="pa-vic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-lock"/></svg></span><div><p class="pa-v-t" data-i18n="v2.t">Locked for two years.</p><p data-i18n="v2.d">Pay two years upfront and keep the launch price for the whole term.</p></div></li>
-      <li data-reveal style="--i:2"><span class="pa-vic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-shield-check"/></svg></span><div><p class="pa-v-t" data-i18n="v3.t">The Golden Guarantee.</p><p data-i18n="v3.d">Not right for your property within 30 days? Full refund, previous plan restored.</p></div></li>
+      <li data-reveal style="--i:0"><span class="pa-vic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-coins"/></svg></span><div><p class="pa-v-t" data-i18n="v1.t">One-time launch price.</p><p data-i18n="v1.d">SAR 3,495 a year, excluding VAT. Standard pricing applies once the launch offer ends.</p></div></li>
+      <li data-reveal style="--i:1"><span class="pa-vic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-lock"/></svg></span><div><p class="pa-v-t" data-i18n="v2.t">Locked for two years.</p><p data-i18n="v2.d">Pay two years upfront and keep the launch price for the whole term.</p></div></li>
+      <li data-reveal style="--i:2"><span class="pa-vic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-shield-check"/></svg></span><div><p class="pa-v-t" data-i18n="v3.t">The Golden Guarantee.</p><p data-i18n="v3.d">Not right for your property within 30 days? Full refund, previous plan restored.</p></div></li>
     </ul>
   </section>
 
@@ -259,7 +259,7 @@
               <ul class="pa-legend"><li style="--c:#7E9B85" data-i18n="g1.1">Room revenue</li><li style="--c:#E39A55" data-i18n="g1.2">Other income</li><li style="--c:#E64D44" data-i18n="g1.3">Operating costs</li></ul>
             </div>
           </figure>
-          <span class="pa-card-ic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-coins"/></svg></span>
+          <span class="pa-card-ic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-coins"/></svg></span>
           <p class="pa-card-k" data-i18n="m1.t">Accounting</p><h3 data-i18n="o1.t">Better financial visibility.</h3><p data-i18n="m1.d">Revenue, expenses and operational reports in one place, without re-keying figures between systems.</p>
         </article>
         <article class="pa-card" data-reveal style="--i:1">
@@ -267,10 +267,10 @@
             <img src="../assets/img/hero-new.webp" srcset="../assets/img/hero-new-720.webp 720w, ../assets/img/hero-new.webp 1180w" sizes="(max-width: 960px) 92vw, 380px" width="1180" height="822" alt="" loading="lazy" style="object-position:40% 70%">
             <div class="pa-glass">
               <p data-i18n="g2.h">Purchase orders</p>
-              <ul class="pa-list"><li><svg class="ic"><use href="../assets/icons.svg#i-file-text"/></svg><span data-i18n="g2.1">New order</span></li><li><svg class="ic"><use href="../assets/icons.svg#i-share-2"/></svg><span data-i18n="g2.2">Sent to supplier</span></li><li><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg><span data-i18n="g2.3">Delivered</span></li></ul>
+              <ul class="pa-list"><li><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-file-text"/></svg><span data-i18n="g2.1">New order</span></li><li><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-share-2"/></svg><span data-i18n="g2.2">Sent to supplier</span></li><li><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-check"/></svg><span data-i18n="g2.3">Delivered</span></li></ul>
             </div>
           </figure>
-          <span class="pa-card-ic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-shopping-cart"/></svg></span>
+          <span class="pa-card-ic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-shopping-cart"/></svg></span>
           <p class="pa-card-k" data-i18n="m2.t">Purchasing</p><h3 data-i18n="o2.t">Stronger purchasing control.</h3><p data-i18n="m2.d">Requests, approvals and supplier orders tracked from request to delivery, so every riyal spent has an owner.</p>
         </article>
         <article class="pa-card" data-reveal style="--i:2">
@@ -281,7 +281,7 @@
               <ul class="pa-status"><li style="--c:#3D7A5B;--w:.7"><i></i><span data-i18n="st.clean">Clean</span><b></b></li><li style="--c:#E39A55;--w:.5"><i></i><span data-i18n="st.prog">In progress</span><b></b></li><li style="--c:#E64D44;--w:.42"><i></i><span data-i18n="st.due">Due today</span><b></b></li><li style="--c:#9C98A8;--w:.2"><i></i><span data-i18n="st.out">Out of service</span><b></b></li></ul>
             </div>
           </figure>
-          <span class="pa-card-ic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-bed-double"/></svg></span>
+          <span class="pa-card-ic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-bed-double"/></svg></span>
           <p class="pa-card-k" data-i18n="m3.t">Housekeeping</p><h3 data-i18n="o3.t">Rooms ready, on time.</h3><p data-i18n="m3.d">Room status, cleaning tasks and handovers your front desk can see as they happen.</p>
         </article>
         <article class="pa-card" data-reveal style="--i:3">
@@ -293,7 +293,7 @@
               <p class="pa-state" data-i18n="g4.st">In progress</p>
             </div>
           </figure>
-          <span class="pa-card-ic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-wrench"/></svg></span>
+          <span class="pa-card-ic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-wrench"/></svg></span>
           <p class="pa-card-k" data-i18n="m4.t">Maintenance</p><h3 data-i18n="o4.t">Faults fixed, not forgotten.</h3><p data-i18n="m4.d">Every request logged, assigned and followed up until it is closed.</p>
         </article>
         <article class="pa-card" data-reveal style="--i:4">
@@ -304,15 +304,15 @@
               <ul class="pa-stock"><li><span data-i18n="g5.1">Towels</span><b>240</b></li><li><span data-i18n="g5.2">Bed linen</span><b>180</b></li><li class="is-low"><span data-i18n="g5.3">Shampoo</span><b>12</b><em data-i18n="g5.low">Low</em></li></ul>
             </div>
           </figure>
-          <span class="pa-card-ic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-package"/></svg></span>
+          <span class="pa-card-ic" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-package"/></svg></span>
           <p class="pa-card-k" data-i18n="m5.t">Inventory</p><h3 data-i18n="o5.t">Less waste, fewer surprises.</h3><p data-i18n="m5.d">Stock levels and item movements in view, with low stock easy to spot before it runs out.</p>
         </article>
       </div>
       <!-- modules 6 to 20 load three at a time from modules.json; without JavaScript this stays hidden and the five cards stand -->
-      <div class="pa-more" data-src="modules.json" hidden>
+      <div class="pa-more" data-src="modules.json?v=8432241c" hidden>
         <p class="pa-more-count"><b data-more-shown>5</b> <span data-i18n="more.of">of 20 modules shown</span></p>
         <span class="pa-more-track" aria-hidden="true"><i></i></span>
-        <button class="pa-more-btn" type="button" data-more aria-controls="pa-cards"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-plus"/></svg><span data-i18n="more.btn">Show 3 more modules</span></button>
+        <button class="pa-more-btn" type="button" data-more aria-controls="pa-cards"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg?v=f85b3c06#i-plus"/></svg><span data-i18n="more.btn">Show 3 more modules</span></button>
         <p class="pa-more-done" tabindex="-1" data-i18n="more.done" hidden>All 20 modules shown. Every one is included in Fandaqah 360.</p>
         <p class="pa-more-status" aria-live="polite"></p>
       </div>
@@ -331,29 +331,29 @@
         <div class="pa-cmp-col pa-cmp-now">
           <p class="pa-cmp-k" data-i18n="cmp.now">A typical plan today</p>
           <ul>
-            <li><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="cmp.n1">PMS core</span></li>
-            <li><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="ui.res">Reservations</span></li>
-            <li><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="cmp.n3">Front desk</span></li>
-            <li><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="cmp.n4">Standard reports</span></li>
-            <li class="is-off"><span class="pa-x" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-x"/></svg></span><span data-i18n="m1.t">Accounting</span></li>
-            <li class="is-off"><span class="pa-x" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-x"/></svg></span><span data-i18n="m2.t">Purchasing</span></li>
-            <li class="is-off"><span class="pa-x" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-x"/></svg></span><span data-i18n="m5.t">Inventory</span></li>
-            <li class="is-off"><span class="pa-x" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-x"/></svg></span><span data-i18n="m4.t">Maintenance</span></li>
-            <li class="is-off"><span class="pa-x" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-x"/></svg></span><span data-i18n="m3.t">Housekeeping</span></li>
+            <li><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-check"/></svg></span><span data-i18n="cmp.n1">PMS core</span></li>
+            <li><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-check"/></svg></span><span data-i18n="ui.res">Reservations</span></li>
+            <li><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-check"/></svg></span><span data-i18n="cmp.n3">Front desk</span></li>
+            <li><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-check"/></svg></span><span data-i18n="cmp.n4">Standard reports</span></li>
+            <li class="is-off"><span class="pa-x" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-x"/></svg></span><span data-i18n="m1.t">Accounting</span></li>
+            <li class="is-off"><span class="pa-x" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-x"/></svg></span><span data-i18n="m2.t">Purchasing</span></li>
+            <li class="is-off"><span class="pa-x" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-x"/></svg></span><span data-i18n="m5.t">Inventory</span></li>
+            <li class="is-off"><span class="pa-x" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-x"/></svg></span><span data-i18n="m4.t">Maintenance</span></li>
+            <li class="is-off"><span class="pa-x" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-x"/></svg></span><span data-i18n="m3.t">Housekeeping</span></li>
           </ul>
           <p class="pa-cmp-foot" data-i18n="cmp.nowFoot">The rest runs on spreadsheets, calls and paper.</p>
         </div>
-        <span class="pa-cmp-arrow" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-arrow-right"/></svg></span>
+        <span class="pa-cmp-arrow" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg?v=f85b3c06#i-arrow-right"/></svg></span>
         <div class="pa-cmp-col pa-cmp-360">
           <p class="pa-cmp-k"><span data-i18n="cmp.after">After upgrading to Fandaqah 360</span></p>
           <ul>
-            <li><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="cmp.a0">Everything in your current plan</span></li>
-            <li><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="m1.t">Accounting</span></li>
-            <li><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="m2.t">Purchasing</span></li>
-            <li><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="m5.t">Inventory</span></li>
-            <li><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="m4.t">Maintenance</span></li>
-            <li><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="m3.t">Housekeeping</span></li>
-            <li class="is-plus"><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="cmp.a6">All features, more than 20 services in one integrated platform</span></li>
+            <li><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-check"/></svg></span><span data-i18n="cmp.a0">Everything in your current plan</span></li>
+            <li><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-check"/></svg></span><span data-i18n="m1.t">Accounting</span></li>
+            <li><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-check"/></svg></span><span data-i18n="m2.t">Purchasing</span></li>
+            <li><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-check"/></svg></span><span data-i18n="m5.t">Inventory</span></li>
+            <li><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-check"/></svg></span><span data-i18n="m4.t">Maintenance</span></li>
+            <li><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-check"/></svg></span><span data-i18n="m3.t">Housekeeping</span></li>
+            <li class="is-plus"><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-check"/></svg></span><span data-i18n="cmp.a6">All features, more than 20 services in one integrated platform</span></li>
           </ul>
           <p class="pa-cmp-price"><b data-i18n="cmp.price">SAR 3,495 / year</b> <span data-i18n="cmp.vat">excl. VAT · locked for two years</span></p>
         </div>
@@ -377,11 +377,11 @@
               <div><dt data-i18n="math.3">Two years including 15% VAT</dt><dd data-i18n="math.3v">SAR 8,038.50</dd></div>
             </dl>
             <ul class="pa-band-list">
-              <li><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="offer.1">The same price for both years</span></li>
-              <li><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="offer.2">All 20 Fandaqah 360 modules included</span></li>
-              <li><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span><span data-i18n="offer.3">Covered by the 30-day Golden Guarantee</span></li>
+              <li><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-check"/></svg></span><span data-i18n="offer.1">The same price for both years</span></li>
+              <li><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-check"/></svg></span><span data-i18n="offer.2">All 20 Fandaqah 360 modules included</span></li>
+              <li><span class="pa-dot" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-check"/></svg></span><span data-i18n="offer.3">Covered by the 30-day Golden Guarantee</span></li>
             </ul>
-            <a class="btn btn--pill" href="#contact"><span data-i18n="cta.main">Lock in my launch price</span><svg class="ic ic-go" aria-hidden="true"><use href="../assets/icons.svg#i-arrow-right"/></svg></a>
+            <a class="btn btn--pill" href="#contact"><span data-i18n="cta.main">Lock in my launch price</span><svg class="ic ic-go" aria-hidden="true"><use href="../assets/icons.svg?v=f85b3c06#i-arrow-right"/></svg></a>
             <p class="pa-band-small" data-i18n="offer.small">Prices exclude 15% VAT. The two-year price lock requires upfront payment for both years. Eligibility is confirmed on your account.</p>
           </div>
           <div class="pa-band-scene" aria-hidden="true">
@@ -400,15 +400,15 @@
   <section class="v2-sec pa-guar" id="guarantee" aria-labelledby="guar-title">
     <div class="wrap">
       <div class="pa-guar-in" data-reveal>
-        <div class="pa-seal" aria-hidden="true"><svg viewBox="0 0 120 120"><use href="../assets/icons.svg#i-seal-edge"/></svg><span class="pa-seal-n">30</span></div>
+        <div class="pa-seal" aria-hidden="true"><svg viewBox="0 0 120 120"><use href="../assets/icons.svg?v=f85b3c06#i-seal-edge"/></svg><span class="pa-seal-n">30</span></div>
         <div class="pa-guar-copy">
           <p class="v2-eyebrow" data-i18n="guar.eyebrow">The Golden Guarantee</p>
           <h2 class="v2-h2" id="guar-title" data-i18n="guar.title">Try Fandaqah 360 for 30 days. <em>Without the risk.</em></h2>
           <p class="v2-sub" data-i18n="guar.p">If the upgrade is not right for your property within the first 30 days, we refund the full amount and return your subscription to its previous plan.</p>
           <ul class="pa-guar-list">
-            <li><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-coins"/></svg><span data-i18n="guar.1">Full refund</span></li>
-            <li><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-route"/></svg><span data-i18n="guar.2">Your previous plan restored</span></li>
-            <li><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-clipboard-check"/></svg><span data-i18n="guar.3">Decide on real use, in your own hotel</span></li>
+            <li><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg?v=f85b3c06#i-coins"/></svg><span data-i18n="guar.1">Full refund</span></li>
+            <li><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg?v=f85b3c06#i-route"/></svg><span data-i18n="guar.2">Your previous plan restored</span></li>
+            <li><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg?v=f85b3c06#i-clipboard-check"/></svg><span data-i18n="guar.3">Decide on real use, in your own hotel</span></li>
           </ul>
         </div>
       </div>
@@ -452,14 +452,14 @@
             <dl class="pa-sheet-rows">
               <div><dt data-i18n="brief.plan">Plan</dt><dd data-i18n="brief.planV">Fandaqah 360 · all 20 modules</dd></div>
               <div><dt data-i18n="brief.term">Term and price</dt><dd class="pa-slot" data-slot="term"><span class="ph" data-i18n="brief.empty">Not added yet</span><span class="v"></span></dd></div>
-              <div><dt data-i18n="brief.guar">Guarantee</dt><dd class="pa-sheet-guar"><svg class="pa-sheet-seal" viewBox="0 0 120 120" aria-hidden="true"><use href="../assets/icons.svg#i-seal"/></svg><span data-i18n="brief.guarV">30-day Golden Guarantee</span></dd></div>
+              <div><dt data-i18n="brief.guar">Guarantee</dt><dd class="pa-sheet-guar"><svg class="pa-sheet-seal" viewBox="0 0 120 120" aria-hidden="true"><use href="../assets/icons.svg?v=f85b3c06#i-seal"/></svg><span data-i18n="brief.guarV">30-day Golden Guarantee</span></dd></div>
               <div><dt data-i18n="brief.contact">Contact</dt><dd><span class="pa-slot" data-slot="person"><span class="ph" data-i18n="brief.empty">Not added yet</span><span class="v"></span></span><small class="pa-slot pa-sheet-reach" data-slot="reach"><span class="ph"></span><bdi class="v" dir="ltr"></bdi></small></dd></div>
               <div class="pa-sheet-note" hidden><dt data-i18n="brief.note">Your note</dt><dd class="pa-slot" data-slot="note"><span class="ph"></span><span class="v"></span></dd></div>
             </dl>
             <p class="pa-sheet-foot" data-i18n="lead.p">Submitting doesn’t charge you or change your subscription. We confirm the price and activation date with you first.</p>
           </article>
           </div>
-          <p class="pa-reach"><a href="mailto:info@fandaqah.com"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-mail"/></svg>info@fandaqah.com</a><a href="https://www.fandaqah.com" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-globe"/></svg>fandaqah.com</a></p>
+          <p class="pa-reach"><a href="mailto:info@fandaqah.com"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg?v=f85b3c06#i-mail"/></svg>info@fandaqah.com</a><a href="https://www.fandaqah.com" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg?v=f85b3c06#i-globe"/></svg>fandaqah.com</a></p>
         </div>
         <div class="v2-formcard pa-formcard">
           <h3 class="v2-formcard-h" data-i18n="form.title">Lock in my launch price</h3>
@@ -482,12 +482,12 @@
             <input type="hidden" name="interest" value="existing_upgrade" data-label="Existing customer upgrade">
             <p class="form-privacy"><span data-i18n="f.privacy">We use your details to respond to this enquiry.</span> <a href="https://fandaqah.com/en/store/policy" data-href-ar="https://fandaqah.com/store/policy" target="_blank" rel="noopener" data-i18n="f.privacyLink">Privacy notice</a>.</p>
             <p class="form-alert" role="alert" hidden></p>
-            <div class="form-actions"><button class="btn btn--pill" type="submit"><span data-i18n="cta.main">Lock in my launch price</span><svg class="ic ic-go" aria-hidden="true"><use href="../assets/icons.svg#i-arrow-right"/></svg></button></div>
+            <div class="form-actions"><button class="btn btn--pill" type="submit"><span data-i18n="cta.main">Lock in my launch price</span><svg class="ic ic-go" aria-hidden="true"><use href="../assets/icons.svg?v=f85b3c06#i-arrow-right"/></svg></button></div>
             <p class="pa-form-note" data-i18n="form.note">No payment now. Covered by the 30-day Golden Guarantee once active.</p>
             <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
           </form>
           <div class="done" id="lead-done" hidden>
-            <span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span>
+            <span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-check"/></svg></span>
             <h3 tabindex="-1" data-i18n="done.t">Thank you. Your request is with our team.</h3>
             <p data-i18n="done.d">A Fandaqah specialist will contact you shortly to confirm your price and activation date.</p>
             <p class="ref"><span data-i18n="done.ref">Reference:</span> <b></b></p>
@@ -503,14 +503,14 @@
     <div class="wrap">
       <div class="pa-faq-box" data-reveal>
         <h2 class="v2-h2" id="faq-title" data-i18n="faq.title">Your questions, answered.</h2>
-        <details><summary><span><b data-i18n="q1.q">How much does the upgrade cost?</b><small data-i18n="q1.s">SAR 3,495 a year, excluding VAT.</small></span><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-plus"/></svg></summary><p data-i18n="q1.a">Fandaqah 360 is SAR 3,495 a year, excluding 15% VAT (SAR 4,019.25 including VAT). To lock that price for two years, pay SAR 6,990 upfront, excluding VAT.</p></details>
-        <details><summary><span><b data-i18n="q2.q">Will this price be offered again?</b><small data-i18n="q2.s">No. It is a one-time launch price.</small></span><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-plus"/></svg></summary><p data-i18n="q2.a">No. This is a one-time launch price. Once the launch offer ends, standard pricing applies.</p></details>
-        <details><summary><span><b data-i18n="q3.q">How does the two-year price lock work?</b><small data-i18n="q3.s">Pay two years upfront and the price stays fixed.</small></span><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-plus"/></svg></summary><p data-i18n="q3.a">Choose the two-year term and pay for both years upfront. Your price stays at the launch rate for the whole term, whatever happens to standard pricing.</p></details>
-        <details><summary><span><b data-i18n="q4.q">What is the Golden Guarantee?</b><small data-i18n="q4.s">30 days, a full refund, your previous plan back.</small></span><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-plus"/></svg></summary><p data-i18n="q4.a">If the upgrade is not right for your property within the first 30 days, we refund the full amount and return your subscription to its previous plan.</p></details>
-        <details><summary><span><b data-i18n="q5.q">Can I go back to my current plan?</b><small data-i18n="q5.s">Yes, within the 30-day guarantee.</small></span><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-plus"/></svg></summary><p data-i18n="q5.a">Yes. Within the 30-day guarantee period, your subscription returns to its previous plan and your payment is refunded in full.</p></details>
-        <details><summary><span><b data-i18n="q6.q">Will I lose any data?</b><small data-i18n="q6.s">No. Same account, same records.</small></span><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-plus"/></svg></summary><p data-i18n="q6.a">No. You upgrade inside the same Fandaqah account, so your reservations, guests and history stay where they are.</p></details>
-        <details><summary><span><b data-i18n="q7.q">Does my team need new training?</b><small data-i18n="q7.s">Only on the new modules, and we provide it.</small></span><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-plus"/></svg></summary><p data-i18n="q7.a">Not for what they already use. Fandaqah 360 is the system they know with more modules switched on, and our team onboards your staff on each new module.</p></details>
-        <details><summary><span><b data-i18n="q8.q">What happens to the time left on my current subscription?</b><small data-i18n="q8.s">Agreed in writing; not refunded automatically.</small></span><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-plus"/></svg></summary><p data-i18n="q8.a">We start from your current plan and renewal date. Any approved upgrade credit is agreed in writing; remaining subscription value is not automatically refunded.</p></details>
+        <details><summary><span><b data-i18n="q1.q">How much does the upgrade cost?</b><small data-i18n="q1.s">SAR 3,495 a year, excluding VAT.</small></span><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg?v=f85b3c06#i-plus"/></svg></summary><p data-i18n="q1.a">Fandaqah 360 is SAR 3,495 a year, excluding 15% VAT (SAR 4,019.25 including VAT). To lock that price for two years, pay SAR 6,990 upfront, excluding VAT.</p></details>
+        <details><summary><span><b data-i18n="q2.q">Will this price be offered again?</b><small data-i18n="q2.s">No. It is a one-time launch price.</small></span><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg?v=f85b3c06#i-plus"/></svg></summary><p data-i18n="q2.a">No. This is a one-time launch price. Once the launch offer ends, standard pricing applies.</p></details>
+        <details><summary><span><b data-i18n="q3.q">How does the two-year price lock work?</b><small data-i18n="q3.s">Pay two years upfront and the price stays fixed.</small></span><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg?v=f85b3c06#i-plus"/></svg></summary><p data-i18n="q3.a">Choose the two-year term and pay for both years upfront. Your price stays at the launch rate for the whole term, whatever happens to standard pricing.</p></details>
+        <details><summary><span><b data-i18n="q4.q">What is the Golden Guarantee?</b><small data-i18n="q4.s">30 days, a full refund, your previous plan back.</small></span><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg?v=f85b3c06#i-plus"/></svg></summary><p data-i18n="q4.a">If the upgrade is not right for your property within the first 30 days, we refund the full amount and return your subscription to its previous plan.</p></details>
+        <details><summary><span><b data-i18n="q5.q">Can I go back to my current plan?</b><small data-i18n="q5.s">Yes, within the 30-day guarantee.</small></span><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg?v=f85b3c06#i-plus"/></svg></summary><p data-i18n="q5.a">Yes. Within the 30-day guarantee period, your subscription returns to its previous plan and your payment is refunded in full.</p></details>
+        <details><summary><span><b data-i18n="q6.q">Will I lose any data?</b><small data-i18n="q6.s">No. Same account, same records.</small></span><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg?v=f85b3c06#i-plus"/></svg></summary><p data-i18n="q6.a">No. You upgrade inside the same Fandaqah account, so your reservations, guests and history stay where they are.</p></details>
+        <details><summary><span><b data-i18n="q7.q">Does my team need new training?</b><small data-i18n="q7.s">Only on the new modules, and we provide it.</small></span><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg?v=f85b3c06#i-plus"/></svg></summary><p data-i18n="q7.a">Not for what they already use. Fandaqah 360 is the system they know with more modules switched on, and our team onboards your staff on each new module.</p></details>
+        <details><summary><span><b data-i18n="q8.q">What happens to the time left on my current subscription?</b><small data-i18n="q8.s">Agreed in writing; not refunded automatically.</small></span><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg?v=f85b3c06#i-plus"/></svg></summary><p data-i18n="q8.a">We start from your current plan and renewal date. Any approved upgrade credit is agreed in writing; remaining subscription value is not automatically refunded.</p></details>
       </div>
     </div>
   </section>
@@ -532,7 +532,7 @@
 
 <!-- the upgrade tray: your picks travel with you to the form -->
 
-<div class="m-cta"><a class="btn" href="#contact"><span data-i18n="cta.main">Lock in my launch price</span><svg class="ic ic-go" aria-hidden="true"><use href="../assets/icons.svg#i-arrow-right"/></svg></a></div>
+<div class="m-cta"><a class="btn" href="#contact"><span data-i18n="cta.main">Lock in my launch price</span><svg class="ic ic-go" aria-hidden="true"><use href="../assets/icons.svg?v=f85b3c06#i-arrow-right"/></svg></a></div>
 
 <script>
 window.FQ_PAGE = {
@@ -783,7 +783,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 ar: { loading: 'جارٍ التحميل…', error: 'تعذّر تحميل المزيد من الوحدات، حاول مرة أخرى.', added: n => `عُرضت ${n} وحدات أخرى.` } };
   const lang = () => (root.lang === 'ar' ? 'ar' : 'en'), tx = v => (Array.isArray(v) ? v[lang() === 'ar' ? 1 : 0] : v);
   const esc = v => String(v).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-  const ico = id => `<svg class="ic"><use href="../assets/icons.svg#${id}"/></svg>`;
+  const ico = id => `<svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#${id}"/></svg>`;
   let data = null;
   const loaded = [];
   // the same illustrative panels the first five cards use: bars, list, status, ticket and stock
@@ -795,8 +795,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (g.type === 'ticket') return h + `<dl class="pa-ticket">${g.rows.map(r => `<div><dt>${esc(tx(r.dt))}</dt><dd>${esc(tx(r.dd))}</dd></div>`).join('')}</dl><p class="pa-state">${esc(tx(g.state))}</p>`;
     return h + `<ul class="pa-stock">${g.rows.map(r => `<li${r.low ? ' class="is-low"' : ''}><span>${esc(tx(r.t))}</span><b>${esc(tx(r.v))}</b>${r.low ? `<em>${esc(tx(g.low))}</em>` : ''}</li>`).join('')}</ul>`;
   };
-  const write = ({ m, el }) => {
-    const t = m[lang()];
+  const write = item => {
+    const { m, el } = item, t = m[lang()];
+    item.lang = lang();
     el.querySelector('.pa-glass').innerHTML = glass(m.glass);
     el.querySelector('.pa-card-k').textContent = t.k;
     el.querySelector('h3').textContent = t.t;
@@ -842,12 +843,12 @@ document.addEventListener('DOMContentLoaded', () => {
   btn.addEventListener('click', () => load(STEP));
   // the hero's "+15 more modules" chip asks for everything that is left
   document.addEventListener('fq:all-modules', () => { if (!data || loaded.length < data.modules.length) load(Infinity, true); });
-  // site.js switches the language first; then the loaded cards follow, and the tray and sheet re-read their names
-  document.querySelectorAll('[data-lang]').forEach(b => b.addEventListener('click', () => {
-    if (!loaded.length) return;
+  // the loaded cards follow <html lang> itself, so they switch whichever script changes the language and whatever order they run in
+  new MutationObserver(() => {
+    if (!loaded.length || loaded[0].lang === lang()) return;
     loaded.forEach(write);
     status.textContent = '';
-  }));
+  }).observe(root, { attributes: true, attributeFilter: ['lang'] });
   more.hidden = false;
   progress();
   // hero chip: glide to the modules (html carries smooth scrolling, the header offset and the reduced-motion fallback)
@@ -859,8 +860,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }));
 });
 </script>
-<script src="../assets/vendor/scrollcraft/scrollcraft.js" defer></script>
-<script src="../assets/js/site.js" defer></script>
-<script src="../assets/js/v2.js" defer></script>
+<script src="../assets/vendor/scrollcraft/scrollcraft.js?v=9246fbe4" defer></script>
+<script src="../assets/js/site.js?v=689fa1bb" defer></script>
+<script src="../assets/js/v2.js?v=b2a7f625" defer></script>
 </body>
 </html>

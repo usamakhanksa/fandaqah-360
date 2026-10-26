@@ -12,7 +12,7 @@
   document.body.classList.toggle('embed', embed);
   document.title = `${T.name} · Fandaqah 360 reel`;
   const A = '../assets/', dirX = lang === 'ar' ? -1 : 1;
-  const ico = id => `<svg class="ic" aria-hidden="true"><use href="${A}icons.svg#${id}"/></svg>`;
+  const ico = id => `<svg class="ic" aria-hidden="true"><use href="${A}icons.svg?v=f85b3c06#${id}"/></svg>`;
 
   /* ---------- device mock-ups: same markup as the website ---------- */
   const side = (items, brand = 'fandaqah <b>360</b>') => `<div class="ui-side"><div class="ui-brand"><i></i>${brand}</div><ul>${items.map((t, n) => `<li${n ? '' : ' class="on"'}>${ico(t[0])}${t[1]}</li>`).join('')}</ul></div>`;
@@ -48,7 +48,7 @@
     <section class="r-s s1"><figure class="photo"><img src="${A}img/${C.photo}" style="object-position:${C.photoPos}" alt=""></figure><div class="shade"></div><div class="motif">${motif}</div><div class="copy"><h2>${S[0].h}</h2></div></section>
     <section class="r-s s2"><div class="floor"></div><span class="wm" aria-hidden="true">360</span><div class="copy"><h2>${S[1].h}</h2><p class="sub">${S[1].s}</p></div><div class="dev">${DEV[C.device]()}</div><span class="r-tag">${C.device === 'laptopD' ? TAG.brand : TAG.ui}</span>${code === 'C' ? legal : ''}</section>
     <section class="r-s s3"><div class="floor"></div><span class="wm" aria-hidden="true">360</span><div class="copy"><h2>${S[2].h}</h2></div>${proof}</section>
-    <section class="r-s s4"><div class="floor"></div><span class="wm" aria-hidden="true">360</span><svg class="leaf" viewBox="0 0 220 320" aria-hidden="true"><use href="${A}icons.svg#art-leaves"/></svg><div class="copy"><h2>${S[3].h}</h2>${S[3].s ? `<p class="sub">${S[3].s}</p>` : ''}${checks}<span class="cta">${T.cta}${ico('i-arrow-right')}</span><span class="url">${TAG.url}</span></div>${legal}</section>
+    <section class="r-s s4"><div class="floor"></div><span class="wm" aria-hidden="true">360</span><svg class="leaf" viewBox="0 0 220 320" aria-hidden="true"><use href="${A}icons.svg?v=f85b3c06#art-leaves"/></svg><div class="copy"><h2>${S[3].h}</h2>${S[3].s ? `<p class="sub">${S[3].s}</p>` : ''}${checks}<span class="cta">${T.cta}${ico('i-arrow-right')}</span><span class="url">${TAG.url}</span></div>${legal}</section>
     <div class="r-caps">${S.map(s => `<p>${s.cap}</p>`).join('')}</div>`;
   const stage = document.createElement('div');
   stage.className = 'stage';

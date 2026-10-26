@@ -44,7 +44,9 @@ jobs:
             --exclude '/*.pdf' --exclude '*.php' --exclude '/api' --exclude '.htaccess' --exclude '/*.zip'
       # The PHP copies (for a PHP host) never ship to Pages, which cannot run them; they must still match their pages
       - name: Check the PHP copies are current
-        run: python3 -I tools/build-php.py --check
+        run: |
+          python3 -I tools/stamp-assets.py --check
+          python3 -I tools/build-php.py --check
       # Guards: nothing internal ships, every page is fully translated, every link resolves
       - name: Block internal files from the public site
         run: |

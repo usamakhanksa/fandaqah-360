@@ -26,7 +26,7 @@ for page in sorted(p for p in site.rglob('*.html') if not SKIP & set(p.relative_
         elif target.name == 'icons.svg' and parts.fragment and parts.fragment not in symbols:
             problems.append(f'{page.relative_to(site)}: unknown icon #{parts.fragment}')
     # icons referenced from inline scripts or CSS-free markup
-    for sym in set(re.findall(r'icons\.svg#([\w-]+)', html)) - symbols:
+    for sym in set(re.findall(r'icons\.svg(?:\?v=[0-9a-f]+)?#([\w-]+)', html)) - symbols:
         problems.append(f'{page.relative_to(site)}: unknown icon #{sym}')
 
 css = (site / 'assets/css/site.css').read_text(encoding='utf-8')

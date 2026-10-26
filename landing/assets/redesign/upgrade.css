@@ -80,7 +80,7 @@ html[dir=rtl] .dialog-close { right: auto; left: 17px; }
    The English pages carry Arabic accents (the mega-menu subtitles, "| سنوياً", the CTA line, the heading tags). English mode
    shows English only; Arabic mode already says the same in the translated line, so they stay hidden there too.
    The hero's Arabic tagline and the dashboard's Arabic wordmark are not repeated anywhere, so only English mode drops them. */
-small[lang="ar"], strong[lang="ar"], .per-year [lang="ar"], h2 > span[lang="ar"] { display: none; }
-html[lang="en"] .arabic-tag, html[lang="en"] .live-dashboard aside > b > i[lang="ar"] { display: none; }
+small[lang="ar"], strong[lang="ar"], .per-year [lang="ar"], h2 > span[lang="ar"] { display: none !important;   /* the menu and CTA styles set display, and must not bring them back */ }
+html[lang="en"] .arabic-tag, html[lang="en"] .live-dashboard aside > b > i[lang="ar"] { display: none !important; }
 .live-dashboard aside > b > i { font-style: normal; }
 html[lang="en"] .live-dashboard aside > b > span { font-size: 15px; }

@@ -338,7 +338,6 @@ html[lang=ar]{--sans:Almarai,system-ui,sans-serif;--serif:ElMessiri,Georgia,seri
         else if (via && (res.status === 404 || res.status === 405 || res.status >= 500)) { via = ''; attempt--; }
         else if (res.status < 500 && res.status !== 429) result = 'rejected';   // a 4xx will not fix itself on retry
       } catch (err) { if (via) { via = ''; attempt--; } /* network or timeout: retry */ } finally { clearTimeout(stop); }
-      if (result === 'failed' && !via && attempt < 0) continue;
       if (result === 'failed' && attempt < 2) await new Promise(r => setTimeout(r, 1200 * (attempt + 1)));
     }
     sendButton.disabled = false; label.textContent = idle;

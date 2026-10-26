@@ -1,4 +1,4 @@
-<?php /* Generated from index.html by tools/build-php.py: edit the .html page, then run the build. */ require __DIR__ . '/../api/page.php'; ?>
+<?php /* Generated from index.html by tools/build-php.py: edit the .html page, then run the build. */ if (is_file(__DIR__ . '/../api/page.php')) require __DIR__ . '/../api/page.php'; ?>
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
@@ -22,7 +22,7 @@
 <link rel="preload" href="../assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/img/hero-new.webp" as="image" type="image/webp">
-<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/site.css?v=1bc17487">
 <script>/* Arabic by default: English only when the link asks (?lang=en) or the reader chose it before. The page stays hidden until its text is in that language, with a 1.5 s safety net. */(function(r){var l;try{l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('fq360-lang')}catch(e){}r.classList.add('js');if(l!=='en'){r.lang='ar';r.dir='rtl';r.classList.add('i18n-wait');setTimeout(function(){r.classList.remove('i18n-wait')},1500)}})(document.documentElement)</script><style>.i18n-wait body{visibility:hidden}</style>
 </head>
 <body>
@@ -39,7 +39,7 @@
     <div class="head-end">
       <div class="lang" role="group" data-i18n-aria="aria.lang" aria-label="Language"><button type="button" data-lang="en" lang="en" aria-pressed="true">EN</button><span class="sep" aria-hidden="true"></span><button type="button" data-lang="ar" lang="ar" aria-pressed="false">عربي</button></div>
       <a class="btn btn-sm" href="#contact" data-i18n="cta.head">See the simpler way</a>
-      <button class="burger" type="button" aria-expanded="false" aria-controls="mnav" data-i18n-aria="aria.menu" aria-label="Open menu"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-menu"/></svg></button>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="mnav" data-i18n-aria="aria.menu" aria-label="Open menu"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg?v=f85b3c06#i-menu"/></svg></button>
     </div>
   </div>
   <div class="mnav" id="mnav" hidden>
@@ -67,7 +67,7 @@
         <p class="eyebrow" style="--i:0" data-i18n="hero.eyebrow">For new independent hotels</p>
         <h1 class="h1" id="hero-title" style="--i:1" data-i18n="hero.title">An easier way to <span class="hl">run your hotel.</span></h1>
         <p class="hero-lead" style="--i:2" data-i18n="hero.lead">Manage more of your hotel from one platform: less manual work, a clearer view of the property and fewer vendors to deal with.</p>
-        <div class="hero-cta" style="--i:3"><a class="btn" href="#contact"><span data-i18n="cta.main">Explore a simpler way to run my hotel</span><svg class="ic ic-go" aria-hidden="true"><use href="../assets/icons.svg#i-arrow-right"/></svg></a></div>
+        <div class="hero-cta" style="--i:3"><a class="btn" href="#contact"><span data-i18n="cta.main">Explore a simpler way to run my hotel</span><svg class="ic ic-go" aria-hidden="true"><use href="../assets/icons.svg?v=f85b3c06#i-arrow-right"/></svg></a></div>
         <p class="hero-note" style="--i:4" data-i18n="hero.note">Launch price: SAR 3,495 a year (excl. VAT), with a 30-day money-back guarantee.</p>
       </div>
     </div>
@@ -79,12 +79,12 @@
             <div class="ui-side">
               <div class="ui-brand"><i></i>fandaqah <b>360</b></div>
               <ul>
-                <li class="on"><svg class="ic"><use href="../assets/icons.svg#i-layout-dashboard"/></svg>Dashboard</li>
-                <li><svg class="ic"><use href="../assets/icons.svg#i-calendar-days"/></svg>Reservations</li>
-                <li><svg class="ic"><use href="../assets/icons.svg#i-bed-double"/></svg>Rooms</li>
-                <li><svg class="ic"><use href="../assets/icons.svg#i-sparkles"/></svg>Housekeeping</li>
-                <li><svg class="ic"><use href="../assets/icons.svg#i-users"/></svg>Guests</li>
-                <li><svg class="ic"><use href="../assets/icons.svg#i-chart-line"/></svg>Reports</li>
+                <li class="on"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-layout-dashboard"/></svg>Dashboard</li>
+                <li><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-calendar-days"/></svg>Reservations</li>
+                <li><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-bed-double"/></svg>Rooms</li>
+                <li><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-sparkles"/></svg>Housekeeping</li>
+                <li><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-users"/></svg>Guests</li>
+                <li><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-chart-line"/></svg>Reports</li>
               </ul>
             </div>
             <div class="ui-main">
@@ -113,13 +113,13 @@
     <div class="wrap">
       <div class="sec-head" data-reveal><h2 class="h2" id="flow-title" data-i18n="flow.title">Enter it once. See it everywhere.</h2></div>
       <ol class="flow" data-reveal style="--i:1">
-        <li class="flow-step"><span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-calendar-days"/></svg></span><b data-i18n="flow.1">Reservation</b></li>
+        <li class="flow-step"><span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-calendar-days"/></svg></span><b data-i18n="flow.1">Reservation</b></li>
         <li class="flow-arrow" aria-hidden="true"></li>
-        <li class="flow-step"><span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-bed-double"/></svg></span><b data-i18n="flow.2">Room readiness</b></li>
+        <li class="flow-step"><span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-bed-double"/></svg></span><b data-i18n="flow.2">Room readiness</b></li>
         <li class="flow-arrow" aria-hidden="true"></li>
-        <li class="flow-step"><span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-user"/></svg></span><b data-i18n="flow.3">Guest service</b></li>
+        <li class="flow-step"><span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-user"/></svg></span><b data-i18n="flow.3">Guest service</b></li>
         <li class="flow-arrow" aria-hidden="true"></li>
-        <li class="flow-step"><span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-coins"/></svg></span><b data-i18n="flow.4">Accounting</b></li>
+        <li class="flow-step"><span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-coins"/></svg></span><b data-i18n="flow.4">Accounting</b></li>
       </ol>
     </div>
   </section>
@@ -134,9 +134,9 @@
       <div class="mods">
         <div class="mod" data-reveal style="--i:0">
           <h3 class="mod-h"><button class="mod-btn" type="button" aria-expanded="false" aria-controls="mod-core">
-            <span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-bed-double"/></svg></span>
+            <span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-bed-double"/></svg></span>
             <span><span class="mod-title" data-i18n="c1.t">Run the property</span><span class="mod-list" data-i18n="c1.l">PMS Core · Housekeeping · Maintenance · Inventory · HR</span></span>
-            <span class="go" aria-hidden="true"><svg class="ic flip"><use href="../assets/icons.svg#i-arrow-right"/></svg></span>
+            <span class="go" aria-hidden="true"><svg class="ic flip"><use href="../assets/icons.svg?v=f85b3c06#i-arrow-right"/></svg></span>
           </button></h3>
           <div class="mod-panel" id="mod-core" hidden><ul>
             <li><b data-i18n="c1.1t">PMS Core</b><span data-i18n="c1.1d">Reservations and front-desk operations.</span></li>
@@ -148,9 +148,9 @@
         </div>
         <div class="mod" data-reveal style="--i:1">
           <h3 class="mod-h"><button class="mod-btn" type="button" aria-expanded="false" aria-controls="mod-sales">
-            <span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-chart-column"/></svg></span>
+            <span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-chart-column"/></svg></span>
             <span><span class="mod-title" data-i18n="c2.t">Sell and get paid</span><span class="mod-list" data-i18n="c2.l">Channel Manager · Booking Engine · Payment Gateway · Purchasing · Accounting</span></span>
-            <span class="go" aria-hidden="true"><svg class="ic flip"><use href="../assets/icons.svg#i-arrow-right"/></svg></span>
+            <span class="go" aria-hidden="true"><svg class="ic flip"><use href="../assets/icons.svg?v=f85b3c06#i-arrow-right"/></svg></span>
           </button></h3>
           <div class="mod-panel" id="mod-sales" hidden><ul>
             <li><b data-i18n="c2.1t">Channel Manager</b><span data-i18n="c2.1d">Keep rates and availability connected.</span></li>
@@ -162,9 +162,9 @@
         </div>
         <div class="mod" data-reveal style="--i:2">
           <h3 class="mod-h"><button class="mod-btn" type="button" aria-expanded="false" aria-controls="mod-guest">
-            <span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-concierge-bell"/></svg></span>
+            <span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-concierge-bell"/></svg></span>
             <span><span class="mod-title" data-i18n="c3.t">Serve your guests</span><span class="mod-list" data-i18n="c3.l">Passport &amp; ID Scanner · Digital Signature · Room Service via QR · CRM · POS / Restaurant Management · Recipe Management</span></span>
-            <span class="go" aria-hidden="true"><svg class="ic flip"><use href="../assets/icons.svg#i-arrow-right"/></svg></span>
+            <span class="go" aria-hidden="true"><svg class="ic flip"><use href="../assets/icons.svg?v=f85b3c06#i-arrow-right"/></svg></span>
           </button></h3>
           <div class="mod-panel" id="mod-guest" hidden><ul>
             <li><b data-i18n="c3.1t">Passport &amp; ID Scanner</b><span data-i18n="c3.1d">Capture guest identification.</span></li>
@@ -177,9 +177,9 @@
         </div>
         <div class="mod" data-reveal style="--i:3">
           <h3 class="mod-h"><button class="mod-btn" type="button" aria-expanded="false" aria-controls="mod-reg">
-            <span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-file-text"/></svg></span>
+            <span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-file-text"/></svg></span>
             <span><span class="mod-title" data-i18n="c4.t">Stay compliant and supported</span><span class="mod-list" data-i18n="c4.l">Shomoos Wallet · ZATCA Integration · NTMP (Phases I &amp; II) · Support &amp; Training</span></span>
-            <span class="go" aria-hidden="true"><svg class="ic flip"><use href="../assets/icons.svg#i-arrow-right"/></svg></span>
+            <span class="go" aria-hidden="true"><svg class="ic flip"><use href="../assets/icons.svg?v=f85b3c06#i-arrow-right"/></svg></span>
           </button></h3>
           <div class="mod-panel" id="mod-reg" hidden><ul>
             <li><b data-i18n="c4.1t">Shomoos Wallet</b><span data-i18n="c4.1d">Connect Shomoos services.</span></li>
@@ -215,7 +215,7 @@
           <h2 class="band-h" id="offer-title"><span data-i18n="band.h">A launch price for new hotels, while the offer lasts.</span></h2>
           <p data-i18n="band.p">Fandaqah 360 with all 20 modules, excluding VAT, on a one-year subscription. If it isn’t right for your hotel within 30 days, you get your money back. Standard pricing applies after the launch.</p>
         </div>
-        <svg class="band-leaf" viewBox="0 0 220 320" aria-hidden="true"><use href="../assets/icons.svg#art-leaves"/></svg>
+        <svg class="band-leaf" viewBox="0 0 220 320" aria-hidden="true"><use href="../assets/icons.svg?v=f85b3c06#art-leaves"/></svg>
       </div>
     </div>
   </section>
@@ -244,11 +244,11 @@
             <p class="form-privacy"><span data-i18n="f.privacy">We use your details to respond to this enquiry.</span> <a href="https://fandaqah.com/en/store/policy" data-href-ar="https://fandaqah.com/store/policy" target="_blank" rel="noopener" data-i18n="f.privacyLink">Privacy notice</a>.</p>
             <label class="consent"><input type="checkbox" name="consent" value="yes"><span data-i18n="f.consent">I would also like marketing updates.</span></label>
             <p class="form-alert" role="alert" hidden></p>
-            <div class="form-actions"><button class="btn" type="submit"><span data-i18n="cta.main">Explore a simpler way to run my hotel</span><svg class="ic ic-go" aria-hidden="true"><use href="../assets/icons.svg#i-arrow-right"/></svg></button></div>
+            <div class="form-actions"><button class="btn" type="submit"><span data-i18n="cta.main">Explore a simpler way to run my hotel</span><svg class="ic ic-go" aria-hidden="true"><use href="../assets/icons.svg?v=f85b3c06#i-arrow-right"/></svg></button></div>
             <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
           </form>
           <div class="done" id="lead-done" hidden>
-            <span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-check"/></svg></span>
+            <span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-check"/></svg></span>
             <h3 tabindex="-1" data-i18n="done.t">Thank you. Your request is with our team.</h3>
             <p data-i18n="done.d">A Fandaqah specialist will contact you through your preferred channel to arrange the next step.</p>
             <p class="ref"><span data-i18n="done.ref">Reference:</span> <b></b></p>
@@ -260,9 +260,9 @@
 
   <!-- ============ QUESTIONS ============ -->
   <section class="wrap faq" aria-label="Questions">
-    <div class="faq-item" data-reveal><span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-message"/></svg></span><div><h3 data-i18n="q1.q">How much work is the migration?</h3><p data-i18n="q1.a">We start with an assessment of your data and current systems before you commit.</p></div></div>
+    <div class="faq-item" data-reveal><span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-message"/></svg></span><div><h3 data-i18n="q1.q">How much work is the migration?</h3><p data-i18n="q1.a">We start with an assessment of your data and current systems before you commit.</p></div></div>
     <span class="faq-rule" aria-hidden="true"></span>
-    <div class="faq-item" data-reveal style="--i:1"><span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg#i-file-text"/></svg></span><div><h3 data-i18n="q2.q">What does the launch offer include?</h3><p data-i18n="q2.a">All 20 Fandaqah 360 modules for SAR 3,495 a year, excluding VAT, on a one-year subscription, with a 30-day money-back guarantee. Standard pricing applies after the launch, and implementation scope is confirmed before you sign.</p></div></div>
+    <div class="faq-item" data-reveal style="--i:1"><span class="icon-circle" aria-hidden="true"><svg class="ic"><use href="../assets/icons.svg?v=f85b3c06#i-file-text"/></svg></span><div><h3 data-i18n="q2.q">What does the launch offer include?</h3><p data-i18n="q2.a">All 20 Fandaqah 360 modules for SAR 3,495 a year, excluding VAT, on a one-year subscription, with a 30-day money-back guarantee. Standard pricing applies after the launch, and implementation scope is confirmed before you sign.</p></div></div>
   </section>
 </main>
 
@@ -281,7 +281,7 @@
   <p class="wrap foot-legal" data-i18n="foot.legal">© 2026 Fandaqah. All rights reserved.</p>
 </footer>
 
-<div class="m-cta"><a class="btn" href="#contact"><span data-i18n="cta.main">Explore a simpler way to run my hotel</span><svg class="ic ic-go" aria-hidden="true"><use href="../assets/icons.svg#i-arrow-right"/></svg></a></div>
+<div class="m-cta"><a class="btn" href="#contact"><span data-i18n="cta.main">Explore a simpler way to run my hotel</span><svg class="ic ic-go" aria-hidden="true"><use href="../assets/icons.svg?v=f85b3c06#i-arrow-right"/></svg></a></div>
 
 <script>
 window.FQ_PAGE = {
@@ -322,6 +322,6 @@ window.FQ_PAGE = {
   }
 };
 </script>
-<script src="../assets/js/site.js" defer></script>
+<script src="../assets/js/site.js?v=689fa1bb" defer></script>
 </body>
 </html>

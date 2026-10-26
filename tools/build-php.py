@@ -9,18 +9,18 @@ Each copy is the page, plus:
     python tools/build-php.py           write the copies, and remove copies whose page is gone
     python tools/build-php.py --check   change nothing; fail if any copy is missing, stale or orphaned (CI runs this)
 """
-import pathlib, posixpath, re, sys
+import fnmatch, pathlib, posixpath, re, sys
 
 R = pathlib.Path(__file__).resolve().parent.parent
 SKIP_DIRS = {'.git', '.github', '_internal', '_site', 'archive', 'campaigns', 'tools', 'banners', 'api', 'node_modules', 'scrollcraft'}
-SKIP_PAGES = {'book/reel.html', 'book/snap.html'}   # render compositions for the reels, not pages anyone visits
+SKIP_PAGES = ('book/reel.html', 'book/snap*.html')   # render compositions for the reels and Snapchat ads, not pages anyone visits
 MARK = 'Generated from '
 
 def pages():
     out = []
     for p in sorted(R.rglob('*.html')):
         rel = p.relative_to(R).as_posix()
-        if set(rel.split('/')[:-1]) & SKIP_DIRS or rel in SKIP_PAGES:
+        if set(rel.split('/')[:-1]) & SKIP_DIRS or any(fnmatch.fnmatch(rel, g) for g in SKIP_PAGES):
             continue
         out.append(rel)
     return out
@@ -47,8 +47,9 @@ def convert(rel, src, known):
     s = re.sub(r'<form class="form ([\w -]+)" id="lead-form" novalidate', rf'<form class="form \1" id="lead-form" action="{up}api/lead.php" method="post" novalidate', s, count=1)
     # the first line ends the way the page's lines do, so a copy checked out with CRLF still matches
     nl = '\r\n' if '\r\n' in src else '\n'
+    # the page still opens if api/ was not uploaded (its forms then post straight to the CRM)
     head = (f"<?php /* {MARK}{posixpath.basename(rel)} by tools/build-php.py: edit the .html page, then run the build. */ "
-            f"require __DIR__ . '/{up}api/page.php'; ?>{nl}")
+            f"if (is_file(__DIR__ . '/{up}api/page.php')) require __DIR__ . '/{up}api/page.php'; ?>{nl}")
     return head + s
 
 def main():

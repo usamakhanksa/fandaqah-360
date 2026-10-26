@@ -1,4 +1,4 @@
-<?php /* Generated from linkdein-message.html by tools/build-php.py: edit the .html page, then run the build. */ require __DIR__ . '/api/page.php'; ?>
+<?php /* Generated from linkdein-message.html by tools/build-php.py: edit the .html page, then run the build. */ if (is_file(__DIR__ . '/api/page.php')) require __DIR__ . '/api/page.php'; ?>
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
