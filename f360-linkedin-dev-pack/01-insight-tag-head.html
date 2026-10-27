@@ -1,0 +1,90 @@
+<!--
+  Fandaqah 360 · LinkedIn Insight Tag (base code) + F360 browser events
+  Partner ID: 11189657   (Campaign Manager account 507948919)
+
+  WHERE: inside <head> of EVERY fandaqah.com page (shared header template),
+         not only the two landing pages. Load it once per page.
+  WHY:   Insight Tag status is "Unverified" today -> every website conversion
+         and every website audience in the account is receiving zero signal.
+-->
+<script type="text/javascript">
+  _linkedin_partner_id = "11189657";
+  window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+  window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script>
+<script type="text/javascript">
+  (function (l) {
+    if (!l) { window.lintrk = function (a, b) { window.lintrk.q.push([a, b]); }; window.lintrk.q = []; }
+    var s = document.getElementsByTagName("script")[0];
+    var b = document.createElement("script");
+    b.type = "text/javascript"; b.async = true;
+    b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+    s.parentNode.insertBefore(b, s);
+  })(window.lintrk);
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=11189657&fmt=gif" />
+</noscript>
+
+<!--
+  F360 browser-side event helper. Put this right AFTER the base code above,
+  on the two Fandaqah 360 landing pages only.
+
+  Conversion IDs (created in Campaign Manager, 27 Oct 2026):
+    32466617  F360_LP_View      (page-load rule, fires automatically - no code needed)
+    32466625  F360_CTA_Click    (event-specific)
+    32466609  F360_Lead_Submit  (event-specific, browser)  <- server twin = 32466657 (CAPI)
+-->
+<script>
+(function () {
+  var F360 = window.F360LI = window.F360LI || {};
+  F360.CONV = { CTA: 32466625, LEAD: 32466609 };
+
+  /* 1. li_fat_id capture: LinkedIn appends it to ad clicks (enhanced conversion
+        tracking is ON in the account). Keep it 90 days as a first-party value.  */
+  try {
+    var q = new URLSearchParams(location.search), fat = q.get('li_fat_id');
+    if (fat) {
+      localStorage.setItem('f360_li_fat_id', JSON.stringify({ v: fat.slice(0, 200), at: Date.now() }));
+      document.cookie = 'f360_li_fat_id=' + encodeURIComponent(fat.slice(0, 200)) +
+        '; Max-Age=' + (90 * 86400) + '; Path=/; SameSite=Lax; Secure';
+    }
+  } catch (e) {}
+  F360.fatId = function () {
+    try {
+      var s = JSON.parse(localStorage.getItem('f360_li_fat_id') || 'null');
+      if (s && Date.now() - s.at < 90 * 864e5) return s.v;
+    } catch (e) {}
+    var m = document.cookie.match(/(?:^|; )f360_li_fat_id=([^;]+)/);
+    return m ? decodeURIComponent(m[1]) : '';
+  };
+
+  /* 2. F360_CTA_Click - once per CTA type per page view (no inflation). */
+  var seen = {};
+  function ctaType(el) {
+    var href = (el.getAttribute('href') || '').toLowerCase();
+    if (/wa\.me|whatsapp/.test(href)) return 'whatsapp';
+    if (href.indexOf('tel:') === 0) return 'call';
+    if (href === '#pricing' || href === '#upgrade') return 'pricing';
+    if (el.hasAttribute('data-lead') || href === '#contact' || href === '#lead') return 'demo_contact';
+    return null;
+  }
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest && e.target.closest('a,button');
+    if (!el) return;
+    var t = ctaType(el);
+    if (!t || seen[t]) return;
+    seen[t] = 1;
+    if (window.lintrk) window.lintrk('track', { conversion_id: F360.CONV.CTA });
+    if (window.dataLayer) window.dataLayer.push({ event: 'f360_cta_click', cta_type: t });
+  }, true);
+
+  /* 3. F360_Lead_Submit - call ONLY after the CRM confirmed the lead (HTTP ok).
+        eventId MUST be the same submission_id the server sends to CAPI.         */
+  F360.leadSubmitted = function (submissionId) {
+    if (!submissionId || F360._sent === submissionId) return;   // once per submission
+    F360._sent = submissionId;
+    if (window.lintrk) window.lintrk('track', { conversion_id: F360.CONV.LEAD, event_id: submissionId });
+  };
+})();
+</script>

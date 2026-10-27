@@ -13,3 +13,6 @@ _internal.zip
 
 # zip packages and exports (site uploads, archives): kept on disk, never committed; GitHub refuses files over 100 MB
 *.zip
+
+# server logs (logs/.htaccess keeps the folder private on the host)
+logs/*.log

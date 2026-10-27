@@ -44,6 +44,8 @@
   html[lang="en"] .ar,html[lang="en"] .en-lead{display:none}
   html[lang="en"] a small{margin:0;font-size:inherit;font-weight:inherit;line-height:inherit;color:inherit}
 </style>
+<script src="assets/js/linkedin-insight.js?v=6a5e12a7" defer></script>
+<script src="assets/js/fandaqah-tiktok.js?v=1f880a5d" defer></script>
 </head>
 <body>
 <main>
@@ -69,6 +71,7 @@
   document.querySelectorAll('[data-to]').forEach(function (a) { a.href = window.FQ_BASE + a.dataset.to + (en ? '?lang=en' : ''); });
 })();
 </script>
+<noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=11189657&fmt=gif"></noscript>
 <script src="assets/js/lead-capture.js?v=978ac546" defer></script>
 <!-- WhatsApp chat button (added to every PHP copy by tools/build-php.py) -->
 <style>

@@ -23,6 +23,8 @@
 <link rel="stylesheet" href="../assets/css/site.css?v=1bc17487">
 <link rel="stylesheet" href="assets/book.css?v=169ffea5">
 <script>/* Arabic by default: English only when the link asks (?lang=en) or the reader chose it before. The page stays hidden until its text is in that language, with a 1.5 s safety net. */(function(r){var l;try{l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('fq360-lang')}catch(e){}r.classList.add('js');if(l!=='en'){r.lang='ar';r.dir='rtl';r.classList.add('i18n-wait');setTimeout(function(){r.classList.remove('i18n-wait')},1500)}})(document.documentElement)</script><style>.i18n-wait body{visibility:hidden}</style>
+<script src="../assets/js/linkedin-insight.js?v=6a5e12a7" defer></script>
+<script src="../assets/js/fandaqah-tiktok.js?v=1f880a5d" defer></script>
 </head>
 <body class="book">
 <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
@@ -125,6 +127,7 @@ window.BOOK_I18N = {
 <script src="assets/data.js?v=2af38bf0"></script>
 <script src="media/manifest.js?v=25548eae"></script>
 <script src="assets/book.js?v=ae7b1d0f"></script>
+<noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=11189657&fmt=gif"></noscript>
 <script src="../assets/js/lead-capture.js?v=978ac546" defer></script>
 </body>
 </html>

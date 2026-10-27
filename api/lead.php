@@ -142,6 +142,70 @@ $lead['platform'] = $config['platform'];
 $lead['received_via'] = 'php_proxy';
 $lead = array_filter($lead, function ($v) { return $v !== null && $v !== ''; });
 
+/* ---------- ad platforms: the server twins of the browser conversions, sent after the visitor has their answer ----------
+   Only a lead the visitor SENT from one of the two Fandaqah 360 landing pages (the pages whose browser events they pair with),
+   never an unfinished-form lead (lead_stage: partial): that visitor did not submit, so it is not a conversion. */
+function f360_conversion_lead(array $lead): bool
+{
+    return ($lead['lead_stage'] ?? '') !== 'partial'
+        && preg_match('~/(existing-customers|fandaqah-360-landing-v2)(/|$)~', (string) parse_url((string) ($lead['page_url'] ?? ''), PHP_URL_PATH)) === 1;
+}
+
+// jobs that run once the visitor has their answer: PHP-FPM and LiteSpeed close the request first; elsewhere each job's own short
+// timeout (4 s) is the most the visitor can wait
+function after_answer(callable $job): void
+{
+    static $jobs = null;
+    if ($jobs === null) {
+        $jobs = [];
+        register_shutdown_function(function () use (&$jobs) {
+            ignore_user_abort(true);
+            if (function_exists('fastcgi_finish_request')) fastcgi_finish_request();
+            elseif (function_exists('litespeed_finish_request')) litespeed_finish_request();
+            foreach ($jobs as $run) { try { $run(); } catch (\Throwable $e) { error_log('fq lead proxy: after-answer job failed: ' . $e->getMessage()); } }
+        });
+    }
+    $jobs[] = $job;
+}
+
+/* TikTok Events API (tiktok/ pack): the server Lead, with the browser's tt.event_id so TikTok keeps one of the two */
+function tiktok_lead(array $lead, array $config): void
+{
+    if (($config['tiktok_events_api_token'] ?? '') === '' || ($config['tiktok_pixel_id'] ?? '') === '' || !f360_conversion_lead($lead)) return;
+    foreach (['TIKTOK_EVENTS_API_TOKEN' => 'tiktok_events_api_token', 'TIKTOK_PIXEL_ID' => 'tiktok_pixel_id'] as $env => $key)
+        if (!getenv($env)) putenv("$env=" . $config[$key]);
+    $leadId = isset($lead['submission_id']) && is_string($lead['submission_id']) ? $lead['submission_id'] : null;
+    after_answer(function () use ($lead, $leadId) {
+        require_once __DIR__ . '/tiktok-events-api.php';
+        $r = f360_tt_track_lead($lead, $leadId);
+        if (empty($r['ok'])) error_log('fq lead proxy: TikTok Events API not accepted (HTTP ' . ($r['http'] ?? 0) . ')');
+    });
+}
+
+/* LinkedIn Conversions API (f360-linkedin-dev-pack): the server twin of the browser's F360_Lead_Submit (same submission_id as
+   event id), only for a lead LinkedIn can match (email or li_fat_id) */
+function linkedin_lead_submit(array $lead, array $config): void
+{
+    if (($config['linkedin_capi_token'] ?? '') === '' || empty($lead['submission_id']) || !f360_conversion_lead($lead)) return;
+    if (($lead['email'] ?? '') === '' && ($lead['li_fat_id'] ?? '') === '') return;
+    if (!getenv('LINKEDIN_CAPI_TOKEN')) putenv('LINKEDIN_CAPI_TOKEN=' . $config['linkedin_capi_token']);
+    if (!getenv('LINKEDIN_API_VERSION')) putenv('LINKEDIN_API_VERSION=' . $config['linkedin_api_version']);
+    [$first, $last] = array_pad(preg_split('/\s+/u', trim((string) ($lead['name'] ?? '')), 2), 2, null);
+    $event = [
+        'submission_id' => (string) $lead['submission_id'],
+        'email'         => (string) ($lead['email'] ?? ''),
+        'li_fat_id'     => (string) ($lead['li_fat_id'] ?? ''),
+        'first_name'    => $first ?: null, 'last_name' => $last ?: null,
+        'company'       => is_string($lead['company'] ?? null) && $lead['company'] !== '' ? $lead['company'] : null,
+        'timeout'       => 4,
+    ];
+    after_answer(function () use ($event) {
+        require_once __DIR__ . '/f360_linkedin_capi.php';
+        $r = f360_capi_send('lead_submit', $event);
+        if (empty($r['ok'])) error_log('fq lead proxy: LinkedIn CAPI not accepted: ' . ($r['error'] ?? ('HTTP ' . ($r['http'] ?? '?'))));
+    });
+}
+
 /* ---------- forward to the CRM ---------- */
 $body = json_encode($lead, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 $headers = ['Content-Type: application/json', 'Accept: application/json', 'X-API-Key: ' . $config['api_key']];
@@ -161,7 +225,11 @@ if (function_exists('curl_init')) {
 }
 
 $crm = json_decode($answer, true);
-if ($status >= 200 && $status < 300) reply(200, ['ok' => true, 'crm' => is_array($crm) ? $crm : null]);
+if ($status >= 200 && $status < 300) {
+    linkedin_lead_submit($lead, $config);
+    tiktok_lead($lead, $config);
+    reply(200, ['ok' => true, 'crm' => is_array($crm) ? $crm : null]);
+}
 if ($status === 429) reply(429, ['error' => 'Too many requests. Please try again in a few minutes.']);
 if ($status >= 400 && $status < 500) {
     error_log("fq lead proxy: CRM refused the lead ($status): " . substr($answer, 0, 300));

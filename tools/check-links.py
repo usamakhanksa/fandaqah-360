@@ -6,7 +6,7 @@ import re, sys, pathlib
 from urllib.parse import urlsplit, unquote
 
 sys.stdout.reconfigure(encoding='utf-8')
-SKIP = {'campaigns', 'archive', 'tools', 'banners', '_internal', '_site', '.git', '.github', 'node_modules'}  # never deployed
+SKIP = {'campaigns', 'archive', 'tools', 'banners', '_internal', '_site', '.git', '.github', 'node_modules', 'f360-linkedin-dev-pack', 'tiktok'}  # never deployed
 site = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else '.').resolve()
 sprite = (site / 'assets/icons.svg').read_text(encoding='utf-8')
 symbols = set(re.findall(r'<symbol id="([^"]+)"', sprite))

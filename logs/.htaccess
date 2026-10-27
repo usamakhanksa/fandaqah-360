@@ -1,0 +1,9 @@
+# Server logs (api/tiktok-events-api.php writes tiktok-events.log here): read by the team on the server, never served.
+Options -Indexes
+<IfModule mod_authz_core.c>
+  Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+  Order allow,deny
+  Deny from all
+</IfModule>

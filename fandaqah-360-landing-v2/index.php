@@ -743,6 +743,8 @@ html:has(.lead[open]){overflow:hidden}
   [dir="rtl"] .devices{transform:translateX(50%) scale(.45)}
 }
 </style>
+<script src="../assets/js/linkedin-insight.js?v=6a5e12a7" defer data-f360-events></script>
+<script src="../assets/js/fandaqah-tiktok.js?v=1f880a5d" defer data-tt-events></script>
 </head>
 <body>
 <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
@@ -1467,6 +1469,15 @@ html:has(.lead[open]){overflow:hidden}
   const fromUrl = new URLSearchParams(location.search).get('lang');
   setLang(fromUrl === 'ar' || fromUrl === 'en' ? fromUrl : (saved === 'en' ? 'en' : 'ar'), false);   // Arabic by default
 
+  /* ---------- Campaign tags: kept for the visit, so a lead sent after moving around the page still carries its source ---------- */
+  const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+  try {
+    const q = new URLSearchParams(location.search), keep = {};
+    UTM_KEYS.forEach(k => { if (q.get(k)) keep[k] = q.get(k).slice(0, 150); });
+    if (Object.keys(keep).length) sessionStorage.setItem('f360_utm', JSON.stringify(keep));
+  } catch (e) {}
+  const keptUtm = () => { try { return JSON.parse(sessionStorage.getItem('f360_utm') || '{}'); } catch (e) { return {}; } };
+
   /* ---------- Lead form: every CTA opens it, leads post straight to the CRM ---------- */
   /* On static hosting leads post straight to the CRM, so this key ships to every visitor's browser: keep it ingest-only and rate-limited
      on the CRM side. The PHP copy of this page carries <meta name="fq-lead-proxy"> and posts to api/lead.php, which adds the key. */
@@ -1525,8 +1536,13 @@ html:has(.lead[open]){overflow:hidden}
     if (bad.length) { fields[bad[0]].focus(); return; }
     if (form.elements.website.value) { done(); return; } // honeypot filled: a bot, so fake success and send nothing
     const lang = root.lang, msg = form.elements.message.value.trim(), qs = new URLSearchParams(location.search), utm = {};
-    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(k => { if (qs.get(k)) utm[k] = qs.get(k); });
+    UTM_KEYS.forEach(k => { if (qs.get(k)) utm[k] = qs.get(k); });
+    if (!Object.keys(utm).length) Object.assign(utm, keptUtm());
+    // one id per request: the CRM de-duplicates on it, and LinkedIn pairs the browser and server conversions by it
+    const submissionId = (crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36).slice(2));
+    const fatId = (window.F360LI && window.F360LI.fatId()) || qs.get('li_fat_id') || undefined;
     const payload = {
+      submission_id: submissionId, li_fat_id: fatId, campaign_type: 'new_customer',
       name: fields.name.value.trim(), email: fields.email.value.trim(), phone: '+966' + saMobile(fields.phone.value),
       // the plan also goes in the message so sales sees it even if the CRM ignores the extra fields
       message: (msg ? msg + '\n\n' : '') + `[Fandaqah 360 landing · ${PLANS.en[plan]} · ${lang.toUpperCase()}]`,
@@ -1546,7 +1562,8 @@ html:has(.lead[open]){overflow:hidden}
         if (!res || res.status === 404 || res.status === 405 || res.status >= 500) res = await direct();
       }
       if (!res.ok) throw new Error('HTTP ' + res.status);
-      if (window.dataLayer) window.dataLayer.push({ event: 'generate_lead', lead_plan: plan });
+      if (window.dataLayer) window.dataLayer.push({ event: 'generate_lead', lead_plan: plan, submission_id: submissionId });
+      if (window.F360LI) window.F360LI.leadSubmitted(submissionId);   // LinkedIn F360_Lead_Submit (browser), event_id = submission_id
       done();
     } catch (err) {
       alertEl.innerHTML = LEAD_TXT[lang].fail; alertEl.hidden = false;
@@ -1648,6 +1665,7 @@ html:has(.lead[open]){overflow:hidden}
   wide.addEventListener('change', resetDepth); reduce.addEventListener('change', resetDepth);
 })();
 </script>
+<noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=11189657&fmt=gif"></noscript>
 <script src="../assets/js/lead-capture.js?v=978ac546" defer></script>
 <!-- WhatsApp chat button (added to every PHP copy by tools/build-php.py) -->
 <style>

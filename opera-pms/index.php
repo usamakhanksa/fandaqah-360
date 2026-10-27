@@ -26,6 +26,8 @@
 <link rel="stylesheet" href="../assets/css/site.css?v=1bc17487">
 <link rel="stylesheet" href="../assets/css/v2.css?v=1e2fb01d">
 <script>/* Arabic by default: English only when the link asks (?lang=en) or the reader chose it before. The page stays hidden until its text is in that language, with a 1.5 s safety net. */(function(r){var l;try{l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('fq360-lang')}catch(e){}r.classList.add('js');if(l!=='en'){r.lang='ar';r.dir='rtl';r.classList.add('i18n-wait');setTimeout(function(){r.classList.remove('i18n-wait')},1500)}})(document.documentElement)</script><style>.i18n-wait body{visibility:hidden}</style>
+<script src="../assets/js/linkedin-insight.js?v=6a5e12a7" defer></script>
+<script src="../assets/js/fandaqah-tiktok.js?v=1f880a5d" defer></script>
 </head>
 <body class="v2 pc">
 <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
@@ -315,8 +317,9 @@ window.FQ_PAGE = {
 };
 </script>
 <script src="../assets/vendor/scrollcraft/scrollcraft.js?v=9246fbe4" defer></script>
-<script src="../assets/js/site.js?v=689fa1bb" defer></script>
+<script src="../assets/js/site.js?v=d8a36a25" defer></script>
 <script src="../assets/js/v2.js?v=b2a7f625" defer></script>
+<noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=11189657&fmt=gif"></noscript>
 <script src="../assets/js/lead-capture.js?v=978ac546" defer></script>
 <!-- WhatsApp chat button (added to every PHP copy by tools/build-php.py) -->
 <style>

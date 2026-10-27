@@ -6,6 +6,8 @@ Each copy is the page, plus:
   - its links to other pages pointed at their PHP copies;
   - on the campaign forms (#lead-form), action/method, so they still send without JavaScript;
   - assets/js/lead-capture.js (every copy), which recovers visitors who type their number or email and leave unsent;
+  - the LinkedIn Insight Tag (assets/js/linkedin-insight.js) and the TikTok pixel (assets/js/fandaqah-tiktok.js) in the <head>,
+    with their conversion events on the two F360 pages;
   - the WhatsApp button (customer pages).
 A page named -index.html (kept off GitHub Pages' folder address) is published as its folder's index.php.
 
@@ -15,7 +17,8 @@ A page named -index.html (kept off GitHub Pages' folder address) is published as
 import fnmatch, hashlib, pathlib, posixpath, re, sys
 
 R = pathlib.Path(__file__).resolve().parent.parent
-SKIP_DIRS = {'.git', '.github', '_internal', '_site', 'archive', 'campaigns', 'tools', 'banners', 'api', 'node_modules', 'scrollcraft'}
+SKIP_DIRS = {'.git', '.github', '_internal', '_site', 'archive', 'campaigns', 'tools', 'banners', 'api', 'node_modules', 'scrollcraft',
+             'f360-linkedin-dev-pack', 'tiktok'}   # the LinkedIn and TikTok hand-off packs: reference material, wired in via assets/js/ and api/
 SKIP_PAGES = ('book/reel.html', 'book/snap*.html')   # render compositions for the reels and Snapchat ads, not pages anyone visits
 MARK = 'Generated from '
 
@@ -73,6 +76,19 @@ body:has(.fx-clock:not(.is-docked)) .fq-wa{bottom:calc(86px + env(safe-area-inse
 CAPTURE = 'assets/js/lead-capture.js'
 CAPTURE_TAG = '<script src="%s' + CAPTURE + '?v=' + hashlib.sha1((R / CAPTURE).read_bytes()).hexdigest()[:8] + '" defer></script>\n'
 
+# LinkedIn Insight Tag (f360-linkedin-dev-pack, 27 Oct 2026): in the <head> of every copy, no page skipped; the two Fandaqah 360
+# landing pages also send the F360 conversion events (CTA click, lead submit). The .html pages (GitHub Pages preview) never carry it.
+INSIGHT = 'assets/js/linkedin-insight.js'
+F360_EVENT_PAGES = ('existing-customers/-index.html', 'fandaqah-360-landing-v2/-index.html')
+INSIGHT_TAG = '<script src="%s' + INSIGHT + '?v=' + hashlib.sha1((R / INSIGHT).read_bytes()).hexdigest()[:8] + '" defer%s></script>\n'
+INSIGHT_NOSCRIPT = ('<noscript><img height="1" width="1" style="display:none;" alt="" '
+                    'src="https://px.ads.linkedin.com/collect/?pid=11189657&fmt=gif"></noscript>\n')
+
+# TikTok Pixel + Events API bridge (tiktok/ pack, 27 Oct 2026): in the <head> of every copy, no page skipped; the conversion
+# events (ViewContent, Contact, LeadFormOpen/Start, Lead) on the same two F360 pages. It stays silent until its pixel id is set.
+TIKTOK = 'assets/js/fandaqah-tiktok.js'
+TIKTOK_TAG = '<script src="%s' + TIKTOK + '?v=' + hashlib.sha1((R / TIKTOK).read_bytes()).hexdigest()[:8] + '" defer%s></script>\n'
+
 def php_name(rel):
     # x/-index.html → x/index.php (the copies' published names, as on the host); every other page keeps its own name
     return rel[:-len('-index.html')] + 'index.php' if posixpath.basename(rel) == '-index.html' else rel[:-5] + '.php'
@@ -112,8 +128,15 @@ def convert(rel, src, known):
     end = s.rfind('</body>')
     if end == -1:
         raise SystemExit(f'{rel}: no </body> to place the lead capture before')
-    tail = (CAPTURE_TAG % up) + (WHATSAPP if rel not in NO_WHATSAPP else '')
+    tail = INSIGHT_NOSCRIPT + (CAPTURE_TAG % up) + (WHATSAPP if rel not in NO_WHATSAPP else '')
     s = s[:end] + tail.replace('\n', nl) + s[end:]
+    # the ad platforms' tags, last in the <head>: LinkedIn Insight Tag, then the TikTok pixel
+    head_end = s.find('</head>')
+    if head_end == -1:
+        raise SystemExit(f'{rel}: no </head> to place the LinkedIn and TikTok tags in')
+    f360 = rel in F360_EVENT_PAGES
+    tag = INSIGHT_TAG % (up, ' data-f360-events' if f360 else '') + TIKTOK_TAG % (up, ' data-tt-events' if f360 else '')
+    s = s[:head_end] + tag.replace('\n', nl) + s[head_end:]
     # the page still opens if api/ was not uploaded (its forms then post straight to the CRM)
     head = (f"<?php /* {MARK}{posixpath.basename(rel)} by tools/build-php.py: edit the .html page, then run the build. */ "
             f"if (is_file(__DIR__ . '/{up}api/page.php')) require __DIR__ . '/{up}api/page.php'; ?>{nl}")

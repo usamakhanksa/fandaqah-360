@@ -499,6 +499,8 @@ html[lang="ar"] .bubble,html[lang="ar"] .invite{font-size:14px;line-height:1.8}
   .inbox,.meter-bar i,.btn,.seg button,.toast,.step-node,.switch,.switch::after{transition:none}
 }
 </style>
+<script src="assets/js/linkedin-insight.js?v=6a5e12a7" defer></script>
+<script src="assets/js/fandaqah-tiktok.js?v=1f880a5d" defer></script>
 </head>
 <body>
 <a class="skip" href="#main" data-i18n="skip">Skip to the kit</a>
@@ -1920,6 +1922,7 @@ html[lang="ar"] .bubble,html[lang="ar"] .invite{font-size:14px;line-height:1.8}
   writeForm(); applyChrome(); renderPlay(); renderAds(); buildSequence(); update();
 })();
 </script>
+<noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=11189657&fmt=gif"></noscript>
 <script src="assets/js/lead-capture.js?v=978ac546" defer></script>
 </body>
 </html>

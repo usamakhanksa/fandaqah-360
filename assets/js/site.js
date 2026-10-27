@@ -297,6 +297,9 @@
         campaign, campaign_code: codeOf(campaign) || 'Direct/Unknown',
         utm_campaign: campaign, utm_source: src('utm_source'), utm_medium: src('utm_medium'), utm_content: src('utm_content'), utm_term: latest.utm_term || first.utm_term || undefined,
         first_touch: first, latest_touch: latest,
+        // LinkedIn's click id and the campaign type in their own fields, so the CRM can store them for the Conversions API
+        li_fat_id: latest.li_fat_id || first.li_fat_id || (window.F360LI && window.F360LI.fatId()) || undefined,
+        campaign_type: PAGE.segment === 'A' ? 'existing_customer' : 'new_customer',
         landing_url: first.landing_url, page_url: location.href.split('#')[0], submitted_at: now, language: root.lang,
         privacy_notice: { shown: true, url: $('.form-privacy a', form).href, version: '2026-10' },
         marketing_consent: consent, marketing_consent_text: consent ? $('.consent span', form).textContent.trim() : undefined, marketing_consent_at: consent ? now : undefined
@@ -308,7 +311,9 @@
       const result = await post(payload);
       submit.disabled = false; label.innerHTML = was;
       if (result === 'ok') {
-        if (window.dataLayer) window.dataLayer.push({ event: 'generate_lead', campaign_code: payload.campaign_code, segment: PAGE.segment, interest: payload.interest });
+        if (window.dataLayer) window.dataLayer.push({ event: 'generate_lead', campaign_code: payload.campaign_code, segment: PAGE.segment, interest: payload.interest, submission_id: id });
+        // LinkedIn F360_Lead_Submit (browser), event_id = submission_id; only here, as showDone() also runs for bots
+        if (window.F360LI) window.F360LI.leadSubmitted(id);
         showDone();
       } else if (result === 'rejected') {
         alertEl.innerHTML = T().reject; alertEl.hidden = false;

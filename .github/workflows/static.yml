@@ -43,7 +43,7 @@ jobs:
         run: |
           # a leading slash anchors a folder to the repo root, so book/media/<X>/banners/ still ships
           rsync -a ./ _site/ --exclude '.git*' --exclude '/.github' --exclude '/_site' --exclude '/_internal' \
-            --exclude '/campaigns' --exclude '/archive' --exclude '/tools' --exclude '/banners' \
+            --exclude '/campaigns' --exclude '/archive' --exclude '/tools' --exclude '/banners' --exclude '/f360-linkedin-dev-pack' --exclude '/tiktok' --exclude '/logs' \
             --exclude 'README.md' --exclude '/_config.yml' --exclude '/.scrollcraft.json' \
             --exclude '/*.pdf' --exclude '*.php' --exclude '/api' --exclude '.htaccess' --exclude '/*.zip'
           # the campaign pages are named -index.html in the repo, so a PHP host serves their index.php copy;

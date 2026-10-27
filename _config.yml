@@ -6,6 +6,9 @@ exclude:
   - archive
   - tools
   - banners
+  - f360-linkedin-dev-pack
+  - tiktok
+  - logs
   - README.md
   - "*.pdf"
   - "*.py"
