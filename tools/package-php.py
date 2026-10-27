@@ -33,8 +33,8 @@ def main():
     with zipfile.ZipFile(OUT, 'w') as z:
         for rel in files:
             z.write(R / rel, rel.as_posix(), compress_type=zipfile.ZIP_STORED if rel.suffix.lower() in STORED else zipfile.ZIP_DEFLATED)
-    must = ['.htaccess', 'api/lead.php', 'api/config.php', 'api/page.php', 'index.php', 'existing-customers/index.php', 'existing-customers/index.html',
-            'existing-customers/modules.json', 'assets/js/site.js', 'fandaqah-360-landing-v2/index.php', 'hotel-groups/index.php', 'opera-pms/index.php']
+    must = ['.htaccess', 'api/lead.php', 'api/config.php', 'api/page.php', 'index.php', 'existing-customers/index.php',
+            'existing-customers/modules.json', 'assets/js/site.js', 'assets/js/lead-capture.js', 'new-hotels/index.php', 'fandaqah-360-landing-v2/index.php', 'hotel-groups/index.php', 'opera-pms/index.php']
     missing = [m for m in must if pathlib.PurePosixPath(m) not in {pathlib.PurePosixPath(f.as_posix()) for f in files}]
     if missing:
         sys.exit(f'Package is missing {missing}')

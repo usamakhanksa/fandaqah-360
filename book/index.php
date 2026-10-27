@@ -125,5 +125,6 @@ window.BOOK_I18N = {
 <script src="assets/data.js?v=2af38bf0"></script>
 <script src="media/manifest.js?v=25548eae"></script>
 <script src="assets/book.js?v=ae7b1d0f"></script>
+<script src="../assets/js/lead-capture.js?v=978ac546" defer></script>
 </body>
 </html>

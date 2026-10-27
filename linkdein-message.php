@@ -1920,5 +1920,6 @@ html[lang="ar"] .bubble,html[lang="ar"] .invite{font-size:14px;line-height:1.8}
   writeForm(); applyChrome(); renderPlay(); renderAds(); buildSequence(); update();
 })();
 </script>
+<script src="assets/js/lead-capture.js?v=978ac546" defer></script>
 </body>
 </html>
