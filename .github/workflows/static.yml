@@ -46,6 +46,9 @@ jobs:
             --exclude '/campaigns' --exclude '/archive' --exclude '/tools' --exclude '/banners' \
             --exclude 'README.md' --exclude '/_config.yml' --exclude '/.scrollcraft.json' \
             --exclude '/*.pdf' --exclude '*.php' --exclude '/api' --exclude '.htaccess' --exclude '/*.zip'
+          # the campaign pages are named -index.html in the repo, so a PHP host serves their index.php copy;
+          # Pages runs no PHP, so here each one is published as its folder's index.html
+          find _site -name '-index.html' -execdir mv -- {} index.html \;
       # The PHP copies (for a PHP host) never ship to Pages, which cannot run them. Flag them when they fall behind
       # their pages, without holding up this deploy.
       - name: Check the PHP copies are current
