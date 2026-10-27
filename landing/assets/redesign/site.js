@@ -63,22 +63,12 @@
     }));
   }
 
-  /* ---------- the lead dialog: every [data-demo] button opens it; requests post straight to Fandaqah CRM ---------- */
-  /* On static hosting the requests post straight to the CRM, so this key ships to every visitor's browser: keep it ingest-only and
-     rate-limited on the CRM side. The PHP copy of each page carries <meta name="fq-lead-proxy"> and posts to api/lead.php, which adds the key. */
-  const API_URL = 'https://crm.fandaqah.com/api/ingest/lead';
-  const API_KEY = 'fdq_d0930f18b74a5153c68b174748b5ed7ba17b8723ca05c21e';
+  /* ---------- the lead dialog: every [data-demo] button opens it; requests go to Fandaqah CRM through the lead proxy ---------- */
+  /* No key in the browser: api/lead.php adds it on the server. The PHP copy of each page names its own proxy
+     (<meta name="fq-lead-proxy">); the .html pages (GitHub Pages preview) post to the production proxy, allowed by origin. */
   const PLATFORM = 'fandaqah_tourism_platform_contact';
-  const PROXY = ($('meta[name="fq-lead-proxy"]') || {}).content || '';
-  // if the proxy is missing (api/ not uploaded) or cannot reach the CRM from the server, the request goes straight to the CRM instead
-  const sendLead = async (payload, signal) => {
-    const direct = () => fetch(API_URL, { method: 'POST', body: JSON.stringify(payload), signal, headers: { 'Content-Type': 'application/json', 'X-API-Key': API_KEY } });
-    if (!PROXY) return direct();
-    try {
-      const res = await fetch(PROXY, { method: 'POST', body: JSON.stringify(payload), signal, headers: { 'Content-Type': 'application/json', Accept: 'application/json' } });
-      return res.status === 404 || res.status === 405 || res.status >= 500 ? direct() : res;
-    } catch (err) { if (signal && signal.aborted) throw err; return direct(); }
-  };
+  const PROXY = ($('meta[name="fq-lead-proxy"]') || {}).content || 'https://fandaqah.com/landing/fandaqah-360/api/lead.php';
+  const sendLead = (payload, signal) => fetch(PROXY, { method: 'POST', body: JSON.stringify(payload), signal, headers: { 'Content-Type': 'application/json', Accept: 'application/json' } });
   const PACKAGES = {
     basic: { price: 1200, option: 'Basic Subscription',
       en: ['Basic Subscription', ['PMS Core + 5 modules', 'Standard support', 'Basic training']],

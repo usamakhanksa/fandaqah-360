@@ -1,0 +1,11 @@
+    // Snap Conversions API (api/snap-capi.php). Pixel ID: Events Manager → the Fandaqah website pixel (same value as PIXEL_ID in
+    // assets/js/fq-snap.js). Token: Events Manager → the pixel → Conversions API → Generate token. Prefer setting both as
+    // environment variables on the host; empty = no server events (the browser pixel still works).
+    'snap' => [
+        'pixel_id'        => getenv('FQ_SNAP_PIXEL_ID') ?: '',
+        'token'           => getenv('FQ_SNAP_CAPI_TOKEN') ?: '',
+        'test_event_code' => getenv('FQ_SNAP_TEST_CODE') ?: '',   // set only while testing in Events Manager → Test Events
+        'endpoint'        => getenv('FQ_SNAP_ENDPOINT') ?: 'https://tr.snapchat.com/v3',
+        'timeout'         => 4,
+        'debug'           => (bool) getenv('FQ_SNAP_DEBUG'),
+    ],

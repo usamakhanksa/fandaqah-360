@@ -34,11 +34,14 @@ def main():
         for rel in files:
             z.write(R / rel, rel.as_posix(), compress_type=zipfile.ZIP_STORED if rel.suffix.lower() in STORED else zipfile.ZIP_DEFLATED)
     must = ['.htaccess', 'api/lead.php', 'api/config.php', 'api/page.php', 'index.php', 'existing-customers/index.php',
-            'existing-customers/modules.json', 'assets/js/site.js', 'assets/js/lead-capture.js', 'assets/js/linkedin-insight.js', 'api/f360_linkedin_capi.php', 'assets/js/fandaqah-tiktok.js', 'api/tiktok-events-api.php', 'api/tiktok-crm-events.php', 'logs/.htaccess', 'new-hotels/index.php', 'fandaqah-360-landing-v2/index.php', 'hotel-groups/index.php', 'opera-pms/index.php']
+            'existing-customers/modules.json', 'assets/js/site.js', 'assets/js/lead-capture.js', 'assets/js/linkedin-insight.js', 'api/f360_linkedin_capi.php', 'assets/js/fandaqah-tiktok.js', 'api/tiktok-events-api.php', 'api/tiktok-crm-events.php', 'logs/.htaccess', 'api/lead-event.php', 'api/funnel.php', 'new-hotels/index.php', 'fandaqah-360-landing-v2/index.php', 'hotel-groups/index.php', 'opera-pms/index.php']
     missing = [m for m in must if pathlib.PurePosixPath(m) not in {pathlib.PurePosixPath(f.as_posix()) for f in files}]
     if missing:
         sys.exit(f'Package is missing {missing}')
     print(f'{OUT.relative_to(R).as_posix()}: {len(files)} files, {OUT.stat().st_size / 1e6:.1f} MB')
+    # the secrets file travels in the package (never in git); without it, or FQ_CRM_KEY on the host, the forms cannot reach the CRM
+    if not (R / 'api' / 'config.local.php').exists():
+        print('WARNING: api/config.local.php is missing: copy api/config.local.example.php, fill in the CRM key, then rebuild')
 
 if __name__ == '__main__':
     main()

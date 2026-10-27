@@ -1478,13 +1478,11 @@ html:has(.lead[open]){overflow:hidden}
   } catch (e) {}
   const keptUtm = () => { try { return JSON.parse(sessionStorage.getItem('f360_utm') || '{}'); } catch (e) { return {}; } };
 
-  /* ---------- Lead form: every CTA opens it, leads post straight to the CRM ---------- */
-  /* On static hosting leads post straight to the CRM, so this key ships to every visitor's browser: keep it ingest-only and rate-limited
-     on the CRM side. The PHP copy of this page carries <meta name="fq-lead-proxy"> and posts to api/lead.php, which adds the key. */
-  const API_URL = 'https://crm.fandaqah.com/api/ingest/lead';
-  const API_KEY = 'fdq_d0930f18b74a5153c68b174748b5ed7ba17b8723ca05c21e';
+  /* ---------- Lead form: every CTA opens it, leads go to the CRM through the lead proxy ---------- */
+  /* No key in the browser: api/lead.php adds it on the server. The PHP copy of this page names its own proxy
+     (<meta name="fq-lead-proxy">); the .html page (GitHub Pages preview) posts to the production proxy, allowed by origin. */
   const PLATFORM = 'fandaqah_tourism_platform_contact';
-  const PROXY = (document.querySelector('meta[name="fq-lead-proxy"]') || {}).content || '';
+  const PROXY = (document.querySelector('meta[name="fq-lead-proxy"]') || {}).content || 'https://fandaqah.com/landing/fandaqah-360/api/lead.php';
   const PLANS = {
     en: { general: 'Fandaqah 360 upgrade', basic: 'Basic Subscription · SAR 1,200 / year + VAT', compliance: 'Compliance Package · SAR 3,200 / year + VAT', '360': 'Fandaqah 360 · SAR 3,495 / year + VAT' },
     ar: { general: 'ترقية فندقة 360', basic: 'الاشتراك الأساسي · 1,200 ريال سنوياً + ضريبة القيمة المضافة', compliance: 'باقة الامتثال · 3,200 ريال سنوياً + ضريبة القيمة المضافة', '360': 'فندقة 360 · 3,495 ريال سنوياً + ضريبة القيمة المضافة' }
@@ -1552,16 +1550,14 @@ html:has(.lead[open]){overflow:hidden}
     setBusy(true); alertEl.hidden = true;
     const ctrl = new AbortController(), stop = setTimeout(() => ctrl.abort(), 15000);
     try {
-      const direct = () => fetch(API_URL, { method: 'POST', body: JSON.stringify(payload), signal: ctrl.signal, headers: { 'Content-Type': 'application/json', 'X-API-Key': API_KEY } });
-      let res;
-      if (!PROXY) res = await direct();
-      else {
-        // if the proxy is missing (api/ not uploaded) or cannot reach the CRM from the server, send straight to the CRM instead
+      // one retry for a passing network or server hiccup; anything else shows the call-us message
+      let res = null;
+      for (let attempt = 0; attempt < 2 && !(res && res.ok); attempt++) {
         try { res = await fetch(PROXY, { method: 'POST', body: JSON.stringify(payload), signal: ctrl.signal, headers: { 'Content-Type': 'application/json', Accept: 'application/json' } }); }
         catch (err) { if (ctrl.signal.aborted) throw err; res = null; }
-        if (!res || res.status === 404 || res.status === 405 || res.status >= 500) res = await direct();
+        if (res && res.status < 500 && res.status !== 429) break;
       }
-      if (!res.ok) throw new Error('HTTP ' + res.status);
+      if (!res || !res.ok) throw new Error('HTTP ' + (res ? res.status : 'offline'));
       if (window.dataLayer) window.dataLayer.push({ event: 'generate_lead', lead_plan: plan, submission_id: submissionId });
       if (window.F360LI) window.F360LI.leadSubmitted(submissionId);   // LinkedIn F360_Lead_Submit (browser), event_id = submission_id
       done();
@@ -1666,7 +1662,7 @@ html:has(.lead[open]){overflow:hidden}
 })();
 </script>
 <noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=11189657&fmt=gif"></noscript>
-<script src="../assets/js/lead-capture.js?v=978ac546" defer></script>
+<script src="../assets/js/lead-capture.js?v=6b887231" defer></script>
 <!-- WhatsApp chat button (added to every PHP copy by tools/build-php.py) -->
 <style>
 .fq-wa{position:fixed;z-index:90;left:max(20px,env(safe-area-inset-left));bottom:calc(22px + env(safe-area-inset-bottom));margin:0;display:flex;align-items:center;transition:bottom .35s cubic-bezier(.2,.8,.2,1);animation:fq-wa-in .55s cubic-bezier(.2,.8,.2,1) .9s both}

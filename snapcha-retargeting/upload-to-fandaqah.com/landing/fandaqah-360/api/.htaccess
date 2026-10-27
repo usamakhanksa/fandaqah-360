@@ -1,0 +1,11 @@
+# Only the proxy answers the web; its settings and the page header are read by PHP, never served.
+Options -Indexes
+<FilesMatch "^(config|page|snap-capi)\.php$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>

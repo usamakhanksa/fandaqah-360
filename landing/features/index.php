@@ -3,7 +3,7 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="fq-lead-proxy" content="../../api/lead.php"><title>Fandaqah features</title><meta name="robots" content="noindex, follow"><link rel="canonical" href="https://usamakhanksa.github.io/fandaqah-360/landing/features.html"><meta http-equiv="refresh" content="0; url=../features.html"><script src="../../assets/js/linkedin-insight.js?v=6a5e12a7" defer></script>
 <script src="../../assets/js/fandaqah-tiktok.js?v=1f880a5d" defer></script>
 </head><body><a href="../features.php">All Fandaqah features</a><noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=11189657&fmt=gif"></noscript>
-<script src="../../assets/js/lead-capture.js?v=978ac546" defer></script>
+<script src="../../assets/js/lead-capture.js?v=6b887231" defer></script>
 <!-- WhatsApp chat button (added to every PHP copy by tools/build-php.py) -->
 <style>
 .fq-wa{position:fixed;z-index:90;left:max(20px,env(safe-area-inset-left));bottom:calc(22px + env(safe-area-inset-bottom));margin:0;display:flex;align-items:center;transition:bottom .35s cubic-bezier(.2,.8,.2,1);animation:fq-wa-in .55s cubic-bezier(.2,.8,.2,1) .9s both}

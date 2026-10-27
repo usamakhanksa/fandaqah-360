@@ -128,6 +128,6 @@ window.BOOK_I18N = {
 <script src="media/manifest.js?v=25548eae"></script>
 <script src="assets/book.js?v=ae7b1d0f"></script>
 <noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=11189657&fmt=gif"></noscript>
-<script src="../assets/js/lead-capture.js?v=978ac546" defer></script>
+<script src="../assets/js/lead-capture.js?v=6b887231" defer></script>
 </body>
 </html>

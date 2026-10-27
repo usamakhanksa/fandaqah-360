@@ -45,14 +45,33 @@ function page(bool $ok): void
        . "<body><main><h1>$arH</h1><p>$arP</p><p class=\"en\" lang=\"en\"><b>$enH</b> $enP</p><a href=\"$b\">رجوع · Back</a></main></body></html>";
 }
 
-/* ---------- only this site, only POST ---------- */
-if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') reply(405, ['error' => 'Send the lead with POST.'], ['Allow: POST']);
-
+/* ---------- only this site and the sites it lists (the GitHub Pages preview), only POST ---------- */
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
+$crossAllowed = false;
 if ($origin !== '' && $origin !== 'null') {
     $self = (($_SERVER['HTTPS'] ?? '') && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http') . '://' . ($_SERVER['HTTP_HOST'] ?? '');
     $sameHost = parse_url($origin, PHP_URL_HOST) . (parse_url($origin, PHP_URL_PORT) ? ':' . parse_url($origin, PHP_URL_PORT) : '') === ($_SERVER['HTTP_HOST'] ?? '');
-    if (!$sameHost && $origin !== $self && !in_array($origin, $config['allowed_origins'], true)) reply(403, ['error' => 'Requests from other sites are not accepted.']);
+    $crossAllowed = !$sameHost && $origin !== $self && in_array($origin, $config['allowed_origins'], true);
+    if (!$sameHost && $origin !== $self && !$crossAllowed) reply(403, ['error' => 'Requests from other sites are not accepted.']);
+}
+// a listed site may read the answer (CORS); its browser first asks with OPTIONS, which is answered here and nothing else
+if ($crossAllowed) {
+    header('Access-Control-Allow-Origin: ' . $origin);
+    header('Vary: Origin');
+    if (($_SERVER['REQUEST_METHOD'] ?? '') === 'OPTIONS') {
+        header('Access-Control-Allow-Methods: POST');
+        header('Access-Control-Allow-Headers: Content-Type, Accept');
+        header('Access-Control-Max-Age: 86400');
+        http_response_code(204);
+        exit;
+    }
+}
+if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') reply(405, ['error' => 'Send the lead with POST.'], ['Allow: POST']);
+
+// no CRM key on this host (env FQ_CRM_KEY or api/config.local.php): say so plainly, and tell the person how to reach us
+if ($config['api_key'] === '') {
+    error_log('fq lead proxy: no CRM key configured (set FQ_CRM_KEY or api/config.local.php)');
+    reply(503, ['error' => 'The enquiry service is not configured. Please call +966 9200 66456 or email info@fandaqah.com.']);
 }
 
 /* ---------- read the lead ---------- */

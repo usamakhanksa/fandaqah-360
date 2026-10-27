@@ -216,9 +216,9 @@ window.FQ_PAGE = {
   }
 };
 </script>
-<script src="assets/js/site.js?v=d8a36a25" defer></script>
+<script src="assets/js/site.js?v=9a2eca74" defer></script>
 <noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=11189657&fmt=gif"></noscript>
-<script src="assets/js/lead-capture.js?v=978ac546" defer></script>
+<script src="assets/js/lead-capture.js?v=6b887231" defer></script>
 <!-- WhatsApp chat button (added to every PHP copy by tools/build-php.py) -->
 <style>
 .fq-wa{position:fixed;z-index:90;left:max(20px,env(safe-area-inset-left));bottom:calc(22px + env(safe-area-inset-bottom));margin:0;display:flex;align-items:center;transition:bottom .35s cubic-bezier(.2,.8,.2,1);animation:fq-wa-in .55s cubic-bezier(.2,.8,.2,1) .9s both}

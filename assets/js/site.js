@@ -168,28 +168,24 @@
     btn.setAttribute('aria-expanded', String(open)); panel.hidden = !open; btn.closest('.mod').toggleAttribute('data-open', open);
   }));
 
-  /* ---------- Lead form → Fandaqah CRM ---------- */
-  /* On static hosting (GitHub Pages) the form posts straight to the CRM, so this key ships to every visitor's browser: keep it
-     ingest-only and rate-limited on the CRM side. The PHP copy of each page carries <meta name="fq-lead-proxy"> and posts to
-     api/lead.php instead, which adds the key on the server. */
-  const API_URL = 'https://crm.fandaqah.com/api/ingest/lead';
-  const API_KEY = 'fdq_d0930f18b74a5153c68b174748b5ed7ba17b8723ca05c21e';
+  /* ---------- Lead form → Fandaqah CRM, only ever through the lead proxy (api/lead.php), which holds the CRM key ---------- */
+  /* No key in the browser. The PHP copy of each page names its own proxy (<meta name="fq-lead-proxy">); the .html pages (the
+     GitHub Pages preview) post to the production proxy, which accepts them by origin (allowed_origins in api/config.php). */
   const PLATFORM = 'fandaqah_tourism_platform_contact';
   const OUTBOX = 'fq360_outbox';
-  const PROXY = ($('meta[name="fq-lead-proxy"]') || {}).content || '';
+  const PROXY = ($('meta[name="fq-lead-proxy"]') || {}).content || 'https://fandaqah.com/landing/fandaqah-360/api/lead.php';
 
   async function post(body) {
-    let via = PROXY;
     for (let attempt = 0; attempt < 3; attempt++) {
       const ctrl = new AbortController(), stop = setTimeout(() => ctrl.abort(), 12000);
       try {
-        const res = await fetch(via || API_URL, { method: 'POST', body: JSON.stringify(body), signal: ctrl.signal,
-          headers: via ? { 'Content-Type': 'application/json', Accept: 'application/json' } : { 'Content-Type': 'application/json', 'X-API-Key': API_KEY } });
+        const res = await fetch(PROXY, { method: 'POST', body: JSON.stringify(body), signal: ctrl.signal,
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' } });
         if (res.ok) return 'ok';
-        // the proxy is missing (api/ not uploaded) or cannot reach the CRM from the server: send straight to the CRM instead
-        if (via && (res.status === 404 || res.status === 405 || res.status >= 500)) { via = ''; attempt--; continue; }
+        // 404/405: the proxy is not on this host yet; kept in the outbox and sent on a later visit
+        if (res.status === 404 || res.status === 405) return 'failed';
         if (res.status < 500 && res.status !== 429) return 'rejected'; // a 4xx will not fix itself on retry
-      } catch (e) { if (via) { via = ''; attempt--; continue; } /* network or timeout: retry */ } finally { clearTimeout(stop); }
+      } catch (e) { /* network or timeout: retry */ } finally { clearTimeout(stop); }
       if (attempt < 2) await new Promise(r => setTimeout(r, 1200 * (attempt + 1)));
     }
     return 'failed';

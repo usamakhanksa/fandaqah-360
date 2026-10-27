@@ -290,13 +290,11 @@ html[lang=ar]{--sans:Almarai,system-ui,sans-serif;--serif:ElMessiri,Georgia,seri
   });
   $('#email-request').addEventListener('click', () => { alert.textContent = t('form.success'); });
 
-  /* ---------- the request goes to Fandaqah CRM ----------
-     On static hosting it posts straight to the CRM, so this key ships to the browser: keep it ingest-only and rate-limited on the
-     CRM side. The PHP copy of this page carries <meta name="fq-lead-proxy"> and posts to api/lead.php, which adds the key. */
-  const API_URL = 'https://crm.fandaqah.com/api/ingest/lead';
-  const API_KEY = 'fdq_d0930f18b74a5153c68b174748b5ed7ba17b8723ca05c21e';
+  /* ---------- the request goes to Fandaqah CRM through the lead proxy ----------
+     No key in the browser: api/lead.php adds it on the server. The PHP copy of this page names its own proxy
+     (<meta name="fq-lead-proxy">); the .html page (GitHub Pages preview) posts to the production proxy, allowed by origin. */
   const PLATFORM = 'fandaqah_tourism_platform_contact';
-  const PROXY = ($('meta[name="fq-lead-proxy"]') || {}).content || '';
+  const PROXY = ($('meta[name="fq-lead-proxy"]') || {}).content || 'https://fandaqah.com/landing/fandaqah-360/api/lead.php';
   const openedAt = Date.now();
   function mobileOf(raw) {
     // Saudi numbers become +966…; other countries need their + or 00 prefix; Arabic-Indic digits are accepted
@@ -330,17 +328,16 @@ html[lang=ar]{--sans:Almarai,system-ui,sans-serif;--serif:ElMessiri,Georgia,seri
     };
     const label = $('span', sendButton), idle = label.textContent;
     sendButton.disabled = true; label.textContent = t('form.sending'); alert.textContent = '';
-    let result = 'failed', via = PROXY;
+    let result = 'failed';
     for (let attempt = 0; attempt < 3 && result === 'failed'; attempt++) {
       const ctrl = new AbortController(), stop = setTimeout(() => ctrl.abort(), 12000);
       try {
-        const res = await fetch(via || API_URL, { method: 'POST', body: JSON.stringify(payload), signal: ctrl.signal,
-          headers: via ? { 'Content-Type': 'application/json', Accept: 'application/json' } : { 'Content-Type': 'application/json', 'X-API-Key': API_KEY } });
+        const res = await fetch(PROXY, { method: 'POST', body: JSON.stringify(payload), signal: ctrl.signal,
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' } });
         if (res.ok) result = 'ok';
-        // the proxy is missing (api/ not uploaded) or cannot reach the CRM from the server: send straight to the CRM instead
-        else if (via && (res.status === 404 || res.status === 405 || res.status >= 500)) { via = ''; attempt--; }
+        else if (res.status === 404 || res.status === 405) break;                // the proxy is not on this host: say so now
         else if (res.status < 500 && res.status !== 429) result = 'rejected';   // a 4xx will not fix itself on retry
-      } catch (err) { if (via) { via = ''; attempt--; } /* network or timeout: retry */ } finally { clearTimeout(stop); }
+      } catch (err) { /* network or timeout: retry */ } finally { clearTimeout(stop); }
       if (result === 'failed' && attempt < 2) await new Promise(r => setTimeout(r, 1200 * (attempt + 1)));
     }
     sendButton.disabled = false; label.textContent = idle;
@@ -451,7 +448,7 @@ html[lang=ar]{--sans:Almarai,system-ui,sans-serif;--serif:ElMessiri,Georgia,seri
 })();
 </script>
 <noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=11189657&fmt=gif"></noscript>
-<script src="assets/js/lead-capture.js?v=978ac546" defer></script>
+<script src="assets/js/lead-capture.js?v=6b887231" defer></script>
 <!-- WhatsApp chat button (added to every PHP copy by tools/build-php.py) -->
 <style>
 .fq-wa{position:fixed;z-index:90;left:max(20px,env(safe-area-inset-left));bottom:calc(22px + env(safe-area-inset-bottom));margin:0;display:flex;align-items:center;transition:bottom .35s cubic-bezier(.2,.8,.2,1);animation:fq-wa-in .55s cubic-bezier(.2,.8,.2,1) .9s both}
