@@ -110,7 +110,7 @@ function f360_capi_send(string $stage, array $lead): array
     ]);
     $body = curl_exec($ch);
     $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    curl_close($ch);
+    unset($ch);   // frees the handle (curl_close() has done nothing since PHP 8.0 and is deprecated in 8.5)
 
     error_log(sprintf('[F360 CAPI] stage=%s id=%s http=%d', $stage, $event['eventId'], $code));
     return ['ok' => $code === 201, 'http' => $code, 'body' => $body];

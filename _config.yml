@@ -8,6 +8,8 @@ exclude:
   - banners
   - f360-linkedin-dev-pack
   - tiktok
+  - snapcha-retargeting
+  - meta
   - logs
   - README.md
   - "*.pdf"

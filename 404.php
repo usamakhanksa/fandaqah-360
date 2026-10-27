@@ -44,6 +44,8 @@
   html[lang="en"] .ar,html[lang="en"] .en-lead{display:none}
   html[lang="en"] a small{margin:0;font-size:inherit;font-weight:inherit;line-height:inherit;color:inherit}
 </style>
+<script src="assets/js/fq-ads.js?v=47307225" async></script>
+<script src="assets/js/fq-snap.js?v=7444017b" async></script>
 <script src="assets/js/linkedin-insight.js?v=6a5e12a7" defer></script>
 <script src="assets/js/fandaqah-tiktok.js?v=1f880a5d" defer></script>
 </head>
@@ -72,6 +74,7 @@
 })();
 </script>
 <noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=11189657&fmt=gif"></noscript>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=992779690541049&amp;ev=PageView&amp;noscript=1"></noscript>
 <script src="assets/js/lead-capture.js?v=6b887231" defer></script>
 <!-- WhatsApp chat button (added to every PHP copy by tools/build-php.py) -->
 <style>

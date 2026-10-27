@@ -499,6 +499,8 @@ html[lang="ar"] .bubble,html[lang="ar"] .invite{font-size:14px;line-height:1.8}
   .inbox,.meter-bar i,.btn,.seg button,.toast,.step-node,.switch,.switch::after{transition:none}
 }
 </style>
+<script src="assets/js/fq-ads.js?v=47307225" async></script>
+<script src="assets/js/fq-snap.js?v=7444017b" async></script>
 <script src="assets/js/linkedin-insight.js?v=6a5e12a7" defer></script>
 <script src="assets/js/fandaqah-tiktok.js?v=1f880a5d" defer></script>
 </head>
@@ -1923,6 +1925,7 @@ html[lang="ar"] .bubble,html[lang="ar"] .invite{font-size:14px;line-height:1.8}
 })();
 </script>
 <noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=11189657&fmt=gif"></noscript>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=992779690541049&amp;ev=PageView&amp;noscript=1"></noscript>
 <script src="assets/js/lead-capture.js?v=6b887231" defer></script>
 </body>
 </html>

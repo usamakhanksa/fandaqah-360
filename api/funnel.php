@@ -4,6 +4,7 @@
    reached each step, where they came from, and who to retarget. Visits are counted by their random visit id; no person is
    identified anywhere. Switched off (404) until funnel_key is set (FQ_FUNNEL_KEY or api/config.local.php). PHP 7.4 or later. */
 declare(strict_types=1);
+ini_set('display_errors', '0');   // notices go to the error log, never into the answer (it would break the JSON)
 
 $config = require __DIR__ . '/config.php';
 header('Cache-Control: no-store');

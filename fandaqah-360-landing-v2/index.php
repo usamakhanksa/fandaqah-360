@@ -743,6 +743,8 @@ html:has(.lead[open]){overflow:hidden}
   [dir="rtl"] .devices{transform:translateX(50%) scale(.45)}
 }
 </style>
+<script src="../assets/js/fq-ads.js?v=47307225" async data-ads-events></script>
+<script src="../assets/js/fq-snap.js?v=7444017b" async data-snap-events></script>
 <script src="../assets/js/linkedin-insight.js?v=6a5e12a7" defer data-f360-events></script>
 <script src="../assets/js/fandaqah-tiktok.js?v=1f880a5d" defer data-tt-events></script>
 </head>
@@ -1560,6 +1562,7 @@ html:has(.lead[open]){overflow:hidden}
       if (!res || !res.ok) throw new Error('HTTP ' + (res ? res.status : 'offline'));
       if (window.dataLayer) window.dataLayer.push({ event: 'generate_lead', lead_plan: plan, submission_id: submissionId });
       if (window.F360LI) window.F360LI.leadSubmitted(submissionId);   // LinkedIn F360_Lead_Submit (browser), event_id = submission_id
+      document.dispatchEvent(new CustomEvent('fq:lead', { detail: { id: submissionId, segment: 'A' } }));   // Google Ads + Meta (assets/js/fq-ads.js)
       done();
     } catch (err) {
       alertEl.innerHTML = LEAD_TXT[lang].fail; alertEl.hidden = false;
@@ -1662,6 +1665,7 @@ html:has(.lead[open]){overflow:hidden}
 })();
 </script>
 <noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=11189657&fmt=gif"></noscript>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=992779690541049&amp;ev=PageView&amp;noscript=1"></noscript>
 <script src="../assets/js/lead-capture.js?v=6b887231" defer></script>
 <!-- WhatsApp chat button (added to every PHP copy by tools/build-php.py) -->
 <style>

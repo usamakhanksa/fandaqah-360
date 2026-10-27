@@ -26,7 +26,7 @@
   try { referrer = sessionStorage.getItem('fq360_ref') || referrer; sessionStorage.removeItem('fq360_ref'); } catch (e) {}
   const touch = { landing_url: location.href.split('#')[0], referrer, at: new Date().toISOString() };
   UTM.forEach(k => { if (qs.get(k)) touch[k] = qs.get(k).slice(0, 150); });
-  ['gclid', 'fbclid', 'li_fat_id'].forEach(k => { if (qs.get(k)) touch[k] = qs.get(k).slice(0, 200); });
+  ['gclid', 'fbclid', 'li_fat_id', 'ScCid', 'ttclid'].forEach(k => { if (qs.get(k)) touch[k] = qs.get(k).slice(0, 200); });
   const attr = store.get('fq360_attr') || {};
   if (!attr.first || Date.now() - Date.parse(attr.first.at) > 90 * 864e5) attr.first = touch;
   if (hasUtm || !attr.latest) attr.latest = touch;
@@ -310,6 +310,8 @@
         if (window.dataLayer) window.dataLayer.push({ event: 'generate_lead', campaign_code: payload.campaign_code, segment: PAGE.segment, interest: payload.interest, submission_id: id });
         // LinkedIn F360_Lead_Submit (browser), event_id = submission_id; only here, as showDone() also runs for bots
         if (window.F360LI) window.F360LI.leadSubmitted(id);
+        // the confirmed lead, for the Google Ads and Meta tags (assets/js/fq-ads.js): one id, so each platform counts it once
+        document.dispatchEvent(new CustomEvent('fq:lead', { detail: { id, segment: PAGE.segment || null } }));
         showDone();
       } else if (result === 'rejected') {
         alertEl.innerHTML = T().reject; alertEl.hidden = false;

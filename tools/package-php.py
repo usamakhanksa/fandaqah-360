@@ -11,7 +11,7 @@ import pathlib, subprocess, sys, zipfile
 
 R = pathlib.Path(__file__).resolve().parent.parent
 OUT = R / '_dist' / 'fandaqah-360-php.zip'
-SKIP_DIRS = {'.git', '.github', '_internal', '_site', '_dist', 'archive', 'campaigns', 'tools', 'banners', 'node_modules', 'scrollcraft', 'f360-linkedin-dev-pack', 'tiktok'}
+SKIP_DIRS = {'.git', '.github', '_internal', '_site', '_dist', 'archive', 'campaigns', 'tools', 'banners', 'node_modules', 'scrollcraft', 'f360-linkedin-dev-pack', 'tiktok', 'snapcha-retargeting', 'meta'}
 SKIP_FILES = {'_config.yml', '.scrollcraft.json', '.gitignore', '.gitattributes'}
 SKIP_EXT = {'.md', '.py', '.pdf', '.psd', '.docx', '.zip', '.mjs', '.log'}
 STORED = {'.mp4', '.m4a', '.mp3', '.jpg', '.jpeg', '.png', '.webp', '.woff2', '.gif'}   # already compressed
@@ -34,7 +34,7 @@ def main():
         for rel in files:
             z.write(R / rel, rel.as_posix(), compress_type=zipfile.ZIP_STORED if rel.suffix.lower() in STORED else zipfile.ZIP_DEFLATED)
     must = ['.htaccess', 'api/lead.php', 'api/config.php', 'api/page.php', 'index.php', 'existing-customers/index.php',
-            'existing-customers/modules.json', 'assets/js/site.js', 'assets/js/lead-capture.js', 'assets/js/linkedin-insight.js', 'api/f360_linkedin_capi.php', 'assets/js/fandaqah-tiktok.js', 'api/tiktok-events-api.php', 'api/tiktok-crm-events.php', 'logs/.htaccess', 'api/lead-event.php', 'api/funnel.php', 'new-hotels/index.php', 'fandaqah-360-landing-v2/index.php', 'hotel-groups/index.php', 'opera-pms/index.php']
+            'existing-customers/modules.json', 'assets/js/site.js', 'assets/js/lead-capture.js', 'assets/js/linkedin-insight.js', 'api/f360_linkedin_capi.php', 'assets/js/fandaqah-tiktok.js', 'api/tiktok-events-api.php', 'api/tiktok-crm-events.php', 'logs/.htaccess', 'api/lead-event.php', 'api/funnel.php', 'api/snap-capi.php', 'assets/js/fq-snap.js', 'assets/js/fq-ads.js', 'new-hotels/index.php', 'fandaqah-360-landing-v2/index.php', 'hotel-groups/index.php', 'opera-pms/index.php']
     missing = [m for m in must if pathlib.PurePosixPath(m) not in {pathlib.PurePosixPath(f.as_posix()) for f in files}]
     if missing:
         sys.exit(f'Package is missing {missing}')

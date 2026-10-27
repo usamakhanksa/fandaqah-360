@@ -29,6 +29,17 @@ return [
     'tiktok_events_api_token'  => $secret('TIKTOK_EVENTS_API_TOKEN', 'tiktok_events_api_token'),
     // the CRM Event Set for stage events (api/tiktok-crm-events.php, called by the CRM), when it exists
     'tiktok_crm_event_set_id'  => getenv('TIKTOK_CRM_EVENT_SET_ID') ?: ($local['tiktok_crm_event_set_id'] ?? ''),
+    // Snap Conversions API (snapcha-retargeting pack, api/snap-capi.php). Pixel ID: Events Manager → the Fandaqah website pixel (the
+    // same value as PIXEL_ID in assets/js/fq-snap.js). Token: the pixel → Conversions API → Generate token. Either empty = no
+    // server events (the browser pixel still works).
+    'snap' => [
+        'pixel_id'        => getenv('FQ_SNAP_PIXEL_ID') ?: ($local['snap_pixel_id'] ?? ''),
+        'token'           => $secret('FQ_SNAP_CAPI_TOKEN', 'snap_capi_token'),
+        'test_event_code' => getenv('FQ_SNAP_TEST_CODE') ?: ($local['snap_test_event_code'] ?? ''),   // only while testing (Test Events)
+        'endpoint'        => getenv('FQ_SNAP_ENDPOINT') ?: 'https://tr.snapchat.com/v3',
+        'timeout'         => 4,
+        'debug'           => (bool) getenv('FQ_SNAP_DEBUG'),
+    ],
     // the funnel report (api/funnel.php?key=…): empty = the report is switched off
     'funnel_key' => $secret('FQ_FUNNEL_KEY', 'funnel_key'),
 ];

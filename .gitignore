@@ -19,3 +19,6 @@ logs/*.log
 
 # server secrets (api/config.local.php): on the host and in the upload package, never in git
 api/config.local.php
+
+# Snap offline CAPI ledger (tools/snap-offline-capi.py)
+tools/.snap-offline-sent.json

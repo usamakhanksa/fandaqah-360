@@ -5,6 +5,7 @@
    Answers: 200 {ok} · 400 unreadable · 403 other site · 405 not POST · 413 too large · 422 details to fix · 429 too many · 502 CRM unreachable.
    PHP 7.4 or later, with curl (or allow_url_fopen). */
 declare(strict_types=1);
+ini_set('display_errors', '0');   // notices go to the error log, never into the answer (it would break the JSON)
 
 $config = require __DIR__ . '/config.php';
 const MAX_BODY = 65536;
@@ -85,6 +86,9 @@ if ($isForm) {
 }
 if (!is_array($in)) reply(400, ['error' => 'The request could not be read.']);
 
+// Snap identifiers added by assets/js/fq-snap.js (cookie, click id, page): used for the Conversions API, never forwarded to the CRM
+$snap = is_array($in['_snap'] ?? null) ? array_map(function ($v) { return is_string($v) ? substr(trim($v), 0, 1000) : null; }, $in['_snap']) : [];
+
 // the hidden field only a script fills in: it sees success and nothing is sent
 if (trim((string) ($in['website'] ?? '')) !== '') reply(200, ['ok' => true]);
 
@@ -114,7 +118,9 @@ function tidy($v, int $depth = 0)
     return null;
 }
 $lead = [];
-foreach ($in as $k => $v) if (is_string($k) && $k !== 'website') $lead[substr($k, 0, 64)] = tidy($v);
+foreach ($in as $k => $v) if (is_string($k) && $k !== 'website' && $k !== '_snap') $lead[substr($k, 0, 64)] = tidy($v);
+// the Snap click id travels with the lead, so the CRM can send later stages (qualified, opportunity, customer) back to Snap
+if (!empty($snap['sc_click_id']) && empty($lead['sc_click_id'])) $lead['sc_click_id'] = $snap['sc_click_id'];
 
 // the same mobile rules as the pages: Saudi numbers become +966…, others need their + or 00 prefix; Arabic-Indic digits accepted
 function mobile(string $raw): ?string
@@ -203,6 +209,22 @@ function tiktok_lead(array $lead, array $config): void
 
 /* LinkedIn Conversions API (f360-linkedin-dev-pack): the server twin of the browser's F360_Lead_Submit (same submission_id as
    event id), only for a lead LinkedIn can match (email or li_fat_id) */
+/* Snap Conversions API (snapcha-retargeting pack): one SIGN_UP, event_id = submission_id, the browser's client_dedup_id */
+function snap_lead(array $lead, array $snap, bool $isForm, array $config): void
+{
+    if (empty($config['snap']['pixel_id']) || empty($config['snap']['token']) || !f360_conversion_lead($lead)) return;
+    require_once __DIR__ . '/snap-capi.php';
+    $event = fq_snap_lead_event($lead, $snap, $isForm);   // built now, while the request's IP, user agent and cookies are at hand
+    if ($event === null) return;
+    after_answer(function () use ($config, $event) {
+        [$status, $answer] = fq_snap_send($config, [$event]);
+        if ($status < 200 || $status >= 300 || (stripos($answer, '"VALID"') === false && stripos($answer, 'success') === false))
+            error_log("fq snap capi: SIGN_UP {$event['event_id']} answered $status: " . substr($answer, 0, 300));
+        elseif (!empty($config['snap']['debug']))
+            error_log("fq snap capi: SIGN_UP {$event['event_id']} sent ($status)");
+    });
+}
+
 function linkedin_lead_submit(array $lead, array $config): void
 {
     if (($config['linkedin_capi_token'] ?? '') === '' || empty($lead['submission_id']) || !f360_conversion_lead($lead)) return;
@@ -236,17 +258,20 @@ if (function_exists('curl_init')) {
     $answer = (string) curl_exec($ch);
     $status = (int) curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
     if ($status === 0) error_log('fq lead proxy: CRM unreachable: ' . curl_error($ch));
-    curl_close($ch);
+    unset($ch);   // frees the handle (curl_close() has done nothing since PHP 8.0 and is deprecated in 8.5)
 } else {
     $ctx = stream_context_create(['http' => ['method' => 'POST', 'header' => implode("\r\n", $headers), 'content' => $body, 'timeout' => $config['timeout'], 'ignore_errors' => true]]);
     $answer = (string) @file_get_contents($config['crm_url'], false, $ctx);
-    if (isset($http_response_header[0]) && preg_match('/\s(\d{3})\s/', $http_response_header[0], $m)) $status = (int) $m[1];
+    // the status line: PHP 8.4+ hands it over with http_get_last_response_headers(); older PHP leaves it in this scope
+    $hdrs = function_exists('http_get_last_response_headers') ? (http_get_last_response_headers() ?: []) : (get_defined_vars()['http_response_header'] ?? []);
+    if (isset($hdrs[0]) && preg_match('/\s(\d{3})\s/', $hdrs[0], $m)) $status = (int) $m[1];
 }
 
 $crm = json_decode($answer, true);
 if ($status >= 200 && $status < 300) {
     linkedin_lead_submit($lead, $config);
     tiktok_lead($lead, $config);
+    snap_lead($lead, $snap, $isForm, $config);
     reply(200, ['ok' => true, 'crm' => is_array($crm) ? $crm : null]);
 }
 if ($status === 429) reply(429, ['error' => 'Too many requests. Please try again in a few minutes.']);

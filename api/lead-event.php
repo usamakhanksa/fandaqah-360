@@ -6,6 +6,7 @@
    Answers: 204 kept or ignored · 400 unreadable · 403 other site · 405 not POST · 413 too large · 429 too many.
    PHP 7.4 or later. */
 declare(strict_types=1);
+ini_set('display_errors', '0');   // notices go to the error log, never into the answer (it would break the JSON)
 
 const EVENTS = ['page_view', 'engaged', 'cta_click', 'whatsapp_click', 'call_click', 'email_click',
                 'lead_form_open', 'lead_form_submit', 'lead_success', 'newsletter_success'];

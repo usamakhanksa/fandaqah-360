@@ -1,8 +1,11 @@
 <?php /* Generated from index.html by tools/build-php.py: edit the .html page, then run the build. */ if (is_file(__DIR__ . '/../../api/page.php')) require __DIR__ . '/../../api/page.php'; ?>
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="fq-lead-proxy" content="../../api/lead.php"><title>Fandaqah features</title><meta name="robots" content="noindex, follow"><link rel="canonical" href="https://usamakhanksa.github.io/fandaqah-360/landing/features.html"><meta http-equiv="refresh" content="0; url=../features.html"><script src="../../assets/js/linkedin-insight.js?v=6a5e12a7" defer></script>
+<html lang="en"><head><meta charset="utf-8"><meta name="fq-lead-proxy" content="../../api/lead.php"><title>Fandaqah features</title><meta name="robots" content="noindex, follow"><link rel="canonical" href="https://usamakhanksa.github.io/fandaqah-360/landing/features.html"><meta http-equiv="refresh" content="0; url=../features.html"><script src="../../assets/js/fq-ads.js?v=47307225" async></script>
+<script src="../../assets/js/fq-snap.js?v=7444017b" async></script>
+<script src="../../assets/js/linkedin-insight.js?v=6a5e12a7" defer></script>
 <script src="../../assets/js/fandaqah-tiktok.js?v=1f880a5d" defer></script>
 </head><body><a href="../features.php">All Fandaqah features</a><noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=11189657&fmt=gif"></noscript>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=992779690541049&amp;ev=PageView&amp;noscript=1"></noscript>
 <script src="../../assets/js/lead-capture.js?v=6b887231" defer></script>
 <!-- WhatsApp chat button (added to every PHP copy by tools/build-php.py) -->
 <style>

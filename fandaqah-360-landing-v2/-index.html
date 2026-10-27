@@ -1557,6 +1557,7 @@ html:has(.lead[open]){overflow:hidden}
       if (!res || !res.ok) throw new Error('HTTP ' + (res ? res.status : 'offline'));
       if (window.dataLayer) window.dataLayer.push({ event: 'generate_lead', lead_plan: plan, submission_id: submissionId });
       if (window.F360LI) window.F360LI.leadSubmitted(submissionId);   // LinkedIn F360_Lead_Submit (browser), event_id = submission_id
+      document.dispatchEvent(new CustomEvent('fq:lead', { detail: { id: submissionId, segment: 'A' } }));   // Google Ads + Meta (assets/js/fq-ads.js)
       done();
     } catch (err) {
       alertEl.innerHTML = LEAD_TXT[lang].fail; alertEl.hidden = false;

@@ -177,7 +177,7 @@ function f360_tt_send(array $events, string $source = 'web', ?string $sourceId =
     $raw  = curl_exec($ch);
     $http = (int)curl_getinfo($ch, CURLINFO_HTTP_CODE);
     $err  = curl_error($ch);
-    curl_close($ch);
+    unset($ch);   // frees the handle (curl_close() has done nothing since PHP 8.0 and is deprecated in 8.5)
 
     $json = is_string($raw) ? json_decode($raw, true) : null;
     $ok   = $http === 200 && is_array($json) && (int)($json['code'] ?? -1) === 0;

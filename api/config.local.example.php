@@ -6,5 +6,8 @@ return [
     'linkedin_capi_token'     => '',   // LINKEDIN_CAPI_TOKEN
     'tiktok_pixel_id'         => '',   // TIKTOK_PIXEL_ID (also set in assets/js/fandaqah-tiktok.js)
     'tiktok_events_api_token' => '',   // TIKTOK_EVENTS_API_TOKEN
+    'snap_pixel_id'           => '',   // FQ_SNAP_PIXEL_ID (also set in assets/js/fq-snap.js)
+    'snap_capi_token'         => '',   // FQ_SNAP_CAPI_TOKEN
+    'snap_test_event_code'    => '',   // FQ_SNAP_TEST_CODE: only while checking Test Events, then empty again
     'funnel_key'              => '',   // FQ_FUNNEL_KEY: opens the funnel report, api/funnel.php?key=…
 ];
