@@ -1538,6 +1538,7 @@ html:has(.lead[open]){overflow:hidden}
     const fatId = (window.F360LI && window.F360LI.fatId()) || qs.get('li_fat_id') || undefined;
     const payload = {
       submission_id: submissionId, li_fat_id: fatId, campaign_type: 'new_customer',
+      ...(window.F360 && window.F360.clickIds ? window.F360.clickIds() : {}),   // gclid / gbraid / wbraid for the CRM's offline imports
       name: fields.name.value.trim(), email: fields.email.value.trim(), phone: '+966' + saMobile(fields.phone.value),
       // the plan also goes in the message so sales sees it even if the CRM ignores the extra fields
       message: (msg ? msg + '\n\n' : '') + `[Fandaqah 360 landing · ${PLANS.en[plan]} · ${lang.toUpperCase()}]`,

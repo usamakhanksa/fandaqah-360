@@ -1,0 +1,46 @@
+<!-- ===================================================================
+     F360 | Google tag block  (v1.0.0)
+     REPLACES the two existing gtag <script> blocks in <head> of BOTH:
+       /landing/fandaqah-360/existing-customers/
+       /landing/fandaqah-360/fandaqah-360-landing-v2/
+     Place it as high in <head> as possible, before the Meta pixel.
+     DELETE the old line:
+       gtag('event','conversion',{'send_to':'AW-18383069867/8w92CO-ejqodEKvF3b1E'});
+     (it fires the lead conversion on every page load).
+     =================================================================== -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  // Guarded gtag: the F360_Lead_Success label can only fire through
+  // f360-measurement.js after a confirmed CRM success (gate flag).
+  function gtag() {
+    var a = arguments;
+    if (a[0] === 'event' && a[1] === 'conversion' && a[2] &&
+        String(a[2].send_to || '').indexOf('8w92CO-ejqodEKvF3b1E') > -1 &&
+        !window.__F360_LEAD_GATE) {
+      if (window.console) console.warn('[F360] Blocked lead conversion outside confirmed form success');
+      return;
+    }
+    dataLayer.push(a);
+  }
+  // Consent Mode v2 - must run BEFORE config.
+  // EEA / UK / CH visitors: denied until a consent banner grants it.
+  gtag('consent', 'default', {
+    ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied',
+    region: ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IS','IE','IT','LV','LI','LT','LU',
+             'MT','NL','NO','PL','PT','RO','SK','SI','ES','SE','GB','CH'],
+    wait_for_update: 500
+  });
+  // Saudi Arabia and rest of world: granted (approved policy - PDPL notice in privacy page).
+  gtag('consent', 'default', {
+    ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted', analytics_storage: 'granted'
+  });
+  gtag('set', 'ads_data_redaction', true);   // only applies where ad_storage is denied
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18383069867"></script>
+<script>
+  gtag('js', new Date());
+  gtag('config', 'AW-18383069867', { allow_enhanced_conversions: true });
+  gtag('config', 'G-70NH8KGTDQ');   // existing GA4 property, now also on the landing pages
+</script>
+<script defer src="/landing/fandaqah-360/assets/js/f360-measurement.js"></script>
+<!-- =================================================================== -->

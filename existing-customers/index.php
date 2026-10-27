@@ -116,7 +116,9 @@
 <link rel="stylesheet" href="../assets/css/site.css?v=1bc17487">
 <link rel="stylesheet" href="../assets/css/v2.css?v=1e2fb01d">
 <script>/* Arabic by default: English only when the link asks (?lang=en) or the reader chose it before. The page stays hidden until its text is in that language, with a 1.5 s safety net. */(function(r){var l;try{l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('fq360-lang')}catch(e){}r.classList.add('js');if(l!=='en'){r.lang='ar';r.dir='rtl';r.classList.add('i18n-wait');setTimeout(function(){r.classList.remove('i18n-wait')},1500)}})(document.documentElement)</script><style>.i18n-wait body{visibility:hidden}</style>
-<script src="../assets/js/fq-ads.js?v=47307225" async data-ads-events></script>
+<script src="../assets/js/fq-ads.js?v=cdc94123"></script>
+<script src="../assets/js/f360-measurement.js?v=10e63226" defer data-google-events></script>
+<script src="../assets/js/fq-meta-events.js?v=9d59311c" defer data-meta-events></script>
 <script src="../assets/js/fq-snap.js?v=7444017b" async data-snap-events></script>
 <script src="../assets/js/linkedin-insight.js?v=6a5e12a7" defer data-f360-events></script>
 <script src="../assets/js/fandaqah-tiktok.js?v=1f880a5d" defer data-tt-events></script>
@@ -865,7 +867,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 <script src="../assets/vendor/scrollcraft/scrollcraft.js?v=9246fbe4" defer></script>
-<script src="../assets/js/site.js?v=6649c1d5" defer></script>
+<script src="../assets/js/site.js?v=09ada31c" defer></script>
 <script src="../assets/js/v2.js?v=b2a7f625" defer></script>
 <noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=11189657&fmt=gif"></noscript>
 <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=992779690541049&amp;ev=PageView&amp;noscript=1"></noscript>

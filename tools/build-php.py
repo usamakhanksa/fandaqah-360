@@ -19,7 +19,7 @@ import fnmatch, hashlib, pathlib, posixpath, re, sys
 
 R = pathlib.Path(__file__).resolve().parent.parent
 SKIP_DIRS = {'.git', '.github', '_internal', '_site', 'archive', 'campaigns', 'tools', 'banners', 'api', 'node_modules', 'scrollcraft',
-             'f360-linkedin-dev-pack', 'tiktok', 'snapcha-retargeting', 'meta'}   # the LinkedIn and TikTok hand-off packs: reference material, wired in via assets/js/ and api/
+             'f360-linkedin-dev-pack', 'tiktok', 'snapcha-retargeting', 'meta', 'googleads'}   # the LinkedIn and TikTok hand-off packs: reference material, wired in via assets/js/ and api/
 SKIP_PAGES = ('book/reel.html', 'book/snap*.html')   # render compositions for the reels and Snapchat ads, not pages anyone visits
 MARK = 'Generated from '
 
@@ -94,7 +94,16 @@ TIKTOK_TAG = '<script src="%s' + TIKTOK + '?v=' + hashlib.sha1((R / TIKTOK).read
 # upload keeps them; their lead conversions on the two F360 pages only. Snap Pixel (snapcha-retargeting pack, assets/js/fq-snap.js):
 # PAGE_VIEW on every page, its conversion events on the two F360 pages. Both stay as written until their ids are filled in.
 ADS = 'assets/js/fq-ads.js'
-ADS_TAG = '<script src="%s' + ADS + '?v=' + hashlib.sha1((R / ADS).read_bytes()).hexdigest()[:8] + '" async%s></script>\n'
+# A plain tag (not async/defer), so its Consent Mode defaults and configs are queued before every other tag (googleads/ pack).
+ADS_TAG = '<script src="%s' + ADS + '?v=' + hashlib.sha1((R / ADS).read_bytes()).hexdigest()[:8] + '"></script>\n'
+# Google measurement layer (googleads/ pack, assets/js/f360-measurement.js): the lead conversion with Enhanced Conversions, the eight
+# secondary conversions and GA4 events, on the two F360 pages only; click ids and UTMs on every page.
+MEASURE = 'assets/js/f360-measurement.js'
+MEASURE_TAG = '<script src="%s' + MEASURE + '?v=' + hashlib.sha1((R / MEASURE).read_bytes()).hexdigest()[:8] + '" defer%s></script>\n'
+# Meta event layer (meta/ pack, assets/js/fq-meta-events.js): after the base pixel in fq-ads.js; ViewContent, Contact,
+# InitiateCheckout, LeadFormStart and the Lead that pairs with api/fq_meta_capi.php, on the two F360 pages only.
+META_EVENTS = 'assets/js/fq-meta-events.js'
+META_EVENTS_TAG = '<script src="%s' + META_EVENTS + '?v=' + hashlib.sha1((R / META_EVENTS).read_bytes()).hexdigest()[:8] + '" defer%s></script>\n'
 SNAP = 'assets/js/fq-snap.js'
 SNAP_TAG = '<script src="%s' + SNAP + '?v=' + hashlib.sha1((R / SNAP).read_bytes()).hexdigest()[:8] + '" async%s></script>\n'
 META_NOSCRIPT = ('<noscript><img height="1" width="1" style="display:none" alt="" '
@@ -141,12 +150,14 @@ def convert(rel, src, known):
         raise SystemExit(f'{rel}: no </body> to place the lead capture before')
     tail = INSIGHT_NOSCRIPT + META_NOSCRIPT + (CAPTURE_TAG % up) + (WHATSAPP if rel not in NO_WHATSAPP else '')
     s = s[:end] + tail.replace('\n', nl) + s[end:]
-    # the ad platforms' tags, last in the <head>: Google Ads + Meta, Snap, LinkedIn, TikTok
+    # the ad platforms' tags, last in the <head>: Google Ads + Meta (base pixel, then its event layer), Snap, LinkedIn, TikTok
     head_end = s.find('</head>')
     if head_end == -1:
         raise SystemExit(f'{rel}: no </head> to place the LinkedIn and TikTok tags in')
     f360 = rel in F360_EVENT_PAGES
-    tag = (ADS_TAG % (up, ' data-ads-events' if f360 else '') + SNAP_TAG % (up, ' data-snap-events' if f360 else '')
+    tag = (ADS_TAG % up + MEASURE_TAG % (up, ' data-google-events' if f360 else '')
+           + META_EVENTS_TAG % (up, ' data-meta-events' if f360 else '')
+           + SNAP_TAG % (up, ' data-snap-events' if f360 else '')
            + INSIGHT_TAG % (up, ' data-f360-events' if f360 else '') + TIKTOK_TAG % (up, ' data-tt-events' if f360 else ''))
     s = s[:head_end] + tag.replace('\n', nl) + s[head_end:]
     # the page still opens if api/ was not uploaded (its forms then post straight to the CRM)

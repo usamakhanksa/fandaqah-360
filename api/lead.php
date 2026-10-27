@@ -118,7 +118,7 @@ function tidy($v, int $depth = 0)
     return null;
 }
 $lead = [];
-foreach ($in as $k => $v) if (is_string($k) && $k !== 'website' && $k !== '_snap') $lead[substr($k, 0, 64)] = tidy($v);
+foreach ($in as $k => $v) if (is_string($k) && !in_array($k, ['website', '_snap', 'meta'], true)) $lead[substr($k, 0, 64)] = tidy($v);
 // the Snap click id travels with the lead, so the CRM can send later stages (qualified, opportunity, customer) back to Snap
 if (!empty($snap['sc_click_id']) && empty($lead['sc_click_id'])) $lead['sc_click_id'] = $snap['sc_click_id'];
 
@@ -225,6 +225,37 @@ function snap_lead(array $lead, array $snap, bool $isForm, array $config): void
     });
 }
 
+/* Meta Conversions API (meta/ pack): the server Lead, event_id = submission_id, the browser Lead's eventID (fq-meta-events.js).
+   Meta's browser cookies (_fbp, _fbc) arrive with this same-site request, so the forms send nothing extra; a page that does send
+   the pack's "meta" context still wins. The CRM never receives any of it. */
+function meta_lead(array $lead, array $in, array $config): void
+{
+    if (($config['meta']['token'] ?? '') === '' || empty($lead['submission_id']) || !f360_conversion_lead($lead)) return;
+    $ctx = is_array($in['meta'] ?? null) ? $in['meta'] : [];
+    $fbclid = '';
+    foreach ([$lead['latest_touch'] ?? null, $lead['first_touch'] ?? null] as $t) if (is_array($t) && !empty($t['fbclid'])) { $fbclid = (string) $t['fbclid']; break; }
+    if ($fbclid === '') {   // the v2 page keeps no attribution store: the click id is still in the page address
+        $q = [];
+        parse_str((string) parse_url((string) ($lead['page_url'] ?? ''), PHP_URL_QUERY), $q);
+        $fbclid = (string) ($q['fbclid'] ?? '');
+    }
+    $payload = $lead;
+    $payload['meta'] = array_filter([
+        'event_id'         => (string) ($ctx['event_id'] ?? $lead['submission_id']),
+        'fbp'              => $ctx['fbp'] ?? ($_COOKIE['_fbp'] ?? null),
+        // _fbc is Meta's own cookie; on a first visit it may not exist yet, so it is built from fbclid as Meta specifies
+        'fbc'              => $ctx['fbc'] ?? ($_COOKIE['_fbc'] ?? ($fbclid !== '' ? 'fb.1.' . (int) round(microtime(true) * 1000) . '.' . $fbclid : null)),
+        'event_source_url' => $ctx['event_source_url'] ?? ($lead['page_url'] ?? null),
+        'campaign_type'    => $ctx['campaign_type'] ?? ($lead['campaign_type'] ?? null),
+        'landing_page'     => $ctx['landing_page'] ?? basename(rtrim((string) parse_url((string) ($lead['page_url'] ?? ''), PHP_URL_PATH), '/')),
+    ], function ($v) { return $v !== null && $v !== ''; });
+    after_answer(function () use ($payload) {
+        require_once __DIR__ . '/fq_meta_capi.php';
+        $r = fq_meta_send_lead($payload);
+        if (empty($r['ok']) && empty($r['skipped'])) error_log('fq lead proxy: Meta CAPI not accepted (HTTP ' . ($r['http'] ?? 0) . ')');
+    });
+}
+
 function linkedin_lead_submit(array $lead, array $config): void
 {
     if (($config['linkedin_capi_token'] ?? '') === '' || empty($lead['submission_id']) || !f360_conversion_lead($lead)) return;
@@ -272,6 +303,7 @@ if ($status >= 200 && $status < 300) {
     linkedin_lead_submit($lead, $config);
     tiktok_lead($lead, $config);
     snap_lead($lead, $snap, $isForm, $config);
+    meta_lead($lead, $in, $config);
     reply(200, ['ok' => true, 'crm' => is_array($crm) ? $crm : null]);
 }
 if ($status === 429) reply(429, ['error' => 'Too many requests. Please try again in a few minutes.']);

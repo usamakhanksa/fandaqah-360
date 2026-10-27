@@ -40,6 +40,12 @@ return [
         'timeout'         => 4,
         'debug'           => (bool) getenv('FQ_SNAP_DEBUG'),
     ],
+    // Meta Conversions API (meta/ pack, api/fq_meta_capi.php): dataset 992779690541049 (fixed in that file and in assets/js/fq-ads.js).
+    // Token: Events Manager → the dataset → Settings → Conversions API → Generate access token. Empty = no server Lead.
+    'meta' => [
+        'token'           => $secret('META_CAPI_TOKEN', 'meta_capi_token'),
+        'test_event_code' => getenv('META_TEST_EVENT_CODE') ?: ($local['meta_test_event_code'] ?? ''),   // only while testing
+    ],
     // the funnel report (api/funnel.php?key=…): empty = the report is switched off
     'funnel_key' => $secret('FQ_FUNNEL_KEY', 'funnel_key'),
 ];

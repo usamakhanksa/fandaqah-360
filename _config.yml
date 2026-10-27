@@ -10,6 +10,7 @@ exclude:
   - tiktok
   - snapcha-retargeting
   - meta
+  - googleads
   - logs
   - README.md
   - "*.pdf"

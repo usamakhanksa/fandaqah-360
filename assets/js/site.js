@@ -26,7 +26,7 @@
   try { referrer = sessionStorage.getItem('fq360_ref') || referrer; sessionStorage.removeItem('fq360_ref'); } catch (e) {}
   const touch = { landing_url: location.href.split('#')[0], referrer, at: new Date().toISOString() };
   UTM.forEach(k => { if (qs.get(k)) touch[k] = qs.get(k).slice(0, 150); });
-  ['gclid', 'fbclid', 'li_fat_id', 'ScCid', 'ttclid'].forEach(k => { if (qs.get(k)) touch[k] = qs.get(k).slice(0, 200); });
+  ['gclid', 'gbraid', 'wbraid', 'fbclid', 'li_fat_id', 'ScCid', 'ttclid'].forEach(k => { if (qs.get(k)) touch[k] = qs.get(k).slice(0, 200); });
   const attr = store.get('fq360_attr') || {};
   if (!attr.first || Date.now() - Date.parse(attr.first.at) > 90 * 864e5) attr.first = touch;
   if (hasUtm || !attr.latest) attr.latest = touch;
@@ -296,6 +296,8 @@
         // LinkedIn's click id and the campaign type in their own fields, so the CRM can store them for the Conversions API
         li_fat_id: latest.li_fat_id || first.li_fat_id || (window.F360LI && window.F360LI.fatId()) || undefined,
         campaign_type: PAGE.segment === 'A' ? 'existing_customer' : 'new_customer',
+        // Google's click ids in their own fields, for the CRM's offline conversion imports (googleads/ pack)
+        gclid: latest.gclid || first.gclid || undefined, gbraid: latest.gbraid || first.gbraid || undefined, wbraid: latest.wbraid || first.wbraid || undefined,
         landing_url: first.landing_url, page_url: location.href.split('#')[0], submitted_at: now, language: root.lang,
         privacy_notice: { shown: true, url: $('.form-privacy a', form).href, version: '2026-10' },
         marketing_consent: consent, marketing_consent_text: consent ? $('.consent span', form).textContent.trim() : undefined, marketing_consent_at: consent ? now : undefined

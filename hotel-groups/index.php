@@ -31,7 +31,9 @@ document.documentElement.classList.add('js');
 /* the visitor's group identity is applied before first paint, so the page never flashes the default */
 try { const g = JSON.parse(localStorage.getItem('fq360-group-id')); if (g && g.c) document.documentElement.style.setProperty('--gb', g.c); } catch (e) {}
 </script>
-<script src="../assets/js/fq-ads.js?v=47307225" async></script>
+<script src="../assets/js/fq-ads.js?v=cdc94123"></script>
+<script src="../assets/js/f360-measurement.js?v=10e63226" defer></script>
+<script src="../assets/js/fq-meta-events.js?v=9d59311c" defer></script>
 <script src="../assets/js/fq-snap.js?v=7444017b" async></script>
 <script src="../assets/js/linkedin-insight.js?v=6a5e12a7" defer></script>
 <script src="../assets/js/fandaqah-tiktok.js?v=1f880a5d" defer></script>
@@ -608,7 +610,7 @@ window.FQ_PAGE = {
 };
 </script>
 <script src="../assets/vendor/scrollcraft/scrollcraft.js?v=9246fbe4" defer></script>
-<script src="../assets/js/site.js?v=6649c1d5" defer></script>
+<script src="../assets/js/site.js?v=09ada31c" defer></script>
 <script src="../assets/js/v2.js?v=b2a7f625" defer></script>
 <script src="../assets/js/groups.js?v=37a08af6" defer></script>
 <noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=11189657&fmt=gif"></noscript>

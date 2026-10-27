@@ -743,7 +743,9 @@ html:has(.lead[open]){overflow:hidden}
   [dir="rtl"] .devices{transform:translateX(50%) scale(.45)}
 }
 </style>
-<script src="../assets/js/fq-ads.js?v=47307225" async data-ads-events></script>
+<script src="../assets/js/fq-ads.js?v=cdc94123"></script>
+<script src="../assets/js/f360-measurement.js?v=10e63226" defer data-google-events></script>
+<script src="../assets/js/fq-meta-events.js?v=9d59311c" defer data-meta-events></script>
 <script src="../assets/js/fq-snap.js?v=7444017b" async data-snap-events></script>
 <script src="../assets/js/linkedin-insight.js?v=6a5e12a7" defer data-f360-events></script>
 <script src="../assets/js/fandaqah-tiktok.js?v=1f880a5d" defer data-tt-events></script>
@@ -1543,6 +1545,7 @@ html:has(.lead[open]){overflow:hidden}
     const fatId = (window.F360LI && window.F360LI.fatId()) || qs.get('li_fat_id') || undefined;
     const payload = {
       submission_id: submissionId, li_fat_id: fatId, campaign_type: 'new_customer',
+      ...(window.F360 && window.F360.clickIds ? window.F360.clickIds() : {}),   // gclid / gbraid / wbraid for the CRM's offline imports
       name: fields.name.value.trim(), email: fields.email.value.trim(), phone: '+966' + saMobile(fields.phone.value),
       // the plan also goes in the message so sales sees it even if the CRM ignores the extra fields
       message: (msg ? msg + '\n\n' : '') + `[Fandaqah 360 landing · ${PLANS.en[plan]} · ${lang.toUpperCase()}]`,
