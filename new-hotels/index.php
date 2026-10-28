@@ -27,6 +27,7 @@
 <script src="../assets/js/fq-ads.js?v=cdc94123"></script>
 <script src="../assets/js/f360-measurement.js?v=10e63226" defer></script>
 <script src="../assets/js/fq-meta-events.js?v=9d59311c" defer></script>
+<script src="../assets/js/f360-formopen.js?v=6c7c4a60" defer></script>
 <script src="../assets/js/fq-snap.js?v=7444017b" async></script>
 <script src="../assets/js/linkedin-insight.js?v=6a5e12a7" defer></script>
 <script src="../assets/js/fandaqah-tiktok.js?v=1f880a5d" defer></script>
@@ -328,7 +329,7 @@ window.FQ_PAGE = {
   }
 };
 </script>
-<script src="../assets/js/site.js?v=09ada31c" defer></script>
+<script src="../assets/js/site.js?v=2fc46169" defer></script>
 <noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=11189657&fmt=gif"></noscript>
 <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=992779690541049&amp;ev=PageView&amp;noscript=1"></noscript>
 <script src="../assets/js/lead-capture.js?v=6b887231" defer></script>

@@ -3,6 +3,7 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="fq-lead-proxy" content="../../../api/lead.php"><title>Fandaqah features</title><meta name="robots" content="noindex, follow"><link rel="canonical" href="https://usamakhanksa.github.io/fandaqah-360/landing/features.html"><meta http-equiv="refresh" content="0; url=../../features.html?lang=ar"><script src="../../../assets/js/fq-ads.js?v=cdc94123"></script>
 <script src="../../../assets/js/f360-measurement.js?v=10e63226" defer></script>
 <script src="../../../assets/js/fq-meta-events.js?v=9d59311c" defer></script>
+<script src="../../../assets/js/f360-formopen.js?v=6c7c4a60" defer></script>
 <script src="../../../assets/js/fq-snap.js?v=7444017b" async></script>
 <script src="../../../assets/js/linkedin-insight.js?v=6a5e12a7" defer></script>
 <script src="../../../assets/js/fandaqah-tiktok.js?v=1f880a5d" defer></script>

@@ -298,6 +298,9 @@
         campaign_type: PAGE.segment === 'A' ? 'existing_customer' : 'new_customer',
         // Google's click ids in their own fields, for the CRM's offline conversion imports (googleads/ pack)
         gclid: latest.gclid || first.gclid || undefined, gbraid: latest.gbraid || first.gbraid || undefined, wbraid: latest.wbraid || first.wbraid || undefined,
+        // Meta's browser ids for the server Lead (meta/ pack), event_id = submission_id = the browser Lead's eventID; the proxy
+        // never passes them on to the CRM
+        meta: window.fqMeta && window.fqMeta.capiContext ? Object.assign(window.fqMeta.capiContext(id), { event_id: id }) : undefined,
         landing_url: first.landing_url, page_url: location.href.split('#')[0], submitted_at: now, language: root.lang,
         privacy_notice: { shown: true, url: $('.form-privacy a', form).href, version: '2026-10' },
         marketing_consent: consent, marketing_consent_text: consent ? $('.consent span', form).textContent.trim() : undefined, marketing_consent_at: consent ? now : undefined

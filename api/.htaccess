@@ -1,6 +1,6 @@
 # Only the proxy answers the web; its settings and the page header are read by PHP, never served.
 Options -Indexes
-<FilesMatch "^(config|config\.local|config\.local\.example|page|f360_linkedin_capi|tiktok-events-api|tiktok-crm-events|snap-capi|fq_meta_capi|fq_crm_stage_capi)\.php$">
+<FilesMatch "^(config|config\.local|config\.local\.example|page|f360_linkedin_capi|tiktok-events-api|tiktok-crm-events|snap-capi|fq_meta_capi|meta-capi|f360-partial-lib|fq_crm_stage_capi)\.php$">
   <IfModule mod_authz_core.c>
     Require all denied
   </IfModule>

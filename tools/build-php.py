@@ -104,6 +104,10 @@ MEASURE_TAG = '<script src="%s' + MEASURE + '?v=' + hashlib.sha1((R / MEASURE).r
 # InitiateCheckout, LeadFormStart and the Lead that pairs with api/fq_meta_capi.php, on the two F360 pages only.
 META_EVENTS = 'assets/js/fq-meta-events.js'
 META_EVENTS_TAG = '<script src="%s' + META_EVENTS + '?v=' + hashlib.sha1((R / META_EVENTS).read_bytes()).hexdigest()[:8] + '" defer%s></script>\n'
+# Meta retargeting add-on (second meta/ pack, assets/js/f360-formopen.js): right after the event layer; F360_FormOpen_NoFill and
+# F360_FormAbandon, browser + server (api/meta-event.php) with one event_id, on the two F360 pages only.
+FORMOPEN = 'assets/js/f360-formopen.js'
+FORMOPEN_TAG = '<script src="%s' + FORMOPEN + '?v=' + hashlib.sha1((R / FORMOPEN).read_bytes()).hexdigest()[:8] + '" defer%s></script>\n'
 SNAP = 'assets/js/fq-snap.js'
 SNAP_TAG = '<script src="%s' + SNAP + '?v=' + hashlib.sha1((R / SNAP).read_bytes()).hexdigest()[:8] + '" async%s></script>\n'
 META_NOSCRIPT = ('<noscript><img height="1" width="1" style="display:none" alt="" '
@@ -157,6 +161,7 @@ def convert(rel, src, known):
     f360 = rel in F360_EVENT_PAGES
     tag = (ADS_TAG % up + MEASURE_TAG % (up, ' data-google-events' if f360 else '')
            + META_EVENTS_TAG % (up, ' data-meta-events' if f360 else '')
+           + FORMOPEN_TAG % (up, ' data-meta-events' if f360 else '')
            + SNAP_TAG % (up, ' data-snap-events' if f360 else '')
            + INSIGHT_TAG % (up, ' data-f360-events' if f360 else '') + TIKTOK_TAG % (up, ' data-tt-events' if f360 else ''))
     s = s[:head_end] + tag.replace('\n', nl) + s[head_end:]

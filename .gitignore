@@ -16,6 +16,9 @@ _internal.zip
 
 # server logs (logs/.htaccess keeps the folder private on the host)
 logs/*.log
+# the funnel log and the partial-lead call list (personal data): never committed, never packaged
+logs/*.jsonl
+logs/partial/
 
 # server secrets (api/config.local.php): on the host and in the upload package, never in git
 api/config.local.php

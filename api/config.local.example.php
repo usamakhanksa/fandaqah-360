@@ -12,4 +12,8 @@ return [
     'meta_capi_token'         => '',   // META_CAPI_TOKEN: Meta dataset 992779690541049 → Conversions API
     'meta_test_event_code'    => '',   // META_TEST_EVENT_CODE: only while checking Test events, then empty again
     'funnel_key'              => '',   // FQ_FUNNEL_KEY: opens the funnel report, api/funnel.php?key=…
+    'partial_key'             => '',   // F360_PARTIAL_KEY: opens the partial-lead call list, api/partial-leads.php?key=… (long, random)
+    'partial_webhook'         => '',   // F360_CRM_PARTIAL_WEBHOOK: optional, the CRM's "Partial lead" queue
+    // 'partial_dir'          => '/home/<account>/f360-partial-leads',   // F360_PARTIAL_DIR: best outside the web root
+    // 'partial_days'         => 30,   // F360_PARTIAL_DAYS: how long a number is kept
 ];

@@ -12,6 +12,8 @@
  * visitor has the answer, with _fbp/_fbc read from the same-site request (the forms need no patch). Never served (.htaccess).
  *
  * Dedup contract: event_name "Lead" + event_id == browser fbq eventID == payload.submission_id.
+ * Second meta/ pack (28 Oct 2026): api/meta-capi.php (meta_capi_send) and api/meta-event.php send their custom events through
+ * fq_meta_post() below, so there is one token, one Graph version and one set of normalisers.
  */
 
 const FQ_META_PIXEL_ID      = '992779690541049';
@@ -116,13 +118,18 @@ function fq_meta_build_lead_event(array $payload): ?array
 /** Fire-and-log. Returns ['ok'=>bool, ...]. Never throws, never blocks more than FQ_META_TIMEOUT_S. */
 function fq_meta_send_lead(array $payload): array
 {
+    $event = fq_meta_build_lead_event($payload);
+    if (!$event) return ['ok' => false, 'skipped' => 'no valid event_id'];
+    return fq_meta_post($event);
+}
+
+/** The one sender for every server event (the Lead above, the custom events of api/meta-capi.php). */
+function fq_meta_post(array $event): array
+{
     $cfg = fq_meta_settings();
     $token = (string) ($cfg['token'] ?? '');
     if ($token === '') return ['ok' => false, 'skipped' => 'META_CAPI_TOKEN not set'];
     if (!function_exists('curl_init')) return ['ok' => false, 'skipped' => 'curl not available'];
-
-    $event = fq_meta_build_lead_event($payload);
-    if (!$event) return ['ok' => false, 'skipped' => 'no valid event_id'];
 
     $body = ['data' => [$event]];
     if (!empty($cfg['test_event_code'])) $body['test_event_code'] = $cfg['test_event_code'];
@@ -145,7 +152,9 @@ function fq_meta_send_lead(array $payload): array
 
     $ok = $code === 200;
     // Log without PII: event_id + status only
-    error_log(sprintf('[fq-capi] Lead event_id=%s http=%d %s', $event['event_id'], $code, $ok ? 'OK' : ('ERR ' . ($err ?: substr((string) $resp, 0, 300)))));
+    // (the custom events come with most visits to the two pages: only their failures are logged)
+    if (!$ok || $event['event_name'] === 'Lead')
+        error_log(sprintf('[fq-capi] %s event_id=%s http=%d %s', $event['event_name'], $event['event_id'], $code, $ok ? 'OK' : ('ERR ' . ($err ?: substr((string) $resp, 0, 300)))));
     return ['ok' => $ok, 'http' => $code, 'event_id' => $event['event_id']];
 }
 

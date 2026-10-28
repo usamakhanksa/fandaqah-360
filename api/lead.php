@@ -256,6 +256,17 @@ function meta_lead(array $lead, array $in, array $config): void
     });
 }
 
+/* Partial leads (second meta/ pack, patch 3b): a number that has now sent its request leaves the call-back list */
+function partial_converted(array $lead): void
+{
+    if (($lead['lead_stage'] ?? '') === 'partial' || !is_string($lead['phone'] ?? null) || $lead['phone'] === '') return;
+    $phone = $lead['phone'];
+    after_answer(function () use ($phone) {
+        require_once __DIR__ . '/f360-partial-lib.php';
+        f360_partial_mark_converted($phone);
+    });
+}
+
 function linkedin_lead_submit(array $lead, array $config): void
 {
     if (($config['linkedin_capi_token'] ?? '') === '' || empty($lead['submission_id']) || !f360_conversion_lead($lead)) return;
@@ -304,6 +315,7 @@ if ($status >= 200 && $status < 300) {
     tiktok_lead($lead, $config);
     snap_lead($lead, $snap, $isForm, $config);
     meta_lead($lead, $in, $config);
+    partial_converted($lead);
     reply(200, ['ok' => true, 'crm' => is_array($crm) ? $crm : null]);
 }
 if ($status === 429) reply(429, ['error' => 'Too many requests. Please try again in a few minutes.']);

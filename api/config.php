@@ -48,4 +48,13 @@ return [
     ],
     // the funnel report (api/funnel.php?key=…): empty = the report is switched off
     'funnel_key' => $secret('FQ_FUNNEL_KEY', 'funnel_key'),
+    // Partial leads (second meta/ pack, api/f360-partial-lead.php): numbers typed WITH consent on the two F360 pages before the form
+    // was sent, the call-back list. Stored as one JSON line per visit, a file per month, in a folder no browser can open: outside the
+    // web root if the host allows it (F360_PARTIAL_DIR), else logs/partial (logs/.htaccess denies the web). Kept partial_days.
+    'partial' => [
+        'dir'     => getenv('F360_PARTIAL_DIR') ?: ($local['partial_dir'] ?? (__DIR__ . '/../logs/partial')),
+        'webhook' => $secret('F360_CRM_PARTIAL_WEBHOOK', 'partial_webhook'),   // optional: the CRM's "Partial lead" queue (https)
+        'days'    => max(1, (int) (getenv('F360_PARTIAL_DAYS') ?: ($local['partial_days'] ?? 30))),
+        'key'     => $secret('F360_PARTIAL_KEY', 'partial_key'),               // opens the call list, api/partial-leads.php?key=…
+    ],
 ];

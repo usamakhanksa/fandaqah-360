@@ -47,6 +47,7 @@ html[lang=ar]{--sans:Almarai,system-ui,sans-serif;--serif:ElMessiri,Georgia,seri
 <script src="assets/js/fq-ads.js?v=cdc94123"></script>
 <script src="assets/js/f360-measurement.js?v=10e63226" defer></script>
 <script src="assets/js/fq-meta-events.js?v=9d59311c" defer></script>
+<script src="assets/js/f360-formopen.js?v=6c7c4a60" defer></script>
 <script src="assets/js/fq-snap.js?v=7444017b" async></script>
 <script src="assets/js/linkedin-insight.js?v=6a5e12a7" defer></script>
 <script src="assets/js/fandaqah-tiktok.js?v=1f880a5d" defer></script>

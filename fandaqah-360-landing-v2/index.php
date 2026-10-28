@@ -597,6 +597,7 @@ html:has(.lead[open]){overflow:hidden}
 .lead-submit{width:100%;margin-top:4px}
 .lead-submit:disabled{opacity:.75;cursor:progress}
 .lead-note{font-size:12px;line-height:1.5;color:var(--ink-3);text-align:center}
+.f360-notice{display:block;margin-top:6px;font-size:12px;line-height:1.5;color:var(--ink-3)}.f360-notice a{color:inherit;text-decoration:underline}
 .lead-assure{justify-content:center;font-size:13px;font-weight:600;color:var(--ink-2)}
 .lead-assure[hidden]{display:none}
 .lead-assure .tok{width:20px;height:20px}
@@ -746,6 +747,7 @@ html:has(.lead[open]){overflow:hidden}
 <script src="../assets/js/fq-ads.js?v=cdc94123"></script>
 <script src="../assets/js/f360-measurement.js?v=10e63226" defer data-google-events></script>
 <script src="../assets/js/fq-meta-events.js?v=9d59311c" defer data-meta-events></script>
+<script src="../assets/js/f360-formopen.js?v=6c7c4a60" defer data-meta-events></script>
 <script src="../assets/js/fq-snap.js?v=7444017b" async data-snap-events></script>
 <script src="../assets/js/linkedin-insight.js?v=6a5e12a7" defer data-f360-events></script>
 <script src="../assets/js/fandaqah-tiktok.js?v=1f880a5d" defer data-tt-events></script>
@@ -1340,7 +1342,7 @@ html:has(.lead[open]){overflow:hidden}
       <p class="lead-plan" data-lead-plan>Fandaqah 360 upgrade</p>
       <h2 id="lead-title" data-i18n="lead.title">Reserve your launch pricing</h2>
       <p class="lead-sub" data-i18n="lead.sub">Leave your details. Our team will contact you shortly to confirm your offer and reserve the launch price, with the option of a second year at the same rate.</p>
-      <form class="lead-form" novalidate>
+      <form class="lead-form" novalidate data-f360-partial-notice="1">
         <div class="field">
           <label for="lead-name" data-i18n="lead.name">Full name</label>
           <input id="lead-name" name="name" type="text" autocomplete="name" maxlength="80" required aria-describedby="lead-name-err">
@@ -1353,8 +1355,9 @@ html:has(.lead[open]){overflow:hidden}
         </div>
         <div class="field">
           <label for="lead-phone" data-i18n="lead.phone">Mobile number (Saudi Arabia)</label>
-          <div class="tel" dir="ltr"><span class="tel-cc" aria-hidden="true">+966</span><input id="lead-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="5X XXX XXXX" maxlength="20" required aria-describedby="lead-phone-err"></div>
+          <div class="tel" dir="ltr"><span class="tel-cc" aria-hidden="true">+966</span><input id="lead-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="5X XXX XXXX" maxlength="20" required aria-describedby="lead-phone-err lead-phone-note"></div>
           <p class="err" id="lead-phone-err" data-i18n="lead.phoneErr" hidden>Enter a Saudi mobile number: 9 digits starting with 5.</p>
+          <small class="f360-notice" id="lead-phone-note" data-i18n="lead.partial">By entering your number, you agree that the Fandaqah team may contact you about the Fandaqah 360 offer. <a href="https://fandaqah.com/en/store/policy" target="_blank" rel="noopener">Privacy notice</a></small>
         </div>
         <div class="field">
           <label for="lead-msg"><span data-i18n="lead.msg">Message</span> <span class="opt" data-i18n="lead.opt">(optional)</span></label>
@@ -1435,7 +1438,7 @@ html:has(.lead[open]){overflow:hidden}
     'lead.close':'إغلاق','lead.title':'احجز سعر الإطلاق','lead.sub':'اترك بياناتك، وسيتواصل معك فريقنا قريباً لتأكيد العرض وحجز سعر الإطلاق، مع خيار سنة ثانية بالسعر نفسه.',
     'lead.name':'الاسم الكامل','lead.nameErr':'يرجى إدخال الاسم.','lead.email':'البريد الإلكتروني','lead.emailErr':'يرجى إدخال بريد إلكتروني صحيح.',
     'lead.phone':'رقم الجوال (السعودية)','lead.phoneErr':'أدخل رقم جوال سعودياً من 9 أرقام يبدأ بـ 5.','lead.msg':'رسالتك','lead.opt':'(اختياري)',
-    'lead.send':'إرسال الطلب','lead.guar':'مشمول بالضمان الذهبي لمدة 30 يوماً.','lead.note':'نستخدم بياناتك للتواصل معك بخصوص فندقة فقط.','lead.doneT':'شكراً لك!','lead.doneD':'استلمنا طلبك، وسيتواصل معك فريقنا قريباً.','lead.closeBtn':'إغلاق'
+    'lead.send':'إرسال الطلب','lead.guar':'مشمول بالضمان الذهبي لمدة 30 يوماً.','lead.note':'نستخدم بياناتك للتواصل معك بخصوص فندقة فقط.','lead.partial':'بكتابة رقمك توافق على أن يتواصل معك فريق فندقة بخصوص عرض فندقة 360. <a href="https://fandaqah.com/store/policy" target="_blank" rel="noopener">إشعار الخصوصية</a>','lead.doneT':'شكراً لك!','lead.doneD':'استلمنا طلبك، وسيتواصل معك فريقنا قريباً.','lead.closeBtn':'إغلاق'
   };
   const META = {
     en: { title: document.title, desc: document.querySelector('meta[name="description"]').content },
@@ -1506,7 +1509,7 @@ html:has(.lead[open]){overflow:hidden}
   const validate = key => {
     const el = fields[key], ok = CHECKS[key](el.value);
     el.setAttribute('aria-invalid', String(!ok));
-    document.getElementById(el.getAttribute('aria-describedby')).hidden = ok;
+    document.getElementById(el.getAttribute('aria-describedby').split(' ')[0]).hidden = ok;   // first id: the error line (the phone also names its notice)
     return ok;
   };
   let plan = 'general', opener = null;
@@ -1523,7 +1526,7 @@ html:has(.lead[open]){overflow:hidden}
   }
   function done() {
     showStep('done'); form.reset(); delete form.dataset.tried;
-    Object.keys(fields).forEach(k => { fields[k].removeAttribute('aria-invalid'); document.getElementById(fields[k].getAttribute('aria-describedby')).hidden = true; });
+    Object.keys(fields).forEach(k => { fields[k].removeAttribute('aria-invalid'); document.getElementById(fields[k].getAttribute('aria-describedby').split(' ')[0]).hidden = true; });
     lead.querySelector('[data-lead-step="done"] h2').focus();
   }
   document.addEventListener('click', e => { const b = e.target.closest('[data-lead]'); if (b) openLead(b.dataset.lead, b); });
@@ -1546,6 +1549,8 @@ html:has(.lead[open]){overflow:hidden}
     const payload = {
       submission_id: submissionId, li_fat_id: fatId, campaign_type: 'new_customer',
       ...(window.F360 && window.F360.clickIds ? window.F360.clickIds() : {}),   // gclid / gbraid / wbraid for the CRM's offline imports
+      // Meta's browser ids for the server Lead, event_id = submission_id (meta/ pack); the proxy never passes them to the CRM
+      meta: window.fqMeta && window.fqMeta.capiContext ? Object.assign(window.fqMeta.capiContext(submissionId), { event_id: submissionId }) : undefined,
       name: fields.name.value.trim(), email: fields.email.value.trim(), phone: '+966' + saMobile(fields.phone.value),
       // the plan also goes in the message so sales sees it even if the CRM ignores the extra fields
       message: (msg ? msg + '\n\n' : '') + `[Fandaqah 360 landing · ${PLANS.en[plan]} · ${lang.toUpperCase()}]`,
