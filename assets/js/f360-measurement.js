@@ -21,6 +21,8 @@
  * conversions run only where the script tag carries data-google-events, the two Fandaqah 360 landing pages.
  * One lead, one conversion, one id: transaction_id = the request's submission_id (the id every other platform uses), and
  * this file sends NO Meta Lead (assets/js/fq-meta-events.js does, paired with the server), so nothing is counted twice.
+ * Each F360 page's own GA4 property (assets/js/f360-insights.js, 28 Oct 2026) receives every GA4 event here too, and
+ * window.F360.source() names the ad platform that paid for the visit (Clarity tags, the call-back list).
  */
 (function () {
   'use strict';
@@ -60,6 +62,12 @@
     window.dataLayer.push(arguments);
   }
   function log() { if (DEBUG && window.console) console.log.apply(console, ['[F360]'].concat([].slice.call(arguments))); }
+  // one GA4 event to the site-wide property, and the same event to the page's own property (assets/js/f360-insights.js) where set
+  function ga(name, p) {
+    g('event', name, Object.assign({ send_to: GA4 }, p));
+    var own = window.F360Page && window.F360Page.ga4;
+    if (own && own !== GA4) g('event', name, Object.assign({ send_to: own }, p));
+  }
 
   // ------------------------------------------------------------- storage
   function sGet(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } }
@@ -83,6 +91,23 @@
     sSet(ATTR_KEY, rec);
     return rec;
   })();
+  var PLATFORM = [['gclid', 'google'], ['gbraid', 'google'], ['wbraid', 'google'], ['fbclid', 'meta'], ['ttclid', 'tiktok'],
+                  ['ScCid', 'snapchat'], ['li_fat_id', 'linkedin']];
+  function source() {
+    var t = attr.last && Object.keys(attr.last).length ? attr.last : (attr.first || {}), p = '';
+    for (var i = 0; i < PLATFORM.length && !p; i++) if (t[PLATFORM[i][0]]) p = PLATFORM[i][1];
+    var u = String(t.utm_source || '').toLowerCase();
+    if (!p && u) p = /google|adwords|gads|youtube/.test(u) ? 'google' : /^(fb|ig)$|facebook|meta|instagram/.test(u) ? 'meta'
+      : /tiktok/.test(u) ? 'tiktok' : /snap/.test(u) ? 'snapchat' : /linkedin|lnkd/.test(u) ? 'linkedin'
+      : u.replace(/[^a-z0-9_.-]/g, '').slice(0, 30);
+    return { ad_platform: p || 'none', utm_source: String(t.utm_source || '').slice(0, 100), utm_campaign: String(t.utm_campaign || '').slice(0, 100) };
+  }
+  // every platform's own click id this browser kept (last touch, else first), sent with the lead for each platform's imports
+  function allClickIds() {
+    var out = {}, l = attr.last || {}, f = attr.first || {};
+    CLICK_KEYS.forEach(function (k) { var v = l[k] || f[k]; if (v) out[k] = v; });
+    return out;
+  }
   function clickIds() {
     var out = {}, l = attr.last || {}, f = attr.first || {};
     ['gclid', 'gbraid', 'wbraid'].forEach(function (k) { var v = l[k] || f[k]; if (v) out[k] = v; });
@@ -100,14 +125,14 @@
     if (!first(key)) return;
     var p = params(extra);
     g('event', 'conversion', { send_to: AW + '/' + LABEL[key] });
-    g('event', gaEvent, Object.assign({ send_to: GA4 }, p));
+    ga(gaEvent, p);
     window.dataLayer.push(Object.assign({ event: gaEvent }, p));
     log(key, gaEvent, p);
   }
 
   // every other page: the click ids and UTMs only (window.F360), no conversions
   if (!EVENTS) {
-    window.F360 = { version: '1.0.0', campaignType: CAMPAIGN_TYPE, events: false, clickIds: clickIds,
+    window.F360 = { version: '1.0.0', campaignType: CAMPAIGN_TYPE, events: false, clickIds: clickIds, allClickIds: allClickIds, source: source,
       attribution: function () { return JSON.parse(JSON.stringify(attr)); } };
     return;
   }
@@ -157,9 +182,19 @@
   document.addEventListener('fq:phone', function () {
     if (!first('phoneCaptured')) return;
     var p = params({ form_name: 'f360_lead_form' });
-    g('event', 'f360_phone_captured', Object.assign({ send_to: GA4 }, p));
+    ga('f360_phone_captured', p);
     window.dataLayer.push(Object.assign({ event: 'f360_phone_captured' }, p));
     log('phoneCaptured', p);
+  });
+
+  // typed in the form, then left without sending (fq:abandon from f360-formopen.js), once: GA4 + dataLayer, for the
+  // "Form abandoners (30d)" audience. No typed value is sent, only whether a valid mobile was given.
+  document.addEventListener('fq:abandon', function (e) {
+    if (!first('formAbandon')) return;
+    var p = params({ form_name: 'f360_lead_form', phone_given: !!(e.detail && e.detail.phone_given) });
+    ga('f360_form_abandon', p);
+    window.dataLayer.push(Object.assign({ event: 'f360_form_abandon' }, p));
+    log('formAbandon', p);
   });
 
   var captured = null; // user-provided data, held in memory only
@@ -256,7 +291,7 @@
       window.__F360_LEAD_GATE = true;                    // opens the head-snippet guard
       g('event', 'conversion', { send_to: AW + '/' + LABEL.lead, transaction_id: leadId });
       window.__F360_LEAD_GATE = false;
-      g('event', 'generate_lead', Object.assign({ send_to: GA4 }, p));
+      ga('generate_lead', p);
       window.dataLayer.push(Object.assign({ event: 'f360_lead_success' }, p)); // no PII
       if (SEND_META_LEAD && typeof window.fbq === 'function') {
         try { window.fbq('track', 'Lead', { content_name: 'Fandaqah 360', content_category: CAMPAIGN_TYPE }, { eventID: leadId }); } catch (e) {}
@@ -288,6 +323,8 @@
     campaignType: CAMPAIGN_TYPE,
     events: true,
     clickIds: clickIds,
+    allClickIds: allClickIds,
+    source: source,
     attribution: function () { return JSON.parse(JSON.stringify(attr)); },
     _norm: { email: normEmail, phone: normPhone, name: normName } // for QA
   };

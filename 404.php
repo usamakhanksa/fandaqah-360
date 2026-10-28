@@ -45,11 +45,11 @@
   html[lang="en"] a small{margin:0;font-size:inherit;font-weight:inherit;line-height:inherit;color:inherit}
 </style>
 <script src="assets/js/fq-ads.js?v=cdc94123"></script>
-<script src="assets/js/f360-measurement.js?v=905cd01b" defer></script>
+<script src="assets/js/f360-measurement.js?v=048f6582" defer></script>
 <script src="assets/js/fq-meta-events.js?v=9d59311c" defer></script>
-<script src="assets/js/f360-formopen.js?v=a1d23912" defer></script>
+<script src="assets/js/f360-formopen.js?v=5013e2fa" defer></script>
 <script src="assets/js/fq-snap.js?v=35fb0392" async></script>
-<script src="assets/js/linkedin-insight.js?v=c0c9daf6" defer></script>
+<script src="assets/js/linkedin-insight.js?v=16b728a3" defer></script>
 <script src="assets/js/fandaqah-tiktok.js?v=8c021881" defer></script>
 </head>
 <body>

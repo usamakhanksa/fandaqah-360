@@ -1334,7 +1334,7 @@ html:has(.lead[open]){overflow:hidden}
       <p class="lead-plan" data-lead-plan>Fandaqah 360 upgrade</p>
       <h2 id="lead-title" data-i18n="lead.title">Reserve your launch pricing</h2>
       <p class="lead-sub" data-i18n="lead.sub">Leave your details. Our team will contact you shortly to confirm your offer and reserve the launch price, with the option of a second year at the same rate.</p>
-      <form class="lead-form" novalidate data-f360-partial-notice="1">
+      <form class="lead-form" novalidate data-f360-partial-notice="1" data-clarity-mask="True">
         <div class="field">
           <label for="lead-name" data-i18n="lead.name">Full name</label>
           <input id="lead-name" name="name" type="text" autocomplete="name" maxlength="80" required aria-describedby="lead-name-err">
@@ -1538,9 +1538,13 @@ html:has(.lead[open]){overflow:hidden}
     // one id per request: the CRM de-duplicates on it, and LinkedIn pairs the browser and server conversions by it
     const submissionId = (crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36).slice(2));
     const fatId = (window.F360LI && window.F360LI.fatId()) || qs.get('li_fat_id') || undefined;
+    // every ad click id this browser kept (gclid / gbraid / wbraid / fbclid / ttclid / ScCid / li_fat_id, 90 days), for each
+    // platform's offline imports, and the ad platform that paid for the visit
+    const ids = window.F360 ? (window.F360.allClickIds || window.F360.clickIds || Object)() : {};
     const payload = {
-      submission_id: submissionId, li_fat_id: fatId, campaign_type: 'new_customer',
-      ...(window.F360 && window.F360.clickIds ? window.F360.clickIds() : {}),   // gclid / gbraid / wbraid for the CRM's offline imports
+      ...ids,
+      submission_id: submissionId, li_fat_id: fatId || ids.li_fat_id, campaign_type: 'new_customer',
+      ad_platform: window.F360 && window.F360.source ? window.F360.source().ad_platform : undefined,
       // Meta's browser ids for the server Lead, event_id = submission_id (meta/ pack); the proxy never passes them to the CRM
       meta: window.fqMeta && window.fqMeta.capiContext ? Object.assign(window.fqMeta.capiContext(submissionId), { event_id: submissionId }) : undefined,
       name: fields.name.value.trim(), email: fields.email.value.trim(), phone: '+966' + saMobile(fields.phone.value),

@@ -27,11 +27,11 @@
 <link rel="stylesheet" href="../assets/css/v2.css?v=1e2fb01d">
 <script>/* Arabic by default: English only when the link asks (?lang=en) or the reader chose it before. The page stays hidden until its text is in that language, with a 1.5 s safety net. */(function(r){var l;try{l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('fq360-lang')}catch(e){}r.classList.add('js');if(l!=='en'){r.lang='ar';r.dir='rtl';r.classList.add('i18n-wait');setTimeout(function(){r.classList.remove('i18n-wait')},1500)}})(document.documentElement)</script><style>.i18n-wait body{visibility:hidden}</style>
 <script src="../assets/js/fq-ads.js?v=cdc94123"></script>
-<script src="../assets/js/f360-measurement.js?v=905cd01b" defer></script>
+<script src="../assets/js/f360-measurement.js?v=048f6582" defer></script>
 <script src="../assets/js/fq-meta-events.js?v=9d59311c" defer></script>
-<script src="../assets/js/f360-formopen.js?v=a1d23912" defer></script>
+<script src="../assets/js/f360-formopen.js?v=5013e2fa" defer></script>
 <script src="../assets/js/fq-snap.js?v=35fb0392" async></script>
-<script src="../assets/js/linkedin-insight.js?v=c0c9daf6" defer></script>
+<script src="../assets/js/linkedin-insight.js?v=16b728a3" defer></script>
 <script src="../assets/js/fandaqah-tiktok.js?v=8c021881" defer></script>
 </head>
 <body class="v2 pc">

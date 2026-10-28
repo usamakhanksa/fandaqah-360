@@ -8,6 +8,8 @@
  *
  * Input  (JSON, from assets/js/f360-formopen.js): visit_id, phone (9665XXXXXXXX), name?, company?, email?,
  *        campaign_type, landing_page, consent ('checkbox' | 'notice'), page_url, captured_at, website (honeypot)
+ *        ad_platform + utm_campaign (which ad paid for the visit, from window.F360.source()); visit_id is also this
+ *        session's Clarity tag f360_visit, so the sales team can watch what the visitor did before leaving
  * Store  : api/f360-partial-lib.php: one JSON line per visit, a file per month, in the folder api/config.php names
  *          (F360_PARTIAL_DIR, outside the web root where the host allows it; else logs/partial, denied to the web).
  * Forward: optional POST to F360_CRM_PARTIAL_WEBHOOK (CRM "Partial lead" queue).
@@ -90,6 +92,8 @@ $row = [
     'email'         => filter_var(trim((string) ($in['email'] ?? '')), FILTER_VALIDATE_EMAIL) ?: '',
     'campaign_type' => $campaign,
     'landing_page'  => $clip($in['landing_page'] ?? '', 120),
+    'ad_platform'   => preg_match('/^[a-z0-9_.-]{1,30}$/', (string) ($in['ad_platform'] ?? '')) ? (string) $in['ad_platform'] : '',
+    'utm_campaign'  => $clip($in['utm_campaign'] ?? '', 100),
     'consent'       => $consent,
     'page_url'      => $clip($pageUrl, 300),
     'captured_at'   => gmdate('c'),

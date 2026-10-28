@@ -115,6 +115,7 @@
   var leadDone = getLS(LEAD_FLAG) === '1';
   var started = false, openedSent = false, abandonSent = false, phoneSent = false, partialSent = false, sentAt = 0;
   var visitId = uuid();   // ties partial-lead rows from this page view together
+  w.F360FormOpen.visitId = visitId;   // and to this session's Clarity recording (tag f360_visit, assets/js/f360-insights.js)
 
   d.addEventListener('fq:lead', function () {
     leadDone = true;
@@ -172,7 +173,7 @@
     d.addEventListener('visibilitychange', function () { if (d.visibilityState === 'hidden') flushPartial(); });
     function partial(phone, how) {
       if (partialSent || leadDone) return;
-      var c = ctx();
+      var c = ctx(), src = (w.F360 && typeof F360.source === 'function') ? F360.source() : {};
       clearTimeout(holdTimer);
       holdTimer = setTimeout(flushPartial, 2000);
       pending = ({
@@ -180,6 +181,7 @@
         phone: phone,                       // full number, CRM only — never sent to Meta
         name: val('name'), company: val('company'), email: val('email'),
         campaign_type: c.campaign_type, landing_page: c.landing_page,
+        ad_platform: src.ad_platform || '', utm_campaign: src.utm_campaign || '',   // which ad paid for this visit
         consent: how, page_url: location.href.split('#')[0], captured_at: new Date().toISOString(),
         website: val('website')             // honeypot — server drops the row if filled
       });
@@ -208,6 +210,8 @@
       if (abandonSent || !started || leadDone || Date.now() - sentAt < 20000) return;
       abandonSent = true;
       send('F360_FormAbandon', { trigger: 'left_after_typing', phone_given: phoneSent });
+      // the same moment for GA4, GTM and Clarity (f360-measurement.js listens); no typed value in it
+      try { d.dispatchEvent(new CustomEvent('fq:abandon', { detail: { phone_given: phoneSent } })); } catch (e) {}
     }
     w.addEventListener('pagehide', maybeAbandon);
     d.addEventListener('visibilitychange', function () { if (d.visibilityState === 'hidden') maybeAbandon(); });

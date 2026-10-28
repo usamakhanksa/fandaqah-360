@@ -298,6 +298,9 @@
         campaign_type: PAGE.segment === 'A' ? 'existing_customer' : 'new_customer',
         // Google's click ids in their own fields, for the CRM's offline conversion imports (googleads/ pack)
         gclid: latest.gclid || first.gclid || undefined, gbraid: latest.gbraid || first.gbraid || undefined, wbraid: latest.wbraid || first.wbraid || undefined,
+        // Meta's, TikTok's and Snap's click ids in their own fields too, and the ad platform that paid for the visit
+        fbclid: latest.fbclid || first.fbclid || undefined, ttclid: latest.ttclid || first.ttclid || undefined, ScCid: latest.ScCid || first.ScCid || undefined,
+        ad_platform: window.F360 && window.F360.source ? window.F360.source().ad_platform : undefined,
         // Meta's browser ids for the server Lead (meta/ pack), event_id = submission_id = the browser Lead's eventID; the proxy
         // never passes them on to the CRM
         meta: window.fqMeta && window.fqMeta.capiContext ? Object.assign(window.fqMeta.capiContext(id), { event_id: id }) : undefined,

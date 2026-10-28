@@ -9,7 +9,9 @@ Each copy is the page, plus:
   - the Google Ads tag + Meta Pixel (assets/js/fq-ads.js), the Snap Pixel (assets/js/fq-snap.js), the LinkedIn Insight Tag
     (assets/js/linkedin-insight.js) and the TikTok pixel (assets/js/fandaqah-tiktok.js) in the <head>,
     with their conversion events on the two F360 pages;
-  - the WhatsApp button (customer pages).
+  - the WhatsApp button (customer pages);
+  - on the two F360 pages only, each page's own Google Tag Manager container, GA4 property and Microsoft Clarity project
+    (assets/js/f360-insights.js, right after the consent defaults, + the GTM <noscript> after <body>).
 A page named -index.html (kept off GitHub Pages' folder address) is published as its folder's index.php.
 
     python tools/build-php.py           write the copies, and remove copies whose page is gone
@@ -108,6 +110,18 @@ META_EVENTS_TAG = '<script src="%s' + META_EVENTS + '?v=' + hashlib.sha1((R / ME
 # F360_FormAbandon, browser + server (api/meta-event.php) with one event_id, on the two F360 pages only.
 FORMOPEN = 'assets/js/f360-formopen.js'
 FORMOPEN_TAG = '<script src="%s' + FORMOPEN + '?v=' + hashlib.sha1((R / FORMOPEN).read_bytes()).hexdigest()[:8] + '" defer%s></script>\n'
+# Each F360 page's own GTM container, GA4 property and Clarity project (owner, 28 Oct 2026): on these two pages only, nowhere
+# else. Right after fq-ads.js, so the Consent Mode v2 defaults are queued before the container starts; the GA4 property rides the
+# one gtag.js fq-ads.js loads. The ids are here, the code is assets/js/f360-insights.js.
+INSIGHTS = 'assets/js/f360-insights.js'
+PAGE_TAGS = {   # page: (GTM container, GA4 measurement id, Clarity project)
+    'existing-customers/-index.html':      ('GTM-NNWVV5T3', 'G-02TY6G2M89', 'z4rrag411j'),
+    'fandaqah-360-landing-v2/-index.html': ('GTM-WMQDXSDB', 'G-C4BHT10SGY', 'z4rqpud029'),
+}
+INSIGHTS_TAG = ('<script src="%s' + INSIGHTS + '?v=' + hashlib.sha1((R / INSIGHTS).read_bytes()).hexdigest()[:8]
+                + '" data-gtm="%s" data-ga4="%s" data-clarity="%s"></script>\n')
+GTM_NOSCRIPT = ('<!-- Google Tag Manager (noscript) -->\n<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=%s"\n'
+                'height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>\n<!-- End Google Tag Manager (noscript) -->')
 SNAP = 'assets/js/fq-snap.js'
 SNAP_TAG = '<script src="%s' + SNAP + '?v=' + hashlib.sha1((R / SNAP).read_bytes()).hexdigest()[:8] + '" async%s></script>\n'
 META_NOSCRIPT = ('<noscript><img height="1" width="1" style="display:none" alt="" '
@@ -159,12 +173,18 @@ def convert(rel, src, known):
     if head_end == -1:
         raise SystemExit(f'{rel}: no </head> to place the LinkedIn and TikTok tags in')
     f360 = rel in F360_EVENT_PAGES
-    tag = (ADS_TAG % up + MEASURE_TAG % (up, ' data-google-events' if f360 else '')
+    own = PAGE_TAGS.get(rel)
+    tag = (ADS_TAG % up + (INSIGHTS_TAG % ((up,) + own) if own else '') + MEASURE_TAG % (up, ' data-google-events' if f360 else '')
            + META_EVENTS_TAG % (up, ' data-meta-events' if f360 else '')
            + FORMOPEN_TAG % (up, ' data-meta-events' if f360 else '')
            + SNAP_TAG % (up, ' data-snap-events' if f360 else '')
            + INSIGHT_TAG % (up, ' data-f360-events' if f360 else '') + TIKTOK_TAG % (up, ' data-tt-events' if f360 else ''))
     s = s[:head_end] + tag.replace('\n', nl) + s[head_end:]
+    if own:   # the GTM <noscript>, straight after the opening <body>, as Google asks
+        body = re.search(r'<body\b[^>]*>', s)
+        if not body:
+            raise SystemExit(f'{rel}: no <body> to place the GTM noscript after')
+        s = s[:body.end()] + nl + (GTM_NOSCRIPT % own[0]).replace('\n', nl) + s[body.end():]
     # the page still opens if api/ was not uploaded (its forms then post straight to the CRM)
     head = (f"<?php /* {MARK}{posixpath.basename(rel)} by tools/build-php.py: edit the .html page, then run the build. */ "
             f"if (is_file(__DIR__ . '/{up}api/page.php')) require __DIR__ . '/{up}api/page.php'; ?>{nl}")

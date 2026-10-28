@@ -20,7 +20,8 @@ f360_partial_purge();
 $all  = ($_GET['show'] ?? '') === 'all';
 $rows = array_values(array_filter(f360_partial_rows(), function ($r) use ($all) { return $all || ($r['status'] ?? '') === 'partial'; }));
 $cols = ['captured_at' => 'Captured (UTC)', 'status' => 'Status', 'phone' => 'Mobile', 'name' => 'Name', 'company' => 'Company', 'email' => 'Email',
-         'campaign_type' => 'Campaign', 'consent' => 'Consent', 'page_url' => 'Page'];
+         'campaign_type' => 'Campaign', 'ad_platform' => 'Ad platform', 'utm_campaign' => 'Ad campaign', 'consent' => 'Consent',
+         'visit_id' => 'Clarity session', 'page_url' => 'Page'];
 
 if (($_GET['format'] ?? '') === 'csv') {
     header('Content-Type: text/csv; charset=utf-8');
@@ -62,6 +63,7 @@ th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;le
 td.tel a{color:var(--ink);font-weight:700;text-decoration:none;white-space:nowrap}td.tel a:hover{text-decoration:underline}
 .st{font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px;border:1px solid var(--line);white-space:nowrap}.st.converted{color:var(--ok);border-color:currentColor}
 .page{color:var(--muted);font-size:12px;word-break:break-all;max-width:260px}
+td.sid code{font:12px ui-monospace,Consolas,monospace;color:var(--ink-2);cursor:help}
 .empty{color:var(--muted);padding:28px 0;text-align:center}
 </style>
 </head>
@@ -70,7 +72,9 @@ td.tel a{color:var(--ink);font-weight:700;text-decoration:none;white-space:nowra
 <header>
   <div><h1><small>Fandaqah 360</small>Call-back list</h1>
   <p class="note"><?= $open ?> to call · visitors who typed their mobile and consented to be contacted, but did not send the form.
-  Kept <?= (int) (f360_partial_settings()['days'] ?? 30) ?> days. Never build an ad audience from this list.</p></div>
+  Kept <?= (int) (f360_partial_settings()['days'] ?? 30) ?> days. Never build an ad audience from this list.</p>
+  <p class="note">To watch what a visitor did before leaving: Microsoft Clarity → Recordings → Filters → Custom tags →
+  <b>f360_visit</b> = the full Clarity session id (hover it, or take it from the CSV).</p></div>
   <nav class="filters" aria-label="Show">
     <a href="<?= $h('?' . http_build_query(['key' => $key])) ?>"<?= $all ? '' : ' aria-current="true"' ?>>To call</a>
     <a href="<?= $h('?' . http_build_query(['key' => $key, 'show' => 'all'])) ?>"<?= $all ? ' aria-current="true"' : '' ?>>All, with converted</a>
@@ -93,7 +97,10 @@ td.tel a{color:var(--ink);font-weight:700;text-decoration:none;white-space:nowra
         <td dir="auto"><?= $h($r['company'] ?? '') ?></td>
         <td><?= ($r['email'] ?? '') !== '' ? '<a href="mailto:' . $h($r['email']) . '">' . $h($r['email']) . '</a>' : '' ?></td>
         <td><?= $h(str_replace('_', ' ', (string) ($r['campaign_type'] ?? ''))) ?></td>
+        <td><?= $h($r['ad_platform'] ?? '') ?></td>
+        <td dir="auto"><?= $h($r['utm_campaign'] ?? '') ?></td>
         <td><?= $h($r['consent'] ?? '') ?></td>
+        <td class="sid"><?= ($r['visit_id'] ?? '') !== '' ? '<code title="' . $h($r['visit_id']) . '">' . $h(substr((string) $r['visit_id'], 0, 8)) . '…</code>' : '' ?></td>
         <td class="page"><?= $h($r['page_url'] ?? '') ?></td>
       </tr>
     <?php endforeach; ?>

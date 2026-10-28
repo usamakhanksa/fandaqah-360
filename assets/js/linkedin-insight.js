@@ -72,7 +72,8 @@
     if (!t || seen[t]) return;
     seen[t] = 1;
     if (window.lintrk) window.lintrk('track', { conversion_id: F360.CONV.CTA });
-    if (window.dataLayer) window.dataLayer.push({ event: 'f360_cta_click', cta_type: t });
+    // li_ prefix, like tt_ / snap_: f360_cta_click is f360-measurement.js's event, and one click must not reach GTM twice
+    if (window.dataLayer) window.dataLayer.push({ event: 'li_cta_click', cta_type: t });
   }, true);
 
   /* ---------- F360_FormOpen_NoFill (form 50% visible) and F360_Phone_Captured (fq:phone), once each, once their ids are set ---------- */

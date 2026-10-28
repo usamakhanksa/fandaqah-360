@@ -745,14 +745,19 @@ html:has(.lead[open]){overflow:hidden}
 }
 </style>
 <script src="../assets/js/fq-ads.js?v=cdc94123"></script>
-<script src="../assets/js/f360-measurement.js?v=905cd01b" defer data-google-events></script>
+<script src="../assets/js/f360-insights.js?v=19f1c884" data-gtm="GTM-WMQDXSDB" data-ga4="G-C4BHT10SGY" data-clarity="z4rqpud029"></script>
+<script src="../assets/js/f360-measurement.js?v=048f6582" defer data-google-events></script>
 <script src="../assets/js/fq-meta-events.js?v=9d59311c" defer data-meta-events></script>
-<script src="../assets/js/f360-formopen.js?v=a1d23912" defer data-meta-events></script>
+<script src="../assets/js/f360-formopen.js?v=5013e2fa" defer data-meta-events></script>
 <script src="../assets/js/fq-snap.js?v=35fb0392" async data-snap-events></script>
-<script src="../assets/js/linkedin-insight.js?v=c0c9daf6" defer data-f360-events></script>
+<script src="../assets/js/linkedin-insight.js?v=16b728a3" defer data-f360-events></script>
 <script src="../assets/js/fandaqah-tiktok.js?v=8c021881" defer data-tt-events></script>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WMQDXSDB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
 <!-- Lucide icons v0.469.0, ISC licence, https://lucide.dev -->
@@ -1342,7 +1347,7 @@ html:has(.lead[open]){overflow:hidden}
       <p class="lead-plan" data-lead-plan>Fandaqah 360 upgrade</p>
       <h2 id="lead-title" data-i18n="lead.title">Reserve your launch pricing</h2>
       <p class="lead-sub" data-i18n="lead.sub">Leave your details. Our team will contact you shortly to confirm your offer and reserve the launch price, with the option of a second year at the same rate.</p>
-      <form class="lead-form" novalidate data-f360-partial-notice="1">
+      <form class="lead-form" novalidate data-f360-partial-notice="1" data-clarity-mask="True">
         <div class="field">
           <label for="lead-name" data-i18n="lead.name">Full name</label>
           <input id="lead-name" name="name" type="text" autocomplete="name" maxlength="80" required aria-describedby="lead-name-err">

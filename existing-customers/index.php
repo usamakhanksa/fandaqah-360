@@ -117,14 +117,19 @@
 <link rel="stylesheet" href="../assets/css/v2.css?v=1e2fb01d">
 <script>/* Arabic by default: English only when the link asks (?lang=en) or the reader chose it before. The page stays hidden until its text is in that language, with a 1.5 s safety net. */(function(r){var l;try{l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('fq360-lang')}catch(e){}r.classList.add('js');if(l!=='en'){r.lang='ar';r.dir='rtl';r.classList.add('i18n-wait');setTimeout(function(){r.classList.remove('i18n-wait')},1500)}})(document.documentElement)</script><style>.i18n-wait body{visibility:hidden}</style>
 <script src="../assets/js/fq-ads.js?v=cdc94123"></script>
-<script src="../assets/js/f360-measurement.js?v=905cd01b" defer data-google-events></script>
+<script src="../assets/js/f360-insights.js?v=19f1c884" data-gtm="GTM-NNWVV5T3" data-ga4="G-02TY6G2M89" data-clarity="z4rrag411j"></script>
+<script src="../assets/js/f360-measurement.js?v=048f6582" defer data-google-events></script>
 <script src="../assets/js/fq-meta-events.js?v=9d59311c" defer data-meta-events></script>
-<script src="../assets/js/f360-formopen.js?v=a1d23912" defer data-meta-events></script>
+<script src="../assets/js/f360-formopen.js?v=5013e2fa" defer data-meta-events></script>
 <script src="../assets/js/fq-snap.js?v=35fb0392" async data-snap-events></script>
-<script src="../assets/js/linkedin-insight.js?v=c0c9daf6" defer data-f360-events></script>
+<script src="../assets/js/linkedin-insight.js?v=16b728a3" defer data-f360-events></script>
 <script src="../assets/js/fandaqah-tiktok.js?v=8c021881" defer data-tt-events></script>
 </head>
 <body class="v2 pa">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NNWVV5T3"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
 
 <header class="site-head">
@@ -470,7 +475,7 @@
         </div>
         <div class="v2-formcard pa-formcard">
           <h3 class="v2-formcard-h" data-i18n="form.title">Lock in my launch price</h3>
-          <form class="form pa-form" id="lead-form" action="../api/lead.php" method="post" novalidate>
+          <form class="form pa-form" id="lead-form" action="../api/lead.php" method="post" novalidate data-clarity-mask="True">
             <fieldset class="pa-group"><legend data-i18n="grp.you">You and your hotel</legend>
               <div class="f"><label for="f-company" data-i18n="f.company">Hotel / company</label><input id="f-company" name="company" type="text" autocomplete="organization" maxlength="120" required aria-describedby="f-company-err"><p class="f-err" id="f-company-err" data-i18n="err.company" hidden>Please enter your hotel or company name.</p></div>
               <div class="f"><label for="f-name" data-i18n="f.name">Contact name</label><input id="f-name" name="name" type="text" autocomplete="name" maxlength="80" required aria-describedby="f-name-err"><p class="f-err" id="f-name-err" data-i18n="err.name" hidden>Please enter a contact name.</p></div>
