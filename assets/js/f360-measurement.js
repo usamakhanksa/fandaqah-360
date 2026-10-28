@@ -152,6 +152,16 @@
   }, true);
 
   // --------------------------------------------------- form open / start
+  // a valid mobile typed (fq:phone from f360-formopen.js), once: a GA4 event only (no Ads label exists for it yet; import it in
+  // Google Ads as a secondary conversion, or build the "Phone Captured (30d)" audience on it). No number is sent.
+  document.addEventListener('fq:phone', function () {
+    if (!first('phoneCaptured')) return;
+    var p = params({ form_name: 'f360_lead_form' });
+    g('event', 'f360_phone_captured', Object.assign({ send_to: GA4 }, p));
+    window.dataLayer.push(Object.assign({ event: 'f360_phone_captured' }, p));
+    log('phoneCaptured', p);
+  });
+
   var captured = null; // user-provided data, held in memory only
   function bindForm(form) {
     if (form.__f360) return; form.__f360 = true;

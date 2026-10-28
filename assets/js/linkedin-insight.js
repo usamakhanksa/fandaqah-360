@@ -24,7 +24,9 @@
   })(window.lintrk);
 
   var F360 = window.F360LI = window.F360LI || {};
-  F360.CONV = { CTA: 32466625, LEAD: 32466609 };
+  // FORM_OPEN and PHONE: create them in Campaign Manager (Conversions → Create → Website, "Other", Count: One) and paste the
+  // ids here; at 0 they send nothing
+  F360.CONV = { CTA: 32466625, LEAD: 32466609, FORM_OPEN: 0, PHONE: 0 };
 
   /* ---------- li_fat_id: LinkedIn adds it to ad clicks (enhanced conversion tracking is on). Kept 90 days, first-party. ---------- */
   try {
@@ -72,4 +74,21 @@
     if (window.lintrk) window.lintrk('track', { conversion_id: F360.CONV.CTA });
     if (window.dataLayer) window.dataLayer.push({ event: 'f360_cta_click', cta_type: t });
   }, true);
+
+  /* ---------- F360_FormOpen_NoFill (form 50% visible) and F360_Phone_Captured (fq:phone), once each, once their ids are set ---------- */
+  function micro(key) {
+    if (seen[key] || !F360.CONV[key] || !window.lintrk) return;
+    seen[key] = 1;
+    window.lintrk('track', { conversion_id: F360.CONV[key] });
+  }
+  function watchForm() {
+    var f = document.getElementById('lead-form') || document.querySelector('form.lead-form');
+    if (!f || !('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (en) { if (en.isIntersecting && en.intersectionRatio >= 0.5) { micro('FORM_OPEN'); io.disconnect(); } });
+    }, { threshold: [0.5] });
+    io.observe(f);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', watchForm); else watchForm();
+  document.addEventListener('fq:phone', function () { micro('PHONE'); });
 })();

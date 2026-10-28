@@ -135,6 +135,9 @@
     if ((el.type === 'checkbox' ? el.checked : (el.value || '').trim().length >= 2)) track('CUSTOM_EVENT_3', { description: 'lead_form_start' }, 'form_start');
   }, true);
 
+  /* ---------- CUSTOM_EVENT_4: a valid mobile typed (fq:phone from f360-formopen.js), once; no number sent ---------- */
+  document.addEventListener('fq:phone', () => track('CUSTOM_EVENT_4', { description: 'phone_captured' }, 'phone_captured'));
+
   /* ---------- SIGN_UP: the confirmed lead ---------- */
   const sha256 = async v => {
     if (!v || !crypto.subtle) return undefined;

@@ -216,6 +216,10 @@
     track('Contact', baseProps({ contact_channel: ch, cta_text: (el.textContent || '').trim().slice(0, 60) }));
   }, true);
 
+  /* --------------- F360_Phone_Captured (micro) ---------------- */
+  // a valid mobile typed (fq:phone from f360-formopen.js), once per page view; no number sent
+  d.addEventListener('fq:phone', function () { if (once('phone')) track('F360_Phone_Captured', baseProps({})); });
+
   /* --------------- LeadFormOpen / LeadFormStart (micro) ------- */
   function bindForm(form) {
     if (form.__f360tt) return; form.__f360tt = true;

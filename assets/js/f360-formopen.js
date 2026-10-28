@@ -191,6 +191,8 @@
       if (!phoneSent) {
         phoneSent = true;
         send('F360_Phone_Captured', { trigger: 'tel_blur_valid', phone_valid: true });
+        // the same moment for Google, TikTok, Snap and LinkedIn (their own scripts listen); anonymous, no number in it
+        try { d.dispatchEvent(new CustomEvent('fq:phone', { detail: { campaign_type: ctx().campaign_type } })); } catch (e) {}
       }
       var how = consent();
       if (how) partial(phone, how);
