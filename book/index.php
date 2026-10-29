@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="assets/book.css?v=169ffea5">
 <script>/* Arabic by default: English only when the link asks (?lang=en) or the reader chose it before. The page stays hidden until its text is in that language, with a 1.5 s safety net. */(function(r){var l;try{l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('fq360-lang')}catch(e){}r.classList.add('js');if(l!=='en'){r.lang='ar';r.dir='rtl';r.classList.add('i18n-wait');setTimeout(function(){r.classList.remove('i18n-wait')},1500)}})(document.documentElement)</script><style>.i18n-wait body{visibility:hidden}</style>
 <script src="../assets/js/fq-ads.js?v=cdc94123"></script>
-<script src="../assets/js/f360-measurement.js?v=048f6582" defer></script>
+<script src="../assets/js/f360-measurement.js?v=2098c26b" defer></script>
 <script src="../assets/js/fq-meta-events.js?v=9d59311c" defer></script>
 <script src="../assets/js/f360-formopen.js?v=5013e2fa" defer></script>
 <script src="../assets/js/fq-snap.js?v=35fb0392" async></script>
@@ -134,6 +134,6 @@ window.BOOK_I18N = {
 <script src="assets/book.js?v=ae7b1d0f"></script>
 <noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=11189657&fmt=gif"></noscript>
 <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=992779690541049&amp;ev=PageView&amp;noscript=1"></noscript>
-<script src="../assets/js/lead-capture.js?v=6b887231" defer></script>
+<script src="../assets/js/lead-capture.js?v=2eadb810" defer></script>
 </body>
 </html>

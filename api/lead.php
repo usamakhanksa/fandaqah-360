@@ -8,6 +8,8 @@ declare(strict_types=1);
 ini_set('display_errors', '0');   // notices go to the error log, never into the answer (it would break the JSON)
 
 $config = require __DIR__ . '/config.php';
+require_once __DIR__ . '/fq-visitor-lib.php';
+require_once __DIR__ . '/fq-leads-lib.php';
 const MAX_BODY = 65536;
 
 $ctype   = strtolower($_SERVER['CONTENT_TYPE'] ?? '');
@@ -92,8 +94,10 @@ $snap = is_array($in['_snap'] ?? null) ? array_map(function ($v) { return is_str
 // the hidden field only a script fills in: it sees success and nothing is sent
 if (trim((string) ($in['website'] ?? '')) !== '') reply(200, ['ok' => true]);
 
-/* ---------- one address cannot flood the CRM ---------- */
-$ip   = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+/* ---------- one address cannot flood the CRM ----------
+   The visitor's own address: behind Cloudflare, REMOTE_ADDR is an edge server shared by many visitors, and limiting that
+   would turn real leads away in a busy hour */
+$ip   = fq_client_ip();
 $file = rtrim(sys_get_temp_dir(), '/\\') . DIRECTORY_SEPARATOR . 'fq-lead-' . hash('sha256', $ip . '|' . __DIR__) . '.json';
 $now  = time();
 $fh   = @fopen($file, 'c+');
@@ -166,6 +170,89 @@ if ($isForm) {
 $lead['platform'] = $config['platform'];
 $lead['received_via'] = 'php_proxy';
 $lead = array_filter($lead, function ($v) { return $v !== null && $v !== ''; });
+
+/* ---------- who sent it and where they came from (fq-visitor-lib.php) ----------
+   Read from everything the request carries: the page address and the first page of the visit (an ad's own parameters stay in
+   them), the 90-day first and last touch the campaign site keeps, the click ids the page sent, the browser (an in-app browser
+   names the app), and the referring site the visit log noted (cookie fq_ref). Sent to the CRM in fields of their own and as a
+   short block under the message, and kept in the lead record for the Lead Center. */
+$cut = function ($v, int $max): string { $v = (string) $v; return function_exists('mb_substr') ? mb_substr($v, 0, $max) : substr($v, 0, $max * 3); };
+$touches = [];
+foreach (['latest_touch', 'first_touch'] as $t) if (is_array($lead[$t] ?? null)) $touches[] = $lead[$t];
+$urls = [(string) ($lead['page_url'] ?? ''), (string) ($lead['landing_url'] ?? '')];
+foreach ($touches as $t) $urls[] = (string) ($t['landing_url'] ?? '');
+$queries = [];
+foreach (array_filter($urls) as $u) { $q = []; parse_str((string) parse_url($u, PHP_URL_QUERY), $q); $queries[] = $q; }
+$sources = array_merge([$lead], $queries, $touches);
+$clicks = [];
+foreach (array_keys(FQ_CLICK_IDS) as $k)
+    foreach ($sources as $src) if (is_string($src[$k] ?? null) && $src[$k] !== '') { $clicks[$k] = $cut($src[$k], 300); break; }
+$utm = [];
+foreach (['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'utm_id'] as $k)
+    foreach ($sources as $src) if (is_string($src[$k] ?? null) && !in_array($src[$k], ['', 'Direct/Unknown'], true)) { $utm[$k] = $cut($src[$k], 150); break; }
+$own = fq_host((string) ($_SERVER['HTTP_HOST'] ?? ''));
+$ref = fq_host((string) ($_COOKIE['fq_ref'] ?? ''));
+if ($ref === '') foreach ($touches as $t) if (is_string($t['referrer'] ?? null) && $t['referrer'] !== '') { $ref = fq_host($t['referrer']); break; }
+if ($ref === $own || !preg_match('/^[a-z0-9.\-]{3,100}$/', $ref)) $ref = '';
+$ua  = $cut($_SERVER['HTTP_USER_AGENT'] ?? '', 400);
+$dev = fq_ua($ua);
+$src = fq_platform(['click' => $clicks, 'utm_source' => $utm['utm_source'] ?? '', 'utm_medium' => $utm['utm_medium'] ?? '', 'app' => $dev['app'], 'ref' => $ref]);
+// the F360 pages' own reading (assets/js/f360-measurement.js, from their 90-day store) beats a guess from the app or the referrer
+$pageSaid = (string) ($lead['ad_platform'] ?? '');
+if (in_array($src['via'], ['in_app', 'referrer', 'direct'], true) && in_array($pageSaid, FQ_AD_PLATFORMS, true) && $pageSaid !== $src['key'])
+    $src = ['key' => $pageSaid, 'label' => FQ_PLATFORMS[$pageSaid], 'via' => 'page_store'];
+$who = [
+    'ip' => $ip, 'cc' => fq_country(), 'dev' => $dev['device'], 'os' => $dev['os'], 'br' => $dev['browser'], 'app' => $dev['app'], 'ua' => $ua,
+    'visit' => preg_match('/^[A-Za-z0-9]{6,32}$/', (string) ($_COOKIE['fq_visit'] ?? '')) ? (string) $_COOKIE['fq_visit'] : '',
+    'ref' => $ref, 'plat' => $src['key'], 'via' => $src['via'], 'clicks' => $clicks, 'utm' => $utm,
+];
+foreach ($clicks + $utm as $k => $v) if (!isset($lead[$k]) || $lead[$k] === 'Direct/Unknown') $lead[$k] = $v;
+$lead = array_merge($lead, array_filter([
+    'ad_platform'       => $src['key'],        // google · meta · tiktok · snapchat · linkedin · search · social · email · campaign · referral · direct
+    'ad_platform_label' => $src['label'],
+    'attribution_via'   => $src['via'],        // click_id:<name> · utm · page_store · in_app · referrer · direct
+    'referrer_host'     => $ref,
+    'visitor_ip'        => $ip !== 'unknown' ? $ip : '',
+    'visitor_country'   => $who['cc'],
+    'device_type'       => $dev['device'],
+    'device_os'         => $dev['os'],
+    'device_browser'    => $dev['browser'],
+    'in_app_browser'    => $dev['app'],
+    'user_agent'        => $ua,
+    'visit_id'          => $who['visit'],
+], function ($v) { return $v !== ''; }));
+$how = [
+    'utm' => 'campaign tags', 'page_store' => 'the ad click this browser kept', 'in_app' => 'opened inside the ' . $dev['app'] . ' app, no tags',
+    'referrer' => 'came from ' . $ref, 'direct' => 'no source information',
+][$src['via']] ?? ('ad click id ' . substr($src['via'], 9));
+$block = array_filter([
+    "Source: {$src['label']} ({$how})",
+    $utm ? 'Campaign: ' . implode(' · ', array_filter([$utm['utm_campaign'] ?? '', $utm['utm_medium'] ?? '', $utm['utm_content'] ?? '', isset($utm['utm_term']) ? 'keyword "' . $utm['utm_term'] . '"' : ''])) : '',
+    'Visitor: ' . implode(' · ', array_filter([ucfirst($dev['device']), $dev['os'], $dev['browser'], $ip !== 'unknown' ? "IP $ip" : '', $who['cc']])),
+    isset($lead['page_url']) ? 'Page: ' . $lead['page_url'] : '',
+]);
+$lead['message'] = (is_string($lead['message'] ?? null) && $lead['message'] !== '' ? $lead['message'] . "\n" : '') . "——— Lead source ———\n" . implode("\n", $block);
+
+/* the lead record (fq-leads-lib.php): every request a visitor sent, with the CRM's answer, so none is lost between here and the CRM */
+function record_lead(array $lead, array $who, string $state, int $http, $crm): void
+{
+    $crmId = is_array($crm) ? ($crm['id'] ?? $crm['lead_id'] ?? ($crm['data']['id'] ?? ($crm['lead']['id'] ?? null))) : null;
+    $form = (string) ($lead['source'] ?? '');
+    fq_leads_add(array_filter([
+        't' => gmdate('c'), 'id' => (string) ($lead['submission_id'] ?? ''),
+        'kind' => strpos($form, 'newsletter') !== false ? 'newsletter' : (($lead['lead_stage'] ?? '') === 'partial' ? 'partial' : 'lead'),
+        'crm' => $state, 'http' => $http, 'crm_id' => is_scalar($crmId) ? (string) $crmId : null,
+        'name' => $lead['name'] ?? null, 'company' => $lead['company'] ?? null, 'role' => $lead['role'] ?? null, 'city' => $lead['city'] ?? null,
+        'email' => $lead['email'] ?? null, 'phone' => $lead['phone'] ?? null,
+        'note' => is_string($lead['customer_message'] ?? null) ? (function_exists('mb_substr') ? mb_substr($lead['customer_message'], 0, 600) : substr($lead['customer_message'], 0, 1800)) : null,
+        'interest' => is_string($lead['interest'] ?? null) ? $lead['interest'] : null,
+        'campaign' => $lead['campaign_type'] ?? null, 'segment' => $lead['segment'] ?? null, 'form' => $form, 'lang' => $lead['language'] ?? null,
+        'page' => $lead['page_url'] ?? null, 'landing' => $lead['landing_url'] ?? null,
+        'plat' => $who['plat'], 'via' => $who['via'], 'utm' => $who['utm'] ?: null, 'clicks' => $who['clicks'] ?: null, 'ref' => $who['ref'],
+        'ip' => $who['ip'], 'cc' => $who['cc'], 'dev' => $who['dev'], 'os' => $who['os'], 'br' => $who['br'], 'app' => $who['app'], 'ua' => $who['ua'],
+        'visit' => $who['visit'], 'consent' => isset($lead['marketing_consent']) ? (bool) $lead['marketing_consent'] : null,
+    ], function ($v) { return $v !== null && $v !== '' && $v !== []; }));
+}
 
 /* ---------- ad platforms: the server twins of the browser conversions, sent after the visitor has their answer ----------
    Only a lead the visitor SENT from one of the two Fandaqah 360 landing pages (the pages whose browser events they pair with),
@@ -310,6 +397,7 @@ if (function_exists('curl_init')) {
 }
 
 $crm = json_decode($answer, true);
+record_lead($lead, $who, $status >= 200 && $status < 300 ? 'ok' : ($status >= 400 && $status < 500 ? 'refused' : 'down'), $status, $crm);
 if ($status >= 200 && $status < 300) {
     linkedin_lead_submit($lead, $config);
     tiktok_lead($lead, $config);

@@ -34,16 +34,30 @@
     VISIT = (crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36).slice(2)).replace(/-/g, '').slice(0, 20);
     try { sessionStorage.setItem('fq_funnel_visit', VISIT); } catch (e) {}
   }
-  // campaign tags: from this address, or the visit's first tagged address (the campaign site keeps them in fq360_attr)
+  // campaign tags: from this address, or the visit's first tagged address (the campaign site keeps them in fq360_attr, the
+  // two F360 pages in f360_attr, 90 days each). ck is the NAME of the ad click id the visit carries (gclid, fbclid, ttclid,
+  // ScCid, li_fat_id…), never its value: the server turns it into the ad platform (api/fq-visitor-lib.php)
+  const CLICK_IDS = ['gclid', 'gbraid', 'wbraid', 'gad_campaignid', 'gad_source', 'fbclid', 'ttclid', 'ScCid', 'sccid', 'li_fat_id'];
   const tags = (() => {
-    const q = new URLSearchParams(location.search), out = {};
-    let kept = {};
-    try { const a = JSON.parse(localStorage.getItem('fq360_attr') || '{}'); kept = a.latest || a.first || {}; } catch (e) {}
-    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'].forEach(k => { const v = q.get(k) || kept[k]; if (v) out[k] = String(v).slice(0, 80); });
+    const q = new URLSearchParams(location.search), out = {}, kept = [];
+    try { const a = JSON.parse(localStorage.getItem('fq360_attr') || '{}'); kept.push(a.latest || {}, a.first || {}); } catch (e) {}
+    try { const a = JSON.parse(localStorage.getItem('f360_attr') || '{}'); kept.push(a.last || {}, a.first || {}); } catch (e) {}
+    const has = k => q.get(k) ? q.get(k) : (kept.find(t => t && t[k]) || {})[k];
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(k => { const v = has(k); if (v) out[k] = String(v).slice(0, 80); });
+    const ck = CLICK_IDS.find(k => has(k));
+    if (ck) out.ck = ck;
     return out;
   })();
   let refHost = '';
   try { refHost = document.referrer ? new URL(document.referrer).hostname : ''; } catch (e) {}
+  // the visit id and the site the visit came from, for this tab's session only: the lead proxy (api/lead.php, same site) reads
+  // them, so the Lead Center can show the journey behind each lead. No expiry date: they go when the browser closes
+  try {
+    const secure = location.protocol === 'https:' ? '; Secure' : '';
+    document.cookie = 'fq_visit=' + VISIT + '; path=/; SameSite=Lax' + secure;
+    if (refHost && refHost !== location.hostname && !/(^|; )fq_ref=/.test(document.cookie))
+      document.cookie = 'fq_ref=' + encodeURIComponent(refHost.slice(0, 100)) + '; path=/; SameSite=Lax' + secure;
+  } catch (e) {}
 
   const sent = new Set();
   function step(event, extra = {}, onceKey = event) {

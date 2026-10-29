@@ -47,8 +47,10 @@ if (!preg_match('~/(existing-customers|fandaqah-360-landing-v2)(/|$)~', (string)
 if (!preg_match('#^https://(www\.)?fandaqah\.com/#i', $src)) $src = 'https://fandaqah.com/landing/fandaqah-360/';
 $src = substr($src, 0, 1000);
 
-/* ---------- one address cannot flood the dataset (a real visit sends two of these at most) ---------- */
-$ip   = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+/* ---------- one address cannot flood the dataset (a real visit sends two of these at most) ----------
+   the visitor's own address, not the Cloudflare edge that many visitors share (fq-visitor-lib.php) */
+require_once __DIR__ . '/fq-visitor-lib.php';
+$ip   = fq_client_ip();
 $file = rtrim(sys_get_temp_dir(), '/\\') . DIRECTORY_SEPARATOR . 'fq-metaev-' . hash('sha256', $ip . '|' . __DIR__) . '.json';
 $now  = time();
 $fh   = @fopen($file, 'c+');

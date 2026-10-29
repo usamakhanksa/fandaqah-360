@@ -57,4 +57,12 @@ return [
         'days'    => max(1, (int) (getenv('F360_PARTIAL_DAYS') ?: ($local['partial_days'] ?? 30))),
         'key'     => $secret('F360_PARTIAL_KEY', 'partial_key'),               // opens the call list, api/partial-leads.php?key=…
     ],
+    // The lead record (api/fq-leads-lib.php): every request a visitor sends, with its source, device and address, and whether the
+    // CRM took it. Read in the Lead Center (api/lead-center.php), which stays switched off (404) until 'key' is set; the key opens
+    // personal data, so give it only to the sales and marketing leads. Kept 'days', then dropped.
+    'leads' => [
+        'dir'  => getenv('FQ_LEADS_DIR') ?: ($local['leads_dir'] ?? (__DIR__ . '/../logs/leads')),
+        'days' => max(1, (int) (getenv('FQ_LEADS_DAYS') ?: ($local['leads_days'] ?? 180))),
+        'key'  => $secret('FQ_LEADS_KEY', 'leads_key'),
+    ],
 ];

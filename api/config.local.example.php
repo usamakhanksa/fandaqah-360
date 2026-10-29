@@ -16,4 +16,7 @@ return [
     'partial_webhook'         => '',   // F360_CRM_PARTIAL_WEBHOOK: optional, the CRM's "Partial lead" queue
     // 'partial_dir'          => '/home/<account>/f360-partial-leads',   // F360_PARTIAL_DIR: best outside the web root
     // 'partial_days'         => 30,   // F360_PARTIAL_DAYS: how long a number is kept
+    'leads_key'               => '',   // FQ_LEADS_KEY: opens the Lead Center, api/lead-center.php (long, random; personal data)
+    // 'leads_dir'            => '/home/<account>/fandaqah-leads',   // FQ_LEADS_DIR: best outside the web root
+    // 'leads_days'           => 180,  // FQ_LEADS_DAYS: how long a lead is kept on this host (the CRM keeps its own copy)
 ];

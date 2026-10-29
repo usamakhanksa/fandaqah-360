@@ -2,7 +2,9 @@
 /* Fandaqah 360 · anonymous funnel events (assets/js/lead-capture.js → here → logs/funnel-YYYY-MM.jsonl → api/funnel.php).
    Keeps only the journey: which step, on which page, from which campaign. Every field is whitelisted and bounded, anything else
    is dropped, and a label that looks like an email address or a phone number is blanked, so no personal data can be stored even
-   by a hand-made request. No IP address is written. Same site only (the browser sends a beacon), POST only, rate-limited.
+   by a hand-made request. No full IP address is written: only its network (last part removed), with the ad platform, the
+   device, OS, browser and country worked out on the server (fq-visitor-lib.php). Same site only (the browser sends a beacon),
+   POST only, rate-limited.
    Answers: 204 kept or ignored · 400 unreadable · 403 other site · 405 not POST · 413 too large · 429 too many.
    PHP 7.4 or later. */
 declare(strict_types=1);
@@ -37,8 +39,10 @@ if (!is_array($in)) done(400);
 $event = (string) ($in['event'] ?? '');
 if (!in_array($event, EVENTS, true)) done(204);   // not a funnel step: nothing to keep
 
-/* ---------- one address cannot flood the log (a real visit sends a dozen steps at most) ---------- */
-$ip   = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+/* ---------- one address cannot flood the log (a real visit sends a dozen steps at most) ----------
+   the visitor's own address: behind Cloudflare, REMOTE_ADDR is an edge server shared by many visitors (fq-visitor-lib.php) */
+require_once __DIR__ . '/fq-visitor-lib.php';
+$ip   = fq_client_ip();
 $file = rtrim(sys_get_temp_dir(), '/\\') . DIRECTORY_SEPARATOR . 'fq-funnel-' . hash('sha256', $ip . '|' . __DIR__) . '.json';
 $now  = time();
 $fh   = @fopen($file, 'c+');
@@ -78,9 +82,23 @@ $row = array_filter([
     'med'      => text($in['utm_medium'] ?? null, 80),
     'cmp'      => text($in['utm_campaign'] ?? null, 80),
     'cnt'      => text($in['utm_content'] ?? null, 80),
+    'trm'      => text($in['utm_term'] ?? null, 80),
     'form'     => text($in['form'] ?? null, 40, '/^[\w\-]+$/'),
     'why'      => text($in['why'] ?? null, 20, '/^[\w]+$/'),
     'label'    => $label,
+], function ($v) { return $v !== null && $v !== ''; });
+
+/* ---------- where the visit came from and on what (fq-visitor-lib.php) ----------
+   The page says only WHICH click id it saw (ck: its name, never its value); the platform, the device details and the country
+   are worked out here. The address is kept as its network (203.0.113.x): enough to spot one office or a bot, not a person. */
+$ck  = text($in['ck'] ?? null, 20, '/^(' . implode('|', array_keys(FQ_CLICK_IDS)) . ')$/');
+$dev = fq_ua((string) ($_SERVER['HTTP_USER_AGENT'] ?? ''));
+$src = fq_platform(['click' => $ck ? [$ck => '1'] : [], 'utm_source' => $row['src'] ?? '', 'utm_medium' => $row['med'] ?? '',
+                    'app' => $dev['app'], 'ref' => fq_host($row['ref'] ?? '') === fq_host((string) ($_SERVER['HTTP_HOST'] ?? '')) ? '' : ($row['ref'] ?? '')]);
+$row += array_filter([
+    'plat' => $src['key'], 'via' => $src['via'], 'os' => $dev['os'], 'br' => $dev['browser'], 'app' => $dev['app'],
+    'tab'  => $dev['device'] === 'tablet' ? 1 : null, 'bot' => $dev['device'] === 'bot' ? 1 : null,
+    'net'  => fq_ip_net($ip), 'cc' => fq_country(),
 ], function ($v) { return $v !== null && $v !== ''; });
 if (!isset($row['v'])) done(204);   // a step without a visit cannot be counted
 

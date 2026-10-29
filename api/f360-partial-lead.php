@@ -65,8 +65,10 @@ if (!preg_match('~/(existing-customers|fandaqah-360-landing-v2)(/|$)~', (string)
 $dir = f360_partial_dir();
 if ($dir === null) partial_answer(503, ['ok' => false]);
 
-// Simple per-IP rate limit: 10 rows / hour (counted outside the store, like the other endpoints)
-$ip = trim(explode(',', (string) ($_SERVER['HTTP_CF_CONNECTING_IP'] ?? $_SERVER['REMOTE_ADDR'] ?? ''))[0]);
+// Simple per-IP rate limit: 10 rows / hour (counted outside the store, like the other endpoints). The visitor's address: the
+// Cloudflare header only when the request really came through Cloudflare (fq-visitor-lib.php), so it cannot be forged
+require_once __DIR__ . '/fq-visitor-lib.php';
+$ip = fq_client_ip();
 $rl = rtrim(sys_get_temp_dir(), '/\\') . DIRECTORY_SEPARATOR . 'fq-partial-' . hash('sha256', $ip . '|' . __DIR__ . '|' . date('YmdH')) . '.txt';
 $n  = (int) @file_get_contents($rl);
 if ($n >= 10) partial_answer(429, ['ok' => false]);
@@ -98,6 +100,9 @@ $row = [
     'page_url'      => $clip($pageUrl, 300),
     'captured_at'   => gmdate('c'),
 ];
+// the device it was typed on (no address: this visitor did not send the form), for the Lead Center
+$dev = fq_ua((string) ($_SERVER['HTTP_USER_AGENT'] ?? ''));
+$row += array_filter(['device' => $dev['device'], 'os' => $dev['os'], 'browser' => $dev['browser'], 'country' => fq_country()]);
 if (!f360_partial_add($row)) partial_answer(503, ['ok' => false]);
 
 $hook = (string) (f360_partial_settings()['webhook'] ?? '');

@@ -746,7 +746,7 @@ html:has(.lead[open]){overflow:hidden}
 </style>
 <script src="../assets/js/fq-ads.js?v=cdc94123"></script>
 <script src="../assets/js/f360-insights.js?v=19f1c884" data-gtm="GTM-WMQDXSDB" data-ga4="G-C4BHT10SGY" data-clarity="z4rqpud029"></script>
-<script src="../assets/js/f360-measurement.js?v=048f6582" defer data-google-events></script>
+<script src="../assets/js/f360-measurement.js?v=2098c26b" defer data-google-events></script>
 <script src="../assets/js/fq-meta-events.js?v=9d59311c" defer data-meta-events></script>
 <script src="../assets/js/f360-formopen.js?v=5013e2fa" defer data-meta-events></script>
 <script src="../assets/js/fq-snap.js?v=35fb0392" async data-snap-events></script>
@@ -1551,9 +1551,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     // one id per request: the CRM de-duplicates on it, and LinkedIn pairs the browser and server conversions by it
     const submissionId = (crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36).slice(2));
     const fatId = (window.F360LI && window.F360LI.fatId()) || qs.get('li_fat_id') || undefined;
+    // every ad click id this browser kept (gclid / gbraid / wbraid / fbclid / ttclid / ScCid / li_fat_id, 90 days), for each
+    // platform's offline imports, and the ad platform that paid for the visit
+    const ids = window.F360 ? (window.F360.allClickIds || window.F360.clickIds || Object)() : {};
     const payload = {
-      submission_id: submissionId, li_fat_id: fatId, campaign_type: 'new_customer',
-      ...(window.F360 && window.F360.clickIds ? window.F360.clickIds() : {}),   // gclid / gbraid / wbraid for the CRM's offline imports
+      ...ids,
+      submission_id: submissionId, li_fat_id: fatId || ids.li_fat_id, campaign_type: 'new_customer',
+      ad_platform: window.F360 && window.F360.source ? window.F360.source().ad_platform : undefined,
       // Meta's browser ids for the server Lead, event_id = submission_id (meta/ pack); the proxy never passes them to the CRM
       meta: window.fqMeta && window.fqMeta.capiContext ? Object.assign(window.fqMeta.capiContext(submissionId), { event_id: submissionId }) : undefined,
       name: fields.name.value.trim(), email: fields.email.value.trim(), phone: '+966' + saMobile(fields.phone.value),
@@ -1679,7 +1683,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </script>
 <noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=11189657&fmt=gif"></noscript>
 <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=992779690541049&amp;ev=PageView&amp;noscript=1"></noscript>
-<script src="../assets/js/lead-capture.js?v=6b887231" defer></script>
+<script src="../assets/js/lead-capture.js?v=2eadb810" defer></script>
 <!-- WhatsApp chat button (added to every PHP copy by tools/build-php.py) -->
 <style>
 .fq-wa{position:fixed;z-index:90;left:max(20px,env(safe-area-inset-left));bottom:calc(22px + env(safe-area-inset-bottom));margin:0;display:flex;align-items:center;transition:bottom .35s cubic-bezier(.2,.8,.2,1);animation:fq-wa-in .55s cubic-bezier(.2,.8,.2,1) .9s both}

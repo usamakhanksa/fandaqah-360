@@ -82,6 +82,11 @@ Each lead carries:
 | `segment` (route the form was sent from), `page_url`, `landing_url`, `submitted_at`, `language` | page |
 | `privacy_notice` (shown, URL, version), `marketing_consent` (+ exact wording and time when given) | form |
 | `submission_id` (for de-duplication), `message` (human-readable summary of all of the above) | page |
+| `ad_platform` (+ `_label`, `attribution_via`), every click id (`gclid`, `gbraid`, `wbraid`, `gad_campaignid`, `fbclid`, `ttclid`, `ScCid`, `li_fat_id`), `utm_id` | worked out by `api/lead.php` from the page address, the first and last touch and the browser |
+| `visitor_ip`, `visitor_country`, `device_type`, `device_os`, `device_browser`, `in_app_browser`, `user_agent`, `referrer_host`, `visit_id`, and a "Lead source" block at the end of `message` | `api/lead.php` (the visitor's address from Cloudflare) |
+
+Every lead is also kept on the PHP host with the CRM's answer, and shown with visits, WhatsApp and call taps and submit presses per
+platform in the **Lead Center** (`api/lead-center.php`, key `FQ_LEADS_KEY`). What the CRM should show: [`docs/crm-lead-source-spec.md`](../docs/crm-lead-source-spec.md).
 
 Success is shown only after the CRM acknowledges. Network or server failures retry three times, then the lead is kept on the
 visitor's device and resent on their next visit with the same `submission_id`. **Test all four routes end to end before launch.**

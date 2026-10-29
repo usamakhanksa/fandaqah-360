@@ -500,7 +500,7 @@ html[lang="ar"] .bubble,html[lang="ar"] .invite{font-size:14px;line-height:1.8}
 }
 </style>
 <script src="assets/js/fq-ads.js?v=cdc94123"></script>
-<script src="assets/js/f360-measurement.js?v=048f6582" defer></script>
+<script src="assets/js/f360-measurement.js?v=2098c26b" defer></script>
 <script src="assets/js/fq-meta-events.js?v=9d59311c" defer></script>
 <script src="assets/js/f360-formopen.js?v=5013e2fa" defer></script>
 <script src="assets/js/fq-snap.js?v=35fb0392" async></script>
@@ -1929,6 +1929,6 @@ html[lang="ar"] .bubble,html[lang="ar"] .invite{font-size:14px;line-height:1.8}
 </script>
 <noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=11189657&fmt=gif"></noscript>
 <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=992779690541049&amp;ev=PageView&amp;noscript=1"></noscript>
-<script src="assets/js/lead-capture.js?v=6b887231" defer></script>
+<script src="assets/js/lead-capture.js?v=2eadb810" defer></script>
 </body>
 </html>
