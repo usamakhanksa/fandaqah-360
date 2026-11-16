@@ -10,10 +10,12 @@ with tempfile.TemporaryDirectory(prefix='ntmp-static-') as folder:
   current=Path(directory);relative=current.relative_to(ROOT)
   if relative==Path('.'):dirs[:]=[d for d in dirs if d not in skip and not d.startswith('.git')]
   for name in files:
-   if name.startswith('.git') or name in {'README.md','_config.yml','.scrollcraft.json','.htaccess'} or name.endswith('.php'):continue
+   if name.startswith('.git') or name in {'README.md','_config.yml','.scrollcraft.json','.htaccess'} or name.lower().endswith(('.php','.md','.pdf','.py','.docx','.psd')):continue
    if relative==Path('.') and name.endswith(('.pdf','.zip')):continue
    src=current/name;dest=out/relative/('index.html' if name=='-index.html' else name);dest.parent.mkdir(parents=True,exist_ok=True)
    os.link(src,dest)
+ forbidden=[p.relative_to(out).as_posix() for p in out.rglob('*') if p.is_file() and (p.suffix.lower() in {'.php','.md','.pdf','.py','.docx','.psd'} or p.name=='.htaccess')]
+ assert not forbidden,forbidden
  for guard in ['check-i18n.py','check-links.py']:
   result=subprocess.run([sys.executable,'-I',str(ROOT/'tools'/guard),str(out)],capture_output=True,text=True,encoding='utf-8')
   if result.returncode:print(result.stdout);print(result.stderr);sys.exit(result.returncode)

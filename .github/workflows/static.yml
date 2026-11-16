@@ -45,7 +45,9 @@ jobs:
           rsync -a ./ _site/ --exclude '.git*' --exclude '/.github' --exclude '/_site' --exclude '/_internal' \
             --exclude '/campaigns' --exclude '/archive' --exclude '/tools' --exclude '/banners' --exclude '/f360-linkedin-dev-pack' --exclude '/tiktok' --exclude '/snapcha-retargeting' --exclude '/meta' --exclude '/googleads' --exclude '/logs' --exclude '/artifacts' \
             --exclude 'README.md' --exclude '/_config.yml' --exclude '/.scrollcraft.json' \
-            --exclude '/*.pdf' --exclude '*.php' --exclude '/api' --exclude '.htaccess' --exclude '/*.zip'
+            --exclude '*.md' --exclude '*.pdf' --exclude '*.py' --exclude '*.docx' --exclude '*.psd' \
+            --exclude '/_dist' --exclude 'node_modules' --exclude '__pycache__' \
+            --exclude '*.php' --exclude '/api' --exclude '.htaccess' --exclude '/*.zip'
           # the campaign pages are named -index.html in the repo, so a PHP host serves their index.php copy;
           # Pages runs no PHP, so here each one is published as its folder's index.html
           find _site -name '-index.html' -execdir mv -- {} index.html \;
