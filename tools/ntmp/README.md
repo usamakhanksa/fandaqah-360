@@ -10,4 +10,4 @@ Browser checks: start `php -S 127.0.0.1:8126 -t .`, then run `python tools/ntmp/
 
 Release ZIP: `python tools/ntmp/package_release.py`
 
-No production deployment or real CRM delivery has been verified. Publishing requires the existing GitHub and PHP hosting connections.
+Source has been pushed to GitHub; the Pages workflow publishes the static site. PHP-host deployment and real CRM delivery remain unverified. See RELEASE.md for the distinction and required host configuration.

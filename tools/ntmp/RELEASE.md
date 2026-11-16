@@ -2,7 +2,9 @@
 
 ## Current status
 
-Implemented and tested locally. **Not deployed.** GitHub push dry-run failed because the HTTPS remote has no authenticated credentials. The GitHub connection has been offered but is not confirmed. The existing PHP production host returned HTTP 403 to read-only checks from this environment. No SSH/SFTP deployment connection is configured here. These are access blockers, not passing deployment checks.
+Implemented, tested and pushed to GitHub `main` on 16 November 2026 using the installed Git Credential Manager. The Pages packaging rules now exclude internal document formats as required by the publication guard. Check GitHub Actions for the static deployment result of the latest commit.
+
+**PHP backend deployment and production CRM delivery remain unverified.** The existing PHP production host returned HTTP 403 to earlier read-only checks from this environment. No SSH/SFTP deployment connection is configured here. A GitHub Pages deployment publishes static files only; it cannot deploy or execute the PHP adapter.
 
 The existing local `api/config.local.php` has a configured CRM key and lead-store configuration; secret values were neither printed nor copied into source or the release ZIP. Production CRM acceptance is unverified. All automated submissions used an isolated local mock CRM or browser interception, never real sales data.
 
