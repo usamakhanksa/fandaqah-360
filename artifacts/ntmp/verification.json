@@ -1,0 +1,40 @@
+[
+  {
+    "language": "en",
+    "width": 390,
+    "status": "passed"
+  },
+  {
+    "language": "en",
+    "width": 768,
+    "status": "passed"
+  },
+  {
+    "language": "en",
+    "width": 1440,
+    "status": "passed"
+  },
+  {
+    "language": "ar",
+    "width": 390,
+    "status": "passed"
+  },
+  {
+    "language": "ar",
+    "width": 768,
+    "status": "passed"
+  },
+  {
+    "language": "ar",
+    "width": 1440,
+    "status": "passed"
+  },
+  {
+    "mode": "reduced",
+    "status": "passed"
+  },
+  {
+    "mode": "no-js",
+    "status": "passed"
+  }
+]

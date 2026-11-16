@@ -135,6 +135,9 @@ def pages():
     out = []
     for p in sorted(R.rglob('*.html')):
         rel = p.relative_to(R).as_posix()
+        if rel in {'landing/features/ntmp-tourism-platform.html', 'landing/ar/features/ntmp-tourism-platform.html'}:
+            # Owned by tools/ntmp/match_reference.py. Do not inject default trackers or partial-lead capture.
+            continue
         if set(rel.split('/')[:-1]) & SKIP_DIRS or any(fnmatch.fnmatch(rel, g) for g in SKIP_PAGES):
             continue
         out.append(rel)

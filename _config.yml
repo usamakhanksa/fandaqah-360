@@ -12,6 +12,7 @@ exclude:
   - meta
   - googleads
   - logs
+  - artifacts
   - README.md
   - "*.pdf"
   - "*.py"

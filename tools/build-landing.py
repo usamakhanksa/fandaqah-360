@@ -698,6 +698,10 @@ def main():
     write(L / 'ar' / 'features' / 'index.html', redirect('../../features.html?lang=ar', BASE + 'features.html'))
     write(L / 'ar' / 'index.html', redirect('../index.html?lang=ar', BASE))
     write(L / 'sitemap.xml', sitemap())
+    # The NTMP page has its own bilingual design and qualified consent flow.
+    # Run its owner generator last so a full landing build cannot restore the old page.
+    import subprocess
+    subprocess.run([sys.executable, str(TOOLS / 'ntmp' / 'match_reference.py')], check=True)
     print(f'patched {len(PAGES)} pages, wrote {len(FEATURES) * 2} feature pages, 3 redirects and sitemap.xml ({len(PAGES) - 2 + len(FEATURES) * 2} URLs)')
 
 
