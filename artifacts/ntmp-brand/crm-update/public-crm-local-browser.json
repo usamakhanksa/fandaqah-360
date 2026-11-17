@@ -1,0 +1,32 @@
+[
+  {
+    "server_address": {
+      "ipAddress": "104.21.0.115",
+      "port": 443
+    },
+    "language": "en",
+    "http": 200,
+    "acknowledged": true,
+    "deduped": false,
+    "duplicate_of": null,
+    "platform": "fandaqah_tourism_platform_contact",
+    "request_count": 1,
+    "elapsed_ms": 672,
+    "reference": "FQ-261117-XGX4"
+  },
+  {
+    "server_address": {
+      "ipAddress": "104.21.0.115",
+      "port": 443
+    },
+    "language": "ar",
+    "http": 200,
+    "acknowledged": true,
+    "deduped": true,
+    "duplicate_of": "man-c04aef575739c6e3",
+    "platform": "fandaqah_tourism_platform_contact",
+    "request_count": 1,
+    "elapsed_ms": 676,
+    "reference": "FQ-261117-DVDK"
+  }
+]

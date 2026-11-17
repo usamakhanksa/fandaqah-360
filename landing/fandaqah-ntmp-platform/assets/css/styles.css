@@ -855,3 +855,6 @@ html[lang="en"] [data-locale="ar"], html[lang="ar"] [data-locale="en"] { display
 .ui, .dm-screen { font-family: var(--font); }
 html[lang="ar"] .ui, html[lang="ar"] .dm-screen { font-family: var(--font-ar); }
 @media (min-width:1081px) { .nav-list { gap: 18px; } .nav-link { font-size: .8rem; } .header-inner { gap: 16px; } .header-cta { padding-inline: 14px; font-size: .8rem; } }
+
+.delivery-status { margin-block: 14px; padding: 14px 16px; border: 1px solid #EBC4C1; border-radius: 12px; background: #FEF3F1; color: #762B28; font-size: .88rem; }
+.delivery-status .text-link { margin-top: 8px; text-decoration: underline; }

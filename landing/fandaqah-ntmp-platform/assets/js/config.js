@@ -27,7 +27,7 @@ window.FQ_CONFIG = {
   /* Browser-visible, lead-ingestion-only CRM configuration.
      This static page has no server-side secret store. Never use an admin key. */
   form: {
-    endpoint: "https://crm-dev.fandaqah.com/api/ingest/lead",
+    endpoint: "https://crm.fandaqah.com/api/ingest/lead",
     headers: { "X-API-Key": "fdq_d0930f18b74a5153c68b174748b5ed7ba17b8723ca05c21e" },
     platform: "fandaqah_tourism_platform_contact",
     timeoutMs: 15000,

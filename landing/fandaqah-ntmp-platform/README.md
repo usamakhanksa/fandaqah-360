@@ -81,10 +81,25 @@ Then update the `canonical` and `hreflang` URLs at the top of `index.html` to th
 
 Navigation contains same-page section links without dropdowns. English and Arabic content are mutually exclusive, including FAQ answers and the sample product walkthrough. Technical booking references and the original logo are preserved.
 
-The form now uses the supplied development CRM ingestion endpoint, X-API-Key header and platform fandaqah_tourism_platform_contact. This static integration makes the supplied ingestion key visible to the browser; use only a key restricted to lead ingestion.
+The form now uses the user-confirmed public CRM ingestion endpoint, X-API-Key header and platform fandaqah_tourism_platform_contact. This static integration makes the supplied ingestion key visible to the browser; use only a key restricted to lead ingestion.
 
 All contact fields, property details, preferences, consent, readiness score and notes are included in the CRM payload and readable message. Success requires a positive JSON acknowledgement. Failed, negative, non-JSON and timed-out responses retain the form for retry. Duplicate clicks during submission are blocked and retries reuse the same submission ID.
 
 A real browser submission returned HTTP 200 with ok:true. CRM acknowledgement may report deduplication; this does not establish that a new record was created. Real delivery is tested separately from the browser regression tool, which mocks every CRM response and sends no real lead.
 
 Browser regression command: node tools/verify-ntmp-brand.cjs. Set FQ_PLAYWRIGHT to an installed Playwright package, FQ_QA_URL to the served page and FQ_QA_DIR to the evidence directory.
+
+
+### Public delivery boundary found during live acceptance
+
+The configured development CRM resolves to 192.168.1.22 on this workstation. A DNS-over-HTTPS lookup against public Google DNS returned NXDOMAIN (Status 3). Local-browser submission reached that service and received HTTP 200 / ok:true. The published GitHub Pages request was blocked by browser private-network protection and did not establish public CRM delivery. Do not disable that protection or interpret local acceptance as public readiness.
+
+The connected Cloudflare account requires reauthentication, so no DNS records or tunnels were inspected/changed. Public acceptance requires a confirmed public HTTPS route to this CRM, or an authenticated existing origin/tunnel setup. No production CRM was substituted. During a failed request, the page keeps the visitor's data, shows a persistent delivery error and offers an explicitly manual WhatsApp action without claiming CRM success.
+
+
+### Confirmed public endpoint
+
+The owner supplied crm.fandaqah.com as the public CRM route. The form is now configured to https://crm.fandaqah.com/api/ingest/lead with the same supplied ingestion key and platform. Public DNS resolves this host through Cloudflare; preflight permits POST and X-API-Key. This workstation has a private DNS override for this hostname, so external-route browser acceptance uses the verified public DNS address while keeping the HTTPS hostname, certificate validation and browser network protections intact. The earlier development-only DNS limitation above is retained as diagnostic history, not the configured destination.
+
+
+Public-route acceptance: English and Arabic browser submissions through the public Cloudflare address returned HTTP 200 with ok:true and the requested platform. The first was not deduplicated; the second was acknowledged as a duplicate. Each double-click test generated only one POST. This was real CRM ingestion, distinct from the 14 mocked browser regression variants. Clients with private split-DNS overrides must use the public CRM route or have their network administrator correct that override; no workstation DNS settings were changed.

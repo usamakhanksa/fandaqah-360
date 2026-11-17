@@ -19,7 +19,7 @@ async function leaks(page,lang,root='main'){
  const browser=await chromium.launch({channel:'msedge',headless:true});const results=[];
  for(const lang of ['en','ar'])for(const width of [320,390,768,1024,1180,1440,1920]){
   const page=await browser.newPage({viewport:{width,height:1000},reducedMotion:'reduce'});const errors=[];page.on('pageerror',e=>errors.push(e.message));let attempts=[];let responseMode='fail';
-  await page.route('https://crm-dev.fandaqah.com/api/ingest/lead',async route=>{
+  await page.route('https://crm.fandaqah.com/api/ingest/lead',async route=>{
    if(route.request().method()!=='POST'){await route.continue();return;}
    const d=route.request().postDataJSON();attempts.push(d);assert(route.request().headers()['x-api-key']);
    assert.equal(d.platform,'fandaqah_tourism_platform_contact');assert(d.name&&d.email&&d.company&&d.phone&&d.message&&d.submission_id&&d.contact_consent);assert.equal(d.language,lang);assert(d.message.toLowerCase().includes('booking')||d.message.includes('الحجوزات'));

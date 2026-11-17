@@ -108,6 +108,7 @@
     buildSearchIndex();
     updateWaFab();
     if (window.FQDemo) window.FQDemo.setLang(lang);
+    renderDeliveryFailure();
     if (completedLead) showDone(completedLead.data, completedLead.ref, completedLead.delivered);
     if (!$("#lightbox").hidden) showScreen(lbIndex);
     $$(".field__err").forEach(function (e) { var f = e.closest(".field, .consent"); if (f) validateField(f); });
@@ -574,7 +575,16 @@
     });
     done.focus();
   }
-  var pendingLead = null;
+  var pendingLead = null, failedLead = null;
+  function renderDeliveryFailure() {
+    if (!failedLead) return;
+    $("#leadDeliveryStatus").hidden = false;
+    $("#leadDeliveryMessage").textContent = t("err.send");
+    var manual = $("#leadManualSend");
+    manual.textContent = t("done.wa");
+    manual.href = waLink(leadSummary(failedLead.data, failedLead.ref));
+    manual.hidden = !waLink();
+  }
   function initForm() {
     form = $("#leadForm");
     restoreDraft();
@@ -595,7 +605,7 @@
     $("[data-fnext]", form).addEventListener("click", function () { if (validateStep(1)) gotoFormStep(2); });
     $("[data-fback]", form).addEventListener("click", function () { gotoFormStep(1); });
     $("[data-freset]", form).addEventListener("click", function () {
-      form.reset(); pendingLead = null; completedLead = null; clearTimeout(draftTimer); store.del("fq_draft");
+      form.reset(); pendingLead = null; completedLead = null; failedLead = null; $("#leadDeliveryStatus").hidden = true; clearTimeout(draftTimer); store.del("fq_draft");
       $$(".field, .consent", form).forEach(function (f) { f.classList.remove("is-invalid", "is-valid"); fieldMsg(f, ""); });
       $(".form-done", form).hidden = true; $(".form-steps", form).hidden = false; $(".form-note", form).hidden = false;
       var dt = $('[data-i18n="done.text"]', form); dt.textContent = lang === "ar" ? I18N.ar["done.text"] : originals.get(dt).text;
@@ -612,6 +622,7 @@
       d.submission_id = pendingLead.id;
       d.reference = ref; d.language = lang; d.submittedAt = new Date().toISOString(); d.page = location.href; d.source = "ntmp-landing";
       var btn = $('button[type="submit"]', form);
+      failedLead = null; $("#leadDeliveryStatus").hidden = true;
       form.dataset.sending = "1";
       btn.classList.add("is-loading"); btn.disabled = true;
       var endpoint = CFG.form && CFG.form.endpoint;
@@ -647,7 +658,7 @@
               !(response.success === true || response.ok === true || response.lead_id || response.id || (response.data && (response.data.id || response.data.lead_id)))) throw new Error("CRM acknowledgement missing");
           finish(true);
         })
-        .catch(function () { form.dataset.sending = "0"; btn.classList.remove("is-loading"); btn.disabled = false; saveDraft(); toast(t("err.send"), "i-info"); })
+        .catch(function () { failedLead = {data:d,ref:ref}; renderDeliveryFailure(); form.dataset.sending = "0"; btn.classList.remove("is-loading"); btn.disabled = false; saveDraft(); toast(t("err.send"), "i-info"); })
         .finally(function () { clearTimeout(timeout); });
     });
   }

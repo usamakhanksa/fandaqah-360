@@ -19,7 +19,7 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="stylesheet" href="assets/css/fonts.css?v=a87892f2">
 <link rel="preload" as="image" href="assets/img/hero-team.jpg">
-<link rel="stylesheet" href="assets/css/styles.css?v=71381aa9">
+<link rel="stylesheet" href="assets/css/styles.css?v=3b317dd3">
 <script>
   /* Apply the saved language before first paint to avoid a layout flip */
   document.documentElement.classList.add('js');
@@ -502,6 +502,7 @@
           <label class="field"><span><b data-i18n="f.notes">Anything we should know?</b></span><textarea name="notes" rows="2" maxlength="600"></textarea></label>
           <input type="hidden" name="readinessScore">
           <label class="consent"><input type="checkbox" name="consent" required><span data-i18n="f.consent">I agree that Fandaqah may contact me about this review.</span></label>
+          <div id="leadDeliveryStatus" class="delivery-status" role="alert" hidden><p id="leadDeliveryMessage"></p><a id="leadManualSend" class="text-link" target="_blank" rel="noopener"></a></div>
           <div class="form-actions">
             <button class="btn btn--ghost" type="button" data-fback><svg class="i flip rot180"><use href="#i-arrow"/></svg><span data-i18n="form.back">Back</span></button>
             <button class="btn btn--coral" type="submit"><span data-i18n="form.submit">Request my review</span><svg class="i flip"><use href="#i-arrow"/></svg></button>
@@ -601,10 +602,10 @@
 <a class="fab fab--wa" id="fabWa" href="#" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" data-i18n-attr="aria-label:a11y.wa" hidden><svg class="i"><use href="#i-whatsapp"/></svg></a>
 <button class="fab fab--top" id="fabTop" type="button" aria-label="Back to top" data-i18n-attr="aria-label:a11y.top"><svg class="i"><use href="#i-up"/></svg></button>
 
-<script src="assets/js/config.js?v=726682c3"></script>
+<script src="assets/js/config.js?v=3cac7bb4"></script>
 <script src="assets/js/i18n.js?v=1e5ec090"></script>
-<script src="assets/js/locale-samples.js?v=d2152b9b"></script>
+<script src="assets/js/locale-samples.js?v=166a1df1"></script>
 <script src="assets/js/demo.js?v=7e8eb90b"></script>
-<script src="assets/js/main.js?v=ccab4625"></script>
+<script src="assets/js/main.js?v=714aed2c"></script>
 </body>
 </html>
