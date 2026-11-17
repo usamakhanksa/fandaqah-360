@@ -844,3 +844,14 @@ html[lang="ar"] h1, html[lang="ar"] h2, html[lang="ar"] .h2 { letter-spacing: 0;
 .footer__top, .footer__bottom { position: relative; z-index: 1; }
 @media (min-width: 1051px) { .header-inner { gap: 18px; } .nav-list { gap: clamp(14px, 1.8vw, 26px); } }
 @media (max-width: 600px) { .brand__logo { width: 128px; } .hero::before { width: 180px; height: 90px; } .footer__pattern { opacity: .1; } }
+
+/* One language at a time, including FAQ and tab labels. */
+html[lang="en"] [data-locale="ar"], html[lang="ar"] [data-locale="en"] { display: none !important; }
+.problem__grid { grid-template-columns: 1fr; }
+.problem__col { border: 0 !important; padding-inline: 0 !important; }
+.problem__col .h2 { max-width: 850px; margin-inline: auto; text-align: center; }
+.problem__col .issue-list { max-width: 1000px; margin-inline: auto; }
+.how__head, .faq__head { justify-content: flex-start; }
+.ui, .dm-screen { font-family: var(--font); }
+html[lang="ar"] .ui, html[lang="ar"] .dm-screen { font-family: var(--font-ar); }
+@media (min-width:1081px) { .nav-list { gap: 18px; } .nav-link { font-size: .8rem; } .header-inner { gap: 16px; } .header-cta { padding-inline: 14px; font-size: .8rem; } }

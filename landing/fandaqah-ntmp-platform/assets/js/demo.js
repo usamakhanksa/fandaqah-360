@@ -123,6 +123,7 @@
   function clearTimers() { timers.forEach(clearTimeout); timers = []; }
 
   function typeInto(el, text, start, speed) {
+    if (window.FQSamples) text = window.FQSamples.text(text, lang);
     speed = speed || 55;
     later(function () { el.classList.add("is-typing", "caret"); el.classList.remove("is-bad"); }, start);
     for (var i = 1; i <= text.length; i++) {
@@ -235,7 +236,7 @@
     },
     setLang: function (l) {
       lang = l;
-      if (built === true) { renderChips(); updateChrome(); }
+      if (built === true) { renderChips(); goTo(scene, false); }
     }
   };
 })();

@@ -24,16 +24,14 @@ window.FQ_CONFIG = {
     }
   },
 
-  /* Lead form delivery.
-     - endpoint: any URL that accepts a JSON POST (your CRM webhook,
-       Formspree, Make, Zapier, HubSpot forms proxy, or your own API).
-     - Leave empty to run without a backend: the visitor still gets a
-       confirmation, plus one-tap buttons to send the same details to
-       your team on WhatsApp (and email, if set above). */
+  /* Browser-visible, lead-ingestion-only CRM configuration.
+     This static page has no server-side secret store. Never use an admin key. */
   form: {
-    endpoint: "",
-    headers: {},                     // e.g. { "Authorization": "Bearer ..." }
-    redirectOnSuccess: ""            // optional thank-you page URL
+    endpoint: "https://crm-dev.fandaqah.com/api/ingest/lead",
+    headers: { "X-API-Key": "fdq_d0930f18b74a5153c68b174748b5ed7ba17b8723ca05c21e" },
+    platform: "fandaqah_tourism_platform_contact",
+    timeoutMs: 15000,
+    redirectOnSuccess: ""
   },
 
   /* Product demo. Paste a YouTube link or an .mp4 URL to play your own

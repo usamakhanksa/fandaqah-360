@@ -75,4 +75,16 @@ Then update the `canonical` and `hreflang` URLs at the top of `index.html` to th
 - Guide typography: El Messiri headings, Montserrat English body, Almarai Arabic body. WOFF2 fonts are self-hosted; OFL licenses are in assets/fonts. No font CDN is required at runtime.
 - Deployment URL: https://usamakhanksa.github.io/fandaqah-360/landing/fandaqah-ntmp-platform/ . Canonical, language alternates and sharing-image URL match this deployment.
 - Browser verification: English/Arabic at 320, 390, 768, 1024, 1440 and 1920px; no horizontal overflow or JS errors, original logos/images load, mobile navigation, keyboard search and full form validation/WhatsApp handoff checked. No real outbound lead or CRM submission was sent.
-- The existing form endpoint remains unconfigured. The page explicitly asks the visitor to send the prepared request through WhatsApp; it does not claim automatic CRM delivery. Configure a real endpoint only when its service contract is supplied.
+- The earlier brand-only release used WhatsApp handoff. CRM delivery is now configured as described below.
+
+## CRM and single-language update
+
+Navigation contains same-page section links without dropdowns. English and Arabic content are mutually exclusive, including FAQ answers and the sample product walkthrough. Technical booking references and the original logo are preserved.
+
+The form now uses the supplied development CRM ingestion endpoint, X-API-Key header and platform fandaqah_tourism_platform_contact. This static integration makes the supplied ingestion key visible to the browser; use only a key restricted to lead ingestion.
+
+All contact fields, property details, preferences, consent, readiness score and notes are included in the CRM payload and readable message. Success requires a positive JSON acknowledgement. Failed, negative, non-JSON and timed-out responses retain the form for retry. Duplicate clicks during submission are blocked and retries reuse the same submission ID.
+
+A real browser submission returned HTTP 200 with ok:true. CRM acknowledgement may report deduplication; this does not establish that a new record was created. Real delivery is tested separately from the browser regression tool, which mocks every CRM response and sends no real lead.
+
+Browser regression command: node tools/verify-ntmp-brand.cjs. Set FQ_PLAYWRIGHT to an installed Playwright package, FQ_QA_URL to the served page and FQ_QA_DIR to the evidence directory.

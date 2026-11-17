@@ -99,6 +99,8 @@
     $$("[data-lang]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.lang === lang)); });
     document.title = lang === "ar" ? "الربط مع منصة الرصد السياحي للفنادق السعودية | فندقة" : "NTMP Integration for Saudi Hotels | Fandaqah";
     store.set("fq_lang", lang);
+    if (announce) { var address = new URL(location.href); address.searchParams.set("lang", lang); history.replaceState(null, "", address); }
+    if (window.FQSamples) window.FQSamples.setLang(lang);
     // Re-render dynamic parts
     renderStep(activeStep, false);
     renderReadinessLabels();
@@ -106,6 +108,8 @@
     buildSearchIndex();
     updateWaFab();
     if (window.FQDemo) window.FQDemo.setLang(lang);
+    if (completedLead) showDone(completedLead.data, completedLead.ref, completedLead.delivered);
+    if (!$("#lightbox").hidden) showScreen(lbIndex);
     $$(".field__err").forEach(function (e) { var f = e.closest(".field, .consent"); if (f) validateField(f); });
     if (announce) toast(t("toast.lang"), "i-globe");
   }
@@ -134,21 +138,6 @@
     fabTop.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" }); });
 
     var menus = $$(".has-menu");
-    var closeAll = function (except) {
-      menus.forEach(function (m) { if (m !== except) { m.classList.remove("is-open"); $(".nav-link", m).setAttribute("aria-expanded", "false"); } });
-    };
-    menus.forEach(function (m) {
-      var btn = $(".nav-link", m), timer;
-      var open = function () { clearTimeout(timer); closeAll(m); m.classList.add("is-open"); btn.setAttribute("aria-expanded", "true"); };
-      var close = function () { m.classList.remove("is-open"); btn.setAttribute("aria-expanded", "false"); };
-      btn.addEventListener("click", function () { m.classList.contains("is-open") ? close() : open(); });
-      m.addEventListener("pointerenter", function (e) { if (e.pointerType === "mouse") open(); });
-      m.addEventListener("pointerleave", function (e) { if (e.pointerType === "mouse") timer = setTimeout(close, 160); });
-      m.addEventListener("keydown", function (e) { if (e.key === "Escape") { close(); btn.focus(); } });
-      $$(".mega a", m).forEach(function (a) { a.addEventListener("click", close); });
-    });
-    document.addEventListener("click", function (e) { if (!e.target.closest(".has-menu")) closeAll(); });
-
     // Drawer
     var drawer = $("#drawer"), menuBtn = $(".menu-btn");
     menuBtn.addEventListener("click", function () { openLayer(drawer, menuBtn); menuBtn.setAttribute("aria-expanded", "true"); });
@@ -547,11 +536,25 @@
       "Name: " + d.fullName, "Property: " + d.property + ", " + d.city, "Rooms: " + d.roomCount,
       "WhatsApp: " + phone, "Email: " + d.email
     ];
+    [["hotelType", "Hotel type", "??? ???????"], ["jobRole", "Job role", "?????? ???????"],
+      ["currentPms", "Current PMS", "?????? ??????"], ["ntmpStatus", "NTMP status", "???? ???? ?????"],
+      ["callTime", "Preferred call time", "??? ??????? ??????"], ["callLang", "Preferred language", "??? ???????"]].forEach(function (field) {
+      if (!d[field[0]]) return;
+      var control = form.elements[field[0]], option = control && control.selectedOptions && control.selectedOptions[0];
+      lines.push((L ? field[2] : field[1]) + ": " + (option ? option.textContent : d[field[0]]));
+    });
+    if (d.focus && d.focus.length) lines.push((L ? "??????????: " : "Focus areas: ") + d.focus.map(function (value) {
+      var input = form.querySelector('input[name="focus"][value="' + value + '"]');
+      return input ? input.parentElement.textContent.trim() : value;
+    }).join(", "));
+    lines.push(L ? "???????? ??? ???????: ???" : "Contact consent: yes");
     if (d.readinessScore) lines.push((L ? "نتيجة الجاهزية: " : "Readiness score: ") + d.readinessScore);
     if (d.notes) lines.push((L ? "ملاحظات: " : "Notes: ") + d.notes);
     return lines.join("\n");
   }
+  var completedLead = null;
   function showDone(d, ref, delivered) {
+    completedLead = { data:d, ref:ref, delivered:delivered };
     $$(".fstep", form).forEach(function (p) { p.hidden = true; });
     $(".form-steps", form).hidden = true; $(".form-note", form).hidden = true;
     var done = $(".form-done", form); done.hidden = false;
@@ -571,6 +574,7 @@
     });
     done.focus();
   }
+  var pendingLead = null;
   function initForm() {
     form = $("#leadForm");
     restoreDraft();
@@ -591,7 +595,7 @@
     $("[data-fnext]", form).addEventListener("click", function () { if (validateStep(1)) gotoFormStep(2); });
     $("[data-fback]", form).addEventListener("click", function () { gotoFormStep(1); });
     $("[data-freset]", form).addEventListener("click", function () {
-      form.reset(); store.del("fq_draft");
+      form.reset(); pendingLead = null; completedLead = null; clearTimeout(draftTimer); store.del("fq_draft");
       $$(".field, .consent", form).forEach(function (f) { f.classList.remove("is-invalid", "is-valid"); fieldMsg(f, ""); });
       $(".form-done", form).hidden = true; $(".form-steps", form).hidden = false; $(".form-note", form).hidden = false;
       var dt = $('[data-i18n="done.text"]', form); dt.textContent = lang === "ar" ? I18N.ar["done.text"] : originals.get(dt).text;
@@ -599,25 +603,52 @@
     });
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+      if (form.dataset.sending === "1") return;
       if (!validateStep(1)) { gotoFormStep(1); validateStep(1); return; }
       if (!validateStep(2)) return;
-      var d = formData(), ref = makeRef();
+      if (!pendingLead) pendingLead = { ref: makeRef(), id: window.crypto && crypto.randomUUID ? crypto.randomUUID() : makeRef() + "-" + Date.now() };
+      var d = formData(), ref = pendingLead.ref;
       d.whatsapp = "+966" + normalizePhone(d.whatsapp);
+      d.submission_id = pendingLead.id;
       d.reference = ref; d.language = lang; d.submittedAt = new Date().toISOString(); d.page = location.href; d.source = "ntmp-landing";
       var btn = $('button[type="submit"]', form);
+      form.dataset.sending = "1";
       btn.classList.add("is-loading"); btn.disabled = true;
       var endpoint = CFG.form && CFG.form.endpoint;
       var finish = function (delivered) {
+        form.dataset.sending = "0";
         btn.classList.remove("is-loading"); btn.disabled = false;
-        store.del("fq_draft");
+        clearTimeout(draftTimer); store.del("fq_draft");
         if (delivered && CFG.form.redirectOnSuccess) { location.href = CFG.form.redirectOnSuccess; return; }
         showDone(d, ref, delivered);
       };
       if (!endpoint) { setTimeout(function () { finish(false); }, reduceMotion ? 0 : 700); return; }
       var headers = Object.assign({ "Content-Type": "application/json", "Accept": "application/json" }, CFG.form.headers || {});
-      fetch(endpoint, { method: "POST", headers: headers, body: JSON.stringify(d) })
-        .then(function (r) { if (!r.ok) throw new Error(r.status); finish(true); })
-        .catch(function () { btn.classList.remove("is-loading"); btn.disabled = false; toast(t("err.send"), "i-info"); });
+      var payload = {
+        name: d.fullName, email: d.email, phone: d.whatsapp, company: d.property,
+        city: d.city, role: d.jobRole, platform: CFG.form.platform,
+        source: "fandaqah_ntmp_landing", language: lang, submission_id: d.submission_id,
+        contact_consent: d.consent, preferred_channel: "whatsapp", interest: "NTMP integration",
+        current_pms: d.currentPms, hotel_type: d.hotelType, room_count: d.roomCount,
+        ntmp_status: d.ntmpStatus, message: leadSummary(d, ref),
+        page_url: location.href, submitted_at: d.submittedAt, metadata: d
+      };
+      var query = new URLSearchParams(location.search);
+      ["utm_source","utm_medium","utm_campaign","utm_content","utm_term"].forEach(function (k) { if (query.get(k)) payload[k] = query.get(k); });
+      var controller = new AbortController();
+      var timeout = setTimeout(function () { controller.abort(); }, CFG.form.timeoutMs || 15000);
+      fetch(endpoint, { method: "POST", headers: headers, body: JSON.stringify(payload), signal: controller.signal })
+        .then(function (r) {
+          if (!r.ok || !(r.headers.get("content-type") || "").includes("application/json")) throw new Error("CRM unavailable");
+          return r.json();
+        })
+        .then(function (response) {
+          if (!response || response.success === false || response.ok === false || response.error ||
+              !(response.success === true || response.ok === true || response.lead_id || response.id || (response.data && (response.data.id || response.data.lead_id)))) throw new Error("CRM acknowledgement missing");
+          finish(true);
+        })
+        .catch(function () { form.dataset.sending = "0"; btn.classList.remove("is-loading"); btn.disabled = false; saveDraft(); toast(t("err.send"), "i-info"); })
+        .finally(function () { clearTimeout(timeout); });
     });
   }
 
@@ -629,12 +660,12 @@
     list.innerHTML = I18N.faq.map(function (f, i) {
       return '<div class="qa" data-qa="' + i + '">' +
         '<button class="qa__btn" type="button" aria-expanded="false" aria-controls="qa' + i + '" id="qab' + i + '">' +
-          '<span class="qa__en" lang="en" dir="ltr">' + esc(f.q) + '</span>' +
-          '<span class="qa__ar" lang="ar" dir="rtl">' + esc(f.qa) + '</span>' +
+          '<span class="qa__en" data-locale="en" lang="en" dir="ltr">' + esc(f.q) + '</span>' +
+          '<span class="qa__ar" data-locale="ar" lang="ar" dir="rtl">' + esc(f.qa) + '</span>' +
           '<span class="qa__ico" aria-hidden="true"><svg class="i"><use href="#i-plus"/></svg></span>' +
         '</button>' +
         '<div class="qa__panel" id="qa' + i + '" role="region" aria-labelledby="qab' + i + '"><div class="qa__inner"><div>' +
-          '<p lang="en" dir="ltr">' + esc(f.a) + '</p><p lang="ar" dir="rtl">' + esc(f.aa) + '</p>' +
+          '<p data-locale="en" lang="en" dir="ltr">' + esc(f.a) + '</p><p data-locale="ar" lang="ar" dir="rtl">' + esc(f.aa) + '</p>' +
         '</div></div></div></div>';
     }).join("");
     list.addEventListener("click", function (e) {

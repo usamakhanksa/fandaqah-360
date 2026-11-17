@@ -1,0 +1,86 @@
+[
+  {
+    "lang": "en",
+    "width": 320,
+    "passed": true,
+    "delivery": "no submission"
+  },
+  {
+    "lang": "en",
+    "width": 390,
+    "passed": true,
+    "delivery": "mocked CRM; failure/HTML/retry/success checked"
+  },
+  {
+    "lang": "en",
+    "width": 768,
+    "passed": true,
+    "delivery": "no submission"
+  },
+  {
+    "lang": "en",
+    "width": 1024,
+    "passed": true,
+    "delivery": "no submission"
+  },
+  {
+    "lang": "en",
+    "width": 1180,
+    "passed": true,
+    "delivery": "no submission"
+  },
+  {
+    "lang": "en",
+    "width": 1440,
+    "passed": true,
+    "delivery": "no submission"
+  },
+  {
+    "lang": "en",
+    "width": 1920,
+    "passed": true,
+    "delivery": "no submission"
+  },
+  {
+    "lang": "ar",
+    "width": 320,
+    "passed": true,
+    "delivery": "no submission"
+  },
+  {
+    "lang": "ar",
+    "width": 390,
+    "passed": true,
+    "delivery": "mocked CRM; failure/HTML/retry/success checked"
+  },
+  {
+    "lang": "ar",
+    "width": 768,
+    "passed": true,
+    "delivery": "no submission"
+  },
+  {
+    "lang": "ar",
+    "width": 1024,
+    "passed": true,
+    "delivery": "no submission"
+  },
+  {
+    "lang": "ar",
+    "width": 1180,
+    "passed": true,
+    "delivery": "no submission"
+  },
+  {
+    "lang": "ar",
+    "width": 1440,
+    "passed": true,
+    "delivery": "no submission"
+  },
+  {
+    "lang": "ar",
+    "width": 1920,
+    "passed": true,
+    "delivery": "no submission"
+  }
+]
