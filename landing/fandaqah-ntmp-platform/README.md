@@ -18,12 +18,12 @@ assets/img/                 photos and logo
 ## 1. Configure (5 minutes)
 
 Open `assets/js/config.js`. It is pre-filled with details from fandaqah.com:
-WhatsApp +966 55 594 7522, LinkedIn, X, Instagram, Facebook, About / Contact / Policy pages.
+WhatsApp +966920066456, LinkedIn, X, Instagram, Facebook, About / Contact / Policy pages.
 
 | Setting | What it does |
 |---|---|
 | `form.endpoint` | **Set this to receive leads automatically.** Any URL that accepts a JSON POST: your CRM webhook, Zapier, Make, Formspree, HubSpot or your own API. If empty, visitors are asked to send their request on WhatsApp instead. |
-| `contact.email` | Optional. Adds a "Send by email" button after the form. |
+| `contact.email` | Configured to info@fandaqah.com; adds an email contact action. |
 | `demoVideoUrl` | Paste a YouTube or .mp4 link to replace the built-in walkthrough. |
 | `defaultLanguage` | `"auto"`, `"en"` or `"ar"`. Links ending in `?lang=ar` always open in Arabic. |
 | `social.youtube` | Add a link and the YouTube icon appears in the footer. |
@@ -103,3 +103,8 @@ The owner supplied crm.fandaqah.com as the public CRM route. The form is now con
 
 
 Public-route acceptance: English and Arabic browser submissions through the public Cloudflare address returned HTTP 200 with ok:true and the requested platform. The first was not deduplicated; the second was acknowledged as a duplicate. Each double-click test generated only one POST. This was real CRM ingestion, distinct from the 14 mocked browser regression variants. Clients with private split-DNS overrides must use the public CRM route or have their network administrator correct that override; no workstation DNS settings were changed.
+
+
+## Contact update
+
+Arabic is the default for new visitors; explicit language URLs and saved visitor choices are respected. Phone and WhatsApp use +966920066456 only. Email is info@fandaqah.com. The footer displays Prince Turki Street, South Khobar / شارع الأمير تركي، الخبر الجنوبية, postal code 34611, in the selected language. Contact link checks do not place calls or send messages.

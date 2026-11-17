@@ -1,0 +1,32 @@
+[
+  {
+    "language": "ar",
+    "width": 390,
+    "passed": true
+  },
+  {
+    "language": "ar",
+    "width": 768,
+    "passed": true
+  },
+  {
+    "language": "ar",
+    "width": 1440,
+    "passed": true
+  },
+  {
+    "language": "en",
+    "width": 390,
+    "passed": true
+  },
+  {
+    "language": "en",
+    "width": 768,
+    "passed": true
+  },
+  {
+    "language": "en",
+    "width": 1440,
+    "passed": true
+  }
+]

@@ -2,8 +2,8 @@
 (function () {
   "use strict";
   var dictionary = {
-  "Sent. Waiting for confirmation": "?? ???????. ??????? ???????",
-  "Fandaqah PMS": "???? ?????",
+  "Sent. Waiting for confirmation": "تم الإرسال. بانتظار التأكيد",
+  "Fandaqah PMS": "نظام فندقة",
   "Booking status list": "قائمة حالات الحجوزات",
   "Today": "اليوم",
   "Booking": "الحجز",

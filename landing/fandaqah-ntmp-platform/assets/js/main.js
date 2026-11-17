@@ -45,6 +45,13 @@
       var url = CFG.links && CFG.links[a.dataset.link];
       if (url) { a.href = url; a.target = "_blank"; a.rel = "noopener"; }
     });
+    $$("[data-contact]").forEach(function (el) {
+      var contact = CFG.contact || {}, kind = el.dataset.contact;
+      if (kind === "phone") el.href = "tel:" + contact.phone;
+      if (kind === "email") el.href = "mailto:" + contact.email;
+      if (kind === "whatsapp") el.href = waLink();
+      if (kind === "postcode") el.textContent = contact.postcode || "";
+    });
     var social = CFG.social || {};
     var labels = { linkedin: "LinkedIn", youtube: "YouTube", x: "X", instagram: "Instagram", facebook: "Facebook" };
     var order = ["linkedin", "youtube", "x", "instagram"];
@@ -98,6 +105,7 @@
     });
     $$("[data-lang]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.lang === lang)); });
     document.title = lang === "ar" ? "الربط مع منصة الرصد السياحي للفنادق السعودية | فندقة" : "NTMP Integration for Saudi Hotels | Fandaqah";
+    $$('[data-contact="address"]').forEach(function (el) { el.textContent = ((CFG.contact || {}).address || {})[lang] || ""; });
     store.set("fq_lang", lang);
     if (announce) { var address = new URL(location.href); address.searchParams.set("lang", lang); history.replaceState(null, "", address); }
     if (window.FQSamples) window.FQSamples.setLang(lang);
@@ -537,18 +545,18 @@
       "Name: " + d.fullName, "Property: " + d.property + ", " + d.city, "Rooms: " + d.roomCount,
       "WhatsApp: " + phone, "Email: " + d.email
     ];
-    [["hotelType", "Hotel type", "??? ???????"], ["jobRole", "Job role", "?????? ???????"],
-      ["currentPms", "Current PMS", "?????? ??????"], ["ntmpStatus", "NTMP status", "???? ???? ?????"],
-      ["callTime", "Preferred call time", "??? ??????? ??????"], ["callLang", "Preferred language", "??? ???????"]].forEach(function (field) {
+    [["hotelType", "Hotel type", "نوع المنشأة"], ["jobRole", "Job role", "المسمى الوظيفي"],
+      ["currentPms", "Current PMS", "النظام الحالي"], ["ntmpStatus", "NTMP status", "حالة منصة الرصد"],
+      ["callTime", "Preferred call time", "وقت التواصل المفضل"], ["callLang", "Preferred language", "لغة التواصل"]].forEach(function (field) {
       if (!d[field[0]]) return;
       var control = form.elements[field[0]], option = control && control.selectedOptions && control.selectedOptions[0];
       lines.push((L ? field[2] : field[1]) + ": " + (option ? option.textContent : d[field[0]]));
     });
-    if (d.focus && d.focus.length) lines.push((L ? "??????????: " : "Focus areas: ") + d.focus.map(function (value) {
+    if (d.focus && d.focus.length) lines.push((L ? "الاهتمامات: " : "Focus areas: ") + d.focus.map(function (value) {
       var input = form.querySelector('input[name="focus"][value="' + value + '"]');
       return input ? input.parentElement.textContent.trim() : value;
     }).join(", "));
-    lines.push(L ? "???????? ??? ???????: ???" : "Contact consent: yes");
+    lines.push(L ? "الموافقة على التواصل: نعم" : "Contact consent: yes");
     if (d.readinessScore) lines.push((L ? "نتيجة الجاهزية: " : "Readiness score: ") + d.readinessScore);
     if (d.notes) lines.push((L ? "ملاحظات: " : "Notes: ") + d.notes);
     return lines.join("\n");

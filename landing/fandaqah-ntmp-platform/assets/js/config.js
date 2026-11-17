@@ -12,12 +12,14 @@ window.FQ_CONFIG = {
   /* "en", "ar", or "auto" (follows the visitor's browser language).
      Visitors can always switch with the EN | العربية toggle, and a
      link ending in ?lang=ar opens the Arabic version directly. */
-  defaultLanguage: "auto",
+  defaultLanguage: "ar",
 
   contact: {
-    phone: "+966555947522",          // shown as a tap-to-call link
-    whatsapp: "966555947522",        // international format, digits only
-    email: "",                       // e.g. "sales@fandaqah.com" (optional)
+    phone: "+966920066456",          // shown as a tap-to-call link
+    whatsapp: "966920066456",        // international format, digits only
+    email: "info@fandaqah.com",
+    address: { en: "Prince Turki Street, South Khobar", ar: "شارع الأمير تركي، الخبر الجنوبية" },
+    postcode: "34611",
     whatsappGreeting: {
       en: "Hello Fandaqah, I'd like to book a free NTMP readiness review.",
       ar: "مرحبًا فندقة، أرغب في حجز مراجعة مجانية لجاهزية الربط مع منصة الرصد السياحي."
