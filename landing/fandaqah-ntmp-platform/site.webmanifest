@@ -1,0 +1,15 @@
+{
+  "name": "Fandaqah NTMP Integration",
+  "short_name": "Fandaqah",
+  "start_url": "./",
+  "display": "browser",
+  "background_color": "#F7F7F4",
+  "theme_color": "#262E44",
+  "icons": [
+    {
+      "src": "assets/img/logo-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

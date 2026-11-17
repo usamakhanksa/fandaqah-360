@@ -1,0 +1,77 @@
+@font-face {
+  font-family: 'Almarai';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../fonts/brand-1.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Almarai';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(../fonts/brand-2.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'El Messiri';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../fonts/brand-3.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'El Messiri';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(../fonts/brand-4.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'El Messiri';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(../fonts/brand-5.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'El Messiri';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(../fonts/brand-6.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../fonts/brand-7.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(../fonts/brand-8.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(../fonts/brand-9.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(../fonts/brand-10.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(../fonts/brand-11.woff2) format('woff2');
+}

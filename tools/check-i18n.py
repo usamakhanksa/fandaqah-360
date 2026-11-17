@@ -26,6 +26,16 @@ for page in sorted(p for p in site.rglob('*.html') if not SKIP & set(p.relative_
     else:
         m = re.search(r'ar:\s*\{(.*?)\n\s*\}', html, re.S)  # the dictionary closes on a line of its own, at any indent
         own, base = (set(KEY.findall(m.group(1))) if m else set()), shared
+    # Standalone NTMP page owns an external FQ_I18N Arabic dictionary.
+    # Read the explicitly referenced local file; do not skip translation checks.
+    external = re.search(r'<script[^>]+src="(assets/js/i18n\.js)(?:\?[^"]*)?"', html)
+    if external:
+        dictionary = (page.parent / external.group(1)).resolve()
+        if dictionary.is_relative_to(site.resolve()) and dictionary.is_file():
+            content = dictionary.read_text(encoding='utf-8')
+            arabic = re.search(r'window\.FQ_I18N\s*=\s*\{\s*ar:\s*\{(.*?)^  \},', content, re.S | re.M)
+            if arabic:
+                own, base = set(KEY.findall(arabic.group(1))), set()
     missing = sorted(used - base - own)
     missing_total += len(missing)
     status = 'OK ' if not missing else 'MISSING'
